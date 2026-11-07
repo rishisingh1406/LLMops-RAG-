@@ -1,2 +1,10 @@
 langchain 
 langchain-core 
+langchain-community
+langchain-openai
+langchain-chroma
+chromadb
+streamlit 
+python-dotenv
+langgraph
+ipykernel
