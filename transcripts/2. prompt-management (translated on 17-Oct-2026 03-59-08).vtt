@@ -1,0 +1,2018 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.340
+Hi guys, I hope you guys are doing great.
+
+00:00:02.340 --> 00:00:07.340
+Guys, welcome to another video of the agentic project in LLMops.
+
+00:00:07.340 --> 00:00:11.540
+Guys, in this video, we will discuss about prompt management
+
+00:00:11.540 --> 00:00:16.640
+and we will learn to do version of system prompts in langfuse.
+
+00:00:16.640 --> 00:00:24.940
+Before starting the video, let's discuss our journey in this project.
+
+00:00:25.180 --> 00:00:32.180
+So you will remember that we are working with an agentic application here.
+
+00:00:32.180 --> 00:00:39.180
+And this application is our hiring assistant or hiring agent.
+
+00:00:39.180 --> 00:00:44.680
+Now we have discussed the architecture of this agent in detail in the last video.
+
+00:00:44.680 --> 00:00:50.680
+In this architecture, we are basically using a plan and execute agent.
+
+00:00:51.420 --> 00:00:57.420
+This agent basically does when he gets a task,
+
+00:00:57.420 --> 00:01:02.420
+then first of all he makes a detailed plan for that task.
+
+00:01:02.420 --> 00:01:08.420
+And this detailed plan is basically a series of steps
+
+00:01:08.420 --> 00:01:11.420
+and these steps go to my executor.
+
+00:01:11.420 --> 00:01:17.420
+Executor one by one executes every sub task here which is in the plan.
+
+00:01:18.160 --> 00:01:21.160
+And after that finally comes a responder node.
+
+00:01:21.160 --> 00:01:23.160
+What does this do?
+
+00:01:23.160 --> 00:01:26.160
+It prepares the output of my agentic application.
+
+00:01:26.160 --> 00:01:30.160
+Whatever final response or summary is to be prepared
+
+00:01:30.160 --> 00:01:33.160
+that whatever the executor did and what was its result
+
+00:01:33.160 --> 00:01:37.160
+this is my responder node which responds to my end user.
+
+00:01:37.160 --> 00:01:44.160
+We had made our back end in this application.
+
+00:01:44.899 --> 00:01:50.899
+Our agent worked on a workspace folder in a sandbox environment.
+
+00:01:50.899 --> 00:01:54.899
+Our resumes were in this workspace folder.
+
+00:01:54.899 --> 00:01:58.899
+We were preparing our draft emails in this.
+
+00:01:58.899 --> 00:02:02.900
+And in this workspace we were maintaining our tracker file.
+
+00:02:04.900 --> 00:02:09.900
+And we also prepared a front end for this application.
+
+00:02:10.640 --> 00:02:13.640
+And we built this front end in streamlet.
+
+00:02:13.640 --> 00:02:19.640
+And we discussed the entire UI of this particular front end along with the code part.
+
+00:02:19.640 --> 00:02:25.640
+The sidebar of streamlet had our agent integrated.
+
+00:02:25.640 --> 00:02:29.640
+We used to give tasks to our agent through text
+
+00:02:29.640 --> 00:02:33.640
+and our agent used to get involved in doing that task.
+
+00:02:33.640 --> 00:02:35.640
+And finally what he used to do was
+
+00:02:36.380 --> 00:02:42.380
+he used to change the tasks in our workspace folder.
+
+00:02:44.380 --> 00:02:48.380
+And all these changes were reflected in the UI.
+
+00:02:48.380 --> 00:02:51.380
+So this was our entire application.
+
+00:02:51.380 --> 00:02:54.380
+And we will work on this application.
+
+00:02:54.380 --> 00:02:59.380
+And this will be our baseline application for this particular agentic project.
+
+00:02:59.380 --> 00:03:02.380
+What are we going to do in today's video?
+
+00:03:03.120 --> 00:03:13.120
+We were still hard coding all our prompts in the back end.
+
+00:03:13.120 --> 00:03:19.120
+We were hard coding our prompts in the back end file.
+
+00:03:19.120 --> 00:03:23.120
+But you know that hard coding prompts is not a good practice.
+
+00:03:23.120 --> 00:03:26.120
+We discussed this in the rack application.
+
+00:03:26.860 --> 00:03:33.860
+In agentic application, the penalty of hard coding increases.
+
+00:03:33.860 --> 00:03:37.860
+The reason is that for every node,
+
+00:03:37.860 --> 00:03:39.860
+whether it is planner node,
+
+00:03:39.860 --> 00:03:41.860
+executor node,
+
+00:03:41.860 --> 00:03:44.860
+or responder node,
+
+00:03:44.860 --> 00:03:49.860
+we are working with 3 different system prompts for these three.
+
+00:03:50.600 --> 00:03:54.600
+And the other thing is that your agentic applications
+
+00:03:54.600 --> 00:03:58.600
+are very dependent on your system prompts.
+
+00:03:58.600 --> 00:04:02.600
+Like how will your agent's persona be?
+
+00:04:04.600 --> 00:04:07.600
+What will he do on the basis of instructions?
+
+00:04:07.600 --> 00:04:09.600
+What rules do we have to follow?
+
+00:04:09.600 --> 00:04:11.600
+What can your agent do?
+
+00:04:11.600 --> 00:04:13.600
+What can he not do?
+
+00:04:13.600 --> 00:04:17.600
+All these things are defined in your system prompts.
+
+00:04:18.340 --> 00:04:22.340
+In general, compared to your rag application,
+
+00:04:22.340 --> 00:04:26.340
+agentic application system prompts are more detailed.
+
+00:04:26.340 --> 00:04:30.340
+And they are more focused on them.
+
+00:04:30.340 --> 00:04:34.340
+Because they can affect your application a lot.
+
+00:04:34.340 --> 00:04:36.340
+Rag application system prompts also affect,
+
+00:04:36.340 --> 00:04:40.340
+but not to the extent that agentic applications do.
+
+00:04:40.340 --> 00:04:42.340
+In the case of rag application,
+
+00:04:42.340 --> 00:04:45.340
+the output format may be slightly different.
+
+00:04:46.080 --> 00:04:50.080
+It may be that the response generated by LLM
+
+00:04:50.080 --> 00:04:52.080
+is not up to the mark.
+
+00:04:52.080 --> 00:04:54.080
+You may see some hallucinations there.
+
+00:04:54.080 --> 00:04:58.080
+So the output format may be different in rag application.
+
+00:04:58.080 --> 00:05:02.080
+Whereas what changes can be made in agent application?
+
+00:05:02.080 --> 00:05:06.080
+That your agent does something that he should not have done.
+
+00:05:06.080 --> 00:05:08.080
+So because your agentic application
+
+00:05:08.080 --> 00:05:10.080
+is so dependent on your system prompts,
+
+00:05:10.080 --> 00:05:14.080
+so if there are any changes in your system prompt
+
+00:05:14.820 --> 00:05:16.820
+and you have not tracked it properly,
+
+00:05:16.820 --> 00:05:19.820
+then you may see some unintentional behavior
+
+00:05:19.820 --> 00:05:21.820
+in your agent.
+
+00:05:21.820 --> 00:05:25.820
+In some cases, it can even break down your application.
+
+00:05:25.820 --> 00:05:29.820
+So proper system prompt management
+
+00:05:29.820 --> 00:05:31.820
+or prompt management,
+
+00:05:31.820 --> 00:05:33.820
+prompt versioning is very important.
+
+00:05:33.820 --> 00:05:37.820
+So that's why it is said for agentic applications
+
+00:05:37.820 --> 00:05:41.820
+that managing your prompt through prompt management
+
+00:05:42.560 --> 00:05:46.560
+and also versioning your prompt through prompt versioning
+
+00:05:46.560 --> 00:05:50.560
+is very important so that you can track here
+
+00:05:50.560 --> 00:05:52.560
+that what changes in the prompt
+
+00:05:52.560 --> 00:05:56.560
+and what behavior of your agentic application changed.
+
+00:05:56.560 --> 00:05:58.560
+I hope I could explain this point to you.
+
+00:05:58.560 --> 00:06:00.560
+So let's move ahead and discuss
+
+00:06:00.560 --> 00:06:05.560
+how you do prompt management in an agentic application.
+
+00:06:05.560 --> 00:06:09.560
+So let's discuss how we will do prompt management
+
+00:06:09.560 --> 00:06:11.560
+in our agentic project.
+
+00:06:12.300 --> 00:06:14.300
+And for this project,
+
+00:06:14.300 --> 00:06:18.300
+we are going to use Langfuse for prompt management.
+
+00:06:18.300 --> 00:06:21.300
+And you already know how Langfuse works.
+
+00:06:21.300 --> 00:06:24.300
+We have already discussed this in our rag project.
+
+00:06:24.300 --> 00:06:26.300
+If you still don't remember,
+
+00:06:26.300 --> 00:06:28.300
+then I will give you a quick refresher
+
+00:06:28.300 --> 00:06:30.300
+how this whole thing works.
+
+00:06:30.300 --> 00:06:32.300
+So Langfuse basically does
+
+00:06:32.300 --> 00:06:36.300
+versioning your prompts.
+
+00:06:36.300 --> 00:06:40.300
+What does versioning mean?
+
+00:06:41.040 --> 00:06:43.040
+So if you have a system prompt
+
+00:06:43.040 --> 00:06:45.040
+and you upload it on Langfuse
+
+00:06:45.040 --> 00:06:47.040
+then that becomes your V1 of the prompt.
+
+00:06:47.040 --> 00:06:51.040
+Then tomorrow you made some changes in your prompt
+
+00:06:51.040 --> 00:06:55.040
+and you pushed this updated prompt again to Langfuse
+
+00:06:55.040 --> 00:06:58.040
+then automatically it becomes V2 of the prompt.
+
+00:06:58.040 --> 00:07:00.040
+And in Langfuse,
+
+00:07:00.040 --> 00:07:04.040
+you can easily track what changes you made in the prompt.
+
+00:07:04.040 --> 00:07:08.040
+So you can easily track the changes
+
+00:07:08.040 --> 00:07:10.040
+that is possible.
+
+00:07:10.780 --> 00:07:14.780
+And not only you can maintain the versions of your prompts
+
+00:07:14.780 --> 00:07:18.780
+but you can also attach some special labels with your versions.
+
+00:07:18.780 --> 00:07:20.780
+Now what is the benefit of this?
+
+00:07:20.780 --> 00:07:24.780
+Langfuse says that you do not have to import your prompts
+
+00:07:24.780 --> 00:07:28.780
+from Langfuse through versions in your code.
+
+00:07:28.780 --> 00:07:30.780
+What you have to do is
+
+00:07:30.780 --> 00:07:33.780
+you simply assign a specific label
+
+00:07:33.780 --> 00:07:36.780
+like a label is your production.
+
+00:07:37.520 --> 00:07:41.520
+So whatever prompt version you want to use in your application
+
+00:07:41.520 --> 00:07:43.520
+in the production environment
+
+00:07:43.520 --> 00:07:45.520
+simply take this production label
+
+00:07:45.520 --> 00:07:49.520
+and attach it to your particular version.
+
+00:07:49.520 --> 00:07:51.520
+Let's say we have a system prompt
+
+00:07:51.520 --> 00:07:53.520
+which has 5 versions
+
+00:07:53.520 --> 00:07:55.520
+V1, V2, V3, V4 and V5
+
+00:07:55.520 --> 00:07:59.520
+and currently our application is running on V3
+
+00:07:59.520 --> 00:08:03.520
+because we have added a production label on it.
+
+00:08:04.260 --> 00:08:06.260
+And what we are doing in the code?
+
+00:08:06.260 --> 00:08:09.260
+We are simply using Langfuse
+
+00:08:09.260 --> 00:08:12.260
+and simply taking that prompt from Langfuse
+
+00:08:12.260 --> 00:08:14.260
+which has a production label on it.
+
+00:08:16.260 --> 00:08:18.260
+So from the perspective of the code
+
+00:08:18.260 --> 00:08:20.260
+we are simply telling the code
+
+00:08:20.260 --> 00:08:23.260
+to fetch the production label on whichever version
+
+00:08:23.260 --> 00:08:27.260
+from Langfuse irrespective of which version it is.
+
+00:08:27.260 --> 00:08:29.260
+And tomorrow we feel the need
+
+00:08:29.260 --> 00:08:31.260
+to create a new application
+
+00:08:32.000 --> 00:08:36.000
+and we feel that we should use version 5 in our application.
+
+00:08:36.000 --> 00:08:38.000
+So what I will do is
+
+00:08:38.000 --> 00:08:40.000
+I will go to the Langfuse dashboard
+
+00:08:40.000 --> 00:08:44.000
+and I will attach the production label on this V5.
+
+00:08:44.000 --> 00:08:48.000
+So as soon as I attach the production label on V5
+
+00:08:48.000 --> 00:08:52.000
+this label of production will be removed from my V3.
+
+00:08:52.000 --> 00:08:56.000
+Because duplicate labels are not allowed here.
+
+00:08:56.000 --> 00:08:59.000
+As soon as you use a pre-existing label
+
+00:08:59.000 --> 00:09:01.000
+on another version
+
+00:09:01.740 --> 00:09:05.740
+it will be removed from there and attached on the new version.
+
+00:09:05.740 --> 00:09:07.740
+Now what will happen?
+
+00:09:07.740 --> 00:09:09.740
+Whenever your application will work
+
+00:09:09.740 --> 00:09:13.740
+it will work with this new version of system prompt.
+
+00:09:13.740 --> 00:09:16.740
+You haven't changed anything on the basis of the code.
+
+00:09:16.740 --> 00:09:18.740
+Still the production version in the code
+
+00:09:18.740 --> 00:09:20.740
+you are importing it.
+
+00:09:20.740 --> 00:09:24.740
+But because you have switched the labels
+
+00:09:24.740 --> 00:09:26.740
+now you can work easily with the new version.
+
+00:09:26.740 --> 00:09:28.740
+So what is the benefit of this?
+
+00:09:29.480 --> 00:09:31.480
+The biggest benefit of this is
+
+00:09:31.480 --> 00:09:35.480
+whenever you change the versions of your system prompt
+
+00:09:35.480 --> 00:09:37.480
+you don't have to change the code.
+
+00:09:37.480 --> 00:09:39.480
+Because what happens next
+
+00:09:39.480 --> 00:09:41.480
+we have already discussed this
+
+00:09:41.480 --> 00:09:43.480
+that because of the code changes
+
+00:09:43.480 --> 00:09:45.480
+you have to deploy a new version of the application.
+
+00:09:45.480 --> 00:09:48.480
+So you have to trigger a new deployment
+
+00:09:48.480 --> 00:09:50.480
+because you have changed the system prompt.
+
+00:09:50.480 --> 00:09:52.480
+But because you are working with labels in Langfuse
+
+00:09:52.480 --> 00:09:56.480
+so you don't have to redeploy it.
+
+00:09:57.220 --> 00:09:59.220
+Simply go to the dashboard
+
+00:09:59.220 --> 00:10:01.220
+and switch your labels there.
+
+00:10:01.220 --> 00:10:03.220
+And the second benefit that Langfuse gives you
+
+00:10:03.220 --> 00:10:05.220
+is around caching.
+
+00:10:07.220 --> 00:10:09.220
+So whenever your application needs a system prompt
+
+00:10:09.220 --> 00:10:15.220
+it generally doesn't fetch that prompt from the Langfuse server.
+
+00:10:15.220 --> 00:10:17.220
+Your Langfuse is so smart
+
+00:10:17.220 --> 00:10:19.220
+that for the same version
+
+00:10:19.220 --> 00:10:21.220
+it keeps it locally cached.
+
+00:10:21.220 --> 00:10:23.220
+What happens with this?
+
+00:10:23.960 --> 00:10:25.960
+So you make less API calls on the servers of Langfuse
+
+00:10:25.960 --> 00:10:28.960
+and you keep the cached version of the application
+
+00:10:28.960 --> 00:10:30.960
+prompt from the local system.
+
+00:10:32.960 --> 00:10:34.960
+And there is a time for this.
+
+00:10:34.960 --> 00:10:36.960
+As soon as the time expires
+
+00:10:36.960 --> 00:10:38.960
+there is a fresh API call
+
+00:10:38.960 --> 00:10:40.960
+and the latest version
+
+00:10:40.960 --> 00:10:42.960
+let's say the one with the production label
+
+00:10:42.960 --> 00:10:44.960
+then you fetch it.
+
+00:10:44.960 --> 00:10:46.960
+So we have covered this caching concept
+
+00:10:46.960 --> 00:10:48.960
+in detail in the rack.
+
+00:10:48.960 --> 00:10:50.960
+So I will not cover it again
+
+00:10:50.960 --> 00:10:52.960
+but I hope you remember all these concepts.
+
+00:10:53.700 --> 00:10:55.700
+So from the discussion two things are clear
+
+00:10:55.700 --> 00:10:57.700
+that there are two major benefits of using Langfuse.
+
+00:10:59.700 --> 00:11:01.700
+The first benefit is
+
+00:11:01.700 --> 00:11:03.700
+that you don't have to change the code level.
+
+00:11:05.700 --> 00:11:07.700
+You don't have to change the code level.
+
+00:11:09.700 --> 00:11:11.700
+Simply switch the label in the dashboard
+
+00:11:11.700 --> 00:11:13.700
+and the current version will fetch it.
+
+00:11:15.700 --> 00:11:17.700
+Second is that Langfuse automatically
+
+00:11:17.700 --> 00:11:19.700
+keeps your prompt in cache
+
+00:11:20.440 --> 00:11:22.440
+so that you don't have to make API calls
+
+00:11:22.440 --> 00:11:24.440
+on the servers of Langfuse again and again.
+
+00:11:26.440 --> 00:11:28.440
+And your prompt will be imported from cache.
+
+00:11:30.440 --> 00:11:32.440
+So now what we do?
+
+00:11:32.440 --> 00:11:34.440
+Now we manage our system prompts
+
+00:11:34.440 --> 00:11:36.440
+in our code
+
+00:11:36.440 --> 00:11:38.440
+through Langfuse.
+
+00:11:38.440 --> 00:11:40.440
+So I have already written the code
+
+00:11:40.440 --> 00:11:42.440
+I will show you how that code works.
+
+00:11:42.440 --> 00:11:44.440
+And now we have three system prompts
+
+00:11:44.440 --> 00:11:46.440
+for the planner node,
+
+00:11:46.440 --> 00:11:48.440
+for the executor node and for the responder node.
+
+00:11:49.180 --> 00:11:51.180
+We will properly version these three system prompts
+
+00:11:51.180 --> 00:11:53.180
+on Langfuse
+
+00:11:53.180 --> 00:11:55.180
+and import them in our application.
+
+00:11:57.180 --> 00:11:59.180
+I want to tell you again
+
+00:11:59.180 --> 00:12:01.180
+that in rag applications and agentic applications
+
+00:12:01.180 --> 00:12:03.180
+the usage of system prompts
+
+00:12:03.180 --> 00:12:05.180
+and the importance of system prompts
+
+00:12:05.180 --> 00:12:07.180
+is different.
+
+00:12:07.180 --> 00:12:09.180
+Agentic applications are more
+
+00:12:09.180 --> 00:12:11.180
+compared to rag applications.
+
+00:12:11.180 --> 00:12:13.180
+So here you do prompt management very carefully.
+
+00:12:13.180 --> 00:12:15.180
+Meaning you manage the versions very carefully.
+
+00:12:15.180 --> 00:12:17.180
+What are the changes you try to make
+
+00:12:17.920 --> 00:12:19.920
+and you track and compare between versions.
+
+00:12:19.920 --> 00:12:21.920
+So here you will feel the requirement
+
+00:12:21.920 --> 00:12:23.920
+of prompt management
+
+00:12:23.920 --> 00:12:25.920
+as compared to your rag application.
+
+00:12:27.920 --> 00:12:29.920
+So let's go towards the code part
+
+00:12:29.920 --> 00:12:31.920
+and see how you will implement it in the code.
+
+00:12:33.920 --> 00:12:35.920
+So guys I have already written the code
+
+00:12:35.920 --> 00:12:37.920
+I will show you the code once.
+
+00:12:37.920 --> 00:12:39.920
+So here I have
+
+00:12:39.920 --> 00:12:41.920
+made two new files
+
+00:12:41.920 --> 00:12:43.920
+one is prompt.py
+
+00:12:43.920 --> 00:12:45.920
+which is in my app folder
+
+00:12:46.660 --> 00:12:48.660
+and the other is my utils folder
+
+00:12:48.660 --> 00:12:50.660
+which I have made new and it has push prompts.py
+
+00:12:50.660 --> 00:12:52.660
+So these two new files
+
+00:12:52.660 --> 00:12:54.660
+I have generated.
+
+00:12:54.660 --> 00:12:56.660
+Now I will tell you what these two files do.
+
+00:12:56.660 --> 00:12:58.660
+And finally what is your agent.py
+
+00:12:58.660 --> 00:13:00.660
+where you are building
+
+00:13:00.660 --> 00:13:02.660
+your agent's graph
+
+00:13:02.660 --> 00:13:04.660
+I have made some changes there too.
+
+00:13:04.660 --> 00:13:06.660
+I will show you those changes.
+
+00:13:06.660 --> 00:13:08.660
+So let's discuss the code here once.
+
+00:13:08.660 --> 00:13:10.660
+First of all let's discuss
+
+00:13:10.660 --> 00:13:12.660
+about the prompts.py.
+
+00:13:12.660 --> 00:13:14.660
+So what I have done is
+
+00:13:15.400 --> 00:13:17.400
+I have made all my prompts
+
+00:13:17.400 --> 00:13:19.400
+hard-coded.
+
+00:13:19.400 --> 00:13:21.400
+Now I have removed
+
+00:13:21.400 --> 00:13:23.400
+this prompt from here.
+
+00:13:23.400 --> 00:13:25.400
+You can see clearly
+
+00:13:25.400 --> 00:13:27.400
+here you will not see any
+
+00:13:27.400 --> 00:13:29.400
+system prompt.
+
+00:13:29.400 --> 00:13:31.400
+This file is small now.
+
+00:13:31.400 --> 00:13:33.400
+And I have simply
+
+00:13:33.400 --> 00:13:35.400
+moved these prompts
+
+00:13:35.400 --> 00:13:37.400
+into this prompt.py.
+
+00:13:37.400 --> 00:13:39.400
+And this is in my app directory.
+
+00:13:39.400 --> 00:13:41.400
+So let's explore
+
+00:13:41.400 --> 00:13:43.400
+what is its code.
+
+00:13:44.140 --> 00:13:46.140
+Again the code of LangFuse is very simple.
+
+00:13:46.140 --> 00:13:48.140
+So what I have done here
+
+00:13:48.140 --> 00:13:50.140
+is from my environment file
+
+00:13:50.140 --> 00:13:52.140
+I have imported the
+
+00:13:52.140 --> 00:13:54.140
+environment variables of LangFuse
+
+00:13:54.140 --> 00:13:56.140
+using .env
+
+00:13:56.140 --> 00:13:58.140
+and from LangFuse
+
+00:13:58.140 --> 00:14:00.140
+I have imported the client object too.
+
+00:14:00.140 --> 00:14:02.140
+One more thing I have done is
+
+00:14:02.140 --> 00:14:04.140
+I have imported my logger too
+
+00:14:04.140 --> 00:14:06.140
+so that I can log any prompts
+
+00:14:06.140 --> 00:14:08.140
+that are imported.
+
+00:14:08.140 --> 00:14:10.140
+Here I have loaded
+
+00:14:10.140 --> 00:14:12.140
+my API keys.
+
+00:14:12.140 --> 00:14:14.140
+Now what I am doing is
+
+00:14:14.140 --> 00:14:16.140
+I am giving the latest prompt
+
+00:14:16.140 --> 00:14:18.140
+label to the new prompt
+
+00:14:18.140 --> 00:14:20.140
+that is going to LangFuse.
+
+00:14:20.140 --> 00:14:22.140
+So here I will import
+
+00:14:22.140 --> 00:14:24.140
+the prompts on this label
+
+00:14:24.140 --> 00:14:26.140
+that is the latest version
+
+00:14:26.140 --> 00:14:28.140
+of my system prompt.
+
+00:14:28.140 --> 00:14:30.140
+Here I have made
+
+00:14:30.140 --> 00:14:32.140
+3 more variables.
+
+00:14:32.140 --> 00:14:34.140
+Planner prompt name
+
+00:14:34.140 --> 00:14:36.140
+and the name of my planner prompt
+
+00:14:36.140 --> 00:14:38.140
+on LangFuse.
+
+00:14:38.140 --> 00:14:40.140
+If I show you the current dashboard of LangFuse
+
+00:14:40.140 --> 00:14:42.140
+here is my LLM Ops agent application
+
+00:14:42.140 --> 00:14:44.140
+and if I go
+
+00:14:44.140 --> 00:14:46.140
+on the prompts
+
+00:14:46.140 --> 00:14:48.140
+then currently here I have not
+
+00:14:48.140 --> 00:14:50.140
+made any prompt version.
+
+00:14:50.140 --> 00:14:52.140
+I will create
+
+00:14:52.140 --> 00:14:54.140
+the first version of the prompts
+
+00:14:54.140 --> 00:14:56.140
+with you.
+
+00:14:56.140 --> 00:14:58.140
+So the name of the
+
+00:14:58.140 --> 00:15:00.140
+planner prompt
+
+00:15:00.140 --> 00:15:02.140
+will be on LangFuse.
+
+00:15:02.140 --> 00:15:04.140
+Hiring agent planner prompt
+
+00:15:04.140 --> 00:15:06.140
+same with your executor and
+
+00:15:06.140 --> 00:15:08.140
+same with your responder.
+
+00:15:08.140 --> 00:15:10.140
+After that what I am doing is
+
+00:15:10.140 --> 00:15:12.140
+writing my planner system prompt.
+
+00:15:12.140 --> 00:15:14.140
+This is exactly the same prompt
+
+00:15:14.140 --> 00:15:16.140
+that we were hard coding
+
+00:15:16.140 --> 00:15:18.140
+in our agents.py.
+
+00:15:18.140 --> 00:15:20.140
+Now I have put it in this file.
+
+00:15:20.140 --> 00:15:22.140
+So tomorrow you have to update
+
+00:15:22.140 --> 00:15:24.140
+your system prompts.
+
+00:15:24.140 --> 00:15:26.140
+So simply you will go
+
+00:15:26.140 --> 00:15:28.140
+to this prompts.py and update
+
+00:15:28.140 --> 00:15:30.140
+and the updates will be your version
+
+00:15:30.140 --> 00:15:32.140
+automatically to your LangFuse.
+
+00:15:32.140 --> 00:15:34.140
+So here we have
+
+00:15:34.140 --> 00:15:36.140
+added this.
+
+00:15:36.140 --> 00:15:38.140
+One thing I have done here is
+
+00:15:38.140 --> 00:15:40.140
+your tools because
+
+00:15:40.140 --> 00:15:42.140
+the description of the tools
+
+00:15:42.140 --> 00:15:44.140
+you are adding in your prompt during
+
+00:15:44.140 --> 00:15:46.140
+runtime. So when you
+
+00:15:46.140 --> 00:15:48.140
+have to add variables in LangFuse
+
+00:15:48.140 --> 00:15:50.140
+then they come in your
+
+00:15:50.140 --> 00:15:52.140
+double curly braces.
+
+00:15:52.140 --> 00:15:54.140
+In the LangChain you generally use single curly braces
+
+00:15:54.140 --> 00:15:56.140
+but in LangFuse
+
+00:15:56.140 --> 00:15:58.140
+whenever you have to add
+
+00:15:58.140 --> 00:16:00.140
+your runtime variables into your prompt
+
+00:16:00.140 --> 00:16:02.140
+you have to add dynamic variables.
+
+00:16:02.140 --> 00:16:04.140
+So here you have to
+
+00:16:04.140 --> 00:16:06.140
+double curly braces for that.
+
+00:16:06.140 --> 00:16:08.140
+You have to keep this in mind.
+
+00:16:08.140 --> 00:16:10.140
+So here we have added
+
+00:16:10.140 --> 00:16:12.140
+our tools description.
+
+00:16:12.140 --> 00:16:14.140
+Whenever our agent will run
+
+00:16:14.140 --> 00:16:16.140
+then all the information or description
+
+00:16:16.140 --> 00:16:18.140
+of the tools will be added in my planner prompt.
+
+00:16:18.140 --> 00:16:20.140
+Then my rules are exactly same
+
+00:16:20.140 --> 00:16:22.140
+there are no changes.
+
+00:16:22.140 --> 00:16:24.140
+Then there are some examples and this is it.
+
+00:16:24.140 --> 00:16:26.140
+This is my complete planning prompt.
+
+00:16:28.140 --> 00:16:30.140
+Then I have mentioned the second prompt
+
+00:16:30.140 --> 00:16:32.140
+which is the executor system prompt.
+
+00:16:32.140 --> 00:16:34.140
+I will turn on the word wrap.
+
+00:16:38.140 --> 00:16:40.140
+So here I have the information of the executor prompt
+
+00:16:40.140 --> 00:16:42.140
+and after that
+
+00:16:42.140 --> 00:16:44.140
+I have the rules.
+
+00:16:46.140 --> 00:16:48.140
+Then what I have done here is
+
+00:16:48.140 --> 00:16:50.140
+I have made a dictionary.
+
+00:16:50.140 --> 00:16:52.140
+Dictionary is very simple.
+
+00:16:52.140 --> 00:16:54.140
+Here I have the name of my prompt
+
+00:16:54.140 --> 00:16:56.140
+which will be on LangFuse and the text of my prompt.
+
+00:16:56.140 --> 00:16:58.140
+So the name of the planner prompt is its text.
+
+00:16:58.140 --> 00:17:00.140
+The name of the executor prompt is its text.
+
+00:17:00.140 --> 00:17:02.140
+The name of the planner prompt is its text.
+
+00:17:02.140 --> 00:17:04.139
+The name of the responder prompt is its key and its text.
+
+00:17:04.139 --> 00:17:06.139
+After that I have made a function here
+
+00:17:06.139 --> 00:17:08.139
+with the name of load prompt.
+
+00:17:08.139 --> 00:17:10.139
+What will it do?
+
+00:17:10.139 --> 00:17:12.139
+It will go on my LangFuse
+
+00:17:12.139 --> 00:17:14.139
+and the latest label
+
+00:17:14.139 --> 00:17:16.139
+on the prompt version
+
+00:17:16.139 --> 00:17:18.139
+it will retrieve it.
+
+00:17:18.139 --> 00:17:20.139
+I am giving the name.
+
+00:17:20.139 --> 00:17:22.139
+This is the name of my prompt.
+
+00:17:22.139 --> 00:17:24.139
+Which prompt to bring here?
+
+00:17:24.139 --> 00:17:26.139
+Should the planner bring?
+
+00:17:26.139 --> 00:17:28.139
+Should the executor bring?
+
+00:17:28.140 --> 00:17:30.140
+After that I have made a client of LangFuse.
+
+00:17:30.140 --> 00:17:32.140
+You already know this code.
+
+00:17:32.140 --> 00:17:34.140
+I have used LangFuse.get prompt
+
+00:17:34.140 --> 00:17:36.140
+and fetched my prompt.
+
+00:17:36.140 --> 00:17:38.140
+I have told the name of the prompt.
+
+00:17:38.140 --> 00:17:40.140
+I have told the type.
+
+00:17:40.140 --> 00:17:42.140
+I have told the label.
+
+00:17:42.140 --> 00:17:44.140
+I have added a fallback message here.
+
+00:17:44.140 --> 00:17:46.140
+If tomorrow
+
+00:17:46.140 --> 00:17:48.140
+my LangFuse
+
+00:17:48.140 --> 00:17:50.140
+API is down
+
+00:17:50.140 --> 00:17:52.140
+then what you should do is
+
+00:17:52.140 --> 00:17:54.140
+I have written a prompt in this prompt.
+
+00:17:54.140 --> 00:17:56.140
+You should load it
+
+00:17:56.140 --> 00:17:58.140
+as a fallback.
+
+00:17:58.140 --> 00:18:00.140
+If you are using
+
+00:18:00.140 --> 00:18:02.140
+fallback prompt
+
+00:18:02.140 --> 00:18:04.140
+then you will lock this warning
+
+00:18:04.140 --> 00:18:06.140
+that you are unable to reach
+
+00:18:06.140 --> 00:18:08.140
+the API of LangFuse.
+
+00:18:08.140 --> 00:18:10.140
+Else if you are able to import
+
+00:18:10.140 --> 00:18:12.140
+the prompt successfully
+
+00:18:12.140 --> 00:18:14.140
+then you will use this.
+
+00:18:14.140 --> 00:18:16.140
+This is your load prompt
+
+00:18:16.140 --> 00:18:18.140
+complete code.
+
+00:18:18.140 --> 00:18:20.140
+I hope this thing is clear to you.
+
+00:18:20.140 --> 00:18:22.140
+I will do one thing.
+
+00:18:22.140 --> 00:18:24.140
+I will run this file and show you.
+
+00:18:24.140 --> 00:18:26.140
+Now in this file
+
+00:18:26.140 --> 00:18:28.140
+I have not
+
+00:18:28.140 --> 00:18:30.140
+versioned any prompt.
+
+00:18:30.140 --> 00:18:32.140
+Now I will call
+
+00:18:32.140 --> 00:18:34.140
+load prompt.
+
+00:18:34.140 --> 00:18:36.140
+This fallback prompt
+
+00:18:36.140 --> 00:18:38.140
+will load. I will show you.
+
+00:18:38.140 --> 00:18:40.140
+If I write here
+
+00:18:40.140 --> 00:18:42.140
+if
+
+00:18:42.140 --> 00:18:44.140
+name
+
+00:18:44.140 --> 00:18:46.140
+equals
+
+00:18:46.140 --> 00:18:48.140
+main
+
+00:18:50.140 --> 00:18:52.140
+I am simply calling this function.
+
+00:18:52.140 --> 00:18:54.140
+It's name is
+
+00:18:54.140 --> 00:18:56.140
+load
+
+00:18:56.140 --> 00:18:58.140
+prompt.
+
+00:18:58.140 --> 00:19:00.140
+I am giving the name of prompt.
+
+00:19:00.140 --> 00:19:02.140
+So
+
+00:19:02.140 --> 00:19:04.140
+the name of prompt is
+
+00:19:04.140 --> 00:19:06.140
+this variable
+
+00:19:06.140 --> 00:19:08.140
+that I am importing
+
+00:19:08.140 --> 00:19:10.140
+the prompt.
+
+00:19:10.140 --> 00:19:12.140
+I will show you.
+
+00:19:12.140 --> 00:19:14.140
+Let's run this.
+
+00:19:14.140 --> 00:19:16.140
+I will go to terminal
+
+00:19:16.140 --> 00:19:18.140
+and click on
+
+00:19:18.140 --> 00:19:20.140
+new terminal.
+
+00:19:20.140 --> 00:19:22.140
+I will run here
+
+00:19:22.140 --> 00:19:24.140
+uv
+
+00:19:24.140 --> 00:19:26.140
+uv run
+
+00:19:26.140 --> 00:19:28.140
+in source
+
+00:19:28.140 --> 00:19:30.140
+in hiring agent
+
+00:19:30.140 --> 00:19:32.140
+in app
+
+00:19:32.140 --> 00:19:34.140
+prompt.pby
+
+00:19:34.140 --> 00:19:36.140
+Currently because I have not pushed any prompt
+
+00:19:36.140 --> 00:19:38.140
+to LangFuse
+
+00:19:38.140 --> 00:19:40.140
+my fallback message should be loaded.
+
+00:19:40.140 --> 00:19:42.140
+See I am calling load prompt
+
+00:19:42.140 --> 00:19:44.140
+with the planner
+
+00:19:44.140 --> 00:19:46.140
+and here it is written
+
+00:19:46.140 --> 00:19:48.140
+returning fallback prompt for my planner prompt.
+
+00:19:48.140 --> 00:19:50.140
+See
+
+00:19:50.140 --> 00:19:52.140
+this whole thing is
+
+00:19:52.140 --> 00:19:54.140
+logged. If you want to see
+
+00:19:54.140 --> 00:19:56.140
+what is the text of fallback prompt
+
+00:19:56.140 --> 00:19:58.140
+then simply
+
+00:19:58.140 --> 00:20:00.140
+if you write
+
+00:20:00.140 --> 00:20:02.140
+dot prompt
+
+00:20:02.140 --> 00:20:04.140
+you will get prompt and
+
+00:20:04.140 --> 00:20:06.140
+you have to print it in terminal.
+
+00:20:06.140 --> 00:20:08.140
+So here you will
+
+00:20:08.140 --> 00:20:10.140
+have prompt text
+
+00:20:10.140 --> 00:20:12.140
+printed. I will clear this
+
+00:20:12.140 --> 00:20:14.140
+and run it again.
+
+00:20:14.140 --> 00:20:16.140
+See
+
+00:20:16.140 --> 00:20:18.140
+and see
+
+00:20:18.140 --> 00:20:20.140
+this whole text of fallback
+
+00:20:20.140 --> 00:20:22.140
+message is printed here.
+
+00:20:22.140 --> 00:20:24.140
+So this is not loaded
+
+00:20:24.140 --> 00:20:26.140
+from LangFuse. This is a fallback
+
+00:20:26.140 --> 00:20:28.140
+prompt. So I will delete
+
+00:20:28.140 --> 00:20:30.140
+this code because
+
+00:20:30.140 --> 00:20:32.140
+we will basically push
+
+00:20:32.140 --> 00:20:34.140
+the prompts to LangFuse
+
+00:20:34.140 --> 00:20:36.140
+and after that we will
+
+00:20:36.140 --> 00:20:38.140
+use those prompts here.
+
+00:20:38.140 --> 00:20:40.140
+So let me
+
+00:20:40.140 --> 00:20:42.140
+clear everything.
+
+00:20:42.140 --> 00:20:44.140
+And now let's go to the second file
+
+00:20:44.140 --> 00:20:46.140
+which you will get in the utils directory
+
+00:20:46.140 --> 00:20:48.140
+and in the utils directory
+
+00:20:48.140 --> 00:20:50.140
+this file's name is
+
+00:20:50.140 --> 00:20:52.140
+push prompts.py. From the name
+
+00:20:52.140 --> 00:20:54.140
+we can understand what this file will do.
+
+00:20:54.140 --> 00:20:56.140
+It will push my prompts on LangFuse.
+
+00:20:56.140 --> 00:20:58.140
+So here I have imported my
+
+00:20:58.140 --> 00:21:00.140
+prompt font. And here
+
+00:21:00.140 --> 00:21:02.140
+I have made two simple functions.
+
+00:21:02.140 --> 00:21:04.140
+The first function is is up to date.
+
+00:21:04.140 --> 00:21:06.140
+Basically it
+
+00:21:06.140 --> 00:21:08.140
+checks what is my latest
+
+00:21:08.140 --> 00:21:10.140
+version on LangFuse.
+
+00:21:10.140 --> 00:21:12.140
+Is that the updated version?
+
+00:21:12.140 --> 00:21:14.140
+Or the changes
+
+00:21:14.140 --> 00:21:16.140
+I have added in prompts.py
+
+00:21:16.140 --> 00:21:18.140
+are my latest.
+
+00:21:18.140 --> 00:21:20.140
+Basically it does a comparison.
+
+00:21:20.140 --> 00:21:22.140
+If the prompts
+
+00:21:22.140 --> 00:21:24.140
+available in my prompts.py
+
+00:21:24.140 --> 00:21:26.140
+are on LangFuse
+
+00:21:26.140 --> 00:21:28.140
+then you
+
+00:21:28.140 --> 00:21:30.140
+don't push the prompts here.
+
+00:21:30.140 --> 00:21:32.140
+And if there are some text related
+
+00:21:32.140 --> 00:21:34.140
+changes then you push
+
+00:21:34.140 --> 00:21:36.140
+it as a new version to LangFuse.
+
+00:21:36.140 --> 00:21:38.140
+So this is the simple work. See
+
+00:21:38.140 --> 00:21:40.140
+the link in the description.
+
+00:21:40.140 --> 00:21:42.140
+So here you have to
+
+00:21:42.140 --> 00:21:44.140
+first of all
+
+00:21:44.140 --> 00:21:46.140
+pull the latest version
+
+00:21:46.140 --> 00:21:48.140
+from LangFuse.
+
+00:21:48.140 --> 00:21:50.140
+So we have
+
+00:21:50.140 --> 00:21:52.140
+given the name of our prompt
+
+00:21:52.140 --> 00:21:54.140
+and type of the prompt.
+
+00:21:54.140 --> 00:21:56.140
+And the label of the prompt.
+
+00:21:56.140 --> 00:21:58.140
+And it said that
+
+00:21:58.140 --> 00:22:00.140
+you don't have to pull the latest version
+
+00:22:00.140 --> 00:22:02.140
+from cache. You have to pull it from LangFuse.
+
+00:22:02.140 --> 00:22:04.140
+So we have kept the value of
+
+00:22:04.140 --> 00:22:06.140
+cache.tl seconds as 0.
+
+00:22:06.140 --> 00:22:08.140
+So here the latest version
+
+00:22:08.140 --> 00:22:10.140
+has been pulled.
+
+00:22:10.140 --> 00:22:12.140
+After that we are checking
+
+00:22:12.140 --> 00:22:14.140
+that the latest version's prompt
+
+00:22:14.140 --> 00:22:16.140
+is it similar to
+
+00:22:16.140 --> 00:22:18.140
+the text in our prompts.py
+
+00:22:18.140 --> 00:22:20.140
+or not. If it is similar
+
+00:22:20.140 --> 00:22:22.140
+then it means that the version
+
+00:22:22.140 --> 00:22:24.140
+on my LangFuse is up to date.
+
+00:22:24.140 --> 00:22:26.140
+So there is no need to push the new version.
+
+00:22:26.140 --> 00:22:28.140
+Whereas if it is not up to date
+
+00:22:28.140 --> 00:22:30.140
+then create a new version on LangFuse.
+
+00:22:30.140 --> 00:22:32.140
+So for that I have defined a new
+
+00:22:32.140 --> 00:22:34.140
+function here called pushPrompt.
+
+00:22:34.140 --> 00:22:36.140
+So now I am making the LangFuse client.
+
+00:22:36.140 --> 00:22:38.140
+First of all I am running a loop
+
+00:22:38.140 --> 00:22:40.140
+into my dictionary.
+
+00:22:40.140 --> 00:22:42.140
+I am separating the name and text of my prompt.
+
+00:22:42.140 --> 00:22:44.140
+Then I am checking that is it up to date or not.
+
+00:22:44.140 --> 00:22:46.140
+If it is, I will simply
+
+00:22:46.140 --> 00:22:48.140
+print that
+
+00:22:48.140 --> 00:22:50.140
+this is the unchanged version.
+
+00:22:50.140 --> 00:22:52.140
+So here again there is no need to
+
+00:22:52.140 --> 00:22:54.140
+push it on LangFuse.
+
+00:22:54.140 --> 00:22:56.140
+Let's skip this update and we will continue.
+
+00:22:56.140 --> 00:22:58.140
+And if it is not there then I will use
+
+00:22:58.140 --> 00:23:00.140
+LangFuse.createPrompt
+
+00:23:00.140 --> 00:23:02.140
+and I will create a new version of my prompt
+
+00:23:02.140 --> 00:23:04.140
+on LangFuse.
+
+00:23:04.140 --> 00:23:06.140
+And simply you are calling
+
+00:23:06.140 --> 00:23:08.140
+it and you are pushing
+
+00:23:08.140 --> 00:23:10.140
+your prompt to LangFuse.
+
+00:23:10.140 --> 00:23:12.140
+So let's run this particular file.
+
+00:23:12.140 --> 00:23:14.140
+So what I will do is
+
+00:23:14.140 --> 00:23:16.140
+I will write here
+
+00:23:16.140 --> 00:23:18.140
+uvrun
+
+00:23:18.140 --> 00:23:20.140
+and this is
+
+00:23:20.140 --> 00:23:22.140
+in our utils. So I will write
+
+00:23:22.140 --> 00:23:24.140
+source
+
+00:23:26.140 --> 00:23:28.140
+hiring
+
+00:23:28.140 --> 00:23:30.140
+agent will go to
+
+00:23:30.140 --> 00:23:32.140
+utils and in utils there is our file
+
+00:23:32.140 --> 00:23:34.140
+push prompts.py
+
+00:23:34.140 --> 00:23:36.140
+What will it do? On my LangFuse dashboard
+
+00:23:36.140 --> 00:23:38.140
+here my new
+
+00:23:38.140 --> 00:23:40.140
+prompts will be created and they will be
+
+00:23:40.140 --> 00:23:42.140
+versioned.
+
+00:23:42.140 --> 00:23:44.140
+So what we will do is we will simply
+
+00:23:44.140 --> 00:23:46.140
+run this file.
+
+00:23:46.140 --> 00:23:48.140
+I have run it.
+
+00:23:48.140 --> 00:23:50.140
+See
+
+00:23:50.140 --> 00:23:52.140
+prompt hiring version latest not found during
+
+00:23:52.140 --> 00:23:54.140
+refresh evicting from cache
+
+00:23:54.140 --> 00:23:56.140
+and see here my
+
+00:23:56.140 --> 00:23:58.140
+this one is hiring agent planner prompt.
+
+00:23:58.140 --> 00:24:00.140
+It's new version is created and
+
+00:24:00.140 --> 00:24:02.140
+label attached as latest
+
+00:24:02.140 --> 00:24:04.140
+same with my executor
+
+00:24:04.140 --> 00:24:06.140
+prompt and same with my
+
+00:24:06.140 --> 00:24:08.140
+responder prompt and on all three
+
+00:24:08.140 --> 00:24:10.140
+latest version is attached.
+
+00:24:10.140 --> 00:24:12.140
+If I refresh
+
+00:24:12.140 --> 00:24:14.140
+it
+
+00:24:14.140 --> 00:24:16.140
+then here you will see my three prompts.
+
+00:24:16.140 --> 00:24:18.140
+See this is responder prompt
+
+00:24:18.140 --> 00:24:20.140
+and what is its version?
+
+00:24:20.140 --> 00:24:22.140
+It's version one and if I go inside
+
+00:24:22.140 --> 00:24:24.140
+see it has latest tag on it
+
+00:24:24.140 --> 00:24:26.140
+and here is my prompt.
+
+00:24:26.140 --> 00:24:28.140
+This is the response
+
+00:24:28.140 --> 00:24:30.140
+if I go
+
+00:24:30.140 --> 00:24:32.140
+to my executor
+
+00:24:32.140 --> 00:24:34.140
+see again latest tag
+
+00:24:34.140 --> 00:24:36.140
+and here is my
+
+00:24:36.140 --> 00:24:38.140
+executor prompt.
+
+00:24:38.140 --> 00:24:40.140
+Now you can see clearly that for all three
+
+00:24:40.140 --> 00:24:42.140
+nodes I am working with three separate
+
+00:24:42.140 --> 00:24:44.140
+system prompts and all three
+
+00:24:44.140 --> 00:24:46.140
+will have different versions.
+
+00:24:46.140 --> 00:24:48.140
+Let's say tomorrow I have a problem
+
+00:24:48.140 --> 00:24:50.140
+with my planner node and I update
+
+00:24:50.140 --> 00:24:52.140
+my planner node. So I will only
+
+00:24:52.140 --> 00:24:54.140
+push that version.
+
+00:24:54.140 --> 00:24:56.140
+I will only take the rest version one
+
+00:24:56.140 --> 00:24:58.140
+and work with it.
+
+00:24:58.140 --> 00:25:00.140
+So here the lineage of three system prompts
+
+00:25:00.140 --> 00:25:02.140
+will work differently.
+
+00:25:04.140 --> 00:25:06.140
+Same with my planner prompt
+
+00:25:06.140 --> 00:25:08.140
+so this is my planner prompt and you can see
+
+00:25:08.140 --> 00:25:10.140
+here these are my dynamic variables
+
+00:25:10.140 --> 00:25:12.140
+inside double curly braces.
+
+00:25:14.140 --> 00:25:16.140
+So we have
+
+00:25:16.140 --> 00:25:18.140
+pushed everything properly.
+
+00:25:18.140 --> 00:25:20.140
+Now we have only one version
+
+00:25:20.140 --> 00:25:22.140
+and if we want to test
+
+00:25:22.140 --> 00:25:24.140
+if we don't do any text changes
+
+00:25:24.140 --> 00:25:26.140
+here
+
+00:25:26.140 --> 00:25:28.140
+then again our prompts are pushed
+
+00:25:28.140 --> 00:25:30.140
+or not?
+
+00:25:30.140 --> 00:25:32.140
+So for that simply I will
+
+00:25:32.140 --> 00:25:34.140
+run this code again because
+
+00:25:34.140 --> 00:25:36.140
+I have not done any text changes
+
+00:25:36.140 --> 00:25:38.140
+so you will see
+
+00:25:38.140 --> 00:25:40.140
+that here
+
+00:25:40.140 --> 00:25:42.140
+update of all three has been skipped
+
+00:25:42.140 --> 00:25:44.140
+and I am still
+
+00:25:44.140 --> 00:25:46.140
+working with version one.
+
+00:25:46.140 --> 00:25:48.140
+If I refresh it
+
+00:25:48.140 --> 00:25:50.140
+then see here
+
+00:25:50.140 --> 00:25:52.140
+I have not pushed any new version.
+
+00:25:52.140 --> 00:25:54.140
+I hope this thing is clear to you.
+
+00:25:54.140 --> 00:25:56.140
+And finally
+
+00:25:56.140 --> 00:25:58.140
+what changes I have done in agents.pva
+
+00:25:58.140 --> 00:26:00.140
+I will show you that too.
+
+00:26:00.140 --> 00:26:02.140
+First of all, I have removed them from my prompts
+
+00:26:02.140 --> 00:26:04.140
+and after that
+
+00:26:04.140 --> 00:26:06.140
+what I am doing is
+
+00:26:06.140 --> 00:26:08.140
+I am importing
+
+00:26:08.140 --> 00:26:10.140
+from my hiringagent.app.prompts
+
+00:26:10.140 --> 00:26:12.140
+all three prompts and
+
+00:26:12.140 --> 00:26:14.140
+the load prompt function of Lankfuse.
+
+00:26:14.140 --> 00:26:16.140
+See
+
+00:26:16.140 --> 00:26:18.140
+planner system, executor system
+
+00:26:18.140 --> 00:26:20.140
+and responder system.
+
+00:26:20.140 --> 00:26:22.140
+I am loading them
+
+00:26:22.140 --> 00:26:24.140
+and whenever you have to
+
+00:26:24.140 --> 00:26:26.140
+fill your variables
+
+00:26:26.140 --> 00:26:28.140
+then you use
+
+00:26:28.140 --> 00:26:30.140
+Lankfuse.compile method
+
+00:26:30.140 --> 00:26:32.140
+so load prompt or a prompt returns
+
+00:26:32.140 --> 00:26:34.140
+of Lankfuse
+
+00:26:34.140 --> 00:26:36.140
+and above that you call .compile
+
+00:26:36.140 --> 00:26:38.140
+and in .compile
+
+00:26:38.140 --> 00:26:40.140
+you pass which variable
+
+00:26:40.140 --> 00:26:42.140
+value you have to fill here.
+
+00:26:42.140 --> 00:26:44.140
+So here we have to fill tool description
+
+00:26:44.140 --> 00:26:46.140
+which is in our tool list.
+
+00:26:46.140 --> 00:26:48.140
+So what we have done is
+
+00:26:48.140 --> 00:26:50.140
+we called .compile on prompt
+
+00:26:50.140 --> 00:26:52.140
+and provided it in tool list.
+
+00:26:52.140 --> 00:26:54.140
+So what will happen when this planner system
+
+00:26:54.140 --> 00:26:56.140
+will be loaded and come
+
+00:26:56.140 --> 00:26:58.140
+so this variable
+
+00:26:58.140 --> 00:27:00.140
+tool list
+
+00:27:00.140 --> 00:27:02.140
+instead of doubling it like this
+
+00:27:02.140 --> 00:27:04.140
+it will come with actual value.
+
+00:27:04.140 --> 00:27:06.140
+So basically what we are doing is
+
+00:27:06.140 --> 00:27:08.140
+we are filling the value of our variables
+
+00:27:08.140 --> 00:27:10.140
+using the .compile method.
+
+00:27:10.140 --> 00:27:12.140
+So here I have
+
+00:27:12.140 --> 00:27:14.140
+compiled my prompts
+
+00:27:14.140 --> 00:27:16.140
+in the build agent function
+
+00:27:16.140 --> 00:27:18.140
+and this is the small change
+
+00:27:18.140 --> 00:27:20.140
+and rest of the things
+
+00:27:20.140 --> 00:27:22.140
+are same.
+
+00:27:22.140 --> 00:27:24.140
+So that was it for the prompt
+
+00:27:24.140 --> 00:27:26.140
+versioning part guys. I know Lankfuse
+
+00:27:26.140 --> 00:27:28.140
+code is easy and you must have understood the code.
+
+00:27:28.140 --> 00:27:30.140
+So this was it
+
+00:27:30.140 --> 00:27:32.140
+for this video guys. See you in the next
+
+00:27:32.140 --> 00:27:34.140
+video. Bye and take care.
+

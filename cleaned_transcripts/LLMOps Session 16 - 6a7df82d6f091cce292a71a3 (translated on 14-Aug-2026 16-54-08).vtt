@@ -1,0 +1,3157 @@
+Okay, so until other people join, let's have some questions.
+So I have a question from Tushar.
+Could you please explain once in short why we calculate SD for historical and noise?
+What was the exact need?
+I am a bit confused on this part.
+So Tushar, we discussed that the problem is that we had to set a threshold.
+You will remember.
+What are we doing in regression testing?
+We are testing that our current version is not very useless from the past.
+It should be in a particular ballpark.
+The value of its metric.
+So that's what we test in regression testing.
+So the criteria to set the window, how much range we will consider it to be okay and how much less.
+So we discussed two or three ways.
+One way is to put a hard value there.
+That it will be below 10% so I will not accept it.
+But what was the problem in our case?
+The problem was that some metrics were performing well in our 95-99 range.
+Whereas some metrics are not performing well.
+So it is logical that in the next iteration, when we run a new iteration,
+we will tweak the same parameter which will fix that particular metric which is performing badly.
+If our faithfulness is performing well, giving a score of 99% or giving a precision of 95,
+then there will be no benefit in re-ranking or improving the system prompt.
+Our contextual relevancy was lessening.
+So where will the benefit be?
+That we have to reduce our noise in the context.
+So what we did there, we captured the variation through standard deviation.
+So we had two types of runs here.
+One was our noise run where our configuration was the same and we ran multiple runs.
+We ran it because there is inherently some variation in LLM as a judge.
+So we captured it there in the noise runs.
+And what were the historical runs?
+Where we were changing our actual configuration.
+So we are changing the configuration for contextual relevancy and the other metric which is lessening.
+And we are capturing its range.
+If we change our configuration, then how much difference it makes in our metrics?
+So we calculated the limit and then implemented it in our formula.
+So this was the whole flow.
+I hope now your doubt is cleared.
+Getting more questions.
+Cloud services such as Azure, Amazon also provide evaluation.
+Yes, Hari, there is a lot of benefit in this.
+The first benefit is that the evaluations of Azure and Amazon basically take you to vendor locking.
+If you have deployed your entire application and Amazon and you are evaluating there through their given evaluations.
+Then there is a vendor lock-in.
+You have to pay them.
+Again, you don't have a choice there as to what kind of LLM you want to use.
+Here you have a choice of DPVAL.
+Which model you want to use here, how powerful model you want to use.
+And even you can use open source models here.
+So this customization gives you DPVAL.
+You will not get it there.
+There will be some knobs to tweak but those are limited.
+Or you can go inside the code and do proper customization.
+The second major advantage of DPVAL is that you can easily create custom evals.
+Custom metrics, custom evals are very difficult to create.
+Whereas in DPVAL you have seen how easily you can create custom evals.
+So it was any other metric like recall or position instead we are still going to use.
+Yes, we are calculating for every metric.
+I can actually show you in the code as well.
+This threshold is for all the metrics, whether it is a bad or good metric.
+But you will see that the variation of the bad metric will be more.
+Because its value is going up and down.
+If you see here, contextual relevancy, it is 0.07.
+Whereas the metric that is performing well like faithfulness, it is less.
+Recall is less.
+And if you see for the same configuration, faithfulness is less.
+Whereas the rest is not coming.
+So we took a logical step here.
+It is better to include calculated values than to code hard values.
+That's why we calculated standard deviation.
+That's it.
+If you want, you can work with hard values too.
+It means you are not being stopped.
+As I said, in regression testing or any kind of test, the criteria is yours.
+There are no fixed criteria.
+That you have to do testing in this way.
+Open source models, could you please direct us to the resources?
+Yes, I will direct it, Harry.
+We will not use it because again, then we will have to do the integration for it.
+But I will direct you towards the resource.
+You simply go to the DeepEval.
+Can you see my screen share, Harry?
+Can you see the DeepEval page?
+Right, ok and clear.
+Ok, you can see it.
+You have to go to docs.
+They have changed something here.
+You have to go to docs and you have to go here.
+If you want to set custom in metric, let me see.
+I have to see where it actually happens.
+You can do it there.
+See, here it is.
+It is a model.
+OpenAI GPT is supported here.
+Or any custom LLM.
+For that, you have to convert it to DeepEval base LLM class.
+Its code is given here.
+If you do this, then introduction to LLM evaluation metrics has come.
+Here it is.
+And if you go down,
+Here it is.
+Configure your LLM judges.
+Here you will see the entire setting of Ullama.
+See, you can see it here.
+You can set it from here.
+It has a code too.
+Custom metrics.
+I can't see it now.
+But I will share it with you.
+Here there is a code to set a custom LLM.
+Or maybe through this one.
+Here,
+Yes, it is here.
+What do you have to do for custom LLM?
+Here you have to inherit DeepEval base LLM.
+And here you have to make your entire class.
+So here you have the code.
+I think Gemini is also given.
+Mistral is also given.
+So there are some examples.
+Now go and check it.
+And implement it once.
+So there is a way.
+But again, you have to write a lot of custom code here.
+I hope this point is clear to you.
+It is easy.
+There is nothing special here.
+You can include it.
+Here is the quantization config.
+The details of the model.
+Load model is a function.
+You have to override it.
+Which will return your model.
+In generate, you will call your model.
+And this is a pipeline.
+Which DeepEval uses internally.
+So go and read it.
+I will share this link with you.
+And if you have any problem, you can discuss with me.
+The examples are given here.
+You can go and actually copy paste the code.
+And by doing tweaks, you can create the code.
+The rest of the integration is also given here.
+Maybe this is the direct integration of Olaama.
+Whatever is given here.
+Just a second.
+Here it is.
+So you can see how to do it.
+Okay.
+Any more questions?
+There are all the methods.
+I will guide you to the resources.
+Every step is important.
+I will guide you to the resources.
+Everything is available.
+Don't worry.
+Questions, questions?
+No, you can ask it right now.
+No issues.
+Any more questions?
+Any more questions guys?
+Yesterday, Sir also asked you.
+I also want to ask you.
+The regular sessions we are having.
+Is this actually creating some kind of burnout in you guys?
+Because the attendance is less today.
+Is this happening?
+Are you feeling a little burnout?
+Okay.
+Is it due to the length of the sessions or due to the frequency of the sessions?
+Are there daily sessions because of this or are there long sessions because of this?
+Or both?
+Frequency.
+Okay.
+So what do you think is the optimum number of sessions in a week?
+Give me a window.
+Not the exact number.
+Minimum and maximum.
+Okay.
+Okay.
+Everyone is telling about frequency.
+So frequency is bothering you.
+Feedback taken.
+Give me a window.
+Maybe the length.
+We can't do anything for the length.
+We have a lot to cover.
+If I don't cover the depth, then you will say that Sir, I have covered it from top to bottom.
+It takes a little time and the operations course is a little time consuming.
+You will never get a chance to relax in LLM Ops.
+Some questions are coming.
+Sometime office work.
+4 to 5 days max.
+Okay.
+So you don't have time to revise.
+Maybe to watch the recordings because you are already taking sessions of 6 days every 2 hours.
+We can also plan some doubt clearance sessions.
+Like if LLM Ops is too much and you need time to revise.
+So we can take a doubt session in between.
+Or we can take a small session and take a doubt session for the rest of the 1 hour.
+Everything is possible.
+I will discuss that with Sir.
+Let's do one thing.
+I have seen your question.
+We will take this after the session.
+Let's start the session.
+Write clear in the chat and then we will start.
+Today's session is going to be very interesting.
+It is a highly practical session.
+Write clear and then we will start.
+I will take your questions after some time.
+Let's start.
+So guys you already know that we discussed about guardrails in the last session.
+And we discussed that guardrails are what?
+Guardrails are basically your certain rules or certain boundaries.
+Which you apply on your LLM based application.
+Why?
+Why is this boundary or need to set these rules?
+This is because the core of your LLM based applications,
+the central component is your LLM.
+And the LLM are your generalists.
+Generalists means they give a general type output on every task.
+Means they are of Harfan Mala type, all rounder type.
+So they can do a lot of work.
+But your application is never of a generalist type.
+It is of a specific type.
+Your application has a specific use case.
+It has specific users.
+There is a whole way to work with it.
+So what you are doing is you are running your application by a journalist which is your LLM.
+So this journalist can go in any direction.
+It has no limit.
+We have not set any limit here.
+So the criteria to set the limit is set through our guardrails.
+In simple words, what are guardrails?
+Guardrails are a little bit of our control on this LLM.
+We are controlling it a little bit.
+And basically we are putting it according to our application.
+I hope you understood this point.
+After that we discussed what are input guardrails and output guardrails.
+And there we discussed another point.
+That is how your guardrails should be invisible.
+To whom?
+To a normal user.
+Whereas your guardrails should be opaque.
+To whom?
+To an attacker.
+Input and output guardrails are those which are user facing.
+So they are different guardrails.
+You have to deal with human inputs.
+Whereas your output guardrails are your LLM facing.
+So you have to cater to the generated response of LLM.
+After that we discussed that generally there are 3 modes to implement your guardrails.
+You can implement your guardrails in 3 ways.
+The first method was the rule based approach.
+In this rule based approach, you generally write a python code.
+Which is basically a python function.
+If you want to understand it simply, it is a function.
+The logic written in the code will be implemented according to that logic.
+The second method was the classifier based or machine learning based approach.
+And the third method was the LLM based approach.
+We also studied that if you use a rule based approach, then your cost is minimal.
+Because you have to make this python function only once and you can use it again and again.
+What was machine learning based?
+Here your cost was of intermediate level.
+You think a small cost is to maintain the model, to train the model.
+You need a data set for a certain use case.
+For which use case you are training this model.
+Here your whole data science and machine learning life cycle is being used.
+But once you have this model, then the cost of running it, its inference cost is very low.
+Generally in machine learning, the inference cost is low.
+And the size of your model is also small.
+You can easily maintain it.
+Now let's come to the last type that is your LLM based guardrails.
+The biggest feature of LLM based guardrails is that these are highly accurate.
+Because you are using LLMs here.
+But what is the biggest downside of this?
+The biggest downside is its cost.
+And also latency.
+Why?
+Because you are not hosting LLMs here.
+You have not developed.
+You are using LLMs through an API call.
+So for every API call you are doing, you have to pay a cost.
+And because you implement guardrails in both input and output.
+So as soon as any query or input comes in your rag application.
+Your guardrail will be triggered.
+Your LLM will generate any response.
+Your guardrail will be triggered.
+So for a simple rag application where you are just taking input and output.
+Your two time guardrails are also being triggered there.
+So you are doing minimum two API calls with every cycle of your application.
+And you know that LLM has latency if you integrate it anywhere.
+So we have discussed all these approaches.
+Now there is a rule of thumb.
+And always remember this whenever you are in any application.
+I am not talking about rag application.
+Whenever you are going to implement guardrails in any application.
+Always remember this rule of thumb.
+Whenever you are going to apply guardrails.
+You have to apply it very carefully.
+Carefully means you have to apply it very carefully.
+At most for a certain application.
+You have to apply 4 to 5 guardrails only.
+So here you have to select the optimum guardrails for your application.
+You have to be highly selective.
+Which guardrails you have to apply.
+I hope you are understanding the problem.
+As you keep increasing your guardrails.
+Your latency will increase.
+Your overhead will increase.
+So you have to build the guardrails layer.
+Whether it is input or output.
+You have to build it very carefully.
+You don't have to fill too much guardrails.
+That I apply guardrails for this thing.
+I apply guardrails for this thing.
+No, you have to understand your application carefully.
+And apply guardrails on it.
+So what are we going to do today?
+I will explain the flow of today's lecture.
+In today's lecture we will understand how to implement guardrails.
+So the entire implementation of guardrails.
+We are going to understand that in today's lecture.
+And what will we do with this implementation?
+We will do this implementation through guardrails ai.
+This is an open source framework.
+Which helps you to implement guardrails.
+So how do you implement guardrails in guardrails ai?
+You will understand this.
+In the next lecture, which is again a very important lecture.
+In that lecture, we will apply guardrails on our current rag application.
+Means we will prepare the entire pipeline of guardrails.
+And we will also understand that for our application.
+This is rag app, but also a campus chatbot.
+So for this application, we will select the most appropriate guardrails.
+I hope you understood this thing.
+So in today's lecture, we will understand how to apply guardrails.
+And in the next lecture, we will implement some selective guardrails on our application.
+Is it clear guys?
+The flow of both the lectures.
+Is it clear?
+Let's start today's lecture.
+Any questions?
+Great.
+Let's start.
+Now because we are applying guardrails here, they are applying for their rag application.
+So let's understand once that in the rag application.
+In which places you apply guardrails.
+We have discussed that these are rules and boundaries.
+But you have to set boundaries.
+That is also an important factor.
+So let's discuss that once.
+Guys, are you hearing any noise from the background?
+Is there any noise in the background?
+Is there any noise coming from the background?
+Okay.
+Zoom's noise cancellation is working.
+So what we will do is we will apply guardrails on our rag application in the next class.
+But today we understand that when you apply guardrails on any rag application.
+So where do you apply guardrails and what kind of guardrails do you apply?
+Let's apply guardrails.
+In your rag application, there are three types of inputs.
+Okay.
+There are three types of inputs.
+Don't get confused.
+These three types of inputs are not for your application.
+These are for your guardrails.
+So let me explain to you what is the flow of guardrails.
+So the layer of guardrails.
+Now you can consider this particular box as the layer of guardrails.
+So the layer of guardrails is very simple.
+You send any input inside it.
+Okay.
+This layer of guardrails does two things.
+The first thing it does is validation.
+And inside validation, it simply checks.
+It is simply a check.
+Check of what?
+Check of what?
+That whether your validation is passing or not.
+That whether your guardrail is passing or not.
+So on validation, you get only two results.
+Either it is a pass or a fail.
+Like you do a test.
+In the test, either you are a pass or a fail.
+What is the second?
+In some cases, guardrails provide you with a fix.
+Means if your validation was failing.
+In that case, guardrails automatically fix that particular thing.
+And then re-validate.
+That what fix they have applied.
+Now is it passing the validation or not.
+And this fix is applied until the whole thing is validated.
+Although there is a limit here.
+But you implement guardrails in this particular flow.
+So there are two tasks of guardrails.
+First is to check.
+First is to check whether it is a pass or a fail.
+If it is a pass, then there is no need to fix it.
+Because it is already a pass.
+If it is a fail, then in some cases, it is tried to fix.
+And there is a limit to try.
+Even then, if your particular input to your guardrail is not passing.
+Then the final result you give to your user is your fail result.
+You do not let this particular input go ahead.
+So guardrails act as a filter.
+Now we have to apply this filter or this boundary in three places in our rag application.
+First of all, our input is the first.
+This input is our user input.
+If we get user input, then we will apply some input guardrails here.
+Now if our user input crosses these guardrails, then it will go ahead.
+Where will it go?
+It will go to the retriever.
+But this exact input will not go.
+Our validated user input will go.
+And who will get this validated user input or user query?
+This user query will be given to my retriever.
+Now what will the retriever do?
+Retriever will output retrieved chunks.
+Now these chunks will act as an input to my retriever guardrails.
+There will be another layer called as retriever guardrails.
+And in that retriever guardrails, you will send chunks.
+If the chunks are correct, then the guardrails will easily cross the filter.
+And you will get your validated chunks or validated context.
+These validated chunks plus your validated user input.
+This piece of information and this piece of information.
+You will send these two in the augmentation step.
+And who will you send?
+You will send this to your LLM or your generator.
+What will the generator do here?
+It will generate a response.
+Now where will this response go?
+Again it will go into the guardrail there.
+This will be your generator guardrail.
+This will validate and here you will get your validated response.
+Validated response.
+For 2 minutes, you should see this particular flow and understand it.
+Because we will use this flow in the future.
+It is very important.
+What did you do?
+You took the input and passed it through the guardrail.
+And what did you get in the output?
+Validated output.
+This is happening in every step.
+This is happening in every guardrail.
+Input is going and you are getting validated output in the output.
+Now I will tell you what is happening in every guardrail.
+There are two steps.
+The first step is our check.
+Is this particular input worth passing or not?
+If it is worth passing, we are passing it easily.
+If it is not worth passing, it is failing.
+What are we doing?
+We are trying to fix it.
+Can we fix it in any way?
+If we can, we will give the right response as an output.
+If we can't, we will stop this particular input.
+In that case, if our check fails and it is not right,
+then you will not see any output in any guardrail.
+Your validated output field will be completely blank.
+I discussed this because you are going to see this in the code.
+It is important to make a mental map.
+What will we see in the code?
+Is this flow clear?
+Now let's discuss what kind of guardrails you use in our rag app.
+Guardrails are very logical.
+Nothing fancy here.
+Now as we discussed, the first guardrail you get is input guardrail.
+You can also call it user query guardrail.
+Who is getting the input?
+It is getting input from your user query.
+That is its input.
+And this validated query is returning it to the output.
+Now I ask you that what kind of query can the user write here?
+What kind of guardrails do I need to implement here?
+For the user, for a given rag app.
+Suppose our campusX is the chatbot.
+So which queries of the user do I have to block?
+I don't want to block normal user queries.
+I want to block the query of attacker or malicious user.
+Which is giving wrong input.
+What kind of inputs can be here?
+Can anyone tell me?
+Prompt injection.
+Simplify it a little.
+I know you have read the concept of guardrails.
+We are not going into the terminology of prompt injection jailbreaking.
+Simply tell me.
+User can ask questions about other courses.
+Yes, Shruti is absolutely right.
+The user can talk about some off topic here.
+Off topic is a very important guardrail.
+Yes, if the system does not give the instruction here,
+If the environment variable does not give it,
+Then we cannot do jailbreak here.
+Our LLM cannot break here.
+What else can happen?
+What else can happen?
+Our user can also abuse.
+It is possible, right?
+Abuse.
+PIA can give data.
+Yes, if a particular user is not able to enroll,
+Then he is telling his name, email id.
+Sir, get me enrolled.
+But what is this?
+This is a doubt solving chatbot.
+Will this type of query work here?
+The answer is no.
+It will break our system.
+Obviously, our Parag chatbot will say this only.
+I don't know.
+Because there is no such document in its context.
+So yes, PIA data is there.
+Can anyone else tell me?
+What can happen?
+Out of context, things can be asked.
+It is off topic.
+Something can happen.
+Toxic input can also come.
+Biased input can also come.
+It is possible that we ask about a competitor.
+It is possible, right?
+So we have to put guardrails against all these things.
+Now let's talk about the retriever.
+Let's not discuss the retriever.
+Because when we build retriever in our application,
+you will understand it better.
+Now let's talk about the output.
+We also put guardrails for retriever.
+But again, we are not discussing this now.
+Because before this, we have to read two concepts
+like jail breaking and prompt injection.
+Let's not discuss this now.
+Let's talk about the generator.
+In the case of generator,
+again I am looking at the chat.
+What kind of guardrails will you have to put here?
+In the case of generator,
+again I am looking at the chat.
+What kind of guardrails will you have to put here?
+Again, I am looking at the chat.
+What kind of guardrails will you have to put here?
+This generator is an LLM.
+And it is already aligned.
+It has already been aligned by OpenAI.
+We are using the model of OpenAI.
+It is properly aligned.
+So it will not give an abusive model.
+Yes, it can hallucinate.
+Very good Tushar.
+It can hallucinate.
+What else can happen?
+We can check the length of the output here.
+We can check the length of the output here.
+Let's say I have told my rag chatbot in my system prompt
+Let's say I have told my rag chatbot in my system prompt
+that you have to write small answers here.
+that you have to write small answers here.
+One paragraph answer.
+But if it starts writing the whole novel,
+in the output,
+we can check the output length here.
+What other checks can we put here?
+We can put it on style.
+Okay.
+Anything else?
+We can also put it on PII data.
+Maybe we have
+accidentally shared our chat here.
+accidentally shared our chat here.
+The chat that we are doing in Zoom is available in our transcript.
+The chat that we are doing in Zoom is available in our transcript.
+So your names are coming there.
+Yes.
+So there are many things here.
+We can put many guardrails here.
+So you can clearly see here
+that our input guardrails
+and output guardrails
+are not getting anything
+except one or two guardrails.
+So you have to think like this
+for every application.
+I will show you now.
+You have a big pool of guardrails available.
+Already built-in guardrails are available.
+You have to be selective here.
+And try to
+not have more than
+5 or 6 guardrails for your application.
+Because they have
+a lot of overhead.
+Your latency will increase a lot.
+Because what are you doing here at every step?
+You are adding an extra layer
+at every step.
+So for our rag app,
+we are adding 3 layers here.
+So 3 checks are being done here.
+And if by mistake
+we are using LLM guardrail
+in any of these layers,
+then latency will increase a lot.
+There are many overheads
+in ML too.
+Storage overheads.
+If you are running ML model locally
+on your system,
+it is taking your compute,
+your storage.
+So you have to see many factors here.
+Is it clear?
+Is this idea clear?
+Again, keep this idea in mind.
+We will implement this idea
+in the next session
+with full scratch.
+Let's move ahead guys.
+Ok, let's move ahead.
+Now let's come to the implementation part.
+That is our guardrails AI.
+Now you must be having a question
+in your mind
+when we started the topic of guardrails.
+Or when I taught module number 1.
+So there I discussed
+that to implement guardrails,
+we will use guardrails AI.
+So a logical question
+must have come that why are we using this?
+Can't we use any other framework?
+So I will tell you
+what are the benefits of
+using guardrails AI.
+The first benefit of using guardrails AI
+is that it gives you
+three types of guardrails.
+Built-in.
+Meaning, your rule guardrails are available.
+ML guardrails are available.
+And LLM guardrails are also available.
+The second benefit is
+that guardrails AI
+through their hub,
+through their
+repository,
+through their guardrails hub,
+gives you 70 built-in guardrails.
+And in most of the use cases,
+these 70 built-in guardrails
+do all your work.
+You don't need to make
+your own guardrails.
+But if you want to make
+a custom guardrail,
+custom guardrails feature is also available.
+Custom guardrails
+can also be implemented.
+Like we made custom eval,
+custom guardrails can also be implemented.
+The fourth benefit is
+that guardrails are constantly
+updated.
+Constantly updated.
+I will show you. Although not all of them are updated.
+But the most frequently used guardrails
+are updated.
+New things are added to them.
+Like if there is a guardrail of toxicity,
+then maybe
+a new slang or a new
+toxic word is added.
+You will get updates on that.
+And finally,
+the best thing
+that I like about guardrails
+is that the biggest problem of LLM Ops
+is that you have to work with multiple tools.
+You have to
+orchestrate, combine,
+integrate everything.
+You have to write so many codes.
+You are already very tensed.
+If you get a tool
+where you have to write very less code,
+make very few changes in your application
+and get ready as a guardrail,
+then you will get a lot of problems.
+So that's why we chose guardrails AI.
+The code of guardrails AI
+is super simple.
+I won't say simple, it is super duper simple.
+And
+once you have
+learned to implement
+any one guardrail here,
+then its code
+is so unified
+that you can easily implement
+the rest of the guardrails here.
+So what do you say guys?
+We should work with guardrails AI
+and find some other way out
+to implement guardrails.
+Do you agree
+that guardrails AI is good?
+OK
+and another positive point of this is
+that this hub is community
+powered. So you too
+can make a guardrail and register
+on this hub tomorrow. This is also
+possible. If you have any use case
+you made a guardrail there
+and pushed it
+and other people are using your guardrail.
+Yes, it is open source.
+I said community driven.
+It's clear. You won't
+have to spend anything. Where will you spend?
+You will only spend on this LLM
+guardrails because there
+you will obviously have to bear the cost of the API.
+Great.
+Now the makers of guardrails AI
+have divided
+the guardrails into two
+broad categories.
+What are those two broad categories?
+I will tell you. One is
+string based guardrails.
+And we are going to use
+these string based guardrails
+in our RAC application.
+What are string based guardrails?
+The input is a string.
+So our
+if I take you back
+on the flow diagram.
+The user input will come in
+string format.
+The chunks we will get from
+the retriever, what are these chunks?
+Textual chunks. Again a string
+and the LLM response
+will come in which format?
+This will also come in string format.
+So we are going to use string based
+guardrails. Whereas
+here some guardrails are
+structured guardrails.
+Now there is no need to worry.
+It's a fancy term.
+Basically these structured guardrails
+are on your structured output.
+You must have worked with
+structured output.
+You make a pyrdantic schema
+and there you generate
+structured output.
+Now through the same pyrdantic schema
+through which you generate structured output
+you can also give your guardrail.
+So this pyrdantic schema
+you can give to your guardrails.
+Now your guardrail will make sure
+that the LLM that is generating
+structured output, is it doing
+according to your schema or not?
+So these are the two broad categories
+string based and structured guardrails.
+We are going to use
+string based guardrails
+for this particular application.
+If you want you can read about
+structured guardrails in the documentation
+and understand its implementation.
+Because code is super simple.
+Clear?
+Is guardrails AI
+clear? Why are we using it?
+Thought process is clear in your mind?
+Ok, great. Let's move ahead.
+Let's move ahead.
+String output parsers
+similar to string based.
+No, that is a parser.
+Don't mix
+the line chain and
+guardrail AI.
+Ok, here your
+string output is coming
+you are basically passing it through a layer.
+Don't mix it now.
+If I can read
+your name. Is it
+Kaloal or Kaloay?
+I think it is Kaloal.
+Chatterjee, right?
+Yes,
+I read Kajol
+for a while.
+Ok,
+let's discuss
+about guardrails AI.
+Ok, in guardrails AI
+the main
+component, main
+superhero is called
+the guard component.
+This is your main guard.
+Ok, you have to put
+boundaries, guardrails.
+To control
+that boundary,
+you need a guard
+to prevent any
+wrong thing from crossing your boundary.
+For that, guardrails AI
+gives you guard component.
+Now, what does this guard component
+do? I will tell you.
+It has two types.
+If you want, you can use
+guard component as it is.
+As it is means you can use it in vanilla form.
+You can call it
+as vanilla. Whereas, you can
+call LLM calls
+through guard.
+Now, I will tell you the difference
+between these two.
+The main component is
+guard component. So, in guardrails AI
+whenever you want to work, you should have
+a guard. Ok?
+What is vanilla?
+We are working with the default configurations.
+Ok, we will not focus on this now.
+Actually, we will use this.
+But I will tell you this one as well.
+What you do in this?
+In this, you
+in guard component
+you make LLM
+powered guard.
+In our case,
+in our case,
+our rag application
+is already made.
+Ok?
+We have already made all the components
+our generator, retriever, everything is already made.
+And in this application,
+LLM
+is already integrated.
+In our case, our output
+is already available.
+So, what we will do? We will use this vanilla
+one. Ok?
+What it does? It takes string in input.
+Whereas, this
+second guard, where you can
+make LLM calls
+this is used for your
+chatbots.
+Means, you have
+a simple chatbot, a central
+LLM. Ok?
+And it is getting an input
+and it is returning an output.
+Now, you
+in this LLM
+what you did?
+You made a guard component.
+And that guard
+is integrated with this LLM.
+That's it. Now, what will happen?
+Whenever an input will come
+then it will go through this guard.
+Guard rails are implemented here.
+Guard rails will be installed.
+So, that validated input
+will go to your LLM automatically.
+And your LLM
+which will generate the output
+will also be validated and
+will come out of this guard.
+So, basically, what you did?
+You covered this LLM here.
+We don't need to do this. Why?
+Because we already have our application
+available. So, what we will do?
+We will simply make our guard
+component here.
+And with that, we will attach our guard rails.
+And with that,
+we will have our guard rails
+layer.
+We don't need LLM here.
+Okay.
+Now, how does your guard component
+work? We understood.
+Now, let's discuss what is the output
+of your guard component.
+So, any guard component
+will validate
+through two methods.
+You will see the documentation also.
+And you will see two methods.
+First method is parse method.
+And second method is
+validate method.
+Okay. Here I have written
+validate versus parse.
+Which method we will use? We will use
+validate. Okay.
+We will validate through here.
+We will do validation.
+Validate again is
+the simple method.
+What is parse method?
+Parse method is generally used by you
+where you work with
+structured output.
+So, parse is not
+a unique thing.
+Inside parse, actually
+two operations are happening.
+First is parsing.
+Second is validation.
+For which, again, you are
+using this validate.
+So, parse method is basically
+doing two steps. Parsing
+and validation. Now, parsing
+is important because
+the response of your LLM
+is structured output.
+How is it? It is string
+form.
+And what we have to do is
+extract the JSON from it.
+So, this extraction work
+for which we use
+structured output parser
+is this.
+This parsing
+is our structured output parser.
+So, we parsed
+the string response from LLM
+which contains our structured output.
+We extracted it
+and validated it.
+Whereas, because we have
+simply string input
+we will use validate here.
+Is it clear?
+Is this difference clear guys?
+There are some technical details
+that I am sharing with you because
+you will see the code and documentation.
+You won't be confused.
+Is it clear?
+I will tell you once again.
+Is validation clear?
+There is tension in parsing.
+Validation is clear.
+You have to validate any string
+and drop it in validate method
+and it will be validated.
+Is this clear to everyone?
+Validate is clear.
+What is in parse?
+It is basically a combined form
+of parsing and validation.
+This validation step
+is done through the validate method.
+But it is done automatically.
+First, parsing is done then validation.
+Now, where is parsing used?
+Parsing is used only
+when you have
+a structured output.
+LLM's response
+is always text
+even for structured output.
+It is a JSON.
+The work of extracting JSON
+from it is parsing.
+First, you parsed
+and from the output of
+LLM, you extracted your JSON.
+You validated that JSON
+through the given
+patented schema.
+It will be done in validation.
+Parsing is basically
+a preprocessing step.
+That's it.
+But it is not like you can't use
+parse with your string
+inputs.
+You can use it.
+It is not like you will get an error.
+But you have validate available
+and generally it is used.
+It is recommended that you use validate.
+You will see validate in the code
+and parse in some places.
+I taught you this so that you don't get confused.
+If you want to use
+structured outputs tomorrow,
+then your parse will work.
+It is clear?
+Now it is clear?
+Is the doubt clear?
+Anyone have any doubt?
+So far?
+Anyone have any doubt?
+In guardrail.ai
+you can implement
+guardrails.
+The process is simple.
+First you will make the guard.
+This is your step number one.
+You will make the guard.
+After that you will provide
+some rules to this guard.
+Which are your guardrails.
+But guardrails
+in ai are called validators.
+Every different rule
+is your validator.
+Like the rule to check toxicity
+validator.
+The rule to check PIA is a PII validator.
+As soon as you
+have set the guard
+and explained the rules
+then whatever input you have
+you have to pass it through the validate
+function.
+This validate function will automatically handle everything.
+You just have to give your string
+and rest is done.
+Whenever you make
+a guardrail in guardrail.ai
+you need only these three things.
+Guard, rules and validate.
+This is the only thing
+which will handle the code.
+I hope this point is clear to you.
+You might be thinking
+that this is a three step process.
+We don't have to pass much from that.
+It is super simple.
+Now let's talk about validator.
+Move ahead guys.
+Everything seems simple.
+Everything is slowly breaking down.
+Is it looking tough?
+Great.
+Tell the rest of the people.
+Is everything clear?
+Yes.
+Fine.
+Now let's discuss about validator.
+I told you about validator.
+Validator is my guardrails
+or my rules.
+In your guardrails.ai
+you have 70 built-in validators.
+I told you that
+you have 70 built-in guardrails.
+That means you have 70 built-in validators.
+Validators are available.
+What is validator?
+Validator is a rule.
+Now what is this rule doing?
+Suppose this is your guardrail.
+Guardrail
+which is made of guard object.
+I told you that validator
+has two functions.
+First, it will check and second,
+it will fix.
+So whenever a validator
+checks,
+it gives two types of output.
+Either it is a pass
+or either it is a fail.
+And the output of validator
+is divided into
+these two categories.
+First is your pass result.
+You get this
+when you have success here.
+Your validation is passed here.
+So the output you will get here
+is a pass result object.
+And inside it
+you get an outcome field
+which has a value
+written as pass.
+We are not going to use value override
+so you can skip it.
+And the second is your fail.
+Now you can see that
+there is a difference
+between fail and pass attributes.
+Here you get only one
+or you can say this is a dead attribute.
+I will not call it two.
+So this is optional.
+So you can say that it is a pass.
+Whereas in fail you get multiple
+attributes. Why?
+Because I told you
+that your guard rail
+is invisible for pass result.
+It does not work on pass.
+Pass means that
+send exactly what came in input to output.
+You don't have to work hard on it.
+Who do you have to work hard on?
+You have to work hard on your fail result.
+In fail result, you have to tell the outcome
+that your validation failed.
+You have to tell error message.
+You have to tell the reason
+why it failed.
+You have to tell that
+if you fail
+then try to fix it.
+I mean try to fix it.
+So you have to try to fix it
+and send auto corrected value.
+And here
+you have to tell through error span.
+What is error span?
+Through error span, you can actually
+go inside characters and check.
+So what happens there?
+In error span, you get
+character index.
+Like they told you
+that from 97 to
+there is some problem.
+And further they told you
+that it is a PII detected.
+So you know
+that in your input
+from 97 to 108
+there was something
+PII and this
+PII is detected. Again you will understand
+it better in code.
+But you can understand clearly
+that this is the philosophy of
+Guardrails AI.
+If something is passing, let it pass.
+You don't have to touch it.
+You have to take action on it
+which is failing.
+Is it clear guys?
+And here you have
+multiple types of responses.
+On fail
+you have multiple responses.
+And we are going to
+discuss them here.
+Again it will be a small discussion.
+But in the code
+I will show you by implementing it exactly.
+Let's move forward.
+Let's move forward guys.
+I know you are feeling
+a little weird after seeing this.
+But now you just
+understand it in overview mode.
+These are all the things.
+Fail result, pass result, I am going to show you
+all these things on the screen in the code.
+So I am telling you first
+so that you don't get surprised.
+Is it clear?
+Great.
+Great.
+One thing
+I didn't discuss
+was this particular thing.
+This is
+your guard's validation output.
+I am not discussing it
+because you will get confused.
+But assume that your guard
+gives you this type of
+output. Now don't get confused
+that guard and validator
+are giving you two different outputs.
+This is your single validation
+output. What did I tell you? Your single rule.
+So in single rule you will get this type of output.
+And guard will give you
+list of outputs.
+So in guard you have multiple
+validators, multiple rules
+and you validate them together.
+So here you will get
+aggregate result
+through this particular object
+and individual results
+will be here. Again,
+we will see all these things in the code.
+Now let's discuss about the on-fail actions.
+What did I say? If your result
+fails in the validator
+then the validator tries to fix
+things. Now what
+does the validator have to do
+to fix or to on-fail?
+For that multiple actions are available
+in guardel's AI. And this is
+a very important concept of guardel's AI.
+It is called your on-fail
+actions. On-fail
+actions.
+What do you have to do to fail?
+So there are a couple
+of things that you can do when you fail.
+The first thing
+is called
+NOOP
+and basically
+it is pronounced as no operation.
+It is not noop.
+Don't pronounce it as noop.
+It is no operation.
+In no operation, what you do is
+if your particular input
+fails, let's say
+you have written
+abuse in the input.
+Let's take the example of PII
+that my
+email
+id is
+abcadrgmail.com
+You had
+given some input
+like this. Before this, you had
+some prompt. Now what you have to do
+here is PII
+detected. It is your personal
+information. You have to
+remove this particular thing
+or apply a fix
+So as soon as
+this particular input
+goes through PII detector
+then what will be the output of validation
+here?
+The validation output is
+PII detected.
+Now after PII detected
+there are multiple actions
+that you can take in guardrails ai.
+The first action is
+no operation. No operation means
+no action.
+You simply
+do here
+put no operation and
+whatever input you have
+failed, there will be no
+action on it. As it
+goes to input
+it comes out in output.
+Now when I read this
+thing for the first time, no operations,
+I thought what was the benefit of
+applying guardrails. When I didn't have to do
+anything to fail, then what is the benefit?
+When I
+read it in detail,
+then I understood what is the benefit.
+Although your value
+is unchanged, but
+your failure is logged here.
+What you can do is
+you can log this thing somewhere.
+This validation
+is not lost, it is
+stored somewhere.
+Basically guardrails ai
+maintains your history of all the
+validations. So it goes
+into history and gets logged.
+Can anyone tell me what is the benefit of this?
+You can think a little and tell me.
+In no operations,
+we are not doing anything,
+we are not doing any treatment.
+What is the benefit of this? Simply
+log. What is the
+benefit?
+To detect malpractices. But your
+malpractice has passed.
+You have logged it.
+You checked it on Sunday. What is the benefit of that?
+What is the benefit
+of this operation?
+You can add it in the
+feedback loop for eval.
+No, you are thinking too much in depth.
+Something is
+just getting recorded.
+You think
+that you have made a security
+system.
+Let's say there is an X-ray
+machine.
+You put a bag in it.
+There was a gun in it.
+So even if there is a gun,
+it is passing.
+And even if there is no, it is passing.
+It should be there, but even if there is a gun,
+it is passing. What is the benefit of that?
+What is the benefit?
+What is the benefit?
+You are not stopping that bag.
+You are letting it pass. What is the benefit?
+Don't you think that you have found out
+who has a gun? Yes, Shruti
+is absolutely right.
+Here we use no operations during testing.
+You want to check
+whether your validation is working
+or not.
+Fail or pass is what it is telling.
+It is not saying that I let it pass.
+It is not telling that it is fail or pass.
+These are on-fail actions.
+On-fail is to be told that it has failed.
+So when we have to
+test an order, what kind of input
+it is failing at, what kind of input
+it is passing at,
+then for testing purposes,
+we put no operation here.
+If it fails, then pass it to the one
+who has failed. Don't take any action on it.
+Is this clear?
+No operations. Clear?
+Let's move ahead.
+You might be confused because
+it is there actually. Let's move ahead.
+Let's discuss the second type
+where actually something is happening.
+That is raising an exception.
+What is an exception?
+We raise an exception in Python.
+What is an exception? It is an error.
+Error message. Whenever we
+raise an error message in Python,
+what happens to our application after that?
+What happens to our script?
+I am looking at the chat.
+We get a lot of code errors.
+We raise an exception. What happens?
+What happens after the exception is raised?
+Guys, we get an exception
+We get an error message.
+I didn't handle it.
+If you get an error,
+you didn't handle it.
+The exception is raised.
+What happens?
+It crashes. Tushar was right.
+Your application crashes.
+Whatever flow is there, it stops there.
+What is an exception?
+Raise is a validation error.
+It is a hard stop.
+In some cases,
+if your input is not validated,
+failed,
+what will you do there?
+You will completely crash your application.
+Now someone can tell me
+by thinking that
+where will you use this scenario?
+Your rag application is running in the production.
+And everything is going well.
+You don't want to crash it.
+But there will be some cases
+where you will want
+that it would have been better if it crashed.
+Self-destruct
+is what you want to do.
+Why would you want to do it?
+Can someone tell me
+what kind of validation
+would you like to crash
+on your application?
+Maybe I will rephrase
+what kind of threat
+would you like
+your application to crash?
+Something else should happen there.
+Safety.
+Yes, there is safety.
+When the model is revealing some
+confidential information.
+No, you don't want to crash
+your application on that.
+Maybe you want to fix it.
+You don't want to crash.
+For crash,
+DEF CON 1 should happen.
+Red Alert.
+Can anyone tell me?
+Jailbreak.
+You are right.
+Virus attack.
+An attack which is a malicious attack
+where the attacker
+will break your application
+in any way.
+I will break it and go inside it.
+There is a hack.
+In that case, you will want
+that if this hack is detected
+then what will you do?
+My application should be closed at that time.
+So that my attacker
+cannot infiltrate
+any important information
+in the database, knowledge base.
+So I will close my application there.
+Is it clear?
+You must have seen in Hollywood movies
+that they try to hack in the server
+and they pull the main power cord.
+Now I have closed the network.
+It is like that.
+Where will you use exception?
+The attacker is trying to break
+into your application.
+What is the next type?
+Fix.
+In Fix, your validator
+tries to fix
+any problem
+in any way.
+Let's say that you have
+implemented PII.
+What will be the fix
+of implementing PII?
+My input was like this.
+What will be the fix of this?
+The fix will be that
+I remove it.
+But by removing it,
+the information will be removed.
+How will this sentence look like?
+My email id is full stop.
+It will look stupid.
+If I send this to my LLM,
+it will also look stupid.
+It is an incomplete sentence.
+Maybe my LLM will ask what is your email id?
+Or you gave me an incomplete prompt.
+Please complete it.
+Let's say I put a fix
+here.
+My email id is
+a placeholder
+email id
+This is more logical.
+This is a fix.
+Let's say I have
+written some abuse.
+Why
+are you not
+answering
+forward
+dash dash
+If I remove this dash dash completely,
+then this particular
+thing
+can be fixed.
+Fix is different.
+Different validators
+put a fix in different ways.
+But after putting a fix,
+your validation is passed.
+What did I tell you?
+After putting a fix,
+it is revalidated.
+What is in revalidation?
+This fixed input
+will be found in
+my guardrail layer.
+If this thing goes to the input,
+then it will pass.
+When is the use of fix?
+Fix is not used
+only to fix.
+Fix is used so that your fixed value
+can also be passed in your application.
+Replaces the value with
+validators fixed value.
+It doesn't stop there. It passes on to it.
+The validated output is
+fixed value.
+Next is the filter.
+We are not going to use this filter
+because it is for structured output.
+Filter is basically your JSON.
+It has name,
+age,
+location.
+But your schema
+didn't have location.
+It had city.
+You have fixed the filter.
+Because your schema
+didn't have location, it had city.
+So the location will be removed from your JSON.
+And the rest of the filtered JSON
+with your name
+and your age
+which follows your schema
+you will pass it in output.
+It is written
+Drops the failing field,
+structured data context mainly.
+Next comes
+your reframe.
+We have discussed fix here.
+Now let's talk about
+reframe.
+What is the meaning of reframe in English?
+What is the meaning of reframe?
+To refrain from something.
+What does it mean?
+To not allow.
+Refrain is to stop.
+So here
+you don't use
+any fix in reframe.
+You don't raise any exception.
+You simply
+output none.
+What is none in Python?
+None is something
+that is
+signifying emptiness.
+Your
+emptiness is signified.
+Or
+the false is signified.
+Clear?
+So what do you do in reframe?
+You don't try to put any fix.
+You simply output none.
+Or empty
+instead of an unsafe value.
+Now can someone tell me
+what is the benefit of using reframe?
+I input none.
+Now it is not stop.
+Stop is your exception.
+You gave none here.
+Exception
+and reframe are different.
+In reframe your output is none.
+But
+your application doesn't crash
+by getting none.
+It is
+false.
+It is your false.
+Zero.
+What is the benefit of none?
+Can someone tell me?
+Let's say my input
+is my email id
+where my email id is written.
+And I have
+put a reframe action.
+So what will be the output in reframe?
+If it fails,
+then output none will come.
+Now what is the benefit of this none?
+What should I do with this none?
+Can someone tell me?
+Where can we benefit from none?
+Don't you think we can use it
+in if else?
+If none comes
+then display this message.
+Or our input should be
+this. Else if none
+comes, then what can we do?
+We can give a fallback message.
+Is it clear?
+Again if you are confused
+I will show these things in the code
+then maybe you will understand better.
+Let's move ahead.
+This is our re-ask.
+What can you do here?
+You can apply one more thing.
+That is your re-ask.
+What you do in re-ask
+is you hold
+your failed input
+and
+the reason for its failure
+and you hold
+it and you give
+these two to an LLM
+and you give
+a proper structured prompt
+to the LLM.
+Meaning it is a very structured
+and detailed prompt.
+It is generated by an LLM.
+You tell it that my input failed
+and this was the reason for its failure.
+And you tell LLM
+please help me today
+I am stuck.
+Fix this particular input somehow.
+Give me a fixed output.
+What you do in re-ask
+sends the failure back to LLM
+with auto-generated
+guidance to regenerate.
+You fix the fixed with LLM.
+Like some cases
+where you can't fix
+the delete or masking
+this fix
+this fix
+is fine to fix it small
+like you removed the one with the foul word
+or you covered the PIA information
+or removed it.
+It is fine to fix it small.
+But sometimes you have a major fix
+where you need an LLM
+which will modify your input or output.
+There you use re-ask.
+You use re-ask.
+You tell LLM
+this was my input failed
+and this was the reason for its failure.
+And you give it
+in a proper prompt
+and tell it to me
+a fixed version of it.
+Remove the problems
+and give me a proper thing.
+Now someone can tell me
+that if I implement
+this re-ask in my guardails
+and I implement it very regularly
+then what can be the problem?
+What is the problem in this re-ask?
+It must seem very simple to you.
+What is the problem in this?
+Re-ask is not a good
+on-fail mechanism. Why?
+It should not be used
+very regularly.
+It should be used
+judicially. Why?
+Not bias.
+Think from the mind-set of operations.
+What is bias?
+If I tell LLM
+that its grammar is bad
+and if it gives me a proper grammar
+then where is the bias?
+Cost, Latency
+I am calling LLM
+so I am calling LLM for
+guardrails and evaluation.
+My application is LLM based.
+And in one re-ask
+I implemented it again.
+Because there is a problem in re-ask.
+The problem is that we are telling LLM
+that it will give a good output
+in the first time.
+Maybe the output in the first time
+failed our validation.
+Our input was like
+that it had written abuses secretly.
+So we said to remove the abuses from it.
+We had put a beep in the abuses.
+So it removed something and
+something remained.
+So we had put a beep in the abuses.
+So some beeps were put and some abuses were left.
+Then validation failed again.
+Then we told LLM again
+that abuses are still left in these places.
+Then we tried to fix it in LLM.
+So you can see that
+I have to do multiple tries in re-ask.
+Again it is
+adding to my latency.
+So I will use it very less.
+I will use it in those special cases
+where re-ask version is very important.
+Meaning that
+I need a fixed version
+for my application.
+I can't send my user
+with any other output.
+We use re-ask there.
+What is our chatbot?
+Will you send abuses in doubt?
+We will not tell.
+It is our swag. We don't tell.
+So we will not use it.
+Again it will add latency.
+It will add to token cost and latency.
+Next it has a problem
+that is your fixed re-ask.
+Fixed re-ask is
+that you are understanding
+that you will put a static fix
+like PII is detected.
+First you try to mask it.
+If it doesn't happen
+then you re-ask.
+And re-ask will continue
+until it is fixed.
+So in fixed re-ask
+you put fix first
+and then you go with fixed version.
+If it doesn't happen then you re-ask.
+And final is your custom
+where you define a custom function
+that if onFail
+then you trigger this function
+and implement the logic in this function.
+Is it clear guys?
+Are the onFail
+mechanisms clear?
+Sorry for that.
+Just a sec.
+Is it clear?
+Yes.
+It was super simple.
+No difficulty.
+Now let's go
+towards the code part
+and implement our guardrails.
+I will guide you through
+the whole process.
+Just give me one sec.
+Conceptually we have to discuss
+these things in guardrails AI.
+I will show you all these things.
+Code is very simple.
+We will do live code.
+No issues.
+It is a 3-4 line code.
+VS code, can you see guys?
+I will open a fresh terminal.
+Is VS code visible?
+I will drink water.
+If you have any doubts
+you can ask me.
+Then let's go towards the code part.
+Shall we start?
+Before starting the code
+I will show you
+the documentation of this code.
+I will show you the documentation.
+We will see a little.
+You should have an idea.
+It is your guardrails AI.
+This is the guardrails AI page.
+It looks like this.
+Here you will get two options.
+You will get guardrails hub
+and one resources.
+Let's go to the documentation.
+Here you will get guardrails
+with guardrails without guardrails.
+This is your guardrails hub.
+This is basically your marketplace.
+This is community driven.
+Here you get all your guardrails.
+Now let's talk about the code.
+Here you have two options.
+You have guardrails server.
+You can run guardrails remotely.
+We have to go here in application.
+Because we have to embed
+guardrails in our application.
+What is the first thing you have to do?
+The first thing you have to do is
+install guardrails AI.
+PIP install is written here.
+We also do it.
+Where will we go?
+We will go to our requirements.txt.
+We will add a line here.
+We will write guardrails AI here.
+You know the command.
+We will add uv-requirements.txt.
+This is our guardrails AI
+The installation of guardrails AI has started.
+Go to the pyproject.
+The guardrails AI is installed here.
+Let's go back to the documentation.
+After that, what you have to do is
+configure your CLI.
+Why do you have to configure CLI?
+Because you have to add an API here.
+Now I will tell you where you will get the API.
+What you have to do is
+I will share the screen again.
+Actually, you can see the boundaries of the room.
+So you are not able to see the tabs.
+My full screen is being shared.
+Is my full screen visible?
+Give me a thumbs up.
+Tell me where you want to go.
+What we have to do is
+We have to go to this page.
+We have to go inside guardrails hub.
+Sign in to get started.
+You can see clearly here.
+This is what guardrails hub looks like.
+Here are the use cases.
+You can select chatbot.
+You will get the guardrails for chatbot.
+You can go to customer support.
+Structure data.
+We have chosen rack.
+You can also use other guardrails.
+You can't use only rack.
+Now here it has changed.
+Earlier there were 70.
+Now I think they have made 65 guardrails.
+They have removed some.
+There is code generation, summarization, text to SQL.
+So there are different use cases.
+There are also risk categories.
+Which risk category do you want to use?
+Like jailbreak.
+These are some guardrails for jailbreak.
+You want to use for code exploits.
+So here it is.
+You want to use for brand risk or formatting.
+So here it is.
+Then infrastructure.
+These are your categories.
+The types that we discussed.
+Now these guardrails are implemented by ML model.
+Now what do you see in input?
+String, string, string.
+So all the guardrails apart from structured output.
+Generally they take string in input.
+If you go to structure data.
+You will get something here.
+Which will take some other value.
+But generally everyone takes string.
+When you pass in LLM.
+Even when you pass, it is also string output.
+So you will get string to see.
+So first your ML based.
+Then your LLM based.
+Here you will use LLM as a judge.
+So in total you have 9 guardrails.
+Here you use LLM internally.
+So here you will get API key.
+This is your rule based.
+And the rest are your NA.
+Now you are confused.
+Because we had read only 3.
+NA was not read.
+So what is the difference between NA and rule?
+Actually internally NA and rule are doing the same work.
+It is rule based.
+But here there are 2 different categories.
+For rule, there is a single guardrail.
+Which is put in rule.
+Rest, the rule actually is put in NA.
+So these validations are not used in any model.
+Look, contain string.
+Here it is easy to check.
+Has URL, lowercase, reading level.
+All these you can do easily through your Python functions.
+Ok.
+I hope you understood this whole thing.
+Clear guys?
+How does guardrail work?
+Now what we have to do is sign in.
+I will sign in with GitHub.
+I hope this sign in will be done.
+Done.
+Now you have to go to API keys section.
+Ok.
+Now you have to click on create API key.
+Set duration.
+I set one day.
+Here you have to set name.
+Let's keep name for now.
+Test.
+Saved.
+This is my API key.
+I will go back.
+Now you have to run a command here.
+Guardrails.
+Configure.
+As soon as you run this.
+It will come to you.
+Enable anonymous matrix reporting.
+You can do it or not.
+We say yes.
+There is no harm in doing it.
+Wish to use remote inferencing.
+No, we want to download the model on our system and use it.
+I will select no.
+Then it says, drop API key.
+Here is my API key.
+I have done drop in.
+Press enter.
+Login is successful.
+Now you are ready to work with guardrails.
+That's all you have to do.
+After that.
+Let's get back to the documentation.
+After that.
+What you have to do here.
+Install your validator.
+What is validator?
+Your separate rules or guardrails.
+In order to perform any validation on LLM output with guardrails.
+You need to install appropriate validator.
+What is the method of installing validator?
+That's it.
+After that.
+How to use it.
+You have installed everything.
+You just have to write this much code.
+And you can apply your guardrails.
+What we discussed.
+First your guard object.
+You added your validator.
+Which is your rule.
+You can add multiple rules.
+And after that.
+You have to use validate.
+Again here you have parts.
+But you have to use validate.
+In these three steps.
+You will get all the validation.
+What you have to do to install multiple.
+You have to simply pass multiple validators.
+And that is it.
+Super simple.
+It's simple guys.
+Isn't the code simple?
+No problem.
+Let's do one thing.
+Let's work with a validator.
+Let's do it.
+Let me get back to the guardrails hub page.
+It's out.
+Let me go back.
+Okay.
+Let's work with PII.
+I will write PII.
+As soon as I write.
+Three guardrails will come.
+Now you have to select.
+Which one to use.
+All are ML based.
+Now here.
+The documentation of these guardrails.
+Is good.
+You have to click here.
+You will get overview.
+Who developed.
+Date of development.
+What is the format.
+Blog license.
+Everything is available.
+How to run.
+How to import.
+All the code is here.
+You have to do.
+Again you have to implement.
+Selective guardrails.
+Go read the description.
+As soon as you read the description.
+You will understand.
+Which dependencies are needed.
+This is community driven.
+Models are dependent.
+They will be downloaded automatically.
+Installation steps are here.
+Code to use is also given.
+And.
+Along with it.
+What to send input parameters.
+Everything is given.
+Here itself.
+You need to go anywhere.
+All the information is given.
+And the code part is.
+Same.
+You have to change the rules.
+You have to put some input parameters.
+And you are ready to go.
+Let's use this particular guardrail.
+Let's read the description.
+This file editor is designed to detect.
+Anonymize.
+It masks your PII.
+Generated text using state of the art method.
+Currently a combination of multiple models.
+It gives your highest performing results.
+Supports various types of entity types.
+Entity is.
+What are your PII.
+Categories.
+Or types can be detected.
+Key features are given here.
+You read it.
+You have to use this validator.
+What you have to do.
+You have to install this.
+In your environment.
+Now you don't have to.
+It will be automatically installed.
+These are its dependencies.
+You have to install this package.
+pip install guardrails ai guardrails pii
+We will only copy this much.
+Because.
+We are smart.
+We are using UV.
+Let's clear it.
+We will write UV add.
+And paste it.
+Done.
+And see my guardrails ai pii is installed.
+Download is being downloaded.
+Here is the pi torch base.
+And we have downloaded it.
+Any error has come?
+What is the error?
+Sentence was included.
+Is it a warning or an error?
+I think it is a warning.
+Because.
+No. Error is.
+It is not installed here.
+Let's try again.
+It was working on my windows system.
+Is it an error of mac?
+There is an issue of package.
+No problem.
+This is an issue of mac.
+So I will fix it.
+This particular guardrail was working on my windows system.
+When I was testing this code.
+It is working.
+There will be some issue of environment.
+I will fix it.
+No problem.
+We can use this one.
+Bias check.
+What it does.
+It is a bias check format validator.
+It ensures textual outputs do not contain.
+Bias language towards.
+Demography, race, gender, sex, religion and ethnicity.
+Let's test it.
+It is also ML based.
+For this.
+Some inputs are required.
+What we will do.
+We will copy.
+We will go back to our code.
+We will clear.
+And we will simply write.
+UV run.
+And we will paste this particular.
+Oh sorry. I have done UV run.
+My bad.
+I said. Is this also giving an error?
+This is tensor flow based.
+This is also tensor flow based.
+There will be error of pytorch.
+I will figure it out.
+It looks like tensor flow.
+But I think in this case it is getting installed.
+Yes. It is done.
+This is done.
+What you have to do after that.
+After that you have to download your model.
+Because you are running locally.
+To download you have to run this particular module.
+Again we are using UV.
+So our command will be little different.
+We will not write python-m here.
+We will write UV.
+Run.
+And after that name of our file.
+We will run this as a module.
+We will run this as a module.
+What happened? Verification window opened.
+Then where did it go?
+I think it will take some time.
+It will start now.
+Stupid verification opened.
+I did it in windows.
+Everything gets downloaded.
+No problem.
+It is very injured in mac.
+There will be verification.
+Sometimes something will happen.
+It was working flawlessly on my desktop.
+No issue.
+No problem.
+Let it be.
+It is downloading the model.
+It is downloading the model.
+It is downloading the model.
+It is 268 MB model.
+It will run locally from your system.
+Done.
+Done.
+I think everything is good.
+Now our guardrail is here.
+Now our guardrail is here.
+Next step is to use it.
+Next step is to use it.
+We will see the code to use it.
+And here in input.
+Simply we have to pass a threshold value.
+We have to pass a threshold value.
+That's it.
+And onfill.
+We will read that now.
+Let's go here.
+Let's go to notebooks.
+And we will test this guardrail.
+Let's make a file here.
+The file name is
+Biascheck.ipynb
+Guys focus on this code.
+Because this exact code
+We will use it again and again.
+And it is a very simple code.
+It is a small code.
+It is a cute code.
+You will like it.
+You will say that it was fun.
+The code was so easy.
+What you have to do here is
+First of all you have to import your guard object.
+Where will you get it from?
+You will write from guardrails.
+You will import your guard.
+You have done.
+Now what you have to do is
+You have to import your validator.
+You will import from guardrails.ai
+If you will put a dot
+You will get a module here.
+All the validators you will add
+Their modules will come here.
+If PII also works then dot PII also comes here.
+We will do dot biascheck here.
+We will import this class.
+The name of this class is
+Let me see the name
+import
+Biascheck is the name of this class.
+That's it.
+Again this code is also given here.
+Ok.
+After that what you have to do is
+After that you have to make
+a card object here.
+Make the card object.
+For that
+You will write guard.
+It is a convention.
+You write guard and card.
+Now you don't have to give any input
+inside the guard.
+We will make our vanilla guard.
+If you want to integrate LLM
+You can give LLM inputs here.
+Like which LLM you are using.
+Its API
+Max length
+You can give all this.
+We don't have to do anything like this.
+After that what you have to do is
+Use here.
+What you do in use is
+You add your validators.
+Our validator is biascheck
+In biascheck
+We have to pass two things.
+Our threshold and our onfib.
+So we will keep the threshold
+Let's keep it 0.6
+If you want to know
+What is the threshold?
+Higher is more likely to allow bias.
+Means the higher the threshold
+If we will make it 1
+It will pass everything.
+It will pass any bias message.
+So the more strict you want to make
+The less the threshold.
+So we have made the threshold 0.6.
+And we have to define the second thing
+If this validation fails
+What to do?
+We select no operation.
+And we have made our card.
+See
+Model world is loaded
+And our card is made.
+We have added one validation in it.
+Now what we have to do next?
+Now we have to validate here.
+So what we will do?
+Here in outcome
+We will simply
+Call the card.
+And here there is a method called as validate.
+Both are here.
+And there are parts too.
+Which one you want to use?
+What to give in input?
+Input you have to give an LLM output
+Which is your string.
+Here you have to give a string input.
+Now what input should be written here?
+You tell me.
+One input which is already biased
+But works.
+I have tested it. Should I write it?
+Please don't be offended.
+Boys
+Name, age, male. This is not PII
+This is bias
+Boys are
+Better
+Drivers than girls
+Sorry please.
+Don't be offended. This is working.
+So I am showing you this example.
+If there is a better example, tell me.
+Again I don't want to hurt anyone's feeling.
+Just this example
+I will run it once.
+Run.
+This is my run.
+Now let's see what I have in the outcome.
+So I will close this terminal.
+Now it's
+No work.
+And let's see what we have in the outcome.
+See.
+What is in the outcome?
+This is our validation outcome object.
+This is the same object which I didn't show you in the notes.
+So that you don't get confused.
+This is my guard output.
+So as soon as I
+Validate call on guard
+I got this validation
+Outcome.
+Now there are some attributes in this.
+First is a call id.
+There is a unique id.
+That how many times my validation has been done.
+Then there is my raw LLM
+Output. This raw LLM
+Output is my original
+Input. Which I have
+Gave to my validator.
+This is my input.
+Then there is
+Validated output.
+If I have fixed it,
+I will get clean output.
+Final output after validation.
+Remember the flowchart guys.
+This is validated input.
+So I will get this
+only when I have fixed it.
+Or if I have passed it.
+If it fails, I won't get anything.
+So
+Let me go back.
+Did validation pass?
+Did it pass overall?
+For one validator or multiple validators?
+In multiple validators,
+Everyone has to pass.
+Otherwise it fails.
+If one also fails, it is considered as a fail.
+If validation raises an error
+If we do exception
+Then error value will come here.
+And re-ask. We are not using re-ask.
+OK
+So let's see what all things came here.
+This is call id. This is my unique id.
+Raw LLM output.
+This is my input.
+What was the input?
+Boys are better drivers than girls.
+Then came my validation summary.
+In validation summary,
+My validator bias check
+Failed.
+OK
+The reason for failure is
+The original response contains
+potentially biased message.
+And what is bias message?
+It is also told.
+And I have also been given its score.
+Clear?
+And here is validated output.
+What is validated output?
+Boys are better drivers than girls.
+But come on.
+What did I say? If validation
+fails and I have not fixed it,
+then I will not get validated output.
+Why did I get validated output here?
+Can anyone tell me?
+If you are following the lecture
+religiously, then you will have
+its answer. Validated output
+should be fixed after passing my guardrail.
+It should be the correct output
+which I can send in my workflow.
+But here
+even after failing, I am getting the same thing.
+Can I send this thing to my
+retriever? This is biased input.
+I have put guardrail
+so that biased input
+gets filtered out.
+But I am failing here.
+Can anyone tell me?
+Why am I getting this here?
+Guys
+Only testing first case.
+Yes, Tushar was right.
+Here we are doing no operation.
+No operation means
+send whatever is coming.
+Just tell me your result.
+What is the result?
+Here is fail.
+Validation status is fail.
+I can see that here.
+Validation pass is false.
+I can see that here.
+But I am getting exact result here.
+Now if you want to get this fail
+then how will you get it?
+Again, it is simple python code.
+This is your validation outcome object
+which is saved in this variable.
+First of all, you have to go to this variable
+validation summaries.
+You will go to this attribute.
+Validation summaries.
+It is here.
+You will go to this.
+It is a list.
+It is a stack.
+You will go to that.
+Into last.
+You can also do list indexing here.
+Let's say zero.
+This is validation summary.
+After that you have to go inside
+validation status.
+You will get your pass fail from here.
+Okay.
+Is it clear?
+Now let's do one thing here.
+This is no operation.
+Now let's see here
+if I write exception
+instead of this, what would have happened?
+I made my card object again.
+Again,
+same, I validated it.
+Now what happened guys?
+As soon as I ran the code, I got nothing in the output.
+What was raised?
+My validation error.
+This is what I said.
+If my validation fails,
+then the application crashes there.
+See, it crashed.
+Now I will run this, obviously error will come.
+Okay, this is running.
+The value saved in the previous variable is being printed.
+But now see,
+my error is coming here.
+Validation failed with field with errors.
+Original response contains potentially
+bias messages.
+In this case, what will you do?
+In this case, you can crash your application
+if you want.
+Or if you are a smart programmer,
+then you can put a try except block here.
+You tried it.
+You got an exception.
+Except.
+Exception as E.
+If you want,
+you can capture this particular exception here.
+Validation error.
+But we are capturing all the exceptions here.
+We are doing some printing here.
+We are printing
+bias,
+exception,
+failed.
+And our message, exception,
+we are printing it here.
+Let's run.
+We are able to capture our exception here.
+It is getting cleared guys.
+What happens inside exception?
+OnFail is getting cleared.
+We have discussed two.
+Let me show you the notes.
+Just a second.
+OnFail
+we have discussed.
+I will choose some other color.
+We have discussed
+this and this.
+It is getting cleared.
+Now let's discuss
+reframe.
+After that,
+I will show you fix.
+Let's go.
+What you have to do
+is simply go to onFail
+and do reframe.
+Does anyone remember what happens
+inside reframe?
+What happens inside reframe guys?
+We have discussed.
+If else. No, what happens in output?
+In output,
+a none object comes out.
+None comes out. Let's run it.
+Let's see.
+I lied, I was telling the truth.
+It will come in front of you.
+Validated.
+Obviously, it failed because we have not
+changed our input.
+Now let's see.
+Outcome.
+What is coming inside output?
+All these things are same.
+Validated is failing.
+What is coming in validated output?
+On the other side. This was my input.
+This was my input.
+What is coming on the other side of guardrail?
+What is coming on the output side?
+None.
+Now what I can do is
+I can put a fallback mechanism here.
+How?
+By doing if else. What I have to do simply?
+If
+Outcome.
+Validated output
+is
+None. So here I will give
+my fallback mechanism.
+I will print a message here.
+I can print
+I can
+Please
+Sorry
+Please avoid
+Biased
+Inputs
+It is printed.
+What else can you do?
+You can simply print here
+Outcome.
+Validated output.
+This else statement will be printed.
+This statement will be printed.
+When you will pass.
+Like
+Boys
+and girls
+drive
+in same.
+This will obviously pass.
+When passing, you don't need to
+disturb validation. I will show you
+its outcome. Till now we were seeing
+fail. Now see its outcome.
+How small it is.
+You just told that
+this was your input.
+This is your output. Exactly same.
+And validation passed here.
+That's it.
+No validator, outcome, summary
+or any other score.
+Nothing.
+Is it clear guys?
+Let me see if it returns.
+I don't have to type.
+It was done.
+My bad.
+It's done.
+No problem.
+It didn't redo.
+Outcome was
+Validated.
+Sorry guys.
+I am writing so many times. You guys
+must be getting offended. But don't hit me.
+Is it clear?
+How do you feel about
+Guardrails.ai code?
+You have to do this for all guardrails.
+How is the code part?
+It's fun.
+It's so simple. You guys can also try.
+After today's class.
+You can actually
+try with different guardrails on your own.
+Now let's see another type.
+Refrane.
+This we have done.
+We can't use filter.
+Because there is no structured output.
+We are not using re-ask.
+Because for re-ask
+There is no optimum criteria.
+We are not using custom.
+Last one is fixed.
+Let's see if it will be fixed.
+In TIA it is fixed.
+Basically it masks.
+Let's see if it is fixed.
+Let's add one more line.
+Boys drive better than girls.
+What should I write?
+Tell me something.
+Which is non-biased.
+We should
+not
+target any
+specific gender.
+Driving
+is a
+skill.
+And anybody
+can
+acquire
+it.
+I have written this.
+Now this is my new one.
+Let's go up and here
+change this from refrain to
+fix.
+Re-run.
+Here
+we have re-run the outcome.
+Here is our outcome.
+Now look at this carefully.
+It is fixed. Great.
+Where is fixed?
+In validated output
+why boys drive better than girls?
+It is not
+a fix actually.
+It removed the useful thing.
+How did we do the previous one?
+We ran this.
+Outcome.
+Printed the outcome.
+I don't know
+what it means.
+It removed the useful thing.
+It removed the not useful thing.
+It is a little stupid.
+It is fixed.
+Original input was so big.
+It removed this
+and removed everything.
+It was a little stupid fix.
+Can you tell me a better sentence?
+Something better.
+Can anybody give me an example?
+Yes.
+Shruti was right.
+Actually it is a very funny thing.
+I was checking its bias.
+Wherever you are
+putting men down, it is passing.
+And you have to test this.
+I have written bad things
+for men.
+And it is passing everything.
+So this is its shortcoming.
+It is biased in itself.
+Towards the other gender.
+So let's write something else.
+Let's see.
+Maybe something related to a
+country or a country.
+Indians are
+good people.
+But they are
+What?
+I can't say but their food sucks.
+Actually Indian food is good.
+Considered good elsewhere.
+But their curry sucks.
+Let me write it.
+You must be feeling bad.
+I just want to check
+if it is fixed or not.
+Validated output.
+It is not able to catch it.
+PIA is not working.
+PIA is not working.
+I could have shown you better fix.
+Write something in chat
+and tell me.
+Let's take it from Google.
+I am testing
+I am checking
+Godrail
+for my
+rag app.
+Can you
+give me a sample
+input
+with some
+part
+having
+bias
+notation
+errors
+the rest
+is unbiased.
+Let's see.
+I found something.
+Here is a sample
+input designed to test.
+Context
+user query
+Let's take this.
+Why don't know
+why I have been given this.
+Whatever it is.
+What we can do is
+paste it.
+Copy it.
+Let me copy it again.
+Copy
+and paste.
+Done.
+Let's run it.
+I haven't read
+the message.
+Let's see.
+Let's read it.
+The input is
+The engineering team completed the system migration
+while girls in marketing usually
+struggle to understand basic technical
+deployments. The project documentation was
+written so clearly.
+Male engineers possess an inherent natural capability
+for algorithmic thinking.
+Very biased types.
+Let's see if it is fixed or not.
+Validated output.
+Usually
+struggle. It is not able to do.
+Fixed output.
+Again we can try
+with some other guardrail.
+But it is already time.
+Let me show you in the next session.
+Fixed output.
+It should be.
+It works well in PII.
+Again, can you understand the problem?
+Why it is not able to do?
+It is not able to do.
+Everyone can see it.
+Can you give any reason for it?
+Why this particular
+guardrail is performing so bad?
+There are some important questions
+that I want to discuss with you.
+Session is over.
+That's all.
+Again I wanted to show you two guardrails.
+Bias and PII.
+In PII,
+masking is fun.
+But we were not able to do that.
+If I show you the PII
+implementation,
+it is good.
+And it works well.
+It is not open anywhere.
+PII.
+See.
+It masks a lot of things.
+See.
+Supported entities.
+Credit card, crypto, date, time,
+email address.
+Social security number, person, phone number,
+medical license, URL.
+USK details.
+ITs, Italy.
+And Australia.
+Indian PAN.
+Indian Aadhar.
+Vehicle registration, voter ID card number.
+Passport number.
+It works on this.
+I am not getting any good results
+in this.
+But I am getting in US.
+Not in Indian.
+But this email, credit card number.
+IP address, location.
+I was doing good.
+Can you tell me the problem
+of all these guardrails?
+Why are they not performing so well?
+Guys.
+Anyone?
+Guys, am I audible?
+Yes. Shruti was right.
+They are ML based.
+What is the problem in ML based?
+Why is ML based so problematic?
+The intricacies of language
+these are not
+understood by machine learning models.
+Or deep learning models like
+Pytorch and tensorflow.
+They can't understand so well.
+For that we need LLMs.
+If we put LLM
+for machine learning implementation
+then it would perform better.
+But what is the problem there?
+Or if we put LLM in bias check
+then it would perform better.
+But what is the problem there?
+The problem of cost.
+The problem of latency.
+So that is it.
+When you are in operations,
+you have to consider this trade off.
+Is there a better option than this?
+I can simply instruct LLM
+through system prompt.
+To act as a guardrail.
+But the problem is
+that we have to
+look for middle ground.
+We can't put all LLM based guardrails.
+Again we have to
+factor in cost, factor in latency.
+We have to factor in
+the priority of which guardrail.
+Now PII guardrail
+for a campus x chatbot
+is not that much priority.
+Who is interacting with our chatbot?
+Our students.
+Your phone numbers,
+your
+email id
+are all the same.
+Because you are not
+sending your email id
+to LLM directly.
+You are sending it to retriever.
+Now your phone number,
+is retrieved and
+it looks similar.
+But if it goes,
+that chunk,
+and the input guardrail
+that you have to put,
+this is fine for masking.
+This PII thing does it.
+As for bias,
+for bias maybe
+there might be an LLM
+solution.
+So for that
+we have to implement custom guardrail.
+No other way.
+Is this thing clear?
+So let's do one thing in the next class.
+I will make a custom guardrail
+for bias, for you.
+LLM based.
+It is very simple to make custom guardrail.
+Super easy.
+Although I can show it to you.
+Guardrails,
+AI,
+custom validator.
+See.
+What you have to do
+here is,
+register validator
+and decorator.
+Name and data type is to be shown.
+And simply define it in a function.
+That's it. Your validator is ready.
+You can do it as a function or as a class build.
+You can do it as a class build.
+Is this clear?
+So we will see this thing in the next class.
+Model, LLM,
+you can integrate everything.
+The whole code is given to you.
+Everything is given.
+Let's make a custom validator.
+LLM one. For bias check.
+How was it guys?
+Was it helpful?
+Confidence was built a little.
+Great.
+Clarity of concepts out of 5
+if you want to rate.
+After today's session on guardrails
+5. Okay.
+Great.
+I will be back in 5 minutes guys.
+For your questions and then we will close off the session.
+That's it for today.
+So for next session we will build some custom
+guardrails.
+I will come with
+pre-selected guardrails which we will put in our rack application.
+I am looking for
+2 for input,
+1 for retriever
+and 2 for output.
+So in total we will put 5 guardrails.
+So there will be mixed variety.
+Some will be rule based, some will be ML based
+and some will be LLM based.
+You must be having a question
+in your mind.
+There are so many guardrails on one.
+We have tested 2 here.
+One didn't work and the other one didn't work.
+Again this hub
+maintains the community.
+So this particular
+guardrail didn't work.
+Which is
+bias check.
+You can abuse the author
+who made this.
+There is no fault in giving
+guardrails in this.
+You can also make it tomorrow and post it here.
+Is the whole process
+clear guys?
+If you have any questions, you can ask me.
+One question was from Tushar.
+Tushar can you
+paste that question again in the chat?
+Was it from Harry
+or Tushar?
+At the start of the class.
+One more thing guys.
+Before going.
+This particular
+test I have improved.
+No one even reminded me
+what happened to this.
+Test promotion.
+What we were doing was
+strict testing.
+I changed the logic of this.
+Again I pushed this code on the GitHub.
+You can see the code.
+I will explain the logic.
+The logic is very simple.
+What we are doing here.
+We are basically
+bringing our noise threshold here.
+So this is the whole code.
+The stage and all.
+We have added
+some things here.
+But why can't I see
+the latest code here?
+Let me see.
+I haven't
+pulled the code.
+What I will do is.
+Let me show you once.
+I will stash this particular thing.
+Otherwise it will issue.
+And I will pull
+the latest code.
+Get pull.
+Now we have
+our new file.
+What has changed in this guys?
+Here we are loading our thresholds.
+Here I have
+set the multiplier and
+set a minimum matrix to pass.
+The thresholds
+we are using here are noise thresholds.
+Why are we not using historical?
+Because it has a lot of variations.
+I was actually chatting with chat
+about which one to use.
+He suggested me to use
+noise.
+What we want here is
+if one or two matrix
+are a little behind
+our old version.
+Then you promote it.
+If the rest is ahead.
+So the variation should be very less.
+We have selected the noise one.
+Simply what we are testing here
+is the load code.
+You read exactly the same
+functions that we have already used.
+The testing code here
+is something like this.
+First of all we are calculating the difference.
+In the latest run and
+stage value.
+Then we
+are counting here
+that our particular
+matrix is
+better than the previous run or not.
+If it is better
+then we are
+increasing the count of better and equal.
+And if it is not
+then we are checking
+that the difference is
+equal to our tolerance level.
+Means is it greater than tolerance or not.
+If it is
+then we are adding it here.
+If it is not
+then we are failing our test here.
+So basically what is happening here.
+I will explain it to you.
+Maybe you don't understand it better than I speak.
+If I can turn on the
+annotation. Give me 2 minutes guys.
+I will explain it to you.
+Yes.
+So basically what we have done here is
+we have placed the criteria
+of 5 minimum matrix.
+And what is the criteria
+of 5 minimum.
+For the next stage.
+Let's say next stage is B.
+Current best is A.
+And B is to be made the best.
+So for that 5 matrix should be like this.
+5 of them
+who are
+performing better than my current.
+Means
+their matrix is above the current.
+If my faithfulness A
+was 0.97
+then here it should be 0.97 or above that.
+If my contextual
+relevancy was 0.8
+then here it should be 0.81.
+It will not be less.
+So if my
+from 7
+to 5
+if it will be less then
+I will simply fail this test.
+That 5 matrix should be
+improving.
+Now the remaining thing is of 2 matrix.
+In 2 matrix I am saying
+that ok. I will allow little wiggle room.
+How much wiggle room I will allow?
+My
+noise multiplier multiplied by
+my noise threshold.
+2 into standard deviation
+of noise.
+That much wiggle room I will manage.
+Not more than that.
+And this is the code.
+I hope this thing is clear to you.
+Again read this code.
+Fine fine fine fine.
+You can store this question.
+Again this is also easy.
+By we subtracted.
+If you have 1 minute then I will explain.
+I will hardly take 1 minute.
+Ok. So basically we
+subtracted this way.
+This threshold value
+what is this? These are my
+dynamic nature.
+Now here we are capturing 2 types of
+dynamic nature. In noise
+we are capturing that our LLM
+as a judge
+in that
+how much variation is there in configuration.
+And second we are judging here
+that the configuration we are changing
+between each run.
+How much variation is there in that.
+So what we did is added these 2 variations.
+Which is seen in your formula
+historical plus noise.
+And what is this? This is our wiggle room.
+Wiggle room means
+that our current best
+this is my current best
+minus my wiggle room.
+My wiggle room.
+I can tolerate this much for my next
+that if
+from my current best
+new one will be so less
+then also I will say that it is ok.
+It didn't regress. But if it
+fell down from this also. If it got
+lower than this then I will say that it is regressed.
+Because what we are testing in regression
+that it should not be lower.
+So there is a limit of lower also.
+You see like this that you gave
+attempt number 1.
+In that your
+batch came let's say 89 months.
+Now you gave
+attempt number 2.
+In attempt number 2 you are saying
+that if it falls below 85 then I will not tolerate.
+If it will come above 85
+then only I will believe that my attempt is successful.
+So that is
+the whole thing.
+Ok. So what we did is
+89 minus and here
+whatever we added that value came to us
+4. From there
+85 came.
+I hope now you understood the thing.
+From this example
+I think you understood it.
+Clear?
+Any more questions guys?
+Yes we are
+calculating the wiggle. Calculating
+the variation.
+Because for every one of our thresholds
+this wiggle was different.
+Every one of our thresholds was behaving differently.
+On improvement
+and also on this
+particular LLMSR judge thing.
+So we did not choose any hard threshold.
+We could also do
+that 10 is a hard threshold.
+This means that
+in current attempt 89 came.
+In next attempt above 79
+for any
+subject I will accept it as ok.
+We did a subject wise calculation.
+So this is basically my
+subject wise calculation.
+For every subject the room of tolerance
+is different.
+I hope this point is clear.
+Any more questions guys?
+Any question?
+Or is
+everything clear?
+Again this code is with you
+latest. You can check this one.
+Close today's session guys.
+Write clear in the chat
+if everyone is clear.
+Ok
+Fine guys.
+Ok
+Good night guys.
+Thank you

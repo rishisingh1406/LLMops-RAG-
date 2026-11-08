@@ -1,0 +1,2706 @@
+Hi guys, good evening. How are you?
+How are you all?
+Am I audible? Visible?
+Can you see my screen share?
+Quick check guys
+Great
+So let's wait for 5 minutes
+People are still joining in
+If you have any questions, you can ask me
+Let's start in 5 minutes
+Good evening guys
+Any questions?
+Let's discuss today's plan of attack
+What we are going to cover in upcoming lectures
+We will discuss that again
+I think last time, there was some confusion
+So people joined late
+I hope that confusion is gone
+And this swap is only for this week
+From next week we will be back on schedule
+Monday and Thursday will be LLM ops
+And Wednesday and Saturday will be LLM ops
+And Wednesday and Saturday will be LLM ops
+And Wednesday and Saturday will be LLM ops
+If you have any doubts
+Just connect your calendar to your Google calendar
+You will get all the updates there
+Questions guys?
+If you have any questions
+Let's wait for a minute
+And then we will start
+If you have no questions
+Write clear in the chat
+If you have no questions, write clear guys
+We can start now
+Is there a lag from my side?
+I am not getting any answer
+I am audible, everything is fine
+No lag
+Then write clear if you have no doubts
+Fine
+Let's start
+Let's start
+Before starting, I want to share some metrics with you
+And I want to share these things
+Not because they are my spendings
+I just want to tell you
+If you develop a project by yourself
+Like we are developing this project
+Then what cost can you expect
+That you have to pay
+Although this cost is my cost
+Because I was building this project
+I was experimenting, running evaluations in class
+So this is a little inflated cost
+I have bear this cost at my end
+But you don't have to pay this much
+Because you will do the evaluation
+Maybe 2 or 3 times
+So this is my cost per month
+This is my API spending
+And you can see on an average
+I am spending around 1500 per month
+On my LLM API
+Now you can see in this
+August month
+Clearly you can see
+Now you can see in this
+August month
+I have spent a lot of money
+Around 3500 rupees
+I have spent here
+And the sole reason for this
+Is that in August
+We were experimenting
+And you know that
+In the experimentation pipeline
+You have to do evaluations again and again
+Now evaluation is not only just
+Having a data set
+And you are testing it
+You are creating a data set again and again
+Our golden data set
+Is being made from our rag application
+And converting to an evaluation data set
+So creating an evaluation data set
+And then
+Running the evaluations
+You are bearing the API cost in that
+And the second thing is
+You must have seen
+That we have implemented our guardrails
+In this time of August and September
+We have implemented our guardrails
+And you know
+You know that
+We are using a lot of custom guardrails
+And we are using LLMs at the backend
+So we have to bear the cost
+Of these LLMs here
+And after the deployment
+We are running the tests
+And asking questions from our chatbot
+So we are paying the cost of inference
+So at multiple levels
+Cost is included
+And you can see that cost here
+You can clearly see that
+When we were developing our application
+And testing the evaluations
+So what was our cost
+But as soon as the experimentation phase came
+Our cost inflated
+Now how can you reduce this cost
+I will tell you the method
+The first method is
+Use smaller models
+Try that when you are practicing
+And making a resume project
+Then don't work with bigger models
+Although you will feel enticing
+That I will test big models
+But big models
+Bigger models
+Spend a lot of tokens during the evaluation
+So your cost will run away
+It is better
+To use smaller models
+You can work with
+Smaller data sets
+Although we also work with smaller data sets
+But I am using 14 transcripts
+If you want you can reduce the number of transcripts
+You can
+Evaluate with that
+That would be better
+And you can do less runs
+I think we did 10 runs
+To calculate the noise threshold
+Even before that when we were building the application
+We did a lot of runs
+And in this one more extra cost
+Is coming from contextual compression
+Because we are using a contextual compression
+With every inference
+We are basically doing 3 API calls
+We saw this during tracing
+I will show you again
+If I go to my tracing
+You can open any trace here
+You can see in every trace
+If I collapse all of them
+And expand it again
+Retrieval
+It takes the most time
+And the cost is also the most
+And if I expand this too
+Then this
+The 3 chunks
+That we are compressing
+Through the LLM
+In this we are taking a lot of cost
+And this is happening with every query
+So we can reduce this too
+There are multiple ways
+Actually what I have done
+In these 2 days I have run experimentation
+There are actually 3 techniques
+Which comes in your contextual compression
+One is your LLM extractor
+I will tell you this once
+Because I am also developing the application
+With you on the backend
+So I am also experimenting
+So here I am using the technique
+Which is LLM extractor
+What LLM extractor does
+It denoises the chunk
+It removes
+The noisy part from it
+Now whenever you use
+This LLM extractor
+You get a lot of reasoning tokens
+Because your model
+Has to think
+Which is the noisy part
+What to remove
+So your model is doing extra effort
+So your cost is getting higher
+One more way
+Here you can
+Use another component
+That is your embedding filter
+Here instead of LLM extractor
+You can use embedding filter
+Embedding filter is very simple
+It uses your embedding model
+And what it does
+It calculates your query
+And the noisy chunk
+In between
+It calculates the similarity score
+And it only keeps
+The chunks in the retriever
+At the end
+Whose similarity score is higher
+Than your query
+So you can set threshold
+But through simple comparisons
+Through similarity scores
+It does the comparison
+So the output of this
+Basically it doesn't denoise your chunks
+Either it keeps the chunk
+Even if it has noise
+It will keep it or either it
+Discards the chunk
+These are the two options
+But you can understand
+Because we are not using LLM
+It is the cheapest option
+And one is
+Last one
+I think LLM
+Is filter chain
+Whatever it is
+Basically it works like
+Embedding filter
+Here instead of embedding
+You use LLM
+You send your chunk to LLM
+And LLM tells you
+That this chunk is similar to your query
+Basically you were calculating
+Similarity through embedding model
+Here you calculate similarity score
+Through LLM
+And you get a boolier answer
+That should this chunk be true or false
+So you keep the chunks that are true
+On the end retriever
+And discard the false
+The good thing about it is
+That both the techniques
+Are cheap
+The bad thing is
+They completely discard your retrieved chunk
+So many times
+If any chunk is not of use
+Then your retriever can be empty
+Or you can fetch 3 chunks
+And you get only 1 at the end
+So what happens with that
+Your other metrics like recall
+Precision
+They get very bad
+And the good thing
+Sorry the other bad thing about this is
+That it doesn't
+Can fix your contextual relevancy
+Which we are targeting
+Because you are putting
+Noisy chunk as it is
+In your retriever output
+You are not denoising it from inside
+Either you are keeping it or removing it
+So if you are keeping it
+Then the intrinsic noise inside it
+Is still there as it is
+The best technique in my experimentation
+I will share the experimentation results
+In my experimentation
+This is the output
+If we switch to any other technique
+At this stage
+Then our architecture will fail
+In the regression testing
+But the problem is
+It takes a lot of time
+Latency and cost are increasing
+I hope you are understanding this point
+I want to show you the side of operations
+What all things you have to see in operations
+So this is one side of operations
+Cost
+And how to manage cost
+Costly component and how to
+Reduce it
+I hope this point is clear
+Is this point clear?
+If it is clear, write clear in the chat
+Is it clear?
+Guys
+Clear
+I want to show you one more cost
+Because we have gone towards deployment
+So our AWS infrastructure
+Cost of that too
+We have to bear
+I will show you the cost of that too
+Although I am incurring this cost
+It will not come in your case
+Because you are starting with AWS
+And you are in your free plan
+I have expired my free plan
+I think you get free tier for 1 year
+After that you don't get it
+So my account is old
+I have to bear this cost
+You can see the current month cost
+It is around $6
+You have to see
+Actually where I am looking at the money
+You can expand this particular
+Graph
+Billing and cost management
+And you can come here
+And see which service you are paying the most
+So you can see
+Here you can see the bar graph
+And you can hover here and see
+Which service is paying the most
+So I will show you
+This elastic load balancer
+Its cost is paying the most
+Around $3.23
+The reason for this is
+Elastic load balancer
+Which you are active
+Even if it is running in the background
+If you are not sending any traffic
+Still you have to pay
+Its cost
+So the solution is to turn off your load balancer
+But the problem is
+Your auto scaling group is dependent on load balancer
+Because that is the only way
+You get proper deployments
+So what is the solution
+The solution is to create your deployments again and again
+Create your deployments
+When you have to practice
+After that turn off all the infrastructure
+The other thing is
+Once you have practiced the deployment
+Now you know how to deploy your code
+Here you deploy your versions
+Everything you have learned
+After that you come back to your manual setup
+So we have done the same in today's class
+We have come back to our
+EC2 instance setup
+Where I have manually installed all the commands
+And run the docker
+Because the most cost
+You are paying for load balancer
+And the second
+The maximum cost
+To remove the tax
+Is your compute cost
+EC2 cost
+But you can see that it is around 1$
+Again I run EC2 instance for 2-2.5 hours
+And the rest
+I am practicing from my end
+So this cost is a little more for me
+Your cost will be around 0.5$
+So you can practice
+You can practice all this in 100$
+On AWS
+And the API
+I think you can practice all this
+In 5$ or max to max 10$
+I hope this thing is clear to you
+Is this point clear?
+Yes, you can create as many
+Free accounts as you like
+But the problem is that I am using this account
+Because I am working with this
+And that's why
+That cost will not come on you
+It will be in free tier
+I think load balancer will not come
+If it comes
+I have told you how to reduce it
+Is this point clear?
+So I have told you
+The cost of both infrastructure and API
+From where we are getting the cost
+And how to reduce it
+I have told you those techniques
+There are more techniques
+But the ones that I can see on my use case
+I have told you
+Let's move forward
+So far everything is clear?
+Yes, clear
+Let's move forward
+So let's do one thing
+Let's take a recap of what we have discussed
+In the previous class
+Because in the previous class we are starting a new module
+That is our post deployment
+I have told you post deployment
+What happens is after deployment
+You don't leave your application like this
+Deployment is not the end
+Of everything
+It is actually a start
+Of your observation and monitoring
+Which is your deployed application
+You continuously observe it
+Monitor it
+So in post deployment
+You have two aspects that we are going to cover
+First is your application monitoring
+In which we will discuss
+About tracing
+And observability
+And the tool that we are using
+What is its name
+Its name is Limefuse
+We have covered this tracing
+In the previous class
+And as soon as our application monitoring
+Will be over
+Then we will move to the
+Infrastructure monitoring
+For this we will use two tools
+Prometheus
+And Grafana
+Now you must be thinking
+When we are talking about application monitoring
+Or infrastructure monitoring
+You must be thinking that these are two
+Different aspects
+Application is a different thing
+Our rag application can change tomorrow
+It can be agentic
+It can be a summarization application
+It can be any type of application
+Application is changing yours
+Tomorrow your infrastructure can change
+The services that you are using for this application
+It can change tomorrow
+You see that the concepts
+Are exactly the same
+I will tell you how
+What are you doing in tracing
+In tracing you are simply
+Creating your logs
+Whatever hulcher is happening
+On your application
+You are recording that hulcher
+You are recording every step
+That is tracing
+Your input is coming
+Your user is interacting with your chatbot
+Giving a query
+How is it changing on every stage
+What outputs are coming out
+From that query
+How are those outputs generating the response
+That end to end
+That you are tracing
+That is your tracing
+And if I visualize that same logging
+Through a dashboard
+That is your observability
+Now let's talk about
+Infrastructure monitoring
+We are doing the same work here
+Not on our application
+We are monitoring the infrastructure
+On AWS services
+That whether it is working properly
+What is Prometheus doing
+Prometheus again is used for logging
+What are you doing
+You are monitoring the CPU usage
+Ram usage
+Network usage
+What you have to do for that
+Every second or every millisecond
+You have to track
+What is my CPU usage
+What is network usage
+And you will record it somewhere
+And finally what you will do
+You will aggregate your results
+That is what Prometheus is doing
+It is very similar to your tracing
+So what we do on the infrastructure
+First we do logging
+Tracing and then comes your Grafana
+Why Grafana is used
+You will see Grafana is
+An observability and monitoring tool
+It is also used to make your dashboards
+It is used to make dashboards
+So clearly application monitoring
+And infrastructure monitoring
+Although there are two different aspects
+But the method of doing them is the same
+Where is the difference
+The difference is only on the tooling layer
+So we will read the tooling layer
+But remember that the concepts
+We are discussing now
+Tracing, observability
+These concepts again we are going to
+Reuse in the infrastructure
+Is this point clear
+You can see both these things
+Diversified
+But there are many commonalities in them
+Clear guys
+If this point is clear then only we will move forward
+Clear
+Come on
+Now let's discuss about
+Tracing, let's take a small recap
+You already know about tracing
+Tracing is your logging
+We have discussed all this
+What are you doing in tracing
+Basically the query of your user
+You are logging
+Its journey
+Through your application
+Ok
+Your query came
+And from which stages did it come
+What things did it transform
+What outputs came out
+You are tracking everything
+And not only you are tracking
+Your query
+You are tracking your application
+Which has additional metadata
+Information of environment
+Information of tags
+Information of your prompts
+You are tracking everything
+Ok
+So this is our tracing concept
+Tracing is
+Every query is tracked and locked
+Simple
+Now let's talk about
+What is observability
+Observability is dependent on your tracing
+Ok
+It is the next thing you do after tracing
+You have traced
+But after that the story doesn't end
+After that actually the story begins
+What you do is
+You want to monitor your traces
+You have written logs in a log file
+But
+You will read those logs
+Only then you will understand
+How your application is behaving
+So reading those logs
+Visualizing those logs
+Is your observability
+Because you think
+You are tracing
+Every user's query
+And you can see
+Your individual traces
+If I talk about this trace
+Let's say a user has asked a query
+What exactly is sovereign AI
+Is it just about country having its own LLM
+Or does it include hardware and infrastructure too
+Ok
+So this is the question my student asked
+He got this output
+But besides output
+You have the journey of this query
+From input to output
+You have over tracked
+Now imagine
+That this application
+In one hour
+My 1000 students are using it
+And on an average every student
+Is asking 3 questions
+In one hour
+Do you think it is
+Manually possible
+That I read every trace
+The answer is
+Manually reading it is not possible
+To monitor anything
+I am saying you want to monitor
+Latency only
+Of 3000 traces
+Manually reading
+Latency is not possible
+For that we use
+Observability
+This is a way to visualize
+The traces you have logged
+And in observability
+You do one more thing
+That whatever your metrics
+Or whatever values
+You want to observe
+You don't observe them
+As single values
+It doesn't mean
+That if I am putting observability
+I will see 3000 values on my screen
+And understand
+What is the issue of latency
+No, I will always
+Work with aggregate values
+Okay, I will have
+Single values
+And for that I will use
+Some aggregate functions
+Common aggregate functions
+I will tell you because we will do observability
+So you will see
+First is count
+You understand count
+What you do in count
+So this is an integer value
+This is an increment
+You will add one by one
+As you increase the count
+Same concept guys, you will see in graphana
+So understand them carefully
+Then comes your next aggregate function
+That is min and max
+You know about them
+Minimum and maximum value
+And through this you will know
+The range of your metrics
+So you can calculate the range through them
+Then comes your average
+What is average?
+This is mean
+Let's say
+Within one hour
+How much did I tell you?
+You have 3000 traces
+So here you are taking out the average
+In the last one hour
+So what will you do first
+Add your latency
+You will calculate the sum
+And you will divide it by 3000
+This will give you your average
+Then comes your
+P50
+So what?
+Till this point
+Your 50% values
+Are equal or less than this current value
+This is your percentile value
+What is percentile?
+Either the value is similar or less than this value
+So what is P50?
+P50 is your median value
+This is your distribution
+Center, median
+Then comes your P75
+From the name
+75% of the values in your distribution
+Are either same or less than this value
+Then comes your P90
+P95
+And P99
+Now in this
+P95 and P99
+Are very important
+Ok
+Your median percentile value is very important
+And P95 and P99 are also important
+What does P95 tell you?
+P95 tells you
+That 95%
+Of the values
+Are either same or beneath this value
+Is less than this or equal
+So
+Our distribution
+Generally, if I talk about latency
+They are all right skewed
+What does right skewed mean?
+Right skewed means
+Our distribution
+Which is on the left hand side
+Means more on the side of less
+Whereas on the right side there is a tail
+This is called your right skew
+Here it is also called right tailed
+So what do we capture in P95?
+What we capture in P95
+Is that
+Our users
+Who are facing
+Latency on an average
+Means 95% of the users
+You can tell them that
+They are our users with whom
+The application is behaving right
+We calculate the latency of those users
+Ok
+The 5% outliers
+Or the bigger latencies
+We don't calculate them here
+Then comes your P99
+P99 is a little more extreme
+Here it captures more tail
+What does P99 say?
+That 99%
+Of the values are either similar
+Or less than this particular value
+This is used to capture more
+Tail
+So whenever you have to see here
+How much your tail is going
+You calculate P99 values
+Now you will have a question in your mind
+So P99 is ok
+Why did we leave the last 1%
+here?
+The simple reason to leave it is
+That there are some curious outliers
+Means generally
+They will not be in your application
+If your application is working properly
+Then those values will not be in your application
+But due to certain
+Conditions that are not in your control
+They come in your application
+You can think like this
+That your users
+Increased suddenly
+So what happens if your system
+Increased load
+Then its processing is a little slow
+So it takes time
+To process that particular request
+It is not your application's fault
+What is the fault?
+Due to increased load, your system's load increased
+And that load is temporary
+So scaling will not be there at that time
+Scaling is also in your 5 minutes
+Interval
+If the load decreases in it
+Then it is not a bad thing that you will start a new instance
+So in that case
+Some curious outliers come
+Which should not happen but
+They happen
+So we see our extreme outliers
+Through P99 value
+More extreme than them
+We skip them
+Because we think that
+These are one of cases
+There will be no benefit in monitoring them
+They are not telling us the actual picture
+I hope you understood
+So you understood the aggregate functions
+Is this point clear?
+Is it clear?
+In observability
+Guys, clear
+Great
+So what we will do in today's session
+In today's session
+We will build our dashboard
+Here
+We have traced it
+Now we have to visualize that tracing
+So we will build
+Custom dashboard
+We will apply observability
+Here
+I will show you some built-in dashboards
+In your LangFuse
+But how do you build custom dashboards
+And why are they good for your use case
+So we will not build
+Our dashboards blindly
+We will not build our dashboards blindly
+We will build our dashboards
+With the help of observation
+And build our graphs
+Is this point clear?
+This is highly practical
+There is no theory in observability
+I don't want to dump you with theory
+You should know this much
+Why we are doing observability
+Simple answer
+You can't see every trace manually
+So their aggregate result
+Its summary, its summary
+You can see in the dashboard
+Why the dashboard is made?
+You can figure out things there
+Something is increasing or decreasing
+You can see all those things there
+Is this point clear?
+Right clear?
+And if you have any question
+I will take 30 seconds
+Break, water break
+I will turn off the camera and start
+Building our dashboard
+I will show you
+What all things we are going to build
+So in total
+In our custom dashboard
+We will build our dashboards
+Or our visualizations
+Till then
+If there are any questions you can ask me
+If there are no questions
+Write clear
+And start
+So today we are not going to write any code
+Whatever we will do here
+The work of building dashboards
+All that is in our Limefuse UI
+So at the code level
+We will not make any changes
+In our application
+Start building
+So we will start building
+So we will start building
+So we will start building
+Start
+Write clear and then we will start
+Step by step
+We will go guys
+Once you come here to make graphs
+Easily you can also make graphs
+It is a very easy process
+Let's start
+Now we will go here
+In our UI
+So you will see this home page
+In home
+You can already see some
+Metrics
+Like total number of traces
+How much cost was there
+You can already see graphs
+How many observations you have tracked
+What was the usage of the model
+Consumption etc
+You can see everything
+Latencies etc
+So in this way
+You also build your dashboards
+This is your
+Provided dashboard
+You can use it
+You get some more custom dashboards
+I will show you
+The Langfuse home
+You saw
+This is the graph
+This is the dashboard
+This is your
+Belt and dashboard from Langfuse
+Now what is the problem of built-in dashboards
+You can't edit it
+You can either copy it
+Delete it or you can move it
+Now whatever information is coming in this dashboard
+You can't change it
+It says if you want to move it, make a copy of it
+And you can't customize
+These dashboards in the copy
+So they are good
+But they are not the best
+What is best is your custom implementation
+If you want to see the cost dashboard
+Then you see the cost dashboard
+You see something like this
+And if I show you here
+Latency dashboard
+So the latency dashboard
+Is something like this
+You can see the no data is coming
+And everything is empty here
+Because we are not tracking those things
+Or they are not available in our traces
+So what is the benefit of displaying them in the dashboard
+Dashboard is your real estate
+You have to use it very carefully
+You don't have to clutter it
+That you put everything here
+It doesn't have to be filled with unnecessary information
+That's why
+We make custom dashboards here
+Before that
+Let's add some traces here
+If I show you
+This is my PC2 instance
+Here is my application
+This is its backend
+And this is the frontend
+So here I asked some questions
+And took answers
+Basically I was generating traces
+So you can see here
+1,2,3,4
+I can see some sessions
+I asked some questions
+Let's create some more
+And then I will show you
+So I have noted the questions
+I can show you
+Just a second
+See here are some questions
+We can take any question here
+Let's take this
+Contextual compression one
+Because this is our ongoing problem
+So we use this
+As a question
+Here
+So here is the is
+It was not copied properly but no problem
+We will get the answer
+Let's wait for 2 minutes
+After that we will make our dashboard
+And what we will do in the next lecture
+In the next lecture
+We will do
+Online evals
+As I told you
+We will implement our Rack Triad
+But the thing is
+This online eval concept
+We will implement it
+Through an EC2 instance
+Now our application is deployed
+So the work of
+Pushing the score of the eval
+Online Fuse
+We do it in a certain frequency
+Let's say
+We are doing it in 1 hour or 6 hours
+So we run cron jobs
+You know about this
+So when sir was teaching you
+Cron jobs
+He was running locally
+But now your application is deployed
+So you don't put cron jobs on your laptop
+Because your laptop will run cron jobs
+Only when
+Your laptop is on
+If it is off then cron jobs will not work
+So for that we will use
+AWS
+So we will make an AWS instance
+A separate instance
+Which will simply
+Do the work of our evaluations
+And we will set our cron jobs on it
+And bring our scores on the line fuse
+So how do you load the traces
+On an AWS instance
+And how do you
+Push the scores after the evaluation
+We will learn all these things
+Now here we didn't get the answer
+Let's take some other question
+Let's take some other question
+Let's do this
+Didn't come is also good
+Some guardrail trigger
+If you want to see
+You can actually see
+See I will show you
+I will not show you
+What is the reason for not coming
+See this is
+Some guardrail trigger must have happened
+See retrieval has happened
+Retrieval has happened
+But you can see a warning here
+Your output guardrail has been triggered
+Reframe guardrail has been triggered
+And you got soft fallback
+And response failed validation
+This warning came
+If you want to know
+Which validation has failed
+So
+Whatever
+Reframe we had put
+It failed here
+And in the router
+You can see here
+Just a second
+I will show you the output
+See the reframe is visible
+So you took the path of reframe
+Maybe answer
+Relevancy guardrail has been triggered
+You can see here exception
+And warning or reframe
+Both are triggered here
+And we can also lock everyone here
+Now we are not able to lock guardrails
+Or internals here
+Because it is a third party software
+Not a part of the line graph
+But if we put these guardrails
+Through linefuse
+Then we can track them here
+And we can track them
+Let's go back
+Let's see if it's response is there
+Yes, it's response is there
+Let's make one more session
+And ask a question in it
+So
+We will go back
+And let's do one thing
+Let's take this question
+And guys
+This is not working locally
+This is working on my AWS
+A little bit of weight
+A little bit of weight
+Trace is here
+The second one is also coming
+As soon as it will be done, trace will come
+If I show you in sessions
+Then your sessions are also coming
+It's taking a lot of time
+There is one more fix
+It's a simple fix
+For that you will have to send a transcript
+On Cloud or chatgpt
+And you will have to tell chatgpt
+That from the transcript
+Whatever filler words or noisy content
+You have to filter it out
+And
+You have to get a refined transcript
+So what will happen is
+Our knowledge source will be cleaned
+The problem here is
+Contextual relevancy is not going above 80
+Because our knowledge source
+Is not good
+It has a lot of student interactions
+Because it's a live transcript
+And there are a lot of other things
+So it's a bit noisy
+What will be better is
+If you use it in your application
+Then you don't have to put this contextual compression
+You will get better scores
+I have not tried this
+But this is also a technique
+Through which you can improve your scores
+So
+You got the answer here
+And if I go to tracing
+Then you have also properly logged the trace
+And you are logging
+All the sessions also
+You can see six sessions there
+And six sessions here
+You can see how many individual traces are there in each session
+These are my
+Questions
+How many questions have been asked in each session
+So let's go
+Here
+Let's implement our custom dashboard
+So the first graph we are going to build
+That is your total trace count
+What will the total trace count tell us
+It will simply tell us
+How many traces are there on our application
+It will calculate the total traces
+So how do you have to do this
+So now you have to go to dashboards
+And here you have to click
+On new dashboard
+You have to give it a name
+We give it a name campusx
+RAD
+Dashboard
+Ok
+We gave it a name
+After that you have to give a description
+You can see the description
+Dashboard
+Used
+To monitor
+campusx
+RAD
+Checkbot
+Ok, we have added the description
+here
+Simply click on create
+You have created a dashboard
+And you will get a blank canvas
+Now you don't have any graph
+You have to click on add widget
+first
+After add widget
+You will get an option like this
+Now what is in this option
+If you go to home cards
+So the templates available in your home dashboard
+You will get them here
+I think there are 11 charts
+And you can see those 11 charts here
+So what you can do is
+You can use any template here
+Like if I click on it
+It tells me that I have 12 traces
+Ok, so I can use this
+Chart here but I will not use it
+I will create a fresh chart here
+from scratch
+So what you have to do
+To create a fresh chart
+You have to click on custom chart
+Why are you seeing these yaw widgets
+here
+Because I have created
+some graphs here during testing
+You can see them here
+In your case, you will see 0
+So I will click on custom chart
+And see
+You will see something like this
+Now this right hand side
+Here is your chart
+And this chart is with your live preview
+Live preview means
+You can see the changes
+in these options
+on the left hand side
+So you can visualize
+the changes you are doing here
+Now let's go to the left hand side
+Where you have to select
+things for your chart
+First of all, you will tell your data source
+The data of the chart
+From where will the data come
+So there are some ways to bring data
+First of all, your observations
+What are observations?
+Observations are
+Your single operations within a trace
+Like span, generation, event
+Agent specific
+All your events
+They all come under your observations
+Let me tell you what observations are
+If we go to tracing
+Let's open it in a new tab
+So see
+If we are not looking at our root traces
+So what we have is
+All the steps are visible here
+If I want to see
+my root observations
+These are my root observations
+Root means these are your single end to end observations
+And if you want to see all its components
+Then those are your observations
+If I expand it
+Then you can understand
+the individual observations
+So where will we bring the data
+We will bring the data
+from individual steps or observations
+Fine
+So there are other ways to bring data
+Like if you are putting evaluations
+Then you can bring scores
+But currently we are not putting evaluations
+So now we will work with observations
+Then you will tell
+What do you have to plot here
+What is your metric
+What is our metric
+You have many metrics
+These are your different metrics
+You can plot them
+Latency, streaming latency
+Cost, scores
+You can plot everything
+What do we have to plot
+We have to plot count
+It is written in the count
+Total number of observations
+So yes we have to plot count
+Then comes your breakdown dimensions
+What do you call breakdown dimensions
+Breakdown dimensions is basically
+Your group by operation
+That you want to group your graph
+On what basis
+This is showing you the
+Global observation
+Here you have not put any group by operation
+But you can put it
+Now I will show you how
+After that you will give your graph
+A name
+Here count observations are written
+If I change anything here
+I removed the parenthesis
+Then you will see the live preview on the right hand side
+A description
+We can replace the count of observations
+With traces
+Because we are visualizing traces
+We can put traces inside the count
+Instead of observations
+Now if you want
+You can see the count
+Through a line graph
+What is the benefit of line graph
+Line graph basically shows you
+Temporal data
+It shows you data in a given time range
+Like 9th September
+10th September
+It shows you week wise
+Past 7 days
+You can change this range here
+I will change the range here
+This x axis will change
+I will do past 1 hour
+This is divided according to hour
+Now what is the benefit of this
+Here you can see
+Changes with time
+This is your time based data
+But
+If I want to calculate the count
+I don't want to see
+That here
+With time how many traces are locked
+I want to see
+How many traces are there in my system
+So total
+If you want to calculate
+Total
+You have to take a different chart
+Now you can see
+Different charts
+Two categories
+One is time series
+Time series is to show your temporal data
+Like your line chart
+Or your bar chart
+The lines in bar chart
+Are shown in bar shape
+And rest is your total value
+If you want to show
+Only one single value
+You can use these chart types
+Horizontal bar chart
+Vertical bar chart
+It will show you single value
+So every chart has a different use case
+You can select the chart according to you
+We will select this big number
+What will big number show us
+It will show us the count of our traces
+Now you will feel
+Is it a count of our traces
+How many traces do we have
+I think if I see here
+There are 12 traces
+But what is showing us
+97, keep in mind 97
+Because these are your number of
+Observations
+All the steps in each trace
+We have to add a filter
+Here
+We are not observing
+We are
+Tracing traces
+What you have to do for that
+You have to go down
+In the filter
+And you have to take this filter
+This filter will show you
+Here also
+And what we have set its value
+True
+You have to do that
+And you can see
+Your number of traces
+Now why are these 3 visible
+Because we are calculating past 1 hour
+But what we have to do
+Is to take the total
+So let's take today
+Past 1 day
+You are getting count of 12 traces
+Is this point clear
+How do you set the observations
+You get only these options
+You have to make changes
+And set the observations
+Everything is clear here
+Yes
+Yes
+But let's say
+Use case is
+You have to see
+How much traces
+My user has generated in each session
+What will you get from that
+On average
+My user holds
+How long
+Sessions
+You may have to see this information
+So what will you do here
+Now see here
+Because we are giving a single number
+So the option of group buy has gone
+For that you have to choose
+Some other data type
+Like if we choose here
+Pivot table
+What is in pivot table
+You can see the data in the form of table
+So here you can see total 12
+But here I don't want to see
+Total, what I want to see
+I want to see
+Based on the
+Group buy
+So what I will do for group buy
+I will use this dimension one
+What is the dimension
+Basically it is used for group buy
+And I will go inside this
+And I will select my session id
+Now here you will see an error
+Invalid query
+What you have to do for that
+See it is written
+Never worry if there is any error
+High cardinality dimension session id
+Require both config rule limit and
+This error is saying that
+How many session id can be
+If your chatbot is running
+Inside the production
+So how many sessions can be
+100, 200, 500, no limit
+So how much will you plot here
+So you have to set a limit here
+What will you have to set the limit
+You will tell here row limit
+We say that show us only
+10 sessions at the top
+OK and how to sort it
+See here the sort column is written
+So what will happen here
+Sort on the basis of count
+In descending order
+And you can see here
+How many traces are there
+In your individual session
+Is this point clear
+And what you have to do simply
+Save it and see
+Here you can see
+All the things
+Now see the moment I clicked
+It broke, why it broke
+And it broke
+Because it will not work in ascending
+It will work in descending
+Again I will save and it will come here
+But if there was
+Any other group by operation
+In which you view in ascending
+You can see
+Sorting in ascending order
+So what is this telling
+It is telling that there are some session id
+Where we are doing
+Long chats and some
+Where small chats are happening
+Is this point clear
+You can make a small change
+In your UI
+What you can change in streamlit
+With session name
+You can print a session id in UI
+And you can match the size
+You must be thinking
+Sir why we are not setting
+Session name here, why setting id
+Because two session names can be similar
+Because session name
+Is generating our LLM
+So if we will give same question
+As we gave in previous session
+So same name will be generated
+There is a high probability
+So there should not be any conflict
+So we will work with session id
+These are your unique id
+Is this point clear
+How you see the count
+You can make it very small
+By dragging
+And you can move it
+In your entire canvas
+This is your edit button
+And you can also copy it
+And you can download it as JSON
+Or CSV
+We will copy it
+And we will paste it
+Here you will go
+Paste widget
+We will allow
+One more copy is made
+What we will do in this
+We will use our
+Other type
+Where we can see total number of traces
+16 is visible
+Because it is past 7 days
+We will select past 1 day
+And we will save it
+You can change its name
+You can do count traces per session id
+We will do it
+We will do it
+You can do it here
+Per
+Session
+Id
+Per
+Session id
+Save
+Just a second guys
+This zoom interfere
+It is better
+What you can do
+You can drag it and bring it here
+See
+And with this we have made
+This graph
+Clear
+Simple, nothing difficult
+You saw, easy
+Let's go to
+Second graph
+Right clear
+Then let's go to second graph
+Now we will make it fast
+If you get the method to make it
+Then we will make other graphs fast
+Yes
+Now next we have to make
+Model cost table
+What model cost table tells us
+Model cost table will tell us
+That all the generations
+We are using generation traces
+Because we are using our LLM
+So which model version
+How much cost is coming
+We want to calculate that
+So you can calculate
+Model cost in two ways
+You can actually calculate
+Average cost
+On an average, in one generation
+How much cost is being taken
+And you can also calculate
+Total cost
+Since your application is live
+So how much you have spent on that
+Your API cost will come out of it
+So here we will capture both
+In our visualization
+Average and total
+How do you want to do
+I will show you
+Add widget
+Go to custom
+Table is better for this too
+Because we are showing two pieces of information
+You will select observations
+Now here you will not select count
+What will you select? Total cost
+Here is your total cost
+In total cost
+You want sum and average
+So first of all we will change the chart type
+Let's do pivot table
+You can see total cost
+OK
+And you will also
+Select
+Second metric
+Second metric is again your total cost
+But this time we will calculate average
+So you can see total
+Of sum total cost
+Of your model and average cost
+But here
+There is no model wise information
+Where will model wise information come from
+From our dimensions
+From group by
+You have to go in this
+You have to go down
+And you have to select here
+Let me see
+Provided modeling
+If you hover here
+Then you will know what is the option
+You have to select use for the observation
+You have to select this
+OK
+Because we are using only one model
+So its information is coming
+But you can see here if you use multiple model versions
+Then you will get this information
+Let's do past one day
+And this is your information
+OK
+Simply what you have to do here
+You can see here the title
+And the description
+It is coming automatically here
+You are getting information here
+Now you can see clearly that here
+This NA value is also getting captured
+Why is this NA value getting captured
+Because in any trace
+We are not able to properly log the model information
+Maybe our guardrails where we are using LLMs
+There is no model information coming
+So what can we do
+We can clean it a little
+For now we can set the limit here
+That is 1
+So we will get only one model
+Tomorrow if you are using different models
+Then you can basically tweak it
+Let's drag it here
+And bring it here
+Let's readjust it a little
+And let's readjust it a little
+And it is too much
+Let's make it smaller
+And like this
+OK
+So we have added this graph
+Now what we have to tell
+Next graph is
+Model cost by type
+And model usage by type
+And these two will be our line charts
+Basically what we are telling in this graph
+In this graph we are telling
+That your model cost
+In it
+Input cost is coming this much
+Reasoning cost is coming this much
+Output cost is coming this much
+That means internally your costing in the model
+We are segregating it
+So it is being segregated by type
+So it is segregated by type
+So it is being said by type
+So you want to see
+In your generation
+How much is the cost in reasoning
+How much is the cost in input and output
+And model usage means
+If you see usage in linefuse
+Then you will understand that this is your
+Number of tokens
+You want to see number of tokens based on
+How are your input tokens, output
+And reasoning
+And why are we plotting them in line charts
+Why are we not plotting it in two tables
+The reason is that we want to see
+The pattern of our cost
+And token usage
+With time
+How is our cost affecting
+And with time
+How is our token usage affecting
+From that we will know
+What kind of inputs our users are sending
+And what kind of generation is happening there
+Are big paragraphs
+Being generated, small ones
+Everything will be clear
+Let's build this
+To build this we will use add widget
+We will go to custom chart
+Again observation
+What will you do in metric
+You have a special metric cost by type
+It is written here
+Sum of cost per category
+You will select this
+Now you are getting a boring graph
+You will say that
+We have selected by type
+But type is not coming
+Where will type come from?
+You will get type when you will put group by
+You will get type on cost type
+And see guys
+How beautiful graph
+You can see here
+Simply we can do this
+Past one day
+And we save it
+And see guys
+It is telling you
+If you hover here
+It is telling you how much cost is coming
+Total cost is coming
+Input cost is coming
+Output cost is coming
+So you can see clearly
+Input cost is always less
+Than your output cost
+So you can see it in the graph
+I think four times
+So you can see this four times
+Difference in the graph
+And this graph is your width time
+As you will keep on doing more conversations
+It will keep on increasing
+Currently it is showing 9 pm
+It is 9 pm
+As we will keep on increasing
+Graph will keep on increasing
+Is this point clear?
+And this is live
+Same we will do here
+With our token usage
+Making a graph of token usage is very easy
+We will go to custom chart
+We will select here
+Metric
+Cost by type
+Usage by type
+If you come down, you will get
+Same thing
+We will go here and
+Select usage type
+And see
+Here we will go down
+Select range
+We will keep one day
+And you can clearly see
+In seven days you were seeing a little different
+See this was a little different
+And in one day
+This is different
+But information is carrying there
+These are your tokens
+This red one is your total tokens
+And how many are there in reasoning
+In output, input
+And in generation
+So you can see clearly
+That your input tokens
+Are more than output tokens
+So means model
+Which is generating output
+In that number of tokens are being spent less
+Whereas the user asking your question
+Is more
+And in this input token
+You will get the same
+So we are taking that in account
+So we will click on save widget
+And this is our other graph
+It is easy
+It is getting clear
+But you are getting reasoning behind every graph
+We are using our real estate very well
+We are not spreading any clutter
+It is not like we have added unnecessary graphs
+And we are just building
+Anything here
+We are arranging things
+With a lot of thought
+It is getting clear
+And same thing you do in Grafana
+Grafana's setup is also
+Very similar
+Just there
+You monitor different things
+You might be feeling easy
+By seeing monitoring
+But you see
+How much information
+You are getting here
+In a very concise form
+Now you think your application is running
+And you have this dashboard
+How easily
+You can monitor everything
+You can see everything here
+So we have made this graph
+Next
+What we have to make
+Next we have to check
+Per session token cost
+Basically we want to see
+Activity of our session
+How long our sessions are running
+How much cost
+We have to bear in them
+So we have to bear
+To make that
+Again we will use the head widget
+We will go to custom chart
+Here we will go to metric
+What we have to take metric
+Total cost
+Right
+You want to calculate total
+So here you
+Aggregate function will use sum
+You can take average or max
+All options are available here
+But we will take sum here
+What is our chart type
+Our chart type is bar chart
+But we are also using group by
+Group by on which we are using
+Based on our session id
+And you can see here
+Here per session you can see
+Total cost
+Simply
+Let's do it for past one day
+And let's save the widget
+Let's save the widget
+Again you can set limit here
+One second
+It is a little small
+We will put it here
+Here you can edit things
+What you can edit is you can set limit
+Let's say you want to see
+Your
+5 or 10 most costly
+Sessions which are they
+And what total cost you are giving them
+Here we have set limit of 10
+And see
+Now you will see top 10 sessions
+Session id
+Is not able to be printed here
+Because they are big
+There is no option to rotate
+But you can hover and see
+Session id and total cost
+Interactive
+I hope this point
+Is also clear
+One more thing we will calculate
+Average cost
+And token usage per session
+What is your average cost
+And what is the token usage
+Per session
+This information is also
+Important to calculate
+This is telling you the total cost
+That in every session
+How much total cost you are getting
+You also have to see that in your session
+How much average cost you are getting
+Means how much cost you are getting in one query
+Or how much average cost you are getting in one session
+Ok
+And you will calculate token usage
+Per session
+On an average
+How much cost you have to pay
+For that we will select
+Add widget
+We will go to custom chart
+Guys now you have to keep one thing in mind
+Title description
+I am not showing you that by changing it
+Because it is a very mundane task
+You do that
+Don't leave everything on me
+I am showing you by building these things
+You can do that here
+I hope this thing is clear to you
+So now
+If I show you from behind
+Let's close this
+I go again
+To dashboards
+And let's go to this
+Now you will see this table
+Here we were calculating
+Only one metric
+Now we have not calculated any table
+Where we have multiple rows
+And multiple columns in columns
+This was where there were multiple columns
+But only one row
+So here
+2D table or matrix
+Will be built here
+For that you have to go to metric
+Before that you select
+Pivot table
+Ok your table is here
+Now you will tell metric one
+What is metric one
+It is your cost
+You will go here
+Total cost
+Total cost
+Here is the aggregate function
+You want to calculate average cost
+Then you want to put another metric
+Here you will tell
+What is metric
+It is usage
+Use means your number of tokens
+So you will go total
+Tokens
+And here also
+You will calculate average
+And this is it
+Ok you have done this
+After that you will go to dimension
+And you will apply the group by operation
+What is group by
+We want to see on the basis of session id
+Again he will say
+Cardinality is more here set
+We want to set let's say
+Top 5 sessions
+Average of top 5 sessions
+Or
+You want to see average token
+And average cost
+Ok so 5 is set
+You want to set order by
+So you can sort here
+You can do it according to any column
+Which column you want to sort
+Let's say I want to sort based on the cost
+So here you got things sorted
+And why did I select cost
+Because it is understood
+The more cost it will be
+It means there are more tokens in it
+Tokens is your cost
+So you can sort on anyone
+These are my 5 sessions
+Which are a little expensive
+And one more thing
+We can do in this
+Let's add one more metric
+That is our number of traces
+With that we will know
+In this session
+How many observations we have recorded
+So total count has come here
+And we have to add a filter
+We have to add filter
+Based on the
+Root observation
+And you can see
+Why did cost stop
+I don't know
+Here observations is coming
+Here that thing is being calculated
+Whatever it is
+We will save it here
+And we take this table
+To this side
+Let's make it a little smaller
+And let's drag it over
+Here
+Let's do it here
+I think it is better to do it here
+Let's arrange it a little
+Yes, so we did it
+Yes, so we did it
+A little order has been changed
+Nothing is being adjusted here
+Again you can fix it
+A little
+Ordering is custom
+You can change things
+We are not focused on that
+So this we have also done
+Yes, this is a very important table
+Latency for each component
+What we will do here
+Latency of each component
+We will see the latency of each component
+Which components
+Are showing more
+Latency here
+And here we will see the entire
+Percentile table
+We will print p50 here
+We will print p75 here
+We can see or not
+90, 95, 99
+We will print all here
+And we will print the maximum value here
+So there will be a lot of information
+here
+Here we will see the group by operation
+Component wise
+And every component
+p50 latency, p90 latency
+95, 99 and max
+All values will be visible
+Very useful table
+You will get a lot of information in one table
+This is a very dense table
+Let's go to custom chart
+Again the method is very simple
+You will go here to pivot table
+You will select
+Past one day
+You have to select things here
+First of all you have to tell your metric
+What is metric
+Metric is your latency
+Here is your latency
+Which you will select
+Which latency you want to calculate
+Which latencies we want to calculate
+here
+p50, 90, 95, 99
+and max
+We will not keep average here
+We will select p50
+After that
+We will select add
+Again we want to calculate latency
+Which one
+p90
+Then we want to add latency
+Which one
+p95
+Then we will select latency
+Which one
+p99
+Add and finally we will select the max
+Latency
+Max
+See we have all the values
+But these are the total values
+All the total
+Traces are coming to us
+p50, 90, 95, 99
+and max
+Which latency we want here
+Component wise
+Again we will apply a group by operation
+What you have to do in group by operation
+You have to go here
+In the name
+Name of the observation
+What I have told
+Every single stage of operation is your observation
+You will name it like this
+You can see the steps
+Augmentation, chat response, chat open AI
+You can see many types of observation
+But it is not important to see
+Latency of all the observations
+See this
+Runnable sequence
+It is showing the total of a runnable sequence
+We don't know which one is this
+Output, parser, what will be the latency
+So what you have to do here
+You have to filter out
+all these information
+Filter
+What will we do in filter
+We will select observation name
+We have to filter
+Observation name
+There are two options
+Any and none
+Any means include, none means exclude
+We will select here
+Which information we want
+For that
+We can open a trace
+We want input guardrail
+How much time it takes in input guardrail
+How much time it takes in retrieve
+See
+After that
+Retrieval guardrail
+Augmentation
+Generation
+Output guardrail and that's it
+You have to filter
+These names
+We will go here and select them
+We will go down
+We will select augmentation
+Generation
+Input guardrail
+Output guardrail
+Retrieval guardrail
+Retrieve
+We can leave these
+We can leave this too
+I think these are
+Our steps
+Let's see
+These are the 6 steps
+And these are the 6 steps
+We have captured this information
+We are able to capture the latency of every component
+We are able to capture the latency of every component
+Now what we have to do
+We have to do sorting
+Because what we want
+We want
+The latency we see
+According to P95
+In the descending order
+So obviously you know your retrieval step
+Is the slowest
+So you can see P95 latency at the top
+And you can actually see the complete
+Distribution through this table
+Let's drag this
+It won't come here
+I don't know if this right space is available
+But still it is not coming
+Anyways whatever
+It is done
+Why is it not being dragged properly
+It gets dragged suddenly
+See
+Now you can see this table clearly
+And understand
+Let's give it a title
+It is a little big and useless
+Let's give it
+Title as
+Component
+Twice
+Latency
+See
+Now you can see
+In this graph clearly
+You can understand guys
+Should not have messed with it
+Just a second guys
+It's UI is a little misbehaving
+Now you can see clearly in this graph
+You can understand everything
+In your retrieval
+What is every latency
+In your generation
+How are the latencies
+Input guardrail
+And how are the limitations in the documentation
+You think about it
+This information is with you
+Of your application
+You can judge it easily
+Don't you think guys
+How easy is it to judge
+Let's do one thing
+Let's take some rest
+And I will take your questions
+I am tired of talking
+Question
+Is it possible to publish so that all admin
+Can view this entry
+Yes
+Basically this plan
+This is a hobby plan
+But if you go to upgrade plan
+You get enterprise plans
+In that you can actually create multiple users
+And share these dashboards
+Between users
+So every user who will access
+Can see this dashboard
+And share it
+Now because we are working in a free plan
+So single user is only allowed
+Any question
+How did you feel
+By seeing these things
+Observability
+Is very important
+You should know
+What are we making here
+We are not taking any metric
+And running randomly
+Everything is making sense
+And you can see
+All the information
+In one shot
+Let's move forward
+This is done
+P95 input cost
+And this one
+You can make
+When you understand
+Or I will make one
+I will show you the input
+And you can make the output
+Just a second guys
+We will go to add widget
+We will go to custom
+We have to go here
+On latency
+We don't need average
+We need P95
+And you can see here
+According to session
+But we are seeing total
+Past one day
+We will save the
+Widget
+This is simple
+And here you can see
+P95 latencies
+And how the width time is changing
+You can see that too
+I will drag it here
+And this is it
+So this was easy
+We have done this
+P95 input cost
+Not latency
+I will fix it
+In metric
+Input cost
+Here it is
+Your cost is changing
+With time
+And what is time
+This is your P95 cost
+I saved the cost but it is showing
+Latency
+P95
+Cost
+P95
+Cost
+Past
+Let's do one day and save
+This is done
+You can do the output
+Same procedure
+Top 5 slowest components
+This graph, can someone tell me
+How to make it
+Top 5 slowest components
+I would be happy if someone can tell me
+Here is the dashboard
+You tell me
+Top 5 slowest components
+I want to see
+In my application
+Which are the 5 slowest components
+Top 2
+2 such components that are very slow
+How will you know
+Guys
+Tell me
+Anyone
+Will someone tell me
+Top 2 slowest
+Components
+If you are
+On your screen
+Look and tell me
+Is it already available in component
+Yes
+But you have to make a different dashboard
+This is component wise latency
+Here you can see all the components
+But if you have to tell in one go
+Which are the top 2 components
+How will you plot it
+Simply what you have to do
+You have done this
+Copy or clone it
+We have copied it
+And we have pasted it here
+It came
+We will go to this and edit
+We have added all these things
+What we have to do here
+If we want to do top 2, we will set the limit to 2
+And here
+Component wise latency
+We will tell
+Top
+It is very troublesome if it is auto fill
+Top
+Slowest
+Components
+Let's remove the description for now
+You add
+Ok, it is not moving
+If you have to keep something, then he has kept it here
+Whatever it is, let's save
+Let's do past one day
+And save
+So my
+My retrieval step and generation step
+This is one of the slowest
+Components of my pipeline
+Clear
+It was easy
+We have done this too
+Average latency per session
+You can also plot this
+I hope you understood this
+How to do observation
+Clear
+Guys
+Yes
+It was intuitive, easy
+You can also explore with other graph types
+You can also see a pie chart
+You can see that too
+Different chart types come
+Most of your tables
+Bar graphs and
+Line graphs are used
+You can also see histogram
+If you have any
+Data distribution
+If you want to plot it, then through histogram
+But the problem is that we have very little data
+So we can't see histogram
+We can make histogram for latency
+I will show you
+If you want to see
+Distribution, latency
+You will go to custom chart
+And here you will select
+Latency
+After latency
+You will select histogram
+See
+You can see histogram
+Bucket size here I think
+It is being set automatically
+If you do past one day
+You can just tell the number of bins
+You can tell the number of bins, your bucket is automatically being calculated
+So we will do number of bins
+Let's say 5
+And save
+See
+So almost
+Your latency is
+Landing in this bucket, but some of you
+Very slow
+You can see the responses
+So this is your histogram
+So this is your histogram
+You can do it for
+Component
+So you have one option available
+I have shown you
+You can play around with this
+Now let's discuss
+How do you set alerting here
+We have learnt to do observation
+But alerting is also important
+What will alerting tell you
+If any of your metric
+Breaches the threshold
+Then you will get
+An alert
+You will get a notification
+Alerting is simply notification
+So what you will do is
+Go to the alert section
+Now remember guys
+Your hobby
+Tier
+You get one alert to set
+So here although we will not set any alert
+Because we don't have traffic
+So that we can see the alert
+How to set that I will tell you
+I will give you the why
+And how
+You set this thing by yourself
+So here
+You can send alerts to these three platforms
+Either you can
+Send it to slack
+If you want to send it to slack
+You will get the option of slack
+You simply
+Integrate with slack
+And select slack channel
+You will get an alert
+I will show you
+Here
+How to set your alerts
+Through webbooks or get up actions
+So you have to
+Click on create alert
+You will get
+A chart
+Alert configuration will come here
+Now you have to
+Set an alert
+That your latency
+That should not be
+Greater than
+2 minutes
+Or 1 minute
+P95 latency should not be more than 1 minute
+So you will go to measure
+You will select latency
+Which aggregation you want to use
+P95
+So you will get a graph
+After that you will tell the threshold
+In alert conditions
+You have different operators
+Above or equal to
+Basically greater than or equal to
+Less than or equal to
+Equal to or not equal to
+These are operators
+After that you have to set your threshold value
+Here you will see
+Two threshold values
+One is alert
+I will explain the difference between these two
+Warning is basically
+You don't have alert
+But you will get warning label
+On your dashboard
+Warning is
+It is possible that
+This threshold will be breached
+This metric will breach the threshold
+So warning will tell you that
+Like I have set the threshold
+For warning 1.8
+So here
+Yellow mark is there
+If I set it to 1
+It is telling that
+Alert is needed
+Let's set it to 1
+Now what is 1
+Red is set
+It is showing red color
+And red is set as alert
+And
+For this we will set
+Let's say 0.8
+So here
+We have set this yellow thing
+Basically warning
+What does it tell you
+Warning is that
+As soon as the latency goes above 0.8
+It will get warning tag
+But no alert will be raised
+And as soon as it goes above 1
+An alert will be raised
+But you never raise alerts
+In a jiffy
+It's not like your traces are coming
+And your latency P95
+Went above 1 second
+So you sent an alert
+You monitor the alert
+Until some time
+There is a warm up period
+You wait in that warm up period
+What is the latency
+It is above 1 minute
+If it is there then send notification
+It is possible that
+In a certain use case
+Your API is down
+Cat GPT
+Your open AI model
+So you are re-try
+Re-try on the backend
+And your latency is increasing
+But in 5 minutes
+That API came again
+So in that case you won't raise an alert
+You will wait
+So this is your warm up time or waiting time
+You can select options on this
+OK
+After that you tell
+Where you want to send your notification
+So you will click on automation
+Either you can send it to
+Webbook, Slack or Github Dispatch
+Let me tell you what is
+In Webbook
+Basically you send
+Post request on a URL
+So in Webbook
+You have a listener
+Which is basically a machine
+Where your server is running
+And on that endpoint
+It listens for a post request
+As soon as you send a request
+The code written in that endpoint
+It gets triggered
+Let's say you have written a code
+That on your screen
+A big alert will be printed
+And the bells will start to ring
+So as soon as you send
+Your alert on that Webbook endpoint
+A big alert will be written
+On your screen
+Like in movies
+OK
+So this is your Webbook
+And the second is
+You will go to automation
+Github Dispatch
+Which is again very similar to Webbook
+But in this you tell
+That your action is saved there
+We saw Workflow Dispatch
+In Github actions
+You have a prebuilt action on Github
+So you will send a post request
+On Github
+And trigger an action from there
+In the action, your code can be
+That you have to do something to raise an alert
+That thing Github will do
+For you at the end
+I hope you will understand this
+So you will understand Webbook is basically
+Your self hosting
+Or you have to do it on Github actions
+So you can use this Github thing
+OK
+Again because we are not working with
+That scale here
+But I will tell you the method
+It is super simple and you have to know more about alerts
+So simply what you do here
+Langfuse
+Alerts
+Type this alert page
+And you can see here
+So this is available in all tiers
+I told you one but there are two
+In free tier you can set two alerts
+OK
+Creating an alert is very simple
+You tell the data source first
+You tell the metric on which you have to raise an alert
+And after that you set the threshold
+We have seen this
+OK
+Alert threshold is required
+Warning threshold is your option
+OK
+Now I will tell you the difference between both
+Here your alert states are written
+OK means
+It is within bounds
+Means your metric has not reached
+Warning or alert limit
+Warning is that warning has crossed
+Alert is that alert threshold has crossed
+Now when notification is fired
+When you have a notification
+On Webbook or Github action
+It goes when
+From OK
+It is on warning and then
+It goes to alert
+Then there will be a warning threshold
+And as soon as it goes to alert
+After 5 minutes
+That notification will reach you
+After that a recovery notification
+Also goes to you
+When your metric comes back from warning or alert
+On OK
+Means everything is under control
+Things are fine
+So a recovery notification also goes
+And if you are not able to fetch data
+From your traces, then a notification of no data also goes
+And how does the notification look like
+Because we are sending a post request
+It is written here
+You can send a post request from Webbook
+With JSON payload
+And with Github actions
+You can trigger a manual workflow
+Which will trigger your alert
+OK
+Now the JSON payload
+Goes to you in this way
+So when the post request goes
+Or Github dispatch goes
+It will send you an alert in this way
+This is the complete information
+So this point is also clear
+Is this clear guys
+Everything is clear to you
+Again we are not setting alerts
+Because we don't have the
+Data
+To set the alerts
+We don't have the scale to set the alerts
+You can do this, very simple
+I have shown you the method
+Clear guys
+The easiest way is to send alerts on Slack
+Integrate with Slack
+And send alerts on Slack
+Let's go back to the dashboard
+And let's open our custom dashboard
+This is it guys
+This is all we had to do today
+Is it clear
+Is everything clear
+Now I will turn on the camera
+And ready to take your questions
+Apart from 3
+Is it possible to integrate
+To mobile or any other device
+No, but Jitender sir
+You can do that only
+You can send through webbook
+Like if you have read NA10
+So there are webbooks in NA10
+And in many other integrations
+There is a feature of webbooks
+Webbook is nothing
+But a server which is constantly
+Listening at that end point
+That no one is making a sound
+And the sound that comes
+Captures the data in that sound
+Basically it is sitting
+Because when will the alert come
+And when the alert comes, it triggers some action
+Now you can customize that action
+And write
+Maybe you have integrated NA10
+Or ZPR
+So your NA10
+Workflow will run
+And it will send an alert message on your WhatsApp
+It will read the data from this JSON
+You will pass the JSON
+And read the alert from it
+And you will identify
+Which component is faulty
+And you can send that alert message on your WhatsApp
+So everything is possible
+You just have to customize a little
+No, here
+On the LangFuse
+You have only 2-3 options
+Slack, Webbook and GitHub
+How you want to do it through Webbook
+That's up to you
+How was today's class
+It was very practical
+There was no theory
+But you understood the observation
+If you understood today's observation
+Class
+Then the Grafana class will be very easy
+Because you will get a piece of cake
+Because the same concepts will come
+We will build a dashboard
+We will aggregate the metrics
+And display it
+And set the alert
+Everything is very similar
+There will be a new tool
+And its UI will be different
+But the process will be the same
+Now what we will do in the next class
+I told you
+We will run our online evals
+3 are our rack tried metrics
+And one is our custom metric
+I think the simple answer metric
+We can run that reference list
+That is also reference free
+So we will run 4 metrics
+Through a cron job
+That cron job will run on AWS
+Not your local system
+Your code is over
+So the GitHub repository you have
+That is the final version
+Of the project
+We will not change anything in the code
+Whatever our implementation will be
+That will be through AWS
+You will not change anything in the code
+Any doubts?
+Yes, we are done today
+That's all
+Because you can start the evals
+We have only 20 minutes left
+That's all for today
+Good night
+If you don't have any questions, write clear
+Then we can close off the session
+If you have any questions
+You can ask me
+If you have any feedback, you can give me
+If you want to know the plan for the future
+Live sessions will be
+In September
+The project in October
+The agent one
+I will give you that in recorded form
+In lectures
+Okay, bye
+Thank you
+If you don't have any questions, write clear
+I think today the questions
+Would be less because today it was very practical
+And also easy
+and guys do practice you will like it and learn a new framework
+a new tool you will learn Langsmith is better than Langsmith you can see
+here the information you are getting now sir was calculating that day
+I think he was showing the average latency in P95 P90
+but you can see here you are getting all the options
+you can judge its power with that only
+how much better than Langsmith
+I think that's it guys no questions
+I am closing off the session
+bye guys we will meet on Monday
+ok
+I am signing off good night guys
+add one note pdf if possible
+I have asked Hadik sir for context engineering
+once you check your dashboard
+I had told him yesterday to add one note
+I will ask him again tomorrow
+and I will update one note of LLM Ops
+so you will get that too
+fine
+see you guys on Monday
+bye

@@ -1,0 +1,1869 @@
+Any questions guys?
+It is difficult to tell you how many classes will be there
+But we will touch more on practical side
+My target is to complete our rag LMAO by next month
+I will tell you how many classes will be there
+We will cover everything in detail
+I have pushed sumit last time
+Let me see
+It is showing modified
+We have not completed the changes yet
+You are watching it side by side
+Great
+Questions guys
+Let's start in 2 minutes
+Any questions, feedback, details?
+Our flow will be organic
+We will cover everything step by step
+You will not feel any changes
+I don't understand why we included this step
+I will read it myself
+Share the resources you have checked out with me
+I will read it and guide you to better resources
+You are getting these notes
+It will be a book
+LLM is more practical
+It will help you more than implementation
+I will have to make a workflow for code
+We will do that at the end of this playlist
+Let's start
+Let's start
+Let's recap our journey
+Let me show you one important part of our journey
+We have built our application
+We have built our application
+We have not tested anything
+We have done an evaluation
+The data set you will evaluate on
+It has to be created only from your context
+Because it is grounded
+We will make our data set from our context
+From our knowledge base
+We will make our test data set on that
+We will add two more pieces of information
+That is our component's outputs
+We are working with our retriever
+We will add these outputs in our data set
+You will run your application
+You will send every golden data set to your application
+You will have a test data set
+We call it our evaluation data set
+We are persisting on every step
+We have written about five built-in metrics
+Three metrics were retriever components
+We have also discussed about custom metrics
+How to make custom metrics
+We have discussed about this in detail
+We have run our metrics on our application
+When we run these metrics on our application
+We get our aggregate metrics
+This is our report card
+We will come back to our exam analogy
+You are a student and you have your report card
+I will ask you what is your next logical step
+What do you see in the report card and what is the logical step
+What is the next step
+What is the next logical step
+Pritika is right
+The biggest step in our mind is
+We will study this report card
+We will see where the shortcoming is
+The average score is around 90%
+We are not taking it too much into consideration
+The average score is around 94
+Although I did not get 100% score
+But my contextual precision is working well
+This means that the built-in retriever is working well
+The built-in retriever is working well
+I don't need to fix the re-ranker
+The answer is also 90%
+My LLM is giving me the right answer
+The system prompt is also giving me the right answer
+Faithfulness is 97% with 100% pass rate
+The response I am getting from my application is grounded in my context
+Now let's talk about contextual relevancy
+I have a metric on which I need to focus
+I have low score as compared to other metrics
+Although the pass rate is 79%
+If your pass rate is good, it is around 80%
+The average score is 65%
+This means that your contextual relevancy is not working well
+Because it is passing over maximum questions
+But the scores you are getting are not very high
+Although you are able to pass over 80% or 79%
+But the individual scores you are getting are very low
+Let me show you the criteria
+If you go inside your reports, you will see the evaluation results
+We have stored all the results in this
+You will also get individual scores
+There is a lot of information here
+You will see the score of your individual metrics
+This is the attribute of the metrics score
+You will also see the score of the test case
+You will see the number of questions you passed and failed
+Contextual relevancy is performing well on some questions
+Whereas on some questions, your threshold is not crossing
+You will see the scores here
+There are not very good scores
+You will see that there is a lot of variance in contextual relevancy
+Whenever you have a score with a lot of variation
+You have to tune this parameter
+In some cases, contextual relevancy is showing that
+Your signal to noise ratio has increased
+Your chunks have more noise
+The way to reduce noise is to increase chunk size
+Maybe top K, chunk overlap
+In some cases, you will tweak your embedding model
+But you have to keep in mind that
+When you are doing these tweaks, you have to make sure that
+The other scores that you have are high, they should not decrease
+It is not like you go and tweak this particular metric and the other scores start decreasing
+We can see that because the variance is high
+It is performing well on some questions
+We have to tweak it very slowly
+We don't want to make abrupt changes
+We are talking about answer correctness
+Here the score is 70% and the pass rate is also around it
+We can see that on average, your scores are like this
+If I show you the answer correctness
+You will see consistent scores
+Variation is very less
+You will see 0.4, 0.9, 0.7, 0.8
+But you will not see a lot of dip
+You will not see scores like this
+The score is very close
+If we had kept the threshold at 0.4 or 0.3, this metric would have been cleared
+If I talk about the final metric
+That is simple explanation
+It is working well
+Our LLM is giving us a simple explanation
+I understood this after seeing this report card
+We have to focus on the first metric
+The first metric is contextual relevancy
+Whenever I talk about metrics, I should know
+What are my targets
+I have to fix the signal to noise ratio
+You know to fix chunk size, chunk overlap
+You have to fix those things
+You are taking your expected output
+Which is your grounded reference
+And you are comparing it with your actual response
+The more similarity you have with your expected output
+The more your answer correctness will increase
+You have to make sure these things are built
+This is our report card
+After that we shifted gears
+And we discussed about prompt management
+We have evaluated our application
+We have the report card
+After that we learned how to define system prompt
+What is system prompt?
+System prompt is a very important piece of text
+It defines the application
+This is the soul of your application
+We have seen how you can store this system prompt
+How you can create different versions of it
+And how you can mark the versions through labels
+And load the proper version
+We have discussed this
+The reason for prompt management was
+If you hard code your prompt
+Then you have to change the system prompt
+When your application is in production
+Then you have to redeploy the whole application
+You have to trigger the deployment pipeline again
+What is the way to avoid that
+You should not hard code your system prompt
+What piece of information you are attaching to your code
+Which prompt you have to load
+And what should be its respective label
+And your lang fuse will automatically go to your server
+Where you have a prompt in a database
+It will bring your prompt through an API call
+And this prompt will be dynamically injected into your code
+The simple thing of prompt management is
+You can make your code flexible
+So that you don't have to redeploy with every prompt change
+And you can maintain the versions properly
+You can switch between the versions
+And which prompt is used during the development time
+Which prompt is used during production time
+Which is your baseline prompt
+So far our journey is clear
+Let's discuss further
+There is one important concept left
+Which is versions and labels
+This is the core concept
+This is the core concept
+Which makes the lang fuse
+You use the lang fuse prompt management part
+Because it has the capability of versions and labels
+Now when we were doing versioning
+What was the biggest problem
+My developer doesn't remember the version numbers
+Which was the first version
+Which was in production
+What update I have made
+What changes have been made
+I want my developer not to remember
+My developer should work with labels
+And define through labels
+Which prompt to use in every stage of development
+Simply shift the labels and version your prompt
+And manage it
+So in the lang fuse, whenever you
+Use your system prompt
+And for now let's say this is your version A
+You simply changed something in this prompt
+Your teammate did it
+So your lang fuse
+Will save this prompt in the name of version B
+Will persist
+In your database
+Now the thing is as soon as you get version B or version 2
+If you change something else
+If you add a comma or full stop
+This will automatically become version C
+So the thing is you don't have to track these versions individually
+So what you did is you took a prompt
+And you are making changes in it
+You did change 1, 2, 3
+So your prompt management system is tracking two things
+First thing is what changed
+What changed in your prompt
+And second thing is who changed it
+So if you work in collaboration
+Or team
+Because generally you build these projects in team
+So it's tracking what changed in your prompt
+Which we did comparison last time
+What words and sentences changed
+And second thing is clearly written who committed this change
+So these two things
+So the site prompt versioning tracks properly
+I hope this thing is clear to you
+Now the philosophy of lang fuse developers
+Is that if you want to save the prompt
+Or load the prompt
+You have to attach some tags or labels with your prompt
+You can call them tags or labels
+And simply by moving these labels
+You can change the prompt you are ingesting
+I will explain you with an example
+Let's say you have three versions of prompt management system
+V1, V2, V3
+Obviously this V1 was generated earlier
+You made some changes in V1 and it became V2 automatically
+And you gave a label to this V1
+That is your development or staging
+Let's give it staging
+You gave a label to V1
+Now the ingest side of code
+What will you write on the ingest side of code
+You will simply write that you load the system prompt
+And label staging is attached on it
+You will not tell the version number
+You will simply tell lang fuse to give me the prompt
+Which is my staging prompt
+So if I want my V2 to be the staging prompt
+Will I change it in the load code
+Or will I change it in the save code
+I will not change it in the load code
+I will change it in the update code
+I have to tell two things in the update code
+First I have to tell which version I have to update
+And second I have to tell which label I have to shift
+So I will pass two things in the update prompt
+Remember that the prompt is never changed
+So you are tracking the text change through save
+This is a key difference in lang fuse
+Update does not mean that you are changing the prompt text
+Text is automatically getting logged
+You are tracking the labels
+Which version or particular tag or label is attached
+You said that you want to load V2
+You told the version number in the update code
+And the label name that I have to attach the label with V2 as staging
+Now what will lang fuse do
+As soon as you will allot a similar label to a new version
+Your label will get updated
+Now lang fuse will know that there are two labels available
+So it will automatically remove the label from the previous version
+So what you have done here is you have updated only the version
+But you have not changed any of the load code
+Neither your application has been redeployed nor has your code level changed
+But internally your application has changed
+Now your application is working with this particular system prompt
+Automatically you have changed your system prompt in a single second
+I think this V3 is better than my V2
+So what I will do is I will simply remove this label
+And attach it to V3
+Now my V3 will get staging
+So it will remove this particular label from V2
+Now you must be thinking that we are not maintaining the versions
+But we are shifting the labels forward
+It would be better if we use the new version prompt
+Why do we need to play this label game
+So the reason for this is
+Your system prompts are generally prepared by prompt engineers
+And they are different from your application developers
+So what we have done is we have given prompt update and versioning work to prompt engineers
+Whereas the application side
+Where we are integrating the code to ingest the prompt
+Is in our control
+So prompt engineer is doing the versioning automatically
+And the particular prompt that we have to load and ingest
+We are simply adding a tag on it
+With which tag we are loading our prompts
+We are just doing the label shifting
+So we are not doing anything here, we are doing label shifting
+Tomorrow it may be possible that my prompt engineer
+Has extensively tested and V3 is performing very well
+So I have loaded this particular thing in my application
+And my application is using V3
+But in the future it may be possible that my application doesn't give good results
+It may be possible that I had written in the prompt that give me simple explanation
+But due to some reason my application is not giving a simple explanation
+So it may be possible that my application is not giving a simple explanation
+It may be possible that some wordings or order of text has changed
+So what I want is I want to roll back to my V2
+Because what was V2?
+V2 was tested and it was giving me very good results
+So what I will do is I will change the code in my application
+Again the answer is a big no, I will simply catch this label and attach it again with V2
+Again I will do label shifting
+And I will attach staging with V2
+As soon as staging is attached with V2, the label of staging will be removed
+And automatically my application will start using V2 version
+So there are 2 key technical terms
+First is your promotion
+You can call it version promotion or prompt promotion
+What happens in version promotion is that you shift your label
+On the next version
+A good example of this is your latest label
+Latest label is a default label
+This is a default label and Langfuse uses it internally
+I have shown you in the last class as well, we didn't use latest
+We didn't attach it with our prompt but with our latest prompt
+So this label was attached
+Latest is attached with the newest version of the prompt
+So if I have V1, V2, V3, then with V3, the latest will be attached
+Tomorrow I will make some changes in my prompt, it will be V4
+So with this V4, the latest will be attached automatically
+I don't need to shift it, so this is called promotion
+What happens in promotion is that you shift the labels in the next version
+Automatically, you are promoting the versions
+And one is your rollback
+Rollback means that you are going back one or two steps
+You are using an old version again
+Like sometimes we update an app or OS
+So there are some glitches or errors
+Or we update drivers, drivers have a lot of them
+So we go back to the previous version
+So if you have tested your application in V3 or V4
+That your application is misbehaving or not performing as well as in V2
+So simply what you will do is the label you are using
+You will not use latest because latest will always be attached with V4
+You will use some other label which will be a custom label
+And you shift that custom label on V2
+I want to tell you one more thing
+If you don't provide any label in LangFuse
+Then the default label is production
+So LangFuse also has a production label
+We saw this in the last session, so production is the default
+Now don't be confused, latest and production are different
+Latest is default for the newest version
+For the newest version
+You will get latest on every newest version
+Production is default while you are loading your prompts
+So when you are loading your prompts and you don't provide any label
+Then the default value of the label is production
+But you take the work of shifting this production
+It's not like if there is a new version, it will automatically become production
+Your production version is different
+If you want to make V4 production, then you have to run the update code
+And make V4 production
+I hope this thing is clear to you
+I will show you how to do this in MLflow
+Don't worry, we will also lock our prompts in MLflow
+This thing is clear
+So don't be confused
+What is the default on the latest version in LangFuse?
+That is your latest label
+Whereas when you are loading, the default is
+Production, if you don't provide any label
+And it is provided
+By LangFuse that you can attach multiple labels
+With a particular version
+Means you can have production on one version
+For example, V1 production, production label
+It can be latest
+If you are a champion and label it
+You can apply different labels and multiple labels
+But when you have to load
+You only provide a single label
+You can attach multiple tags with any version
+But you have to tell a single label
+During the load ingest
+I will show you the whole thing in code
+Whatever we saved last time
+I have removed it
+Now we will do our system prompt version
+If I can go back to the code
+Here is our system prompt
+This is our system prompt
+Let's fix this config
+Let's keep it as 3
+This is our system prompt
+Let's discard these changes
+We have discarded the changes
+We are back to our original prompt
+Here I created a client
+Here I created a prompt
+I am versioning my prompt
+Here I gave the name of my prompt
+Here I attached a label which is baseline
+Instead of baseline, we will work with two labels
+Because we are developing
+We will not set production
+We will set production with the same prompt
+This is a unique label
+You will remember in the last class
+When we set production, you could see a blinking green light
+Because it is a very important label
+You cannot attach production with every version
+We will attach two labels with our baseline prompt
+First is that this is the baseline
+We are starting our versioning from here
+Second is staging
+Staging will be our current best prompt while developing
+We don't have a new version, we are just starting with prompt to versioning
+This is our staging and baseline
+Now we will run this file
+I will open the terminal
+Once the environment is loaded
+We will write UV run
+Our file is in source, app is system prompt versioning.py
+Run
+This is our prompt, version 1
+As you can see, we have three labels attached
+Although I passed two labels, baseline and staging
+But automatically latest is also attached
+Why? Because this is my latest version for now
+This is my prompt
+I have attached three labels or tags
+Now I will improve my prompt
+First we will see if we are able to load this particular version
+Here we are writing the load code
+Now the label will be staging instead of latest
+The best version in our development will always come with staging label
+Once we have included this load code in our app
+We don't need to change it again and again
+You can see that in get prompt function
+When you pass the labels, it only asks for a single label
+You can't pass multiple labels
+Whereas while creating the versions, you can pass multiple labels
+Let's test if our prompt is loading properly or not
+I will write UV run
+We will go to source app
+And in that load system prompt.py
+We are able to load our configuration properly
+And we are able to read our labels
+Let's copy this code
+Let's copy this code and take it to our main application
+Because we have to add system prompt here
+Let's save this code
+Let's make some changes
+We are creating a client of our line fuse
+The name of our prompt is type text and the label is staging
+We will automatically ingest the staging prompt in our application
+Now I will tell you where you will ingest
+This is your system prompt
+This is basically of type text prompt client
+You have many attributes in this
+You can't use this directly
+You will go to the documentation below
+You will remove this whole thing because you are ingesting it through line fuse
+You will simply write system prompt and use prompt attribute
+Which will give you your string prompt
+So you have integrated prompt versioning in your application
+With only this much piece of code
+Now we will create a new file
+And we will name this file
+update
+system prompt.py
+What will be our simple task in this particular file
+We will update our versions
+We will shift their labels
+That's all we need to do
+I will import from line fuse
+Get client and
+I will load my
+API keys here which are line fuse specific
+load the API keys
+simply by using load.env
+And here my task will be
+shifting the labels
+in development
+I will put staging label on the best prompt in development
+Here you can write your code
+First of all you will create a client object
+line fuse get client
+Then you will use line fuse dot
+update prompt and here you have to provide two things
+Name is to be provided
+I will copy the name from here
+copy
+paste
+I will add none
+and I will add label
+which label we will shift
+always staging because our baseline will always be
+with version 0 or version 1
+Now let's update our system prompt
+Here we can add some things
+like we can add here
+always try to answer
+in simple language
+make sure your
+answer sticks to the
+input and the available
+context
+and
+try to make your
+answers correct
+and rest we don't need to add anything
+we have changed a little here
+Now we will create version 2
+simply run this file
+This is our system prompt versioning file
+we have to run
+I have done one thing wrong here
+I have pushed the staging one
+and the baseline
+delete version
+and again
+because my version has shifted from there
+so what we can do is we can simply
+cut this part
+and we have to remove this too
+because you can shift the version again
+I have not done blunder and if this happens to you then you can simply update
+the version but I want to show you
+a proper flow
+so version 1 is done
+now I have updated my prompt
+so my prompt is updated
+and I am creating version 2
+there is no baseline nor staging
+I am passing an empty list
+you can remove the label here
+we will update the staging label
+when we will test this particular version
+so what we can do is
+we will attach the label and for now we will do staging
+so that we can load it properly in our application
+and we will run it
+what happened?
+oh it is omma
+we have run it
+this is number 2, latest and staging
+so if I refresh it
+so there are two versions here
+and version 2 is latest and staging
+if we compare then I have added this text
+there is no change in the configuration
+I have not changed anything in the application
+now we have our application and we are importing the latest prompt
+let's run the evaluations again
+and see if there is any change in the evaluations
+so the flow of this particular thing is
+you create a new version and evaluate it
+if it gives good results in the evaluation
+then you use it or you roll back to your previous version
+and you keep on improving it
+and finally you use the best version
+so you make changes, you version your prompt
+and then you evaluate it and then
+you decide on the evaluation results whether you want to keep on this particular version or roll back
+so we already have the code for evaluation
+inside the evals, so let's run it
+automatically our data set will load and our evaluations will run
+so we will go to uvrun, source, application
+in evals
+and then we will go to eval, and evaluate
+ragapp.py
+so here my evaluations are running
+let's run it and see what results we have
+is the flow clear guys?
+let's take questions till then
+let's say we have 30 prompts for given date there can be multiple combinations
+can we produce what version for which specific date the code was
+live? amarjeet i didn't understand your question
+from 30 different prompts i understood that for a given date
+there can be multiple combinations, so you are saying that you will change in multiple prompts
+in a single date, so they will be logged in different names
+now you can see only one prompt
+because we have only one version of the prompt, if you have 30 then
+you will have a list of 30 prompts and everything will be properly shown
+everything is being tracked here, when the latest version was created
+you can see it here, and if you are working with a team
+then if there are multiple users, then you can see the user name here
+so everything is being tracked properly
+the flow will be the same whether it is 1 prompt or 30 prompts
+after class, now keep your question in mind
+after class i will give you time
+any other question?
+any other question?
+do you understand what we are doing here? here we are
+creating changes, versions, and shifting the labels
+but in our original code, where we are loading the prompt
+we are not changing anything, we are loading the prompt
+according to the label we have set
+so according to the code, according to the code of your application
+there will be no changes, although you are coding this in this particular project
+but you can understand it like this, your teammate is creating these versions
+on his own system
+it will not be related to the code of your application
+let's wait a little more
+we have 7 metrics, so it will take some time
+yes
+yes, we have not talked about tracking
+we will discuss that problem when we read MLflow
+and this is a big problem, what are we doing so far?
+we are doing the versioning and evaluation, but we are not comparing
+or storing these evaluations, we are simply
+storing them in these files, it is possible that tomorrow
+we can delete them, then the problem will come
+and I can't even share this particular folder with my teammates
+and there is no proper way to view this particular JSON
+I have to manually go here and do the comparison
+so it is very cumbersome
+is this thing clear?
+what happened?
+hmmm, what happened?
+guys, is my video lagging?
+hmm, why did I make an error?
+VS code is stuck
+what happened to this?
+what happened to this?
+if I reopen it, the evaluation will be closed
+if this happens again, because the terminal is also minimized and then reopened
+hmm, is it closed on its own?
+or is it minimized?
+it is closed
+I think there is a huge update in the background
+because this never happens
+the code is safe
+the code is safe, but here
+my evaluation stopped, keyboard interrupt
+it's back, I have to run it again
+let's do one thing
+let's read about a very important concept
+and that concept is caching
+and prompt versioning is a very important concept
+let's discuss this once
+so what we did, the system prompt
+was available in our application
+our flow was
+that we had hardcoded our system prompt
+now we have introduced a new thing
+that is prompt management
+and we are doing prompt management on
+glanfuse servers, which are deployed in the US
+now what we are doing, through API calls
+we are sending our system prompt
+on these servers
+here, suppose this is the database of glanfuse
+we are sending it on this database, so we are doing the create operation
+through API calls and read operation
+through API calls
+now it may be that your added latency
+this can be a reason
+it may be that your server is down
+so your system prompt cannot be properly loaded
+and if the server is up
+then you can see that the API calls will have some added latency
+now what is your application
+it's a rag application
+so whenever a user sends a query
+then along with that query
+you augment your system prompt
+and send it
+basically what you are doing, you are calling API calls
+on every user's query, here again and again
+on the server of glanfuse
+if you get 100 queries in a second
+then you are calling 100 API calls in every second
+just to do what? just to fetch your system prompt
+and if I make sure that these API calls are
+latency free, means there is zero latency in it
+then you can basically send one piece of information
+to the data which is static
+your system prompt is not updated frequently
+so you are pulling the same thing through API calls
+so you can understand that this whole architecture
+means that you are reading API calls through saved API calls
+this is cumbersome process
+what we need here is a two layered system
+in this two layered system
+what we want is a local setup
+you can call it local storage
+it will be on my system where the application is running
+it can be my laptop or any EC2 instance
+whatever it is, there is a particular environment where my application is running
+there I have a local database
+where I have saved my system prompt
+and when my application needs this prompt
+then it can fetch my system prompt from this particular area
+because this is my on premises
+my system is locally available
+so I don't have any added latency here, simply I have to read this whole thing
+but if I want to create a SQL based database
+I can use SQL based database
+so again you will query in SQL based database
+your engine will pass the query and retrieve the data
+again there is a little bit of latency
+if I use a database which is in my RAM
+then I can do these transactions very quickly
+so instead of using SQL based database
+we use Redis database
+and this Redis database basically acts as a cache
+acts as a temporary storage where as soon as the application starts
+then system prompt is placed in your cache
+so the time you are invoking your graph
+instead of calling API and pulling your system prompt
+your system prompt is being pulled from your local cache
+but the problem is if you store everything locally
+then the langfuse can't do proper versioning
+you have to call API also
+it's not like you will store everything locally
+because we already do it locally, we have to persist our prompt
+so for that you have to call API also
+so here there is an API layer
+your particular application also calls API
+and it frequently checks your langfuse database
+on your servers
+that is there any system prompt available
+which is an updated version
+it may be that your local cache has version v2
+but what you have done is you have updated the database
+so if you don't check the frequency intervals
+then the problem is your application
+which is deployed will only use v2
+but you want to make sure that it automatically switches on v3
+so here basically what happens is
+you set the value of time to live parameter
+it is in seconds so you can set its value
+so here you set time to live as 60 seconds
+so these API calls
+where your langfuse database is checking
+if there is an updated version
+it happens after every 60 seconds
+so basically you call API on 0th second
+let's say v2 was in your database
+you read v2 and this was the latest version
+which you had to pull and you have to pull it to your local cache
+you have stored it in your ram and now your application
+is using this system prompt directly from your ram
+and you have also set a time to live tag
+with this cache that how long this cache will be valid
+as soon as your 60 seconds expire
+so next API call is to your langfuse database
+and from there you have to pull the prompt
+which you want to pull
+now it may be v2 and you have updated it
+if it is v3 then it will automatically pull v3
+again v3 will be valid till 1 minute
+and as soon as 1 minute ends then the particular change
+will start
+now there is a thing in this that
+you may have 100 queries in 1 second
+but the API call latency is 5 seconds
+so as soon as your 60 seconds expire for your v2
+will you wait for 5 seconds to pull your new version
+the answer is no
+because it will persist your v2 for a little while
+although its cache validity was 60 seconds
+but it waits till the next version comes
+it does not show error to its application
+that I am waiting for the next version to come till then you wait
+till then you do not process the user queries
+till the new version does not come, your old cache is valid
+so it will take 1 hour to get the new version
+because your server was down for 1 hour
+so will your application be down for 1 hour?
+in that case your application will use your old version
+from your local storage and as soon as it reconnects
+with the server, the new version will pull it
+so your old version is valid till the time
+the new version comes and replaces it
+I hope this point is clear to you
+is this point clear?
+it is redis
+I will explain everything through this diagram
+it is clear
+so it is a very important concept, I will show you
+and if you go to the features
+you will get the concept of caching
+let's read it once from the documentation
+it is clearly written here, langfuse prompts are cached client side
+there is no latency impact after the first use
+why does latency impact after the first use?
+it is written here that after the first use
+there is no impact, but why does it impact in the first use?
+because now there is no version available in your cache
+so when you first load your system prompt
+you load it through an API call, now there will be a latency in the API call
+so you have to bear that time, but after that
+the version comes and stores in your cache
+so there is no latency impact after the first use and no availability risk
+so even if your langfuse server is down
+you will have your old cache available
+you can prefetch prompts on startup to populate the cache and provide a fallback prompt
+you can do this too
+so as soon as your application starts, what will it do?
+first of all, it will use get prompt on langfuse sdk
+and fetch the prompt
+and it will cache the prompt
+and until your cache is valid, it will use this prompt
+and as soon as it is invalid
+it will call an API and bring the latest version
+or the label that is interested
+back to your local cache
+so here it is written
+when the cache TTL has expired
+let's say we have taken an example of 1 minute
+stale prompts are served immediately while it revalidates in the background
+so it is not like when your cache is invalidated
+you stop serving that particular prompt
+you keep serving until the new prompt comes in your cache
+and it automatically refreshes in the background
+so your application is picking prompts from your local cache
+and it is checking in the background
+whether a new version has come on your langfuse API
+if it comes, it will pull it again
+and your cache will be updated
+sometimes cache may miss
+or the server may be down
+so in that case you keep serving your old cache
+when no cache prompt exists
+like in the first application startup, you will bring it from the API
+and the API caches prompts in a redis cache to ensure low latency
+so on your server side
+I can tell you, on your server side
+you are verging in 2 layers
+the first layer is your cache layer
+and this is the main layer which serves you
+again this is the redis layer
+so you have redis in your local and also in your API end
+and the second layer is your persistent storage
+which is your post vest database
+so here you persist your system prompts
+from here your langfuse side
+comes in your cache
+from there you call API and it comes in your system cache
+and your application
+never directly pulls prompts from langfuse
+your application always pulls from system cache
+so your entire cache is your flow
+here you can customize the caching duration
+the caching duration is configurable if you wish to reduce network overload
+of the langfuse client, default is 60 seconds
+after the TTL expires, when it expires
+the SDKs will refresh the prompt in the background and update the cache
+refetching is done asynchronously and does not block the application
+and until your new prompt is not in the cache
+it will be the same old server
+here you have another option to disable caching
+you can set TTL to zero and this is done during development
+so that you don't wait for the new version
+and all these things are mentioned here
+you have to see these diagrams properly
+here you have some timeout error
+it stopped while running
+let's run it again
+first I wanted to show you the results
+let's clear the terminal
+let's clear it and run it again
+in live code this happens
+I hope you understand
+where do you want to pull from?
+you don't want to pull, this is the updated code
+you are saying get pull
+I think it is not working
+let's try again
+any questions guys?
+yes, at that time we will call API and get it
+let's try again
+now it is running
+let's stick to the screen
+if there is any error then we will know
+here
+some test cases are being calculated
+some are being completed
+let's wait
+timeout error is not there again
+because I haven't changed anything
+like insect config
+any questions guys?
+prompt management
+how to do it through line fuse
+I have taught you an added concept like caching
+if you find it difficult then you can leave it
+you should know the technical details
+you are not spoiling anything through prompt versioning
+some error is coming
+some error is coming
+I don't know why
+timeout error
+let's run this code
+after class
+maybe API is down or there is some issue
+let's not take time here
+I will share the details with you
+this was the prompt versioning part
+let's move ahead and discuss about experiment tracking
+so
+is this part clear?
+yes, I will check the code
+there is no error in the code
+maybe there is some API error
+or maybe my
+recharge is over
+I will check that
+let's move ahead
+we have read the evaluation and prompt management
+we have read the evaluation and prompt management
+whenever we are changing the system prompt
+we are doing the evaluation
+basically
+we are testing every change on our given matrix
+we are testing it again and again
+why are we testing it? because we want our best version of system prompt
+if I tell you that
+this is basically a hyperparameter
+you will think that it is also acting like a hyperparameter
+we are basically tuning hyperparameter
+but we are tuning only our system prompt
+if you see your rag application
+there are multiple parameters
+which can be tweaked
+if we go to our rag application
+there are multiple parameters
+we have a parameter
+which is the embedding model
+what is the output dimensionality
+how are we splitting our chunks
+if I show you my vector database
+this can be a parameter
+this can also be a parameter
+if I show you the retriever
+search type is parameter
+what is the value of k in search keyword arguments
+and my system prompt
+is also acting like a parameter
+because we are updating it
+and it is affecting our evaluation
+so what are we doing till now?
+we are not persisting on any changes
+we are not tracking changes and results
+anywhere
+what did we do? we made a system prompt
+our initial prompt
+we said it is a baseline
+I changed the system prompt by live coding
+this was my v2
+I evaluated it again
+so what am I doing here?
+I am changing my parameters and running the evaluation
+I am not tracking the changes
+which are affecting my evaluation
+I am saving my results in reports folder
+but this is not a proper way to track
+what I have to do here is
+I have to track every change
+and the effect from it
+I have to properly track
+and record this
+this is called experiment tracking
+it sounds like
+experiment means you are doing something different
+experiment is basically
+you are doing your hyperparameters
+in simple words, your application configuration
+which are your tuning knobs of your application
+you are tweaking them
+you are tweaking them, you are tuning them
+and because of that tweaking and tuning
+you are tracking the changes in your scores
+so that is our experiment tracking
+or experimentation
+so during development, this is true for machine learning
+and for LLM based applications
+when you start building your application
+you never have the best values of hyperparameters
+available
+so what you have to do is
+you have to tweak these hyperparameter values
+and run your application again and again
+why do you run it? so that you get updated scores
+so in this pipeline
+you run a loop
+where your step 1 is
+application tuning
+and step 2 is your scoring or evaluation
+you keep moving between these
+you change a particular aspect of your application
+you record it, basically you are recording
+your configuration, then you run the score
+and you record this score too
+and you make sure that this score and this configuration
+are always together
+they should be tracked together
+not individually
+we are doing individual tracking
+not like this, we are doing tracking but individually
+let me show you inside the code
+where are we changing the parameters
+whereas we are saving the results
+in JSON files
+but is there any relationship between this JSON file and our code?
+the answer is no, you can say that we are pushing code changes
+and these files on git but one scenario
+is that for the same piece of code
+I didn't change anything in the code, I just changed system prompt
+I went to the dashboard and changed my system prompt
+so there was no change in the code level
+but when I run my scores again
+I see that my scores have changed
+so for the same piece of code I am doing 2 evaluations
+I am doing multiple evaluations
+so there is no proper tracking
+so I am changing the configuration and what is the result
+so to track these things and to track them together
+I do experiment tracking
+I hope you understood this thing
+so we discussed what is experimentation
+you made a baseline application which is version 1
+now you are doing an evaluation
+so our application is not performing well
+now we will tweak our application
+and to do better we will change our configuration one by one
+and we will track the effect of those configurations
+on our scores
+and we will compile these two together and record them
+that is our experiment tracking
+so what is experimentation and what is experiment tracking
+you understood this, it is a very important concept
+so we discussed why we have to do experiment tracking
+why we have to do experiment tracking
+because we are making changes in our configuration of the application
+what is the configuration? our hyper parameters
+so we are making changes in the configuration
+and the effect of that is that our scores are also changing
+so we have to track them together
+now you have two mechanisms
+to do this particular thing
+there are two common mechanisms which you use
+the first one is logging
+what is logging?
+you have heard about logging, there is a module in python
+logging is basically what?
+what you are doing here in your application
+whatever are the configuration related changes
+and whatever changes are there in your scores
+you are logging them
+inside log files
+logging means keeping records
+you are maintaining records
+now what happens in logging?
+first you have to make a logger in python
+logger is basically that object which handles logging
+after that you have to define with logger
+you have to decide where to save this log
+do you have to print it in console or save it in file
+let's say we have said that you have to save any logs in a log file
+after that we have to do
+we have to attach a formatter
+that in which format will my log be saved
+and here you have to write a lot of custom code
+custom code means you have to introduce
+the logging code in every step
+if we are making a brag application
+then we have to individually log every parameter
+using this custom code
+we will log every parameter
+in proper sentences
+we have to write every statement in detail
+logging works well when you are developing software
+then whatever is printed in your console
+you can easily log it in log file
+in our case we are logging numbers
+most of the hyper parameters
+are numbers
+chunk overlap is number
+and what are your scores
+whenever you store these numbers in your log file
+then your readability decreases
+you have to read every log in detail
+how your application is behaving
+logging is super easy
+you can track everything
+you can track every line
+but the problem is
+you have to add a lot of custom code
+repeatable code and how you have to log
+you have to define the format properly
+and here you have some frameworks
+which automate logging
+you don't have to add a lot of code
+you add a few pieces of code
+and all the logging is done automatically
+and here is your MLflow
+it is an advanced framework
+but when MLflow was first used
+it was used for experiment tracking
+it was used for experimentation tracking
+first
+let me tell you some features of this framework
+first, the code you write
+to track your experiments is very minimal
+and you can automate this code
+what does automate mean?
+you have to provide inputs through a script
+like you have saved your parameters in a particular file
+you have to change your parameters there only
+and automatically your change parameters
+MLflow will pick them
+second benefit is that you can't compare
+you can't compare through tables, graphs
+charts, graphs
+so proper comparisons are available
+and the third thing is
+that this whole thing which you are logging through MLflow
+can be easily shared with your teammates
+what is the problem with logging?
+you are saving everything in log files
+so if you want to share your configuration details
+and related results with your teammates
+then you have to share these log files with your teammates
+and they have to go line by line
+and see what changes were made to which line
+they have to see all that in detail
+and the good thing is that you have a centralized location
+you have a centralized dashboard
+and on this dashboard, you and your teammates
+can log your experiments
+and you can compare each experiment with each other
+and you can also extract the best experiment
+which will be the best experiment?
+so you will have the best scores
+for a certain set of configuration
+now this is highly practical
+you will understand this only if you see it in the code
+so we will see it in the code
+there are some more primitives of MLflow
+let's discuss about them because you will see them in the dashboard
+MLflow is your tracking server
+now MLflow is
+logging all these experiments
+so it has a backend
+in the backend, there is a database
+which tracks all your logs and save them
+and you have a frontend
+and you have a dashboard which you can see on the screen
+MLflow provides you
+a tracking server
+you can run this server remotely
+or you can run it on your local server
+so the server we will work with today
+will be a local server
+so if I start a local server
+you will have a database in the backend
+and in this database, MLflow will capture all the details
+and I can interact with this particular local server
+through a dashboard, so I have a proper frontend
+and a backend
+so this is my tracking server
+and you save and record them
+second is your experiment
+so what is experiment?
+experiment is your project
+so far we have discussed about experimentation
+that you tweaked a configuration
+so actually it is the same experiment
+in MLflow language, your project is your experiment
+so it is a high level hierarchy
+so in MLflow language, your project is your experiment
+third is your runs
+runs are basically your individual updates
+or you can say individual
+your tweaks
+so experimentation is your runs
+so let's say you have set chunk size to 300
+so you have one run
+on which you have your configuration and chunk size
+and you have updated your chunk size to 330
+so you will run the evaluation again with that configuration
+and when you will track your configuration and results
+and save it, it will be your second run
+fourth is your parameters
+or it is also called params
+these are your individual configurations
+fifth is your metrics
+these are your scores or metrics
+evaluation results
+and artifacts
+artifacts are basically a very open ended thing
+you can save a lot of things in artifacts
+you can store your data sets
+like your evaluation data set
+your golden data set
+so it will be saved on your MLflow servers
+and you can pull it from this particular dashboard
+you can save your code files
+code files can also be artifacts
+you can save some images
+you can save some images
+you can save some parameter files
+or some extra files
+you can save configuration related files
+like we can list all our parameters
+in a yaml file and we can save this yaml file
+in our artifacts
+so you can save any file in your artifacts
+in your project directory
+you can also save the requirements file
+so it is clear
+again this is highly practical
+we will do it and you will understand
+theory is not very important here
+now I will tell you the advantages
+of using MLflow
+the first advantage is that you can see a proper dashboard
+if you use a logging module
+you can see log files
+you have to read individual logs
+you can see everything in detail
+in a dashboard
+second advantage is that it is shareable
+if you are working on a remote tracking server
+you will have a URL
+you can give it to your teammates
+and they can use it to visualize the experiments
+or they can push their own experiments
+this is also possible
+third benefit is that you can see your configuration
+and results together
+you can compare and see together
+you can see your configuration
+and related results
+our problem was that the configuration was somewhere else
+now you can see both together
+fourth is that you can easily run comparisons
+you can select multiple runs
+and you can make comparisons
+you can see these comparisons
+through both tables
+you can compare in tabular form
+and in visualizations
+is it clear?
+again there is no much theory here
+yes, we should
+we will create a params.yml file
+and store our configuration in it
+we will update in that file
+and the same parameters will load in our main application
+you never change parameters in your application
+you have a centralized file
+you change all your configuration details
+is it clear?
+is the whole thing clear?
+let's go to the practical part
+I will switch off the camera so that you can see everything clearly
+and we will close the extra file
+let's close it
+first thing we have to do
+let's open a new terminal
+let's close this one
+and we will install mlflow
+so simply we will write uv add
+mlflow
+now what is the first thing
+we have to start our tracking server
+because we are tracking our configuration and results
+so you need a tracking server
+and we will work with a remote server
+so you have two types of remote servers in mlflow
+one is the one that runs on your local system
+and the other one is the one that runs on your local host
+so the database creation and the dashboard that you are able to visualize
+is happening from your local system
+whereas some remote servers that are on the cloud
+when you run it on the cloud instance
+then your database is created there and all the tracking is done there
+and you can visualize your dashboard through that particular address
+so the difference between the two is that you are running it on your laptop
+and it is running on the cloud instance
+so for that you have to use the command uvxmlflow server
+let me check
+mlflow start server
+yes this is the command
+so let's run it
+let me go back to the board
+uvxmlflow server
+so basically you can add tools
+because we are using uv so we can use this command
+and you can see that a server will start
+see it has started
+automatically
+so if I show you here
+so on this particular address
+it is running through uvcon and on this address
+it is running on your localhost 5000
+let's open it
+let's copy it
+and go to our chrome and paste
+and let's run this
+so this server is running on my local system
+and if I show you here
+then you can see that here
+mlflow.db has created a SQLite database
+and mlflow creates a backend
+so whatever you will log will be saved in this database
+and the UI will be shown here
+on this particular link
+now let's do one thing before we explore this
+let's explore the documentation of mlflow
+so
+let's open the mlflow documentation
+mlflow has made many changes
+and has integrated llmops to a large extent
+so it is written here
+you can build ai products
+because building ai products is all about iteration
+so their core philosophy is still experimentation
+mlflow lets you move 10x faster by
+simplifying how you debug, evaluate and monitor your
+llm applications, agents and models
+so earlier you could only track your data science life cycle
+your machine learning models or deep learning models
+but now you have the capability to track llm based applications
+and agentic applications
+so you have added these things here
+you have two sub modules available
+one is focusing on llm and agents and the other is
+focusing on model training
+so this model training part is basically machine learning
+but we will use this machine learning feature
+because this is the core feature
+so this is the core feature of mlflow
+and the llm and agents
+are newly added features
+so you can see the feature add-ons have observability
+so you can use the lang fuse
+and the lang smith also works the same
+it also evaluates and you can see built in metrics
+so you can define your custom metrics
+if I show you the code
+you will see that the code is very similar to the one in deep eval
+so I want to explain you that through this code
+so don't focus on tools
+focus on concepts, focus on the flow
+so the flow is the same
+so you have made a test data with input, actual output and expected output
+and then you have evaluated
+so you can see that the evaluate api
+is very similar to deep eval
+you have defined your test data and metrics
+so your evaluation is done
+now this prompt versioning and optimization
+so we have done the same with the lang fuse
+with full lineage tracking
+so you can see that the flow is the same
+version 6, 7, 8 and some labels or tags
+are attached
+you can optimize prompt with state of the art algorithms to improve performance
+if you see the code, then you can see the register prompt
+prompt, actual prompt, where you have variables
+again double cut libres, these were also in the lang fuse
+and a commit message, and you simply have to load prompt in your code
+where you have to give the name of your prompt along with the label
+exactly same, nothing is different
+so basically the reason to discuss this whole thing is
+that don't stick to the tools, the tools are yours, the concepts are yours
+you can easily migrate to any tool
+nothing is difficult, is it clear guys?
+did you build some confidence by seeing this code?
+we are working with a different tool today, but the code is very similar
+because we have discussed the concepts well
+if you read the concepts, then you will never have any problem in migrating to a new tool
+trust me
+we use experiment tracking
+if I show you here, then you get all these features
+if you go to components, then there is proper documentation
+if you go to get started, then you can see here
+you are setting your tracking url and then tracking
+exactly same, if I show you docs
+then these are some things
+you get these on the LLMs and agents side
+and these are your classical machine learning
+we are going to use MLflow tracking today
+so it's not like you use this tracking only in machine learning
+this is the oldest feature of MLflow, so it is kept in machine learning
+but you can easily use it in your LLM based applications
+so let's go towards the code part
+before going to the code, let me show you this UI
+so what you have to do here
+is go to the model training part
+because this genie part is not of our use
+because these experiments are basically your tracing
+this is not your experiment tracking that we are going to do
+this is your tracing that we are going to do through LangFuse
+this is basically your prompt version
+so we will go to the model training part
+and here you will go to the experiment section
+now what you do here is register your trained model
+in machine learning you have trained models, in LLM based application
+you are already using an existing model and building your application
+so here we will not use this model registry feature
+because it will be on the experiments tab
+so let's write the code
+so let's make a file
+and experiment tracking
+let's make a file called basics
+and write the code for our experiment tracking
+so first we will import MLflow
+MLflow
+and for now we don't have to import anything else
+now we will replicate the same flow
+that I have discussed with you
+so first thing I have to do is
+tell you where you have to do this particular tracking
+you have to set the tracking server
+so your tracking server is already running
+and it is already live
+so you have to simply add this to your code
+that you have to track this particular server
+so for that you will do MLflow.
+here there is a function set tracking ura
+so you have to set this
+and you have to tell the path
+so what is your path? it is
+HTTP and it is running on localhost
+and what is the port? port 5000
+if you don't want to write K then you can copy and paste this
+from here
+both are same
+next you have to set the
+experiment name
+so you have to tell the name of your project
+so now you will see one experiment that is your default experiment
+and in that default experiment you will get individual runs
+runs are basically your individual tweaks
+or configurations
+so here you are getting experiment id that is 0
+so your default experiment is always 0
+so if you don't define any experiment
+then your tracking will be in your default experiment
+but what we are doing here is defining an experiment
+so here I will say MLflow.
+I will simply do set experiment and here we will give the name of the experiment
+so what is the name of our experiment?
+it is called RackApp
+so let's do campusX RackApp
+so now I will run this particular code
+so let's run step by step
+so I will do
+uvrun and file name is
+experiment tracking basics
+let's wait a little bit
+it will take some time to connect for the first time
+some error has come
+get experiment
+API 403 error has come
+why this happened?
+let's go to home
+and copy this path
+maybe because of localhost error
+maybe there is some issue in this window system
+so we fixed it
+let's do rerun again
+now it is working
+creating a new experiment has come
+it checked that there is no existing experiment
+so it created a new experiment
+let's go towards model training
+and here the experiments tab is gone
+let's open it
+so you can see the new experiment
+and I am not logging anything
+let's start logging some things
+so first of all I have to start a new run
+so to start a run, you do
+run and whatever you are logging
+you can call it run is basically your version
+so you have to log in that run
+so for that you open a context manager
+with mlflow.startrun
+you want to start a new run
+and here you will get a run name
+so we will name it testrun
+and you can add some tags
+or add description
+so we are not adding anything
+we are writing run start as run
+and here we will do logging
+so let's do one thing
+first of all we will
+log our parameters, our configuration
+so to log our parameters, you have to write
+mlflow.log, so here you get the option to log different things
+you can log an artifact, a dictionary
+you can log a matplotlib
+or a plotlib figure, you can log a png image
+you can log a metric
+or a list of metrics
+you can also log parameters
+you can log one parameter or multiple parameters
+so we will log one parameter
+so I will simply write log param
+and here I have to give the parameter name and value
+so let's say parameter name is
+chunk size and here I have to give a value
+so here it is 300
+so what will you do if you want to log the next parameter
+you will go to the next line and write again
+log param, now I will give my second parameter
+chunk overlap
+and what is its value, its value is 30
+let's say I want to log one more parameter
+param and here I want to log
+output dimensions of my
+embedder output dimensions and its value
+is 1024
+so here I have added some configuration related parameters
+now I have to log my metrics
+so you can log metrics together or individually
+now I will show you individually
+so these are my parameters
+now I am logging my metrics
+the code will be the same, you will write mlflow.log metric
+because you want to log one metric
+and we will keep the metric name as recall
+and we will give it a value of 0.89
+mlflow.log metric
+metric is my faithfulness
+and its value is 0.91
+then mlflow.log metric
+and metric is my
+answer, correctness which is my custom metric
+and its value is 0.7
+so here I have also logged my metrics
+now let's say I want to log some artifacts
+let's say I want to log my code
+my application code ragworkflow
+so I will log artifacts
+now I have to define a path for this
+so I will import pathlib
+first we will define our root directory
+which is my project directory
+for that I will use path
+I will use the file variable
+and we will convert it to absolute
+and if we write .parent then we will have our root directory
+then I have to define the path of my code file
+so what I will do is
+I will use the log artifact
+what you have to do in artifact is just tell your path
+so your local path is done
+we will define it from root directory
+from root directory we have to go to my source
+so source is done
+from that we have to go to app
+and in app the file name is ragworkflow.py
+it will be ragworkflow.py
+and you can also tell output directory
+that you have to save this file in your artifacts root
+or any directory so you can also tell artifact path
+so this is a directory
+so let's say directory is code
+so I have to save all my code in the code directory
+you can also log your data set
+in this you will use mlflow.logartifact
+again you have to tell path
+so path is done, you will define using your root directory
+after root directory you will go to data
+let's say we are going inside goldens
+sorry it is evaluation, inside that there is goldens
+evaluations, inside that there is
+goldens and inside that there is
+golden dataset.json
+so here we have
+defined path
+let's check
+golden dataset final
+so here we have
+locked some things, now what we have to do is simply run this file
+and by running it all our things will automatically
+be locked
+what happened
+no such file directory, some error has come
+there is no evaluation
+so if your logging fails then your failure
+is also recorded here, see this test run is recorded
+and you can see cross on it, why because it failed
+so your metrics are properly logged
+your parameters are properly logged
+if you go to model metrics you will see some graphs
+you can download them
+and if you want you can see in artifacts
+my code is properly logged, which is all my application
+code, you can see clearly here, where is the error
+this is my last line, which is this particular line
+so it is not properly recorded here, let's rerun it again
+see it is saved, what is written
+in your experiment number 1, which is your id number 1
+it is saved there in the name of this run id
+so let me explain it to you once
+this is your mlflow dashboard of your particular experiment which is your project
+so in that you can see all the times you save this configuration
+here you can see the name of your configuration
+now you might think that the name is same
+so there will be no issue, basically mlflow
+works on the basis of run id not on the basis of run name
+this run name is for you to see, internally
+mlflow means run id
+so you can see it here, what is experiment id
+this is our custom experiment, it has id 1 because default is 0
+and automatically mlflow creates a unique run id
+how much time it took for this whole logging
+what was its source file, it is properly shown here
+here you have your branch
+which branch is this file available in and this is your commit hash
+so you can see everything here
+we are not logging anything here
+what we are logging is our metric which is recall
+faithfulness, answer correctness
+and your configuration parameters
+you can see individual metrics in the model metrics
+you can zoom in and zoom out as well
+next, you can go to artifacts
+and see your code files
+your code is saved in artifacts
+all the code is available here and your evaluation dataset
+golden dataset is also saved here
+now what is the benefit of saving them here, if your teammate
+wants to save this particular code version and this particular
+golden dataset, he can import it in his code
+using mlflow, you can load these things
+through load artifacts, is it clear now
+is the code clear, was it easy
+nothing difficult
+great, interesting
+nothing difficult in the code
+now what we have to do
+we have to build a proper pipeline
+I will tell you what we have to do in that
+and we will do that in the next class, but let's discuss
+what we are going to do in the next class, so first of all
+what we will do, now our problem is that
+our code, the code of the main application
+we have to hard code these configurations
+we will remove these configurations and make a separate
+file and save all the configurations
+that we want to track here
+the benefit of that is that you will have a single file
+in which you can change your parameters, basically you have
+a panel and you have a lot of knobs
+let's say you are a DJ, DJ's mixer panel
+you have a mixer panel and you can go on it
+and change things by pressing buttons
+so you will have a single source and in that
+you can change your configuration and
+we will load those configurations in this file
+so this will be step number one, secondly what we will do
+is that we will track our actual evaluations and
+our configurations properly, now what we are doing here
+I have filled these things with my heart, but because we have
+proper evaluation results, which we are storing in these particular JSON files
+I have already shown you
+so if you go to the end, then you will get aggregate results
+here are all your results
+in this matrix score attribute, so we are storing
+these in every evaluation run, so we will interlink
+our individual configuration and this particular matrix
+and we will see this in this dashboard
+next we will see how you can change your
+configurations and run evaluations and experimentation again and again
+and compare those results, now because we have
+only one result here, so comparison is not possible, but still I will show you
+how you can do comparison, it is very simple, simply you
+select your different runs and click on compare and you will see
+comparisons, now you can't see it because
+you have the same results, but you can compare
+things easily and you can select your best run
+this is very much possible
+so comparisons are possible through the dashboard
+and last we will save our system prompt
+which we are versioning, its version number
+its actual prompt text and its labels
+we will add them in our configuration and save them in MLflow
+so that we know that in this particular configuration
+because our system prompt is also a hyper parameter, so what is its actual value
+what is its actual version number and what is its current label
+we will record all those things
+is it clear guys?
+next lecture's
+flow is clear, next lecture will be completely practical
+nothing theoretical will happen and we will code
+and debug all the things and implement them in next lecture
+I hope you are interested
+we will run multiple iterations, once our pipeline is built
+then what we have to do is we have to run any iteration
+we will go to our configuration file and change the parameters
+we will not change randomly, we will see how many results we can improve
+on that basis we will change our configuration and
+we will track every run inside MLflow
+is it clear?
+so this is it for today guys
+I wanted to do a couple of things more but it would be better to do them in next class
+because they will be left in the middle
+so we will integrate them in the next class
+if you have any doubts then you can ask me
+I am 10 minutes and after that we will meet on Thursday
+tool call tracing, memory management will be covered in subsequent classes
+no, tool call tracing will be covered on agents
+so in agents you will get memory and tool call
+we will cover this in our project segment
+I am telling you the same thing when you will read the tracing
+in LangFuse, we will read the tracing in such a way that
+you can do similar tracing through MLflow, LangFuse
+or LangSmith or any other tracing framework
+you can easily do tracing through that, you will never face any problem
+guys how was today's session?
+how was the clarity of concepts?
+was it confusing? today it was more practical
+there is no theory in MLflow
+yes, one minute
+you can raise your hand, I will unmute you
+Amanjeet
+can you please raise your hand
+Amanjeet am I audible?
+just a second
+yes you can ask your question
+yes so the question was for the tracing only earlier, I was not sure that you are going to cover the MLflow
+so those conditions were
+like 30 prompts, that means at different stages of the agent
+we can have different prompts, so if you are working with them
+so let's say we are working at the tag
+but the tag may get updated, let's say today
+particular system prompt or particular agent prompt is version 4 and version 5
+are a combination here, now I am just accessing them via
+the tag only, let's say it is production or something
+but later it might change, correct?
+yes, but I want to
+reproduce the experiment, so for that I think we cannot go with the tag
+we should go with the version number
+the thinking behind going with the tags is that you will hard code version number
+you are currently on version 4
+so you will mention version 4 specifically in your code
+tomorrow you have to use version 5 and version 6
+so you will have to change the integer value in the code
+so as soon as you change the integer value, you will have to redeploy
+the entire code because your changes will get pushed on the getup
+your CI CD pipeline will be re-executed
+and again a redeployment will get triggered, just with a single change of version number
+no sir, I am not saying that, I am saying that I will keep the entire artifact on MLflow
+and I will upgrade MLflow
+in production, by changing it there
+you don't use MLflow in production, MLflow is
+used in development only, experimentation is in your development
+you never experiment on production
+production is your final version of the application
+so we can fetch MLflow's artifact in production
+yes we can, absolutely
+so that is the point, let's say I have version 3 and version 4
+saved in my configuration
+and I have to deploy that particular thing
+so I will directly update my artifact with MLflow
+for production, so without using the tags
+our prompt will be taken from the langfuse
+you can do that but if you have a
+simple way to do this, which is properly
+organized through labels, the reason for that is
+that they have given you a simple access to keep shifting your labels
+and you don't have to change the code of your application
+all those things we are logging here, but the ones we are currently
+logging are for logging purposes, we are not importing
+anywhere, the ones we are doing our prompt version
+in langfuse are for import purposes
+I hope you understand this, the logging we will do
+of the configuration of the parameters is simply
+that we are tuning the hyperparameter here, we are comparing
+each of the configuration with each of the evaluations
+and selecting the best configuration, which we will finally
+take to production, I think you can do that
+maybe you have seen mlops, if you are coming from the background of mlops
+then there is a concept of model registry and artifacts
+maybe you are importing these concepts from there, those things are possible
+but why do you have to do that if you have a simple way available
+Any more questions guys?
+If you want to ask questions verbally then you can ask
+that too
+How was today's session? If you can rate out of 5
+5 out of 5, that's good
+Concepts are clear, if you found the caching concept a little confusing
+then you can read the documentation, again that was for your understanding
+perspective that you get a little more insider's view
+if you don't remember what is caching
+then it's not that important, you should understand the main versioning concept
+Great, if you don't have any questions
+you can leave, I have 2 more minutes
+and then we will conclude the session
+I will share this code with you tomorrow
+I will run the evaluation again and share this code with you
+with fresh results
+I will turn on the camera
+If you don't have any questions then write it clear
+then we can conclude
+Co-pilot Studio doesn't have any plan yet
+I am thinking about doing a master class on
+harness engineering, I am interested in teaching
+I am also studying about it
+If I get a plan then I will definitely cover it
+how you build your custom harnesses
+I think that will be after LLMops, currently I am completely focused on this course
+MLflow is a very extensive library
+it has many features and many things have been added
+you can explore it if you want, we haven't deep dived in it
+because there is no requirement for experimentation
+code is more important than your concepts
+there is nothing there, everything is visible visually
+you will have a pine cone session
+it is updated in your calendar
+it is on Friday
+you will read the complete architecture of pine cone
+I will teach you how it is designed
+how you perform crud operations with your vector database
+how your embeddings are created
+how they are retrieved
+there are many good algorithms
+working internally
+they give you fast retrieval
+you don't have to do anything, you just have to create an account
+you will get an API key and you can interact with pine cone
+another good thing is that its line chain integration is available
+so you can simply
+change 2-3 lines of code and integrate pine cone
+it will be a very good session
+you will read very good algorithms
+you will feel how amazing it is
+just because they need less latency and fast retrieval
+they have implemented many things
+I am very much interested to teach pine cone
+if possible I will show you how to do concurrency
+practically
+signing off now, see you on Thursday
+bye guys

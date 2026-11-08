@@ -1,0 +1,3068 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.340
+Hi everyone, I hope you guys are doing great.
+
+00:00:02.340 --> 00:00:06.040
+So guys, welcome to this brand new course of LLM Ops.
+
+00:00:06.040 --> 00:00:13.460
+Guys, in this course, we will discuss about the important concepts of LLM Ops and its entire life cycle.
+
+00:00:13.460 --> 00:00:16.000
+But these concepts will not be theoretical.
+
+00:00:16.000 --> 00:00:21.140
+Here we will practically execute the whole life cycle.
+
+00:00:21.140 --> 00:00:25.840
+I am pretty excited to share this journey with you guys and I hope you will be excited too.
+
+00:00:25.840 --> 00:00:28.540
+So let's start this journey.
+
+00:00:28.540 --> 00:00:36.040
+So guys, the first question that will come to your mind while learning about LLM Ops is what is LLM Ops?
+
+00:00:36.040 --> 00:00:39.040
+What does this term actually mean?
+
+00:00:39.040 --> 00:00:45.540
+So let's do a Google search because whenever I have to read a new concept, I do a Google search.
+
+00:00:45.540 --> 00:00:50.540
+So let's do a Google search and ask Google what is the correct definition of LLM Ops.
+
+00:00:50.540 --> 00:00:55.540
+So here I have already searched Google.
+
+00:00:55.540 --> 00:01:00.540
+And the definition that I am getting here when I asked Google what is LLM Ops.
+
+00:01:00.540 --> 00:01:06.539
+So the definition is LLM Ops which is called your Large Language Model Operations.
+
+00:01:06.539 --> 00:01:09.539
+It is a specialized set of practices.
+
+00:01:09.539 --> 00:01:15.539
+So after reading this, I can understand that this is a specialized set of practices or workflows.
+
+00:01:15.539 --> 00:01:17.539
+In which specialized tools are also used.
+
+00:01:17.539 --> 00:01:20.539
+Used to manage the full life cycle.
+
+00:01:20.540 --> 00:01:22.540
+So here what are we managing?
+
+00:01:22.540 --> 00:01:30.540
+We are managing the complete life cycle of your Large Language Model and also your applications in production.
+
+00:01:30.540 --> 00:01:36.540
+So here after reading this definition, it is clear that you are managing two things.
+
+00:01:36.540 --> 00:01:39.540
+Let's discuss this a little.
+
+00:01:39.540 --> 00:01:48.540
+So the thing is that the term LLM Ops is made up of two terms.
+
+00:01:48.540 --> 00:01:52.540
+LLMs and some operations around it.
+
+00:01:52.540 --> 00:01:54.540
+Now what are these operations?
+
+00:01:54.540 --> 00:02:04.540
+These are basically a certain set of specialized practices, tools or workflows.
+
+00:02:04.540 --> 00:02:08.540
+What are they doing?
+
+00:02:08.539 --> 00:02:12.540
+They are basically implementing the complete life cycle.
+
+00:02:12.540 --> 00:02:24.540
+Complete life cycle around your LLMs or applications made up of it.
+
+00:02:24.540 --> 00:02:30.540
+I know guys that after reading this definition, you might not have got much clarity.
+
+00:02:30.540 --> 00:02:32.540
+So let's do this work here.
+
+00:02:32.540 --> 00:02:34.540
+Let's explore a little more.
+
+00:02:34.540 --> 00:02:38.540
+Let's see what industry leaders have to say on LLM Ops.
+
+00:02:38.540 --> 00:02:41.540
+So here I have opened some tabs.
+
+00:02:41.540 --> 00:02:44.540
+I will explain the definition of LLM Ops one by one.
+
+00:02:44.540 --> 00:02:50.540
+So here the definition of LLM Ops is by your Google Cloud.
+
+00:02:50.540 --> 00:02:52.540
+So let's see what Google has to say.
+
+00:02:52.540 --> 00:03:03.540
+Google says LLM Ops or Large Language Model Operations refers to the practices and processes involved in managing and operating your Large Language Models.
+
+00:03:03.540 --> 00:03:15.540
+So Google is clearly saying that these are some types of set of practices or processes through which we can manage and operate our LLMs.
+
+00:03:15.540 --> 00:03:18.540
+What are those set of practices?
+
+00:03:18.540 --> 00:03:20.540
+They are given here.
+
+00:03:20.540 --> 00:03:27.540
+LLM Ops involves a comprehensive set of activities including model deployment and maintenance.
+
+00:03:27.540 --> 00:03:34.540
+LLMs are deployed and managed on cloud platforms or on-prem infrastructure.
+
+00:03:34.540 --> 00:03:39.540
+Basically, you deploy your LLMs on any infrastructure.
+
+00:03:39.540 --> 00:03:41.540
+Then there is data management.
+
+00:03:41.540 --> 00:03:43.540
+You have to train your model.
+
+00:03:43.540 --> 00:03:45.540
+For that, you have to prepare the data.
+
+00:03:45.540 --> 00:03:47.540
+It comes under data management.
+
+00:03:47.540 --> 00:03:49.540
+Then there is model training and fine tuning.
+
+00:03:49.540 --> 00:03:53.540
+From the training step, monitoring and evaluation.
+
+00:03:53.540 --> 00:03:56.540
+And finally, there is security and compliance.
+
+00:03:56.540 --> 00:04:00.540
+So these are some things that you do in LLM Ops.
+
+00:04:00.540 --> 00:04:03.540
+Now let's move towards the definition of Red Hat.
+
+00:04:03.540 --> 00:04:06.540
+What does Red Hat say about LLM Ops?
+
+00:04:06.540 --> 00:04:12.540
+So Red Hat says that Large Language Model Operations or LLM Ops are operational methods.
+
+00:04:12.540 --> 00:04:18.539
+These are some operational methods that are used to manage Large Language Models.
+
+00:04:18.539 --> 00:04:25.539
+Again, here we are talking about the managing of Large Language Models and also about the operation because the operational methods are written here.
+
+00:04:26.540 --> 00:04:30.540
+With LLM Ops, the life cycle of LLMs are managed.
+
+00:04:30.540 --> 00:04:32.540
+So what are you doing through LLM Ops?
+
+00:04:32.540 --> 00:04:36.540
+You are managing the entire life cycle of LLMs.
+
+00:04:36.540 --> 00:04:41.540
+These workflows, this process, you are helping to manage this whole life cycle.
+
+00:04:41.540 --> 00:04:44.540
+And you also automate things.
+
+00:04:44.540 --> 00:04:47.540
+Like the journey of maintenance from fine tuning.
+
+00:04:47.540 --> 00:04:49.540
+One example is given here.
+
+00:04:49.540 --> 00:04:52.540
+Helping developers and teams.
+
+00:04:52.540 --> 00:04:55.540
+How is this helping developers and teams?
+
+00:04:55.540 --> 00:04:59.540
+To deploy, monitor and maintain LLMs.
+
+00:04:59.540 --> 00:05:06.540
+Again, the steps that are written here, deployment, monitoring, maintenance, all of that is written here.
+
+00:05:06.540 --> 00:05:08.540
+And it is around your LLMs.
+
+00:05:08.540 --> 00:05:11.540
+Let's explore some more definitions.
+
+00:05:11.540 --> 00:05:14.540
+This definition is from IBM.
+
+00:05:14.540 --> 00:05:22.540
+IBM says that it refers to the specialized practices and workflows.
+
+00:05:22.540 --> 00:05:25.540
+Again, here specialized practices and workflows.
+
+00:05:25.540 --> 00:05:28.540
+These terms are repeated again and again.
+
+00:05:28.540 --> 00:05:31.540
+So this is a particular workflow.
+
+00:05:31.540 --> 00:05:34.540
+There are certain set of practices that we are using again and again.
+
+00:05:34.540 --> 00:05:36.540
+And what are they for?
+
+00:05:36.540 --> 00:05:39.540
+That speed the development, deployment and management.
+
+00:05:39.540 --> 00:05:42.540
+Again, it is about maintenance.
+
+00:05:42.540 --> 00:05:45.540
+Of AI models through their complete life cycle.
+
+00:05:45.540 --> 00:05:50.540
+Meaning how are you developing, deploying and managing AI models.
+
+00:05:50.540 --> 00:05:53.540
+And how is its entire life cycle being managed.
+
+00:05:53.540 --> 00:05:56.540
+This is called LLM Ops.
+
+00:05:56.540 --> 00:05:59.540
+So let me demystify all these terms.
+
+00:05:59.540 --> 00:06:02.540
+So if I talk about Google.
+
+00:06:02.540 --> 00:06:05.540
+If I talk about Red Hat.
+
+00:06:05.540 --> 00:06:08.540
+If I talk about IBM.
+
+00:06:08.540 --> 00:06:13.540
+So these three industry leaders are saying the same thing.
+
+00:06:13.540 --> 00:06:15.540
+What is that thing?
+
+00:06:15.540 --> 00:06:25.540
+LLM Ops is used to manage and deploy your LLMs.
+
+00:06:25.540 --> 00:06:31.540
+The entire management around your LLMs and the operations related to deployment.
+
+00:06:31.540 --> 00:06:34.540
+LLM Ops does all the operations.
+
+00:06:34.540 --> 00:06:37.540
+And what all things are there in it?
+
+00:06:37.540 --> 00:06:43.540
+All the steps that are required to maintain the entire life cycle of your LLMs.
+
+00:06:45.540 --> 00:06:48.540
+I hope this point is clear to you.
+
+00:06:48.540 --> 00:06:51.540
+It is a very important point to understand.
+
+00:06:51.540 --> 00:06:54.540
+But there is another side here.
+
+00:06:54.540 --> 00:06:57.540
+Let me show you what that other side is.
+
+00:06:57.540 --> 00:07:00.540
+If we explore more search results here.
+
+00:07:00.540 --> 00:07:03.540
+To understand weights and biases.
+
+00:07:03.540 --> 00:07:06.540
+If we look at the definition of LLM Ops.
+
+00:07:06.540 --> 00:07:09.540
+What is LLM Ops?
+
+00:07:09.540 --> 00:07:12.540
+The term LLM Ops stands for Large Language Model Operations.
+
+00:07:12.540 --> 00:07:17.540
+The short definition is that LLM Ops is ML Ops for LLMs.
+
+00:07:17.540 --> 00:07:20.540
+So they have explained it in a simple way.
+
+00:07:20.540 --> 00:07:23.540
+Like ML Ops is for your machine learning systems.
+
+00:07:23.540 --> 00:07:26.540
+Similarly, LLM Ops is for your LLMs.
+
+00:07:26.540 --> 00:07:33.540
+That means that LLM Ops is essentially a new set of tools and best practices.
+
+00:07:33.540 --> 00:07:36.540
+So these are some specialized set of tools.
+
+00:07:36.540 --> 00:07:39.540
+New tools and best practices.
+
+00:07:39.540 --> 00:07:44.540
+Again, there is a workflow to manage the life cycle of LLM powered applications.
+
+00:07:44.540 --> 00:07:47.540
+Here we are not talking about LLMs.
+
+00:07:47.540 --> 00:07:53.540
+Here we are talking about LLM Ops used to manage the life cycle of LLM powered applications.
+
+00:07:53.540 --> 00:07:56.540
+These applications are made using LLMs.
+
+00:07:56.540 --> 00:08:01.540
+Like your rag application, agentic application, text to SQL application.
+
+00:08:01.540 --> 00:08:04.540
+All these are made with the help of LLMs.
+
+00:08:04.540 --> 00:08:07.540
+So managing and powering them is the LLM Ops part.
+
+00:08:07.540 --> 00:08:11.540
+Including development, deployment and maintenance.
+
+00:08:11.540 --> 00:08:14.540
+So there is not much difference in the definition.
+
+00:08:14.540 --> 00:08:18.540
+Again, here we are talking about the new set of tools and best practices.
+
+00:08:18.540 --> 00:08:20.540
+And why are they used?
+
+00:08:20.540 --> 00:08:22.540
+Deployment, development, maintenance.
+
+00:08:22.540 --> 00:08:25.540
+But here your core product has changed.
+
+00:08:25.540 --> 00:08:28.540
+This is your LLM powered application.
+
+00:08:28.540 --> 00:08:31.540
+So guys let's explore one more final definition.
+
+00:08:31.540 --> 00:08:33.539
+And this is from your MLflow.
+
+00:08:33.539 --> 00:08:40.539
+MLflow says that LLM Ops is the discipline of building, deploying, monitoring and maintaining
+
+00:08:40.539 --> 00:08:43.539
+large language model applications in production.
+
+00:08:43.539 --> 00:08:46.540
+So what are you doing in LLM Ops?
+
+00:08:46.540 --> 00:08:53.540
+So here you are building, deploying, monitoring and maintaining your LLM based applications in production.
+
+00:08:53.540 --> 00:09:03.540
+It encompasses the tools, practices and workflows that teams need to move LLM powered applications from prototype to production.
+
+00:09:03.540 --> 00:09:06.540
+So the same thing is happening here.
+
+00:09:06.540 --> 00:09:10.540
+LLM Ops is a certain set of workflow.
+
+00:09:10.540 --> 00:09:13.540
+Here you are using specialized practices and tools.
+
+00:09:13.540 --> 00:09:21.540
+But here you are deploying LLM powered applications.
+
+00:09:21.540 --> 00:09:25.540
+You are managing LLM powered applications.
+
+00:09:25.540 --> 00:09:28.540
+So clearly here I can see two set of branches.
+
+00:09:28.540 --> 00:09:36.540
+The first branch is the one in which Google, Reddit and IBM are talking about LLM Ops.
+
+00:09:36.540 --> 00:09:41.540
+Whereas the second branch where my weights and biases are there.
+
+00:09:42.540 --> 00:09:51.540
+My MLflow is talking about your LLM powered applications.
+
+00:09:55.540 --> 00:09:57.540
+Concepts are same.
+
+00:09:57.540 --> 00:10:03.540
+In concepts, you are getting specialized set of tools, practices, workflows, manage, deployment.
+
+00:10:03.540 --> 00:10:05.540
+You will get the same wordings.
+
+00:10:05.540 --> 00:10:09.540
+But the difference is in the one on whom you are applying.
+
+00:10:09.540 --> 00:10:15.540
+Now you must be thinking that why LLM Ops doesn't have a single definition on the website?
+
+00:10:15.540 --> 00:10:18.540
+Why are there so many contradictions?
+
+00:10:18.540 --> 00:10:20.540
+Why are there so many different definitions?
+
+00:10:20.540 --> 00:10:22.540
+So I will give you a solid answer.
+
+00:10:22.540 --> 00:10:27.540
+Basically, you are getting this contradiction because there is no single definition.
+
+00:10:27.540 --> 00:10:31.540
+Because both of the definitions are correct.
+
+00:10:33.540 --> 00:10:35.540
+Where is the difference?
+
+00:10:35.540 --> 00:10:37.540
+The difference is only in the perspective.
+
+00:10:39.540 --> 00:10:42.540
+It is basically relative in nature.
+
+00:10:42.540 --> 00:10:45.540
+Where are you standing and talking?
+
+00:10:45.540 --> 00:10:50.540
+In whose reference are you talking about LLM Ops?
+
+00:10:50.540 --> 00:10:53.540
+So the difference is around your reference point.
+
+00:10:55.540 --> 00:10:57.540
+Why is there a difference in reference point?
+
+00:10:57.540 --> 00:11:06.540
+If I talk about companies like Google, IBM, Red Hat.
+
+00:11:07.540 --> 00:11:11.540
+So these companies are more focused around building your LLMs.
+
+00:11:13.540 --> 00:11:15.540
+These companies are centered around LLMs.
+
+00:11:15.540 --> 00:11:17.540
+So what will be their challenges?
+
+00:11:17.540 --> 00:11:20.540
+Their challenges will be how you will build your LLMs.
+
+00:11:20.540 --> 00:11:24.540
+How will you train them, deploy them, manage them.
+
+00:11:24.540 --> 00:11:26.540
+What will be the steps after deployment?
+
+00:11:26.540 --> 00:11:30.540
+How will your LLMs be served to your end user?
+
+00:11:30.540 --> 00:11:32.540
+How will the inference be?
+
+00:11:32.540 --> 00:11:35.540
+So these companies are more worried about these steps.
+
+00:11:35.540 --> 00:11:41.540
+So the whole operations around your LLMs will be on these steps.
+
+00:11:41.540 --> 00:11:44.540
+So who should they focus on?
+
+00:11:44.540 --> 00:11:47.540
+They should focus on the life cycle of your LLMs.
+
+00:11:47.540 --> 00:11:50.540
+So around that, they will develop best practices.
+
+00:11:50.540 --> 00:11:53.540
+Around that, they will develop specialized tools.
+
+00:11:53.540 --> 00:11:58.540
+Whereas if I talk about some other companies like Wage and Biases.
+
+00:11:58.540 --> 00:12:01.540
+We have seen an example of this.
+
+00:12:01.540 --> 00:12:03.540
+There is a company called MLflow.
+
+00:12:03.540 --> 00:12:05.540
+We have seen these two examples.
+
+00:12:05.540 --> 00:12:07.540
+These companies don't build LLMs.
+
+00:12:07.540 --> 00:12:11.540
+Neither are they building LLMs, nor are they training them, nor are they deploying them.
+
+00:12:11.540 --> 00:12:17.540
+These companies are using these LLMs to build LLM powered applications.
+
+00:12:20.540 --> 00:12:24.540
+So here a completely different use case is coming out.
+
+00:12:24.540 --> 00:12:26.540
+So what will be the focus of these companies?
+
+00:12:26.540 --> 00:12:31.540
+So how will we build operations around these LLM powered applications?
+
+00:12:31.540 --> 00:12:34.540
+How will we handle their whole life cycle?
+
+00:12:34.540 --> 00:12:37.540
+How will these applications be built and managed?
+
+00:12:37.540 --> 00:12:40.540
+How will components be set in them?
+
+00:12:40.540 --> 00:12:43.540
+How will these applications serve our end user?
+
+00:12:43.540 --> 00:12:49.540
+So the workflows, processes and tools around them will be managed by these companies.
+
+00:12:49.540 --> 00:12:51.540
+So both the definitions are correct.
+
+00:12:51.540 --> 00:12:52.540
+Where is the difference?
+
+00:12:52.540 --> 00:12:54.540
+The difference is only at the end product.
+
+00:12:54.540 --> 00:12:59.540
+But the other things that you are doing like managing, operations, deploying,
+
+00:12:59.540 --> 00:13:03.540
+taking anything from prototype to production,
+
+00:13:03.540 --> 00:13:05.540
+those are correct in all cases.
+
+00:13:05.540 --> 00:13:08.540
+I hope this contradiction has been cleared in your mind.
+
+00:13:08.540 --> 00:13:11.540
+And I hope I was able to clear your confusion.
+
+00:13:11.540 --> 00:13:15.540
+So one thing that came out of our discussion is that
+
+00:13:15.540 --> 00:13:19.540
+if ever there is a talk of LLM Ops,
+
+00:13:19.540 --> 00:13:21.540
+then there will be two branches in it.
+
+00:13:21.540 --> 00:13:30.540
+The first branch will be LLM based and the second branch will be LLM based applications.
+
+00:13:34.540 --> 00:13:40.540
+So let's move our discussion forward and discuss what steps you do in these two branches.
+
+00:13:40.540 --> 00:13:43.540
+Again, we will not cover these steps in depth.
+
+00:13:43.540 --> 00:13:47.540
+The reason is simple that it will take a lot of time.
+
+00:13:47.540 --> 00:13:51.540
+So we will cover these steps in overview mode.
+
+00:13:51.540 --> 00:13:54.540
+So let's discuss about your branch number one,
+
+00:13:54.540 --> 00:13:57.540
+in which we cater to LLMs.
+
+00:13:57.540 --> 00:14:02.540
+So branch number one is called your LLM based LLM Ops.
+
+00:14:02.540 --> 00:14:12.540
+Now the thing to keep in mind is that the end product of branch one is your LLMs.
+
+00:14:12.540 --> 00:14:15.540
+LLMs are its end product.
+
+00:14:15.540 --> 00:14:22.540
+Now, because it is a model and you have to manage the entire life cycle of this model,
+
+00:14:22.540 --> 00:14:25.540
+so if you have worked with machine learning,
+
+00:14:25.540 --> 00:14:29.540
+then you know that you have to collect data for the model first.
+
+00:14:29.540 --> 00:14:31.540
+Then you train the model.
+
+00:14:31.540 --> 00:14:38.540
+After training, it is evaluated and it is done better if there is something lacking in the evaluation results.
+
+00:14:38.540 --> 00:14:40.540
+And finally it is deployed.
+
+00:14:40.540 --> 00:14:44.540
+So you do the same steps with LLMs.
+
+00:14:44.540 --> 00:14:47.540
+Now, the only difference is the scale.
+
+00:14:47.540 --> 00:14:54.540
+So the first step is that you collect data and prepare it.
+
+00:14:54.540 --> 00:14:59.540
+You know that LLMs are trained on massive data.
+
+00:14:59.540 --> 00:15:02.540
+When I say that it is massive data,
+
+00:15:02.540 --> 00:15:11.540
+it means that the entire internet data is used to train these models.
+
+00:15:11.540 --> 00:15:16.540
+Now you also know that the entire internet data is not in perfect condition.
+
+00:15:16.540 --> 00:15:20.540
+There is a lot of data that is of no use to you.
+
+00:15:20.540 --> 00:15:23.540
+So what is the first step you have to do in data collection?
+
+00:15:23.540 --> 00:15:28.540
+The first step is to filter out the data.
+
+00:15:28.540 --> 00:15:32.540
+You have to extract the data of work.
+
+00:15:32.540 --> 00:15:36.540
+Now when you bring the data of work, it is not perfect.
+
+00:15:36.540 --> 00:15:41.540
+So you have to fix the formatting.
+
+00:15:41.540 --> 00:15:45.540
+Maybe the data is not in the format you want.
+
+00:15:45.540 --> 00:15:51.540
+So you have to apply fixes, some pre-processing steps, some transformations.
+
+00:15:51.540 --> 00:15:54.540
+And after that you get the right data.
+
+00:15:54.540 --> 00:16:02.540
+After that, you keep in mind that you do not give any noise to your model in the data.
+
+00:16:02.540 --> 00:16:05.540
+So you eliminate the noise here.
+
+00:16:05.540 --> 00:16:12.540
+So you remove the noise that is not so beneficial for training the model.
+
+00:16:12.540 --> 00:16:19.540
+After that, your transformer models, LLMs, process word-by-word input.
+
+00:16:19.540 --> 00:16:22.540
+So the next step is your tokenization.
+
+00:16:22.540 --> 00:16:30.540
+Tokenization means that you break down your text into words or tokens.
+
+00:16:30.540 --> 00:16:35.540
+And after that you give these tokens to your model for training.
+
+00:16:35.540 --> 00:16:40.540
+So these are the steps around your data.
+
+00:16:40.540 --> 00:16:44.540
+After that comes the step of pre-training.
+
+00:16:44.540 --> 00:16:48.540
+Where you train your model.
+
+00:16:48.540 --> 00:16:52.540
+Basically, training means that you have a training loop.
+
+00:16:52.540 --> 00:16:57.540
+First of all, you divide your data into batches.
+
+00:16:57.540 --> 00:17:01.540
+You give it to your model.
+
+00:17:01.540 --> 00:17:04.540
+The weights of the model are initialized randomly.
+
+00:17:04.540 --> 00:17:07.540
+So you get value in the output.
+
+00:17:07.540 --> 00:17:09.540
+You get an output.
+
+00:17:09.540 --> 00:17:12.540
+You calculate the loss from that output.
+
+00:17:12.540 --> 00:17:17.540
+This loss tells you how wrong your model is.
+
+00:17:17.540 --> 00:17:21.540
+And then you do back propagation.
+
+00:17:21.540 --> 00:17:27.540
+And after that you update your weights or parameters.
+
+00:17:27.540 --> 00:17:31.540
+I hope you know the whole training sequence.
+
+00:17:31.540 --> 00:17:33.540
+And you do it again and again.
+
+00:17:33.540 --> 00:17:38.540
+You do it in multiple epochs and multiple batches of data.
+
+00:17:38.540 --> 00:17:43.540
+So this pre-training step is like compute heavy.
+
+00:17:43.540 --> 00:17:45.540
+It requires a lot of computation.
+
+00:17:45.540 --> 00:17:49.540
+And this whole step is done on GPU clusters.
+
+00:17:49.540 --> 00:17:54.540
+So specialized hardware is massive GPU clusters.
+
+00:17:54.540 --> 00:17:57.540
+On which you train this model.
+
+00:17:57.540 --> 00:17:59.540
+Because the size of the model is very big.
+
+00:17:59.540 --> 00:18:01.540
+LLMs are very big.
+
+00:18:01.540 --> 00:18:03.540
+There are billions and trillions of parameters in it.
+
+00:18:03.540 --> 00:18:06.540
+So you cannot train it on a single system.
+
+00:18:06.540 --> 00:18:10.540
+You have massive clusters on which you complete the training.
+
+00:18:10.540 --> 00:18:15.540
+As soon as the training is completed, you get a pre-trained model.
+
+00:18:15.540 --> 00:18:20.540
+Now since this pre-trained model is trained on the whole internet data.
+
+00:18:20.540 --> 00:18:23.540
+So it has the entire internet knowledge.
+
+00:18:23.540 --> 00:18:27.540
+And it is a generalized model.
+
+00:18:27.540 --> 00:18:32.540
+But these generalized models are not that good.
+
+00:18:32.540 --> 00:18:38.540
+Whenever you train LLMs, you want your LLMs to do a specific task.
+
+00:18:38.540 --> 00:18:41.540
+Like the entropic model.
+
+00:18:41.540 --> 00:18:46.540
+So you have to convert this generalized model into a specialized model.
+
+00:18:46.540 --> 00:18:50.540
+And here comes the technique called as fine tuning.
+
+00:18:50.540 --> 00:18:55.540
+So what you do with fine tuning is you train a generalized model into a specialized model.
+
+00:18:55.540 --> 00:19:00.540
+Which can perform certain tasks very well.
+
+00:19:00.540 --> 00:19:02.540
+So this is your step number 2.
+
+00:19:02.540 --> 00:19:04.540
+Where you train LLMs.
+
+00:19:04.540 --> 00:19:08.540
+So you train LLMs to perform certain tasks very well.
+
+00:19:08.540 --> 00:19:11.540
+So this is your step number 2.
+
+00:19:11.540 --> 00:19:16.540
+Where you use massive compute hardware to complete the training.
+
+00:19:16.540 --> 00:19:19.540
+And second, you complete fine tuning.
+
+00:19:19.540 --> 00:19:29.540
+As soon as your model is trained, you have to find out how well your trained model is performing.
+
+00:19:29.540 --> 00:19:35.540
+So what you do is you run certain evaluations on your model.
+
+00:19:35.540 --> 00:19:40.540
+And for this, you use certain benchmarks.
+
+00:19:40.540 --> 00:19:44.540
+Benchmarks are basically predefined evaluations.
+
+00:19:44.540 --> 00:19:46.540
+Where your data set is also there.
+
+00:19:46.540 --> 00:19:48.540
+You have evaluation steps.
+
+00:19:48.540 --> 00:19:54.540
+And on the basis of that, you evaluate your model on a particular property.
+
+00:19:54.540 --> 00:19:56.540
+So your evaluation is complete.
+
+00:19:56.540 --> 00:20:00.540
+You have the benchmark results and the evaluation scores.
+
+00:20:00.540 --> 00:20:04.540
+On the basis of that, you see where your model is lacking.
+
+00:20:04.540 --> 00:20:07.540
+Where it needs more fine tuning or pre-training.
+
+00:20:07.540 --> 00:20:09.540
+And you fix your model.
+
+00:20:09.540 --> 00:20:14.540
+Finally, when your model clears the set benchmarks.
+
+00:20:14.540 --> 00:20:16.540
+Your validation step is complete.
+
+00:20:16.540 --> 00:20:19.540
+So you are ready with your model.
+
+00:20:19.540 --> 00:20:21.540
+And now it is time to deploy.
+
+00:20:21.540 --> 00:20:28.540
+But before deploying, you align your model.
+
+00:20:29.540 --> 00:20:31.540
+To human values.
+
+00:20:31.540 --> 00:20:37.540
+Because what you have to do at the end of the day is you have to interact with humans.
+
+00:20:37.540 --> 00:20:41.540
+So you do the alignment process.
+
+00:20:41.540 --> 00:20:47.540
+And in this alignment process, you use certain techniques like RLH.
+
+00:20:47.540 --> 00:20:51.540
+Reinforcement learning through human feedback.
+
+00:20:51.540 --> 00:20:55.540
+You give feedback to your model and align it.
+
+00:20:55.540 --> 00:21:00.540
+So if your model gives misaligned outputs, you penalize it.
+
+00:21:00.540 --> 00:21:03.540
+Whereas if it gives aligned outputs, you reward it.
+
+00:21:03.540 --> 00:21:07.540
+So your model is gradually trained through the rewards.
+
+00:21:07.540 --> 00:21:11.540
+And it gives you the right aligned and ethical outputs.
+
+00:21:11.540 --> 00:21:16.540
+So now what you do is, as soon as your alignment is complete.
+
+00:21:16.540 --> 00:21:19.540
+After that, you deploy your model.
+
+00:21:19.540 --> 00:21:23.540
+You basically take your model to production.
+
+00:21:23.540 --> 00:21:26.540
+You take it to production environment.
+
+00:21:26.540 --> 00:21:31.540
+And not only you deploy it, you also serve your model to the end user.
+
+00:21:31.540 --> 00:21:35.540
+And serving means you build APIs around your model.
+
+00:21:35.540 --> 00:21:39.540
+So that your end user can access this model.
+
+00:21:39.540 --> 00:21:44.540
+So this is your step number 4 where you do deployment and serving.
+
+00:21:44.540 --> 00:21:47.540
+And final step is your monitoring and maintenance.
+
+00:21:47.540 --> 00:21:50.540
+You don't let your model go after deploying.
+
+00:21:50.540 --> 00:21:55.540
+You constantly monitor your model and you take feedback from the user.
+
+00:21:55.540 --> 00:21:58.540
+Like you must have seen in chartgbd that when an output comes,
+
+00:21:58.540 --> 00:22:01.540
+chartgbd asks you if this response was good.
+
+00:22:01.540 --> 00:22:04.540
+You have a button to press the button.
+
+00:22:04.540 --> 00:22:08.540
+So through that button, you regularly take feedback from your user.
+
+00:22:08.540 --> 00:22:11.540
+How is the output of your model?
+
+00:22:11.540 --> 00:22:15.540
+Is it giving any unethical response or toxic response?
+
+00:22:15.540 --> 00:22:19.540
+And on the basis of that feedback, on the basis of continuous monitoring,
+
+00:22:19.540 --> 00:22:22.540
+you improve your model.
+
+00:22:22.540 --> 00:22:26.540
+Let's say for a certain set of questions, for physics questions,
+
+00:22:26.540 --> 00:22:29.540
+your model is not performing well.
+
+00:22:29.540 --> 00:22:32.540
+So you take this input from your end user.
+
+00:22:32.540 --> 00:22:35.540
+And after that, what will you do?
+
+00:22:35.540 --> 00:22:39.540
+When you deploy the next version of your model, you will train it in such a way
+
+00:22:39.540 --> 00:22:42.540
+that it can perform well on the physics questions.
+
+00:22:42.540 --> 00:22:46.540
+So the complete lifecycle that we discussed, these 5 big steps
+
+00:22:46.540 --> 00:22:49.540
+I have discussed with you, which is data collection and preparation,
+
+00:22:49.540 --> 00:22:53.540
+training and fine tuning, evaluation and validation, deployment and serving,
+
+00:22:53.540 --> 00:22:56.540
+monitoring and maintenance.
+
+00:22:56.540 --> 00:22:59.540
+So this is your complete LLM lifecycle.
+
+00:22:59.540 --> 00:23:04.540
+And managing and operating this same lifecycle comes under your branch 1
+
+00:23:04.540 --> 00:23:07.540
+that is your LLM based LLM.
+
+00:23:07.540 --> 00:23:10.540
+I hope this whole discussion was clear to you.
+
+00:23:10.540 --> 00:23:14.540
+If this discussion is clear, then let's discuss what comes under branch 2.
+
+00:23:14.540 --> 00:23:17.540
+What is in branch 2?
+
+00:23:17.540 --> 00:23:20.540
+The end product is your application.
+
+00:23:20.540 --> 00:23:25.540
+From branch 1 LLM to branch 2, application is your end product.
+
+00:23:25.540 --> 00:23:32.540
+But the LLM is a central component.
+
+00:23:32.540 --> 00:23:39.540
+Like you take any LLM powered application, like take any rag application.
+
+00:23:39.540 --> 00:23:42.540
+Or take any agentic application.
+
+00:23:42.540 --> 00:23:49.540
+The core component of these two applications is an LLM.
+
+00:23:49.540 --> 00:23:54.540
+So always keep in mind that the central component of LLM based applications
+
+00:23:54.540 --> 00:23:59.540
+is your LLM and your application is built around it.
+
+00:23:59.540 --> 00:24:03.540
+But the end product for branch 2 is always your application.
+
+00:24:03.540 --> 00:24:06.540
+You don't worry about LLMs.
+
+00:24:06.540 --> 00:24:09.540
+So here the steps are different.
+
+00:24:09.540 --> 00:24:14.540
+The first step is to choose a foundation model.
+
+00:24:14.540 --> 00:24:18.540
+So you already have an LLM available.
+
+00:24:18.540 --> 00:24:26.540
+Which is already deployed, served to the end user, maintained and managed.
+
+00:24:26.540 --> 00:24:35.540
+You simply have to select the right provider for your application.
+
+00:24:35.540 --> 00:24:39.540
+So step 1 is choosing the right foundation model for your application.
+
+00:24:39.540 --> 00:24:42.540
+So you have selected the foundation model.
+
+00:24:42.540 --> 00:24:45.540
+Next step is to build the application.
+
+00:24:45.540 --> 00:24:48.540
+You build your application.
+
+00:24:48.540 --> 00:24:51.540
+So to build an application, you can use multiple frameworks.
+
+00:24:51.540 --> 00:24:56.540
+Like if you are building a rag application, you can build a rag application through a line chain.
+
+00:24:56.540 --> 00:25:01.540
+If you are building an agentic application, you can build it through a crew I.
+
+00:25:01.540 --> 00:25:04.540
+You can build it through agno, or through a line graph.
+
+00:25:04.540 --> 00:25:10.540
+So what you do is after selecting your LLM, you build your application around it.
+
+00:25:10.540 --> 00:25:15.540
+After that, step 3 is to design and manage your prompts.
+
+00:25:15.540 --> 00:25:22.540
+Now any LLM powered application, your system prompt is very important.
+
+00:25:22.540 --> 00:25:24.540
+It is a very important component.
+
+00:25:24.540 --> 00:25:30.540
+The reason is that this system prompt governs how your application will behave.
+
+00:25:30.540 --> 00:25:35.540
+What will be the persona of your LLM that is working in your application?
+
+00:25:35.540 --> 00:25:39.540
+What instructions do you want to give around it?
+
+00:25:39.540 --> 00:25:41.540
+You put this in your system prompt.
+
+00:25:41.540 --> 00:25:44.540
+What rules and regulations do you want to apply?
+
+00:25:44.540 --> 00:25:47.540
+What are the not to do's?
+
+00:25:47.540 --> 00:25:50.540
+You add all that to your system prompt.
+
+00:25:50.540 --> 00:25:59.540
+So the system prompt acts as a very important component because it steers your LLM towards a certain specialization.
+
+00:25:59.540 --> 00:26:04.540
+This is what makes your LLM fit for a rag application.
+
+00:26:04.540 --> 00:26:09.540
+This is what makes your LLM fit for an agentic application.
+
+00:26:09.540 --> 00:26:11.540
+Where does the difference come from?
+
+00:26:11.540 --> 00:26:13.540
+It comes from your system prompt.
+
+00:26:13.540 --> 00:26:15.540
+So what you do is you design.
+
+00:26:15.540 --> 00:26:17.540
+First of all, you make your system prompt.
+
+00:26:17.540 --> 00:26:20.540
+And it is like very important thing.
+
+00:26:20.540 --> 00:26:22.540
+You make it very well.
+
+00:26:22.540 --> 00:26:24.540
+And you also manage prompt.
+
+00:26:24.540 --> 00:26:27.540
+It is possible that you are making the system prompt.
+
+00:26:27.540 --> 00:26:29.540
+You made your application.
+
+00:26:29.540 --> 00:26:31.540
+You manually tested it.
+
+00:26:31.540 --> 00:26:34.540
+But your system prompt is not behaving properly.
+
+00:26:34.540 --> 00:26:38.540
+Your application is not behaving the way it should.
+
+00:26:38.540 --> 00:26:40.540
+So what will you do?
+
+00:26:40.540 --> 00:26:42.540
+You will fix your system prompt.
+
+00:26:42.540 --> 00:26:43.540
+You fixed it.
+
+00:26:43.540 --> 00:26:45.540
+You rerun your application again.
+
+00:26:45.540 --> 00:26:48.540
+So it is a little better.
+
+00:26:48.540 --> 00:26:52.540
+You thought that I will add 1-2 more points.
+
+00:26:52.540 --> 00:26:56.540
+Now in this journey where you are continuously changing your system prompt.
+
+00:26:56.540 --> 00:26:59.540
+Which is a very important component of your application.
+
+00:26:59.540 --> 00:27:02.540
+You are not doing it anywhere.
+
+00:27:02.540 --> 00:27:09.540
+By version I mean that you are not tracking these changes anywhere.
+
+00:27:09.540 --> 00:27:15.540
+Tomorrow you have to see someone else or you have to see after a few iterations.
+
+00:27:15.540 --> 00:27:18.540
+What was the difference with which changes?
+
+00:27:18.540 --> 00:27:20.540
+You will lose that track.
+
+00:27:20.540 --> 00:27:23.540
+So you not only design your system prompt.
+
+00:27:23.540 --> 00:27:24.540
+You also manage it.
+
+00:27:24.540 --> 00:27:26.540
+What does it mean to manage?
+
+00:27:26.540 --> 00:27:28.540
+You version your system prompt.
+
+00:27:28.540 --> 00:27:31.540
+It is possible that you change it in your system prompt.
+
+00:27:31.540 --> 00:27:34.540
+Which will make your application perform very poorly.
+
+00:27:34.540 --> 00:27:36.540
+And you want to roll back to a previous version.
+
+00:27:36.540 --> 00:27:39.540
+So if you have the versions of your system prompt maintained.
+
+00:27:39.540 --> 00:27:41.540
+Then only you can roll back.
+
+00:27:41.540 --> 00:27:43.540
+If you are not keeping this track.
+
+00:27:43.540 --> 00:27:47.540
+Then you will not be able to track rollback or updates.
+
+00:27:47.540 --> 00:27:51.540
+So managing your system prompt through prompt management.
+
+00:27:51.540 --> 00:27:53.540
+This is called prompt management.
+
+00:27:55.540 --> 00:27:57.540
+It is very important.
+
+00:27:57.540 --> 00:28:01.540
+Because it is a very important component of your application.
+
+00:28:01.540 --> 00:28:03.540
+So you chose your LLM here.
+
+00:28:03.540 --> 00:28:05.540
+You built the application.
+
+00:28:05.540 --> 00:28:07.540
+Then you managed your system prompts.
+
+00:28:07.540 --> 00:28:11.540
+Fourth you evaluate your outputs.
+
+00:28:11.540 --> 00:28:13.540
+What do you do in this?
+
+00:28:13.540 --> 00:28:15.540
+Test your application.
+
+00:28:19.540 --> 00:28:21.540
+You score your application.
+
+00:28:21.540 --> 00:28:25.540
+You see that whatever application you have built.
+
+00:28:25.540 --> 00:28:27.540
+The system prompt you set with it.
+
+00:28:27.540 --> 00:28:29.540
+Is it working as intended or not?
+
+00:28:29.540 --> 00:28:31.540
+You can test it manually.
+
+00:28:31.540 --> 00:28:33.540
+But you will not get exact results from it.
+
+00:28:33.540 --> 00:28:35.540
+You can not compare those results.
+
+00:28:35.540 --> 00:28:37.540
+So you need exact metrics.
+
+00:28:37.540 --> 00:28:41.540
+Exact flows on which you can repeat the same process.
+
+00:28:41.540 --> 00:28:45.540
+You can do the same evaluation on the basis of that.
+
+00:28:45.540 --> 00:28:49.540
+And for that you use the evaluation pipeline.
+
+00:28:49.540 --> 00:28:53.540
+Now in this evaluation you have certain metrics.
+
+00:28:53.540 --> 00:28:55.540
+Which show you some results.
+
+00:28:55.540 --> 00:28:57.540
+Which give you some scores.
+
+00:28:57.540 --> 00:29:01.540
+On the basis of which you test how your application is performing.
+
+00:29:01.540 --> 00:29:05.540
+Because you have different types of LLM based applications.
+
+00:29:05.540 --> 00:29:07.540
+So your metrics are different here.
+
+00:29:07.540 --> 00:29:10.540
+For a rag application there are certain set of different metrics.
+
+00:29:10.540 --> 00:29:13.540
+For a hygienic application there are different metrics.
+
+00:29:13.540 --> 00:29:16.540
+So for every application type you have certain set of metrics.
+
+00:29:16.540 --> 00:29:19.540
+Which judge the quality of your application.
+
+00:29:19.540 --> 00:29:21.540
+I hope you understood this point.
+
+00:29:21.540 --> 00:29:23.540
+So as soon as you test your application.
+
+00:29:23.540 --> 00:29:25.540
+If there is any problem.
+
+00:29:25.540 --> 00:29:27.540
+You will fix it.
+
+00:29:27.540 --> 00:29:29.540
+If any metric score is less.
+
+00:29:29.540 --> 00:29:32.540
+You will fix it and then you will test it again.
+
+00:29:32.540 --> 00:29:34.540
+And you will keep doing this work.
+
+00:29:34.540 --> 00:29:37.540
+Till the time your scores are not good.
+
+00:29:37.540 --> 00:29:39.540
+Once you have good scores.
+
+00:29:39.540 --> 00:29:41.540
+After that in step no.5.
+
+00:29:41.540 --> 00:29:44.540
+You make your application a little safe.
+
+00:29:44.540 --> 00:29:47.540
+And for that you add guard rails to your application.
+
+00:29:47.540 --> 00:29:51.540
+Now your application is open ended.
+
+00:29:51.540 --> 00:29:54.540
+You can give it any type of input.
+
+00:29:54.540 --> 00:29:57.540
+And it can give any type of output.
+
+00:29:57.540 --> 00:30:01.540
+Because I told you that LLMs are trained on your internet data.
+
+00:30:01.540 --> 00:30:04.540
+So these are generalized models.
+
+00:30:04.540 --> 00:30:07.540
+So you can't expect from them.
+
+00:30:07.540 --> 00:30:10.540
+So they will give you the same response that you want.
+
+00:30:10.540 --> 00:30:13.540
+In some cases it may give you a response.
+
+00:30:13.540 --> 00:30:15.540
+Which is not right.
+
+00:30:15.540 --> 00:30:18.540
+Or it can spoil your user experience.
+
+00:30:18.540 --> 00:30:20.540
+So what you do is.
+
+00:30:20.540 --> 00:30:24.540
+You set some rules or boundaries around your application.
+
+00:30:26.540 --> 00:30:28.540
+Both on the input side.
+
+00:30:28.540 --> 00:30:30.540
+And your output side.
+
+00:30:30.540 --> 00:30:34.540
+And these boundaries are called guard rails.
+
+00:30:34.540 --> 00:30:38.540
+And the main purpose of these guard rails.
+
+00:30:38.540 --> 00:30:41.540
+Is to make your application safe to use.
+
+00:30:41.540 --> 00:30:46.540
+So that you can maintain your user experience.
+
+00:30:46.540 --> 00:30:49.540
+So that your user experience is not spoiled.
+
+00:30:49.540 --> 00:30:52.540
+And as soon as your step 5 is completed.
+
+00:30:52.540 --> 00:30:54.540
+You move to step no.6.
+
+00:30:54.540 --> 00:30:56.540
+Where you deploy your application.
+
+00:30:56.540 --> 00:30:58.540
+After deploying.
+
+00:30:58.540 --> 00:31:01.540
+Again you serve your application to the end user through APIs.
+
+00:31:01.540 --> 00:31:04.540
+And after deployment.
+
+00:31:04.540 --> 00:31:07.540
+You continue to monitor your application.
+
+00:31:07.540 --> 00:31:08.540
+Monitor means.
+
+00:31:08.540 --> 00:31:11.540
+What type of input is coming to your application.
+
+00:31:11.540 --> 00:31:15.540
+What type of output your application gave for that input.
+
+00:31:15.540 --> 00:31:18.540
+And your whole infrastructure.
+
+00:31:18.540 --> 00:31:20.540
+Where your application is deployed.
+
+00:31:20.540 --> 00:31:21.540
+How it is working.
+
+00:31:21.540 --> 00:31:25.540
+So these come under your monitoring and your observability.
+
+00:31:26.540 --> 00:31:29.540
+So you put these two steps there.
+
+00:31:29.540 --> 00:31:31.540
+So this is your deployment.
+
+00:31:31.540 --> 00:31:32.540
+Monitoring.
+
+00:31:32.540 --> 00:31:35.540
+And finally you also take the user feedback.
+
+00:31:35.540 --> 00:31:37.540
+Like in the case of LLM.
+
+00:31:37.540 --> 00:31:38.540
+You take feedback.
+
+00:31:38.540 --> 00:31:39.540
+Thumbs up.
+
+00:31:39.540 --> 00:31:41.540
+Here you also take the feedback of the user.
+
+00:31:41.540 --> 00:31:44.540
+And if the user tells you about any problem.
+
+00:31:44.540 --> 00:31:48.540
+Then you fix your application on the basis of that problem.
+
+00:31:48.540 --> 00:31:50.540
+You launch a version 2.
+
+00:31:50.540 --> 00:31:52.540
+And you deploy it.
+
+00:31:52.540 --> 00:31:55.540
+So you maintain the versions of the application.
+
+00:31:55.540 --> 00:31:57.540
+So the journey of LLM Ops.
+
+00:31:57.540 --> 00:31:58.540
+The journey of LLM Ops.
+
+00:31:58.540 --> 00:32:00.540
+Both the branches are quite similar.
+
+00:32:00.540 --> 00:32:01.540
+Where is the difference.
+
+00:32:01.540 --> 00:32:03.540
+The difference is in the end product.
+
+00:32:03.540 --> 00:32:04.540
+In branch 1.
+
+00:32:04.540 --> 00:32:05.540
+End product is LLM.
+
+00:32:05.540 --> 00:32:06.540
+In branch 2.
+
+00:32:06.540 --> 00:32:08.540
+End product is application.
+
+00:32:08.540 --> 00:32:11.540
+But the central part in that application is your LLM.
+
+00:32:12.540 --> 00:32:13.540
+Okay.
+
+00:32:13.540 --> 00:32:14.540
+In this branch.
+
+00:32:14.540 --> 00:32:17.540
+You get a trained LLM ready.
+
+00:32:17.540 --> 00:32:18.540
+You simply use it.
+
+00:32:18.540 --> 00:32:22.540
+And you perform your LLM Ops lifecycle.
+
+00:32:22.540 --> 00:32:25.540
+I hope this point is clear to you.
+
+00:32:25.540 --> 00:32:26.540
+So guys.
+
+00:32:26.540 --> 00:32:29.540
+Let's summarize what we learned in this lecture.
+
+00:32:29.540 --> 00:32:32.540
+First of all, we discussed what is LLM Ops.
+
+00:32:32.540 --> 00:32:34.540
+What is LLM Ops.
+
+00:32:34.540 --> 00:32:35.540
+Okay.
+
+00:32:35.540 --> 00:32:37.540
+We saw different definitions of it.
+
+00:32:37.540 --> 00:32:40.540
+And from that we understood that here.
+
+00:32:40.540 --> 00:32:43.540
+You have two different branches of LLM Ops.
+
+00:32:43.540 --> 00:32:45.540
+And what do they differ on.
+
+00:32:45.540 --> 00:32:48.540
+They differ based on the point of reference.
+
+00:32:48.540 --> 00:32:51.540
+From which reference.
+
+00:32:51.540 --> 00:32:54.540
+You are seeing this LLM Ops lifecycle.
+
+00:32:54.540 --> 00:32:55.540
+Okay.
+
+00:32:55.540 --> 00:32:57.540
+Which were these two branches.
+
+00:32:57.540 --> 00:32:59.540
+These two branches are your LLM Ops branch.
+
+00:32:59.540 --> 00:33:00.540
+Sorry.
+
+00:33:00.540 --> 00:33:01.540
+LLM branch.
+
+00:33:01.540 --> 00:33:07.540
+And the second was your LLM powered application branch.
+
+00:33:12.540 --> 00:33:15.540
+Next we explored these two branches in detail.
+
+00:33:15.540 --> 00:33:18.540
+What steps you cover in these two branches.
+
+00:33:18.540 --> 00:33:21.540
+Now you must be having a question in your mind.
+
+00:33:21.540 --> 00:33:24.540
+Which branch should we focus on.
+
+00:33:24.540 --> 00:33:27.540
+Should we focus on both the branches.
+
+00:33:27.540 --> 00:33:29.540
+So the answer is no.
+
+00:33:29.540 --> 00:33:33.540
+I will tell you which areas these two branches serve.
+
+00:33:33.540 --> 00:33:35.540
+So in this branch.
+
+00:33:35.540 --> 00:33:38.540
+Because you are covering LLM Ops of LLM website.
+
+00:33:38.540 --> 00:33:43.540
+So this branch is generally used in your Frontier Labs.
+
+00:33:47.540 --> 00:33:48.540
+Okay.
+
+00:33:48.540 --> 00:33:51.540
+Or in those companies which are basically fine tuning.
+
+00:33:53.540 --> 00:33:54.540
+Training.
+
+00:33:56.540 --> 00:33:58.540
+Their LLMs.
+
+00:34:00.540 --> 00:34:01.540
+Okay.
+
+00:34:01.540 --> 00:34:03.540
+I gave you an example like Google.
+
+00:34:03.540 --> 00:34:04.540
+IBM.
+
+00:34:04.540 --> 00:34:06.540
+Those are your Frontier Labs.
+
+00:34:06.540 --> 00:34:09.540
+They are building their LLMs and training them.
+
+00:34:09.540 --> 00:34:13.540
+That's why they are focused on this branch of LLM Ops.
+
+00:34:13.540 --> 00:34:16.540
+Whereas guys the majority of the industry.
+
+00:34:16.540 --> 00:34:19.540
+Is building your LLM powered applications.
+
+00:34:19.540 --> 00:34:24.540
+Like some companies are building your Rack based applications.
+
+00:34:24.540 --> 00:34:27.540
+Some companies are building your agents.
+
+00:34:27.540 --> 00:34:30.540
+Some are building your chatbots.
+
+00:34:30.540 --> 00:34:34.540
+Some may be building some other specialized application.
+
+00:34:34.540 --> 00:34:37.540
+Like some Text to SQL application.
+
+00:34:37.540 --> 00:34:41.540
+So because the majority of the industry is building these type of applications.
+
+00:34:42.540 --> 00:34:47.540
+That's why our focus will be towards the branch 2 of LLM Ops.
+
+00:34:47.540 --> 00:34:50.540
+I hope I was able to explain to you.
+
+00:34:50.540 --> 00:34:52.540
+What is LLM Ops?
+
+00:34:52.540 --> 00:34:54.540
+What are its two branches?
+
+00:34:54.540 --> 00:34:58.540
+And the majority of the industry is focusing on which branch?
+
+00:34:58.540 --> 00:35:00.540
+Guys before ending the video.
+
+00:35:00.540 --> 00:35:03.540
+I would like to share a small disclaimer with you.
+
+00:35:03.540 --> 00:35:05.540
+Going forward in this playlist.
+
+00:35:05.540 --> 00:35:08.540
+Whenever we talk about branch 1.
+
+00:35:08.540 --> 00:35:11.540
+We will call it model based LLM Ops.
+
+00:35:11.540 --> 00:35:14.540
+Which is our LLM based LLM Ops.
+
+00:35:14.540 --> 00:35:17.540
+So we will call it model based LLM Ops.
+
+00:35:20.540 --> 00:35:23.540
+Whenever we talk about branch 2.
+
+00:35:23.540 --> 00:35:26.540
+Where we deal with LLM application based LLM Ops.
+
+00:35:26.540 --> 00:35:31.540
+So we will simplify this and call it application based LLM Ops.
+
+00:35:31.540 --> 00:35:34.540
+Again this terminology is given by me.
+
+00:35:34.540 --> 00:35:36.540
+I have devised it.
+
+00:35:36.540 --> 00:35:39.540
+Simply because I want to simplify the definitions.
+
+00:35:39.540 --> 00:35:42.540
+I want to simplify the terminology.
+
+00:35:42.540 --> 00:35:45.540
+So the branch 1 where we deal with LLM Ops.
+
+00:35:45.540 --> 00:35:48.540
+That will be called model based LLM Ops.
+
+00:35:48.540 --> 00:35:51.540
+And where we deal with application based LLM Ops.
+
+00:35:51.540 --> 00:35:54.540
+We will call it application based LLM Ops.
+
+00:35:54.540 --> 00:35:57.540
+So let's move ahead.
+
+00:35:58.540 --> 00:36:01.540
+So let's move ahead.
+
+00:36:01.540 --> 00:36:06.540
+So as we discussed that LLM Ops has 2 branches.
+
+00:36:10.540 --> 00:36:17.540
+And we will focus on application based LLM Ops for this particular course.
+
+00:36:20.540 --> 00:36:22.540
+So what will I do now?
+
+00:36:22.540 --> 00:36:28.540
+Now I will discuss the entire life cycle of application based LLM Ops.
+
+00:36:29.540 --> 00:36:32.540
+And to discuss this life cycle.
+
+00:36:32.540 --> 00:36:35.540
+We will take the example of a project.
+
+00:36:35.540 --> 00:36:38.540
+And this project will be a rag based project.
+
+00:36:42.540 --> 00:36:45.540
+And the example of rag based project.
+
+00:36:45.540 --> 00:36:50.540
+We will actually build this project in this course.
+
+00:36:51.540 --> 00:36:54.540
+So not only I will share the example with you.
+
+00:36:54.540 --> 00:36:57.540
+We will actually build this project later.
+
+00:36:57.540 --> 00:37:02.540
+So let's discuss about the rag based project.
+
+00:37:02.540 --> 00:37:11.540
+So first of all, whenever you start any LLM Ops project or any Gen A project.
+
+00:37:11.540 --> 00:37:16.540
+So first of all you understand the business problem.
+
+00:37:16.540 --> 00:37:19.540
+You understand the business problem.
+
+00:37:19.540 --> 00:37:24.540
+Now for this rag based project, our business problem is very straight forward.
+
+00:37:24.540 --> 00:37:29.540
+I work at CampusX and we build courses in CampusX.
+
+00:37:29.540 --> 00:37:36.540
+So sometimes students have to do question and answers around our courses.
+
+00:37:36.540 --> 00:37:48.540
+So we decided that what if we integrate a rag chatbot on CampusX website.
+
+00:37:49.540 --> 00:37:54.540
+And what will this rag chatbot do?
+
+00:37:54.540 --> 00:38:04.540
+This rag chatbot will take the transcripts around our courses as your knowledge source.
+
+00:38:04.540 --> 00:38:11.540
+And will embed them and store them in our vector database.
+
+00:38:12.540 --> 00:38:20.540
+After that, any student who is accessing my website or courses can come to this chatbot.
+
+00:38:20.540 --> 00:38:25.540
+And can do any question answering related to my courses.
+
+00:38:25.540 --> 00:38:32.540
+And the good part about this rag chatbot is that it will give answers around my courses.
+
+00:38:32.540 --> 00:38:38.540
+Means that the answers will be grounded in the transcripts.
+
+00:38:38.540 --> 00:38:44.540
+So first of all I was asked to build this rag chatbot.
+
+00:38:44.540 --> 00:38:52.540
+And I sat with my team and understood the business problem.
+
+00:38:52.540 --> 00:38:56.540
+And I made a plan how I will make this application.
+
+00:38:56.540 --> 00:39:06.540
+After that I decided that to make this application, I will use line chain and line graph.
+
+00:39:07.540 --> 00:39:10.540
+I will use these two frameworks.
+
+00:39:10.540 --> 00:39:12.540
+What will line chain give me?
+
+00:39:12.540 --> 00:39:18.540
+It will give me the different components around my rag application.
+
+00:39:18.540 --> 00:39:25.540
+And line graph will give me the graph or workflow of my application.
+
+00:39:25.540 --> 00:39:32.540
+So what I will do is using line chain and line graph, I will build my rag application workflow.
+
+00:39:32.540 --> 00:39:35.540
+So first of all I did this.
+
+00:39:35.540 --> 00:39:40.540
+First of all I built my application using line chain and line graph.
+
+00:39:40.540 --> 00:39:48.540
+Now as soon as you build your application, what you do is you manually test your application.
+
+00:39:48.540 --> 00:39:51.540
+Every developer does this.
+
+00:39:51.540 --> 00:39:55.540
+Whenever he makes an application, he manually tests it.
+
+00:39:55.540 --> 00:40:00.540
+Means he asks some questions and runs it to see if it is working or not.
+
+00:40:00.540 --> 00:40:03.540
+This whole process is called your white testing.
+
+00:40:03.540 --> 00:40:08.540
+So I ran my application on some selected questions.
+
+00:40:08.540 --> 00:40:12.540
+So my application was behaving well on some questions.
+
+00:40:12.540 --> 00:40:16.540
+But it was performing very poorly on some questions.
+
+00:40:16.540 --> 00:40:19.540
+Or I was not getting the expected results.
+
+00:40:19.540 --> 00:40:22.540
+So what I thought is that I work.
+
+00:40:22.540 --> 00:40:26.540
+I go here and change my system prompt.
+
+00:40:27.540 --> 00:40:30.540
+Let me tweak my system prompt.
+
+00:40:30.540 --> 00:40:35.540
+You all know that system prompt controls the behavior of your application.
+
+00:40:35.540 --> 00:40:40.540
+It is a very important component of your gen A application.
+
+00:40:40.540 --> 00:40:43.540
+Whether it is rag application or agentic application.
+
+00:40:43.540 --> 00:40:47.540
+System prompts play a very important role there.
+
+00:40:47.540 --> 00:40:48.540
+So I did the same.
+
+00:40:48.540 --> 00:40:54.540
+I changed the system prompt and manually tested the application again.
+
+00:40:54.540 --> 00:40:59.540
+I saw that after testing this time, my application was performing a little better.
+
+00:40:59.540 --> 00:41:02.540
+It was giving me some good results.
+
+00:41:02.540 --> 00:41:05.540
+So I tried some other set of questions.
+
+00:41:05.540 --> 00:41:08.540
+Again, I identified some problem there.
+
+00:41:08.540 --> 00:41:16.540
+Again, I tweaked my system prompt and updated it a little.
+
+00:41:17.540 --> 00:41:19.540
+Again, I tested my application.
+
+00:41:19.540 --> 00:41:22.540
+My application started performing a little better.
+
+00:41:22.540 --> 00:41:30.540
+But gradually, I came to a point that after a specific change, my application broke.
+
+00:41:30.540 --> 00:41:36.540
+It was not giving the good results that I expected.
+
+00:41:36.540 --> 00:41:43.540
+Now what happened is that I am updating my system prompt with my eyes closed.
+
+00:41:43.540 --> 00:41:49.540
+And I am not tracking the changes that I am doing anywhere.
+
+00:41:49.540 --> 00:41:52.540
+I am not tracking the changes anywhere.
+
+00:41:52.540 --> 00:42:05.540
+So here I felt the need to use prompt management or prompt versioning.
+
+00:42:05.540 --> 00:42:10.540
+If I had used prompt management here, then what would I have done?
+
+00:42:10.540 --> 00:42:13.540
+I would have properly versioned this system prompt.
+
+00:42:13.540 --> 00:42:19.540
+And I could easily compare the changes that were there in this.
+
+00:42:19.540 --> 00:42:23.540
+I could compare my updated versions.
+
+00:42:23.540 --> 00:42:29.540
+If I had properly done prompt management, then I would have had V1 of the prompt.
+
+00:42:29.540 --> 00:42:33.540
+If I had made some changes in that, then I would have had V2.
+
+00:42:33.540 --> 00:42:36.540
+Then I would have made some changes, then I would have had V3.
+
+00:42:36.540 --> 00:42:40.540
+And I would have been tracking the updates.
+
+00:42:40.540 --> 00:42:48.540
+And not only I would have made versions, I could have checked the changes in the prompt.
+
+00:42:48.540 --> 00:42:52.540
+What changes have been made in V1 to V2, V2 to V3.
+
+00:42:52.540 --> 00:42:55.540
+I could have tracked every step properly.
+
+00:42:55.540 --> 00:43:03.540
+And not only this, if my system prompt would have broken on any version, let's say version 10,
+
+00:43:03.540 --> 00:43:10.540
+then I could easily roll back on any previous version, let's say version 9.
+
+00:43:10.540 --> 00:43:15.540
+So here the rollback capability would have been given by prompt management or prompt versioning.
+
+00:43:15.540 --> 00:43:23.540
+So the next step in your LLM office lifecycle, what you do there is you do prompt management or prompt versioning.
+
+00:43:23.540 --> 00:43:29.540
+After that, what I was doing was I was manually testing my application.
+
+00:43:29.540 --> 00:43:32.540
+Till now, all my testing was manual.
+
+00:43:32.540 --> 00:43:37.540
+I was manually testing my application.
+
+00:43:37.540 --> 00:43:44.540
+Now in manual testing of application, a problem arises that you do not have any fixed criteria.
+
+00:43:44.540 --> 00:43:49.540
+There is no fixed criteria to test.
+
+00:43:49.540 --> 00:43:53.540
+Neither do you have any fixed scores.
+
+00:43:53.540 --> 00:43:58.540
+That means if your application is performing this, then you have to give this score.
+
+00:43:58.540 --> 00:44:02.540
+Or I can say there is no fixed grading mechanism.
+
+00:44:02.540 --> 00:44:07.540
+We do not call this score, we call it that there is no fixed grading mechanism.
+
+00:44:07.540 --> 00:44:13.540
+And here your evaluation steps are non-reproducible.
+
+00:44:16.540 --> 00:44:22.540
+Means this evaluation I am doing on my system, then I am doing it in some other way.
+
+00:44:22.540 --> 00:44:24.540
+If someone else is doing it, then he is doing it in some other way.
+
+00:44:24.540 --> 00:44:26.540
+So this is not reproducible.
+
+00:44:26.540 --> 00:44:29.540
+Fourth, they are non-scalable.
+
+00:44:29.540 --> 00:44:31.540
+This is not scalable either.
+
+00:44:31.540 --> 00:44:41.540
+Today, if I am evaluating my application on 10 queries, then tomorrow if these queries increase to 500,
+
+00:44:41.540 --> 00:44:46.540
+then I do not have any mechanism that I can scale this evaluation.
+
+00:44:46.540 --> 00:44:52.540
+So here in my LLM office, the next step comes that is your evaluation.
+
+00:44:53.540 --> 00:44:57.540
+Now you will be seeing experiment tracking in this graph.
+
+00:44:57.540 --> 00:45:03.540
+You can do experiment tracking first, but we will do evaluation in this course first.
+
+00:45:03.540 --> 00:45:05.540
+So I am telling you the flow of this course.
+
+00:45:05.540 --> 00:45:11.540
+So next what we will do is we will implement evaluation over our application.
+
+00:45:11.540 --> 00:45:21.540
+We will build a proper evaluation pipeline on our application, which is our campus expert Rack chatbot.
+
+00:45:23.540 --> 00:45:26.540
+What will this evaluation pipeline do?
+
+00:45:26.540 --> 00:45:38.540
+This evaluation pipeline will test my rag application on different aspects,
+
+00:45:38.540 --> 00:45:47.540
+will judge and will return me proper scores here for by metrics.
+
+00:45:47.540 --> 00:45:51.540
+Here I will get scores for every metric.
+
+00:45:51.540 --> 00:45:59.540
+So the criteria that you are using here is fixed criteria.
+
+00:45:59.540 --> 00:46:04.540
+Let's say I have a metric, I am taking an example of rag application.
+
+00:46:04.540 --> 00:46:13.540
+So here a metric is faithfulness, which basically checks how grounded my responses are in the context.
+
+00:46:13.540 --> 00:46:22.540
+So the formula or method of calculating faithfulness, which I am calling criteria, it is fixed.
+
+00:46:22.540 --> 00:46:27.540
+I am calculating faithfulness today, I am calculating tomorrow, its criteria are never changing.
+
+00:46:27.540 --> 00:46:34.540
+The grading mechanism of this is that the scores that I am calculating, how are they being calculated?
+
+00:46:34.540 --> 00:46:42.540
+For a given answer, if I am getting a score of 70% or 0.7, then why is it getting?
+
+00:46:42.540 --> 00:46:48.540
+If I am getting a score of 0.4 for any query, then why is it getting?
+
+00:46:48.540 --> 00:46:51.540
+So I have also defined the proper grading mechanism.
+
+00:46:51.540 --> 00:47:00.540
+Next, this is reproducible in nature, this evaluation pipeline we are making, this is basically nothing but my script.
+
+00:47:00.540 --> 00:47:02.540
+This is my Python script.
+
+00:47:02.540 --> 00:47:09.540
+Now, the number of times I run this script, it will religiously be able to reproduce my evaluations.
+
+00:47:09.540 --> 00:47:25.540
+So it is reproducible in nature and it is scalable too because I can run it on 10 queries and I can run it on 100 queries and 500 queries.
+
+00:47:25.540 --> 00:47:27.540
+So there is no problem in this.
+
+00:47:27.540 --> 00:47:35.540
+Now how all these things are done, how scalability is handled, how reproducibility is handled, we will see this further in this course.
+
+00:47:35.540 --> 00:47:45.540
+But we understood that as soon as we make our application, we make the prompt properly versioned,
+
+00:47:45.540 --> 00:47:50.540
+After that, the requirement is that the one that we are manually running our application and testing,
+
+00:47:50.540 --> 00:47:56.540
+it is better that we track our application through a fixed criteria.
+
+00:47:56.540 --> 00:48:02.540
+Now when we are testing our application here through the evaluation script,
+
+00:48:02.540 --> 00:48:08.540
+then for the first version of our application, we have some baseline scores coming.
+
+00:48:08.540 --> 00:48:14.540
+The baseline score means that we are getting some scores from the application that we have built.
+
+00:48:14.540 --> 00:48:21.540
+Now what happens next is that you do experiment tracking here.
+
+00:48:21.540 --> 00:48:31.540
+Experiment tracking means that your rag application, which is the chatbot of campus x,
+
+00:48:31.540 --> 00:48:36.540
+There is no such variable in it that you can change.
+
+00:48:36.540 --> 00:48:42.540
+There are multiple different parameters that are tunable or which you can change.
+
+00:48:42.540 --> 00:48:44.540
+I give you some examples.
+
+00:48:44.540 --> 00:48:49.540
+In the rag application, you must have heard about chunking.
+
+00:48:49.540 --> 00:48:52.540
+So there is a parameter in chunking, chunk size.
+
+00:48:52.540 --> 00:48:54.540
+You can change this.
+
+00:48:54.540 --> 00:48:58.540
+In the retriever, you must have heard about retrieval strategy.
+
+00:48:58.540 --> 00:49:00.540
+You can change the value of this strategy.
+
+00:49:00.540 --> 00:49:05.540
+You will hear about the value of K, how many chunks to retrieve.
+
+00:49:05.540 --> 00:49:07.540
+You can change this.
+
+00:49:07.540 --> 00:49:09.540
+You can change the model of your generator.
+
+00:49:09.540 --> 00:49:12.540
+You can change the temperature of the model if you want.
+
+00:49:12.540 --> 00:49:18.540
+So there are multiple tunable parameters that can completely change your rag application.
+
+00:49:18.540 --> 00:49:20.540
+You can change its output.
+
+00:49:20.540 --> 00:49:22.540
+And you do this.
+
+00:49:22.540 --> 00:49:28.540
+First, when you do testing, you identify what you identify.
+
+00:49:28.540 --> 00:49:33.540
+What drawbacks are there in my application.
+
+00:49:33.540 --> 00:49:39.540
+Let's say that I have a metric M1 and its score is very low.
+
+00:49:39.540 --> 00:49:44.540
+So now what I will do is I want to make this metric M1 a little better.
+
+00:49:44.540 --> 00:49:46.540
+There are some ways to do better.
+
+00:49:46.540 --> 00:49:48.540
+First of all, change the system prompt.
+
+00:49:48.540 --> 00:49:50.540
+We have already done that.
+
+00:49:50.540 --> 00:49:52.540
+Now we don't have much scope in it.
+
+00:49:52.540 --> 00:49:57.540
+The second way is that I can change my rag parameters.
+
+00:49:57.540 --> 00:49:59.540
+So I did that.
+
+00:49:59.540 --> 00:50:03.540
+I tweaked the chunk size, tweaked the K, changed the strategy.
+
+00:50:03.540 --> 00:50:07.540
+I played with my parameters a little bit.
+
+00:50:07.540 --> 00:50:12.540
+Now as soon as I change my parameters here, what will happen?
+
+00:50:12.540 --> 00:50:15.540
+My rag application behavior will change.
+
+00:50:15.540 --> 00:50:19.540
+Because my application is made with these parameters.
+
+00:50:19.540 --> 00:50:25.540
+If my application is changing here, I am creating a version V2 of my application.
+
+00:50:25.540 --> 00:50:29.540
+So I have to test this application now.
+
+00:50:29.540 --> 00:50:36.540
+So I will take this application and run my evaluation pipeline on it.
+
+00:50:36.540 --> 00:50:41.540
+I will get some scores here.
+
+00:50:41.540 --> 00:50:46.540
+Now I will analyze the scores and see if my M1 has improved or not.
+
+00:50:46.540 --> 00:50:50.540
+Let's say my M1 has improved and started to increase.
+
+00:50:50.540 --> 00:51:01.540
+So I will understand that by increasing the chunk size, my M1 is improving.
+
+00:51:01.540 --> 00:51:04.540
+So I will understand that if the chunk size is doing this much effect,
+
+00:51:04.540 --> 00:51:07.540
+then I will increase the chunk size a little more.
+
+00:51:07.540 --> 00:51:11.540
+If I increase the chunk size a little more, then my M1 has increased.
+
+00:51:11.540 --> 00:51:14.540
+If I increase it a little more, then it has increased.
+
+00:51:14.540 --> 00:51:17.540
+I started feeling very confident.
+
+00:51:17.540 --> 00:51:20.540
+I set the value of the chunk size to 5000.
+
+00:51:20.540 --> 00:51:23.540
+I said that what is the use of increasing it little by little?
+
+00:51:23.540 --> 00:51:25.540
+Let's set it to a big number.
+
+00:51:25.540 --> 00:51:31.540
+But as soon as I set the chunk size to 5000, my M1 came down a lot.
+
+00:51:31.540 --> 00:51:37.540
+Now the problem was that I was changing the combination of my parameters here.
+
+00:51:37.540 --> 00:51:41.540
+And because of that change, my scores were also changing.
+
+00:51:41.540 --> 00:51:46.540
+And I was doing this changing of parameters and doing evaluation again and again.
+
+00:51:46.540 --> 00:51:51.540
+Now this step that you do again and again when you change parameters and do evaluation,
+
+00:51:51.540 --> 00:51:54.540
+this is called your experimentation.
+
+00:51:56.540 --> 00:52:01.540
+And every iteration that you are doing is called a single experiment.
+
+00:52:03.540 --> 00:52:09.540
+So this experiment that I am doing again and again, I am not logging it anywhere.
+
+00:52:09.540 --> 00:52:12.540
+Or I am not saving anywhere.
+
+00:52:12.540 --> 00:52:17.540
+So what will be the problem that which parameter changed which matrix?
+
+00:52:17.540 --> 00:52:20.540
+How much change came? I am not keeping track of it.
+
+00:52:20.540 --> 00:52:26.540
+So I will not know what is the best combination of my matrix.
+
+00:52:26.540 --> 00:52:30.540
+Best combination of matrix.
+
+00:52:30.540 --> 00:52:37.540
+I don't have an idea of this because I am doing these changes blindly.
+
+00:52:37.540 --> 00:52:41.540
+I am not saving the matrix anywhere, I am not saving the parameters anywhere.
+
+00:52:41.540 --> 00:52:43.540
+I am just doing the changes, testing.
+
+00:52:43.540 --> 00:52:46.540
+I don't know what results came in the last one and what came in the next one.
+
+00:52:46.540 --> 00:52:49.540
+And I am not able to find the best combination of matrix.
+
+00:52:49.540 --> 00:52:54.540
+What if I use experiment tracking here?
+
+00:52:54.540 --> 00:53:05.540
+And through experiment tracking, I will use my parameters, my evaluation results
+
+00:53:05.540 --> 00:53:13.540
+and also the extra artifacts generated like changes in the code or any other changes.
+
+00:53:13.540 --> 00:53:18.540
+If I would have logged all these changes properly, then how good would it have been?
+
+00:53:18.540 --> 00:53:23.540
+I could have created different versions of my application here
+
+00:53:23.540 --> 00:53:32.540
+and I could have chosen from them which version of the application my evaluation scores are coming maximum.
+
+00:53:32.540 --> 00:53:38.540
+Maximum means if I have good scores on any particular version,
+
+00:53:38.540 --> 00:53:47.540
+then I have a better combination of track parameters.
+
+00:53:47.540 --> 00:53:53.540
+So I hope you are understanding why you need experiment tracking.
+
+00:53:53.540 --> 00:53:59.540
+Which you do after evaluation in your application changes so that your scores improve.
+
+00:53:59.540 --> 00:54:05.540
+So you have to keep track of them too and for this you use experiment tracking.
+
+00:54:05.540 --> 00:54:07.540
+I hope this point is clear to you.
+
+00:54:07.540 --> 00:54:11.540
+So we have covered this step too.
+
+00:54:11.540 --> 00:54:14.540
+After that, what do you do?
+
+00:54:14.540 --> 00:54:19.540
+You apply tracing and observability on your application.
+
+00:54:19.540 --> 00:54:27.540
+If I explain tracing in simple words,
+
+00:54:27.540 --> 00:54:39.540
+so tracing is nothing but following your query throughout the workflow.
+
+00:54:39.540 --> 00:54:44.540
+I explain it in simple words.
+
+00:54:44.540 --> 00:54:47.540
+What happens in a Rack application?
+
+00:54:47.540 --> 00:54:54.540
+Suppose my student asks a question from my chatbot.
+
+00:54:54.540 --> 00:54:57.540
+Where will that question go first?
+
+00:54:57.540 --> 00:54:59.540
+It will go to my retriever.
+
+00:54:59.540 --> 00:55:09.540
+My retriever will take this question and retrieve some chunks from the vector database.
+
+00:55:09.540 --> 00:55:16.540
+Now I will pass these query and chunks to the augmentation step.
+
+00:55:16.540 --> 00:55:21.540
+Where I will combine them to a prompt.
+
+00:55:21.540 --> 00:55:28.540
+So in this prompt, I will add my system prompt, chunks and query.
+
+00:55:28.540 --> 00:55:33.540
+After that, I will give this prompt to my LM.
+
+00:55:33.540 --> 00:55:41.540
+And my system prompt will read the LM, retrieved context, query and on this basis,
+
+00:55:41.540 --> 00:55:44.540
+it will generate a response.
+
+00:55:44.540 --> 00:55:48.540
+So the journey from query to response,
+
+00:55:48.540 --> 00:55:52.540
+that the query went to the retriever, what did the retriever do,
+
+00:55:52.540 --> 00:55:56.540
+what chunks did the retriever retrieve, how did they get augmented in the prompt,
+
+00:55:56.540 --> 00:56:00.540
+how did the prompt go to the LM, what did the LM respond to.
+
+00:56:00.540 --> 00:56:06.540
+So this whole journey that you are tracking is called tracing.
+
+00:56:06.540 --> 00:56:14.540
+And through this, you can track the journey from your application of every query.
+
+00:56:14.540 --> 00:56:16.540
+Now what is the benefit of this?
+
+00:56:16.540 --> 00:56:21.540
+That during tracing, your application not only locks this journey,
+
+00:56:21.540 --> 00:56:25.540
+but also locks that in this whole step,
+
+00:56:25.540 --> 00:56:30.540
+that is, how much latency was taken from query to response,
+
+00:56:30.540 --> 00:56:32.540
+that is, how much time was taken,
+
+00:56:32.540 --> 00:56:36.540
+that if you gave input, then how much time did you spend on output,
+
+00:56:36.540 --> 00:56:39.540
+then you can calculate the average latency here.
+
+00:56:39.540 --> 00:56:45.540
+The second benefit here is that you can also calculate the average cost here.
+
+00:56:45.540 --> 00:56:48.540
+That in processing every query,
+
+00:56:48.540 --> 00:56:52.540
+till the response, how much money you spent per API call,
+
+00:56:52.540 --> 00:56:55.540
+you can also calculate all these things.
+
+00:56:55.540 --> 00:56:57.540
+So what is the benefit of tracing?
+
+00:56:57.540 --> 00:57:02.540
+That it basically tells you the internals of your application,
+
+00:57:02.540 --> 00:57:07.540
+that for a given question, how your application behaves internally.
+
+00:57:07.540 --> 00:57:09.540
+And what is observability?
+
+00:57:09.540 --> 00:57:13.540
+In observability, the traces that you have collected,
+
+00:57:13.540 --> 00:57:17.540
+from inside them, you calculate the aggregate metrics,
+
+00:57:17.540 --> 00:57:20.540
+as I told you, average latency, average cost,
+
+00:57:20.540 --> 00:57:24.540
+and you visualize them through dashboards.
+
+00:57:24.540 --> 00:57:26.540
+So this is your observability.
+
+00:57:26.540 --> 00:57:28.540
+Tracing is collecting the logs,
+
+00:57:28.540 --> 00:57:32.540
+observability is visualizing them through dashboards.
+
+00:57:32.540 --> 00:57:33.540
+That's it.
+
+00:57:33.540 --> 00:57:38.540
+Now what is your application here is ready.
+
+00:57:38.540 --> 00:57:44.540
+But the problem is that your application,
+
+00:57:45.540 --> 00:57:49.540
+the chatbot of the campus, it is not secured.
+
+00:57:52.540 --> 00:57:54.540
+So what will you do in the next step?
+
+00:57:54.540 --> 00:58:00.540
+Around your application, you will build a security layer.
+
+00:58:02.540 --> 00:58:07.540
+And this security layer is called your guardrails.
+
+00:58:09.540 --> 00:58:11.540
+If I tell you about guardrails,
+
+00:58:11.540 --> 00:58:15.540
+then guardrails are simply a wrapper, a layer around your application.
+
+00:58:15.540 --> 00:58:19.540
+So anytime you see that your application,
+
+00:58:19.540 --> 00:58:21.540
+guardrails are placed around it.
+
+00:58:21.540 --> 00:58:23.540
+Means if you have an application,
+
+00:58:23.540 --> 00:58:28.540
+then guardrails are placed around it in this way.
+
+00:58:28.540 --> 00:58:31.540
+It acts as a fencing to your application.
+
+00:58:31.540 --> 00:58:38.540
+And this safeguards your application from attacks.
+
+00:58:39.540 --> 00:58:41.540
+Like I give you some examples.
+
+00:58:41.540 --> 00:58:46.540
+Like a student came to your campus chatbot
+
+00:58:46.540 --> 00:58:53.540
+and he is querying about a course that he has not purchased.
+
+00:58:53.540 --> 00:58:58.540
+So would you allow that student to ask this query
+
+00:58:58.540 --> 00:59:01.540
+or will you give the answer to that query?
+
+00:59:01.540 --> 00:59:02.540
+The answer is no.
+
+00:59:02.540 --> 00:59:07.540
+You will decline that query by saying that you have not purchased this course.
+
+00:59:07.540 --> 00:59:09.540
+So I cannot give you this answer.
+
+00:59:09.540 --> 00:59:11.540
+So this is kind of a safeguard.
+
+00:59:11.540 --> 00:59:14.540
+This is kind of a guardrail job that you will put on your application.
+
+00:59:14.540 --> 00:59:18.540
+Let's say a student is abusing my chatbot.
+
+00:59:18.540 --> 00:59:22.540
+Would you allow that type of query to pass through the application?
+
+00:59:22.540 --> 00:59:23.540
+The answer is no.
+
+00:59:23.540 --> 00:59:25.540
+You will not allow this.
+
+00:59:25.540 --> 00:59:29.540
+Now our many courses are in live setting.
+
+00:59:29.540 --> 00:59:32.540
+Like this course is also in live setting.
+
+00:59:32.540 --> 00:59:36.540
+So generally what happens is that we interact with the students.
+
+00:59:36.540 --> 00:59:40.540
+So the questions that are asked in the chat and we give them the answer.
+
+00:59:40.540 --> 00:59:45.540
+So many times while giving the answer, we refer any student to his name.
+
+00:59:45.540 --> 00:59:47.540
+Like someone asked a question.
+
+00:59:47.540 --> 00:59:49.540
+Let's say there is a student Amit.
+
+00:59:49.540 --> 00:59:53.540
+If he asked me a question, I would say that the answer to your question is this.
+
+00:59:53.540 --> 01:00:00.540
+So we don't want that when any of my students is querying from this chatbot,
+
+01:00:00.540 --> 01:00:03.540
+then there is the name of Amit or any other student.
+
+01:00:03.540 --> 01:00:04.540
+So there is a name of Amit.
+
+01:00:04.540 --> 01:00:07.540
+That is a private information to my student.
+
+01:00:07.540 --> 01:00:09.540
+This is his personal private information.
+
+01:00:09.540 --> 01:00:16.540
+So what I will do is I will put a guardrail here so that no personal information in the output.
+
+01:00:16.540 --> 01:00:20.540
+My chatbot doesn't give it.
+
+01:00:20.540 --> 01:00:23.540
+It is called PII.
+
+01:00:23.540 --> 01:00:27.540
+So I will set a guardrail around it.
+
+01:00:27.540 --> 01:00:29.540
+So what is basically a guardrail?
+
+01:00:29.540 --> 01:00:35.540
+Basically it is a wrapper around your application that makes your application secure around attacks
+
+01:00:35.540 --> 01:00:40.540
+and unauthorized or unauthenticated queries are blocked.
+
+01:00:40.540 --> 01:00:43.540
+I hope this point is clear to you.
+
+01:00:43.540 --> 01:00:46.540
+So we built our application here.
+
+01:00:46.540 --> 01:00:52.540
+Through experiment tracking, we got our best combination of parameters.
+
+01:00:54.540 --> 01:00:58.540
+After that, we added tracing and observability here.
+
+01:00:58.540 --> 01:01:03.540
+And finally, we made our application secure through guardrails.
+
+01:01:03.540 --> 01:01:07.540
+Now what I will do here using fast API.
+
+01:01:07.540 --> 01:01:10.540
+I will serve my application.
+
+01:01:10.540 --> 01:01:13.540
+How is our application now?
+
+01:01:16.540 --> 01:01:19.540
+Our application is written in line chain and line graph.
+
+01:01:19.540 --> 01:01:21.540
+It is a backend.
+
+01:01:21.540 --> 01:01:25.540
+Now how to execute this backend code?
+
+01:01:25.540 --> 01:01:27.540
+I know this as a developer.
+
+01:01:27.540 --> 01:01:37.540
+But it is possible that my front-end application is written in a language that cannot run this backend code directly.
+
+01:01:37.540 --> 01:01:41.540
+Like my backend is written in Python because I am using line chain.
+
+01:01:41.540 --> 01:01:44.540
+It is possible that my front-end is written in JavaScript.
+
+01:01:44.540 --> 01:01:50.540
+So this front-end cannot run my Python code directly because there is a mismatch of languages.
+
+01:01:50.540 --> 01:01:53.540
+So what to do here?
+
+01:01:53.540 --> 01:01:58.540
+What I will do here is I will build APIs around my backend.
+
+01:01:58.540 --> 01:02:00.540
+What are APIs?
+
+01:02:00.540 --> 01:02:02.540
+APIs are basically your middleman.
+
+01:02:02.540 --> 01:02:05.540
+They act as your middleman.
+
+01:02:05.540 --> 01:02:09.540
+Now instead of contacting your front-end directly from the backend,
+
+01:02:09.540 --> 01:02:11.540
+What will it do?
+
+01:02:11.540 --> 01:02:13.540
+It will contact this middleman.
+
+01:02:13.540 --> 01:02:15.540
+And how will this contact happen?
+
+01:02:15.540 --> 01:02:17.540
+Through the HTTP protocol.
+
+01:02:17.540 --> 01:02:21.540
+So this contact will be done through the HTTP protocol.
+
+01:02:21.540 --> 01:02:26.540
+And now my front-end will send some requests through the HTTP methods.
+
+01:02:26.540 --> 01:02:32.540
+And my API will send a response to my front-end.
+
+01:02:32.540 --> 01:02:37.540
+And these APIs will be connected to my backend.
+
+01:02:37.540 --> 01:02:42.540
+So they will act as a middleman between my front-end and backend.
+
+01:02:42.540 --> 01:02:50.540
+You can understand this through an example that my backend is a kitchen in a restaurant.
+
+01:02:50.540 --> 01:02:53.540
+Now your food is made in the kitchen.
+
+01:02:53.540 --> 01:02:55.540
+The chef makes the food.
+
+01:02:55.540 --> 01:02:59.540
+Front-end is the customer.
+
+01:02:59.540 --> 01:03:03.540
+The customer comes to my restaurant and has to order some dishes.
+
+01:03:03.540 --> 01:03:06.540
+So he does not place his order directly in the kitchen.
+
+01:03:06.540 --> 01:03:08.540
+What does my customer do here?
+
+01:03:08.540 --> 01:03:13.540
+The waiter, which is the middleman, gives his order to the waiter.
+
+01:03:13.540 --> 01:03:16.540
+This waiter takes my order to the kitchen.
+
+01:03:16.540 --> 01:03:20.540
+And the ready dish is served to my customer.
+
+01:03:20.540 --> 01:03:24.540
+So this is what we do here through the APIs.
+
+01:03:24.540 --> 01:03:27.540
+And this is called application serving.
+
+01:03:30.540 --> 01:03:35.540
+And the APIs that you build in your JNI applications,
+
+01:03:35.540 --> 01:03:39.540
+you keep streaming endpoints in them.
+
+01:03:39.540 --> 01:03:41.540
+What does this mean?
+
+01:03:41.540 --> 01:03:45.540
+Whatever response you get, it is received in a streaming fashion on your front-end.
+
+01:03:45.540 --> 01:03:51.540
+Like you must have seen in the chat GPT, if you do a query, you get the answer printed there.
+
+01:03:51.540 --> 01:03:59.540
+So here too you get the answer printed by token by token.
+
+01:03:59.540 --> 01:04:02.540
+I hope this point is clear to you.
+
+01:04:02.540 --> 01:04:11.540
+So here we have finally served our application, which is our backend, through the fast API.
+
+01:04:11.540 --> 01:04:15.540
+Now our deployment step has started.
+
+01:04:15.540 --> 01:04:17.540
+So what do you do next?
+
+01:04:17.540 --> 01:04:24.540
+Next your deployment starts and in deployment, the next step is you package your application.
+
+01:04:24.540 --> 01:04:29.540
+What do you do?
+
+01:04:29.540 --> 01:04:33.540
+You containerize your application using docker.
+
+01:04:33.540 --> 01:04:37.540
+So your application is not just a single application.
+
+01:04:37.540 --> 01:04:43.540
+There are some other things attached to your application, like its environment.
+
+01:04:43.540 --> 01:04:51.540
+The environment that you have made through UV or VNV, and the dependencies related to it.
+
+01:04:51.540 --> 01:05:07.540
+So what you do in containerization, you package all these things, your app, its environment and related dependencies in a container.
+
+01:05:07.540 --> 01:05:18.540
+And what you can simply do is you take this container anywhere, you deploy it somewhere and you simply run this package.
+
+01:05:18.540 --> 01:05:30.540
+And as soon as you run this package, your application will work on your deployed infrastructure as it is working on your laptop.
+
+01:05:30.540 --> 01:05:39.540
+So you package your application, its environment, dependencies, and then you take it to the infrastructure where it has to be deployed.
+
+01:05:39.540 --> 01:05:46.540
+So if you simply run it, then your application will work exactly as it is working on your laptop.
+
+01:05:46.540 --> 01:05:50.540
+And you will not face any dependency related issues.
+
+01:05:50.540 --> 01:05:54.540
+This is called your containerization and packaging.
+
+01:05:54.540 --> 01:05:59.540
+That is the next step in our LLM Ops lifecycle.
+
+01:05:59.540 --> 01:06:01.540
+Then comes the next step around CICD.
+
+01:06:01.540 --> 01:06:08.540
+What you do in CICD is basically you are deploying a Rack application here.
+
+01:06:08.540 --> 01:06:12.540
+It may be possible that you deploy another version of your application tomorrow.
+
+01:06:12.540 --> 01:06:22.540
+So what you do in CICD is you automate the testing and deployment.
+
+01:06:22.540 --> 01:06:31.540
+What you do in CICD is you automate your testing.
+
+01:06:31.540 --> 01:06:37.540
+You have the V2 of the application, the first thing you will do is you will test it against V1.
+
+01:06:37.540 --> 01:06:41.540
+You will check that this V2 version is better than my V1 or not.
+
+01:06:41.540 --> 01:06:43.540
+If it is better, then you will deploy it.
+
+01:06:43.540 --> 01:06:45.540
+If it is worse, then why will you deploy it?
+
+01:06:45.540 --> 01:06:47.540
+You will stay on V1.
+
+01:06:47.540 --> 01:06:52.540
+If it is better, then you automatically test it through the concept of CID.
+
+01:06:52.540 --> 01:07:01.540
+And then what you do through the concept of CID is if this V2 version is better than your V1, then you package it.
+
+01:07:01.540 --> 01:07:06.540
+So CID is nothing but your automated packaging.
+
+01:07:06.540 --> 01:07:12.540
+Now what will happen after completing this CID step?
+
+01:07:12.540 --> 01:07:15.540
+You will have just a second.
+
+01:07:15.540 --> 01:07:21.540
+You will have a packaged version 2 of your application.
+
+01:07:21.540 --> 01:07:26.540
+Packaged V2 of your application.
+
+01:07:26.540 --> 01:07:30.540
+It will be ready with you.
+
+01:07:30.540 --> 01:07:33.540
+Now what is the next step?
+
+01:07:33.540 --> 01:07:39.540
+The next step is you have to deploy it on a cloud provider.
+
+01:07:39.540 --> 01:07:41.540
+The next step is your cloud deployment.
+
+01:07:41.540 --> 01:07:53.540
+You can use any cloud platform, whether it is AWS, Microsoft Azure, Google GCP.
+
+01:07:53.540 --> 01:07:56.540
+You go there and deploy it.
+
+01:07:56.540 --> 01:07:59.540
+You take this packaged version on your cloud infrastructure.
+
+01:07:59.540 --> 01:08:02.540
+You run it there and your application is live.
+
+01:08:02.540 --> 01:08:06.540
+I mean to say that your APIs are live.
+
+01:08:06.540 --> 01:08:11.540
+Now your front end can interact with these APIs and use your application.
+
+01:08:11.540 --> 01:08:14.540
+But the story does not end on deployment.
+
+01:08:14.540 --> 01:08:20.540
+There are more steps that you do in this LLM ops lifecycle.
+
+01:08:20.540 --> 01:08:25.540
+You also execute post deployment steps here.
+
+01:08:26.540 --> 01:08:31.540
+So what do you mean by post deployment?
+
+01:08:31.540 --> 01:08:39.540
+First of all, after deployment, you apply tracing and observability for your user queries.
+
+01:08:39.540 --> 01:08:46.540
+Now this chatbot that you made, the campus chatbot, has been deployed and integrated with your website.
+
+01:08:46.540 --> 01:08:52.540
+So now the queries that will come to your user, you will implement tracing on them.
+
+01:08:52.540 --> 01:09:01.540
+Basically, you will track the queries of every student in your application and lock them.
+
+01:09:01.540 --> 01:09:07.540
+So that you know how your users are interacting with your application.
+
+01:09:07.540 --> 01:09:09.540
+What kind of questions they are giving you.
+
+01:09:09.540 --> 01:09:11.540
+You will have all this knowledge.
+
+01:09:11.540 --> 01:09:14.540
+And what can you do in the future?
+
+01:09:14.540 --> 01:09:18.540
+You can run online evals on your user queries.
+
+01:09:18.540 --> 01:09:24.540
+And you can evaluate your application after deployment.
+
+01:09:24.540 --> 01:09:27.540
+Whether it is working as intended or not.
+
+01:09:27.540 --> 01:09:29.540
+Has there been any drift in it?
+
+01:09:29.540 --> 01:09:32.540
+Has the score not decreased after deployment?
+
+01:09:32.540 --> 01:09:35.540
+So you can monitor all these things.
+
+01:09:35.540 --> 01:09:41.540
+And not only do you monitor the application here through tracing, observability and online evals.
+
+01:09:41.540 --> 01:09:45.540
+You also monitor your infrastructure here.
+
+01:09:45.540 --> 01:09:51.540
+On the infrastructure, let's say if I talk about AWS, then there are EC2 machines.
+
+01:09:51.540 --> 01:09:55.540
+This is your compute infrastructure where your application is live.
+
+01:09:55.540 --> 01:10:00.540
+So not only do you monitor your application and its health.
+
+01:10:00.540 --> 01:10:06.540
+After deployment, you also monitor the health of your infrastructure and its health metrics.
+
+01:10:06.540 --> 01:10:08.540
+You also monitor the health of your application.
+
+01:10:08.540 --> 01:10:11.540
+Like CPU usage, network usage, RAM usage, disk usage.
+
+01:10:11.540 --> 01:10:14.540
+You monitor all these things.
+
+01:10:14.540 --> 01:10:20.540
+And after this, your entire LLM Ops lifecycle is completed.
+
+01:10:20.540 --> 01:10:27.540
+So I hope you understood how you implement this lifecycle in application-based LLM Ops.
+
+01:10:27.540 --> 01:10:30.540
+We understood this whole process through a use case.
+
+01:10:30.540 --> 01:10:34.540
+I know we did not cover every point in detail.
+
+01:10:34.540 --> 01:10:36.540
+And that is the point of this course.
+
+01:10:36.540 --> 01:10:42.540
+In this course, we will touch each point in depth and cover everything in detail.
+
+01:10:42.540 --> 01:10:45.540
+So I hope guys you like this video.
+
+01:10:45.540 --> 01:10:48.540
+I'll see you in the next one guys. Bye and take care.
+

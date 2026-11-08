@@ -1,0 +1,5270 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:06.420
+Let's make sure.
+
+00:00:10.620 --> 00:00:14.780
+So yet.
+
+00:00:21.780 --> 00:00:25.800
+Any questions, guys.
+
+00:00:30.000 --> 00:00:38.000
+How was your journey in LLM Ops so far?
+
+00:00:38.000 --> 00:00:48.000
+Do you find the whole journey logical?
+
+00:00:48.000 --> 00:00:53.000
+Are you able to connect things with each other?
+
+00:00:53.000 --> 00:00:56.000
+The concepts, the implementation
+
+00:00:56.000 --> 00:01:04.000
+Great
+
+00:01:04.000 --> 00:01:08.000
+Just drop in a message in the group
+
+00:01:08.000 --> 00:01:20.000
+Do anything
+
+00:01:20.000 --> 00:01:24.000
+Any questions?
+
+00:01:24.000 --> 00:01:28.000
+How much is subscription?
+
+00:01:28.000 --> 00:01:32.000
+Here you don't get subscription on AWS
+
+00:01:32.000 --> 00:01:36.000
+You get a monthly bill
+
+00:01:36.000 --> 00:01:42.000
+You will get a bill according to your usage
+
+00:01:42.000 --> 00:01:46.000
+But there are many services available in free tier
+
+00:01:46.000 --> 00:01:51.000
+For example, ECR is available in free tier
+
+00:01:51.000 --> 00:01:55.000
+And EC2 is available
+
+00:01:55.000 --> 00:01:59.000
+Because we are using T3 medium in EC2
+
+00:01:59.000 --> 00:02:01.000
+That is the issue
+
+00:02:01.000 --> 00:02:03.000
+You will have to pay for it
+
+00:02:03.000 --> 00:02:07.000
+But I will tell you how to turn off the instances safely
+
+00:02:07.000 --> 00:02:11.000
+We will discuss it in today's session
+
+00:02:11.000 --> 00:02:21.000
+Any other question?
+
+00:02:21.000 --> 00:02:25.000
+Let's wait for 2 more minutes and then we will start
+
+00:02:41.000 --> 00:02:45.000
+People are still joining in
+
+00:02:45.000 --> 00:02:49.000
+We will wait for a little more
+
+00:02:49.000 --> 00:02:53.000
+I will clear your confusion
+
+00:02:53.000 --> 00:02:57.000
+We have class today and on Wednesday
+
+00:02:57.000 --> 00:03:01.000
+After 2 days we have class again
+
+00:03:01.000 --> 00:03:05.000
+This week there is a swap between me and NITI sir
+
+00:03:05.000 --> 00:03:09.000
+Going forward, our regular classes are going to be on Monday and Thursday
+
+00:03:09.000 --> 00:03:13.000
+And LLME Wells on Wednesday and Saturday
+
+00:03:13.000 --> 00:03:21.000
+Any more questions?
+
+00:03:21.000 --> 00:03:35.000
+I have implemented the entire journey
+
+00:03:35.000 --> 00:03:39.000
+I have implemented the entire course
+
+00:03:39.000 --> 00:03:43.000
+I will show you the demo
+
+00:03:43.000 --> 00:03:47.000
+I have already run the demo
+
+00:03:47.000 --> 00:03:51.000
+I will show you the outputs
+
+00:03:51.000 --> 00:03:55.000
+I don't know why our CI pipelines fail in class
+
+00:03:55.000 --> 00:03:59.000
+But I have passed all the parameters I tested
+
+00:03:59.000 --> 00:04:03.000
+And I have deployed it with code
+
+00:04:03.000 --> 00:04:07.000
+Let's start
+
+00:04:07.000 --> 00:04:11.000
+Write clear in the chat
+
+00:04:11.000 --> 00:04:15.000
+And then we will start
+
+00:04:15.000 --> 00:04:23.000
+Guys, I suppose you might feel down because I am not well
+
+00:04:23.000 --> 00:04:27.000
+I am still recovering
+
+00:04:27.000 --> 00:04:31.000
+But you won't feel like this in class
+
+00:04:31.000 --> 00:04:35.000
+Write clear and then we will start
+
+00:04:41.000 --> 00:04:45.000
+Guys, can you hear me?
+
+00:04:45.000 --> 00:04:47.000
+Let's start
+
+00:04:47.000 --> 00:04:51.000
+Let's discuss our entire deployment cycle
+
+00:04:51.000 --> 00:04:55.000
+When we have built our application
+
+00:04:55.000 --> 00:04:59.000
+And built the EPS around it
+
+00:04:59.000 --> 00:05:05.000
+We have made two pipelines in deployment
+
+00:05:05.000 --> 00:05:09.000
+The first was our CI pipeline
+
+00:05:09.000 --> 00:05:13.000
+And the second was our CD pipeline
+
+00:05:13.000 --> 00:05:17.000
+This CI pipeline was for our testing purposes
+
+00:05:17.000 --> 00:05:21.000
+We were testing our new version of the application
+
+00:05:21.000 --> 00:05:25.000
+And we were doing two types of testing
+
+00:05:25.000 --> 00:05:29.000
+One was the CD gate and the other was the promotion gate
+
+00:05:29.000 --> 00:05:33.000
+You know this
+
+00:05:33.000 --> 00:05:37.000
+Then we trigger our CD pipeline
+
+00:05:37.000 --> 00:05:41.000
+CD pipeline does two things
+
+00:05:41.000 --> 00:05:45.000
+First, we package our new version of the application into a docker image
+
+00:05:45.000 --> 00:05:49.000
+And as soon as it becomes a docker image
+
+00:05:49.000 --> 00:05:53.000
+Both for my front end and back end
+
+00:05:53.000 --> 00:05:57.000
+We push it to the ECR
+
+00:05:57.000 --> 00:06:01.000
+We push it to the ECR or our container registry
+
+00:06:01.000 --> 00:06:05.000
+And store it there
+
+00:06:05.000 --> 00:06:09.000
+ECR is a registry on our AWS
+
+00:06:09.000 --> 00:06:13.000
+Next step we did in the CD
+
+00:06:13.000 --> 00:06:17.000
+As soon as our images are pushed to the ECR
+
+00:06:17.000 --> 00:06:21.000
+We triggered a new deployment
+
+00:06:21.000 --> 00:06:25.000
+And in this deployment
+
+00:06:25.000 --> 00:06:29.000
+We are basically deploying our auto scaling group
+
+00:06:29.000 --> 00:06:33.000
+Auto scaling group
+
+00:06:33.000 --> 00:06:37.000
+You know it is used to scale up or down your EC2 instances
+
+00:06:37.000 --> 00:06:41.000
+We are deploying our new version on this auto scaling group
+
+00:06:41.000 --> 00:06:45.000
+Using a service called as code deploy
+
+00:06:45.000 --> 00:06:49.000
+So what will happen
+
+00:06:49.000 --> 00:06:53.000
+As soon as I get a new version
+
+00:06:53.000 --> 00:06:57.000
+And I will push my params.yml file to github
+
+00:06:57.000 --> 00:07:01.000
+First, my CI pipeline will be triggered
+
+00:07:01.000 --> 00:07:05.000
+As soon as these two testing gates are passed
+
+00:07:05.000 --> 00:07:09.000
+I will move to the CD
+
+00:07:09.000 --> 00:07:13.000
+With the latest tag I will trigger a deployment
+
+00:07:13.000 --> 00:07:17.000
+Now what will happen in deployment
+
+00:07:17.000 --> 00:07:21.000
+Launch template
+
+00:07:21.000 --> 00:07:25.000
+It is a template to create my instances
+
+00:07:25.000 --> 00:07:29.000
+Like what OS should be on my instance
+
+00:07:29.000 --> 00:07:33.000
+What hardware should be there
+
+00:07:33.000 --> 00:07:37.000
+Should my instance be pre-installed
+
+00:07:37.000 --> 00:07:41.000
+So what I did
+
+00:07:41.000 --> 00:07:45.000
+I told my desired capacity on my auto scaling group
+
+00:07:45.000 --> 00:07:49.000
+And according to that
+
+00:07:49.000 --> 00:07:53.000
+My EC2 instances were automatically launched
+
+00:07:53.000 --> 00:07:57.000
+So whatever information was in the template
+
+00:07:57.000 --> 00:08:01.000
+My EC2 instances were launched
+
+00:08:01.000 --> 00:08:05.000
+And I also installed an agent on it
+
+00:08:05.000 --> 00:08:09.000
+The work of this code deploy agent is very simple
+
+00:08:09.000 --> 00:08:13.000
+It continuously talks to my code deploy service
+
+00:08:13.000 --> 00:08:17.000
+And it monitors whether a new deployment has come or not
+
+00:08:17.000 --> 00:08:21.000
+As soon as a new deployment comes
+
+00:08:21.000 --> 00:08:25.000
+It will come from my CD
+
+00:08:25.000 --> 00:08:29.000
+As soon as a new deployment comes
+
+00:08:29.000 --> 00:08:33.000
+It will be activated to push the new deployment
+
+00:08:33.000 --> 00:08:37.000
+And to work with this, some files are required
+
+00:08:37.000 --> 00:08:41.000
+The first file is called appspec.yml
+
+00:08:41.000 --> 00:08:45.000
+This is the application specification file
+
+00:08:45.000 --> 00:08:49.000
+Used by code deploy to know which files
+
+00:08:49.000 --> 00:08:53.000
+To copy on my EC2 instances
+
+00:08:53.000 --> 00:08:57.000
+And the entire deployment pipeline
+
+00:08:57.000 --> 00:09:01.000
+Which script to run on each of its events
+
+00:09:01.000 --> 00:09:05.000
+We saw this in the previous class
+
+00:09:05.000 --> 00:09:09.000
+If I show you again, you will see here
+
+00:09:09.000 --> 00:09:13.000
+This file is simply telling the code deploy
+
+00:09:13.000 --> 00:09:17.000
+To copy this particular compose file on my EC2 instance
+
+00:09:17.000 --> 00:09:21.000
+And then run these scripts in the deployment pipeline
+
+00:09:21.000 --> 00:09:25.000
+And what I did in these scripts
+
+00:09:25.000 --> 00:09:29.000
+I automated the manual deployment
+
+00:09:29.000 --> 00:09:33.000
+So what was the first step
+
+00:09:33.000 --> 00:09:37.000
+Before installing my application to EC2
+
+00:09:37.000 --> 00:09:41.000
+I needed AWS CLI to interact with my other AWS services
+
+00:09:41.000 --> 00:09:45.000
+Through code and docker
+
+00:09:45.000 --> 00:09:49.000
+So I installed these on my new EC2 instance
+
+00:09:49.000 --> 00:09:53.000
+Then the second step was my application
+
+00:09:53.000 --> 00:09:57.000
+Installation or deployment
+
+00:09:57.000 --> 00:10:01.000
+First I pulled the images from my ECR
+
+00:10:01.000 --> 00:10:05.000
+Along with that, I stored my API keys on my secrets manager
+
+00:10:05.000 --> 00:10:09.000
+And finally using the compose file
+
+00:10:09.000 --> 00:10:13.000
+I run my images
+
+00:10:13.000 --> 00:10:17.000
+And started my containers
+
+00:10:17.000 --> 00:10:21.000
+And in the last phase
+
+00:10:21.000 --> 00:10:25.000
+As soon as I
+
+00:10:25.000 --> 00:10:29.000
+I don't know why it starts misbehaving
+
+00:10:29.000 --> 00:10:33.000
+As soon as I completed my deployment
+
+00:10:33.000 --> 00:10:37.000
+Then I got validation
+
+00:10:37.000 --> 00:10:41.000
+I wanted to check if the deployment was done properly
+
+00:10:41.000 --> 00:10:45.000
+So in validation, I am doing a health check
+
+00:10:45.000 --> 00:10:49.000
+I am simply checking
+
+00:10:49.000 --> 00:10:53.000
+If my LLM and my retriever
+
+00:10:53.000 --> 00:10:57.000
+Are they functioning correctly or not
+
+00:10:57.000 --> 00:11:01.000
+If yes, I will give a go ahead to my deployment pipeline
+
+00:11:01.000 --> 00:11:05.000
+Otherwise I will stop the deployment here
+
+00:11:05.000 --> 00:11:09.000
+And roll back to a previous working version
+
+00:11:09.000 --> 00:11:13.000
+I hope you remember all these things
+
+00:11:13.000 --> 00:11:17.000
+Is everything clear
+
+00:11:17.000 --> 00:11:21.000
+Because this was a very major step in our deployment
+
+00:11:21.000 --> 00:11:25.000
+Yes, is this clear to everyone
+
+00:11:25.000 --> 00:11:29.000
+No one has any doubt here
+
+00:11:29.000 --> 00:11:33.000
+Till this step
+
+00:11:33.000 --> 00:11:37.000
+We will wait for 2 minutes here
+
+00:11:37.000 --> 00:11:41.000
+If you have any doubt, you can ask me
+
+00:11:41.000 --> 00:11:45.000
+Guys, if you have any doubt, ask the doubt
+
+00:11:45.000 --> 00:11:49.000
+Else write clear in the chat
+
+00:11:49.000 --> 00:11:53.000
+I have only got one yes, tell the rest
+
+00:11:53.000 --> 00:11:57.000
+Clear
+
+00:11:57.000 --> 00:12:01.000
+So with this step
+
+00:12:01.000 --> 00:12:05.000
+We have completed our deployment part
+
+00:12:05.000 --> 00:12:09.000
+Now I will show you the same deployment
+
+00:12:09.000 --> 00:12:13.000
+I did today morning trigger
+
+00:12:13.000 --> 00:12:17.000
+I will show you how it works
+
+00:12:17.000 --> 00:12:21.000
+I simply changed to params.yml and updated params.yml
+
+00:12:21.000 --> 00:12:25.000
+I pushed my updated params.yml to github
+
+00:12:25.000 --> 00:12:29.000
+What happened with that
+
+00:12:29.000 --> 00:12:33.000
+My CI pipeline was triggered
+
+00:12:33.000 --> 00:12:37.000
+I have run this today
+
+00:12:37.000 --> 00:12:41.000
+These 4 steps are passed
+
+00:12:41.000 --> 00:12:45.000
+And all these experiments
+
+00:12:45.000 --> 00:12:49.000
+Were logged on my MLflow
+
+00:12:49.000 --> 00:12:53.000
+Guys, you can see my screen
+
+00:12:53.000 --> 00:12:57.000
+I hope it is visible
+
+00:12:57.000 --> 00:13:01.000
+So you can see clearly
+
+00:13:01.000 --> 00:13:05.000
+That I have run a new experiment
+
+00:13:05.000 --> 00:13:09.000
+This is my new iteration
+
+00:13:09.000 --> 00:13:13.000
+So all this is logged on
+
+00:13:13.000 --> 00:13:17.000
+I am logging my parameters, metrics and artifacts
+
+00:13:17.000 --> 00:13:21.000
+Here is the code, data set, results, system prompt
+
+00:13:21.000 --> 00:13:25.000
+I am able to log everything
+
+00:13:25.000 --> 00:13:29.000
+As soon as my regression test and promotion test pass
+
+00:13:29.000 --> 00:13:33.000
+I will promote my tags
+
+00:13:33.000 --> 00:13:37.000
+So this was the challenger, now this is my champion run
+
+00:13:37.000 --> 00:13:41.000
+And the previous champion
+
+00:13:41.000 --> 00:13:45.000
+This is in archive state
+
+00:13:45.000 --> 00:13:49.000
+Now we will push this run on our production setup
+
+00:13:49.000 --> 00:13:53.000
+And this is the deployment of the new version
+
+00:13:53.000 --> 00:13:57.000
+We will trigger the CI pipeline
+
+00:13:57.000 --> 00:14:01.000
+We will trigger the CI pipeline
+
+00:14:01.000 --> 00:14:05.000
+There will be 2 tasks in the CI pipeline
+
+00:14:05.000 --> 00:14:09.000
+First, our images will be built using docker
+
+00:14:09.000 --> 00:14:13.000
+And will be pushed to our ECR
+
+00:14:13.000 --> 00:14:17.000
+We have pushed our API image to ECR and front end image to ECR
+
+00:14:17.000 --> 00:14:21.000
+Now you can go to your ECR
+
+00:14:21.000 --> 00:14:25.000
+This is your ECR
+
+00:14:25.000 --> 00:14:29.000
+This is your 2 repositories, front end and back end
+
+00:14:29.000 --> 00:14:33.000
+This is our latest version
+
+00:14:33.000 --> 00:14:37.000
+That has been pushed to ECR
+
+00:14:37.000 --> 00:14:41.000
+This is the version with which we worked in previous class
+
+00:14:41.000 --> 00:14:45.000
+So I can clearly see my new version
+
+00:14:45.000 --> 00:14:49.000
+And this is the front end version
+
+00:14:49.000 --> 00:14:53.000
+And this is the latest version
+
+00:14:53.000 --> 00:14:57.000
+Although we haven't changed the front end, but we are building both together
+
+00:14:57.000 --> 00:15:01.000
+So we have done these things
+
+00:15:01.000 --> 00:15:05.000
+Next step is as soon as ECR is completed, we will trigger a new code
+
+00:15:05.000 --> 00:15:09.000
+Deployment
+
+00:15:09.000 --> 00:15:13.000
+First we will bundle all our files
+
+00:15:13.000 --> 00:15:17.000
+And will push them on S3
+
+00:15:17.000 --> 00:15:21.000
+I will show you my S3 also
+
+00:15:21.000 --> 00:15:25.000
+So all the things are done step by step
+
+00:15:25.000 --> 00:15:29.000
+This is my campusX rack code deploy
+
+00:15:29.000 --> 00:15:33.000
+You will see a zip file in this
+
+00:15:33.000 --> 00:15:37.000
+This is the old one that you had run in previous class
+
+00:15:37.000 --> 00:15:41.000
+This is called your latest revision
+
+00:15:41.000 --> 00:15:45.000
+This is my latest revision that will be deployed through code deploy
+
+00:15:45.000 --> 00:15:49.000
+So as soon as I pushed my revision
+
+00:15:49.000 --> 00:15:53.000
+Here I triggered my new deployment with AWS create deployment
+
+00:15:53.000 --> 00:15:57.000
+And where will I see deployment
+
+00:15:57.000 --> 00:16:01.000
+I will see deployment on my code deploy console
+
+00:16:01.000 --> 00:16:05.000
+Actually you can match this deployment ID
+
+00:16:05.000 --> 00:16:09.000
+I have made these 2 instances today
+
+00:16:09.000 --> 00:16:13.000
+This deployment ID is made because of auto scaling
+
+00:16:13.000 --> 00:16:17.000
+Which is D3AJFQ
+
+00:16:17.000 --> 00:16:21.000
+So if I show you this same deployment ID, you will see it here also
+
+00:16:21.000 --> 00:16:25.000
+D3AJFQ
+
+00:16:25.000 --> 00:16:29.000
+So automatically on code deploy
+
+00:16:29.000 --> 00:16:33.000
+I have a new deployment trigger
+
+00:16:33.000 --> 00:16:37.000
+If I can show you the view events
+
+00:16:37.000 --> 00:16:41.000
+My traffic was blocked on the instance
+
+00:16:41.000 --> 00:16:45.000
+Who will do that? My ALB application load balancer
+
+00:16:45.000 --> 00:16:49.000
+Block any traffic that is coming on my instance
+
+00:16:49.000 --> 00:16:53.000
+Divert it to the other instances that are running on v1
+
+00:16:53.000 --> 00:16:57.000
+Traffic stopped and my installation scripts were run
+
+00:16:57.000 --> 00:17:01.000
+Where AWS CLI, Docker, image and secrets are being pulled
+
+00:17:01.000 --> 00:17:05.000
+All that worked here
+
+00:17:05.000 --> 00:17:09.000
+So my traffic was deleted by the validate service script
+
+00:17:09.000 --> 00:17:13.000
+After that I allowed my traffic on this particular instance
+
+00:17:13.000 --> 00:17:17.000
+And what is this instance running now? This instance is running my version 2
+
+00:17:17.000 --> 00:17:21.000
+We can also test it if I write here
+
+00:17:21.000 --> 00:17:25.000
+EC2 and if I go to my load balancers
+
+00:17:25.000 --> 00:17:29.000
+I click here and I get the DNS
+
+00:17:29.000 --> 00:17:33.000
+Let's copy it once, let's go here
+
+00:17:33.000 --> 00:17:37.000
+Paste and let's run it
+
+00:17:37.000 --> 00:17:41.000
+So on port 80, which is my target group? My front end target group
+
+00:17:41.000 --> 00:17:45.000
+So if I go to this address, I will be able to access
+
+00:17:45.000 --> 00:17:49.000
+My front end
+
+00:17:49.000 --> 00:17:53.000
+HTTP
+
+00:17:53.000 --> 00:17:57.000
+Let's do it again
+
+00:17:57.000 --> 00:18:01.000
+Let's wait, it came, continue to site
+
+00:18:01.000 --> 00:18:05.000
+And we are able to open our
+
+00:18:05.000 --> 00:18:09.000
+Application
+
+00:18:09.000 --> 00:18:13.000
+Is this point clear to everyone? This whole flow is clear
+
+00:18:13.000 --> 00:18:17.000
+You should know this flow, so when you have a successful deployment
+
+00:18:17.000 --> 00:18:21.000
+With a new version, you will see this whole flow
+
+00:18:21.000 --> 00:18:25.000
+And you will see how we have interlinked
+
+00:18:25.000 --> 00:18:29.000
+GitHub actions, code deploy, AWS services
+
+00:18:29.000 --> 00:18:33.000
+And it is properly running in our flow
+
+00:18:33.000 --> 00:18:37.000
+Without any issues, is this point clear guys?
+
+00:18:37.000 --> 00:18:41.000
+Is this whole setup clear to you?
+
+00:18:41.000 --> 00:18:45.000
+I am looking at the chat, you tell me
+
+00:18:49.000 --> 00:18:53.000
+Yes, fine
+
+00:18:53.000 --> 00:18:57.000
+So let's discuss what we have to do next
+
+00:18:57.000 --> 00:19:01.000
+We have completed our deployment part, now what's next?
+
+00:19:01.000 --> 00:19:05.000
+Do we have to come here and wait? The answer is no
+
+00:19:05.000 --> 00:19:09.000
+We have to do the post deployment step
+
+00:19:09.000 --> 00:19:13.000
+Post deployment
+
+00:19:13.000 --> 00:19:17.000
+What does post deployment mean? Whatever steps you do after deployment
+
+00:19:17.000 --> 00:19:21.000
+Those are your post deployment steps
+
+00:19:21.000 --> 00:19:25.000
+For any LLM based application, you do two key things in post deployment
+
+00:19:25.000 --> 00:19:29.000
+First, you monitor your
+
+00:19:29.000 --> 00:19:33.000
+Application
+
+00:19:33.000 --> 00:19:37.000
+And secondly
+
+00:19:37.000 --> 00:19:41.000
+You monitor your
+
+00:19:41.000 --> 00:19:45.000
+Infrastructure
+
+00:19:45.000 --> 00:19:49.000
+What comes in the application? Our rag application comes in the application
+
+00:19:49.000 --> 00:19:53.000
+If any user
+
+00:19:53.000 --> 00:19:57.000
+Gives input query
+
+00:19:57.000 --> 00:20:01.000
+Then how does that query go through our application
+
+00:20:01.000 --> 00:20:05.000
+What things are there in every step? What input is received in every step?
+
+00:20:05.000 --> 00:20:09.000
+What output comes out of that step? To monitor all this
+
+00:20:09.000 --> 00:20:13.000
+Is called monitoring your application and this comes under your
+
+00:20:13.000 --> 00:20:17.000
+Tracing and observability
+
+00:20:17.000 --> 00:20:21.000
+So the monitoring of the application side
+
+00:20:21.000 --> 00:20:25.000
+You cover it under tracing and observability
+
+00:20:25.000 --> 00:20:29.000
+Why is it necessary to monitor when you have deployed your new version
+
+00:20:29.000 --> 00:20:33.000
+Now you will also see that your new version is working as intended
+
+00:20:33.000 --> 00:20:37.000
+Is there any problem in it? Is there any latency issue?
+
+00:20:37.000 --> 00:20:41.000
+Is there any cost related issue? So you see all that through tracing and
+
+00:20:41.000 --> 00:20:45.000
+Observability, through this you monitor your application
+
+00:20:45.000 --> 00:20:49.000
+And next is you monitor your infrastructure
+
+00:20:49.000 --> 00:20:53.000
+Your application is not running in the air
+
+00:20:53.000 --> 00:20:57.000
+It is running on an infrastructure, on your cloud infrastructure
+
+00:20:57.000 --> 00:21:01.000
+So you have EC2 instances
+
+00:21:01.000 --> 00:21:05.000
+On your infrastructure, on your compute infrastructure
+
+00:21:05.000 --> 00:21:09.000
+You have to monitor how much CPU usage is coming on your instances
+
+00:21:09.000 --> 00:21:13.000
+How much RAM usage is coming, how much free RAM is there
+
+00:21:13.000 --> 00:21:17.000
+How much disk usage is there, like when you run your application on your system
+
+00:21:17.000 --> 00:21:21.000
+When you run software on your system, you open task manager and see
+
+00:21:21.000 --> 00:21:25.000
+How much CPU clock speed is there, how much CPU is being utilized
+
+00:21:25.000 --> 00:21:29.000
+How much RAM is available to you, how much disk space is available
+
+00:21:29.000 --> 00:21:33.000
+All those things are monitoring your infrastructure
+
+00:21:33.000 --> 00:21:37.000
+So in post deployment step, we will understand these two key processes
+
+00:21:37.000 --> 00:21:41.000
+In today's session, we will start monitoring
+
+00:21:41.000 --> 00:21:45.000
+Your application, and going forward
+
+00:21:45.000 --> 00:21:49.000
+We will cover monitoring and infrastructure
+
+00:21:49.000 --> 00:21:53.000
+So let me tell you what is the plan of action
+
+00:21:53.000 --> 00:21:57.000
+We have in total 5 lectures in this month
+
+00:21:57.000 --> 00:22:01.000
+In which we have to complete this post deployment thing
+
+00:22:01.000 --> 00:22:05.000
+So in today's lecture, we will understand what tracing is
+
+00:22:05.000 --> 00:22:09.000
+And how tracing is performed through a tool called as LangFuse
+
+00:22:09.000 --> 00:22:13.000
+I hope you have worked with LangSmith in the past
+
+00:22:13.000 --> 00:22:17.000
+So like LangSmith works, LangFuse works
+
+00:22:17.000 --> 00:22:21.000
+But it is much better than LangSmith, I will tell you how
+
+00:22:21.000 --> 00:22:25.000
+So in today's lecture, we will cover the tracing part
+
+00:22:25.000 --> 00:22:29.000
+How you set the tracing in your application, how LangFuse
+
+00:22:29.000 --> 00:22:33.000
+Traces and tracks your application and how you interact with the trace in its UI
+
+00:22:33.000 --> 00:22:37.000
+So we will see all these things today
+
+00:22:37.000 --> 00:22:41.000
+In the next lecture on Wednesday, we will see
+
+00:22:41.000 --> 00:22:45.000
+How you observe
+
+00:22:45.000 --> 00:22:49.000
+Tracing and observation are two different things
+
+00:22:49.000 --> 00:22:53.000
+Tracing and observability, what you do in observability or observation
+
+00:22:53.000 --> 00:22:57.000
+Whatever traces are coming, you visualize them
+
+00:22:57.000 --> 00:23:01.000
+Through a dashboard
+
+00:23:01.000 --> 00:23:05.000
+So how you make a dashboard, what are the metrics that you visualize
+
+00:23:05.000 --> 00:23:09.000
+How you set alerts that comes under observation
+
+00:23:09.000 --> 00:23:13.000
+And finally in the third lecture
+
+00:23:13.000 --> 00:23:17.000
+We will create an online eval setup
+
+00:23:17.000 --> 00:23:21.000
+You must have seen this online eval setup
+
+00:23:21.000 --> 00:23:25.000
+In LLM eval, we will do the same setup
+
+00:23:25.000 --> 00:23:29.000
+On LangFuse, but we don't have any
+
+00:23:29.000 --> 00:23:33.000
+Proper evaluation suite because we have
+
+00:23:33.000 --> 00:23:37.000
+Evaluated the five built-in metrics with two of our custom metrics
+
+00:23:37.000 --> 00:23:41.000
+So our evaluation will be through
+
+00:23:41.000 --> 00:23:45.000
+The rack triad
+
+00:23:45.000 --> 00:23:49.000
+But as we do in the rack triad, you can do the same thing with other metrics
+
+00:23:49.000 --> 00:23:53.000
+I will explain the flow, you can include other metrics
+
+00:23:53.000 --> 00:23:57.000
+But the thing to keep in mind is that all your online eval metrics
+
+00:23:57.000 --> 00:24:01.000
+Every metric should be a reference free metric
+
+00:24:01.000 --> 00:24:05.000
+There should not be any grounded response
+
+00:24:05.000 --> 00:24:09.000
+You can use the metrics that work on your input, output and retrieved context
+
+00:24:09.000 --> 00:24:13.000
+You can use them in your online eval
+
+00:24:13.000 --> 00:24:17.000
+Going forward, what we will do in the fourth lecture
+
+00:24:17.000 --> 00:24:21.000
+We will move to the monitor your infrastructure
+
+00:24:21.000 --> 00:24:25.000
+This part will be completed, then we will go to monitor your infrastructure
+
+00:24:25.000 --> 00:24:29.000
+In that, we will cover in the fourth lecture
+
+00:24:29.000 --> 00:24:33.000
+A tool called Prometheus
+
+00:24:33.000 --> 00:24:37.000
+You might be scared of the name because you have not worked with Prometheus before
+
+00:24:37.000 --> 00:24:41.000
+This tool might seem difficult, I will tell you the purpose of this tool
+
+00:24:41.000 --> 00:24:45.000
+The purpose of Prometheus is using a
+
+00:24:45.000 --> 00:24:49.000
+PromQL language, which is a query language
+
+00:24:49.000 --> 00:24:53.000
+It does the fetching of all the CPU usage, RAM usage
+
+00:24:53.000 --> 00:24:57.000
+Metrics on your infrastructure
+
+00:24:57.000 --> 00:25:01.000
+So what we will do is for this whole monitoring setup
+
+00:25:01.000 --> 00:25:05.000
+We will make another EC2 instance
+
+00:25:05.000 --> 00:25:09.000
+This EC2 instance will be solely for the purpose of monitoring
+
+00:25:09.000 --> 00:25:13.000
+It will always be 24x7 on and it will monitor our auto scaling group
+
+00:25:13.000 --> 00:25:17.000
+On that group, what is our CPU usage
+
+00:25:17.000 --> 00:25:21.000
+What is the RAM usage, what is the network usage
+
+00:25:21.000 --> 00:25:25.000
+We will track everything through Prometheus
+
+00:25:25.000 --> 00:25:29.000
+What is the work of Prometheus, simply pull the usage metrics from our infrastructure
+
+00:25:29.000 --> 00:25:33.000
+As soon as we pull the metrics from Prometheus
+
+00:25:33.000 --> 00:25:37.000
+The metrics are in the form of PromQL
+
+00:25:37.000 --> 00:25:41.000
+PromQL is not user friendly
+
+00:25:41.000 --> 00:25:45.000
+You will get the value of the metrics like JSON
+
+00:25:45.000 --> 00:25:49.000
+You have the value of multiple metrics, you can't track it
+
+00:25:49.000 --> 00:25:53.000
+You can't make sense of it, so to make sense, we will
+
+00:25:53.000 --> 00:25:57.000
+Visualize it again, but this visualization
+
+00:25:57.000 --> 00:26:01.000
+This is the second step visualization
+
+00:26:01.000 --> 00:26:05.000
+We will use a dedicated tool for this, that is called Grafana
+
+00:26:05.000 --> 00:26:09.000
+Grafana is basically a dashboarding tool
+
+00:26:09.000 --> 00:26:13.000
+It is easily integrated with Prometheus
+
+00:26:13.000 --> 00:26:17.000
+Whatever metrics your Prometheus fetch, Grafana can visualize it through custom dashboards
+
+00:26:17.000 --> 00:26:21.000
+We will see how you make a custom dashboard in Grafana
+
+00:26:21.000 --> 00:26:25.000
+And how you visualize all the infrastructure
+
+00:26:25.000 --> 00:26:29.000
+And with this guys, after these 5 lectures
+
+00:26:29.000 --> 00:26:33.000
+We will complete our post deployment step
+
+00:26:33.000 --> 00:26:37.000
+And we will successfully cover the complete LLMops pipeline for our Rack applications
+
+00:26:37.000 --> 00:26:41.000
+Is this point clear?
+
+00:26:41.000 --> 00:26:45.000
+Clear?
+
+00:26:45.000 --> 00:26:49.000
+Yes
+
+00:26:49.000 --> 00:26:53.000
+Any questions? If it is clear, then right click, let's move forward
+
+00:26:53.000 --> 00:26:57.000
+If clear, then right click
+
+00:27:03.000 --> 00:27:07.000
+If clear, then right click
+
+00:27:13.000 --> 00:27:17.000
+What happened guys?
+
+00:27:17.000 --> 00:27:21.000
+Why is your energy so low today?
+
+00:27:23.000 --> 00:27:27.000
+Let's interact a little guys, I will also get motivation
+
+00:27:27.000 --> 00:27:31.000
+Ok
+
+00:27:31.000 --> 00:27:35.000
+Just a second
+
+00:27:35.000 --> 00:27:39.000
+So in today's lecture, we will complete this tracing part
+
+00:27:39.000 --> 00:27:43.000
+Now you have to keep in mind that this tracing is not in our development setting
+
+00:27:43.000 --> 00:27:47.000
+This is our development setting or
+
+00:27:47.000 --> 00:27:51.000
+Staging setting, here we are not tracing
+
+00:27:51.000 --> 00:27:55.000
+We are not doing this, all this tracing will be on our EC2 instance
+
+00:27:55.000 --> 00:27:59.000
+This EC2 instance is running on my front end, back end
+
+00:27:59.000 --> 00:28:03.000
+Through this, I will trace my queries and outputs
+
+00:28:03.000 --> 00:28:07.000
+Actual, as my users interact with this application
+
+00:28:07.000 --> 00:28:11.000
+So my every user's request and related output will be traced on the landfuse
+
+00:28:11.000 --> 00:28:15.000
+Is this point clear?
+
+00:28:15.000 --> 00:28:19.000
+So let's go and discuss about tracing and observability
+
+00:28:19.000 --> 00:28:23.000
+So I have already told you the difference between tracing and observability
+
+00:28:23.000 --> 00:28:27.000
+Let me tell you what we do in tracing
+
+00:28:27.000 --> 00:28:31.000
+What tracing is all about, tracing means
+
+00:28:31.000 --> 00:28:35.000
+You trace your input in tracing
+
+00:28:35.000 --> 00:28:39.000
+Through your application
+
+00:28:39.000 --> 00:28:43.000
+Through your entire application, that on every step
+
+00:28:43.000 --> 00:28:47.000
+or on every stage of your application, what are the modifications in your input
+
+00:28:47.000 --> 00:28:51.000
+What are the modifications in a rag application
+
+00:28:51.000 --> 00:28:55.000
+What are the modifications guys
+
+00:28:55.000 --> 00:28:59.000
+Our rag application is a very simple rag application
+
+00:28:59.000 --> 00:29:03.000
+We are not talking about guardrails, our rag application has 3 steps
+
+00:29:03.000 --> 00:29:07.000
+First step is retrieval, second is augmentation
+
+00:29:07.000 --> 00:29:11.000
+Third step is generation, where my response is generated
+
+00:29:11.000 --> 00:29:15.000
+Now in retrieval step, how will my tracing or trace look like
+
+00:29:15.000 --> 00:29:19.000
+Here in my input, the query of the user will go
+
+00:29:19.000 --> 00:29:23.000
+And what will I get in output?
+
+00:29:23.000 --> 00:29:27.000
+My retrieved chunks
+
+00:29:27.000 --> 00:29:31.000
+So if I am able to track this properly, in my retrieval step
+
+00:29:31.000 --> 00:29:35.000
+My input query is going through my EC2 instance
+
+00:29:35.000 --> 00:29:39.000
+In the next step, I will track if I am getting my retrieved chunks
+
+00:29:39.000 --> 00:29:43.000
+What will I track in augmentation step?
+
+00:29:43.000 --> 00:29:47.000
+I will track if my retrieved chunks and query are going as input in augmentation step
+
+00:29:47.000 --> 00:29:51.000
+And am I getting my augmented prompt in output?
+
+00:29:51.000 --> 00:29:55.000
+And finally, what will I track in generation step?
+
+00:29:55.000 --> 00:29:59.000
+Is this prompt going to my LLM input or output?
+
+00:29:59.000 --> 00:30:03.000
+And am I getting my response in output?
+
+00:30:03.000 --> 00:30:07.000
+So you saw here, we not only
+
+00:30:07.000 --> 00:30:11.000
+Tracked our query and response
+
+00:30:11.000 --> 00:30:15.000
+We also tracked all the intermediate steps
+
+00:30:15.000 --> 00:30:19.000
+And tracked them properly
+
+00:30:19.000 --> 00:30:23.000
+What is going in and out of each step
+
+00:30:23.000 --> 00:30:27.000
+And how is the input working in the next step
+
+00:30:27.000 --> 00:30:31.000
+And you will see that the tracing of Langfuse is very detailed
+
+00:30:31.000 --> 00:30:35.000
+Every step is shown in detail
+
+00:30:35.000 --> 00:30:39.000
+And you can easily identify the problems in your steps
+
+00:30:39.000 --> 00:30:43.000
+So we will see the culprit behind the latency in the rag application
+
+00:30:43.000 --> 00:30:47.000
+You will also know who is the main culprit
+
+00:30:47.000 --> 00:30:51.000
+I hope this point is clear to you
+
+00:30:51.000 --> 00:30:55.000
+And what is observability?
+
+00:30:55.000 --> 00:30:59.000
+It is actually your next step from tracing
+
+00:30:59.000 --> 00:31:03.000
+So to do observability, you need tracing
+
+00:31:03.000 --> 00:31:07.000
+So whatever things you are logging in tracing, it is basically logging your input to output journey
+
+00:31:07.000 --> 00:31:11.000
+Whatever logs you are creating, you visualize them
+
+00:31:11.000 --> 00:31:15.000
+Through a dashboard
+
+00:31:15.000 --> 00:31:19.000
+Through different graphs, that is called observability
+
+00:31:19.000 --> 00:31:23.000
+And when you visualize, you use some aggregate
+
+00:31:23.000 --> 00:31:27.000
+Metrics
+
+00:31:27.000 --> 00:31:31.000
+You perform some aggregation steps, like if you want to see the latency of your application
+
+00:31:31.000 --> 00:31:35.000
+So you can see the P95 latency for latency
+
+00:31:35.000 --> 00:31:39.000
+You can see the P95 latency, P90 latency, P50 latency
+
+00:31:39.000 --> 00:31:43.000
+Average, min, max, you will not track the latency of every trace
+
+00:31:43.000 --> 00:31:47.000
+Inside observability, you will track it with some aggregate metric
+
+00:31:47.000 --> 00:31:51.000
+So this is the difference between tracing and observability
+
+00:31:51.000 --> 00:31:55.000
+In tracing, you log each of your input and output
+
+00:31:55.000 --> 00:31:59.000
+With all the intermediate steps and observability
+
+00:31:59.000 --> 00:32:03.000
+You use those traces to do visualization
+
+00:32:03.000 --> 00:32:07.000
+And you build dashboards
+
+00:32:07.000 --> 00:32:11.000
+Now we will understand how you do tracing
+
+00:32:11.000 --> 00:32:15.000
+Through LangFuse
+
+00:32:15.000 --> 00:32:19.000
+Now let me tell you why we selected LangFuse
+
+00:32:19.000 --> 00:32:23.000
+Why we didn't select LangSmith, because you might have used LangSmith before
+
+00:32:23.000 --> 00:32:27.000
+Then you might be wondering why we didn't use LangSmith, because we already know how to work with it
+
+00:32:27.000 --> 00:32:31.000
+Although LangSmith is a very good tool
+
+00:32:31.000 --> 00:32:35.000
+But the biggest downside of LangSmith is
+
+00:32:35.000 --> 00:32:39.000
+That your LangChain framework works only with it
+
+00:32:39.000 --> 00:32:43.000
+So LangSmith will work with LangChain, LangGraph, DeepAgents
+
+00:32:43.000 --> 00:32:47.000
+The entire ecosystem of your LangChain
+
+00:32:47.000 --> 00:32:51.000
+In that only, LangSmith works
+
+00:32:51.000 --> 00:32:55.000
+Whereas LangFuse
+
+00:32:55.000 --> 00:32:59.000
+Which has more options than LangSmith and very much similar
+
+00:32:59.000 --> 00:33:03.000
+The working is very similar to LangSmith
+
+00:33:03.000 --> 00:33:07.000
+You can say tool agnostic or framework agnostic
+
+00:33:07.000 --> 00:33:11.000
+It works with any framework
+
+00:33:11.000 --> 00:33:15.000
+And not only this, it also works with your agents
+
+00:33:15.000 --> 00:33:19.000
+Agents in the sense with your harnesses like Claude code
+
+00:33:19.000 --> 00:33:23.000
+You can literally integrate LangFuse with your Claude code
+
+00:33:23.000 --> 00:33:27.000
+And whatever development you are doing in Claude code
+
+00:33:27.000 --> 00:33:31.000
+You can do it in LangFuse, your codex
+
+00:33:31.000 --> 00:33:35.000
+Cursor and maybe in CoPilot
+
+00:33:35.000 --> 00:33:39.000
+So you can see how much power LangFuse has
+
+00:33:39.000 --> 00:33:43.000
+You might have never heard that you have integrated LangSmith with Claude code
+
+00:33:43.000 --> 00:33:47.000
+With codex, with cursor, but you can do LangFuse
+
+00:33:47.000 --> 00:33:51.000
+And it is super simple, I hope you are able to understand the power of LangFuse
+
+00:33:51.000 --> 00:33:55.000
+Is this thing clear guys?
+
+00:33:55.000 --> 00:33:59.000
+Do you think our approach to use LangFuse
+
+00:33:59.000 --> 00:34:03.000
+In this particular course is a good approach
+
+00:34:03.000 --> 00:34:07.000
+Now you know the difference
+
+00:34:07.000 --> 00:34:11.000
+I am looking at the chat, you guys tell me, or we should have worked with LangSmith
+
+00:34:11.000 --> 00:34:19.000
+LangFuse
+
+00:34:19.000 --> 00:34:23.000
+Yes, it's multi platform, I will show you in the documentation
+
+00:34:23.000 --> 00:34:27.000
+How you can integrate in your Claude code codex
+
+00:34:27.000 --> 00:34:31.000
+Super easy, you will not see it, you can do it from your end
+
+00:34:31.000 --> 00:34:35.000
+Let's discuss further
+
+00:34:35.000 --> 00:34:39.000
+So what we will do here, we will integrate in our code
+
+00:34:39.000 --> 00:34:43.000
+In our application, we will integrate
+
+00:34:43.000 --> 00:34:47.000
+LangFuse and the best thing about LangFuse
+
+00:34:47.000 --> 00:34:51.000
+That your LangChain and LangGraph
+
+00:34:51.000 --> 00:34:55.000
+And LangGraph integration also comes
+
+00:34:55.000 --> 00:34:59.000
+Our application has LangChain components and LangGraph
+
+00:34:59.000 --> 00:35:03.000
+Our whole orchestration is there, the whole code is there, the whole graph is there
+
+00:35:03.000 --> 00:35:07.000
+So for that also integration comes to you and the code is super easy
+
+00:35:07.000 --> 00:35:11.000
+Now I will tell you that if you go into LangFuse UI
+
+00:35:11.000 --> 00:35:15.000
+How to see a trace, for that what I will do is
+
+00:35:15.000 --> 00:35:19.000
+I will log in
+
+00:35:19.000 --> 00:35:23.000
+The dashboard
+
+00:35:23.000 --> 00:35:27.000
+You must have seen this dashboard before, this is my application
+
+00:35:27.000 --> 00:35:31.000
+You simply have to go to the documentation of LangFuse
+
+00:35:31.000 --> 00:35:35.000
+And here you have to go to the launch app, if you have not signed up before
+
+00:35:35.000 --> 00:35:39.000
+Then here you will see the sign in option, you can simply sign up with your google account
+
+00:35:39.000 --> 00:35:43.000
+And you can go into this application, so we will go
+
+00:35:43.000 --> 00:35:47.000
+To this project, this is our project and you must have seen this prompt section
+
+00:35:47.000 --> 00:35:51.000
+Now here I have made a small change
+
+00:35:51.000 --> 00:35:55.000
+I told you that whatever is your production prompt, you put a production label on it
+
+00:35:55.000 --> 00:35:59.000
+So this is a small change I have made
+
+00:35:59.000 --> 00:36:03.000
+Which is my version number 3 of the prompt, I have put a production label on it
+
+00:36:03.000 --> 00:36:07.000
+And you can see that it is blinking in green, now I told you this
+
+00:36:07.000 --> 00:36:11.000
+That you only switch the labels on the prompt
+
+00:36:11.000 --> 00:36:15.000
+You don't have to change anything in the code, automatically your code
+
+00:36:15.000 --> 00:36:19.000
+And this production label will pick it
+
+00:36:19.000 --> 00:36:23.000
+Simply you have to tell which label to pick, tomorrow
+
+00:36:23.000 --> 00:36:27.000
+Another system prompt comes here, which is better than this one, so if I put a production label on it
+
+00:36:27.000 --> 00:36:31.000
+Then automatically it will be pulled into the application
+
+00:36:31.000 --> 00:36:35.000
+This is the power of prompt version, so we have made a small change here
+
+00:36:35.000 --> 00:36:39.000
+If you go to the observability section, then here
+
+00:36:39.000 --> 00:36:43.000
+You will see this tracing tab
+
+00:36:43.000 --> 00:36:47.000
+First of all, you have to go to filters
+
+00:36:47.000 --> 00:36:51.000
+And you will see true and false, you have to close this false
+
+00:36:51.000 --> 00:36:55.000
+So that your clutter will be clear
+
+00:36:55.000 --> 00:36:59.000
+So these are my actual traces
+
+00:36:59.000 --> 00:37:03.000
+On which I have to focus, so I have already run these traces
+
+00:37:03.000 --> 00:37:07.000
+When I was testing this application, so I will show you how to show a trace on the length fuse
+
+00:37:07.000 --> 00:37:11.000
+So let's do one thing
+
+00:37:11.000 --> 00:37:15.000
+I will collapse this trace here
+
+00:37:15.000 --> 00:37:19.000
+So the first thing you will see here if I expand it
+
+00:37:19.000 --> 00:37:23.000
+The first thing you will see is your complete graph
+
+00:37:23.000 --> 00:37:27.000
+Your complete workflow and length fuse
+
+00:37:27.000 --> 00:37:31.000
+Will trace this entire flow, this is our flow
+
+00:37:31.000 --> 00:37:35.000
+In the application, our user's query is going from here
+
+00:37:35.000 --> 00:37:39.000
+First of all, input is going to guardrail, after that validation is going on, then retrieval is going on
+
+00:37:39.000 --> 00:37:43.000
+Then the response is going on
+
+00:37:43.000 --> 00:37:47.000
+Then the response is going on
+
+00:37:47.000 --> 00:37:51.000
+As response is getting passed through guardrail
+
+00:37:51.000 --> 00:37:55.000
+If you see something else here, what is here
+
+00:37:55.000 --> 00:37:59.000
+Here I have asked an input, can you tell me why we use
+
+00:37:59.000 --> 00:38:03.000
+Reference-free metrics during online evals, this was my question and see what I got
+
+00:38:03.000 --> 00:38:07.000
+Because online evals run in production on live user traffic
+
+00:38:07.000 --> 00:38:11.000
+There is no golden data set or correct answer to compare against
+
+00:38:11.000 --> 00:38:15.000
+This is your reference-free metric, so reference-free metric work without a reference answer
+
+00:38:15.000 --> 00:38:19.000
+They rely on human judgment rubrics instead, so let us monitor
+
+00:38:19.000 --> 00:38:23.000
+The deployed system behavior and detect problem when real user interact with it
+
+00:38:23.000 --> 00:38:27.000
+So here I am getting my output, so this is my input
+
+00:38:27.000 --> 00:38:31.000
+Which is getting locked, this is my output which is getting locked
+
+00:38:31.000 --> 00:38:35.000
+And if you look closely to the metadata, so here it is telling
+
+00:38:35.000 --> 00:38:39.000
+That the integration of Langfuse means at the back end your application is written in
+
+00:38:39.000 --> 00:38:43.000
+So clearly it can detect that my application is written in Lang graph which is
+
+00:38:43.000 --> 00:38:47.000
+Proof, if you see the version here, this is Langfuse version
+
+00:38:47.000 --> 00:38:51.000
+Which is installed on my system, if I show you, it is 4.14.1
+
+00:38:51.000 --> 00:38:55.000
+I can actually show you everything, if I go here
+
+00:38:55.000 --> 00:38:59.000
+In pipe project.toml and if I search for Langfuse, see
+
+00:38:59.000 --> 00:39:03.000
+This version is installed on my system, it can also be properly locked
+
+00:39:03.000 --> 00:39:07.000
+So here it is showing
+
+00:39:07.000 --> 00:39:11.000
+And if I see the scope name, here Langfuse SDK is showing
+
+00:39:11.000 --> 00:39:15.000
+Guys, are you experiencing any lag?
+
+00:39:21.000 --> 00:39:25.000
+No lag guys, ok, maybe something will happen on my side
+
+00:39:25.000 --> 00:39:29.000
+Here you can see the environment, production environment
+
+00:39:29.000 --> 00:39:33.000
+And the language of the SDK is Python
+
+00:39:33.000 --> 00:39:37.000
+Basically the code of Langfuse is in Python
+
+00:39:37.000 --> 00:39:41.000
+Now I will show you what tracing actually is, so I will expand this whole trace
+
+00:39:41.000 --> 00:39:45.000
+I have expanded the chat response, what was the chat response capturing
+
+00:39:45.000 --> 00:39:49.000
+Only my input and output, below that I am getting my
+
+00:39:49.000 --> 00:39:53.000
+Rack graph, now I will expand the rack graph
+
+00:39:53.000 --> 00:39:57.000
+So see what I am getting in the rack graph, input guardrail, retrieval guardrail
+
+00:39:57.000 --> 00:40:01.000
+Augmentation, generation and output guardrail
+
+00:40:01.000 --> 00:40:05.000
+These are the steps that are shown in the graph below, I can see them in the trace
+
+00:40:05.000 --> 00:40:09.000
+Now let's expand some step
+
+00:40:09.000 --> 00:40:13.000
+Let me tell you one more thing, the time shown in seconds
+
+00:40:13.000 --> 00:40:17.000
+58.3 seconds, this is the overall latency
+
+00:40:17.000 --> 00:40:21.000
+Of my trace, this whole application from input to output
+
+00:40:21.000 --> 00:40:25.000
+It takes around 1 minute, and
+
+00:40:25.000 --> 00:40:29.000
+How much money is being spent in it, this much amount of dollars
+
+00:40:29.000 --> 00:40:33.000
+Whatever model I am using, it is automatically calculated
+
+00:40:33.000 --> 00:40:37.000
+And you can see
+
+00:40:37.000 --> 00:40:41.000
+How much time is being spent in which step, that is also individually told to me
+
+00:40:41.000 --> 00:40:45.000
+How much time is being spent in input guardrail, retrieval
+
+00:40:45.000 --> 00:40:49.000
+It takes the most time, around 41 seconds, retrieval, guardrail
+
+00:40:49.000 --> 00:40:53.000
+Augmentation, generation, how much time is being spent in every step
+
+00:40:53.000 --> 00:40:57.000
+If someone is using LLM in that step
+
+00:40:57.000 --> 00:41:01.000
+Then how much money is being spent there, now I will show you the retrieval step
+
+00:41:01.000 --> 00:41:05.000
+I opened this, so in the retrieval step
+
+00:41:05.000 --> 00:41:09.000
+What is going on, contextual compression retriever
+
+00:41:09.000 --> 00:41:13.000
+You can see how much detail it captures, and guys I will show you the code
+
+00:41:13.000 --> 00:41:17.000
+Will you say, can I trace the whole application by writing such a simple code
+
+00:41:17.000 --> 00:41:21.000
+The answer is yes, you can do it
+
+00:41:21.000 --> 00:41:25.000
+Let's expand this, what is happening in contextual compression retriever
+
+00:41:25.000 --> 00:41:29.000
+See these are all the steps, what are these 3 steps
+
+00:41:29.000 --> 00:41:33.000
+One is vector store retriever, now what is this vector store retriever
+
+00:41:33.000 --> 00:41:37.000
+Will someone tell me, my contextual compression which is the complete pipeline
+
+00:41:37.000 --> 00:41:41.000
+Where I am doing my contextual compression, from that what is the vector store retrieval step
+
+00:41:41.000 --> 00:41:45.000
+I am looking at the chat, I would be super happy if someone could answer me
+
+00:41:45.000 --> 00:41:49.000
+What is this vector store retriever step
+
+00:41:51.000 --> 00:41:55.000
+I am looking at the chat
+
+00:41:55.000 --> 00:41:59.000
+I am looking at the chat
+
+00:41:59.000 --> 00:42:03.000
+Child chunks, what are child chunks Saurabh
+
+00:42:03.000 --> 00:42:07.000
+Can you elaborate
+
+00:42:07.000 --> 00:42:11.000
+Here parent child is not happening, contextual compression is happening
+
+00:42:11.000 --> 00:42:15.000
+What do we do in contextual compression, we take our context
+
+00:42:15.000 --> 00:42:19.000
+And we eliminate the noise, and we do this through an LLM
+
+00:42:19.000 --> 00:42:23.000
+Now you tell me, what is this vector store retriever
+
+00:42:23.000 --> 00:42:27.000
+This vector store retriever is basically my original chunks before the compression
+
+00:42:27.000 --> 00:42:31.000
+So you can see that in the entire retriever, in which I am taking 41 seconds
+
+00:42:31.000 --> 00:42:35.000
+From that, the vector store in contextual compression
+
+00:42:35.000 --> 00:42:39.000
+How long is it taking to retrieve the original vector store
+
+00:42:39.000 --> 00:42:43.000
+Steps, only 1.3 seconds
+
+00:42:43.000 --> 00:42:47.000
+This means my chroma db is working correctly
+
+00:42:47.000 --> 00:42:51.000
+If I simply put my base retriever
+
+00:42:51.000 --> 00:42:55.000
+Which is my chroma db retriever
+
+00:42:55.000 --> 00:42:59.000
+Then I take 1.3 seconds
+
+00:42:59.000 --> 00:43:03.000
+So it is working fine, where is the problem coming from
+
+00:43:03.000 --> 00:43:07.000
+In the subsequent steps, now you can see 3 runnable sequences
+
+00:43:07.000 --> 00:43:11.000
+This is taking around 10 seconds, this is taking 7 seconds, and this last one is taking a lot of time
+
+00:43:11.000 --> 00:43:15.000
+It is taking around 23 seconds, I don't know why
+
+00:43:15.000 --> 00:43:19.000
+So what are these runnable sequences, what did my vector store retriever retrieve
+
+00:43:19.000 --> 00:43:23.000
+My vector store retriever retrieved these 3 chunks
+
+00:43:23.000 --> 00:43:27.000
+I have set the value of k, so here I have 3 chunks
+
+00:43:27.000 --> 00:43:31.000
+Here you can see the rest of the information, what is my vector store provider
+
+00:43:31.000 --> 00:43:35.000
+What is my embedded model, I am tracking all the things here
+
+00:43:35.000 --> 00:43:39.000
+Each and everything
+
+00:43:39.000 --> 00:43:43.000
+So my retriever gave me these 3 chunks, these can be noisy chunks
+
+00:43:43.000 --> 00:43:47.000
+These are the noisy chunks, now what I will do is
+
+00:43:47.000 --> 00:43:51.000
+I will take this chunk and give it to my LLM
+
+00:43:51.000 --> 00:43:55.000
+And I will tell LLM to remove the noise from this
+
+00:43:55.000 --> 00:43:59.000
+And this is what is happening in the runnable sequence, these 3 are because my k value is 3
+
+00:43:59.000 --> 00:44:03.000
+If I set k value to 5, then you will see 5 runnable sequences
+
+00:44:03.000 --> 00:44:07.000
+What is the runnable sequence, it is the chain, the chain which we make in the blank chain
+
+00:44:07.000 --> 00:44:11.000
+Now let's see the chain, you have to expand the chain
+
+00:44:11.000 --> 00:44:15.000
+So the first part is prompt template, what is going to the prompt template input
+
+00:44:15.000 --> 00:44:19.000
+This question is going, this context is going
+
+00:44:19.000 --> 00:44:23.000
+And what is coming back, my prompt template is coming back to me
+
+00:44:23.000 --> 00:44:27.000
+After that
+
+00:44:27.000 --> 00:44:31.000
+What I am doing is, I am giving this prompt to my model
+
+00:44:31.000 --> 00:44:35.000
+So here it is clearly written that I did not take much time to make the prompt template
+
+00:44:35.000 --> 00:44:39.000
+It was quick, but I took time in generation
+
+00:44:39.000 --> 00:44:43.000
+I took almost 10 seconds
+
+00:44:43.000 --> 00:44:47.000
+And here you can see this figure
+
+00:44:47.000 --> 00:44:51.000
+347 prompt 845 completion, what is this
+
+00:44:51.000 --> 00:44:55.000
+These are the number of input and output tokens, how many input tokens are there
+
+00:44:55.000 --> 00:44:59.000
+347, how many output tokens are there, 845
+
+00:44:59.000 --> 00:45:03.000
+Here you can see this thing, and the most
+
+00:45:03.000 --> 00:45:07.000
+In which tokens are being used, in the reasoning, your model
+
+00:45:07.000 --> 00:45:11.000
+The model is doing the reasoning internally and that's why it is using around 600 tokens
+
+00:45:11.000 --> 00:45:15.000
+Which model are we using, for this whole thing
+
+00:45:15.000 --> 00:45:19.000
+GPT-5 mini model, how much is the expense in this one step
+
+00:45:19.000 --> 00:45:23.000
+One chunk is spent in compressing
+
+00:45:23.000 --> 00:45:27.000
+The cost of input is told separately, the cost of output is told separately
+
+00:45:27.000 --> 00:45:31.000
+The cost of reasoning is also told separately, now how is this model working
+
+00:45:31.000 --> 00:45:35.000
+If it is a model, it needs a system prompt, this is my system prompt
+
+00:45:35.000 --> 00:45:39.000
+This is my system prompt, I did not write this system prompt, who wrote this system prompt
+
+00:45:39.000 --> 00:45:43.000
+This is written by the developers of Lang chain who made this contextual compression
+
+00:45:43.000 --> 00:45:47.000
+They said, given the following question and context, extract
+
+00:45:47.000 --> 00:45:51.000
+Any part of the context as is that is relevant to answer
+
+00:45:51.000 --> 00:45:55.000
+The question if none of the context is relevant return no output
+
+00:45:55.000 --> 00:45:59.000
+After that I passed my question, user question
+
+00:45:59.000 --> 00:46:03.000
+And context, is this my complete context, the answer is no
+
+00:46:03.000 --> 00:46:07.000
+This is my only one chunk, there are three chunks in one, one of them is this
+
+00:46:07.000 --> 00:46:11.000
+This question and this chunk, with the system prompt, I gave to whom
+
+00:46:11.000 --> 00:46:15.000
+To my model, and what did I tell the model to compress and
+
+00:46:15.000 --> 00:46:19.000
+Provide me a compressed version of the context and here
+
+00:46:19.000 --> 00:46:23.000
+Inside the output, sorry for that, it got closed
+
+00:46:23.000 --> 00:46:27.000
+This was not the one, sorry sorry
+
+00:46:27.000 --> 00:46:31.000
+Just a second, this was the one, so what do I see in the output
+
+00:46:31.000 --> 00:46:35.000
+What do I see in the output, I see my
+
+00:46:35.000 --> 00:46:39.000
+Final compressed chunk
+
+00:46:39.000 --> 00:46:43.000
+And after that there is a parser basically
+
+00:46:43.000 --> 00:46:47.000
+Whatever chunk I have, I pass it on to my retriever
+
+00:46:47.000 --> 00:46:51.000
+Same thing is happening with this chunk
+
+00:46:51.000 --> 00:46:55.000
+And same thing is happening with this chunk, now in this chunk
+
+00:46:55.000 --> 00:46:59.000
+You can see that it is taking 23 seconds, so you can go and check
+
+00:46:59.000 --> 00:47:03.000
+Why this chunk is taking 23 seconds, so 23 seconds
+
+00:47:03.000 --> 00:47:07.000
+Because my model took 23 seconds to basically
+
+00:47:07.000 --> 00:47:11.000
+Compress this particular context, now in this
+
+00:47:11.000 --> 00:47:15.000
+You can go and see why so many tokens are taking, because
+
+00:47:15.000 --> 00:47:19.000
+Reasoning is more, around 1700 tokens you have spent on reasoning
+
+00:47:19.000 --> 00:47:23.000
+What does this mean, it means that to compress this chunk
+
+00:47:23.000 --> 00:47:27.000
+My model had to think a lot, if you had to think a lot
+
+00:47:27.000 --> 00:47:31.000
+If you had to think a lot, it took more time, so this compression step
+
+00:47:31.000 --> 00:47:35.000
+Time is more, so you can easily relate things
+
+00:47:35.000 --> 00:47:39.000
+I hope you understood this thing
+
+00:47:39.000 --> 00:47:43.000
+So I just wanted to show you a demo, how your trace works
+
+00:47:43.000 --> 00:47:47.000
+I hope you understood this whole thing, so now in step by step
+
+00:47:47.000 --> 00:47:51.000
+You can expand every step and figure out the journey of output from input
+
+00:47:51.000 --> 00:47:55.000
+Is this point clear
+
+00:47:55.000 --> 00:47:59.000
+Is this clear guys, did you understand this thing by watching this demo
+
+00:47:59.000 --> 00:48:03.000
+How our application is working
+
+00:48:03.000 --> 00:48:07.000
+Yes, clear, ok, now let's discuss
+
+00:48:07.000 --> 00:48:11.000
+What things you can see on the screen, what things
+
+00:48:11.000 --> 00:48:15.000
+You have to focus on, we have seen that in tracing you can see some kind of view
+
+00:48:15.000 --> 00:48:19.000
+And you can see your individual traces here
+
+00:48:19.000 --> 00:48:23.000
+Now where do you have to focus, so let's expand this trace
+
+00:48:23.000 --> 00:48:27.000
+Let's collapse everything
+
+00:48:27.000 --> 00:48:31.000
+Let's turn on the annotation
+
+00:48:31.000 --> 00:48:35.000
+And let's start
+
+00:48:35.000 --> 00:48:39.000
+Fine, you can see this color too
+
+00:48:39.000 --> 00:48:43.000
+The first thing you have to focus on is your graph
+
+00:48:43.000 --> 00:48:47.000
+You can understand this as your application graph or your whole trace
+
+00:48:47.000 --> 00:48:51.000
+Your top to bottom is executed
+
+00:48:51.000 --> 00:48:55.000
+These are individual steps in your trace
+
+00:48:55.000 --> 00:48:59.000
+Now you will get to hear two terminologies, one will be trace
+
+00:48:59.000 --> 00:49:03.000
+And the other will be your span
+
+00:49:03.000 --> 00:49:07.000
+So you have to understand the difference between these two
+
+00:49:07.000 --> 00:49:11.000
+So this whole chat response that you can see, that I have expanded
+
+00:49:11.000 --> 00:49:15.000
+The one at the top of the hierarchy, this grandfather
+
+00:49:15.000 --> 00:49:19.000
+This is basically your trace
+
+00:49:19.000 --> 00:49:23.000
+Trace is simply your complete execution of your application
+
+00:49:23.000 --> 00:49:27.000
+Means input you gave
+
+00:49:27.000 --> 00:49:31.000
+And you got your output
+
+00:49:31.000 --> 00:49:35.000
+So the whole journey of input to output
+
+00:49:35.000 --> 00:49:39.000
+That is your complete trace, this is called
+
+00:49:39.000 --> 00:49:43.000
+One trace in line fuse, ok, so what you do here
+
+00:49:43.000 --> 00:49:47.000
+Whenever a user sends an input and gets an output, you store it in a trace
+
+00:49:47.000 --> 00:49:51.000
+Let's say I am chatting with my streamlit application
+
+00:49:51.000 --> 00:49:55.000
+I sent 4 queries, so how many traces will I get in output
+
+00:49:55.000 --> 00:49:59.000
+I will get 4 traces in line fuse
+
+00:49:59.000 --> 00:50:03.000
+Because I got 4 outputs for 4 questions
+
+00:50:03.000 --> 00:50:07.000
+One thing is span, what is span?
+
+00:50:07.000 --> 00:50:11.000
+You can understand span as the
+
+00:50:11.000 --> 00:50:15.000
+Sub component of your trace, I will show you
+
+00:50:15.000 --> 00:50:19.000
+Just a second, if I show you
+
+00:50:19.000 --> 00:50:23.000
+So this is your chat response, this is your complete trace
+
+00:50:23.000 --> 00:50:27.000
+If you see inside this
+
+00:50:27.000 --> 00:50:31.000
+If you highlight it here
+
+00:50:31.000 --> 00:50:35.000
+I don't know why it is not showing here
+
+00:50:35.000 --> 00:50:39.000
+But this is your complete span
+
+00:50:39.000 --> 00:50:43.000
+It is not showing here
+
+00:50:43.000 --> 00:50:47.000
+This is your complete span
+
+00:50:47.000 --> 00:50:51.000
+Inside that you have more child spans
+
+00:50:51.000 --> 00:50:55.000
+This is a complete span
+
+00:50:55.000 --> 00:50:59.000
+Span is basically a working unit inside a trace
+
+00:50:59.000 --> 00:51:03.000
+Working unit inside a trace
+
+00:51:03.000 --> 00:51:07.000
+Which you can calculate the duration, means your trace is
+
+00:51:07.000 --> 00:51:11.000
+The outer unit which is running from end to end
+
+00:51:11.000 --> 00:51:15.000
+You can calculate different stages which you can see in the graph
+
+00:51:15.000 --> 00:51:19.000
+So every node of the graph is a separate span
+
+00:51:19.000 --> 00:51:23.000
+I hope this point is clear to you
+
+00:51:23.000 --> 00:51:29.000
+Every span has an input and output, but it is different from the input and output of your trace
+
+00:51:29.000 --> 00:51:33.000
+Trace's input and output is the input and output of your application
+
+00:51:33.000 --> 00:51:37.000
+Which is visible to your user, span's input and output
+
+00:51:37.000 --> 00:51:41.000
+This point is defined on that stage
+
+00:51:41.000 --> 00:51:45.000
+Like what will be the input of generation span
+
+00:51:45.000 --> 00:51:49.000
+It will get prompt with your context and query of your user
+
+00:51:49.000 --> 00:51:53.000
+And what will be the output which will produce the response
+
+00:51:53.000 --> 00:51:57.000
+But it is different from my trace input and output
+
+00:51:57.000 --> 00:52:01.000
+I hope this point is clear to you, this difference is important to you between a trace and a span
+
+00:52:01.000 --> 00:52:05.000
+Is this point clear guys?
+
+00:52:05.000 --> 00:52:09.000
+Trace is the overall thing
+
+00:52:09.000 --> 00:52:13.000
+Span is the components of the trace
+
+00:52:13.000 --> 00:52:17.000
+Is this point clear?
+
+00:52:21.000 --> 00:52:25.000
+Let's discuss further
+
+00:52:25.000 --> 00:52:29.000
+A working unit is a span
+
+00:52:29.000 --> 00:52:33.000
+And another definition of span is the duration of which can be calculated
+
+00:52:33.000 --> 00:52:37.000
+You can calculate the duration of the input and output of that stage
+
+00:52:37.000 --> 00:52:41.000
+You can calculate the duration
+
+00:52:41.000 --> 00:52:45.000
+For each of your stages
+
+00:52:45.000 --> 00:52:49.000
+Now every span has multiple stages
+
+00:52:49.000 --> 00:52:53.000
+Now the thing is
+
+00:52:53.000 --> 00:52:57.000
+The arrangement is in the form of a tree
+
+00:52:57.000 --> 00:53:01.000
+You can see it in the form of tree structure or hierarchy
+
+00:53:01.000 --> 00:53:05.000
+In the outer hierarchy, there is a trace
+
+00:53:05.000 --> 00:53:09.000
+And in the trace, there are individual spans
+
+00:53:09.000 --> 00:53:13.000
+And the order you can see between the parent span
+
+00:53:13.000 --> 00:53:17.000
+And the child span
+
+00:53:17.000 --> 00:53:21.000
+This is the parent span
+
+00:53:21.000 --> 00:53:25.000
+The internal components of this are
+
+00:53:25.000 --> 00:53:29.000
+These are your child span
+
+00:53:29.000 --> 00:53:33.000
+And the child span can have multiple children
+
+00:53:33.000 --> 00:53:37.000
+One or more than one
+
+00:53:37.000 --> 00:53:41.000
+Now these spans like input, retrieval, and documentation
+
+00:53:41.000 --> 00:53:45.000
+In your indentation, in the same hierarchy
+
+00:53:45.000 --> 00:53:49.000
+Input, guardrail and retrieve are both the children of RAC graph
+
+00:53:49.000 --> 00:53:53.000
+They are called siblings
+
+00:53:53.000 --> 00:53:57.000
+Like you are the child of your parent
+
+00:53:57.000 --> 00:54:01.000
+And your siblings are your siblings
+
+00:54:01.000 --> 00:54:05.000
+Their parents are the same but they are two different beings
+
+00:54:05.000 --> 00:54:09.000
+Two different identities
+
+00:54:09.000 --> 00:54:13.000
+Similarly, the same indentation is called sibling span
+
+00:54:13.000 --> 00:54:17.000
+I am just telling you the terminologies
+
+00:54:17.000 --> 00:54:21.000
+You should know
+
+00:54:21.000 --> 00:54:25.000
+Similarly, your child span is parents
+
+00:54:25.000 --> 00:54:29.000
+These are their child spans
+
+00:54:29.000 --> 00:54:33.000
+Input, guardrail, parent, validate input and guardrail router
+
+00:54:33.000 --> 00:54:37.000
+Are two siblings of the input guardrail
+
+00:54:37.000 --> 00:54:41.000
+These are the child and these are the siblings
+
+00:54:41.000 --> 00:54:45.000
+This terminology is clear between sibling, parent and child
+
+00:54:45.000 --> 00:54:49.000
+Is this point clear guys?
+
+00:54:49.000 --> 00:54:53.000
+Yes, okay
+
+00:54:53.000 --> 00:54:57.000
+Let's discuss the important concepts of tracing
+
+00:54:57.000 --> 00:55:01.000
+We have discussed some concepts in the demo
+
+00:55:01.000 --> 00:55:05.000
+Like we have discussed about parent span
+
+00:55:05.000 --> 00:55:09.000
+We have discussed about child span
+
+00:55:09.000 --> 00:55:13.000
+We have discussed about sibling span
+
+00:55:13.000 --> 00:55:17.000
+And we have discussed about trace versus span
+
+00:55:17.000 --> 00:55:21.000
+Now let's discuss
+
+00:55:21.000 --> 00:55:25.000
+How to implement this whole thing inside LangFuse
+
+00:55:25.000 --> 00:55:29.000
+For that, I will take you to the documentation of LangFuse
+
+00:55:29.000 --> 00:55:33.000
+We will read some documentation
+
+00:55:33.000 --> 00:55:37.000
+It will be visually clear
+
+00:55:37.000 --> 00:55:41.000
+It is not a theory
+
+00:55:41.000 --> 00:55:45.000
+First of all, I would like to show you some key details
+
+00:55:45.000 --> 00:55:49.000
+Observability and application tracing
+
+00:55:49.000 --> 00:55:53.000
+Observability and application tracing
+
+00:55:53.000 --> 00:55:57.000
+You have to apply observability and tracing
+
+00:55:57.000 --> 00:56:01.000
+What is tracing?
+
+00:56:01.000 --> 00:56:05.000
+Simply tracing is capturing the structured logs of every request
+
+00:56:05.000 --> 00:56:09.000
+That capture the exact prompt and model response, token usage, latency
+
+00:56:09.000 --> 00:56:13.000
+And how do you see a trace?
+
+00:56:13.000 --> 00:56:17.000
+Now let's talk about how to implement tracing
+
+00:56:17.000 --> 00:56:21.000
+How to implement tracing
+
+00:56:21.000 --> 00:56:25.000
+First of all, you have to login to the LangFuse UI
+
+00:56:25.000 --> 00:56:29.000
+You will get your API keys as soon as you login
+
+00:56:29.000 --> 00:56:33.000
+These are the same API keys that we used during prompt originating
+
+00:56:33.000 --> 00:56:37.000
+So if you are in your application at this stage
+
+00:56:37.000 --> 00:56:41.000
+You don't need to add any extra thing
+
+00:56:41.000 --> 00:56:45.000
+After that, the code is given here
+
+00:56:45.000 --> 00:56:49.000
+You have to integrate LangFuse into your code
+
+00:56:49.000 --> 00:56:53.000
+You have Python version and LangChain version
+
+00:56:53.000 --> 00:56:57.000
+We are working in LangChain, so we will work with the LangChain version
+
+00:56:57.000 --> 00:57:01.000
+You have to install LangChain and set environment keys
+
+00:57:01.000 --> 00:57:05.000
+After that, you have to use a callback handler
+
+00:57:05.000 --> 00:57:09.000
+Now basically, what happens in LangChain LangGraph
+
+00:57:09.000 --> 00:57:13.000
+The thing is that when your entire graph is run
+
+00:57:13.000 --> 00:57:17.000
+You can attach callbacks along with the run of the graph
+
+00:57:17.000 --> 00:57:21.000
+You can see the LangGraph playlist
+
+00:57:21.000 --> 00:57:25.000
+You will know about callbacks
+
+00:57:25.000 --> 00:57:29.000
+When your graph is run, you can run some extra functionality
+
+00:57:29.000 --> 00:57:33.000
+What you have to do is to simply run the callback of your LangChain
+
+00:57:33.000 --> 00:57:37.000
+You can run the callback of your LangChain
+
+00:57:37.000 --> 00:57:41.000
+You can run the callback of your LangChain
+
+00:57:41.000 --> 00:57:45.000
+You have to import the callback and make an object
+
+00:57:45.000 --> 00:57:49.000
+The next step is
+
+00:57:49.000 --> 00:57:53.000
+You have to pass it into your application
+
+00:57:53.000 --> 00:57:57.000
+You have to pass it into your configuration
+
+00:57:57.000 --> 00:58:01.000
+You have to invoke your graph
+
+00:58:01.000 --> 00:58:05.000
+You have to simply pass the callback into the config
+
+00:58:05.000 --> 00:58:09.000
+As a list, that's it
+
+00:58:09.000 --> 00:58:13.000
+Your tracing will automatically start
+
+00:58:13.000 --> 00:58:17.000
+Whatever execution is happening internally in LangGraph
+
+00:58:17.000 --> 00:58:21.000
+It will trace everything properly and you will see it
+
+00:58:21.000 --> 00:58:25.000
+But there is a catch
+
+00:58:25.000 --> 00:58:29.000
+Along with the steps of LangGraph, this callback works with your LangGraph
+
+00:58:29.000 --> 00:58:33.000
+All the steps of LangGraph, retrieval, generation, augmentation
+
+00:58:33.000 --> 00:58:37.000
+It works very well for them
+
+00:58:37.000 --> 00:58:41.000
+Now we have used another framework
+
+00:58:41.000 --> 00:58:45.000
+That is our guardrails ai
+
+00:58:45.000 --> 00:58:49.000
+Guardrails is not your LangChain framework
+
+00:58:49.000 --> 00:58:53.000
+It is a separate open source package
+
+00:58:53.000 --> 00:58:57.000
+So in guardrails ai, you have to lock your guardrails
+
+00:58:57.000 --> 00:59:01.000
+You have to lock those steps as well
+
+00:59:01.000 --> 00:59:05.000
+For that, you have to write some python code
+
+00:59:05.000 --> 00:59:09.000
+If our application had only the code of LangGraph
+
+00:59:09.000 --> 00:59:13.000
+Then we would have been able to use that much code
+
+00:59:13.000 --> 00:59:17.000
+We would have had to make a callback handler and put it in the config
+
+00:59:17.000 --> 00:59:21.000
+But now we have to work extra hard
+
+00:59:21.000 --> 00:59:25.000
+We have to write some custom code
+
+00:59:25.000 --> 00:59:29.000
+I will tell you how to write custom code
+
+00:59:29.000 --> 00:59:33.000
+Now let's discuss about other things
+
+00:59:33.000 --> 00:59:37.000
+Not only you can create your logs
+
+00:59:37.000 --> 00:59:41.000
+Listen carefully
+
+00:59:41.000 --> 00:59:47.000
+Not only you can create your logs, you can also pass on some additional information with your logs
+
+00:59:47.000 --> 00:59:53.000
+This additional information is called your attributes
+
+00:59:53.000 --> 00:59:59.000
+Now you can pass a lot of additional information in these attributes
+
+00:59:59.000 --> 01:00:03.000
+You can also pass on your session ID
+
+01:00:03.000 --> 01:00:07.000
+For example, you can pass on the environment information
+
+01:00:07.000 --> 01:00:11.000
+You can also pass on parameters
+
+01:00:11.000 --> 01:00:15.000
+You can pass on metadata
+
+01:00:15.000 --> 01:00:19.000
+You can pass on your prompt version
+
+01:00:19.000 --> 01:00:23.000
+You can pass on some tags
+
+01:00:23.000 --> 01:00:27.000
+You can also pass on your session ID
+
+01:00:27.000 --> 01:00:31.000
+You can also pass on your ready
+
+01:00:31.000 --> 01:00:37.000
+These are some things that you can pass on your logs
+
+01:00:37.000 --> 01:00:41.000
+Let me show you where you can see them
+
+01:00:41.000 --> 01:00:45.000
+Let's go to our dashboard
+
+01:00:45.000 --> 01:00:49.000
+It's highly practical so I am showing you everything step by step
+
+01:00:49.000 --> 01:00:53.000
+For example, let's open this trace
+
+01:00:53.000 --> 01:00:57.000
+You can see the session in black
+
+01:00:57.000 --> 01:01:01.000
+I have passed this session in my code
+
+01:01:01.000 --> 01:01:05.000
+We are basically creating individual sessions
+
+01:01:05.000 --> 01:01:09.000
+I will create another session in my frontend
+
+01:01:09.000 --> 01:01:15.000
+I want my logs to be tracked separately
+
+01:01:15.000 --> 01:01:19.000
+Whatever session I am talking about, in the chat
+
+01:01:19.000 --> 01:01:23.000
+I want my logs to be logged in one place
+
+01:01:23.000 --> 01:01:27.000
+I want to filter it out easily
+
+01:01:27.000 --> 01:01:31.000
+I am tracking different sessions through session ID
+
+01:01:31.000 --> 01:01:35.000
+Let me show you what I did when I was demoing this
+
+01:01:35.000 --> 01:01:39.000
+If you go to the sessions tab
+
+01:01:39.000 --> 01:01:43.000
+I created two sessions
+
+01:01:43.000 --> 01:01:47.000
+If I open this
+
+01:01:47.000 --> 01:01:51.000
+I generated two responses
+
+01:01:51.000 --> 01:01:55.000
+The first one is this one
+
+01:01:55.000 --> 01:01:59.000
+I can see the whole log
+
+01:01:59.000 --> 01:02:03.000
+If I go down
+
+01:02:03.000 --> 01:02:07.000
+Just a second
+
+01:02:07.000 --> 01:02:11.000
+You can see the whole thing
+
+01:02:11.000 --> 01:02:15.000
+Everything is visual
+
+01:02:15.000 --> 01:02:19.000
+If I go down to the other input
+
+01:02:19.000 --> 01:02:23.000
+It's the same
+
+01:02:23.000 --> 01:02:27.000
+It's the same
+
+01:02:27.000 --> 01:02:31.000
+This is my second one
+
+01:02:31.000 --> 01:02:35.000
+What is the difference between online vs offline evals
+
+01:02:35.000 --> 01:02:39.000
+I can see the input and output
+
+01:02:39.000 --> 01:02:43.000
+I have run my two traces
+
+01:02:43.000 --> 01:02:47.000
+I can see the log
+
+01:02:47.000 --> 01:02:51.000
+Total traces is 2
+
+01:02:51.000 --> 01:02:55.000
+I can see the aggregate metrics
+
+01:02:55.000 --> 01:02:59.000
+Let's say 10 questions were asked
+
+01:02:59.000 --> 01:03:03.000
+The total cost of those 10 questions is n2nlog
+
+01:03:03.000 --> 01:03:07.000
+The second session was this one
+
+01:03:07.000 --> 01:03:11.000
+Can you tell me the current weather of Delhi
+
+01:03:11.000 --> 01:03:15.000
+This was an off topic
+
+01:03:15.000 --> 01:03:19.000
+I got my guardrail trigger
+
+01:03:19.000 --> 01:03:23.000
+I got this output
+
+01:03:23.000 --> 01:03:27.000
+I can track this properly
+
+01:03:27.000 --> 01:03:31.000
+The advantage of sessions is that you can track the sessions
+
+01:03:31.000 --> 01:03:35.000
+You can track them separately
+
+01:03:35.000 --> 01:03:39.000
+The way to pass this is very simple
+
+01:03:39.000 --> 01:03:43.000
+I will show you the documentation
+
+01:03:43.000 --> 01:03:47.000
+Many interactions with LLM applications span multiple traces
+
+01:03:47.000 --> 01:03:51.000
+Sessions in Langfuse allow you to group traces together
+
+01:03:51.000 --> 01:03:55.000
+To see a simple session replay
+
+01:03:55.000 --> 01:03:59.000
+You can see the whole session replay
+
+01:03:59.000 --> 01:04:03.000
+You have to pass a session id
+
+01:04:03.000 --> 01:04:07.000
+You pass your attributes
+
+01:04:07.000 --> 01:04:11.000
+You can see the method
+
+01:04:11.000 --> 01:04:15.000
+You can pass your session id
+
+01:04:15.000 --> 01:04:19.000
+You can also pass other things
+
+01:04:19.000 --> 01:04:23.000
+Like your environment
+
+01:04:23.000 --> 01:04:27.000
+You can also pass its value
+
+01:04:27.000 --> 01:04:31.000
+You can also pass tags
+
+01:04:31.000 --> 01:04:35.000
+This is an extra piece of information
+
+01:04:35.000 --> 01:04:39.000
+This is metadata
+
+01:04:39.000 --> 01:04:43.000
+You have to pass metadata
+
+01:04:43.000 --> 01:04:47.000
+I am showing you the same method
+
+01:04:47.000 --> 01:04:51.000
+Is this point clear?
+
+01:04:51.000 --> 01:04:55.000
+Don't worry about the amount of information
+
+01:04:55.000 --> 01:04:59.000
+These are all optional
+
+01:04:59.000 --> 01:05:03.000
+I haven't shown you the exact code
+
+01:05:03.000 --> 01:05:07.000
+I have discussed many things
+
+01:05:07.000 --> 01:05:11.000
+These are all optional
+
+01:05:11.000 --> 01:05:15.000
+I will show you the tracing
+
+01:05:15.000 --> 01:05:19.000
+Environment, production, session id
+
+01:05:19.000 --> 01:05:23.000
+These are all optional
+
+01:05:23.000 --> 01:05:27.000
+You can filter it tomorrow
+
+01:05:27.000 --> 01:05:31.000
+We have only production
+
+01:05:31.000 --> 01:05:35.000
+If you have more environment
+
+01:05:35.000 --> 01:05:39.000
+You can filter it
+
+01:05:39.000 --> 01:05:43.000
+You use these attributes for filtering
+
+01:05:43.000 --> 01:05:47.000
+Clear?
+
+01:05:47.000 --> 01:05:51.000
+Let's go
+
+01:05:51.000 --> 01:05:55.000
+Let's take some questions
+
+01:05:55.000 --> 01:05:59.000
+Is that means every time user runs the query
+
+01:05:59.000 --> 01:06:03.000
+That will be traced in that
+
+01:06:03.000 --> 01:06:07.000
+We can software version if doing A-B testing
+
+01:06:07.000 --> 01:06:11.000
+Yes we can
+
+01:06:11.000 --> 01:06:15.000
+Your LangFuse tracks version and releases
+
+01:06:15.000 --> 01:06:19.000
+Sir also LangFuse is open source
+
+01:06:19.000 --> 01:06:23.000
+Then why do LangSmith even exist
+
+01:06:23.000 --> 01:06:27.000
+LangSmith exists because LangFuse is made on your LangSmith
+
+01:06:27.000 --> 01:06:31.000
+So Pioneer is LangSmith
+
+01:06:31.000 --> 01:06:35.000
+But LangFuse has a limitation
+
+01:06:35.000 --> 01:06:39.000
+You didn't have so many frameworks
+
+01:06:39.000 --> 01:06:43.000
+LangChain was a pioneer framework
+
+01:06:43.000 --> 01:06:47.000
+Everyone had their own SDKs
+
+01:06:47.000 --> 01:06:51.000
+OpenAI had its own SDKs
+
+01:06:51.000 --> 01:06:55.000
+LangChain was a universal framework
+
+01:06:55.000 --> 01:06:59.000
+You could use different components and models
+
+01:06:59.000 --> 01:07:03.000
+Then came LangSmith
+
+01:07:03.000 --> 01:07:07.000
+But it couldn't work with other integrations
+
+01:07:07.000 --> 01:07:11.000
+Then LangFuse developed
+
+01:07:11.000 --> 01:07:15.000
+We have to write extra glue code
+
+01:07:15.000 --> 01:07:19.000
+If you have LangGraph application
+
+01:07:19.000 --> 01:07:23.000
+You can add environment variables
+
+01:07:23.000 --> 01:07:27.000
+But you have to work extra
+
+01:07:27.000 --> 01:07:31.000
+So that's it
+
+01:07:31.000 --> 01:07:35.000
+Any other questions?
+
+01:07:35.000 --> 01:07:39.000
+Clear?
+
+01:07:39.000 --> 01:07:43.000
+Now the moment of truth
+
+01:07:43.000 --> 01:07:47.000
+I will explain how you do these things in code
+
+01:07:47.000 --> 01:07:51.000
+You must be thinking that we have talked a lot
+
+01:07:51.000 --> 01:07:55.000
+How to do this in code
+
+01:07:55.000 --> 01:07:59.000
+First of all, we will understand
+
+01:07:59.000 --> 01:08:03.000
+How you can trace LangFuse in your current application
+
+01:08:03.000 --> 01:08:07.000
+LangFuse gives you 3 methods
+
+01:08:07.000 --> 01:08:11.000
+for implementation
+
+01:08:11.000 --> 01:08:15.000
+You will use these 2 methods widely
+
+01:08:15.000 --> 01:08:19.000
+LangFuse also says that
+
+01:08:19.000 --> 01:08:23.000
+You can use the methods I will teach you
+
+01:08:23.000 --> 01:08:27.000
+As per your convenience
+
+01:08:27.000 --> 01:08:31.000
+LangFuse has given you the third method as an option
+
+01:08:31.000 --> 01:08:35.000
+But they also said that you can use it rarely
+
+01:08:35.000 --> 01:08:39.000
+Because it is a legacy code
+
+01:08:39.000 --> 01:08:43.000
+But if you feel the need, you can use the third method
+
+01:08:43.000 --> 01:08:47.000
+You have to use the first 2 methods
+
+01:08:47.000 --> 01:08:51.000
+I will teach you but you will use only the first 2
+
+01:08:51.000 --> 01:08:55.000
+The first method is that you can implement LangFuse
+
+01:08:55.000 --> 01:08:59.000
+Using a context manager
+
+01:08:59.000 --> 01:09:03.000
+We are not going into the code now
+
+01:09:03.000 --> 01:09:07.000
+What does context manager mean?
+
+01:09:07.000 --> 01:09:11.000
+You know that you can start a new context in Python
+
+01:09:11.000 --> 01:09:15.000
+Like we start a run of MLflow
+
+01:09:15.000 --> 01:09:19.000
+You will start a run of LangFuse
+
+01:09:19.000 --> 01:09:23.000
+Using width, you will start a context of LangFuse
+
+01:09:23.000 --> 01:09:27.000
+You will give it an alias
+
+01:09:27.000 --> 01:09:31.000
+As let's say you gave it parent
+
+01:09:31.000 --> 01:09:35.000
+Then you will write the code of the parent span
+
+01:09:35.000 --> 01:09:39.000
+Listen carefully guys
+
+01:09:39.000 --> 01:09:43.000
+You will write the code of the parent span
+
+01:09:43.000 --> 01:09:47.000
+Then let's say you want to run a child span
+
+01:09:47.000 --> 01:09:51.000
+You will not close this parent span
+
+01:09:51.000 --> 01:09:55.000
+You will put another with statement in it
+
+01:09:55.000 --> 01:09:59.000
+With again you will use LangFuse context
+
+01:09:59.000 --> 01:10:03.000
+You can write it as child as well as C1
+
+01:10:03.000 --> 01:10:07.000
+And you will write the code to lock it
+
+01:10:07.000 --> 01:10:11.000
+You started another context manager
+
+01:10:11.000 --> 01:10:15.000
+With LangFuse context
+
+01:10:15.000 --> 01:10:19.000
+It means starting a new context
+
+01:10:19.000 --> 01:10:23.000
+And you wrote the code to lock it
+
+01:10:23.000 --> 01:10:27.000
+Now someone will tell me that
+
+01:10:27.000 --> 01:10:31.000
+What do these C1 and C2 look like to my parent span?
+
+01:10:31.000 --> 01:10:35.000
+If someone knows by looking at the indentation
+
+01:10:35.000 --> 01:10:39.000
+I am looking at the chat
+
+01:10:39.000 --> 01:10:43.000
+What do C1 and C2 look like to the parent span?
+
+01:10:43.000 --> 01:10:47.000
+I am not talking about C1 and C2 between each other
+
+01:10:47.000 --> 01:10:51.000
+What is this in the parent-child relationship?
+
+01:10:51.000 --> 01:10:55.000
+C1 and C2 are siblings, Hardik is right
+
+01:10:55.000 --> 01:10:59.000
+Simply if you want to make a parent-child relationship
+
+01:10:59.000 --> 01:11:03.000
+Then you have to nest
+
+01:11:03.000 --> 01:11:07.000
+The nesting of context
+
+01:11:07.000 --> 01:11:11.000
+You have to nest it using indentation
+
+01:11:11.000 --> 01:11:15.000
+You have to take care of indentation
+
+01:11:15.000 --> 01:11:19.000
+And through that you can nest
+
+01:11:19.000 --> 01:11:23.000
+If you want to send additional information in any context
+
+01:11:23.000 --> 01:11:27.000
+Like metadata, environment label, tags
+
+01:11:27.000 --> 01:11:31.000
+For that you will send attributes
+
+01:11:31.000 --> 01:11:35.000
+LangFuse says
+
+01:11:35.000 --> 01:11:39.000
+Attributes will always be sent in the first line
+
+01:11:39.000 --> 01:11:43.000
+For that particular context or span
+
+01:11:43.000 --> 01:11:47.000
+It suggests that if you send attributes in the last line
+
+01:11:47.000 --> 01:11:51.000
+Then maybe due to some bug
+
+01:11:51.000 --> 01:11:55.000
+Maybe due to some error, these things may get logged
+
+01:11:55.000 --> 01:11:59.000
+And the attributes may not be logged because they are written in the last line
+
+01:11:59.000 --> 01:12:03.000
+But if you send your attributes in the top line
+
+01:12:03.000 --> 01:12:07.000
+Then they will definitely get logged
+
+01:12:07.000 --> 01:12:11.000
+Because after that the rest of the code will get logged
+
+01:12:11.000 --> 01:12:15.000
+So it is advisable to send attributes in the starting line
+
+01:12:15.000 --> 01:12:19.000
+Where are the attributes? Additional information to your context
+
+01:12:19.000 --> 01:12:23.000
+Always remember that the parent context
+
+01:12:23.000 --> 01:12:27.000
+Attributes of the parent context
+
+01:12:27.000 --> 01:12:31.000
+Attributes
+
+01:12:31.000 --> 01:12:35.000
+Child spans
+
+01:12:35.000 --> 01:12:39.000
+Child span inherits the attributes of the parent context
+
+01:12:39.000 --> 01:12:43.000
+Let's say you see
+
+01:12:43.000 --> 01:12:47.000
+Your surname is there
+
+01:12:47.000 --> 01:12:51.000
+How do you inherit the surname? You inherit it from your parent
+
+01:12:51.000 --> 01:12:55.000
+That is an identifier, a tag
+
+01:12:55.000 --> 01:12:59.000
+In your parent's name
+
+01:12:59.000 --> 01:13:03.000
+The attribute you put on the child
+
+01:13:03.000 --> 01:13:07.000
+It will automatically get to your C1
+
+01:13:07.000 --> 01:13:11.000
+Whereas if I have given a different attribute to C1
+
+01:13:11.000 --> 01:13:15.000
+Then it will not get to my C2
+
+01:13:15.000 --> 01:13:19.000
+The child span attributes that it carries
+
+01:13:19.000 --> 01:13:23.000
+It does not pass to the parent or sibling
+
+01:13:23.000 --> 01:13:27.000
+It stays in the context of that
+
+01:13:27.000 --> 01:13:31.000
+How will we make the child of that child?
+
+01:13:31.000 --> 01:13:35.000
+With Langfuse, context
+
+01:13:35.000 --> 01:13:39.000
+We will give it an alias, let's say C11
+
+01:13:39.000 --> 01:13:43.000
+This is the first child of C1
+
+01:13:43.000 --> 01:13:47.000
+Now it will get all the attributes of C1
+
+01:13:47.000 --> 01:13:51.000
+So if you want an attribute in your span
+
+01:13:51.000 --> 01:13:55.000
+Always retained across the trace
+
+01:13:55.000 --> 01:13:59.000
+Then you give it to your parent or parent trace
+
+01:13:59.000 --> 01:14:03.000
+Which is also called root trace
+
+01:14:03.000 --> 01:14:07.000
+You gave it to it, it will continue throughout the trace
+
+01:14:07.000 --> 01:14:11.000
+Like if you go here
+
+01:14:11.000 --> 01:14:15.000
+I gave the session ID at the top, if I collapse it
+
+01:14:15.000 --> 01:14:19.000
+Now I will go to any child of this
+
+01:14:19.000 --> 01:14:23.000
+Even if I go to this, it will give me the session ID
+
+01:14:23.000 --> 01:14:27.000
+Same with the environment tag
+
+01:14:27.000 --> 01:14:31.000
+But here are some attributes
+
+01:14:31.000 --> 01:14:35.000
+Which I have given only to the child
+
+01:14:35.000 --> 01:14:39.000
+Like which prompt version I am using
+
+01:14:39.000 --> 01:14:43.000
+I have passed it here
+
+01:14:43.000 --> 01:14:47.000
+But as soon as I went here, into generation
+
+01:14:47.000 --> 01:14:51.000
+The prompt came and it says drag app system prompt
+
+01:14:51.000 --> 01:14:55.000
+And version 3 is getting tracked
+
+01:14:55.000 --> 01:14:59.000
+It is getting tracked in my prompt management
+
+01:14:59.000 --> 01:15:03.000
+Now you can see how both are integrated in Langfuse
+
+01:15:03.000 --> 01:15:07.000
+But where is this attribute from?
+
+01:15:07.000 --> 01:15:11.000
+This is the attribute of my child
+
+01:15:11.000 --> 01:15:15.000
+And because it is of the child, it is not passing in siblings
+
+01:15:15.000 --> 01:15:19.000
+All these are siblings, it is not passing in siblings
+
+01:15:19.000 --> 01:15:23.000
+Is this point clear?
+
+01:15:23.000 --> 01:15:27.000
+And one more thing, wherever you use models
+
+01:15:27.000 --> 01:15:31.000
+You see this currency symbol, basically cost involved
+
+01:15:31.000 --> 01:15:35.000
+And there you get input output tokens
+
+01:15:35.000 --> 01:15:39.000
+You will not get currency symbol anywhere
+
+01:15:39.000 --> 01:15:43.000
+And you will not get input output tokens because no model is used there
+
+01:15:43.000 --> 01:15:47.000
+You will only get duration, how much time it took, latency
+
+01:15:47.000 --> 01:15:51.000
+Is this point clear?
+
+01:15:51.000 --> 01:15:55.000
+I have some doubt
+
+01:15:55.000 --> 01:15:59.000
+If we can trace most of the things here, will it be possible to send alerts also?
+
+01:15:59.000 --> 01:16:03.000
+There is a problem, yes
+
+01:16:03.000 --> 01:16:07.000
+We will study that in observability, which is our next lecture
+
+01:16:07.000 --> 01:16:11.000
+Where we will build our dashboard, we will set alerts there
+
+01:16:11.000 --> 01:16:15.000
+You can set alerts and send them
+
+01:16:15.000 --> 01:16:19.000
+Back to these services
+
+01:16:19.000 --> 01:16:23.000
+Today we are preparing ground for our tracing
+
+01:16:23.000 --> 01:16:27.000
+How you can trace your application
+
+01:16:27.000 --> 01:16:31.000
+Is this point clear?
+
+01:16:31.000 --> 01:16:35.000
+Very important concept to understand, and you will not make mistakes in code
+
+01:16:35.000 --> 01:16:39.000
+If you understand this attribute concept
+
+01:16:39.000 --> 01:16:43.000
+So what is the first method?
+
+01:16:43.000 --> 01:16:47.000
+You will use the with keyword of python
+
+01:16:47.000 --> 01:16:51.000
+After that you will write the code of blank fuse
+
+01:16:51.000 --> 01:16:55.000
+And then you will give your context to the parent or child
+
+01:16:55.000 --> 01:16:59.000
+You will pass your attributes on the first line and then you will lock the rest
+
+01:16:59.000 --> 01:17:03.000
+I will show you how it happens in the code
+
+01:17:03.000 --> 01:17:07.000
+Good thing about context manager is that whenever you start a context
+
+01:17:07.000 --> 01:17:11.000
+Your context remains active until it is running
+
+01:17:11.000 --> 01:17:15.000
+And as soon as you come out of that context
+
+01:17:15.000 --> 01:17:19.000
+It automatically closes, for example, your child context
+
+01:17:19.000 --> 01:17:23.000
+Has started, all the code is logged
+
+01:17:23.000 --> 01:17:27.000
+And then as soon as you start C2, because both are on the same indentation
+
+01:17:27.000 --> 01:17:31.000
+C1 automatically closes
+
+01:17:31.000 --> 01:17:35.000
+Then you wrote the code of C2, C2 automatically closes
+
+01:17:35.000 --> 01:17:39.000
+And as soon as you come out of both the child, let's say you start a new parent
+
+01:17:39.000 --> 01:17:43.000
+And then you start a new parent
+
+01:17:43.000 --> 01:17:47.000
+So this parent's context is also closed
+
+01:17:47.000 --> 01:17:51.000
+So through context manager you can easily start and close your context
+
+01:17:51.000 --> 01:17:55.000
+You don't have to execute our functions manually
+
+01:17:55.000 --> 01:17:59.000
+You don't have to give start or close commands
+
+01:17:59.000 --> 01:18:03.000
+Next method is to use a decorator
+
+01:18:03.000 --> 01:18:07.000
+Like you have seen traceable decorator in Lanksmith
+
+01:18:07.000 --> 01:18:11.000
+There is also a decorator called as observe
+
+01:18:11.000 --> 01:18:15.000
+You simply put this observe decorator on your functions
+
+01:18:15.000 --> 01:18:19.000
+And you can trace your functions
+
+01:18:19.000 --> 01:18:23.000
+When do you use observe?
+
+01:18:23.000 --> 01:18:27.000
+You use observe when you have simple functions
+
+01:18:27.000 --> 01:18:31.000
+In which your custom logic is running
+
+01:18:31.000 --> 01:18:35.000
+You use observe to trace custom logic
+
+01:18:35.000 --> 01:18:39.000
+Or you can use a guardrail or something like that
+
+01:18:39.000 --> 01:18:43.000
+Better is to use a context manager
+
+01:18:43.000 --> 01:18:47.000
+Now one question is coming to your mind
+
+01:18:47.000 --> 01:18:51.000
+Because we are using decorator, how do we tell parent child?
+
+01:18:51.000 --> 01:18:55.000
+The function on which you put decorator
+
+01:18:55.000 --> 01:18:59.000
+Let's say function is f1, it decides its logic
+
+01:18:59.000 --> 01:19:03.000
+Like you are calling f2 in f1 code
+
+01:19:03.000 --> 01:19:07.000
+So what is this?
+
+01:19:07.000 --> 01:19:11.000
+You are calling f2 in f1, so what is f1?
+
+01:19:11.000 --> 01:19:15.000
+F1 is parent, f2 is child
+
+01:19:15.000 --> 01:19:19.000
+So you are calling f3 in f2, so it is its child
+
+01:19:19.000 --> 01:19:23.000
+And you called f2 in f1 and f3
+
+01:19:23.000 --> 01:19:27.000
+These are two siblings
+
+01:19:27.000 --> 01:19:31.000
+So you will see in this way
+
+01:19:31.000 --> 01:19:35.000
+And at what level they are calling
+
+01:19:35.000 --> 01:19:39.000
+Through this langfuse automatically manages parent child hierarchy
+
+01:19:39.000 --> 01:19:43.000
+And what is final?
+
+01:19:43.000 --> 01:19:47.000
+You manually turn on the context
+
+01:19:47.000 --> 01:19:51.000
+In the final method you create an object of context
+
+01:19:51.000 --> 01:19:55.000
+You start it manually and close it manually
+
+01:19:55.000 --> 01:19:59.000
+Again langfuse does not advise you to use this method
+
+01:19:59.000 --> 01:20:03.000
+Better is if you want to do this
+
+01:20:03.000 --> 01:20:07.000
+Then use this method through with statement
+
+01:20:07.000 --> 01:20:11.000
+This is the most appropriate way
+
+01:20:11.000 --> 01:20:15.000
+Now I will show you the documentation
+
+01:20:15.000 --> 01:20:19.000
+Here implementation is there and I will show you the three methods
+
+01:20:19.000 --> 01:20:23.000
+What is written here?
+
+01:20:23.000 --> 01:20:27.000
+You can use native integration for lang chain, lang graph
+
+01:20:27.000 --> 01:20:31.000
+We have guardrails for which integration is not available
+
+01:20:31.000 --> 01:20:35.000
+So we have to do manual instrumentation
+
+01:20:35.000 --> 01:20:39.000
+There are three methods for that, context manager, wrapper, which is your decorator
+
+01:20:39.000 --> 01:20:43.000
+And manual observation
+
+01:20:43.000 --> 01:20:47.000
+You see how you start context manager
+
+01:20:47.000 --> 01:20:51.000
+You use this method, langfuse.startAsCurrentObservation
+
+01:20:51.000 --> 01:20:55.000
+This starts your context
+
+01:20:55.000 --> 01:20:59.000
+And you create observation while ensuring the active open telemetry context
+
+01:20:59.000 --> 01:21:03.000
+And how do you start it?
+
+01:21:03.000 --> 01:21:07.000
+With statement, it is written
+
+01:21:07.000 --> 01:21:11.000
+Any child observation created inside the with block inherit the parent automatically
+
+01:21:11.000 --> 01:21:15.000
+So here you can see this is your parent
+
+01:21:15.000 --> 01:21:19.000
+So you will write code like this with langfuse.startAsCurrentObservation
+
+01:21:19.000 --> 01:21:23.000
+You will type it and we will discuss it later
+
+01:21:23.000 --> 01:21:27.000
+After that you will pass your attributes
+
+01:21:27.000 --> 01:21:31.000
+You pass attributes with with statement
+
+01:21:31.000 --> 01:21:35.000
+And you use this method, propagate attributes
+
+01:21:35.000 --> 01:21:39.000
+You pass user ID, session ID and this is your child
+
+01:21:39.000 --> 01:21:43.000
+It is nested
+
+01:21:43.000 --> 01:21:47.000
+Now you can see clearly that when you are giving these attributes to your parent
+
+01:21:47.000 --> 01:21:51.000
+Then it will automatically inherit your child
+
+01:21:51.000 --> 01:21:55.000
+So you have indentation here
+
+01:21:55.000 --> 01:21:59.000
+Inside that you have written your child run and this is your child's run
+
+01:21:59.000 --> 01:22:03.000
+Clear? If you want to use decorator
+
+01:22:03.000 --> 01:22:07.000
+Then you can use the observe function
+
+01:22:07.000 --> 01:22:11.000
+You can observe like this and use it
+
+01:22:11.000 --> 01:22:15.000
+If you want to capture parent child, I don't think there is an example here
+
+01:22:15.000 --> 01:22:19.000
+But you can do it that way which I have told you
+
+01:22:19.000 --> 01:22:23.000
+And if you want to do it manually, then you should not do it manually
+
+01:22:23.000 --> 01:22:27.000
+I will show you where it is written
+
+01:22:27.000 --> 01:22:31.000
+You have to manually end your context
+
+01:22:31.000 --> 01:22:35.000
+You can't see any with statement here
+
+01:22:35.000 --> 01:22:39.000
+So it is better not to use this method than to use the previous method
+
+01:22:39.000 --> 01:22:43.000
+If you want to nest decorator, then you simply
+
+01:22:43.000 --> 01:22:47.000
+Call the second nested function in the primary function
+
+01:22:47.000 --> 01:22:51.000
+And then your child will be made
+
+01:22:51.000 --> 01:22:55.000
+You have seen how to make a child in context
+
+01:22:55.000 --> 01:22:59.000
+Is this point clear? It is clear
+
+01:22:59.000 --> 01:23:03.000
+No need to worry
+
+01:23:03.000 --> 01:23:07.000
+Everything is clear
+
+01:23:07.000 --> 01:23:11.000
+Every step is clear, implementation methods are clear
+
+01:23:11.000 --> 01:23:15.000
+Yes
+
+01:23:15.000 --> 01:23:19.000
+Now before going to the code, I will give you
+
+01:23:19.000 --> 01:23:23.000
+A flavour of attributes
+
+01:23:23.000 --> 01:23:27.000
+What kind of attributes are there, what can you save
+
+01:23:27.000 --> 01:23:31.000
+These are optional, you can save if you want, if you don't want, then it's not like that
+
+01:23:31.000 --> 01:23:35.000
+I will tell you what attributes are there
+
+01:23:35.000 --> 01:23:39.000
+So if you go to the features, these are some attributes
+
+01:23:39.000 --> 01:23:43.000
+You can add these
+
+01:23:43.000 --> 01:23:47.000
+So here I have opened the environment
+
+01:23:47.000 --> 01:23:51.000
+There are 2-3 ways you can pass the environment
+
+01:23:51.000 --> 01:23:55.000
+Staging environment, prod, development
+
+01:23:55.000 --> 01:23:59.000
+Basically, the environment tag is applied on your traces
+
+01:23:59.000 --> 01:24:03.000
+The user who is interacting with this deployed application
+
+01:24:03.000 --> 01:24:07.000
+What will be the environment of his traces? Production
+
+01:24:07.000 --> 01:24:11.000
+When I am testing my application on the local system
+
+01:24:11.000 --> 01:24:15.000
+What will be the environment of that? Staging
+
+01:24:15.000 --> 01:24:19.000
+So I can easily segregate traces between 2 different environments
+
+01:24:19.000 --> 01:24:23.000
+What traces are coming from my production setup
+
+01:24:23.000 --> 01:24:27.000
+And when I was testing my application, what traces are going from staging or development stage
+
+01:24:27.000 --> 01:24:31.000
+Simply use for filtering, you can set tags here
+
+01:24:31.000 --> 01:24:35.000
+Keep in mind that the tags you set are immutable in nature
+
+01:24:35.000 --> 01:24:39.000
+Once you have set a tag with a trace, that tag is yours
+
+01:24:39.000 --> 01:24:43.000
+The simple way to set a tag is
+
+01:24:43.000 --> 01:24:47.000
+You have to pass your list of tags in the propagate attributes
+
+01:24:47.000 --> 01:24:51.000
+That's it, super simple
+
+01:24:51.000 --> 01:24:55.000
+Metadata, again you have to use the propagate attributes
+
+01:24:55.000 --> 01:24:59.000
+And you have to use the metadata key and pass your metadata in the dictionary
+
+01:24:59.000 --> 01:25:03.000
+Again simple
+
+01:25:03.000 --> 01:25:07.000
+It is written here
+
+01:25:07.000 --> 01:25:11.000
+When you use the attribute propagation, all your observations of the trace
+
+01:25:11.000 --> 01:25:15.000
+Which are on the parent level, it is applied on all
+
+01:25:15.000 --> 01:25:19.000
+And
+
+01:25:19.000 --> 01:25:23.000
+Sampling is also a concept, we will see it later
+
+01:25:23.000 --> 01:25:27.000
+And I have told you that you can pass through session ID
+
+01:25:27.000 --> 01:25:31.000
+So the code is the same, you can pass different things through different parameters
+
+01:25:31.000 --> 01:25:35.000
+That's it, I have explained it to you that if you look at the code
+
+01:25:35.000 --> 01:25:39.000
+You will not be bothered that what we are discussing
+
+01:25:39.000 --> 01:25:43.000
+Actually
+
+01:25:43.000 --> 01:25:47.000
+There is a page where it is said that which attributes are available
+
+01:25:47.000 --> 01:25:51.000
+Let me see if I can get that page
+
+01:25:51.000 --> 01:25:55.000
+Adding attributes, so these are some attributes
+
+01:25:55.000 --> 01:25:59.000
+Which you can pass, environment tags, user ID, metadata
+
+01:25:59.000 --> 01:26:03.000
+Data, releases and version, so someone was asking
+
+01:26:03.000 --> 01:26:07.000
+Release and version, you can pass from here
+
+01:26:07.000 --> 01:26:11.000
+Release is basically the version of your application
+
+01:26:11.000 --> 01:26:15.000
+In the language of LangFuse, and version is individual component
+
+01:26:15.000 --> 01:26:19.000
+So like I have here
+
+01:26:19.000 --> 01:26:23.000
+I will open the annotation
+
+01:26:23.000 --> 01:26:27.000
+I had deployed v1 earlier
+
+01:26:27.000 --> 01:26:31.000
+So this is v2, this is my new release
+
+01:26:31.000 --> 01:26:35.000
+So this will go to the release section
+
+01:26:35.000 --> 01:26:39.000
+And what is version?
+
+01:26:39.000 --> 01:26:43.000
+Version is for my individual component
+
+01:26:43.000 --> 01:26:47.000
+Like I was using GPT 5 mini before generation
+
+01:26:47.000 --> 01:26:51.000
+Now I am using GPT 6
+
+01:26:51.000 --> 01:26:55.000
+So this change of model
+
+01:26:55.000 --> 01:26:59.000
+This is explained very well through a diagram
+
+01:26:59.000 --> 01:27:03.000
+LLM application releases
+
+01:27:03.000 --> 01:27:07.000
+And your versions are on any internal span
+
+01:27:07.000 --> 01:27:11.000
+Again you can use this, completely optional
+
+01:27:11.000 --> 01:27:15.000
+I just told you that if you want to use it, you can use it
+
+01:27:15.000 --> 01:27:19.000
+Is everything clear guys? Now it's time to move to the code
+
+01:27:19.000 --> 01:27:23.000
+Is the whole process clear?
+
+01:27:23.000 --> 01:27:27.000
+Code part is also clear
+
+01:27:27.000 --> 01:27:31.000
+Is it easy? Nothing difficult
+
+01:27:31.000 --> 01:27:35.000
+Now I will show you
+
+01:27:35.000 --> 01:27:39.000
+What changes you have to make in your code files
+
+01:27:39.000 --> 01:27:43.000
+And I have already pushed this latest code to GitHub
+
+01:27:43.000 --> 01:27:47.000
+So you can simply pull, ok, first of all I have done here
+
+01:27:47.000 --> 01:27:51.000
+I have passed an environment variable
+
+01:27:51.000 --> 01:27:55.000
+What is its name? Langfuse Tracing Environment
+
+01:27:55.000 --> 01:27:59.000
+And what value have I set? Production
+
+01:27:59.000 --> 01:28:03.000
+Now where did I get this idea? I got this idea that I had to set my environment tag
+
+01:28:03.000 --> 01:28:07.000
+So I went to the documentation
+
+01:28:07.000 --> 01:28:11.000
+What is written here? If you go down
+
+01:28:11.000 --> 01:28:15.000
+Managing environments, ok, so what is recommended in configure environments?
+
+01:28:15.000 --> 01:28:19.000
+You can configure environment by setting
+
+01:28:19.000 --> 01:28:23.000
+Langfuse Tracing Environment and its value
+
+01:28:23.000 --> 01:28:27.000
+Or by using the environment parameter while initializing the client
+
+01:28:27.000 --> 01:28:31.000
+So I said no, what will we do here? We will use the recommended way
+
+01:28:31.000 --> 01:28:35.000
+You can pass environment information in your client
+
+01:28:35.000 --> 01:28:39.000
+You can also pass in the propagate attribute, but we selected the first way
+
+01:28:39.000 --> 01:28:43.000
+There are 3 ways, we took the first way
+
+01:28:43.000 --> 01:28:47.000
+So this is a small change I made in my Docker Compose and that's it
+
+01:28:47.000 --> 01:28:51.000
+Then we come to chat.py, this is my
+
+01:28:51.000 --> 01:28:55.000
+API endpoint where I basically receive
+
+01:28:55.000 --> 01:28:59.000
+My chat request, ok, what did I do here?
+
+01:28:59.000 --> 01:29:03.000
+I imported from Langfuse, I imported client and propagate attributes
+
+01:29:03.000 --> 01:29:07.000
+And Langfuse.langchain
+
+01:29:07.000 --> 01:29:11.000
+Here I have my integration, I imported my callback handler
+
+01:29:11.000 --> 01:29:15.000
+I made a client of Langfuse, like you make in prompt
+
+01:29:15.000 --> 01:29:19.000
+Get Client, simple, I made it the same way and in Langfuse handler
+
+01:29:19.000 --> 01:29:23.000
+I added my callback handler, you don't have to add anything in it
+
+01:29:23.000 --> 01:29:27.000
+Simply you have to make an object of it
+
+01:29:27.000 --> 01:29:31.000
+What did I do after doing this? I came to the chat endpoint
+
+01:29:31.000 --> 01:29:35.000
+This was my chat endpoint, ok, I started my tracing in it
+
+01:29:35.000 --> 01:29:39.000
+Why am I starting tracing here? Because
+
+01:29:39.000 --> 01:29:43.000
+I am invoking my graph here, which is my
+
+01:29:43.000 --> 01:29:47.000
+Python file, this one, rag work for with guardrails
+
+01:29:47.000 --> 01:29:51.000
+I am not invoking my graph here, where do I have to pass this callback handler?
+
+01:29:51.000 --> 01:29:55.000
+Where I am invoking my graph, so what I did
+
+01:29:55.000 --> 01:29:59.000
+With Langfuse.startAsCurrentObservation, here I made my context
+
+01:29:59.000 --> 01:30:03.000
+I gave it a type, what type I gave?
+
+01:30:03.000 --> 01:30:07.000
+Span, gave a name, chat response
+
+01:30:07.000 --> 01:30:11.000
+And told you what you will get in the input
+
+01:30:11.000 --> 01:30:15.000
+You will get the query from my request in the input
+
+01:30:15.000 --> 01:30:19.000
+So where did I save these three things?
+
+01:30:19.000 --> 01:30:23.000
+What is this chat response? This is the same chat response
+
+01:30:23.000 --> 01:30:27.000
+Which I passed here, in the name chat response
+
+01:30:27.000 --> 01:30:31.000
+What type I have set it as? Span, so what you can do in Langfuse
+
+01:30:31.000 --> 01:30:35.000
+All your spans, you can see here
+
+01:30:35.000 --> 01:30:39.000
+There are different options, here span is written, but here you will not see span
+
+01:30:39.000 --> 01:30:43.000
+Here you will not see span, here you will see chain
+
+01:30:43.000 --> 01:30:47.000
+Here you will see guardrails, different logos
+
+01:30:47.000 --> 01:30:51.000
+Here you can see magnifying glass, searching logo
+
+01:30:51.000 --> 01:30:55.000
+If I call it retriever, how can I set this name?
+
+01:30:55.000 --> 01:30:59.000
+You can set this name using this thing, observation type
+
+01:30:59.000 --> 01:31:03.000
+Langfuse supports different observation type
+
+01:31:03.000 --> 01:31:07.000
+To provide more context to your span, what kind of span is this
+
+01:31:07.000 --> 01:31:11.000
+You can tell the type here, what is span?
+
+01:31:11.000 --> 01:31:15.000
+Which tells your span, you label span
+
+01:31:15.000 --> 01:31:19.000
+If you are generating generation through LLM
+
+01:31:19.000 --> 01:31:23.000
+Then you give it type generation
+
+01:31:23.000 --> 01:31:27.000
+This automatically uses your AAModel, prompts, token usage
+
+01:31:27.000 --> 01:31:31.000
+Costs, it automatically starts tracking
+
+01:31:31.000 --> 01:31:35.000
+So this token usage, cost, prompt, all this is tracked in your span
+
+01:31:35.000 --> 01:31:39.000
+And its logo is something like this
+
+01:31:39.000 --> 01:31:43.000
+If you are an agent, then you will tell the agent type
+
+01:31:43.000 --> 01:31:47.000
+When we make a project, then our agent type will be there
+
+01:31:47.000 --> 01:31:51.000
+If a tool call is happening, then you will give it tool, chain is your runnable sequence
+
+01:31:51.000 --> 01:31:55.000
+Like if prompt goes to LLM, then your parser
+
+01:31:55.000 --> 01:31:59.000
+That is a chain, retriever is understood by name
+
+01:31:59.000 --> 01:32:03.000
+Where any retrieval is happening from the vector store database
+
+01:32:03.000 --> 01:32:07.000
+You will give it a tag, evaluator, wherever evaluation is happening
+
+01:32:07.000 --> 01:32:11.000
+You will give it an evaluator tag, its sign is like this
+
+01:32:11.000 --> 01:32:15.000
+Where embeddings are being created, you will give it embedding
+
+01:32:15.000 --> 01:32:19.000
+We are not creating embeddings here because we have already prepared our vector store
+
+01:32:19.000 --> 01:32:23.000
+We are only doing retrieval in our application
+
+01:32:23.000 --> 01:32:27.000
+So you won't be able to see the embedding sign anywhere, and finally it is a guardrail
+
+01:32:27.000 --> 01:32:31.000
+Whereever there is a guardrail, set it there
+
+01:32:31.000 --> 01:32:35.000
+How to set it? Simply you tell your type in as type
+
+01:32:35.000 --> 01:32:39.000
+And the importance of telling it right
+
+01:32:39.000 --> 01:32:43.000
+Is that
+
+01:32:43.000 --> 01:32:47.000
+Then your component will be logged properly
+
+01:32:47.000 --> 01:32:51.000
+Means whatever information is required in the retriever to log it
+
+01:32:51.000 --> 01:32:55.000
+You log it in the retrieval span, so make sure
+
+01:32:55.000 --> 01:32:59.000
+That whatever you are doing here, do it carefully
+
+01:32:59.000 --> 01:33:03.000
+This is our outer span or our application span
+
+01:33:03.000 --> 01:33:07.000
+So we called it span type and gave it root span alias
+
+01:33:07.000 --> 01:33:11.000
+After that what we are doing is passing our attributes
+
+01:33:11.000 --> 01:33:15.000
+What is session ID?
+
+01:33:15.000 --> 01:33:19.000
+Which session is it working on? This session ID is
+
+01:33:19.000 --> 01:33:23.000
+Getting at the end point of our chat, and who is giving this session ID?
+
+01:33:23.000 --> 01:33:27.000
+This session ID is giving my frontend, this app.py
+
+01:33:27.000 --> 01:33:31.000
+This session ID is giving my end point
+
+01:33:31.000 --> 01:33:35.000
+And how it is giving? Through the API client
+
+01:33:35.000 --> 01:33:39.000
+You can see here, this stream chat is sending a request
+
+01:33:39.000 --> 01:33:43.000
+So first we were sending our input query in the data
+
+01:33:43.000 --> 01:33:47.000
+Whatever we are typing here, we were sending it
+
+01:33:47.000 --> 01:33:51.000
+But what are you doing? You are sending this session ID from your frontend
+
+01:33:51.000 --> 01:33:55.000
+Why are you sending us from the frontend? Because this session ID is created in our streamlit
+
+01:33:55.000 --> 01:33:59.000
+I hope you know this point
+
+01:33:59.000 --> 01:34:03.000
+So streamlit session ID is sending to this chat end point
+
+01:34:03.000 --> 01:34:07.000
+Which is getting received here, and after getting received it is getting logged
+
+01:34:07.000 --> 01:34:11.000
+From here we are able to see and maintain individual sessions
+
+01:34:11.000 --> 01:34:15.000
+And we gave it a trace name as chat response
+
+01:34:15.000 --> 01:34:19.000
+After that what we are doing is invoking our graph
+
+01:34:19.000 --> 01:34:23.000
+After invoking we are sending our input and in config callback
+
+01:34:23.000 --> 01:34:27.000
+We are sending the callback handler
+
+01:34:27.000 --> 01:34:31.000
+We have also given you a run name, which is RackGraph
+
+01:34:31.000 --> 01:34:35.000
+So where will you see the run name? You will see it here
+
+01:34:35.000 --> 01:34:39.000
+This is your run name, and this particular graph is your RackGraph
+
+01:34:39.000 --> 01:34:43.000
+The root one is chat response
+
+01:34:43.000 --> 01:34:47.000
+It is a simple code, you have to tell it step by step
+
+01:34:47.000 --> 01:34:51.000
+If there is an exception raise, you will also log it
+
+01:34:51.000 --> 01:34:55.000
+In this session you will get an error message
+
+01:34:55.000 --> 01:34:59.000
+You will write root span which is your alias for the root type
+
+01:34:59.000 --> 01:35:03.000
+You can use dot update to tell what value to set in output
+
+01:35:03.000 --> 01:35:07.000
+We simply passed our input here
+
+01:35:07.000 --> 01:35:11.000
+We will give input, it will be invoked, after that we will get output
+
+01:35:11.000 --> 01:35:15.000
+From our final state, so whatever is coming in the final state
+
+01:35:15.000 --> 01:35:19.000
+You can pass it through the update method
+
+01:35:19.000 --> 01:35:23.000
+We are sending the output and response text
+
+01:35:23.000 --> 01:35:27.000
+The response text can be our result or error
+
+01:35:27.000 --> 01:35:31.000
+Both are ok, we can pass it depending on the situation
+
+01:35:31.000 --> 01:35:35.000
+That's it guys, you have to do this much change in chat.py
+
+01:35:35.000 --> 01:35:39.000
+You have to do one change in your rag workflow with guardrails file
+
+01:35:39.000 --> 01:35:43.000
+Because the root we have set here
+
+01:35:43.000 --> 01:35:47.000
+Will track all this, only for our lang graph code
+
+01:35:47.000 --> 01:35:51.000
+It will not track the lang chain code or guardrails code
+
+01:35:51.000 --> 01:35:55.000
+So we have to add our custom code
+
+01:35:55.000 --> 01:35:59.000
+I have made a client object of langfuse and imported it
+
+01:35:59.000 --> 01:36:03.000
+Again same thing, after that if you come down
+
+01:36:03.000 --> 01:36:07.000
+These are the nodes of my graph, this is the state
+
+01:36:07.000 --> 01:36:11.000
+And these are the nodes, now you will see that these are my lang graph nodes
+
+01:36:11.000 --> 01:36:15.000
+Retrieve, I have not added anything here
+
+01:36:15.000 --> 01:36:19.000
+How is this logging handled? From my chat end point
+
+01:36:19.000 --> 01:36:23.000
+Automatically, I have made it once, sent the callback handler
+
+01:36:23.000 --> 01:36:27.000
+That's it, my work is done, but I have to track
+
+01:36:27.000 --> 01:36:31.000
+These guardrails nodes too, for that I have to add my custom code
+
+01:36:31.000 --> 01:36:35.000
+So I have started context for guardrails
+
+01:36:35.000 --> 01:36:39.000
+What type is added? guardrails, because it is guardrails
+
+01:36:39.000 --> 01:36:43.000
+Then what is added in the name? validate input
+
+01:36:43.000 --> 01:36:47.000
+What will it get in the input? My query, because it is an input guardrail
+
+01:36:47.000 --> 01:36:51.000
+After that whatever output is coming, I am updating it
+
+01:36:51.000 --> 01:36:55.000
+To my span, whether it is
+
+01:36:55.000 --> 01:36:59.000
+My output is coming correctly or whatever is coming, I am updating it
+
+01:36:59.000 --> 01:37:03.000
+And that's it, same thing you will do here
+
+01:37:03.000 --> 01:37:07.000
+For the other, you are putting results in output
+
+01:37:07.000 --> 01:37:11.000
+You are putting warnings in level, if there is an error
+
+01:37:11.000 --> 01:37:15.000
+So warning for the refrain, warning for the other
+
+01:37:15.000 --> 01:37:19.000
+And the same thing you are doing for the retrieval
+
+01:37:19.000 --> 01:37:23.000
+Same code, you see this code, super simple easy code
+
+01:37:23.000 --> 01:37:27.000
+And same thing you are doing with your output guardrail
+
+01:37:27.000 --> 01:37:31.000
+And this is it guys, through this you can easily
+
+01:37:31.000 --> 01:37:35.000
+Track your inputs in your application
+
+01:37:35.000 --> 01:37:39.000
+And what will you do with this updated code?
+
+01:37:39.000 --> 01:37:43.000
+You will push to your new deployment, it will act as a new version
+
+01:37:43.000 --> 01:37:47.000
+And now all the applications on your EC2 instances
+
+01:37:47.000 --> 01:37:51.000
+Tracing enabled in all of them
+
+01:37:51.000 --> 01:37:55.000
+Is this point clear? Code is clear
+
+01:37:55.000 --> 01:37:59.000
+I know it may seem a little difficult if you are seeing it for the first time
+
+01:37:59.000 --> 01:38:03.000
+But if you read it, it is super simple, simply you have to pass on things
+
+01:38:03.000 --> 01:38:07.000
+That's it, if you know how to set context, how to set child context
+
+01:38:07.000 --> 01:38:11.000
+So let's do that, you will understand the rest
+
+01:38:11.000 --> 01:38:15.000
+Is it clear?
+
+01:38:15.000 --> 01:38:19.000
+Great
+
+01:38:19.000 --> 01:38:23.000
+Now I will show you
+
+01:38:23.000 --> 01:38:27.000
+How this whole thing works in code, let's delete these traces
+
+01:38:27.000 --> 01:38:31.000
+Delete
+
+01:38:31.000 --> 01:38:35.000
+Where is the option?
+
+01:38:35.000 --> 01:38:39.000
+Is it here?
+
+01:38:39.000 --> 01:38:43.000
+I can't see the delete option
+
+01:38:43.000 --> 01:38:47.000
+Yes it is coming down, sorry, here it is, delete traces
+
+01:38:47.000 --> 01:38:51.000
+I have deleted it, traces are deleted
+
+01:38:51.000 --> 01:38:55.000
+It will take some time to delete, let's refresh
+
+01:38:55.000 --> 01:38:59.000
+You can see it now, but it will automatically be deleted
+
+01:38:59.000 --> 01:39:03.000
+And I go to the sessions section, and see this is also deleted
+
+01:39:03.000 --> 01:39:07.000
+So there are no obsessions, no traces
+
+01:39:07.000 --> 01:39:11.000
+We are doing it from scratch, now let's go to our application
+
+01:39:11.000 --> 01:39:15.000
+And ask some questions, so first question
+
+01:39:15.000 --> 01:39:19.000
+What is the difference
+
+01:39:19.000 --> 01:39:23.000
+Between online and
+
+01:39:23.000 --> 01:39:27.000
+Offline emails
+
+01:39:27.000 --> 01:39:31.000
+My user asked a question, a new session was created
+
+01:39:31.000 --> 01:39:35.000
+Where will the session ID go? It will go to my linefuse
+
+01:39:35.000 --> 01:39:39.000
+I will show you, if you go here to tracing
+
+01:39:39.000 --> 01:39:43.000
+You can't see anything here
+
+01:39:43.000 --> 01:39:47.000
+But if you go to the sessions tab, you will see a session
+
+01:39:47.000 --> 01:39:51.000
+Let's wait a little, it is working
+
+01:40:01.000 --> 01:40:05.000
+And guys
+
+01:40:05.000 --> 01:40:09.000
+The documentation I showed you, go through it
+
+01:40:09.000 --> 01:40:13.000
+You will like it, it is a well written documentation
+
+01:40:13.000 --> 01:40:17.000
+You will also know about other concepts about tracing
+
+01:40:17.000 --> 01:40:21.000
+We have read it very quickly, but you can read it
+
+01:40:21.000 --> 01:40:25.000
+You will know how to set it, and your fear
+
+01:40:25.000 --> 01:40:29.000
+How to connect these things, that fear will be lessened
+
+01:40:29.000 --> 01:40:33.000
+And one more thing, I told you
+
+01:40:33.000 --> 01:40:37.000
+You can also do your cloud code, codex
+
+01:40:37.000 --> 01:40:41.000
+So if you go to integration
+
+01:40:41.000 --> 01:40:45.000
+And go to developer tools, see how many integrations are there
+
+01:40:45.000 --> 01:40:49.000
+If you go to frameworks, you will get agno, autogen
+
+01:40:49.000 --> 01:40:53.000
+True AI, you won't get this in langsmith, you will get
+
+01:40:53.000 --> 01:40:57.000
+Deep agents, there are a lot, there is ragas
+
+01:40:57.000 --> 01:41:01.000
+There is a lot of integrations
+
+01:41:01.000 --> 01:41:05.000
+You will see small agents
+
+01:41:05.000 --> 01:41:09.000
+If you go to model providers, you will get their SDKs
+
+01:41:09.000 --> 01:41:13.000
+There is also your cohair
+
+01:41:13.000 --> 01:41:17.000
+You will see a lot of data bricks, you will see rock
+
+01:41:17.000 --> 01:41:21.000
+And I think you will also see open router
+
+01:41:21.000 --> 01:41:25.000
+I can't see it, but here
+
+01:41:25.000 --> 01:41:29.000
+There are a lot of integrations, you will go to no code tools
+
+01:41:29.000 --> 01:41:33.000
+You can see langflow, NA10
+
+01:41:33.000 --> 01:41:37.000
+So things are available here
+
+01:41:37.000 --> 01:41:41.000
+And if you go to developer tools, see codex
+
+01:41:41.000 --> 01:41:45.000
+Cursor, getup copilot, you will also see open code
+
+01:41:45.000 --> 01:41:49.000
+Which is shown by Rupinder
+
+01:41:49.000 --> 01:41:53.000
+VS code, pi agent, cloud code, if you use cloud code
+
+01:41:53.000 --> 01:41:57.000
+So how do you do tracing, basically whatever functionality you are doing with cloud code
+
+01:41:57.000 --> 01:42:01.000
+Simply you have to install this plugin and set your API
+
+01:42:01.000 --> 01:42:05.000
+And that's it, super simple
+
+01:42:05.000 --> 01:42:09.000
+Here you have to create these hooks
+
+01:42:09.000 --> 01:42:13.000
+All things are given here, simply you have to do these
+
+01:42:13.000 --> 01:42:17.000
+5-7 steps and you will start tracing here
+
+01:42:17.000 --> 01:42:21.000
+So this is the power of using an open source tool
+
+01:42:21.000 --> 01:42:25.000
+Here we have our whole input
+
+01:42:25.000 --> 01:42:29.000
+Now let's see how our trace looks
+
+01:42:29.000 --> 01:42:33.000
+If we go to sessions, see our session is created
+
+01:42:33.000 --> 01:42:37.000
+Where are we getting this session id, we are getting it from our frontend
+
+01:42:37.000 --> 01:42:41.000
+Whatever name of this particular session is, which we are saving in sessions.json
+
+01:42:41.000 --> 01:42:45.000
+From there we are getting this id, which we are saving in volume
+
+01:42:45.000 --> 01:42:49.000
+And this is renamed, so here we can see its actual rename
+
+01:42:49.000 --> 01:42:53.000
+But here we can see the id
+
+01:42:53.000 --> 01:42:57.000
+Now if we go here, we can see our trace
+
+01:42:57.000 --> 01:43:01.000
+Total Trace is 1 and this is our trace number 1
+
+01:43:01.000 --> 01:43:05.000
+We can see the whole trace from top to bottom
+
+01:43:05.000 --> 01:43:09.000
+Now let's do one thing
+
+01:43:09.000 --> 01:43:13.000
+In this session, let's ask another question
+
+01:43:13.000 --> 01:43:17.000
+What is the definition of a trace?
+
+01:43:17.000 --> 01:43:21.000
+What is the difference between
+
+01:43:21.000 --> 01:43:25.000
+experimentation
+
+01:43:25.000 --> 01:43:29.000
+and
+
+01:43:29.000 --> 01:43:33.000
+experimentation and let's ask what is the difference between
+
+01:43:33.000 --> 01:43:37.000
+mlops vs lmops
+
+01:43:37.000 --> 01:43:41.000
+Let's ask this
+
+01:43:47.000 --> 01:43:51.000
+It will take some time
+
+01:43:51.000 --> 01:43:55.000
+If you want to see it
+
+01:43:55.000 --> 01:43:59.000
+If you go to tracing
+
+01:43:59.000 --> 01:44:03.000
+You can go and you can actually see
+
+01:44:03.000 --> 01:44:07.000
+If I collapse it, collapse all, you can actually see
+
+01:44:07.000 --> 01:44:11.000
+It took a lot of time to generate
+
+01:44:11.000 --> 01:44:15.000
+It took 2 minutes and 37 seconds, I don't know why, maybe in class
+
+01:44:15.000 --> 01:44:19.000
+It takes a lot of time to execute
+
+01:44:19.000 --> 01:44:23.000
+And it took a lot of cost
+
+01:44:23.000 --> 01:44:27.000
+It took a lot of time to retrieve
+
+01:44:27.000 --> 01:44:31.000
+And if we open it
+
+01:44:31.000 --> 01:44:35.000
+In contextual compression
+
+01:44:35.000 --> 01:44:39.000
+It took 1 minute 41 seconds to retrieve
+
+01:44:39.000 --> 01:44:43.000
+Whereas earlier it was taking less
+
+01:44:43.000 --> 01:44:47.000
+I don't know why it is taking so much time
+
+01:44:47.000 --> 01:44:51.000
+It shouldn't take so much time because this time
+
+01:44:51.000 --> 01:44:55.000
+It is showing 13 seconds, 14 seconds
+
+01:44:55.000 --> 01:44:59.000
+I don't know, maybe retrieval took a lot of time to get and output
+
+01:44:59.000 --> 01:45:03.000
+It will take some reason
+
+01:45:03.000 --> 01:45:07.000
+I don't understand in the first instance
+
+01:45:07.000 --> 01:45:11.000
+But most of the time is on this step
+
+01:45:11.000 --> 01:45:15.000
+Maybe the result took time to compile
+
+01:45:15.000 --> 01:45:19.000
+And to get
+
+01:45:19.000 --> 01:45:23.000
+This is also a response
+
+01:45:23.000 --> 01:45:27.000
+If I want to see this trace
+
+01:45:27.000 --> 01:45:31.000
+If I close this one, this is my latest trace
+
+01:45:31.000 --> 01:45:35.000
+It's time is okay
+
+01:45:35.000 --> 01:45:39.000
+It took 49 seconds for every input
+
+01:45:39.000 --> 01:45:43.000
+This was input, this is output
+
+01:45:43.000 --> 01:45:47.000
+And the whole trace is getting logged
+
+01:45:47.000 --> 01:45:51.000
+You can start the LyingFuse on your system
+
+01:45:51.000 --> 01:45:55.000
+And you can analyze this trace properly
+
+01:45:55.000 --> 01:45:59.000
+I would highly recommend you to analyze this trace step by step
+
+01:45:59.000 --> 01:46:03.000
+You will enjoy it
+
+01:46:03.000 --> 01:46:07.000
+If you see the generation step
+
+01:46:07.000 --> 01:46:11.000
+In the generation, you have a runnable sequence
+
+01:46:11.000 --> 01:46:15.000
+Here is your chat prompt, here is your prompt template
+
+01:46:15.000 --> 01:46:19.000
+You are getting two things in the input
+
+01:46:19.000 --> 01:46:23.000
+Here is your system prompt
+
+01:46:23.000 --> 01:46:27.000
+Everything is in detail
+
+01:46:27.000 --> 01:46:31.000
+This is your input and this is your model's response
+
+01:46:31.000 --> 01:46:35.000
+You can see the model's response in the systems
+
+01:46:35.000 --> 01:46:39.000
+Now let's do one thing
+
+01:46:39.000 --> 01:46:43.000
+Here we ask another question
+
+01:46:43.000 --> 01:46:47.000
+What is the weather of Mumbai
+
+01:46:47.000 --> 01:46:51.000
+This is an off topic question
+
+01:46:51.000 --> 01:46:55.000
+Here is our off topic guardrail trigger
+
+01:46:55.000 --> 01:46:59.000
+I want to show you the case
+
+01:46:59.000 --> 01:47:03.000
+Something went wrong
+
+01:47:03.000 --> 01:47:07.000
+If I refresh it
+
+01:47:07.000 --> 01:47:11.000
+Why didn't it trace
+
+01:47:11.000 --> 01:47:15.000
+Now it's here
+
+01:47:15.000 --> 01:47:19.000
+Now you can see
+
+01:47:19.000 --> 01:47:23.000
+Why am I showing you this graph?
+
+01:47:23.000 --> 01:47:27.000
+Because your guardrail got triggered and the graph got executed in this flow
+
+01:47:27.000 --> 01:47:31.000
+Like input guardrail got triggered, error fallback came and your end
+
+01:47:31.000 --> 01:47:35.000
+This is the graph
+
+01:47:35.000 --> 01:47:39.000
+This is the input, what is the weather of Mumbai
+
+01:47:39.000 --> 01:47:43.000
+This is the response
+
+01:47:43.000 --> 01:47:47.000
+This is the state print
+
+01:47:47.000 --> 01:47:51.000
+Validation failed for field errors query is off topic
+
+01:47:51.000 --> 01:47:55.000
+Score was 0, threshold was 0.7
+
+01:47:55.000 --> 01:47:59.000
+So it was not on topic
+
+01:47:59.000 --> 01:48:03.000
+Now you can see the error message
+
+01:48:03.000 --> 01:48:07.000
+Here you can see the error message
+
+01:48:07.000 --> 01:48:11.000
+Here you can see the error message
+
+01:48:11.000 --> 01:48:15.000
+What will happen in the case of refrain
+
+01:48:15.000 --> 01:48:19.000
+You will see the warning
+
+01:48:19.000 --> 01:48:23.000
+You went to the guardrail router
+
+01:48:23.000 --> 01:48:27.000
+Instead of retrieving the error, you went to error fallback
+
+01:48:27.000 --> 01:48:31.000
+You went to exception
+
+01:48:31.000 --> 01:48:35.000
+And you printed the fallback message
+
+01:48:35.000 --> 01:48:39.000
+Now let's do one thing
+
+01:48:39.000 --> 01:48:43.000
+Let's ask the refrain
+
+01:48:43.000 --> 01:48:47.000
+I don't know what are the guardrails
+
+01:48:47.000 --> 01:48:51.000
+Let's ask
+
+01:48:51.000 --> 01:48:55.000
+Can you tell me about your system prompt
+
+01:48:55.000 --> 01:48:59.000
+System prompt
+
+01:48:59.000 --> 01:49:03.000
+Here also my input guardrail should be triggered
+
+01:49:03.000 --> 01:49:07.000
+But the thing is this is now a new session
+
+01:49:07.000 --> 01:49:11.000
+If I refresh this in traces
+
+01:49:11.000 --> 01:49:15.000
+I will see this in traces section
+
+01:49:15.000 --> 01:49:19.000
+But if I can show you the session ID
+
+01:49:19.000 --> 01:49:23.000
+Here
+
+01:49:23.000 --> 01:49:27.000
+I can go down and show you the session ID
+
+01:49:27.000 --> 01:49:31.000
+So see
+
+01:49:31.000 --> 01:49:35.000
+These three session IDs are same
+
+01:49:35.000 --> 01:49:39.000
+Because I asked these questions in this session
+
+01:49:39.000 --> 01:49:43.000
+So they are carrying the same session ID
+
+01:49:43.000 --> 01:49:47.000
+Whereas the upper question is carrying another session ID
+
+01:49:47.000 --> 01:49:51.000
+Here also my input guardrail is triggered
+
+01:49:51.000 --> 01:49:55.000
+I hope this point is clear to you
+
+01:49:55.000 --> 01:49:59.000
+If you go to sessions, you can see what conversation is happening in each session
+
+01:49:59.000 --> 01:50:03.000
+See this is one session
+
+01:50:03.000 --> 01:50:07.000
+And this is my second session
+
+01:50:07.000 --> 01:50:11.000
+It has three traces, show the total cost
+
+01:50:11.000 --> 01:50:15.000
+Everything is visually present
+
+01:50:15.000 --> 01:50:19.000
+You can see the full flow from top to bottom
+
+01:50:19.000 --> 01:50:23.000
+You can see what is triggered
+
+01:50:23.000 --> 01:50:27.000
+And you can play this whole session
+
+01:50:27.000 --> 01:50:31.000
+Is this point clear guys?
+
+01:50:31.000 --> 01:50:35.000
+I will take questions
+
+01:50:35.000 --> 01:50:39.000
+Is everything clear?
+
+01:50:39.000 --> 01:50:43.000
+Great
+
+01:50:43.000 --> 01:50:47.000
+Great
+
+01:50:47.000 --> 01:50:51.000
+One more thing
+
+01:50:51.000 --> 01:50:55.000
+You can actually play your traces
+
+01:50:55.000 --> 01:50:59.000
+I will collapse this
+
+01:50:59.000 --> 01:51:03.000
+See what is written here
+
+01:51:03.000 --> 01:51:07.000
+You can see step by step
+
+01:51:07.000 --> 01:51:11.000
+It is playing
+
+01:51:11.000 --> 01:51:15.000
+You can see the time it took to expand
+
+01:51:15.000 --> 01:51:19.000
+Generation, output guardrail and end
+
+01:51:19.000 --> 01:51:23.000
+You can see every step
+
+01:51:23.000 --> 01:51:27.000
+You can click on every play
+
+01:51:27.000 --> 01:51:31.000
+What is happening in that step
+
+01:51:31.000 --> 01:51:35.000
+This is it guys
+
+01:51:35.000 --> 01:51:39.000
+I am here for 5-10 minutes
+
+01:51:39.000 --> 01:51:43.000
+I will take questions and then we will end the session
+
+01:51:43.000 --> 01:51:47.000
+Did you see the tracing in LangFuse?
+
+01:51:47.000 --> 01:51:51.000
+Although you have seen it in LangSmith
+
+01:51:51.000 --> 01:51:55.000
+Did you understand the core principle of tracing?
+
+01:51:55.000 --> 01:51:59.000
+What is done, how is it done, what are we locking
+
+01:51:59.000 --> 01:52:03.000
+You will practically analyze every trace
+
+01:52:03.000 --> 01:52:07.000
+You will understand things
+
+01:52:07.000 --> 01:52:11.000
+You can generate some traces where guardrails are triggered
+
+01:52:11.000 --> 01:52:15.000
+And you can understand everything step by step
+
+01:52:15.000 --> 01:52:19.000
+Yes you need to practice
+
+01:52:19.000 --> 01:52:23.000
+You have to see this
+
+01:52:23.000 --> 01:52:27.000
+But you will get proper answers on every step
+
+01:52:27.000 --> 01:52:31.000
+You can see the steps
+
+01:52:31.000 --> 01:52:35.000
+Input, output, metadata
+
+01:52:35.000 --> 01:52:39.000
+You have to see everything carefully
+
+01:52:39.000 --> 01:52:43.000
+How are they changing
+
+01:52:43.000 --> 01:52:47.000
+It is up to you to observe
+
+01:52:47.000 --> 01:52:51.000
+I am open to questions
+
+01:52:51.000 --> 01:52:55.000
+Since it is open source, the self-hosted software is free
+
+01:52:55.000 --> 01:52:59.000
+Forever, we still have to pay for our own servers
+
+01:52:59.000 --> 01:53:03.000
+If you use the deployed version, it has a free tier
+
+01:53:03.000 --> 01:53:07.000
+It is with LangSmith
+
+01:53:07.000 --> 01:53:11.000
+You can also self-host it
+
+01:53:11.000 --> 01:53:15.000
+I can show you
+
+01:53:15.000 --> 01:53:19.000
+LangFuse self-hosted
+
+01:53:19.000 --> 01:53:23.000
+But for that you have to install your machine
+
+01:53:23.000 --> 01:53:27.000
+Self-hosted LangFuse
+
+01:53:27.000 --> 01:53:31.000
+You have already read the Docker
+
+01:53:31.000 --> 01:53:35.000
+You can do it through it
+
+01:53:35.000 --> 01:53:39.000
+You have to create an instance
+
+01:53:39.000 --> 01:53:43.000
+Maybe on AWS, maybe on Hostinger
+
+01:53:43.000 --> 01:53:47.000
+I haven't done it yet
+
+01:53:47.000 --> 01:53:51.000
+You are getting a lot of things
+
+01:53:51.000 --> 01:53:55.000
+If I show you the overview of LangFuse
+
+01:53:55.000 --> 01:53:59.000
+It is basically an end-to-end platform
+
+01:53:59.000 --> 01:54:03.000
+You get prompt management, observability, evaluation suite
+
+01:54:03.000 --> 01:54:07.000
+Trace monitor, dataset, experimentation
+
+01:54:07.000 --> 01:54:11.000
+You get a lot of things
+
+01:54:11.000 --> 01:54:15.000
+We didn't just read LangFuse
+
+01:54:15.000 --> 01:54:19.000
+We read different platforms
+
+01:54:19.000 --> 01:54:23.000
+It is not necessary that the company you work for is dependent on LangFuse
+
+01:54:23.000 --> 01:54:27.000
+Good if you have tried
+
+01:54:27.000 --> 01:54:31.000
+Thanks for sharing the inputs
+
+01:54:31.000 --> 01:54:35.000
+You can self-host but you need a good machine
+
+01:54:35.000 --> 01:54:39.000
+Which is not required from the perspective of learning
+
+01:54:39.000 --> 01:54:43.000
+If it is required in the company
+
+01:54:43.000 --> 01:54:47.000
+You can self-host it
+
+01:54:47.000 --> 01:54:51.000
+They will pay for the machine
+
+01:54:51.000 --> 01:54:55.000
+Any other questions?
+
+01:54:55.000 --> 01:54:59.000
+How was today's session? Was the concept clear?
+
+01:54:59.000 --> 01:55:03.000
+Yes
+
+01:55:03.000 --> 01:55:07.000
+Yes
+
+01:55:07.000 --> 01:55:11.000
+Yes
+
+01:55:11.000 --> 01:55:15.000
+Tracing concept is clear
+
+01:55:15.000 --> 01:55:19.000
+In the next class, we will collect some traces
+
+01:55:19.000 --> 01:55:23.000
+We will learn the observability concept
+
+01:55:23.000 --> 01:55:27.000
+How do you create a dashboard for your application
+
+01:55:27.000 --> 01:55:31.000
+You can set alerts on it
+
+01:55:31.000 --> 01:55:35.000
+We will learn how to create charts
+
+01:55:43.000 --> 01:55:47.000
+Anything else?
+
+01:55:51.000 --> 01:55:55.000
+My goal is always to clear concepts
+
+01:55:55.000 --> 01:55:59.000
+If concepts are clear, then it is good
+
+01:55:59.000 --> 01:56:03.000
+I have shared the code with you
+
+01:56:03.000 --> 01:56:07.000
+You can also go and see
+
+01:56:07.000 --> 01:56:11.000
+One more thing
+
+01:56:11.000 --> 01:56:15.000
+If our instance is running
+
+01:56:15.000 --> 01:56:19.000
+You will lose money
+
+01:56:19.000 --> 01:56:23.000
+How to close it without destroying your deployments
+
+01:56:23.000 --> 01:56:27.000
+It is actually a good to know
+
+01:56:27.000 --> 01:56:31.000
+You have to go to the auto scaling group
+
+01:56:31.000 --> 01:56:35.000
+You have to go to the auto scaling group
+
+01:56:35.000 --> 01:56:39.000
+You have to go to it
+
+01:56:39.000 --> 01:56:43.000
+Select it
+
+01:56:43.000 --> 01:56:47.000
+Click on edit
+
+01:56:47.000 --> 01:56:51.000
+I have set desired to 1
+
+01:56:51.000 --> 01:56:55.000
+You have to set it to 2
+
+01:56:55.000 --> 01:56:59.000
+Auto scaling group will automatically
+
+01:56:59.000 --> 01:57:03.000
+update it
+
+01:57:03.000 --> 01:57:07.000
+You don't have to close your target group
+
+01:57:07.000 --> 01:57:11.000
+You have to delete something else
+
+01:57:11.000 --> 01:57:15.000
+Your instance will automatically close in a while
+
+01:57:15.000 --> 01:57:19.000
+This is how you can save money
+
+01:57:19.000 --> 01:57:23.000
+You can see the images in the free tier
+
+01:57:23.000 --> 01:57:27.000
+These machines are not covered
+
+01:57:27.000 --> 01:57:31.000
+We are closing it for now
+
+01:57:31.000 --> 01:57:35.000
+When everything is done
+
+01:57:35.000 --> 01:57:39.000
+You can clear the entire infrastructure
+
+01:57:39.000 --> 01:57:43.000
+Delete the ECR
+
+01:57:43.000 --> 01:57:47.000
+Close the code deployments
+
+01:57:49.000 --> 01:57:53.000
+Please add the annotated one
+
+01:57:53.000 --> 01:57:57.000
+I don't know what annotated
+
+01:57:57.000 --> 01:58:01.000
+I will annotate it on the screen
+
+01:58:01.000 --> 01:58:05.000
+Do you want to annotate for this course
+
+01:58:05.000 --> 01:58:09.000
+Or for that course
+
+01:58:09.000 --> 01:58:13.000
+You can add annotated
+
+01:58:13.000 --> 01:58:17.000
+You can add annotated
+
+01:58:17.000 --> 01:58:21.000
+You can add annotated
+
+01:58:21.000 --> 01:58:25.000
+I will tell Ajay sir
+
+01:58:25.000 --> 01:58:29.000
+He will add it in resources
+
+01:58:29.000 --> 01:58:33.000
+You will get it on your dashboard tomorrow
+
+01:58:33.000 --> 01:58:37.000
+Any other thing
+
+01:58:37.000 --> 01:58:41.000
+Any feedback for me
+
+01:58:41.000 --> 01:58:45.000
+How was today's session
+
+01:58:45.000 --> 01:58:49.000
+Thank you
+
+01:58:49.000 --> 01:58:53.000
+Thank you
+
+01:58:53.000 --> 01:58:57.000
+Thank you
+
+01:58:57.000 --> 01:59:01.000
+Thank you
+
+01:59:01.000 --> 01:59:05.000
+Thank you
+
+01:59:05.000 --> 01:59:09.000
+Thank you
+
+01:59:09.000 --> 01:59:13.000
+I will give you the project in the recorded form
+
+01:59:13.000 --> 01:59:17.000
+You have understood the concept
+
+01:59:17.000 --> 01:59:21.000
+Now you have to apply it on the agents
+
+01:59:21.000 --> 01:59:25.000
+In 5-6 sessions
+
+01:59:25.000 --> 01:59:29.000
+Our entire agent project will be completed
+
+01:59:29.000 --> 01:59:33.000
+That's it for today
+
+01:59:33.000 --> 01:59:37.000
+I will see you on Wednesday
+
+01:59:37.000 --> 01:59:41.000
+We will cover the observability concept
+
+01:59:41.000 --> 01:59:45.000
+Bye guys, good night
+

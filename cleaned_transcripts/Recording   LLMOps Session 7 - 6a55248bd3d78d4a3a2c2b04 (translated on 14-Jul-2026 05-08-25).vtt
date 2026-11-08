@@ -1,0 +1,4143 @@
+Any questions guys?
+I am still joining in
+How did token limit succeed?
+When we generate golden data set, it is done in parallel
+And we give it a little context
+I will show you what all things we provide in input
+I don't think token limit will be exhausted
+Maybe you have hit API rate limit
+I have shared gate repolink with you guys
+You can take repolink from the original code
+I think we built code in session 2 or 3
+So there is a link of repolink
+If anyone has repolink, you can share in the chat
+Rate limit must have been hit
+So set the max concurrent parameter low
+People are still joining, let's wait a little more
+I can show you
+You can go to the documentation
+Just a second guys
+This is documentation, here are all your parameters
+This is the concurrent value
+Concurrent value will not be in this
+Concurrent value will be in your golden synthesizer
+This is the max concurrent value, you can set it to low
+It is written here
+You can decrease this value if you are running into rate limit errors
+So set it to low, 10, 20
+Anyone else have any doubt?
+People are still joining in
+Guys join a little bit later because session will be extended
+We have to cover a lot of things
+So if we start from time, it will be better for everyone
+I will wait for another 2 minutes and then we will start
+I will share an update with you
+This is my dashboard and this is our course
+So you will see that in the course
+This monthly schedule tab
+Your calendar has been updated
+Basically you have got the integration of your calendar
+Your Google Calendar
+If you are using it through Android, you can click on this link
+And integrate the calendar
+And if you are using iOS, you can click on this and integrate
+So what will happen to you now?
+As soon as the class starts, you will automatically get notifications through the calendar
+And if you are having some issues, you can go to this tab
+Add schedule to calendar
+Sorry this one
+Calendar not synced
+And here we have given a series of steps
+How to sync your calendar
+So you can sync it with your account
+This is for the Android users
+And you will see the schedule on your Google Calendar
+You can see the schedule here
+And you will also get proper reminders here
+I hope this helps
+Let's start today's session
+We will take the rest of the questions after a while
+Let's start the session
+So guys, as we discussed in the previous session
+We discussed in detail
+How to generate your golden datasets
+Ok
+For this particular step
+The golden datasets step
+We read two workflows for this
+The first workflow was our context building workflow
+So you can see how to build a golden dataset
+How to prepare the context
+So here we have done context building
+We have done our transcripts on our documents
+So the DPval synthesizer gives you this option
+That you can build your context on your knowledge base, on your documents
+And after that we used this context to generate our golden dataset
+Ok
+And we did two sub steps to generate this golden dataset
+The first was our filtration
+Where we discarded the goldens that were not crossing our threshold
+And the second was our evolution
+Where we did our raw questions, simple questions a little better
+So we read these two workflows in detail
+And at the end of the lecture
+We ran our code and generated this golden dataset
+Ok, in our knowledge source, I think there were 14 transcripts or 14 documents
+And on these 14 documents
+We have generated our 56 golden pairs or golden datasets
+What was in this 56 golden pair?
+If I talk about one pair, then in one pair is your input
+Which is your query
+Which you will give to your rag application as input
+And the second is your
+There is a context too
+In this lecture, we will talk about the context
+And one is your expected output
+Ok, this is your answer key
+Or you can say your ground reference
+Ok, on the basis of which we will check our answers or responses
+We will evaluate
+So I hope you remember this whole thing
+Just a second guys
+Let me check something
+Recording is going on
+So you remember all this flow guys
+Which we discussed in the previous section
+Write clear in the chat if you remember and we will move forward
+Great
+Ok, one more detail
+When we generated this golden dataset
+We saved this golden dataset in a JSON file
+Basically, our idea was that we will create our dataset once
+And then we will persist it
+Ok, now we will move forward
+And today we will use this golden dataset which we persisted
+Ok, I will tell you how to use it
+So let's do this once
+Let's discuss the flow of this whole session
+Let's discuss what we are going to cover in this whole session
+So what we will do first
+First of all, we will learn how to create an evaluation dataset
+Right
+What we have created now is not an evaluation dataset
+It is a golden dataset
+We will discuss the difference between the two
+And we will learn to create an evaluation dataset today
+Basically, this is your final dataset
+On which you do the evaluation
+Means you apply your metrics on it
+Ok, so how to make this final version of the dataset
+We will learn that
+We will also cover its theory
+And I will implement it live in the code
+And you will see that the ones we generated in the previous session
+I will use them to create this evaluation dataset
+Right
+After that, we will move towards our rag-based metrics
+Ok, from today we will start our metrics
+And in today's session, we are going to cover three important metrics
+First is my context recall
+Second is contextual precision
+And third is contextual relevancy
+Now these three metrics are your rag pipeline
+Which is the retriever component
+And we will target that
+So today we are going to cover retriever specific metrics
+And when we cover metrics, I will tell you the flow
+We will cover metrics in detail
+How it works internally
+What is its formula
+What are the calculations
+Where is LLM used as a judge
+We will cover all these points and aspects
+Along with that, I will give you an example
+I will calculate the metrics in hands-on live class
+As soon as we do the hands-on calculation through this example
+Then we will implement this same example in the code
+And I will show you that the code answer
+And the one we calculated with our hands
+Will be similar
+Ok
+This will prove that the calculations we were doing were correct
+After that, what will we do
+After that, we will make a small data set
+We can call it a test data set
+This will be a subset of our evaluation data set
+And we will run our metrics on it
+Ok
+So all these things are going to be covered in today's session
+I hope this point is clear to you
+This point is clear guys
+Today's session flow is clear
+Great
+So today's session will be practical
+We will cover a lot of practical aspects
+And theory will also be there
+So it will be mix and match
+So let's cover what is an evaluation data set
+And how it is different from your golden
+Ok
+So let me set the stage first
+What have we done here so far
+So far we have generated our golden data set in our evaluation pipeline
+What is this golden data set
+If you remember, I will show you
+If you don't remember
+Guys, can you see the VS code
+VS code is visible
+Fine
+So you can clearly see here
+If I show you in the data sets
+Golden data set
+So this is my golden data set
+Ok
+I can see three things in the golden data set
+My input is visible
+Which will be my input query
+My expected output is visible
+Which will be my answer key
+And this input and expected output
+In which context is it made
+Because we have now remembered that context assembly
+Grouping
+So on which group these two things are created
+That context is also available to me
+Ok
+So you understand what we have to do next
+What will be our next step
+So in the golden data set
+We have our input query
+And we have our expected output
+Now let's understand what we have come here to do
+Ok
+We were talking at the start
+That when we will do evaluations
+Of the rack pipeline
+We will test two components here
+The first component will be my retriever
+And the second component will be my generator
+Because in our rack pipeline
+These are the two components which have failures
+And we have to test them
+Ok
+You will remember that we discussed in a session
+That what is the input of your retriever
+If you remember
+Then your retriever has
+Your query in the input
+And retriever gives us
+In output
+Our retrieved context
+Or retrieved chunks
+This is the output of the retriever
+And our generator
+What does it have
+What does it have
+It has two things
+First my retrieved context
+Or my retrieved chunks
+And my input query
+And what do I get from this
+I get my response by turning from generator
+Right
+And my golden data set
+I have two things in it
+I have a query available
+Which I will give to my rack pipeline
+Or retriever
+So this thing
+I will highlight it from another color
+This part
+I have
+Available in my golden data set
+And
+This whole thing
+The response which will be generated
+The answer to evaluate it
+The grounded answer
+Which is available
+In my golden data set
+Available
+Now what I have to do next
+Next I have to take this golden data set
+And basically
+I have to complete it
+In what sense
+I have to complete it
+Now I have
+Two pieces of my puzzle
+So I will show you
+My whole puzzle
+And then we will discuss
+What things are available and what are missing
+Input is available
+Where will I get this
+I will get this from my golden data set
+Right
+So I have the output available
+Where will I get this
+Again this is available
+In my golden data set
+But I need two more things
+One of them is
+Actual output
+What is actual output
+Actual output is nothing
+Basically this is our response
+And who will give me this response
+This response
+Will be given by my generator
+But when will it give
+When I will give it my retrieved chunks and query
+Query is already with me
+But these retrieved chunks
+Are missing
+So I will get this from my application
+My rag application
+Will give me this actual output
+And along with that retrieval context
+Which is
+Retrieval context
+Who will give me this
+My rag application
+Ok, I understood this
+So when I generated my golden
+These two pieces of puzzle
+Are with me
+These two will give me my rag components
+And you can see that these two missing pieces
+These two
+Actually are the output
+Of both my components
+What is actual output
+This is my generator output
+And this retrieved context
+This is my
+Retriever's output
+Now basically
+Why am I focusing so much on this
+Generator output, retriever output
+Why am I focusing so much on this
+The focus is on this
+When you have to evaluate
+Your retriever
+Like in today's session we will be studying
+Retriever based matrix
+So whenever you have to evaluate your retriever
+You will focus on this particular output
+Whereas whenever you
+Have to evaluate your generator
+You will focus on this particular output
+So you will see
+In today's session
+Whether we have this actual output or not
+It doesn't matter
+Why? Because today we are evaluating
+Retriever, not generator
+So we have
+Three information
+If we have to evaluate our retriever
+Three pieces of information
+First is our input
+Second is our expected output
+Which we already have
+And third is my
+Retriever context
+Which will give me my retriever
+Now what I have to do
+The process is very simple
+The process is
+The golden data set
+I have to give it
+To my rack application
+And basically
+I have to give my query
+There is no use of giving
+This is my answer key
+I have to give my query to my rack application
+And my rack application
+Will give me both these missing pieces of puzzle
+Will give me both these missing pieces of puzzle
+Will give me my actual output
+Which will be my final response
+And my retrieved context
+Is it clear?
+If I explain you with exam
+Example
+So basically I have my question answer
+Pair
+Here I have my question which I will ask the student
+And answer is answer key
+Now what I have to do
+Here I have to print
+An answer sheet
+On which my student
+Or my application will write answers
+Now what should be
+The answer sheet
+In this answer sheet
+Basically I should have my questions
+And along with questions
+There should be some blank space
+Where my application
+Can write my answers
+Is it clear?
+If you see here
+If I show you again in code
+So this thing is not available here
+But when we create our evaluation data
+Set
+You will see that your answers
+Will be filled
+I thought that your keys will be available
+Where null will be
+But now the keys are not available
+But you will see that as the evaluation data set is created
+You will get all the pieces of information
+There
+This thing is clear guys
+This point is clear
+Ok
+So Nidhi has a question
+Context is already available in the data set
+Yes, this context is available
+But where did you get this context from
+Understand this thing carefully
+This context
+Which you have is basically
+Your groups
+You will remember in the previous session
+We did context assembly
+We formed groups there
+You will remember we calculated
+Simularity scores
+And then we did grouping
+Basically we made clusters
+This is that context
+This context is
+You can say grounded context
+So then you must be thinking
+That why we use this grounded context
+And why we don't
+Evaluate the context
+The answer is pretty simple
+This grounded context
+This context is from the assembly step
+And your context assembly step
+Is completely different
+From your rag application
+I will explain how
+The chunk size there is different
+Your rag application chunk size is different
+Ok, overlap there is
+Totally different
+In rag application overlap value is different
+The splitter you are using there
+Is your token based splitter
+Whereas in rag application
+You are using character based splitting
+Ok, and
+The biggest thing is
+That your rag application
+In every application
+These values will change
+Whereas your context assembly
+Method is generally
+More or less static
+So you don't interfere with
+The default values
+So you
+This context which is retrieved
+You can't trust it
+Ok, you can't use it
+As a grounded context
+Because your answer key
+And actual answer
+The format of writing them is totally different
+Is it clear?
+Why we are storing this context
+In our golden data set
+I will tell you
+So you are
+Removing the context
+Ok, whenever you create a golden data set
+The first thing is to create a context
+As soon as this context is created
+You give this context to your LLM
+You tell LLM
+First of all in this context
+For me, you have set 2 or 3 in your parameters
+Like I think so
+3 or 2
+Whatever you have set, 2 set this value
+So for me, make 2 questions
+So first of all what will happen
+It will go to LLM
+Which is a synthesizer
+And it will create 2 questions for you
+Then what will you do
+You will pick these 2 questions
+For each of your context
+And you will give them to your LLM
+And you will say that this is the context
+And these are the related questions
+Now here I will get the expected output
+Is it clear?
+Getting the expected output is simple
+Basically what you are doing here is
+Mimicking your rag pipeline
+Like after augmentation
+You give your context and question
+To your generator
+But basically what you are doing here
+Is that your query
+Is built on your context
+That is a key differentiating factor
+Generally when a user writes a query
+It is not necessary that it is built
+On your context
+Here you have carefully selected the context
+And on that
+You have built the query
+So basically you are making sure
+That the whole thing you are building
+Is always grounded
+On this point
+It is being focused
+Means the question you are making
+Always it should be
+From your context
+Not any external question
+So that you can test your rag application
+On your given documents
+And along with that
+The expected output
+That is generated
+Is also related to your question
+And the answer is found
+From your context
+So the context we make
+We basically store it
+Just for logging purposes
+So that we can match our query
+And expected output
+But you don't use this context
+During the evaluation
+You have only two things
+Your question and answer key
+It is very similar to your exam
+Like you evaluate your exam
+So you don't have a book chapter
+That you have
+If you have an answer key
+Then you evaluate your answers
+On the basis of that answer key
+You don't ever go into the book
+And evaluate from the source
+I hope this point is clear to you
+Clear? Great
+This was a very important point
+You guys have asked about the desgoat
+Any more questions guys?
+So far whatever we discussed
+Is it clear?
+Great
+Now let's move forward
+Ok
+So we have our golden
+Data set available
+Ok, now let me do one thing
+I will explain three important
+Terminologies to you
+These are the definitions of deep eval
+These are not made by me
+Or you can use some other framework
+And you will get these definitions
+These are the components of deep eval
+But you should know
+What is the difference between them
+So that you can navigate the code
+More easily
+So here there are three definitions
+First is your golden
+Second is your
+Evaluation data set
+And third is your
+LLM
+Test case
+So let's discuss
+These three things
+What is golden basically?
+We have discussed golden many times
+Golden is
+Basically a pair
+It is not necessary that
+Golden always be a pair
+But because we are making
+Reference based goldens
+Means we have
+Question and answer key
+Available
+So we always have this
+Pair of value
+If it is not reference based
+Non reference based
+Where you are missing answer key
+Then you will have only one question
+But in the case of rack
+Generally your reference is based
+You need this answer key
+It is required to do the evaluation
+You can't do evaluation without this
+So what is golden?
+It is a pair of question and answer key
+You can understand this
+You can call it question paper
+Or if you are an evaluator
+Or a teacher who is evaluating
+Question paper
+Then it is your sample question paper
+You can call it
+Which you will refer and basically do evaluation
+Next thing you have
+Is an evaluation data set
+Now this term sounds dangerous
+Now we know about golden
+I don't know what is evaluation data set
+What we are evaluating in this
+It is very simple
+A collection of golden
+Collection of goldens
+You call it evaluation data set
+Simple
+It is basically a simple list
+In this you save
+Your individual goldens
+So whenever you save
+Your goldens in a list
+You call it evaluation data set
+It is simple
+So golden data set
+And evaluation data set are the same
+But generally in deep evaluation
+You use evaluation data set
+One thing comes
+Your LLM test case
+Right
+What is LLM test case
+Basically your golden
+After passing your application
+In simple words
+If I tell you in simple words
+So when your goldens
+Pass your application
+They become a LLM test case
+I will explain you how
+For now the green box
+This is your rack application
+This is a black box application
+We don't know what is going on inside
+What is our job
+We have to make LLM test case
+From golden
+So we have goldens here
+This is my golden pair 1
+This is my golden pair 2
+This is my golden pair
+So if I combine them
+And put them in a list
+This will become my evaluation data set
+As soon as they cross the rack application
+So the query
+Inside these goldens
+Will go to my application
+And my whole application will run
+Because it is a land graph workflow
+So my query will go in input
+And my whole graph will execute
+After execution
+What will I get in output
+What will the rack application give me in output
+It will give me my retreat context
+And also give me my response
+I will get these two things
+Ok
+And I will save them in my
+Test case
+And that is my LLM test case
+So what is LLM test case
+My input
+Expected output
+This is getting from my golden
+So this is my golden part
+Rest of the missing links
+Like my retrieval context
+And also my
+Actual output or my response
+All these are combined
+And become part of my LLM test case
+So what is golden
+Golden is my question answer pair
+And when I pass it
+Through my rack application
+It becomes my LLM test case
+And when you
+Your LLM test cases
+You have multiple goldens
+So multiple LLM test cases will be made
+So when you group these test cases
+That group is also called
+Evaluation data set
+So evaluation data set is basically
+A folder or you can say list
+Where your goldens or test cases
+Are there
+Prior to your application
+They are goldens and as soon as
+You cross the application
+They are converted into LLM test case
+You will get a good understanding
+Through this diagram
+You can see clearly that
+This is eval data set
+This is basically a list of goldens
+Or you can say list of test cases
+So before evaluation
+You have goldens
+In your rack application case
+Your questions and
+Expected answers
+Your answer key
+You take every pair
+And your LLM app
+In our case our rack app
+You pass it through this
+What do you get in output
+You get in your individual test cases
+Again if you form them
+In a list or group
+It becomes a part of an evaluation data set
+Is this clear guys?
+Is this clear concept?
+Ok
+Is expected
+Output and answer key
+The same yes it is the same
+Jason has the answer key
+He has expected output
+See expected output
+Is in every goldens
+Because our reference
+Based output
+For retrieval
+Evaluation response is
+Of no use right
+No for now
+It is not used
+No for now
+But because we are running our rack application
+So we got the response together
+So it is logical that we save it
+And keep it
+Whenever we evaluate our metrics through dbvalq
+Then we automatically choose
+What input we want from this LLM test case
+And what to leave
+So we pass the whole set
+Our metric automatically
+Decides what to use and what to leave
+Is this clear guys?
+Is this clear concept?
+Is this clear concept?
+If it is clear
+Then we will see it in the code
+Was the concept easy?
+Evaluation data set, goldens
+LLM test case
+If you have any question
+You can ask me
+Right
+It is a little conceptually dense
+So we will go slowly
+We will see everything step by step
+So if you see the data set section
+In deep eval
+It is written
+In deep eval
+A few more questions are coming in
+It is easy but still confusing
+So for that
+You revise a little
+Again this is a conceptual part
+And this is the terminology of deep eval
+If you are confused
+If you see in the code
+Then the confusion will be cleared
+So it is written
+In deep eval
+An evaluation data set is a collection of goldens
+So this is a data set
+Here is a collection of goldens
+And what I said is
+How is the collection represented here
+Here the collection is represented as a list
+A golden is a precursor to a test case
+Means before the test case is made
+It is golden
+At evaluation time
+When you go for evaluation
+You first convert all your
+Goldens in your data set
+To test cases
+So you have test cases
+You have stored them in your group
+That is your evaluation data set
+And when you have to do evaluation
+You take these test cases
+And give your LLM application
+And your LLM application
+Returns test cases in output
+So you make
+Evaluation data set here
+You store your goldens in it
+And after that
+You make your LLM test cases
+Through this process
+And you store all these
+In your evaluation data set
+First you store your goldens
+Then you store your test cases
+In your data set
+And when you create this
+Because you are running your application
+You are making LLM calls
+You are executing your workflow
+So this whole thing
+A group of LLM test cases
+Which you call your evaluation data set
+You save it
+So we will see
+How you save it
+And how this whole thing works
+And if I show you
+How a test case looks like
+That
+If I can show you
+So see this is your test case
+A single turn test case is a blueprint
+Provided by DeepEval to unit test
+LLM outputs
+This is your single atomic unit
+Of interaction
+Single row of test data
+You can understand it like this
+You have two things in it
+You have input which you get from your goldens
+And you have
+Expected output
+You fill other things here
+You fill actual output here
+You fill retrieval context here
+What are these?
+I will tell you about it
+If I can show you
+What is input?
+Input is your query
+You will get it from your goldens
+What is actual output?
+Which is output of your LLM app
+Like in our case
+Response of our rag application is the actual output
+And how you will get it?
+When you run your LLM
+Application
+You will save the output
+Expected output
+It is your answer key
+It represents
+The ideal output to be
+Your ideal output or
+The ideal answer or response
+Is your expected output
+And finally
+It is your retrieval context
+Where will you get it?
+This parameter represents your rag pipelines
+Retrieval results at runtime
+What does runtime mean?
+When your application is running
+You store your retrieval output in retrieval context
+Things may look complex
+But we will move towards code
+And these things will be clear to you
+Is everyone ready?
+Let's start
+Ready guys?
+Let's start the code
+Let's close it
+So what we did here
+In generate goldens
+We made our golden data set
+In this particular file
+Now we will make a new file
+And we will name it
+Generate
+Eval data set
+Let's call it
+Eval data set dot py
+I will turn off the camera
+So that it doesn't hinder you
+And let's start with the code part
+So let's make some necessary imports
+So
+From
+Deep eval dot
+You have to go to data set
+You have to go inside
+Inside the data set
+And you have to import
+Evaluation
+Data set
+This is your main class
+Which will basically store
+All your test cases or goldens
+This will be your
+Final data set
+You have to import from
+Deep eval dot
+Test case
+Dot llm test case
+From here you will import
+llm test case
+Ok
+You have to import from
+Dot env
+We will import
+Load
+Dot env
+We will import path from pathlib
+And because now we have to
+Give our application
+This particular data set
+So we have to import our application here
+So I made a python file
+In the last class
+This is basically my rag workflow
+Which we created in notebook
+I basically copied and pasted it
+In this python file
+This is your exact workflow
+Here you are making your llm
+Embedding model
+Here you are loading your documents
+Chunking is happening
+You are saving it
+And finally
+What are you doing here
+You have defined all these nodes
+You have built your graph
+And this will be your compiled graph
+So what we will do is
+We will import this compiled graph
+In this file
+So the import method is very simple
+We will write from
+Just a second
+From rag
+Workflow
+We will import
+I think it is graph variable
+Rag
+Is hyphen
+I will underscore it
+Just a second guys
+Ok
+Now it is done
+We will import our graph
+Here
+This compiled graph
+We have imported
+And this is our application
+We will use it here
+So first of all we will define paths
+Here we have to define two paths
+First is our golden path
+This golden data set
+Because we have to import it
+And save it in evaluation data set
+And second is our
+Path where we
+Save our test cases
+So we will create all the paths
+First of all I will load the api key
+Load the api key
+Ok
+Now I will create the paths
+Create paths
+For paths first of all
+Here
+We will create our root directory
+Again I will use the pathlib
+Ok
+So I have used the pathlib
+And dot parent
+We will get our path
+Ok
+After that what I have to tell
+I have to tell where my
+Golden file is available
+So we will name it
+Golden path
+And whenever you are using pathlib
+Then it is very easy to navigate
+In folders here
+Ok we have already discussed
+What you have to do here is
+Do root directory
+Again forward slash
+So what is root directory?
+This is my entire directory
+LM of rag app
+Ok now in this particular directory
+You have to go inside your
+Data sets
+So what you will do here is
+Write in the string
+Data sets
+Then where you have to go
+Inside the goldens
+So you will go inside the goldens
+After that where you have to go
+After that you have to go in this file
+You have to read this file
+You will write its name here
+golden dataset dot
+And that's it guys
+This is your entire path
+How easy is it here
+You just have to put forward slash
+And navigate the path
+Ok we will create one more path
+That will be our evaluation
+Where will the data set be stored
+So
+Evaluation
+Data
+Directory
+Ok again we will
+Here
+Use root directory
+Here
+You can do one more thing
+I will show you one more thing
+See you goldens
+Sorry for that
+You can use goldens path here
+So where is goldens path?
+Currently it is on this file
+Ok so what you can do here
+Dot
+By writing parent
+You can go to this parent which is this one
+And again here
+Dot parent by writing
+This one
+You can go to this folder which is your data set
+Ok and after this
+Where do you have to go
+After this you have to go
+You can write this
+Eval
+Dataset and that's it
+This will make your directory
+I will show you create directory
+So evaluation data directory dot
+Mkdir you will do
+Ok
+Exist ok pair you will do true
+And
+You will do parents true because
+Parents are existing
+Let's run this file
+Let me open my terminal
+Terminal is opened we will write here
+Qvrun
+Generate
+Sorry
+Qvrun generate
+Eval
+Dataset dot pby
+Now you will see a folder will be created
+See it is created
+It is made of goldens
+And
+Where are the folders
+Saved embeddings are here
+Ok now everything is loading
+Let's wait a little
+Yes it is loaded
+Now I think my folder will be created
+Look here my folder is created by evaluating
+Now it is done
+Now let's do one thing
+Let's delete the saved embeddings
+Because
+If it will be created again
+Then we will have a problem
+So let's delete it
+We will fix it now
+We don't have the support of api
+So we have to call the backend
+And reuse it
+But you can see the power of pathlib
+How easily you can define your path
+From pathlib
+You don't have to write any path through os
+It is that much powerful
+So we have done this
+Now what we will do here
+We will create our evaluation dataset
+Evaluation dataset
+So we will name it
+Dataset and this will be
+Our evaluation dataset
+Ok in this
+You don't have to pass anything for now
+Simply you will instantiate it
+After that
+Now what you have to do
+Now you have to add
+Your goldens in your evaluation dataset
+So for that you have a method
+Add
+Goldens to
+Dataset
+You will go to dataset
+And add goldens
+You will have multiple options
+You can add your golden from a variable
+You can add it from a CSV file
+Or you can add it from a json file
+So we will use json file
+And simply
+What we have to do
+We have to know our file path
+So what is our file path
+We have already defined
+Our goldens path
+So we will provide
+Our goldens path
+Ok if you want
+You can provide additional things
+Like you can provide
+Your json keys
+That your input key
+What is the name of your json
+In our case
+It is the input name
+So we will use it as it is
+What is the actual output name
+You can define that too
+What is the expected output name
+So all this is default
+But if you have changed it in your dataset
+So here you have to define the exact keys
+Ok so we have loaded
+Our goldens
+What we have to do next
+We have to do next
+We have to give our dataset
+Our application
+So we have to invoke our application
+So for that what we will do
+We will invoke our
+Application
+Now let me do one thing
+I will import one more thing
+Ok I have imported sleep
+Because when I was
+Running this code
+I had missing some information
+So what we will do
+We will set a timer
+Basically we will break
+Our loop
+So that all things
+Can be saved in our dataset
+So we will invoke our application
+So what we will do first
+First we will
+Invoke our application
+Before that we will
+Run a loop
+Golden in
+Now our dataset
+Has our goldens available
+So where will you get goldens
+In the dataset, in the goldens attribute
+You will get all your goldens
+So what is this
+All your goldens are available in this list
+You have run this loop
+And extracted every goldens
+From your list of goldens
+Now you will invoke your application
+So let's make a variable
+Final state
+So we will get our final state
+We will load our graph
+Graph dot
+Invoke
+And in the invoke we will send our
+Query in the dictionary
+What will be our query
+Query will be our
+Input from inside this goldens
+Ok
+So as we will send our query
+What will we get in our graph
+Our final state
+And we will get everything in our final state
+So let's make a variable
+In the input
+Query
+Input
+Query
+Input
+Query
+Input
+Query
+Input
+Now our actual output
+Now our actual output
+Now our actual output
+Where will we get this actual output
+We will get this output from final state
+So we will write
+Final state dot get
+Because it is a dictionary
+And we will give our key
+Key is our response
+Let me check
+What is our key
+I can check the state
+To response
+So here we will get our
+Response
+Next time
+From our goldens
+Already in goldens there is expected output
+So we will select
+Expected output
+And last thing we have to give
+Last thing we have to give is our
+Retrieval context
+Where will I get this
+I will get this from my retriever output
+But the important thing is
+That your retriever output is
+In the form of list of documents
+And how you have to feed
+Input here
+As a list of string
+So what you will do here
+Basically you will convert
+Whatever you have fetched
+Into string
+So document for
+Document in
+Where will you get it
+From the final state
+Dot get
+And in get you will get
+If I can check the key
+So key is your retrieved docs
+So here you will get
+What you will get from here
+From here you will get
+The list of documents
+So here are the document
+Objects, what you have to do is
+Doc.page
+Content
+And from this you will get
+Your list of string
+I hope you understood this whole code
+It is a simple code
+It is your rack code
+So there is nothing to worry about
+You have generated this test case
+After that what you will do
+After that you will add
+A little weight here
+A timer
+So we will add here
+Sleep and let's say
+We add sleep here
+Add delay of 3 seconds
+So that everything properly
+Added in our test case
+Let's do one thing
+This timer
+After running our application
+So that everything comes here
+Let's add here
+Finally what we have to do
+In our evaluation data set
+Because this is our group
+If I can show you the notes
+This is our group evaluation data set
+So your goldens went to your LLM application
+You got whatever necessary things here
+Now you have to add this test case
+In your evaluation data set
+So near your
+Evaluation data set
+Here
+There is a method called
+Add test case
+Simply you have to
+Provide your LLM test case
+That's it
+Test case
+And you have added your test case
+In your data set
+So let's understand the flow
+We have created our evaluation data set
+We have loaded our goldens in it
+After loading the goldens
+We have looped in on every golden
+What is golden?
+Our question and answer
+And where we have given that question
+To our student
+To our application
+Take this question and write the answer
+So our student wrote the answer
+We have stored that answer
+In our answer sheet
+That's it, this is our LLM test case
+In this our original question
+Our output
+From the student
+On which basis
+On which context
+He has answered
+We have stored that answer
+And your answer
+And finally we have
+Stored everything in our data set
+Now what is the last task
+To save the
+Data set
+Along with
+Test cases
+So you will use the data set
+And here you will use
+Save as
+In save as you will tell us
+File type first
+It will look the same as we saved goldens
+It is a similar format
+Here
+Next you will tell us your directory
+So directory
+We have defined above
+Directory is our
+Evaluation data directory
+Then you will tell us your file name
+File name
+We keep
+Evaluation
+Data set dot
+JSON
+We don't have to give JSON
+Just Evaluation data set
+And finally you have to include
+Include test cases
+If you don't include it
+Then your goldens will be saved again
+You have to set it as true
+That's it
+This is the code guys
+And you will get your test cases
+Let's run it
+So we will write
+UV run
+Generate
+Eval
+Data set dot py
+Our documents are loading
+Now chunking will be done
+And finally you will have
+Evaluation data set
+Will come here
+So I will look at the chat now
+If you have any questions then you can ask me
+Is this the whole flow clear guys?
+It's a little tricky I know
+But if you look at the lecture again
+Then this flow will be clear
+There is a little code here
+But again I have shown you
+Code run step by step
+It's clear
+Is the whole flow clear?
+It was easy, nothing difficult
+Simply you are loading your goldens
+Send it to your application
+And make test cases and finally
+Save it
+Let's let it run once
+It will take time
+If you have no questions then we can move ahead
+Write clear in the chat
+Clear
+Great
+Let's move ahead
+As soon as it runs
+I will show you here
+Let's go
+Now let's discuss
+Our metrics
+What we have done guys
+In our evaluation
+In our evaluation
+What was the biggest problem
+In evaluating our LLM base
+The biggest problem in evaluating LLM base application
+Was that we didn't have data set
+So we have completed
+This data set creation work
+We have the data set now
+Now what we have to do
+We have to evaluate
+Our application
+We have to evaluate
+Our application
+So with the example of the exam
+I will explain the whole scenario
+The first problem we had
+Was that we didn't have questions
+And we didn't have answers
+Related to those questions
+So in the previous section
+We saw that
+How do you make questions and answers
+Through the goldens
+Right
+After that what we had to do
+On day number 2
+We had to conduct the exam
+It was our exam day
+What we had to do in exam day
+We had to group these questions
+Which is our evaluation data set
+And we had to give these questions
+To our students or
+Our application
+And what our application does
+It reads these questions
+And where it stores the answers
+In the answer sheet
+And this answer sheet
+Is our final
+Evaluation data set
+But this time
+In this evaluation data set
+We have our LLM test cases
+Which is our question answer pair
+Right
+So our students
+Completed the exam
+And gave their answer sheet
+To the invigilator
+Now this work is done
+Now third step is left
+Which is our scoring
+Which is our
+Actual evaluation
+Now we will see
+How this scoring or
+Evaluation is done
+So you will remember
+We had discussed a very important
+Concept which was
+LLM as a judge
+So we
+With this concept
+Today we will read this
+Evaluation or scoring concept
+Now
+Your rag based metrics
+As I told you
+You have different types of LLM based
+Applications and to evaluate
+Each application there are certain
+Set of metrics which are specific
+To that application
+If I show you the documentation
+If I go to the documentation
+And here you will go to the eval metrics section
+So you will see
+Here you will get different types of
+Metrics for different applications
+And if we go to the rag
+Application
+Basically you get 5 metrics
+And these 5 metrics
+Evaluate your rag application
+From this top 2 are basically
+For your generator
+And these bottom 3 are basically
+For your retrievers
+So today we will cover these bottom 3
+After that
+Just a second guys
+One second guys
+Right
+So the concept
+Which we are going to use here is
+Our LLM as a judge
+Now you
+This whole scenario which is
+Evaluating this rag application
+Think of it as a courtroom
+Now the example
+Which we have is over
+Now this evaluation
+Example is think of it as a courtroom
+Now what happens in the courtroom
+In the courtroom
+You have your judge
+Your lawyers
+Advocates
+And here you have
+One is convict
+And the other is plaintiff
+Basically the one who is the judge
+Like us
+So the judge
+In the courtroom
+What does the judge expect from you
+If you are a lawyer
+Then what will the judge expect
+From a lawyer or an advocate
+What does the judge want
+To function properly
+I am looking at the chart
+Any
+Courtroom evidence
+What is the basis of any courtroom
+What do we want
+We want evidence
+On the basis of this evidence
+The judge can give us our verdict
+So when you have made an LLM
+As a judge
+And what do you expect from this judge
+You are expecting two things from this judge
+First of all you are expecting
+What is the result of your case
+You are expecting the result
+Or score
+And you
+Expect from this judge
+A verdict
+What is the verdict
+There is a reason
+For the judgment
+What is the reason behind it
+So we are from our LLM
+Like a judge
+We are expecting two things
+First is the result of the judgment
+Pass or fail
+And second
+How did it reach that number
+So give us a verdict for that
+So if you have seen
+The judge uses a term
+That all
+Evidence
+And evidence
+I give this particular verdict
+I give this verdict
+Keeping it in mind
+So you will use your LLM
+As a judge here
+Now we will talk about the evidence
+That we are giving to our judge
+What is this
+So if we are here
+Talk about retrievers
+Because today we are going to evaluate
+Retrievers
+So what can be the evidence for retrievers
+Evidence for retrievers
+Is the evidence of your crime scene
+The evidence of the crime scene
+Which the retriever did at present
+Like the context of our retriever
+And what is this
+This context is
+The output of our retriever
+Second
+Our input
+What trigger did the retriever get
+On the basis of which
+He generated this output
+If the retriever was on my crime scene
+He committed a crime
+Or did or did not do
+So what was the trigger
+For committing that crime
+What was the motive
+That is our input
+This is my motive
+OK
+And
+What is the final thing
+My final thing is
+What can you call the answer
+This is my
+Expected output
+You can call it anything
+This is what
+This is my evidence
+This is my evidence
+Is this thing clear
+So here we understood
+Three things
+If we want some judgment from our LLM
+Then we have to provide some things to LLM
+We have to provide some evidence to the judge
+We have to provide some evidence
+The whole history of the case
+So our judge
+Is expecting three things from us
+First of all
+First of all
+If I have committed a crime
+Then what was I doing on the crime scene
+OK
+So he has to tell me what I did on the crime scene
+So whatever I did on the crime scene
+Is the output of my retriever
+OK
+What was the motive behind my crime
+The motive is my input
+And third
+Whatever evidence
+My lawyer or police collected
+By the way, the police collects
+So whatever evidence the police collected
+From the crime scene
+That is my expected output
+So now what will the judge do
+The judge's work is very simple
+The judge got to know
+What is my motive
+OK
+The judge also got to know
+What is my motive
+And the judge also got to know
+What is the whole story
+What did I do on the crime scene
+What is the purpose of that
+Basically, the story that I am telling the judge
+And the evidence
+Both have to compare
+This is what happens
+I told the judge my version
+That I went on the crime scene
+I did this and that
+But is my statement right or wrong
+How will you know
+What is the job of the judge
+The job of the judge is simply to compare
+So our LLM as a judge
+When we use LLM as a judge
+So basically we are
+Comparing internally
+OK
+What do we do to our LLM
+All these things provide as input
+If we have three inputs
+Then we will provide these three inputs to our LLM
+And along with it
+We write proper system instructions
+Through a system prompt
+This tells our LLM
+How we have to behave
+OK
+How to understand this particular evidence
+How to understand this whole story
+How to understand the motive
+And how to generate our verdict
+Now the good thing about DeepEval
+Is that this system prompt
+Or these instructions
+You don't have to give to LLM
+You have a built-in matrix available in DeepEval
+Where this whole flow
+How you have to process
+These three inputs
+And how you have to give verdict
+You get all this inbuilt
+What you have to do is
+Use this built-in matrix
+And you can simply
+Get the score of your
+Application
+You can get your evaluation score here
+I hope this thing is clear to you
+So this concept of LLM
+As a judge is very simple
+You have to get the generated output
+Of LLM
+Evaluated from another LLM
+That's it
+For that internally you give some set of inputs
+They are different for every application
+Now for our rag application
+These are the three inputs
+It is possible that for other applications
+You have some other type of inputs
+So you will give inputs
+One system prompt
+And one powerful LLM
+Which can compare all these things
+And it can do the processing
+It has a good understanding of the language
+And it can compare and give you the scores
+Is this thing clear?
+Is this point clear?
+Clear
+So you understood
+What is the role of the judge
+Yes
+So if you understood
+What is the role of the judge
+Then I will ask you a question
+And I am expecting
+That you will give this answer
+I will like it
+That we are telling the motive to the judge
+We are giving the context
+Of the crime scene
+And we are giving evidences
+Now the verdict of the judge
+That
+That the verdict of the verdict
+That the death
+Or the death
+Will be saved
+What is the verdict
+That depends the most on?
+Does it depend on the judge?
+Means how is the judge
+Depends on this or depends more on
+What kind of inputs
+We are providing
+Means what matters more in a courtroom
+Inputs matter
+So our evidences
+You know that if you win or lose a case
+It depends on evidences
+So all these things
+Motive, context and evidences
+On this the verdict of the judge
+Depends a lot
+And the second thing is that DPVAL
+Uses a powerful LNM as a judge
+So again you can correlate this
+With the judge
+Because the experience is good
+He studied law
+He cleared exams
+He practiced a lot as an advocate
+As a lawyer and after selection
+People become judges
+So again what we will do here
+The most powerful LNM
+Which we have we will use it as a judge
+Clear?
+So the thing is
+These things
+Motive, context and evidences
+That's why we spent so much time on it
+This is our golden
+This is the evaluation data set
+That will be our result
+So because these things
+Are so important in the input
+That's why we spent so much time on it
+Making the goldens very good
+Why is it so important
+I hope you are understanding this
+I hope you are understanding this
+Clear?
+Clear guys?
+Any questions?
+Clear?
+Great
+Now guys I am not
+Discussing the entire rack flow
+We are not talking about
+Retriever failures, generator failures
+I will simply
+Move on to
+Retriever metrics
+What are retriever metrics
+And what are the failures in retrievers
+We will discuss about that
+I hope you know how the rack works
+So the whole
+Rack based metrics
+We are not discussing that now
+You will read that
+So let's start
+About retriever metrics
+Again we will take an example
+Of Google search
+If you think
+What is your retriever doing
+Or what does any retriever do
+Your retriever is doing the searching
+What are you giving your retriever
+You are giving a query
+As input, a question
+And you are saying
+Go to a database
+There are many
+Text available in that database
+There are many textual chunks available
+And from that database
+All the related chunks
+From this query
+You can fetch them
+This is the task of retriever
+So basically retriever
+Is acting very similar to
+A Google search
+What do you do in Google search
+When you log in to your home page
+If I show you here
+So this is my Google search
+What will I do here
+I will write any question
+And that question is
+And related to that query
+I will get results here
+Let's say I searched here XKaliDraw
+So as soon as I searched here
+You will see related to XKaliDraw
+I will get many results here
+Different results
+Some results will be above me
+Some results will be below me
+From different aspects
+XKaliDraw query will be searched here
+Is it clear now
+So our retriever
+Is also similar to Google search
+So now I want to ask you
+Because we use Google
+Search a lot on daily basis
+Google search
+In Google search
+What all failures can be
+I want to know from you
+I am looking at the chat
+When you give query in Google search
+What kind of
+Failures you can see
+Not getting the right results
+This is
+The first point that your results
+Are not relevant
+Relevant results are not there
+That is done
+Search data is done
+Not two verbose
+You get links there
+Not latency
+You get the results
+Not authentic
+No something else
+Yes
+DevPriya is right
+Your relevant results are
+Many times below the list
+First sponsored links are coming
+First some advertisement is coming
+After that your page
+Is not available in search
+So your results are relevant
+Relevant results are present
+Present
+But rank lower
+Right, something else can happen
+First is
+The results are not relevant
+Not related to query
+But relevant results
+Are below the list
+I have to scroll
+Maybe third
+Hallucination is not there
+In Google search
+And hallucination
+Your LLMs do
+Your retriever never hallucinates
+We are talking about retriever
+We are talking about retriever
+One more point
+Which you are missing
+I will tell you
+Yes, that can be one thing
+All results are similar
+But it is ok because we are searching
+Similarity
+It is not retriever's fault
+According to which we are chunking
+Or embedding
+That is fault
+The problem is
+We are not getting all results
+Some results
+Are missing out
+Like
+I have given a simple query
+Of Xkali Draw
+Maybe I have query
+All blogs related to
+Transformer architecture
+Maybe I don't have all results
+Maybe
+I have some irrelevant results
+So these are three
+Problems
+Which I can see
+In Google search
+First is
+My results are not relevant
+They are useless
+Second is
+Relevant results are coming
+But below the list
+Third is
+All results are missing
+Let's say if I had 10 results
+Of that query
+So our
+Retriever's evaluation
+Because
+Retriever is very similar
+To your Google search
+Retriever's fetching of the results
+Searching
+Is doing the same
+And it is getting query from our user
+So we
+Evaluate our retriever
+On these three aspects
+First is
+How many results
+Are relevant
+This is my signal to noise
+Ratio
+And the metric
+Which we use is
+Contextual relevancy
+Second is
+Relevant results are present
+But ranked lower
+Results are coming but not on top
+So the metric
+Which we use to test
+Is contextual precision
+And some results
+Are missing out
+All results are not coming
+To test this metric
+Which we use is
+Contextual recall
+I hope this thing is clear to you
+So in today's session
+We will focus on these three metrics
+First is contextual relevancy
+Second is contextual precision
+And third is contextual recall
+And these are
+Our retrievers
+Failures
+These are failures of my retriever
+The negative aspects
+Of my retriever
+Are scored
+And basically what I have to do
+Here
+The range of the metrics
+Is always from 0 to 1
+And
+In the case of these metrics
+Higher is better
+But it is not like
+All metrics are in the case of higher is better
+Like you have a metric
+To check hallucination
+If your response has more hallucination
+Then its score is higher
+So will this metric be better
+If it is lower or higher?
+Obviously when it is lower
+Hallucination will be less
+There is another metric
+Which is called noise sensitivity
+When it is lower, it is better
+But today the metrics
+Which we are going to read
+Their range is normalized
+It is from 0 to 1
+And they come in your
+Higher is better category
+Is it clear now?
+Is it clear guys?
+Let's start
+If you have any questions
+Then we will start
+Our metrics
+And will cover every metric in detail
+Clear
+Fine, so let's start
+Let's do one thing
+Let's start with contextual recall
+Because contextual
+Precision is a little tricky
+I will cover that in the end
+So let's start with recall
+Or maybe we will do it on the second number
+But first let's start with recall
+Now let's discuss
+What is contextual recall?
+We have discussed
+Different failures of our retriever
+Let's discuss what is contextual
+Recall
+What did I tell?
+What does recall test?
+Recall tests that for a given query
+Listen carefully
+For a given query
+For every query
+All the results available
+To answer this query
+Did they
+Retrieve all the chunks
+And bring it or not
+I mean, did they retrieve that much context
+And bring it or not
+Let's say I have a query
+What is
+Machine learning
+Fine, now to answer
+This particular query
+In my database
+Because all my chunks are saved
+In my database
+To answer this query
+Let's say 20 chunks are available
+And in these 20 chunks
+There are different information
+Which answers this particular question
+So if my retriever
+Retrieves these 20 chunks
+And brings it
+Then I will say
+My retriever's recall is maximum
+And if it
+Misses some chunks
+Then I will calculate my recall
+It will not be maximum
+It will be less than maximum
+Basically, what am I checking here
+I am checking the completeness
+Of my
+Retriever
+That if to answer
+A particular query
+I need an x amount of information
+Then from that
+X amount of information
+My retriever can fetch
+That information
+That is my contextual recall
+We call it completeness
+That how much my retrieval
+Or fetching of the results is complete
+Fine
+Let's read the definition of this
+Things will be more clear
+So here is the definition
+So contextual recall checks
+Whether the retrieval context
+Contains enough information
+To fully support
+The expected output
+Means
+Has my retriever
+Retrieved all the information
+Which can support my expected output
+Did you retrieve
+Everything needed
+Not just something relevant
+This is a coverage
+Or completeness check
+Not a ranking check
+There are many terms and definitions
+You might get confused
+By reading the definition
+Why did I read it like this
+We will cover the metric
+And when we cover contextual recall
+Then you yourself
+Will be able to break down this definition
+Trust me
+So I will explain it to you again
+We have a query
+Like what is machine learning
+Now to answer this query
+I have a database
+In the database
+I have the specific information
+From machine learning
+All that I have dumped in this database
+Where is this information coming from
+From my knowledge source
+Or from my document
+I have chunked it
+Embedded it and dumped it in my database
+What is the work of my retriever
+The work of my retriever is
+To extract relevant information
+Relevant to what
+Relevant to my input to my query
+So what is my query
+Machine learning
+Let's say relevant information
+In my database
+There are 10 chunks
+So I want to simply test
+That my retriever
+Is it able to retrieve
+10 of 10 chunks
+Simply I can check this much
+In the recall
+That's it
+And if you have read this recall word
+Carefully
+Then you will remember that
+It is inherited from machine learning
+What is recall in machine learning
+If anyone can tell me
+In machine learning
+In classification
+It is a metric
+Recall
+Why is it used
+I am looking at the chat
+No, don't give me the formula
+Tell me the essence
+Where is the recall used
+I will tell you
+If you have forgotten
+Recall what happens
+In machine learning
+Out of
+All positives
+All positive
+Rows or positive cases
+In my test data
+Out of all positives
+How many were
+True positives
+Which we
+Labelled as positive
+Basically we
+Recall this is how we calculate
+True positive divided by
+True positive plus false negative
+What is this denominator
+This is my all of the positives
+All the positives in my data set
+Available
+These are all denominator
+From that
+How many we have labeled positive
+If you look at the definition of recall
+In the case of
+Your rack metric
+What is contextual recall
+What is contextual recall
+Contextual recall
+Is recall of your context
+Out of all the context
+To answer a given query
+To answer a given query
+If I have
+Requirements on 10 chunks
+All the information
+Is available in these 10 chunks
+Which is perfect to answer this query
+So from this
+How many chunks I finally
+Retrieved
+That is my contextual recall
+Is this thing clear
+Clear
+Understood
+Yes
+Right, now we will understand it
+Through an example, things will be understood better
+Great
+Now let's go
+Let's see its formula
+What is the formula
+It is written in a difficult way
+Number of sentences in expected output
+Attributable to retrieval context
+It is written very dangerous
+Divided by total number of sentences
+In expected output
+So something very dangerous
+Is happening here
+Now I will tell you what is needed in inputs
+We have understood that
+We have some contextual recall
+Which is a disease
+We have to calculate it
+Now what is the treatment of this disease
+Let's discuss about treatment
+So what we have to do here
+Basically
+We have to check
+Out of
+All context available
+Whenever I talk about all context available
+Then understand that
+It always comes with a prerequisite
+For a given query
+This is its prerequisite
+Because you understand
+Your database
+In it
+Many topics around
+Information are stored
+What are you calculating in recall
+For a given topic
+For a given query
+To answer that query
+All the information in your database
+How much we can fetch from it
+Means if I
+Search for a particular block
+On Google search
+Then how many links
+I have retrieved from that block
+And got in my search results
+That is my recall
+I don't care about quality
+I don't care about their rank
+I simply mean
+That 10 blocks were available
+For a given topic all over the internet
+From that how many
+I showed to the user in my search results
+That's it
+So remember
+You don't care about
+The order of
+Results
+No matter in which order
+It doesn't matter
+Secondly you do not care
+About
+Relevancy of results
+That how good the result is
+How is the quality
+You don't care about
+Quality
+You only care about
+How is your coverage
+How is your completeness
+Right
+So what we have to do
+We have 10 chunks in our database
+We have to calculate
+How many chunks we can retrieve
+From those 10 chunks
+For a given query
+So what we need here
+First of all
+We need this particular query
+So where will we get this query from
+This query will give us
+Our golden data set
+Because
+We have generated this query in golden data set
+Right
+Next what I need
+Next I need
+That in my database
+How many chunks are available
+Related to this query
+That's why I can calculate
+All positives
+That's why I can see
+How many chunks I got
+Or how many positives
+I got
+I need this 10 value
+How do I know that for a given query
+I have 10 chunks in my database
+Total 15 chunks, 20 chunks, 25 chunks
+How will I get this value
+So will I
+Will I mess up my database
+Will I read one by one
+That this is relevant
+This is not relevant
+The answer is no
+What you do here
+You put a smart approach
+The smart approach is
+You use expected output
+Now guys, someone from chat
+Tell me what is expected output
+What is this expected output
+The answer is yes, everyone knows
+But what is this
+Expected output in nature
+How will its nature be
+I am looking at the chat
+And I will be very happy if someone gives a correct answer
+No, it is not the average
+What is expected output
+What is the quality in the answer key
+Which makes it the answer key
+You are testing a subjective paper
+And you have an answer key
+No, it is grounded
+Full coverage, yes
+Shruti was right
+Full coverage, this is a very important point
+How is the answer key in your subjective paper
+All the points are listed in the answer key
+All the points
+All points
+Which are required
+To score 100%
+They are listed in your answer key
+So if
+I have this answer key available
+So basically
+I will do reverse engineering here
+By putting some hack
+So I can extract all the important information from inside
+Means I will get to know
+How many points I have listed in this answer key
+If I have this answer key
+And there are points there
+So what I have to do is extract those points
+And those points will tell me
+That these points are necessary to build a perfect answer
+If this information was with my student
+Then he would have written the perfect answer
+If he had covered these points in the chapter
+When he was studying or he remembered while writing the exam
+Then he would have written the perfect answer here
+Am I correct or not
+Are you guys confused
+Are you not confused
+If you are then tell me now
+Because this concept is a little tricky
+I will simplify it a little more
+Confused or clear
+And if you are confused then how much is clear
+Out of 5 you tell
+Confused or clear guys
+A bit confused
+This one is not clear
+Ok I will tell you again
+Let's erase this
+Let's discuss again
+Because you understood one matrix
+If you have this then you will understand all the other matrix
+It is very easy
+Because here actually
+All the components of the LLM test
+If you understand all the components
+Then you will understand things
+You understood this guys
+What are we doing in the recall
+What are we doing in the contextual recall
+Everyone understood this
+What are we evaluating
+Ok you understood this
+What are we evaluating
+If we have total information
+Let's say 10 units
+From that
+Our retriever
+The component to fetch
+How many units of information
+That's it
+We are not testing where it is placed
+How much is correct and wrong
+We are not testing that
+Total is how much we can cover
+That is our sole criteria
+We are checking the coverage here
+Right now
+What are we taking here
+First of all we are taking our input
+Why because whenever we check the coverage
+It will be related to our input
+Ok
+These are 10 units for a given query
+Based on machine learning
+What is machine learning
+These 10 chunks are available in my database
+If tomorrow someone makes this query
+What is deep learning
+Then it is possible that 30 chunks are available in my database for deep learning
+So along with the query
+The total number of units of information
+Available in my database
+It keeps changing
+So it is query specific
+This thing is clear
+And where are we getting this query
+We are getting this query from our golden data set
+Right now if you ever
+Have to find out
+That for a particular
+Query
+How many valid chunks are available
+In your database
+So the clear cut way is
+Go to the database
+Study all your chunks
+And filter out from that
+Which is the valid chunk
+To answer that particular query
+Are you understanding this
+Guys
+I have opened the chat section
+Keep it active
+But is this thing feasible
+Let's say
+My database has 1 billion chunks
+Is it feasible
+That I go and see
+These 1 billion chunks
+And from this
+Against my query
+I get the valid chunks
+Because I am changing
+Queries here
+And every time I have to explore these 1 billion chunks
+So this thing is clear
+And this thing is not feasible
+But I have to find out
+This number somehow
+If I have to calculate recall
+How much unit of information is available
+For a given query
+So how will I find out
+I will find out from my answer key
+I will find out from my
+Expected output
+What is expected output
+Basically
+My golden data set
+Is a grounded response
+And along with ground read
+The biggest thing is
+Even if I remove the ground read
+The biggest thing is
+This is my perfect response
+This is the response
+Which I am expecting from my students
+Or from my LLM applications
+That if my application is a topper
+Its score is going to come 100%
+Then it will give me
+This expected output in its answer
+Do you believe this
+Do you believe this
+Do you believe this
+Yes
+And how will this expected output be made
+This expected output we discussed
+That this is made from my query
+And from my context
+I told you that LLM
+It generates this expected output
+Like we do in our rack
+Right
+So if in this context
+All that information
+Will be available
+Then I will get this expected output
+To make a perfect answer
+A perfect context should also be available
+To make a perfect answer
+Is this clear
+Is this clear guys
+Yes
+So the thing is that the expected output
+Which I have
+In it
+All the points are listed
+Which are basically
+Available in this perfect chunk
+Or in this perfect context
+Because this is referred to
+To make this expected output
+So if I take this expected output
+Because this perfect chunk
+Is of no use to me
+We have already discussed this
+The way of making this is completely different
+We are using a different way of splitting
+We are using a different way of splitting
+We can't use this for comparison
+So what can we do
+We can take this perfect answer
+And this expected output
+And from inside it
+Key facts
+Or claims
+We can extract using an LLM
+What are you simply doing
+You are saying that
+This perfect answer
+Is made from a perfect context
+And what is the definition of a perfect context
+Where all the pieces of information
+Are available
+You said to take this perfect answer
+And extract
+All the information in it
+So because this is a perfect answer
+All the information is available
+Which is required to answer this query
+So when I extract
+This information through LLM
+So how many pieces of information
+Will I get in the output
+Guys
+How many pieces of information
+Will I get
+How many pieces of information
+Our query needed
+Which gives maximum coverage
+If these were 10 pieces of information
+Then I would have got the perfect answer
+So if I have the perfect answer
+And I have decomposed it
+Then how many pieces of information
+Will I get in the output
+So what I did
+I took my answer
+Which is my answer
+And I extracted key facts from it
+Because I know that
+This answer is a perfect answer
+All the information is available
+Which is required to answer this query
+Is this clear
+Now what I have to do
+I have to do a comparison
+I have to do a comparison
+I have to give these 10 pieces of information
+To my LLM
+And whatever my retriever retrieved
+Which we call retrieved context
+I have to give it to my LLM
+And I simply have to say
+That calculate
+How many of these facts
+Are available in my retrieved context
+What is this retrieved context
+This is the output of my retriever
+And I am testing my retriever
+I am testing its recall
+I am testing its coverage
+So 10 is the coverage value
+Which is required to answer this query
+Maximum coverage
+And I am saying that 10 is the maximum
+Coverage, now you check
+How many points you have written in your answer
+That's it
+Is this clear
+Is it clear
+So what we will do
+First of all we will use an LLM
+And extract these particular claims
+And after that we will give these extracted claims
+And our retrieved context
+To our LLM
+And our LLM will be made in that case
+LLM as a judge
+And we will say that now do comparison
+Now find here
+This is my evidence
+And this is my story
+That is there
+There are 10 things in evidence
+Let's say there are 10 things in the story
+And there are 5 things in the evidence
+Now compare
+So how much will the story and evidence match
+If there are 5 or 10
+50%
+Right
+So that's what we are calculating here
+Just remember this
+So the question is basically
+How much coverage we can do
+Let me explain it to you in a simple way
+With a simple analogy
+If we go for an exam
+So this recall word
+What does it mean
+Recall
+When we go for an exam
+How much we can remember
+That's it
+How much we can recall
+During the exam
+Sorry how much we can recall
+How much we can recall
+How much we can
+Memorize it
+That's the recall
+If 10 pieces of information
+Could have been the perfect answer
+Then how many points do I remember from that
+Now you must be thinking
+That in this
+Why don't we check
+The response of LLM
+Why are we here
+Behind this particular thing
+That what is retriever
+You may have a question in your mind
+That sir if we have to check
+In the bullet points
+That are there 10 bullet points
+Then we will know from the response
+Why are we here behind retriever
+Can anyone tell us
+The answer
+Why are we behind retriever
+I will ask my question again
+I told you
+If I have 10 units of information
+Then my recall is maximum
+And what I am doing
+I am comparing this 10 units of information
+With my retrieved context
+Basically I am testing my retriever
+I could have said
+That I have the answer
+I am comparing my LLM
+I am testing the answer of LLM
+Or the response of LLM
+Isn't that a better approach
+Testing the answer
+Why am I testing retriever
+No, no
+You are telling that in the case of rag
+That these are the results
+Yes, Sumit is right
+That the basics of rag application
+What is rag 101
+Rag 101 is my context, my query
+Now you generate your answer according to this
+So if that information
+Is available in the context
+Then it will reflect in my answer
+Then we directly check the context
+Because to check the answer
+Again we have to extract the facts from the answer
+We have to put an extra LLM call
+We are extracting the facts from our answer
+We are extracting the facts from our written answer
+Then we are comparing both
+So there are 3 LLM calls
+And there is a chance of a mistake
+So we are going to put an extra LLM call
+And there are more chances of a mistake
+What are we doing here
+We are comparing our extracted facts
+With our source of truth
+Directly
+So comparison becomes easy
+Is it clear
+Clear
+Did you understand
+How recall works
+Clear
+Now let's read it once
+Leave the formula and definition
+Let's read the role of the LLM as the judge
+What is the role
+Let's discuss the points that we have discussed
+That are different
+So we discussed
+What does our LLM do
+It takes the expected output
+And segments it into
+Individual claims or sentences
+Means it extracts the facts from it
+For each sentence the judge checks
+The full retrieval context
+It takes every claim
+And then goes to the retrieval context
+What is this retrieval context
+This is the output of my retriever
+And decides
+Is this claim
+Available in my retrieved context
+Or not
+It attributes the sentence
+You can call this sentence
+To the claim
+To a specific node
+What is the node
+To my retrieved chunk
+That is this fact is available in my chunk
+Or not
+Each sentence gets a verdict
+Attributable
+If claim is available
+I can attribute from my information
+Or not
+With reasoning
+Deep eval divides the attribution sentences
+By total sentences
+And this is your final score
+Total sentences are total number of extracted
+Claims or facts
+And divide
+And what is in numerator
+In numerator is
+How many are attributable
+How many are available in your retrieved context
+I hope this point is clear to you
+Now let's do this
+Through an example
+You will get everything clear
+Now
+Here I have given an input
+And an expected output
+Now I will ask you again
+Because you are following this religiously
+This particular
+Thing you can see
+What is this
+It is a pair of what
+Guys I am looking at the chat
+Golden data set
+Very good
+I like it when you
+Follow the classes
+And listen to things
+It really amazes me
+Ok
+Golden data set
+We have input here
+And our answer is
+What is input
+How does bagging work
+And this is our expected answer
+Let's read it
+So basically
+How does random forest work
+This is told
+This produces
+This process reduces variance
+And helps to prevent overfitting
+So bagging
+You are told the pros
+Now what is our first work
+Our first work is
+We have our input
+And our answer key
+Now what will our LLM do
+First of all
+It will take this expected output
+Because in this expected output
+We are understanding that all
+Claims are available
+Which is necessary to write a perfect answer
+So what we have to do
+We have to decompose it
+From inside it
+We have to extract facts
+And to extract these facts
+What will we use
+We will use an LLM
+But remember
+This LLM is not judge LLM
+Judge LLM will come when you do comparisons
+You are not doing any comparison
+So simply you used an LLM
+Now the judge or extraction
+Depends on its prompt
+So here you simply
+Prompted that this is my input
+This is its expected output
+From this expected output
+Whatever claims you get
+Which are relevant for input
+Extract it
+Whatever claims you are getting
+Extract it from output
+This is the simple prompt
+You have to give to your LLM
+You don't have to give
+This is all internally
+This is all internally
+Now what happened
+You got retrieved context
+What is retrieved context
+This is retrieved context
+Your retriever's output
+Now let's leave it
+Let's go down
+Let's see here our LLM
+Whom we used to extract facts
+What facts did he extract
+What facts did he extract
+So in total he extracted 5 facts
+So in total he extracted 5 facts
+First fact he extracted
+Bagging which is short for bootstrap aggregation
+It works like this
+So let's see
+What is this particular fact available
+This particular fact is available
+This particular fact is available
+He extracted it
+Second fact
+Second fact is
+A separate model is trained
+On each subset independently
+This is my second fact
+This is also available
+Third fact is
+For classification the final prediction is made by
+Majority voting across all models
+Then fourth is
+And similarly you have fifth fact
+So what you did here
+Sorry not actually
+You extracted it from your expected output
+Here
+You extracted 5 facts
+What are these 5 facts
+These 5 facts are
+Total information
+Which is what
+Which is
+Available in your database
+To answer the query
+And query is
+Bagging
+To answer this query
+In your database
+How many units of information are available
+5 units or you can say
+5 chunks of information are available
+Chunks are generally not available
+We say units because
+Sometimes what happens is
+There can be multiple facts in one chunk
+So 5 units of information are available
+What we have to check here
+We have to check here that our retriever
+When we give this particular query
+To our retriever
+How many units of information
+He can retrieve
+So we gave this particular query
+To our retriever
+And we set the value of k as 3
+And retriever gave us
+3 chunks in output
+What is the first chunk
+Bagging creates multiple bootstrap samples
+From training data set
+Each sample is drawn randomly with replacement
+Meaning some data points appear multiple times
+While others are left out
+So you can see this is completely different
+From the information that we extracted
+Your retrieved chunks
+And facts can be different
+In bagging
+An independent model is trained
+On each bootstrap sample
+For regression the final output
+Is average of all individual model predictions
+Random forest are extension of bagging
+That also introduces random feature selection
+At each split
+In addition to bootstrap sampling
+So these 3 chunks
+Your retriever retrieved
+Now
+Your LLM as a judge
+Now your LLM as a judge
+What your LLM as a judge will do
+Your LLM as a judge
+Will take all your retrieved
+Facts
+And one by one
+Will go to your
+Retrieved chunks and check
+Which of these facts
+Is present or not
+So let's do one thing
+Let's do a regression and
+Calculate recall
+So you guys calculate with me
+This first fact
+Bagging short for bootstrap aggregation
+Works by creating
+Multiple subset of
+Training data
+So let's see if this particular fact
+Is available in my retrieved context
+So yes, here I can see
+This particular fact
+In line number 1
+So this is available
+Now here you can see a difference
+This particular
+Chunk language
+Is different from
+This particular retrieved fact
+Here exactly
+Your keywords are not matching
+Here you have
+Written bootstrap
+And aggregation word
+Will be somewhere else
+Here bootstrap aggregating is coming
+Multiple subsets are coming
+Here multiple bootstrap samples are coming
+So you can see here
+Words are different
+But here intent
+Intent is exactly same
+So that's why here whenever
+For this comparison
+We use LLMs
+Because LLMs focus on the intent
+Not the actual keywords
+So our LLM easily
+Can match this intent
+It can understand
+The patterns of this language
+The intent
+So what we will do here
+We will take this particular fact
+And check it in retrieved context
+So yes, this particular
+Fact is available in my retrieved context
+Now let's check
+About the fact number 2
+A separate model is trained on each subset
+Independently
+An independent model
+Is trained on each sample
+This particular fact is also available
+So this is also available
+For classification, the final prediction
+Is made by majority voting
+Across all samples
+So classification
+Is
+If I can check
+So no
+I can't see classification
+Here we are talking about regression
+But classification is not
+Available here
+So this fact is not available
+In my retrieved context
+Regression
+Yes, it is available
+And this process reduces
+Variance and helps from ending
+Overfitting
+So is this particular point available
+I don't think this point is also available
+So I will mark this
+As not available
+So what I did here
+After extracting the facts
+I checked here
+That is it available or not
+In my context
+And I did a simple calculation
+Calculation here is
+That all the facts I have
+All facts
+And above will be
+Attributable facts
+Attributable facts
+So how many facts
+Are available
+In my retriever output
+Those are
+3 facts out of how many
+Out of 5
+So here my recall is
+3 by 5
+So now it is clear
+That how do you calculate recall
+It is clear guys
+Yes, it was easy
+Simply what you did
+You took the expected output
+Which is your answer
+You extracted the facts from it
+And compared with
+Retriever output
+That which facts are available or not
+You got the value of recall
+Yes
+1 is max
+0 is minimum
+Thanks Tushar
+For liking the session
+Again it is very conceptual
+It takes some time
+But things stick around
+I am trying my best
+That you understand these things
+So that you can understand
+Great
+So let's go once
+I will take some questions
+Then we will move ahead
+Ok, we will go slow
+There is no need to cover all today
+We can cover further
+But you should understand each metric
+That's my goal
+What if S1, S2, S3, S4
+Are present in one fact
+What you did here
+You extracted 5 facts
+And sent each one to your LLM
+What is the process
+Let me tell you the process
+I will write actual again
+It is expected output
+You took expected output
+And sent it to your LLM
+What did LLM do here
+It extracted the facts
+Those are 5 facts
+Now you will extract the facts one by one
+Fact number 1
+And all your retrieved context
+You will send it to LLM
+This will be your one LLM call
+And simply you will ask LLM
+That is this fact
+Is it available in your whole retrieved context
+If it is
+Then mark it as true
+And if not then mark it as false
+Then you will do this for second fact
+Then for third
+Then fourth and fifth
+And after that you will get count
+All the trues
+You will sum them in numerator
+Divide by the total number of facts
+How many times you ran the loop
+You ran the loop 5 times
+And you got 3 trues from it
+So your recall is 3 by 5
+Now you will retrieve
+Is it clear
+Fact is correct
+Where is it
+We are not calculating that
+Simply we extracted the facts
+From whatever we had answered
+And we just compared
+That is it available or not
+Check availability
+No, no, no
+No, no, no, no, it doesn't recall
+It doesn't recall
+That is relevancy
+We are not checking relevancy
+We are not checking relevancy here
+We are checking completeness, we are checking coverage
+It can be like this
+That in the answer
+There are no proper facts
+Listed, there can be wrong facts
+We are not checking relevancy here
+We are not checking right or wrong
+We are checking completeness
+But generally they are relevant
+It is obvious
+That is our answer
+There will not be wrong facts
+But relevancy is not checked
+Again
+What is LLM
+LLM is your inputs and your prompt
+You can use the same model
+But you will give different prompts
+First there will be a prompt
+Which extracts the facts
+Second prompt will do comparison
+LLM as a judge
+Again
+I told you
+What are we doing here
+We are trusting
+This expected output
+Because we have made it
+A proper context assembly process
+By making a group
+By compiling all the contexts
+What did we do when we made a group
+We compiled similar context in that group
+After compiling in that group
+We made our question from that
+And by giving that question and context
+We got our answer made
+Our answer did not come from the air
+We filtered it through the process
+We filtered it through the process
+And got a very good answer made
+And after that
+We are checking the facts
+By extracting the facts from it
+This is a tried and tested
+Answer key is
+Having all the information
+Yes
+The relevancy will hit there
+Again when we will read the relevancy
+We will read about those things
+I hope guys you understood the recall
+Here we are not checking the relevancy
+Here we are checking the attribution
+That whether our facts
+Are available in our context
+Yes or no, that's it
+There are 10 facts, 5 facts, 20 facts
+All are available
+Or if all are not available, then how many are available
+We are checking the coverage
+Is it clear guys
+Do you have any questions
+If you have then you can ask me
+Now it's a good time to ask questions
+Clear
+Clear
+Clear guys
+Now let's discuss
+If our particular metric
+Is low
+Then what we have to improve
+If the metric is high
+Then we don't have to improve anything
+If our recall
+Let's say
+Is 100% or 95-96%
+Then we are understanding that
+Our retriever is working well
+Whatever information is there, we are able to extract it
+So there the scope of improvement
+Is very less because already we are
+Scoring well there
+But what if we are scoring low
+Then with what things can we improve
+This recall thing
+So what is the problem in recall
+The problem in recall is that
+There are chunks
+The information density
+In them
+Is less
+Means we are not able to extract
+A lot of information from our database
+So what we have to do simply
+Is increase the amount of information
+So the first simple way is
+To increase your k
+Ok, someone was right
+That if there are 10 units of information
+Then if our k is 5
+Then we will not be able to retrieve
+10 units of information
+If those 10 units of information
+Are available in our 10 chunks
+Let's say
+If every chunk has 2 units of information
+Then we can extract it from 5
+But if it is available in 10 chunks
+Then we have to increase k
+So if your retriever
+Is not pulling back all the necessary
+Information, classic symptom is
+Top k is too small
+So you increase it
+Ok, this is also a hack
+To increase recall
+That you here
+To increase recall
+Increase the value of k
+So you will see
+As you start increasing the value of k
+Because what we are doing here
+We are testing that
+Is that particular chunk retrieving or not
+Where is it happening, which position is it happening
+How relevant is it, that is not our matter
+It should be present and absent
+Checking
+So as you increase k
+Many chunks will start retrieving
+So it is possible that
+That chunk is available
+Right
+What can be the second problem
+Chunking might be too fine grained
+What does fine grained mean
+It is possible that you have made very small chunks
+So if there are small chunks
+Then obviously less dense
+Information will be less in them
+So what can we do here
+We can make larger chunks or add overlap
+So in every single chunk
+It can be 2 units of information
+Or 3 units of information
+So here we are
+Retrieving less number of chunks
+But increasing per chunk unit of information
+If we increase chunk size
+Ok
+One thing to check is
+That it is possible that in your knowledge base
+Means that in your database
+That document is not available
+It can be due to a very large corpus
+Or a retrieval bug
+Ok, so this can be a problem
+But again because we are
+Creating this particular answer
+From our context
+So this problem generally does not happen
+Ok, because we are using the same context
+In our rag application
+Ok, fourth is
+Considering your query expansion
+Or rewriting, means you
+Ask the query in a better way
+Or rephrase it
+Ok, so that
+You can retrieve similar
+Chunks
+So this is another hack
+But the top 2
+The easiest hacks
+Which you will see straight away
+Is that you increase K
+You will retrieve more number of documents
+So you will get better results
+And increase your chunk size
+Per retrieval, per chunk information
+Increase
+Is it clear now?
+It is clear
+Ok
+Now let's do one thing
+Let's do something very interesting
+We have calculated it with our hands
+That our
+Score is coming out
+3 by 5
+Let's check it in the code
+Ok, we take these examples
+And once we check in the code
+That for these examples
+Are we getting the score in the code
+So let's do it
+So that our learning
+Will get solidified
+So let's make an
+Iten file
+And let's name it
+TestRecallMetric.py
+Ok
+So I will import necessary
+So from deep eval
+From metrics
+I will import
+Contextual
+Recall metric
+Done
+And what I have to do
+I think this is the only thing
+I have to import from
+.env
+I will load my
+API key
+Ok
+So let's load
+The API keys
+So
+One more thing I have to import
+Which is my
+LLMTestCase
+Because I have to pass that to my metric
+So from
+DeepEval.
+TestCase.
+LLMTestCase
+I will import
+My LLM
+TestCase class
+Ok
+So here
+We will make
+Our test case
+And here
+We will make our metric
+Right
+So first of all
+Let's make our test case
+Which will be my LLM
+TestCase
+Now I have to provide some things to LLM
+First of all I have to provide
+My rag input
+So where will I get rag input
+I will get rag input from my one node
+So now you will see
+These particular inputs
+And all these things
+I will copy in front of you
+And I will use these
+And you will get the exact same score
+It is possible that this score is not exact
+Because it is a little probabilistic
+But I will show you
+The complete working
+Ok, my rag input is done
+Next is
+My expected output
+I will simply
+Copy this one
+And paste it here
+Ok
+This is done
+Next what I want here
+Next I want here my
+Retrieval
+Context
+This is the final piece
+Of information which I want
+Which is here
+Ok, this retrieval information
+Has to be inside a list
+Let's make a list
+And let me copy the information
+This is
+Number one
+I will paste it quickly
+And from here
+I will turn on world wrap
+I will turn on world wrap too
+Ok, this is the first
+And
+This is number two
+And this is number three
+Right, I don't know
+Why this indentation will be bad
+Let me figure this one out
+One second guys
+Let me figure this out
+Now everything is fine
+Now what I have to do
+Is to make my lm test case
+So I will
+Pass my
+Input
+Which will be my rag input
+I will pass my
+Retrieval context
+Which will be my retrieval context
+Sorry for that
+Retrieval context and I will pass my
+Expected output
+Which will be my expected output
+And for actual
+Output because I don't have
+LLM yet, I will leave it blank
+As empty string
+Because you know the actual output
+I don't need to calculate
+My
+Recall
+Now what I will do is
+I will build my metric here
+So what is my metric
+It is
+Recall metric
+What is the recall metric
+Contextual
+Recall metric
+In this
+I will turn on verbose so that you can see all the steps
+We are not looking at the other parameters
+Simply
+I am turning on verbose
+So that you can see
+What all steps are happening here
+And now what I will do
+I will
+Test the
+Metric
+I will call on the recall metric
+Measure
+And what I have to do in measure
+I have to input my
+Test case
+That's it
+I will check the code
+I have passed everything
+See everything I have copied from one note
+We are testing our example
+Here we run our file
+It will be run
+File name is
+Test
+Recall metric.py
+See you are running
+DBAvast latest
+Contextual recall metric
+The model is using GPT 5.4
+And see I got the score
+What score was coming there
+What happened
+Screen share is working
+Is it working now
+It is working for some guys
+It is working
+See what we calculated there
+0.6
+Exactly this score
+We are getting here
+0.6
+And why are we getting it
+You can see clearly
+What we provided here
+We gave our input
+And answered in the expected output
+And what my retriever retrieved
+He provided three chunks
+What did I do
+This is my expected output
+To my LLM
+What will my LLM do
+First it will extract my facts
+So it extracted the facts
+It took the expected output
+And first fact was taken
+First note supports this
+Bagging creates multiple bootstrap samples
+This fact was taken
+And it said
+This particular fact
+Is available in my retrieved context
+What is the verdict
+Yes it is attributable
+It is supported
+Second was
+An independent model is trained on each bootstrap sample
+This is also supported
+Third was
+None of the notes mentioned in the classification
+Majority voting
+This is not supported
+And fourth is supported
+Fifth is not supported
+What was in our case
+What was in our case
+Third was not supported
+Fifth was not supported
+First, second and fourth were supported
+Exactly same thing
+And here I got
+Finally my score and my reason
+The score is 0.6 because
+Sentence 1-2 are supported by notes
+In retrieval context
+Note 1 covers bootstrap aggregating
+With random sampling with replacement
+Note 2 states that
+The independent model is trained on each bootstrap sample
+Sentence 4 is also
+Supported by note 2
+Note means my chunk
+So the information
+In my first
+And second claim
+Is available in my first chunk
+And the information
+In fourth claim
+Is available in my chunk 2
+However
+Sentence 3 is not supported
+Because no note mentions
+Classification or majority voting
+And sentence 5 is also not supported
+You can clearly see
+And compare
+Because my third
+Retrieved chunk was talking about random forest
+Is this clear?
+Is this clear guys?
+How is it working?
+Great, great
+So whatever we discussed
+I have done it in the code
+And showed you
+Is it clear?
+Let's move ahead
+Let's move ahead
+If doubts are clear
+Let's cover the other metric
+Let's do one thing
+Precision is technically dense
+And it has a lot of calculation
+So we will do this
+Precision in the next class
+Today we will cover the context relevancy
+This is very simple
+We will cover this
+We will run it in the code
+So this is only
+This much for today
+We will continue in the next session
+Clear?
+It will be covered in 10 minutes
+Let's cover the contextual relevancy
+I think in the case of retrievers
+This is the easiest metric to cover
+What we are checking in this
+Is that
+Whatever we have
+Retrieval output
+Retrieved context
+In that
+What is our signal to noise ratio?
+Noise
+Ratio
+If I explain you in simple words
+What this whole metric does
+Context relevancy
+Simply checks
+Whatever information my retriever
+Retrieved
+Let's say
+My search results
+Again 10 units of information
+Retrieved
+How much information
+My query
+Is relevant to answer
+According to my query
+That's all we are checking
+If I give you a google search
+Example
+Basically we are checking
+In my search results
+How many useful search results
+I am giving you
+What we were checking in recall
+Out of total
+Are we able to get all the search results
+Or not
+And what we are checking in relevancy
+Out of total
+How many are useful and how many are useless
+So basically we are here
+Calculating signal to noise ratio
+What is signal?
+Signal is my relevant junks
+And what is noise?
+Noise is my irrelevant junks
+So we are just
+Capturing this small information
+Here
+Now I will show you the definition
+Context relevancy
+Checks the opposite direction
+Of noise
+It works in opposite direction of noise
+Out of everything you have retrieved
+Whatever we have retrieved
+From everything
+How relevant is it to the input query
+This is signal to noise ratio
+Metric on the retrieval
+Context itself
+It doesn't care about the expected
+Output at all
+Here you don't need any type of answer
+We simply
+What we do here
+We do very easy work here
+Whatever retrieved information we have
+Or retrieved junks
+We give them
+An LLM
+And we call this LLM
+To decompose this
+Retrieved information
+Which our retriever has retrieved
+Decompose it
+And after decomposing
+Extract the facts or claims from it
+Whatever facts we have extracted
+Simply
+With our input
+Compare
+OK
+And compare and tell
+The facts are they relevant for input
+That's it
+Now you must be thinking
+Why we are not using
+Expected output here
+We were using expected output in recall
+Why not here
+Because here
+Our
+Metric which is testing
+We don't need a perfect response
+In it
+We are simply checking here
+That whatever information my retriever
+Extracted
+Listen carefully
+Whatever information my retriever
+Here
+Output has given
+Now it can be 10 units of information
+It can be 2 units of information
+It can be 100 units of information
+It can be
+My Google search
+So, how many pages have returned
+I simply want to check
+How many pages are useful
+And how many are useless
+Simple, this is my testing
+I don't need a perfect answer
+Simply
+I am testing my retriever's output
+And how many are useful
+And how many are useless
+That is my contextual retriever
+Contextual relevancy
+Is it clear guys
+Clear
+Is it clear
+That we don't need expected output
+I am looking at the chart
+Is there any doubt
+About it
+We are simply checking here
+That whatever retriever has given
+One piece of information
+10 or 100
+We simply have to see
+How much is useful and how much is useless
+We have to calculate it
+Clear
+So, its formula is also very simple
+I hope you have got the formula
+What is the formula
+That our retriever
+Has given
+10 units of information
+In total, how many of them are relevant
+This is its formula
+So, relevant facts
+Divided by total facts
+This is my
+Relevancy formula
+If I show you the formula
+See, its very easy
+Number of relevant statements in retrieval context
+What is retrieval context
+My retriever's output
+How many relevant statements are there
+Divided by
+Total statements that I have extracted
+Now
+Again, here we will use
+LLM as a judge
+We will make two LLM calls
+First of all
+We will use LLM
+And we will give it
+All our retrieved context
+Which is our retriever's output
+We have given all the retriever's output
+To our LLM and said
+Simply extract facts
+Extract whatever facts you get
+Whether it is useful or useless
+It doesn't matter
+If you get any important piece of information
+That's it
+So, let's say
+From our retrieved context
+It has extracted 20 units of information
+Right
+Then what we will do
+We will take these 20 units of information
+And run a for loop
+And one by one
+We will give one unit of information
+Plus
+Our query
+To our LLM as a judge
+And simply
+We will ask our LLM
+Here is my query, here is my input question
+Read this and tell me
+Whether this particular fact
+Is relevant to this question
+Meaning, in this fact
+Is the answer hidden
+Okay, if I have asked
+Let's say question, what is machine learning
+So, is this particular fact
+Related to machine learning or not
+That's it
+We have to check this much
+We have to tell the relevance
+Whether it is relevant or not
+So, how many facts do I have
+Let's say I have 20 facts
+And out of that
+I have 15 relevant
+So, this is my
+Contextual relevance
+Simple calculation
+Nothing fancy in this
+I hope this whole thing is clear to you
+Okay, now let's understand this whole thing
+Through an example
+Let's read the role of LLM as a judge
+So, what does LLM as a judge do
+It takes each node
+In retrieval context
+What does each node mean
+It takes every chunk
+And from that chunk
+Extracts the facts
+Okay
+And after that, it takes every fact
+To whom?
+To the input and asks
+Whether this fact is relevant for the input or not
+Okay, and gives a verdict
+And gives a reason
+And after that, all relevant statements
+Divided by total statements
+That becomes the score of your final metric
+Okay
+And you have an overall reason
+And all that information
+Comes to you
+That how many nodes were relevant and how many nodes were irrelevant
+Is this thing clear?
+Now let's understand this through an example
+And we will run this example in the code
+And see
+What is our input?
+We have
+Retrieved three chunks
+Because K's value was 3
+First is
+Everyone knows this
+Small k makes the model sensitive to noise
+While k
+Smoothes the decision boundary
+But may include points from
+Other classes
+Here are some svm chunks
+There is talk of optimum hyper plane
+Maximizing margin
+Then it's about knn
+Because both are used in classification
+But svms are parametric and built on
+Explicit decision boundary training
+Unlike knn's lazy learning approach
+So these three chunks are retrieved
+Now what I will do is I will take these chunks and give them to my LLM one by one.
+I gave this chunk number 1 to my LLM and my LLM extracted 3 facts from this chunk.
+I have listed those 3 facts here.
+Now read them.
+Then I gave this chunk number 2 to my LLM and told them to extract facts from this.
+My LLM extracted these 2 facts from it.
+Then I took this 3rd chunk and gave it to my LLM and it extracted these 3 chunks.
+So total number of facts I have here is 3 plus 3 plus 2.
+How many are there? 8 facts.
+Now what I will do is I will take every fact one by one and take my input and give it to my LLM.
+I will tell my LLM to compare whether this particular fact is relevant to answer this question or not.
+I will store all the relevant facts in the numerator.
+Let's read once.
+Fact number 1, KNN is a non-parametric algorithm.
+So yes, it is relevant.
+KNN requires no training phase.
+Yes, it is relevant.
+This makes prediction slow for large datasets since distance must be computed to every point.
+This is also a specific point of KNN.
+It is also relevant.
+Small k makes models sensitive to noise.
+It is relevant.
+Large k smooths the decision boundary.
+Again, it is relevant.
+Here we are talking about SVM.
+So we asked a question that tell us about KNN but it is about SVM.
+Again, in this chunk, you are covering both the contexts.
+But here, the matter is explicitly about SVM in this fact.
+So this is not relevant.
+KNN is often compared to SVM as both are used for classification.
+We can say this is partially relevant or not.
+Here you are comparing with SVM.
+So let's say this is not relevant.
+And the final part is also talking about SVM.
+It is a part of KNN.
+It is partially relevant but again we will say that it is not relevant.
+So guys, you can tell us what value we got in the numerator.
+We got the value as 5 by 8.
+So this is our relevant score.
+Is it clear guys?
+How is it being calculated?
+It is a little easy.
+So a question for Saurabh.
+In case of answer relevancy, the facts are retrieved from context rather than the expected output.
+Yes, I told you the reason why we don't want the expected output.
+Because we are not checking here how your chunks are related to the perfect answer.
+We are simply checking that how much information is available in the chunks.
+Whether it is 1, 10, 100 or 1000.
+How many are correct from that.
+That's it.
+You searched on Google and got some search results.
+Now that one search result came, 10 came, 20 came.
+You simply have to check that how many of the search results you got.
+So you will take the query that you put in your input on Google.
+And you will take your search results and do a comparison.
+Simple comparison.
+Is this thing clear guys?
+How does contextual relevancy work?
+This is an easy one.
+Now Saurabh, I will take questions.
+I will complete the code part of this.
+Then I will take questions.
+So let's go towards our VS code.
+And let's make one more file.
+And the name of this file is test.
+Relevancy.
+Metric.pby.
+Okay.
+And let's copy this.
+And paste it here.
+And we will fill the required things.
+So instead of contextual recall, this contextual relevancy will be done.
+Relevancy.
+Okay.
+Here we need our test case.
+Expected output, we don't need in this case.
+So we can get rid of this one.
+And what else do you want?
+You want your input.
+So I will copy this from here.
+Guys, it takes a little time to copy paste all this and show you live.
+But I hope this thing will benefit you.
+Because if it doesn't benefit you and if you are taking more time,
+then I will write all the code and bring it next time.
+Here I have pasted it.
+Let me switch on the word wrap.
+Now it's easy.
+The first point is done.
+Which I want to show you by live coding that how all the things are working.
+So that everything is transparent in front of you.
+You can actually compare.
+What I am teaching and what is actually happening in the code.
+That is the same thing.
+Okay.
+I have pasted this.
+This is my test case.
+It doesn't need expected output now.
+Okay.
+I will tell you one more thing.
+Guys, if you want to check what are the input requirements in the metric,
+then you can go to the documentation.
+Like if you go to recall,
+then in your LLM test case, these are the required arguments.
+Input, actual output.
+We have passed all these.
+And if you go to relevancy,
+then see input, actual output and retrieval context.
+These three things you have to provide.
+There is no expected output here.
+And if you want to read how it is calculated,
+then it is written here too.
+Okay.
+So let's see.
+We have provided three things.
+We have provided input, retrieval context,
+and actual output, which is empty.
+Because it will not be used.
+These two things will be used.
+Here is our contextual
+relevancy metric.
+Rest of the things are the same.
+Relevancy.
+And I think everything is good to go.
+Let's run it once.
+Once I clear the terminal.
+And we write UV run.
+Test.
+Relevancy metric.pby.
+What score was coming there?
+I think 5 by 8 was coming.
+Let's see what score comes here.
+50% came here.
+Maybe some fact we have
+made yes.
+Here it has become no.
+It may have extracted less statements.
+Let's see why the output came here 50%.
+The first statement is that it is a non-parametric algorithm.
+So its verdict is pass.
+Because it is available.
+Okay. The second is it requires no training face.
+So this is also pass.
+We also passed it.
+This may prediction slow for large data sets.
+This is also pass.
+And
+Okay. This is the final verdict.
+A little print was not good.
+Statement choosing the right value of K is important.
+Sensitive to noise.
+Its verdict is coming.
+Then something failed here.
+Support vectors failed.
+It was supposed to happen.
+KNN is often compared to SCM.
+This is good. It passed.
+And
+There is some issue here.
+Let's do one thing. Let's redo it.
+Output is not clear.
+It is also difficult to read.
+Now 0.66 has come.
+What is our score coming?
+What is 5 by 8?
+Someone will calculate and tell in the chat.
+0.625
+Yes.
+So 0.66 is coming.
+Something extra claim must have been fetched.
+But you can see that
+What we had set correctly.
+KNN
+We set this.
+Choosing the right value.
+We set this.
+Support vector.
+We set no.
+So clearly written here.
+Because the context directly explains KNN.
+KNN is not parametric.
+All these things are written here.
+Choosing the right value of K is important.
+And some were off topic here.
+Like telling about support vector machines.
+And
+Comparing between them.
+This was a little off topic.
+So it has scored 0.66.
+So you can see that
+The manual calculation we are doing.
+And the one we have
+Calculated in the code.
+Those are almost the same.
+Clear guys.
+Let's do one thing.
+I will push this whole code.
+On GitHub.
+So that you get this code.
+What is it showing?
+Okay.
+Maybe I have renamed it.
+So it is showing.
+Eval dataset is done.
+Eval dataset.py is done.
+Okay.
+So I will
+Add it.
+Commit it.
+We were
+We were
+Let's put
+Matrix
+Guys I have updated the code.
+So you can use it.
+And you can test it.
+You can test it with some of your examples.
+Okay.
+I forgot to show you the keys.
+That was our dataset.
+If we go to the Eval dataset.
+So I can see my dataset here.
+Here in my test cases.
+Why didn't I get
+Actual output and retrieval context?
+Let me see.
+There is null in all.
+It is showing here.
+And nothing is showing.
+Again guys.
+This problem is coming because
+We are not using APIs.
+So the input is not saved properly.
+That's why the issue is coming.
+Because we are getting some responses.
+So I will check this code.
+Code is fine.
+Maybe we need to tweak some more.
+So I will fix this in next class.
+Don't worry about it.
+Because you can see clearly.
+Some are getting actual output.
+And some are missing.
+See here it is coming.
+Retrieved context is also coming.
+Whereas in some places.
+Context is not being captured.
+Some encoding can be an issue.
+I will see into it.
+I am open to questions now.
+I will take your questions guys.
+Let me load up the chart.
+That's all for today.
+I would suggest that you use openAI API keys.
+Because I haven't used any other API keys.
+Because in the backend you are getting openAI models.
+Basically your models are getting called through your openAI SDK.
+So the code is written in the backend.
+I would strictly suggest you to use openAI keys.
+Yes, in the project we will cover agents.
+Even in mcp val pipelines.
+We will not cover neteaser.
+But we will cover all the valves around tools.
+All the valves around reasoning.
+All the valves of your agent.
+Vals of tool call, tool response.
+Vals of tool selection.
+Do chat GPT.
+You will get it step by step.
+It is very simple.
+Go to openAI platform.
+Make an account there.
+And you can start with your API key.
+$5 is the minimum amount.
+And it will work well.
+If you are using mini models.
+I think it will get you through.
+3-4 projects easily.
+Means it will run for 4-5 months.
+All LLM Ops will run for $5 easily.
+I hope so.
+Any more questions guys?
+How was today's session?
+We have done everything practically.
+And all the concepts we have read.
+We have executed them in the code.
+Out of 5, concept clarity.
+How much was today?
+I know it is a little conceptual.
+If it is 5, that's good.
+There are few concepts that are conceptual.
+There is a lot of depth in this.
+Thank you, Ari.
+Other people also read it.
+I hope you have a good day.
+Thank you.
+Please rate the video.
+You will get feedback.
+Clarity of concepts.
+It is clear.
+If someone asks you about
+contextual relevancy and your recall.
+You can tell me in the interview.
+And I hope you are comfortable with the code.
+I am here for 2 minutes.
+And then we will wrap up.
+We have one metric left.
+Precision.
+It has more calculations.
+It is a little difficult to understand.
+I don't understand it for the first time.
+But I will explain the formula by breaking it down.
+First we will do calculations with our hands.
+And then we will replicate it in the code.
+So, let's start.
+So, let's start.
+So, let's start.
+So, let's start.
+In the next class,
+We will also cover the
+Generator specific metrics.
+We will also cover the generator specific metrics.
+So, the focus of the next class
+will be to cover the metrics part.
+So, we will cover it.
+If you don't have any more questions, write it clear.
+And I will close off the session.
+So, guys. Have dinner.
+Good night.
+See you in the next one, guys. Bye.

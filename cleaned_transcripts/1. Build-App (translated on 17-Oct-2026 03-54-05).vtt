@@ -1,0 +1,1050 @@
+Hi everyone, I hope you guys are doing great
+So guys we have completed our RAC project on LLMops
+and with this video we are going to start our agentic project which is our project number 2
+and on this particular application, our agentic application
+we are going to implement our LLMops lifecycle end to end
+so let's do one thing, our RAC project journey
+let's summarize it because we are going to implement that exact journey in our agentic project
+so you might remember that we had made a RAC chatbot in our previous project
+that was our campusX chatbot
+and this chatbot used to give us question answers on our transcripts
+so we had implemented some key steps in this
+the first step was that we had built our application
+we built the application
+then we had run offline evals on our application
+basically we had done our evaluation through deep eval
+then we had done prompt versioning and prompt management through our langfuse
+next we had made our experiment tracking pipeline
+as soon as our experiment tracking pipeline was completed
+we had set a guardrail around our application using guardrails AI
+then we had read regression testing and concepts like promotion testing
+and we built it in a CI pipeline
+through which we were able to test our application on GitHub actions
+then we read about dockers
+then we applied CD which was used to properly package our application
+and this application was pushed to ECR
+then we went towards AWS and completed our deployment
+in this deployment we saw auto scaling groups
+in this deployment we saw load balancers
+then we deployed through code
+we also did automatic deployments
+then we implemented tracing and observability on our application
+then we did online evals on the traces we were generating
+and finally what we did here
+we applied observability and tracing on our application
+and we set up monitoring on our infrastructure
+and we did this monitoring through Prometheus
+and visualisation through Grafana
+so this was our complete journey on our rag application
+now in project number 2 what we will do is
+we will build an agentic application
+and on this agentic application we will apply this same journey
+we will follow these steps one by one
+and on this agentic application we will build the complete LLM ops lifecycle
+so I hope you understood the plan of attack for this particular project
+exactly the same flow will be there as we did in our rag project
+the difference this time is that we are working with a completely different set of applications
+that is our agentic application
+it has its own separate set of challenges which we will fix
+and I will share the challenges with you
+and in a step by step manner we will complete the LLM ops lifecycle
+so let's start with step number 1 that is building our application
+and I will show you which application we are going to work with
+and how is its architecture
+so the agentic application we are going to work with
+this application is basically my hiring assistant
+this hiring assistant is basically an AI agent
+AI agent as you know is your LLM that are bounded to some tools
+basically the action that that LLM can take is called AI agent
+and we are building a hiring assistant agent here
+now what this hiring assistant agent will do for us I will tell you
+we will have a job description here
+and some set of resumes
+so I already have this job description and resumes
+I will show you now
+and what your agent will do is you can interact with your agent through chat
+like I told my agent to read this job description
+read all these resumes and sort
+which resumes got shortlisted and which ones got rejected
+so what my hiring assistant will do in my workspace
+there are separate categories and folders
+like one category is shortlisted
+and the other is rejected
+so automatically my agent will read this job description
+will understand the job and requirements
+and then will read all the resumes one by one
+and then automatically will figure out
+which resumes got shortlisted and rejected for this particular job
+and automatically will move them in respective folders
+so like I have pasted a job description
+and I tell my hiring assistant to shortlist the resumes for me
+so automatically he will shortlist my resumes and show me
+which resumes got shortlisted
+one more thing my hiring agent can do here
+that is he can prepare draft emails
+he will not send the emails
+because we have kept our agentic application simple
+because we are going to focus on our LLM office lifecycle
+agentic application is not built on focusing on the application
+so I have used simple set of tools
+so agentic application can do a lot of things
+you can send email and add a tool
+which you can send through your email provider
+so this you can do but we have not implemented it yet
+our agent can only prepare draft emails
+so for those who are shortlisted, prepare a draft email
+so that I can send them and tell them that they have been selected for interview
+so this also my hiring assistant can do
+and not only my hiring assistant shortlists and rejects the resumes
+here my hiring assistant also provides the resume scores
+based on the job description
+you must have seen that your resumes based on the skills you have
+you get an ATS score
+so we have given a similar type of scoring mechanism to our hiring assistant
+so he can read the resume and give them scores
+and this whole record of which resumes have been selected
+which resumes have been rejected, what are the scores on each resume
+this is stored in a tracker file
+and this tracker file is basically a CSV file
+and we can see this CSV file on our front end
+so this hiring assistant, if I tell you, he does 3-4 things
+first is based on the job description
+it can categorize
+my resumes
+second, he can write draft emails
+he can not send the emails but he can write
+for selected candidates and rejected candidates
+whatever we say in the chat, he will do it for us
+and he can also give the resume scores based on the JD
+and along with that
+he will maintain a log and tracker file
+in the tracker file, all the information will be there
+which resumes have been selected, which ones have been rejected, how many scores have been received
+all this will be saved in a tracker file which is a CSV file
+and we can also ask questions around resumes
+for example, if I ask a specific question
+for the resume of Aditi
+which skills match my job description
+or which skills are not required in my job description
+so all these questions, which are personalized
+question answering type questions, I can ask my agent
+so I can question answer my agent around resumes
+I can also ask
+how many female candidates are there, how many male candidates
+among the candidates who have applied
+shortlist those candidates who have more experience than 5 years
+so I can ask such question answering type questions
+where I am getting tasks done from my agent
+and I have made sure that this hiring assistant is mine
+it is a single turn agent
+single turn agent means
+that I am not maintaining any memory in this agent
+there is no memory and the reason for this
+is that till now we work with single turn applications
+for multi turn applications, the evaluation criteria is different
+and now we are not in a state that
+we should read all the metrics of multi turn evaluation
+because that will stretch out your project
+now my focus is that we should read the complete life cycle of LLM Ops
+not that we get stuck in an evaluation module
+so that is why we work with single turn agent
+single turn agent means that you will give it your task one by one
+and it will keep doing this task one by one
+so now I am ready, around this agent
+back end and front end
+both are ready
+both are in ready state
+let me tell you about the file structure
+in back end, I have an agent.py file
+in which I have written my agent related code
+and I have written my face.py
+this file is very simple, it prepares
+my demo.jd and demo.resume
+whenever I call this file, it will
+make my demo.jd and demo.resume
+now I will show you how it looks
+now I am keeping my
+tools
+so I have a python file tools.py
+where all my tools are there and I will attach
+these tools with my agent so that my agent can do the task
+now if you don't have an idea about tools
+then I will give you a quick refresher, tools are basically
+python functions
+these are python functions with which we add
+a detailed description
+and we bind
+these functions with our LLMs
+so that our LLM can use it
+and this is the entire agent architecture
+LLM for the components
+and LLM for building the agent
+so again we are going to build this project with the same set of frameworks
+I hope you have understood this whole thing
+now I will discuss about our agent architecture
+for agent architecture
+for the agent architecture
+there are many types of architectures in your agent system
+one type is plan and execute
+architecture
+so we have selected plan and execute architecture for our agent
+the simple reason for this is that the evaluations
+we are going to do on our agent, many of them
+are related to your planning
+so these metrics work on the agents
+who execute the task with a plan
+who have a planning phase
+so since we are going to implement these metrics on our application
+we will work with the agent architecture where we will first make a plan
+and then execute that plan
+so how will the entire flow be?
+so here I have pasted the plan
+so first of all, your start node
+will be your task
+let's say you have given any task
+shortlist, resumes based on the JD, this is your task
+first of all this task will go to the planner mode
+now in planner mode there is a LLM
+this LLM will take the task
+and make a detailed plan
+what does it mean?
+LLM will understand the task and its intent
+and LLM also has an idea of the tools
+that is, what resources are available
+to do this task, this is also the knowledge of LLM
+so take the task from one side and the tools from the other side
+and understand which tools can you use to execute this task
+and which tools can you use to reach the final output
+and around that this LLM, this planner node LLM
+will make a detailed plan
+and this plan will also be made according to my steps
+means in this plan we will have a list of steps
+like you will have bulleted steps
+like step 1, step 2, step 3, according to the bullet points
+and for this planning node I am using
+a structured output LLM
+which basically will take my task
+and the tools and the plan that it will generate
+it will be a series or a list of steps
+so in the form of 1,2 it will give me steps in the list
+let's say I told my agent that what you do is
+you score the resumes and
+get me the top scoring
+resumes, so how will the detailed plan be done?
+this task will be given to my LLM, my LLM already knows
+which tools are available, so the plan will be something like this
+so the plan will be read the JD
+after reading JD, read all the resumes
+read all the resumes one by one
+after that you will score the resumes
+after scoring
+what will you do next? you will save the scores
+in the tracker file
+I am giving an example plan, it will not be executed like this
+just I am giving you an example, the scores are saved in the tracker file
+fifth will come to
+read the tracker
+and as soon as the agent reads the tracker
+then he will get all the scores information and what can he do?
+automatically he can give you a response
+and respond back, now to give this response
+no tool call is required, I hope you understood the whole flow
+as soon as the task and tools details will go to your LLM
+it will give you a detailed plan
+so the work of the planning node is to generate your
+detailed plan, I am reiterating it again and again
+so that you understand the whole procedure
+and the whole series of steps
+after that all the detailed plan or list of steps will go to your executor node
+executor node
+has a sub agent
+and this sub agent is basically
+a react style agent, means it is a
+response plus action style agent
+and that agent's graph is this
+now in this executor node you will run a for loop
+and one by one
+you will send this react style agent to your task steps
+I hope this point is clear to you
+so let's say my planner has made this particular 6 steps plan
+so I will go to this executor node and run a for loop
+and the first step is read the JD
+I will give this react agent, so this read the JD step will come here
+this is my LLM, model node
+this is an LLM, it is an agent actually
+and I have attached some tools with it, now what will it do
+it will go to its tools, its toolkit
+and it will check if I want to read JD
+if I have any tool available to read any file
+so it will know that yes, I have added a tool here
+called read file, which is used to read any file
+and return my agent
+so it will call this read file tool, I will tell it
+which file to read, I will give it proper arguments
+it will return the content of that file
+and the content of that file will go back to my model
+so LLM will call the read file tool
+and return the content back to LLM
+so my JD content will come to my LLM, so it will understand
+that yes, this step is complete
+then this react agent will start again
+so here I will send this step and this task
+it will go back to the model, model will call my read
+tool again and read my resumes one by one
+and its content will return to my LLM
+so the output of every step will be through this end node
+and it will be permanently saved, so it is not like
+I am not saving the result of every step
+I am saving the result of every step
+so till the tool call happens, it will be in a loop internally
+for each task, like read all the resume task
+let's say I have 10 resumes, so how many times will the read file tool call
+it will call 10 times, so this loop will run 10 times
+and as soon as it runs 10 times, all resumes will be read
+so it will go to the end and all the resume data or content
+will be saved, then score the resumes
+again for scoring, here it is 10 resumes, so it will run 10 times
+so again it will run 10 times in the loop, then all the scores will be saved
+so by doing this one by one, I will give every one of my sub tasks
+every one of my detailed plan sub task
+to my react agent and it will run this execution in the loop
+this loop that you see in the main agent
+this loop is showing that
+you are running a for loop and you are executing this detailed plan
+in step by step manner, I hope you understood this point
+I will summarize it again, I know it is very confusing
+planner is taking your main task and decomposing it
+into list of steps, this is the work of planner
+and it is giving you every step in a structured output
+it is giving you a list of steps, simple
+then your whole list of steps plan is going to executor
+executor is running a for loop, for every list of steps
+it is running this loop once, one iteration
+and in that iteration, in step by step manner, your react agent
+is going to execute those steps, let's say
+the first step went to your model, the model figured out
+that I have to call tool to complete this step
+now this tool call operation is also in loop
+because you may have to call 3 tools for a particular step
+so the first tool call will go to the model, the second will be
+the output will go to the model, so the tool call will be 3 times
+the information required for the step will come to the model
+and it will save the context
+which is the result of a particular step
+so the result will be saved here, let's say
+I have 6 steps to execute in my plan
+so executor will run 6 times in the loop
+and for 6 steps, all the results will be saved
+one by one, and as soon as my
+for loop is finished, I will go out of this loop
+and then go to this node, now where will I go
+in this node, all the results of each of the steps
+will go in this node
+and the name of this node is
+responder, this responder node will take
+the result of each step and will prepare a final response
+basically, the summary of the actions
+which were done internally, will prepare a summary
+of the task, whether it was achieved or not
+how it was achieved, let's say
+I said score and return top 3
+or whatever my question was, so here
+top 3 will return the name of the candidate, that his name is this
+and his individual scores are these, so I will get a response like this
+and this responder node, again we are using an LLM node
+it will get all my steps and results in input
+and it will generate a final report or summary
+and this summary will be of 2-3 lines and I will get my final response
+and as soon as I get the response, my graph will end
+I hope you understood this whole thing
+again, I know this is a little difficult
+but you will understand it better by seeing the code
+I want to summarize for the last time, that the main agent you have is a plan and execute
+in which the execute step is an agent
+that is a react agent, in the planning stage, you are
+generating a plan in the list of steps
+from that, you are giving every step to the react agent, the react agent is working on that step
+and saving the output related to the step
+every step and its output, you are finally
+sending it to a response node, which is an LLM
+it is taking all the steps and outputs, compiling them and a final result
+is returning my user in the form of text
+so the task of my user
+that is asking in chat, that is the input to my agent
+and the response node is returning the final output
+that is the output to my agent
+and the steps and planning that are happening in between are the intermediate nodes of this graph
+this one
+I hope you understood this thing, if you understood this whole architecture
+then let me show you a very good demo of this architecture
+we have already built the front end, I will show you how the demo agent works
+and after that I will explain its code to you
+so let's move to the demo part
+so before moving to the code part, I will show you a demo of my application
+again, we will work with this application throughout the course
+so we will explore its features further
+as the use case will come, we will explore this application more and more
+now I will explain to you what are the things that you see in the UI
+so here you will see
+so here you will see the name of our application
+it is an hiring assistant and on the left hand side, this sidebar
+here you can interact with your application through agent
+this is our agent
+here you can give it any query
+and your agent will start working on that particular query
+so here in total we have 15 resumes
+here you can see the resumes to screen are 15
+how many were shortlisted, how many were rejected, how many were email draft
+this is its number, basically it is a matrix
+and below you can see the job description
+now job description is the role of a junior ML engineer
+these are the must haves, if these must haves are in any resume
+then only that resume will be shortlisted like python, sql, hands on experience with ML framework
+get at least 2 years of experience
+then we have nice to haves, if these are in your resume
+then you will get some points against it and how you have to score
+the rules are also given, again I will share this code with you
+you can read all these things in the code
+then we have resumes, here you have 15 sample resumes
+of different candidates, like if you want to view any resume
+then simply click here and view the resumes
+here is your candidate's name, email id, experience
+skills, education, projects
+and summary, and this you can do for any other resume as well
+here we have added a duplicate resume
+just we want to check how our agent handles duplicate resumes
+so we have added 2 resumes of Rohan Mehta
+here we have added, after that
+if your agent drafts an email
+then you will see draft emails, you can go and read them in UI
+and this candidate tracker
+this is basically our CSV file, which you can visualize
+and this is your agent, who is shortlisting things
+or adding things, so it will be added in the tracker file
+and you will see all the details here, so let's do one thing
+this is a blank UI, you invoke your agent
+and give a task, and see how it changes things in this UI
+so let's give one task
+can you shortlist
+candidates
+sorry for the typo, can be dates
+which have AWS
+skill
+and add them to tracker
+so I am saying that candidates who have AWS skill
+shortlist them and after shortlisting them, add them in tracker
+once
+they are added
+so this is the code
+tracker move their resumes
+to shortlisted
+directory, so if I show you the code
+so here in this workspace folder, these are the directories
+these are the resumes, where all my resumes are, and I have made these additional
+rejected and shortlisted, where you can move your resumes
+so we have added a feature, so that we can clearly
+go to the directories and see which resumes are rejected
+and which are selected
+so as soon as information is updated in your tracker
+you can add the resumes of shortlisted candidates
+in the directory
+so let's do one thing
+we used to define here move
+shortlisted candidates
+with scores
+greater than
+70, here we do one thing, 75
+to shortlisted
+directory
+once
+this is done
+draft email responses
+for candidates in the
+shortlisted directory
+inviting them
+then for interview
+so this is a very complex task
+and let's see how my agent performs
+let's see, again this is version 1 of my application, it is possible that
+my agent doesn't perform well on this task, but it will work
+because we haven't come out to build a perfect application
+we will build it when we will do the evaluation
+and tweak the system prompt
+now we want to see how my agent is behaving
+in this baseline application
+so the first task is
+that he will shortlist candidates on the basis of AWS skill
+and add them in the tracker, then the
+shortlisted resumes in the tracker, whose score is greater than 75
+he will put it in the shortlisted directory
+and on the basis of the resumes in the shortlisted directory, he will prepare the draft emails
+now this agent will take some time to run
+so let's pause the video here and as soon as this task is completed, I will show you the results
+so here my agent has a response
+he said that I have shortlisted and added 10 candidates to the tracker
+so let's go down and see the tracker
+so clearly after seeing the tracker, it is clear that
+I can see 10 rows here, so 10 rows have been added
+and out of them, these top 4 have been shortlisted
+I have sorted them based on the scores and these are the 4 candidates
+who are Aditya Sharma, Ananya Rao, Dev and Rohan Mehta
+after that he said that I moved one resume
+to the shortlisted directory, he said that I have moved only one resume
+to the shortlisted directory, if I see the shortlisted directory
+then I can see only Aditya Sharma's resume
+I told him that whoever's score is above 75, he has to put them in the shortlisted
+so these scores
+if I show you, then in this Aditya Sharma's resume
+Rohan Mehta's resume should also be added and
+Dev Malhotra's resume should also be added, so he missed out
+and after that what did he do?
+he said that Rohan Mehta met the score but
+was not moved into the step, Dev Malhotra and Rohan Mehta
+so for some reason he couldn't put these 2 resumes in the shortlisted directory
+and Ananya Rao didn't move because his score was 75
+so he was not qualifying, so this is fine
+I then drafted interview invitation emails for the shortlisted candidates
+in the directory who had email address Aditya and Rohan
+he didn't shortlist Rohan but
+he made a mail for Rohan, so here I can see
+2 draft mails, one for Aditya, this is the draft email
+and one for Rohan
+so my agent is doing some work right and some work wrong
+so he is doing some work, see here it is written that 1 file was moved
+2 were added into the draft
+and 10 tracker rows were added into the tracker
+so 2 emails were made, 1 file was moved into shortlisted
+and 10 rows were added into the tracker
+and which resume was shortlisted and moved is this one
+so clearly some things are happening here but some things are not happening properly
+so in this case, I can see the details of the changes
+so now what you can do is
+you can expand this plan and explore the whole plan
+I told you that your planner stage makes the plan
+in series of steps, so these are the steps
+this is the 1st step, this is the 2nd step, this is the output
+so this is the whole plan, again you can run this query
+and read the plan, but after seeing this, I can understand that
+this plan is not working as intended, there is some problem
+now there can be any problem, it can be in the executor node
+or in the planner, but clearly here
+one thing is clear that my application is not working as intended
+so let's do one thing, let's break down this task because it was very complex
+many things were happening back to back
+so let's break this task in parts and give simple tasks to our agent
+let's do tasks one by one and see how it performs in that case
+so here we are explicitly telling our task
+and we are decomposing the task one by one
+so that our agent can perform better
+again don't worry if it is performing poorly
+this is intended behavior, we haven't tweaked our application
+we will tweak it later, but now
+we will add the name to the task
+so we will tweak it later and improve it
+let's wait and see what is the output
+now
+it has shortlisted 6 candidates
+but added 9 tracker rows
+so I can see the 9 tracker rows
+here are the candidates, but it said that
+6 were shortlisted, I don't know how it got this figure
+I shortlisted and added 6 candidates
+with AWS skill in their resumes
+added but only Aditi, Ananya and Rohan were shortlisted
+rejected, so it says that the rest were rejected
+so whatever information is available to the agent
+he has added it here, again read it
+so for now he has only updated the tracking
+and he has updated the 9 rows
+if I can see here
+AWS nice to have, I can see it
+here is AWS nice to have, here is AWS
+9 resumes are available
+if I randomly go and see some resumes
+AWS, yes here I can see
+Arjun Verma, here is Arjun Verma
+Mira Joshi, AWS is there
+Ananya Dev
+Ananya is different, Dev is different
+Arjun's AWS is there, Dev's AWS is there
+Vikram Singh
+Vikram Singh also has AWS skill, so yes this is what my agent is able to do
+now what was the next task, the next task was that
+whoever's ATS score was 90
+or 80, whatever it was, let's do 80 here
+so these 3 resumes will move to the shortlisted
+so
+read the tracker and
+add or move instead of add
+move resumes to
+shortlisted
+with ATS score
+greater than 80
+greater than 80
+let's see
+how my agent performs for this particular task
+so
+so whatever changes are there for this particular task
+will be updated here, so I can track through this
+and my resumes will also have tags, I will show you
+so whatever actions your agent is doing here
+you will see changes in the UI
+I have moved 3 resumes to shortlisted
+Aditi's, Rohan's and Dev's, so this task is done
+I moved the other 6 resumes to rejected because their tracker decisions or ATS score
+were not 80, no file moves failed and all the resumes had an email
+in the tracker and in the files added, so he has done some work
+so we have done extra here, what is extra?
+he has added 3 to shortlisted and 6 to rejected, although I did not say rejected
+but my agent is smart enough that if 3 are shortlisted then I have to move the rest
+to rejected, so 9 files have moved here, these are their details
+which folders they have moved to and you can see in front of resumes
+which are shortlisted and which are rejected, ok
+and the same is updated here, in shortlisted you have 3 resumes
+and in rejected
+you have the other resumes, ok, and which are these?
+these are the ones which do not have AWS, if you open any of them here then you will not see AWS in the skill
+you can see
+so my agent is performing well if we are giving task by breaking down
+so let's do one thing, let's give it final task
+read the
+resumes in the
+shortlisted directory and
+shortlisted
+directory and
+generate
+draft emails for
+interview invite
+generate
+let's run it
+once
+now I have here
+for my 3 resumes, 3 draft emails should be there
+so yes
+so yes
+here draft emails are made, 3 added
+what are these 3 added? that my draft emails are added
+in drafts I can see these 3 text files, this is for Adeti Sharma
+resumes stood out, strong match
+for the role, your reply with your availability for an interview
+written for Dev Malhotra
+again email id, name is correct, everything is properly
+managed, now let's do one more task
+here we will write
+for the rejected candidates
+draft an email
+saying they were
+not selected and
+specify
+reasons as well
+this generally does not happen but we are telling our hiring agent that
+for the rejected ones, prepare a draft email for them
+so these 6 candidates, Ananya, Arjun, Kabir, Meera, Joshi, Neha
+and Vikram, 6 draft emails will be ready for them
+again you can see the steps
+he first read the job description, then the tracker
+after reading the tracker, he went to shortlisted
+and read the resumes and then drafted the email
+let's wait
+here we have to write 6 emails
+all 6 had email addresses so no exceptions
+when edited, the draft was saved, corresponding draft files
+here you can see 6 drafts created
+and they are these
+let's see for Ananya
+update on your application not selected, dear Ananya
+thank you for your interest, after reviewing your application, we were not able to select you for this position
+based on the job requirements and your resume
+the main reason is hands on experience with ML framework, at least 2 years of experience
+your profile shows 3 years of experience but the tracker
+has you marked as rejected for a missing requirement that is
+git version control, so we don't have git version control, we appreciate your time and interest
+again we can improve this a little more, if we want to remove the tracker
+we can remove it, this is selected
+let's see Kabir Khan's
+job requirement, the main reason is role requires git
+and your profile doesn't have git
+so git is
+a skill that many people don't have, they should have it, you should have it
+just kidding, based on the job requirement
+so you read it, I can understand one thing
+if we give a task to our agent step by step
+then he is doing it very well, but we give a little complex task
+where one step is dependent on the other
+then the plan fails or the execution of our agent fails
+so maybe we have to improve this step
+or maybe we have to see that the LLM
+execution, plan generation work may be weak
+and we are unable to manage the next task, so we will evaluate this
+and improve it, but this is the demo for now
+now if you have understood this demo, then let's go towards the code part
+and see how we will execute this whole thing in the code
+so guys, I will show you the project code
+so this is the project layout
+again we are using our modular approach for the project layout
+and here you can see
+these are some of the UV related files
+because we are using the package manager here as well
+so here you can see UV related files, if I talk about dependencies
+then these are the dependencies that I have installed, like Lang chain
+Lang chain open AI, through which we are calling our open AI model
+Lang graph to build our agent application
+and here we are using streamlet for frontend
+then if I show you here, then you can see two directories
+first is workspace and second is workspace original
+now this workspace is the same directory that I showed you
+and we are tracking this directory through the UI
+now here you can see some folders, let me tell you about those folders
+this is the resume folder
+this is the folder where all our resumes are there
+now you can see some less resumes here because we have run our agent
+and it has shifted some resumes here
+then there is rejected, now we can see that your rejected resumes will be there
+and same is the case with shortlisted
+shortlisted resumes will be there
+then you can see drafts, here we will see draft emails
+draft email will be created, it cannot send an email
+but whatever email text it creates, it will add it in the draft folder
+then there is candidates and CSV, this is my tracker file
+this is my CSV file and this is my job description.markdown
+where my job description is, where must have is, nice to have is
+and how to score for each candidate, rules are attached
+so this is my workspace
+now you must be thinking that this workspace is original
+what is this workspace original, that my agent will not work on this workspace original
+only work on workspace, I am using this workspace original
+as an original copy of the workspace
+that before performing tasks of my agent, at the start
+how this workspace looked like, simply I am managing this folder
+I am managing this folder so that I can compare
+the changes before and after
+so my UI goes to workspace original, see these files
+in which order, then it goes to the workspace folder
+and see its order and after that
+it tells me what files have been changed, which files have been shifted
+whatever changes in my workspace, it tells me on a comparative basis
+so you can understand that
+the original workspace is my ground truth
+it compares my workspace and tells me what changes have been made
+I hope you understood this point, now all my code is in this source directory
+so in the source there is a folder named hiring agent
+and there are two more subfolders, first is my app
+where I have written the code of my back end, basically the code of my agent
+and the other one is the front end where I have written the front end related code
+now let's explore this back end code
+here you are getting 4 Python files
+agent.py where I have made my entire lang graph
+clients.py, tools.py and workspace.py
+I will show you these files one by one
+first I will show you the file workspace.py
+I will not explain the code of this file completely because this code is cumbersome
+I will tell you what this file does, it is very simple
+so here I have made all my imports
+I have set my parts and important variables
+like tracker file, columns,
+decisions, seed directories, which are the directories in my workspace
+so these are the directories you will see here
+resume, shortlisted, draft and rejected
+and here is my seed data
+seed data means this is my data for my job description and for my resumes
+so to make this project demoable
+I have already made a job description which I have hardcoded in this workspace.py
+and I have different resumes for all the candidates
+so I am adding all these in my workspace
+so you can make changes in this code
+and those changes will start to reflect in your original job description and resumes
+so here are some important utility functions
+like reset workspace, from the name only I can understand
+when I will call this function then
+my workspace will be created again, so if I have a workspace originally
+then it will be deleted
+and then my workspace will be deleted
+through this call
+and then my workspace will be created again and all the resumes, folders, etc will be seeded
+so from this scratch, a workspace will be created again
+and the workspace which will be created
+I will copy it in my workspace original directory
+so the workspace which was created from scratch after a reset
+will be exactly like the original
+so I will make this workspace and copy the same thing in this workspace
+so I will have 2 new copies of my workspace
+everything will be in the same order as it was in the beginning
+what does workspace snapshot do?
+workspace snapshot basically gives an idea of my workspace
+to my agent, how my workspace looks like
+so it provides a snapshot of the files
+and the details of the files
+so this function works the same way
+again you can see the code, very simple code
+you are working with the file management
+and then there is a function called safe path
+it makes sure that my agent will only make changes in the workspace folder
+and it can't make changes in any folder
+it can't make changes in any folder of my project
+then there is the file tree
+here the structure of the entire folder is like a directory tree
+in that form, the structure returns my agent
+the list folder is understood by the name that my folder and the files inside it
+their list will give my agent
+if I want to read content, I will use this read text
+move is understood by the name that it will move my file to a source destination
+delete
+used to delete a file, it can only delete a file
+we will not use it to delete a folder
+write draft will write my email drafts
+so all these utility functions around paths and files
+are making changes in this workspace
+like showing the structure of the folder
+list folder, telling which folders are available
+reading any file and moving it
+these are all the functions that are doing
+then these utility functions are related to my CSV file
+like if I want to read the content of the CSV file
+then this is the function of the read tracker
+write tracker is understood by the name that whatever information is there
+I can write it to my tracker file
+if I want to check if any candidate exists or not, then I can do it through this function
+and if I want to check any value, then I can do it through the check value function
+validate the fields that have rules, return the value to the store
+so these are easy functions
+if I want to add a new tracker, then it will append to my CSV file
+update tracker field
+if I want to update any detail of any candidate, then it will handle this update
+and if I run this file
+then it will create a new workspace for me
+I will show you
+if I go to the terminal and run this file
+then I will go to the source
+then I will go to the hiring agent
+then I will go to the app and then I will go to the workspace.py
+as soon as I run this, you will see that the changes that I have in my workspace
+if I show you the resumes, then here will be 15 resumes
+these are shortlisted and rejected, these will be completely empty
+basically everything will be reset here
+as soon as I run, rejected is empty, shortlisted is empty
+and all my resumes are back in the resume folder
+and this is my snapshot of the workspace
+you can see these are the files
+draft empty, rejected empty, these are the resumes names and shortlisted is also empty
+there are currently 0 rows in the tracker
+so this snapshot will go to my agent
+and it will help me to tell you the situation
+I hope you understood this file
+you can check this code and I will share it with you
+you don't need to worry about this code
+you need to focus on the agent.py code
+so let's go and I will show you the agent.py code
+how our agent was built
+let's explore the client files
+here we have clients.py and tools.py
+here I have loaded my environment file
+and defined my models
+and defined the logger
+and created my LLMs through chat open A
+then let's talk about tools.py
+here we will define our tools
+here I have clearly written that there are 7 tools
+that we are using in this agent
+and we are working with these tools
+the executor can call each tool is a thin wrapper around a function in workspace.py
+so the tool that we are making here
+basically what it is doing is that we have created a utility function
+and the tool that I have shown you now is simply importing and calling it internally
+it calls it and turns the result into a short text message
+so these are working like wrapper functions
+and these are the tools that I have done
+I have imported tool decorator from lang chain code.tools and from hiring agent.app
+I have imported the workspace file
+so I am defining the tool list file
+and it will list the files in a folder
+and tell me the names
+so this is the code and I am calling the list folder and returning the file links
+then there is my read file
+it will read the text of any of my files
+then there is add candidate which will add the information of a candidate in the tracker
+again you can see these functions
+you can see that I have a detailed doc string in each function
+so this doc string will go to my agent
+as tool description
+so whenever you make tools for your agent, you keep the doc string a little detailed and descriptive
+so that your agent knows at what time to call which tool
+draft email is the name, it will draft the email
+update candidate will update a particular row
+and it will move any file
+let's say I want to move it from resume to shortlisted
+delete file will do this
+so here I have made a tool kit in tools
+and I have added another utility function describe
+it will pass the information of my planner agent
+because my planner should know which tools are available
+so I will give the information of each tool to my planner
+and this is it
+I have defined my tools
+now let's move towards the main file
+I will turn on the word draft
+and this is my agent, I have made necessary imports
+I have added a recursion limit
+so this limit is telling me how many steps can be done in my plan
+means how many tool calls can be done by my agent
+if this limit goes up, then my agent will not make any further tool calls
+so that I can stop my agent from making infinite number of calls
+this is my planner agent's system prompt
+you can read it, I will read it once
+so here I have added one tool call per step
+and you are giving a workspace snapshot every file path and the current tracker rows
+it does not show file contents
+it is telling you that you will not get the file contents
+you will only get the names of the files and how the tracker looks
+so you still cannot know how any candidate will score
+you will know this only after reading the tracker
+so we have sent all the tools available
+and we have also told the rules to the planner
+so we have added many rules
+this is our executor's system prompt
+executor is the node where our react agent is working
+so its system prompt has its rules
+and we are telling the executor which steps have been completed
+then we have our responder
+which will generate the final response, its prompt and its rules
+and then you are making this agent in Langraph
+so this is your agent's state
+this is the plan execute state
+this is the task that my user will give
+then here comes my steps of plan
+then I am adding the past steps
+and the final response
+what is my agent generating
+steps are in your tuple
+where your step is and agent's result
+so you must have seen in the UI
+that step is written in bulleted form and you can see its response
+so the response of step result is in the same way
+you can see the tuple in the UI
+and this is the pyrantic base model for my planner node
+here I am generating my plan from the structure output
+how should the plan be? in the form of list of string
+ordered concrete steps to complete the task
+this is my graph, first of all there is a main function
+this is the build agent, I will give it my llm
+basically executor llm and planner llm
+and through that it will make my entire agent graph
+step executor is my react agent
+so I am using create agent from Langraph
+and through that I am making my react agent
+so I have passed llm, tools and system prompt
+then these are my nodes, this is my planner node
+in planner node I have a planner llm
+where I have set my structure output, which is the plan class
+then I am invoking this particular llm
+and then I am giving my human message, my workspace snapshot
+and my user's task
+then whatever plan is generated, I am returning it to my plan attribute
+this one
+then there is my executor node
+in executor I am passing my state in input
+I am extracting the plan, then what I am doing is
+checking which steps have been completed
+and then I am invoking my executor and passing it
+my system prompt, all steps have been passed
+and it is giving me the result
+so
+I am doing this in loop
+so in loop every step is getting completed
+and every time in new step I am giving my executor
+finally responder, you know the role of responder
+it will take all the results, take all the steps
+and then it will give me a final response
+so this is the code, very simple lang graph code
+this is my conditional function
+which is checking if my executor should execute
+or the whole flow should go to the responder
+so here I am checking if all my steps have been completed
+if they have been completed then I will move to the responder
+if my pass steps are less than all the steps in the plan
+then I will re-execute the executor, means there are still steps left
+and I have to continue the executor loop
+then I am building my graph, I have given my graph state
+added all my nodes and connected the graph
+so from start it is going to the planner, from planner to executor
+from executor to conditional edges, there are 2 ways
+it can go to the executor or it can go to the responder
+and then it goes from the responder to the end
+and I have compiled my graph
+so here finally there is a run agent function
+this is basically used to execute the task
+so here I am giving my agent a task and executing it
+and here I have passed my configuration, how much is the regression limit
+and here I am passing the callback and this is it guys
+through this I can execute the agent
+so in this particular file I have 2 functions, build agent
+which is basically creating my agent graph and run agent which is executing this graph
+that's it, if you see this code, it is very simple
+you will understand everything, now let's move towards the front end code
+this is my front end code in agentapp.py
+so this is the front end code, everything you saw in front end is in this particular file
+I will tell you this code, again you don't need to worry
+about how this streamlet code is written
+because making front end is not our job, but still I will give you an idea
+so here we have defined some things like
+kpi folders, which are the boxes you see above
+how many resumes are there, how many shortlists are there, how many drafts are there
+you are tracking these things, then you have told me
+which folders are there in the resume, after that what are you doing here
+you are building your agent and caching it in your page
+caching basically means that once your agent is stored in the cache
+then the streamlet page is not created again and again
+so you have once built your lang graph
+and stored it in the cache, now you can reuse it again and again
+here we have take snapshot, what is it doing
+again it is taking your workspace snapshot, what is diff snapshot
+as I told you, it is seeing the changes between your original
+and the change workspace and showing you in the code
+after that show kpi's, again the boxes you see
+in that you are showing the value of your metrics or kpi's
+show last run changes, as I told you
+in last run changes, you can clearly see
+which file has been moved, which draft has been created, which one has been added
+this is all the code of that
+then you have show job description, through this you can visualize
+a job description, then you have resume label
+show resumes, through this you are showing resumes in the box
+through this you are selecting your radio button
+and through this you are showing the resume in the box
+then there are some important functions
+like show draft, show draft is showing you
+the email drafts, show tracker
+from the name only we can understand, what is it doing
+it is visualizing your trackers, CSV file
+here are the sidebars, functionality
+reset everything, as you click
+your workspace will be reset, for that simply
+you are calling reset workspace from workspace and you are
+storing things in your session state
+run task, agent's task is running
+here you are taking a snapshot
+of your workspace and as agent's task
+will be executed through the run agent
+then what will you do here, you will take a snapshot
+of your workspace and original and compare
+so you are comparing before and after of diff snapshots
+show answer, which is being response printed
+will be show in the streaming fashion
+show history, this is showing you the history of your chat
+as you saw we were doing one task at a time
+so we were showing the old tasks
+this is sidebar code, again
+you can see here you are setting headers, buttons
+this is simple code of streamlet, you are checking
+if workspace exists or not, if it does then only you will show
+the KPIs, finally this is your chat box, first you will show
+the
+I hope you understood this whole code, I know we did not
+explore the code line by line because again this front end
+code is not of much use for you, the most useful files
+of code for you are agent.py, client.py and
+tools.py, we will do more changes in these
+so I hope you liked this particular
+agentic application, you liked this demo
+and I hope you are excited about this project
+and I will see you in the next one guys
+bye and take care

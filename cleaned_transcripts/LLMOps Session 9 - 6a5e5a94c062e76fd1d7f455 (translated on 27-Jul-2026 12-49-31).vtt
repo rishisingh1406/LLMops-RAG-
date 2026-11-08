@@ -1,0 +1,3411 @@
+Any questions you have?
+Which we have covered in the evaluations so far
+For now, I think there are no further sessions
+But we can plan on it
+Like one more session on loop engineering
+For now, there are no plans
+Guys, you are getting reminders for the classes
+Because very few people have joined today
+We are planning on hardness engineering as well
+Don't worry, all these sessions will be yours
+They are all in the pipeline
+If reminders are coming then
+Actually people are joining late
+Guys, please join a little bit earlier
+Today we are going to cover very important concepts in evaluation
+And we will complete the evaluation module
+This is our final class on the evaluations module
+Today we are going to learn how to do evaluations in production setting
+If you have any questions then you can ask me
+Let's wait for a little while
+2-3 minutes more and then we will start
+I am excited to Shivani
+Guys, just a request to join in a little bit earlier
+Guys, you understood what we have covered so far
+Now we are talking about the evaluation module
+Because this is the major module that we have covered so far
+Great
+You guys have run it and experimented
+What are the results
+You have generated some examples from chatgpt
+And you have run the metrics on them
+You have changed a little bit and see how it affects the metrics
+So try this trial and error
+It will help you understand better
+Let's wait for a minute more and then we will start
+Any questions
+Do you see the past recordings of the lectures
+No it is not
+Advanced RAC is not mandatory
+Because the application we are working with is a very basic RAC application
+Our goal here is to teach you LLM ops
+How you apply the LLM ops workflow on LLM based applications
+That is our major concern
+Making and maintaining the application is not our concern
+That is why we are working with very basic components
+Let's start
+I will also take your questions
+Let's start the lecture and then I will take your questions
+Let's discuss our journey so far
+Inside our evaluation module
+We are not discussing about any other module
+We are discussing the evaluation scenario here
+And focus on what we discussed in the previous session
+In the previous session, we had two components to evaluate
+We had two components to evaluate in our RAC pipeline
+The first was our retriever
+This is an upstream component that basically fetch the results from your database
+And you know that it works on similarity
+So when a query comes to your retriever
+It internally searches for similarity in the database
+And fetches the relevant results from there
+And the second component is your LLM based component
+That is your generator
+We know that in our RAC pipeline
+These are the two main components that can have failures
+These are the components that can experience failures
+And we studied the individual metrics on these components
+For the retriever, we studied three metrics in detail
+The first was our contextual recall
+The second was precision
+And the third was contextual relevancy
+And for the generator, we covered two metrics
+Which are built in deep eval metrics for RAC
+The first was answer relevancy
+And the second was our faithfulness
+Now, what are we doing so far?
+We are basically preparing our ground for evaluation
+If you have seen the last two classes
+In the last two classes, our goal was to see how individual metrics work internally
+How LLM as a judge works
+What is the workflow
+How its input goes
+How its output goes
+We have covered all that so far
+But now we have not performed the evaluation on our application
+Which we built in module 2
+And in today's session, we are going to perform this evaluation
+Basically, what we are doing is
+Today we will do our end to end evaluation
+And in this end to end evaluation, we will be targeting our two components
+The first component will be our retriever component
+And the second component will be our generator component
+Now, you know that whenever you have to do an LLM based application evaluation
+The first prerequisite for that is your data set
+Without a data set, you cannot evaluate any LLM based application
+And we have covered in detail how this whole data set is prepared
+So we have done the work of this whole data set formation in two steps
+First, we have prepared our context
+Because this is a rack based application, we have a given context and knowledge base
+So we have prepared our context based on that knowledge base
+And according to this given context, we have generated our question answer pair
+And this question answer pair that we have generated is our golden data set
+So our first goal was to prepare the data set
+And the first task in that was our preparation of golden data set
+As soon as we got a golden data set, we simply took our application
+Which is our LLM based application
+In our case, our rack application
+And we have given our golden data set as input to this application
+Now, we have two components in this golden data set
+We had our input, which is a query
+Which we will provide as input to our rack application
+And the second was our expected output
+This is your answer key
+Or if I tell it in a more technical way, this is your grounded response
+You can also consider it as a perfect response
+So we have this grounded response and our query was in our golden data set
+We picked this golden data set one pair at a time
+And passed it on to our LLM based application
+In our case, our rack application
+And what did we get in the output?
+We got our evaluation data set in the output
+And as I told you, what is our evaluation data set?
+Evaluation data set is basically a group of golden data set
+Or a group of test cases
+So the evaluation data set that we got
+Is made up of our individual LLM test cases
+And we are going to evaluate our test cases today
+So as you remember, when we took the example of the exam
+We covered three major events there
+The first event was to prepare our question paper
+That was our golden data set
+We prepared it
+The second was to conduct our exam
+Exam day
+That was our LLM test case which is inside our evaluation data set
+What was the third?
+Third was our evaluation or scoring
+Evaluation or scoring
+This part is left and we are going to cover it in today's lecture
+What did we cover further on?
+Further we covered that to study these two failures
+We have a built-in matrix in deep eval
+And we covered different metrics there
+First of all, we studied our retriever component
+We first understood what kind of failures can come inside the retriever component
+So we got three failures there
+We identified three failures
+What was the first failure?
+The first failure was that how much context our retriever can retrieve
+Basically we are studying coverage or completeness
+How much of the total we can fetch
+This was the first category or criteria
+The second was that how relevant your retrieved results are to your query
+And the third was that how much ranking it is
+Ranking or order of retrieved results
+And for these three categories we studied three metrics
+Which metrics we studied for completeness?
+Contextual recall
+Which one for relevancy?
+Contextual relevancy
+Whereas for ranking or order we studied our precision
+I hope you remember this metric
+Then we worked with the second component which is our generator
+And we understood that we have to study two metrics in the generator
+Why two?
+Because our generator or LLM
+We are getting two pieces of information in the input
+First is your query and second is your retrieved context
+Or you can call it retrieved chunks
+And in the output your LLM gives you the response
+So there will be one metric which will tell you the relationship of query and response
+And the second metric will tell you the relationship of retrieved context and response
+So here you have two metrics
+The first was your answer relevancy
+Which basically tells you the relationship between what?
+Between your query and your response
+And the second was your faithfulness
+Or you can call it groundedness
+And this relationship tells you between your retrieved chunks
+And your response
+I hope you remember all these individual metrics
+How they work internally, what is their formula
+How can they be bettered
+You remember all these things
+So this discussion is clear guys
+We have just recapped our entire journey
+Let's discuss once what is our target
+What is our target
+Because we should know that
+What criteria are we evaluating our students on
+Only then we can improve it
+And tell its shortcomings
+So here we have some targets
+Basically we are targeting our entire rag application individually
+Through each of the metrics
+So let's take an example of our recall metric
+So what is the target of recall
+Recall basically focuses on how much information of coverage
+It can bring at one time
+Out of the total information
+So for coverage, some components are responsible
+First is your embedding model
+So you know that if your recall is less
+Then you have to improve the embedding model
+Second is your top case
+If your top case is less
+Then you have to increase the amount of retrieved chunks
+And in some cases, chunk size can also be responsible
+Although not in all cases
+But these are the three hyper parameters
+Which you keep in focus if your recall is less
+If your precision is less
+Means everything is retrieved and relevant retrieving is happening
+But its order is not right
+So here you will focus on reranker
+You can put a specialized reranker in your rag pipeline
+If the precision is less
+Or it can be that if you are already using a reranker
+Then tweak its settings
+Refine it more
+Third is your contextual relevancy
+Contextual relevancy
+This is your signal to noise ratio
+So it focuses on three things
+First it focuses on your top case
+So by decreasing the top case
+Your noise decreases
+Irrelevant chunks are no longer available
+Second is your chunk size
+If you reduce the chunk size
+Then you can discard the noisy information
+And third is your chunk overlap
+By tweaking these parameters
+You can increase your relevancy
+Then comes your generator based matrix
+Which has your answer relevancy
+Answer relevancy basically focuses on your prompt
+How your LLM is able to follow your input prompt or instructions
+That is your answer relevancy
+Already it has your query
+What it has to do is to formulate the correct answer
+So this is on the basis of your instruction
+And fifth is your faithfulness or groundedness
+This focuses on your prompt
+But moreover it focuses on your LLM
+That your LLM is showing the property of in-context learning
+What does in-context learning mean?
+That already you have added all the relevant information in your context
+You have all the relevant information
+Now you have to choose your LLM
+That it will follow the given information in this context
+Or it will follow its parametric knowledge
+So here comes your LLM's capability of in-context learning
+Or in simple words
+How capable your LLM is
+It governs your faithfulness matrix
+I hope you remember these things
+Are all the points clear?
+Are all the points clear?
+Yes, let's go
+Any questions?
+Any questions?
+We have spent some time here
+But we have covered the entire journey of our evaluation
+Now let's discuss that this journey
+What was the goal of this journey?
+The goal was basically that we have to evaluate our LLM based application
+Generally there are two goals in evaluation
+One comes during the development stage
+When you are developing your application
+What happens in the development stage?
+You evaluate in the development stage
+So that you know what is your baseline
+What is the evaluation criteria in the development stage?
+Like we are developing our application
+So if we are studying about evaluation today
+Today we are evaluating our application
+So our goal is simple
+We have to find out how our application is performing
+Using the baseline matrix
+If our matrix score is less or if our matrix fails
+What is the next logical step?
+The next logical step is that we will improve our application
+How can you improve your application?
+You can improve only when you know what is wrong
+You can improve only what you can see
+When you know the disease in the test
+You can fix the disease in your lab reports
+If you don't know the disease then how can you fix it?
+So the targets that we are reading during the evaluation
+These targets are basically our disease
+And our matrix tells us which target we should focus on
+So you can make a cheat sheet or table of this target
+And keep it handy
+Because when you do the evaluation
+You should have an idea of what we should improve
+And what we should tweak
+And in which direction we should tweak is also important
+Like I told you that your top case is the chunk side
+If you increase it then your recall improves
+But your relevancy starts decreasing
+And if you decrease it then your relevancy increases
+Recall starts decreasing
+So what you have to do is to find a middle ground
+So you should know all these things
+Now during development when we get this baseline
+We get to know what we have to improve
+What we have to improve
+What we do here is we first lock some results
+So the next step that comes during development is logging
+Now what you do in logging is you basically lock two things
+First you lock your configuration
+What do I mean by configuration?
+Configuration means what is the architecture of your workflow
+Your different components come under the architecture
+Along with the components, how they are arranged
+Which component is coming under your workflow
+And what are the hyper parameters of those components
+So these things you lock in your log
+Basically you store your configuration details
+And along with that you also lock the score of this particular configuration detail
+So whatever the evaluation results are
+You also lock them here
+And when are you doing all this during the development phase
+So you made your baseline application
+Evaluated it and locked its configuration and results here
+Now what is the next step?
+What you will do in the next step is you will improve it
+Now I want to ask you a question
+You are following this evaluation module very religiously
+You tell me that will we improve anything randomly
+Or will our improvement be targeted
+Which type of improvement will give us better results
+Random improvement or targeted improvement
+I am looking at the chart
+Targeted improvement
+Can someone tell me the reason why targeted improvement will be better
+Can you tell me the reason behind this
+Targeted improvement is better
+What is the reason
+We will only focus on the weakness
+So whenever you do targeted treatment
+If you have cancer
+Now you treat cancer in a targeted way
+So what is the benefit
+The first benefit is that you recover quickly
+You know where to hit
+So you can improve your application quickly
+It saves you time
+Effort and cost
+Everything saves you
+What is the second benefit
+The second benefit is that you can bring less retries
+What are we doing here
+We are locking our baseline application
+We are improving it
+So it is not necessary that our improvement will be done in the first try
+We will have to do multiple attempts
+And after every attempt we will have to evaluate the results
+And we will have to calculate the differences between the two evaluations
+So there is a lot of work to do
+So what do we want
+We want the improvement to be such that we have time left
+Effort left and cost left
+And the second thing is that we can reach the best application in less retries
+Basically you can understand it as if you are using a gradient descent algorithm
+What is the goal of gradient descent
+The goal of gradient descent is not to reach minima
+It is to reach minima in less number of iterations
+It is an optimized algorithm
+So you are doing something like gradient descent
+It is clear that we are doing targeted improvements here
+We are not doing anything randomly
+We are not improving
+So this is our development goal
+What is the goal of development
+The goal of development is that we want to shine in our evaluations
+And want to develop a good application here
+So at the end of the development phase
+We have our best version of the application available
+But this application will not always be in the development phase
+What will be the next phase
+The next phase will be that you will take this application towards production
+Now what is in production
+You took your application and deployed it
+And after deploying it is facing your users
+Now users are coming and interacting with your application
+Let's say your campus chatbot
+I have integrated it on the graphic platform
+And now you are interacting with the users of this chatbot
+So someone can tell me that when I am interacting with this chatbot
+What problems can come after deployment
+First of all tell me if problems can come or not
+Because what I have done is that I have made sure during development
+I have made sure that the best version of my application
+Whatever components I am using
+The best combination I have put here
+After that I have deployed it
+It shines on my evaluations during development
+So can there be a problem after deployment
+And if there is a problem then what kind of problem can come
+Latency can increase
+Multiple users will come
+And tell me
+I am looking at the chat
+What else can happen
+Latency can increase
+Scaling issues can come
+Anything else can happen
+Now we are not talking about safety
+Generally we have a simple application
+And our users are not doing prompt injection
+It can hallucinate
+Scaling latency
+Can there be any other problems
+Cost can be an issue
+Yes, so multiple problems can come
+Our application can hallucinate
+It is possible that our retriever
+It may not be able to retrieve the proper chunks
+It is possible that the documents we put in our database
+It becomes stale
+Stale means old
+There can be many issues
+So what we have to do is after deployment
+Do not leave your application like this
+We can not assume that in the other development phase
+If the application got good results while doing the evaluation
+Then it will behave well in deployment
+Your drift can also be an issue
+It is possible that when your users were developing their application
+They were asking more about any particular topic
+Like now the course of LLM eval is going on
+LLM ops course is going on
+So my user is targeting this only
+But it is possible that new courses are introduced tomorrow
+And it is possible that the distribution of questions changes
+It can be of any other way
+It is possible that a course will be on codex tomorrow
+Which is more practical
+So there are some code oriented questions
+It is possible that my application is not able to perform well on those questions
+Because what are we using in the database
+We are using our transcripts in the database
+Which are basically generated when I am interacting with you using voice
+So this transcript is generated from my voice
+It will not be able to perform well on the code
+So if there are changes in my distribution
+Then my application will also start behaving a little weird
+Which is very much possible
+So what we have to do
+We have to test our application not only in the development phase
+We have to test our application even after production
+Which is called as your post production
+We have to test our application even after production
+And this is called as your post production evaluation
+And your post production or post deployment evaluation
+Is completely different from your development phase
+What are the differences
+I will tell you that
+The first difference is that you do not have a valid data set to evaluate
+What are we doing now
+Now we are generating our golden data set here
+We are generating our golden data set
+We have our input in the golden data set
+And we have our grounded response
+But when our application will go into production
+Then we will not have this golden data set available
+So what will happen in that case
+In that case we will have our user's input
+Our users are continuously interacting with our chat application
+So we are somewhere in their input
+And whatever answer our application has given to our user
+We are locking it somewhere
+Somewhere we are saving it
+So this input and our application's answer
+These things will be available to us
+Now in this particular thing
+This input and answer pair
+Is different from my golden data set
+What was in my golden data set
+My input was coming from my context
+I had made sure that the input that came inside the golden data set
+Was from my knowledge base
+But I can't expect this from my user
+Maybe my user asks a question
+Which is not available in my knowledge base
+Maybe he asks a question about a campus video
+That is very much possible
+So here you can understand in a way
+That you were testing in a controlled environment
+When you are testing in a development phase
+It is in a controlled environment
+Whereas when you are testing in production
+Then it is an open environment
+There you don't have much control
+So where are we losing control?
+First of all we are losing control
+That we don't have the value of input
+And second you don't have the value of grounded response
+Why? Because you don't know
+That the context in which your rag application is giving the answer
+Is that context correct or not?
+Is the answer generated correct or not?
+So you don't have this reference in any way
+Or this grounded response is not available
+So what is the way now?
+What do we have available now?
+We have the input of our user
+And the answer or response given by our application
+This particular pair is available to us
+But can I trust this particular pair?
+Because at the end of the day what do I have to do?
+I have to evaluate my application
+And why am I evaluating?
+Because I don't know how my application is behaving inside production
+If I know that this input answer pair is correct
+Then why will I evaluate my application?
+I hope you are able to understand this whole thing
+So what is the biggest problem in production setting?
+That we don't have this data set
+So what do we have to do?
+We have to evaluate
+So we have to put some criteria here
+Where we go away from this reference based evaluation
+And go towards reference less evaluation
+Reference less evaluation
+And what do we have to do here?
+We have to do that our user is interacting daily with our application
+Now we can't evaluate all the logged questions
+It may be that there are too many questions
+So we can't evaluate everyone and we can't evaluate daily
+So what do we have to do?
+So if we need a data set for evaluation
+Then we have to do some sampling
+And this sampling should also be done carefully
+It should not be random
+It may be that the questions that are coming out of random sampling
+They are not of good quality
+So we have to do some filtering here too
+I hope you are able to understand all these problems
+And I hope I am able to explain to you
+What is our goal?
+Our goal is different in the development phase of the evaluation
+It is different in the production phase
+But what is the end goal of our LLM ops?
+Our LLM ops end goal is that we can properly deploy our application
+And we can productionize it
+So whatever we are reading today
+We have to replicate it again inside our production setting
+But there are two problems in the production setting
+First problem is that this data set is unavailable
+And second problem is that you don't have to use this data set in the evaluation
+You have to do sampling here and filter out the best questions from it
+And evaluate on the basis of them
+You have to evaluate on some edge cases
+So you have to build the entire pipeline of filtering
+So it has to be another completely separate evaluation pipeline
+Which works in production
+Is this thing clear?
+Is it clear?
+Clear?
+Any question?
+Did you understand what is the problem in our development phase and what is the problem in production?
+Both have their own unique challenges
+Is this thing clear?
+So now
+Clear
+So the developers of DeepEval who made DeepEval
+They knew about this problem
+They knew that we have to make a framework
+Which will help our developer in the development phase
+How is it helping in the development phase?
+You have a synthesizer in DeepEval
+Which is automatically giving you goldens
+And you have a mechanism in the synthesizer that you can make goldens on your documents
+Secondly, DeepEval is giving you a built-in matrix
+That you can test your application through this built-in matrix
+Any LLM based application
+You can test it
+And DeepEval makers have made sure that if your application is in production
+Then your application can be properly tested in production
+Now what is the problem in production?
+The biggest problem in production is that we cannot use this synthesizer
+I hope you are able to understand why we cannot use it
+Because your knowledge base will be regularly upgraded
+The documents you have made through this synthesizer
+You have made it on the old knowledge base iteration version
+And secondly, the queries you are evaluating
+Those are basically your user queries
+Which the user is giving you directly
+The actual queries you can call them
+So in the production setting, DeepEval makers thought
+Why not use those metrics here
+Make such a criteria here
+Make such a framework
+So that the metrics that are less reference
+By using these metrics
+If we are having some problems in our rag application
+We can identify them
+What to keep in mind is that
+Our targets are still the same
+Which were in our development phase
+The targets have not changed
+Because the targets will remain the same in our application
+So what we have to do is
+We have to focus on these targets in some way
+Making sure that our metrics are less reference
+So that whatever input of the user is coming
+We can do sampling from that same bunch of input
+And after that we use these inputs as our data set
+To do the evaluation
+Identify the problems
+Improve them
+Again in the development of version 2 of our application
+And then we can productionize it again
+So let me tell you how the whole flow is
+The first flow is that you have developed your application
+After developing it, you have evaluated it
+Which we are going to do today
+After that you will have
+Baseline application
+You will have two things in baseline application
+First you will have the configuration details of your application
+Second you will have the evaluation score
+So we will reach this particular point today
+After that what will you do
+After that you will do experimentation
+You will basically improve this baseline
+You will try to reach out to the best application
+As soon as it comes to you
+You can run multiple iterations in experimentation
+It may be 2, 10 or 20
+It depends on how you reach the best application
+But as soon as you get the best version
+Which will meet your thresholds
+Of all your evaluations
+Then you will do it productionize or deploy
+After deployment, you do not leave your application orphan
+You keep evaluating it from time to time
+In frequent intervals
+But this evaluation is different from this evaluation
+The first difference is that you do not have any golden data set
+So what are we doing for the data set
+Here we are using the inputs of our users
+But you will remember that in your golden data set
+There were two pieces of information
+The first was your input
+The second was your reference
+Reference answer or answer key
+This reference answer is not available with you now
+So what you have to do here
+You have to use these inputs
+And the responses given by your LLM
+This is wrong, we do not know
+You have to use them and on the basis of that
+You have to evaluate your application
+For which you need some specialized metrics
+Which are reference less
+Reference less
+Ok, so you will evaluate this particular application
+Which is v1
+You will evaluate it
+It may be that it scores a little less on a particular metric
+So what will you do
+You will improve that particular point
+After improving, you will get v2
+You will deploy this v2 again
+Now there are different criteria
+Through which you can deploy
+There are different types of deployments
+We will read this later
+But what you will do
+This v1 will be taken down slowly from your cloud servers
+And v2 will be introduced to your users
+This thing is clear
+The whole flow is clear
+From the perspective of evaluation
+This is your complete LLM Ops
+You do the evaluation like this
+For your LLM based application
+Any questions
+Now you understand the whole concept
+What we want to do
+Questions guys
+Questions
+Clear
+Clear
+Great
+Let's move forward
+So we have understood
+That if we want to evaluate our application in production settings
+Then we have to use the reference less metrics here
+And here comes a new concept
+Which we are going to read
+This concept is called Rack Triad
+What does Triad mean
+It is like having three components
+There are three components in it
+Now the makers of DeepEval
+Thought that why not
+We have already existing metrics
+Which we provide to evaluate a rag application
+Why not we use that in production
+If I introduce some new metrics here
+Then my developer will also have to read this
+Have to understand
+Have to use it
+And here the evaluation pipeline
+Which I have already built on this metrics
+It will have to be redefined here
+Have to change
+So why not we already
+Using the existing metrics
+Our rag application
+Which is in production
+We evaluate it here
+This is your concept
+The concept of Rack Triad
+What is Rack Triad
+Let's read the definition
+The Rack Triad is composed of three rag evaluation metrics
+So in this triad
+Basically three metrics are available in this triad
+Which are
+Answer Relevancy, Faithfulness and Contextual Relevancy
+I hope you have heard a lot about these three metrics
+We have already covered these metrics
+And in Rack Triad
+You use these three metrics
+Now why these three metrics are used
+These three metrics are used
+Because to use these metrics
+To use these metrics
+To do an evaluation through these metrics
+You don't need any grounded reference
+Here grounded reference
+Your expected output
+You don't need that
+Let's go towards answer relevancy
+What happens in answer relevancy
+You need two pieces of information
+In answer relevancy
+Your input and your actual response
+Where will I get this
+In production setting
+This will give me my user
+Which I am locking
+And this will give me my LLM
+So I am giving my rag application
+The input and the output
+On the basis of this
+I can evaluate my rag application again
+What is the second
+The second is faithfulness
+What is in faithfulness
+In faithfulness I need two pieces of information
+My retrieved chunks
+My input query
+And my response
+Who is giving me this
+My user, who is giving me this
+My generator, who is giving me this
+My retriever
+Whatever query he is getting
+On the basis of that he is giving me
+This piece of information
+What I have to do is
+To make a comparison or relationship
+I will get my faithfulness score
+Again I don't need any reference
+Here
+No expected output
+Ok
+I can simply take the outputs
+Of my rag application
+And I can take the retrieved chunks and response
+And calculate the faithfulness
+What is the next
+Next is my contextual relevance
+Contextual relevance
+For this
+I need two pieces of information
+My input
+And my retrieved chunks
+I hope you are able to understand this
+I will get this from my user
+And this from my retriever
+I have given the inputs
+I have to compare these two
+And here I will get the score of contextual relevance
+Do I need reference here
+Again the answer is no
+So what we did simply
+Using this very powerful technique
+Called as rag trad
+Already the existing metrics
+We reused them
+Because
+Those metrics were our reference less metrics
+By reusing them
+So we evaluated our application
+In production setting
+Ok
+What we had to do here
+Did we have to make major changes in pipeline
+The answer is no
+Already we had
+Three metrics available in our toolbox
+We used them
+And deep eval
+Says that if your rag pipeline
+High score in all the three metrics
+Means
+If your rag pipeline has high score
+Then we can confidently say
+That our rag pipeline
+Is using the optimal hyper parameters
+Now let's take two steps back
+And understand what we had to do
+Ok
+If we follow this flow chart again
+What we had to do
+What we had to do in this particular stage
+In this particular stage
+We were calculating our baseline score
+And we were defining it
+Through experimentation
+So this was our initial refinement
+This was being refinement during our development
+And for this refinement
+We used five metrics
+Where two metrics were
+Which needed references
+And where were we getting those references
+We were getting those references from
+Our context
+Ok and using these references
+We made our golden data set
+Whereas this context
+Is not available in production
+So what we will do now
+Will we leave the evaluation
+Will we use new metrics here
+The answer is no
+We will do refinement
+In production again
+And when will we do this refinement
+We will do refinement
+Based on the user input
+And application output
+We will make this our
+New data set
+And we will do evaluation based on this
+If in evaluation any metric
+Scores low here
+So what we will do
+We will refine it again
+We will tweak our hyperparameters
+Again
+So this is the whole game
+To fix hyperparameters
+But in the first case
+You are fixing hyperparameters
+Using your reference based data set
+Whereas in the second setting
+You are using the reference
+Less data set
+And for that
+You are using these three metrics
+If you see this image
+It is clearly written
+Which thing you are tweaking
+Now this triad
+Is in the form of a triangle
+Things in a triangle
+In the form of a loop
+You can put an example
+This is your rag triad
+For example
+Let's take a contextual relevancy example
+So for contextual relevancy
+What do I need
+I need two pieces of information
+First my input and second my retrieved context
+Now
+What is this telling me
+How relevant the retrieved context is
+To the user query
+I can calculate this through this metric
+Second is my faithfulness
+Faithfulness tells
+How grounded is my answer
+Is it hallucinating or not
+I need two pieces of information
+Retrieval context and my actual response
+And third is my answer relevancy
+For this
+I need two things
+My actual output and my input
+So basically
+You can say
+These are the essential components
+What is missing here
+Your expected output
+Is missing from your triad
+And it is missing
+Because this is a reference less metric
+And you can
+Find your optimal
+Hyperparameters
+Now let's think
+How can we
+Test our application
+Because we are leaving
+Two metrics
+Which we had studied
+One is our precision and the other is our recall
+Now let's see
+That
+Precision and recall
+Because we are leaving them
+Now what were the targets
+You can understand from the target
+If I can show you
+Where I had listed the targets
+Yes
+The targets are here
+So what was the recall targeting
+Recall was targeting
+Embedding model, topk, chunk size
+If you see
+Your relevancy metric
+Is also targeting these parameters
+Topk, chunk size, overlap
+Embedding model
+So instead of this particular metric
+We can use this reference less metric
+Easily
+Now it's time for our precision
+Precision was targeting
+Our reranker
+Precision was targeting
+Our retriever
+It was never targeting
+Whereas in production
+Are we testing the reranker
+The answer is no
+In production we are testing
+Our retriever
+So here we don't need precision
+So we can leave it
+We are using
+Rest of the three metrics
+Like your
+Contextual relevance
+If I tell you
+Contextual relevance
+Here
+We are studying two important steps
+First is chunking
+We can tune
+Chunking hyperparameters
+Through this
+We can see the values we have set
+How good they are
+Second is your embedding stage
+We can also find out
+Through this
+Because these two affect your retriever
+What is the work of retriever
+The work of retriever is of Singularity Search
+How your chunks are made
+And which embedding model you are using
+To encode that information
+On the basis of that
+Your accuracy of retrieval is important
+So one is contextual relevance
+Second is your answer relevance
+What is the answer relevance
+That how your LLM is able to understand
+Your input
+And how it is able to generate a response
+Basically
+Here you can see
+The prompt
+Or the instructions given to your LLM
+How well they have given
+So that they can understand your input
+And your response can be generated
+So the step of argumentation
+Your system is done
+Your system is prompt
+Basically whatever things are
+Around the prompt
+You are evaluating through this metric
+And third is
+Your faithfulness
+Faithfulness is used directly
+To evaluate your LLM
+That your LLM
+Which is your generator
+How well it is able to
+Maintain its ground readiness
+I hope this point
+Is clear to you
+Is this point clear guys?
+Is the concept of Rack Try It clear?
+I will take questions now
+Is what we have discussed so far clear?
+Clear, let's do one thing
+Let's wait here for 2 minutes
+And I will take your questions and I will have water
+I am taking your questions as well
+One question has come
+When the tried metrics indicate poor performance
+What approach should be followed to improve them?
+This approach which I have discussed with you
+All the targets
+You have to improve your targets
+Whatever metric is low sporing
+On the basis of that
+You improve your targets
+There is no need for reference
+They work without reference
+Whether it is development phase
+Or your production phase
+They don't need reference
+But sir hyper parameters are in every stage
+Then how can we show this?
+Let's see
+You have to elaborate
+Which hyper parameters you target
+Ingestion phase
+Chunking, embedding is your
+Ingestion phase
+This is your Ingestion phase
+This is your Ingestion phase
+And what is your Retriever phase
+This generation step is your Retriever phase
+You never generate in the Ingestion phase
+Chunking, embedding is your
+Ingestion phase
+Chunking, embedding is your
+Your documents
+Your knowledge source
+Because same embedding
+Model you will use
+On your query
+So query never has
+Option to use different
+Neither model nor
+Dimensionality
+Clear guys
+Rack triad concept is clear
+Clear
+So you must be thinking
+Why we studied this concept separately
+Means we used those three metrics
+And we spent a lot of time
+Here that why Rack Triad is important
+Why we studied this whole concept
+The why behind the concept
+Why is very simple here
+What I told you
+Is that you have two phases
+Of a particular LLM based application
+In two phases
+There is a life cycle
+First is development life cycle
+Development phase
+And second is
+Post deployment phase
+So in development phase
+Because we have our golden data set
+References everything is available
+So we tune our application
+With five metrics
+Here it is not like
+You will work with three metrics
+Here you have option available
+You will use your five metrics
+And in post deployment phase
+You can use deep eval
+And evaluate your application
+Using the three inbuilt metrics
+So basically
+The main reason to read this whole process
+Was that you must understand
+That you should not do anything different
+In production
+It's not like what we are reading today
+Will not work in production
+We will have to read something new in production
+We will extend this particular use case
+We will build it from another perspective
+And there also
+We can easily evaluate our application
+Using this deep eval
+Using this same metrics
+Using this same LLM as a judge technique
+And the code will be similar to our
+To a large extent
+So what you are reading today
+Will be useful in both your stages
+I hope this point is clear to you
+Is it clear guys?
+I am looking at the chat
+Clear, any questions?
+So you can ask me
+Because after this we will read
+Another important concept that is our custom metrics
+Questions?
+Questions?
+I will do one more thing
+I will show you
+This rag triad page
+This is the rag triad page
+And if you read here
+What is being tuned here
+You will see clearly
+Like your answer relevancy
+Is focusing on the
+Prompt template hyperparameter
+So if your answer
+Relevancy is less
+If it is weak, you can tweak your prompt template
+Here
+And it focuses more on this
+Instead of your LLM
+If you have low answer
+Relevancy, then what does it mean?
+It means you have to improve
+Your examples inside your prompt
+You have to improve the augmentation
+You have to structure it
+So that you can have better
+In-context learning
+Faithfulness is targeting
+Your LLM hyperparameter
+Which model you are using
+And if your faithfulness is less
+Then you can use a different model
+Or a better model
+And third is your contextual relevancy
+Contextual relevancy
+Is your junk size
+Topk and embedding model
+Hyperparameter
+Basically, it is looking here
+If everything is fine
+Then your contextual relevancy
+Will be high
+And if any of these
+Have a problem, then your contextual relevancy
+Will take a dip
+And now
+Through that code
+Which I have used
+The other matrix
+You can implement this RAC triad
+Through that code
+There is nothing new
+You won't see any difference in the code part
+Is it clear guys?
+Clear?
+Fine
+Let's move ahead
+And discuss about
+An important framework
+That is our GEval
+Now, it is clearly written
+This GEval framework
+This framework is provided by
+DeepEval
+It is based on a research paper
+We will see the research paper
+And through this particular framework
+You can build your custom matrix
+Inside DeepEval
+But
+It is clear that
+What you can do with GEval
+Let's discuss once
+Why do we need to do this?
+You should also know
+Where can we get the need for custom matrix?
+So, what are we doing here?
+Till now, whatever
+5 built-in matrix
+DeepEval is providing us
+Through that
+We are evaluating
+Our RAC application
+But, in every scenario
+Is it enough to evaluate
+From these 5 matrix?
+The answer is no
+Sometimes, we have to build
+Some custom matrix
+For example
+Let me give you an example
+In our case, we are building
+A RAC check board
+For CampusX
+You may be
+Evaluating
+Your RAC application
+On a particular criteria
+And the criteria is
+Simplistic explanation
+On simplicity
+If I want to evaluate my application
+If my user
+Ask me a query from my RAC application
+So, my RAC application
+In a very simplistic way
+Without any technical jargon
+Will give the answer
+But the problem is
+To evaluate this
+Simplistic explanation
+I don't have any built-in matrix
+In DeepEval
+So, what should we do?
+One way is
+Build custom matrix by hand
+By hand means
+I write Python code
+What I have to do first
+I have to define a good prompt
+In Python code
+What will happen in the prompt?
+First, I will tell my LLM
+That
+What is the scenario of the evaluation
+Before telling the scenario
+I will give a persona to my LLM
+Persona of an
+Evaluator
+And what you have to do
+You have to evaluate
+A RAC application
+And that RAC application
+Is basically
+Deployed on an EdTech platform
+And my students ask me a query
+I have put a transcript
+In the knowledge source
+And my application responds
+On that transcript
+So, I will explain this detailed scenario
+To my LLM
+What will I do after that?
+I will assemble
+The input prompt
+I will assemble it
+Means I have to send
+All the things required to
+Evaluate the evaluation
+For example, if I want to evaluate
+Simplistic explanation
+I have to send two things
+First is my query
+What my user asked
+And second is my LLM response
+What my LLM gave
+I will put these two
+In the prompt and
+I will give it to my LLM
+Which will be my evaluator
+Now my evaluator will give an output
+Now you know that
+Your LLM's output
+They give a free flow
+In textual form
+Means it can give an answer
+That for this particular input
+And this particular response
+The simplicity score is
+Let's say 0.8
+Now what I have to do
+I have to extract this 0.8 score
+From this entire text
+And I have to return
+This to my user
+Now another way
+Is to use
+Structured output
+I will define
+A whole scheme
+Using patantic
+And make a structured LLM
+And I will give
+The whole prompt
+With all the inputs
+And extract the structured output
+Now here
+Another problem can come
+That
+It is possible that my LLM
+Distribution
+Means I want to explain
+That the LLM
+Scores distribution is always above 0.5
+Ok
+It is never able to give low score
+It is possible that during LLM
+Training it is trained in such a way
+That it never gives low score
+It is not able to give low score
+For a very tough explanation also
+Here score is never below 0.5
+And what I have to do
+I have to define
+Thresholds
+This distribution problem
+I have to tackle it
+It is possible that I use a different LLM
+It is possible that I fine tune it
+Means there are many problems here
+Just to make a custom metric
+And what that custom metric
+Simply is checking
+That my particular response
+Is it simple or not
+Now DeepEval
+G eval gives you
+A framework like G eval
+The good thing about G eval is
+That here you simply
+Using your natural language
+Can define a custom metric
+And how is the custom metric defined here
+Using LLM
+This whole
+This whole metric definition task
+You also give this task
+To your LLM
+Basically you automate it
+So what you have to do
+Using G eval
+When you have to make any custom metric
+You simply
+Tell your LLM a criteria
+What do you tell in criteria
+In criteria you tell
+What are your inputs
+What are your inputs
+Which your
+This particular evaluator is expecting
+Then you tell
+What is your particular task
+On which you are evaluating
+And what is the passing criteria
+That's it
+You give these few pieces of information
+To your LLM
+It should not be too big
+It can be like
+2-3 sentences, a small paragraph
+And you give these criteria to your LLM
+Now what your LLM will do
+Your LLM automatically
+Here is a whole criteria
+Where
+Detailed evaluation steps will be
+How you have to evaluate
+That will generate
+And automatically
+Deep eval will give you
+A custom metric
+And the another
+Good thing about this custom metric
+Is that it works
+Like any built-in metric
+What I mean to say is
+Whatever code we use
+On our built-in metric
+Like your dot measure
+Here you will see
+Some functionalities
+Which are in your built-in metric
+And in your custom metric
+Some input parameters
+With those same input parameters
+You can work with that
+So at the code level
+G eval gives you
+Exactly same metrics
+As your built-in metrics
+And you can simply
+Explain them in your natural language
+And build
+You don't have to explain the whole detail
+Don't have to make the criteria
+Don't have to take care of the distributions
+You can define everything
+And very easily
+In 10 minutes
+You can make custom metric
+And very easily
+You can integrate it in your evaluation pipeline
+Did you understand guys
+Did you understand
+G eval
+It is super simple
+Clear
+Now I will tell you what deep eval recommends
+Deep eval recommends
+That you have
+Any kind of LLM based application
+This is the recommendation
+This is the recommendation of deep eval
+Not mine
+Deep eval recommends
+For any LLM based application
+You should always use 3 built-in metrics
+You can use more than 3
+But you should stick your limit
+On 3
+And use 2 custom metrics
+For any kind of evaluation
+If you want to complete your evaluation
+For any LLM based application
+You should use 3 built-in metrics
+And 2 custom metrics
+Now the good thing about
+This recommendation from deep eval
+Is that these 3 built-in metrics
+We can use in our production setting
+Using the rag triad
+Because in our rag triad
+3 metrics are already built-in
+And 2 we can use here
+For our particular domain
+What is our domain
+This is our rag application
+This is our chatbot
+This is on our edtech platform
+So we can customize
+Our evaluation according to our edtech domain
+Ok
+So what we will do today
+Today we will open G eval
+End to end
+And we will build 2 metrics here
+Inside the code
+After this is clear
+What is G eval?
+What you have to do is
+To make custom metrics
+Using LLM
+That's it
+Great
+Now I will show you
+A little documentation of G eval
+Ok
+Things will be more clear
+And then we will build our custom metrics
+Inside the code
+So it is clearly written here
+G eval is a framework that uses
+LLM as a judge
+All your built-in metrics
+Were using LLM as a judge
+So you use LLM as a judge
+Through G eval
+With chain of thought
+Ok now we will discuss
+What is chain of thought
+To evaluate LLM outputs based on
+Any custom criteria
+Ok you can evaluate LLM
+Or LLM based applications
+Based on your custom criteria
+The G eval metric is
+The most versatile type of metric
+Deep eval has to offer
+This is the most dynamic and versatile
+And is capable of evaluating
+Almost any use case with
+Human like accuracy
+Ok usually
+A G eval metric will be used
+Alongside one or other metrics
+That are more system specific
+Like your contextual relevancy metric
+For wrap
+So deep eval is telling you
+That the G eval metric you will use
+You will use along with your
+Other built-in metrics
+Ok this is because
+G eval is a custom metric
+Best for subjective use case
+And specific evaluation
+I hope this point is clear to you
+Now whenever you want to make
+A G eval metric
+For that you will need two things
+Which is your input and your actual output
+Now
+You should hear this bell
+What is the bell
+What do you want in the input
+You want in the input
+Your query
+To run G eval
+What do you want in the input
+You want in the input your query
+And your response
+Of your application
+These two things are available
+During development time
+And during production
+Are also available
+So what you can do
+You can simply make this
+G eval metric
+1,2,3, all the custom metrics
+You can merge with your rack triad
+So in production setting
+You don't have to change much
+In your evaluation pipeline
+You can use your
+G eval metric along with your
+Rack triad metric
+And you can
+Evaluate your application
+In your production setting
+Ok I hope this point is clear to you
+What is the usage
+Here is the usage of the code
+Here are some parameters
+We will come to parameters
+Let me show you
+What all things
+You can do using G eval
+First of all let's discuss
+Where did this G eval framework come from
+So G eval is a framework
+Originally from a paper
+This is a research paper backed framework
+And the paper is
+NLG evaluation using GPT-4
+With better human alignment
+NLG is a natural language generation
+So the responses of GPT-4
+You are evaluating them
+Using G eval framework
+This is the
+Research paper framework
+That uses LLMs to
+Evaluate LLM output
+It is about LLM as a judge
+And it is the best way
+To create task specific metric
+How does this work
+G eval algorithm first generates
+A series of evaluation steps
+As I said you give your criteria
+To your LLM
+And it automatically generates
+Evaluation steps using
+Chain of thought
+Before using the generated steps
+To determine the final score
+Via form filling paradigm
+Which is a fancy way
+Of saying G eval requires
+Different LLM test case parameters
+For evaluation depending on the
+Generated steps
+That's it
+So this whole thing along with
+The diagram is given in the paper
+So let's do this
+Let's go through the whole paper
+Now let me tell you some things
+Before moving to the paper
+What is in G eval
+In G eval
+You tell your criteria
+Which is the evaluation criteria
+For your custom metric
+And send it to your LLM
+What does your LLM do
+It's reasoning capabilities
+All the advanced LLM
+Have reasoning capability
+Thinking capability
+So what does it do
+Using that reasoning capability
+It implements C.O.T
+And chain of thought
+And creates evaluation steps
+What does chain of thought mean
+It takes your criteria
+And decomposes it
+It decomposes
+Step by step manner
+To do this particular evaluation
+What steps will be required
+So this step by step
+Is the complete decomposition
+What is chain of thought
+Let's say I want to do some mathematical calculations
+Like I want to do
+Calculation 10 plus 15
+So how will chain of thought do this
+First it will write here
+Number 1 or number is
+Number A is 10
+Number B is
+Now I have to add
+Or sum up 10 and 15
+And the response or result is
+So something like this your chain of thought works
+Now if you see this clearly
+This is our problem
+This was our problem
+We have broken it down into
+Steps, we have decomposed our problem
+Into individual steps
+And this is your chain of thought
+But here you do not give such mathematical problems
+To your LLM
+You give a criteria
+For evaluation
+You write it in natural language
+Your LLM takes it as input
+And for this
+It generates evaluation steps
+And on the basis of those evaluation steps
+You evaluate
+Your particular application
+In these evaluation steps
+What are the inputs requirements
+That you also
+Use G eval
+Is this thing clear
+How is this working, is it clear
+Are you getting bored
+This whole scenario is being understood
+Custom evaluation
+I am looking at the chat
+Are you getting bored
+Looking for responses
+What is the matter, today
+There is less energy
+This topic seems complex
+G eval
+Guys feedback
+No, it seems good
+Let's continue
+Let's continue further
+Let's discuss once
+How this whole thing is calculated
+And then let's go to the paper
+Here it is a little more technical
+How this is calculated
+We do not need to go into so much technical detail
+We will understand it in a simple way
+What is written
+Since G eval is a two-step algorithm
+And what is its work
+It generates chain of thought
+For better evaluation
+This means first generating
+A series of evaluation steps
+Which I told you
+Using COT based on the Grivain criteria
+You will give the criteria
+And will apply your reasoning power
+And will generate the evaluation steps
+For you
+Before using these generated steps
+To determine the final score
+Using the parameters that you will pass
+In the input
+This diagram is telling you here
+When you provide evaluations
+Now we will come to this point
+So the thing is very simple
+You have to tell the criteria
+And your LLM will automatically
+Create the evaluation steps
+Let's explore this paper once
+We will read a little
+Will not go into too much detail
+Although I wanted to read it in detail
+But I think
+There is no need to go into too much detail
+If we move on to the code part
+You will understand more things
+So this is your paper
+This is the NLG evaluation using GPT-4
+With better human alignment
+Let's read the extract
+The quality of text generated
+By natural language systems
+Is hard to measure automatically
+So basically
+What we want to find
+Through GEval
+An Automatical system
+Through which we can evaluate
+Whatever we are generating
+In the LLM responses
+Conventional reference based metrics
+Have been shown to have relatively
+Low correlation with human judgments
+Especially for tasks
+That require creativity and diversity
+So for your domain specific tasks
+Your built in metrics
+Do not respond very well
+So what we did here
+We developed a framework
+By using GEval
+Which uses
+Large language models
+With chain of thought and
+Form filling paradigm
+So here you make a prompt
+By augmenting it
+To access the quality of
+Your LLM outputs
+What does NLG output mean?
+Here we experimented with two tasks
+Text summarization
+And dialogue generation
+We show that
+GEval with GPT-4 as the backbone model
+Achieves Spearman correlation
+Of 0.5 with human
+On summarization task
+And outperforms all the previous methods
+By a large margin
+So whatever evaluation metrics
+They were using before
+Through that custom evaluation
+Was performed better
+Its correlation score
+Was also high
+I hope you understood this
+Now what do you do in this?
+This diagram explains it very well
+You basically
+Tell your task to your LLM
+What is our task?
+That we have a news article summary
+We have to rate it
+On the following metric
+What is metric?
+Coherence
+Which ranges from 1 to 5
+Lowest coherence value is 1
+Highest is 5
+The collective quality of all sentences
+Coherence is that you take all the sentences
+And see how well
+They are related
+How much continuity or flow is maintained
+Now what did you do?
+You gave these two things to your LLM
+Your LLM
+Using chain of thought
+These evaluation steps
+Automatically generated by using its reasoning power
+What do I have to do first?
+First I have to read
+News article carefully
+And identify the main topic and key point
+After that I have to read the summary
+Compare it with news article
+Check if the summary covers
+The main topic and key points of the news article
+And if it
+Presents them in a clear and logical
+Order
+After that I have to assign a score
+Which is a coherence score
+On a scale of 1 to 10
+This is 10, it should be 5
+Where 1 is the lowest and 5 is the highest
+Based on the evaluation criteria
+So we just told
+The task, the criteria
+To our LLM
+And these steps were automatically generated by my LLM
+Ok
+What else did I do?
+After that I took the entire input context
+And what is inside the context?
+My entire article
+I took its summary
+And these evaluation steps
+And after that I output a score
+Is this thing clear?
+So this is basically your
+G eval
+And we will use this framework
+To build our custom matrix
+Clear guys?
+Is it clear how it works?
+Ok
+We are not going into too much technical details
+If you are interested
+I will share the link of this paper
+With you
+You can read it in detail
+Is it clear?
+I am looking at the chat
+What is the matter today?
+I am feeling
+That you are getting things
+Guys
+If you have any feedback
+You can give me
+Guys
+Is it clear?
+No problem, let us go to the code
+With the code, things will get clear
+Ok
+Now I will tell you once
+How you implement it
+Ok, so here you have
+3 mandatory and 7 optional
+Parameters
+you have to tell 3 things here
+first you have to tell the name of your custom metric
+then you have to tell the criteria
+what is the criteria?
+Description, Outlining, the specific evaluation aspects for each test case
+what you want to evaluate
+and for this particular evaluation, what kind of inputs you need
+in our LLM test case, there are 4 types of inputs
+our actual input which is our query
+our response from the LLM
+our corrected output and our retrieved context
+so you can give any input from these and do the evaluation
+if you want to do it in production then this reference should be less
+and if you want to do it in development then this reference can be based
+and automatically your framework will generate the evaluation steps
+is it clear?
+now let's do one thing
+let's go inside the code and implement this
+so I have already opened this VS code
+guys can you see my VS code?
+I will close all the files
+and let's do one thing
+let's implement a custom metric
+so first let's make a file here
+and this metric is our
+so let's make an empty file here
+using the touch command
+I will close the camera so that it doesn't interfere
+let's name this metric
+just a second
+answer
+correctness metric.py
+we are basically seeing that the answer generated by our LLM is correct
+so this file is ready
+first we will import from dpval.metric
+this is our class and framework through which we will implement this
+then we will import from
+.testcase
+LLM testcase
+from dpval.metric.geval
+through this we will import a class whose name is rubric
+and from dpval.testcase
+from llm testcase
+we will import single term parameters
+I will tell you how all these things will be
+and we will do one more thing from .env
+we will import load.env
+first we will load the api key
+we have loaded it
+now what we have to do next is
+we have to make our custom metric
+so we will define the custom metric
+now you have to make custom metric anytime using geval
+so you can make your custom metric in two ways
+so this is our answer correctness metric
+so we will use the geval class
+first we have to tell you the name of the metric
+so the name is answer correctness
+then we have to tell you the evaluation parameters
+so guys if you want to check if your answer is correct or not
+so what you have to send in input
+you have to send two things in input
+your grounded answer and your actual answer
+you can compare them and tell us if your answer is correct or not
+so we will send two things in input
+we will send our grounded answer which is our expected output
+and our actual answer
+so for that you use single turn params
+it is an eval
+and after that you will write expected output
+this is your grounded answer
+and you will send actual output in single turn params
+so you have set your evaluation params
+next you will tell your criteria
+if you will give criteria in a string
+then our criteria will be
+expected output with the actual output
+penalize wrong parts strictly
+so we have given criteria
+and that's it guys
+and you don't have to define anything
+you can define a rubric if you want
+so what is rubric
+rubric is basically that you can categorize your evaluation
+categorize means that you can tell that for a particular score
+for a particular score
+in which category it will land
+I will explain it through an example
+like if I show you in the code
+in the documentation
+so what is rubric
+rubric is a rubric
+you can pass it through rubric argument
+it is a list of rubrics
+and confine your evaluation LLM to output specific score ranges
+so you can define specific score ranges
+like here
+again correctness is being checked
+so for correctness
+we have given name, criteria
+and inputs
+exactly these inputs
+now you can tell
+for which score range
+your expected output is
+like if my correctness is landing between 0 to 2
+then I will tell it that it is factually incorrect
+so it is mostly correct
+if it is landing between 3 to 6
+then it is mostly correct
+7 to 9 is correct
+but missing minor details
+and if it is 10 on 10 then it is 100% correct
+now keep in mind that
+your score range is from 0 to 10
+and there is no overlapping score range
+means if it is 0 to 2
+then your next category will start from 3
+and not from 2
+so there should be no overlap
+if you want to define single digit range or category
+then lower and higher should be same
+so let's define this rubric in our code
+so we have to pass two things
+first we have to pass our score range
+so score range would be in tuple
+so we will keep it 0 to 5
+and after that you have to tell an expected outcome
+so if it is 0 to 5
+then answer has incorrect facts
+so if it is 0 to 5
+then answer has incorrect facts
+again you can make more categories
+and make it more strict
+we are making 2 or 3 categories
+I just want to show you
+that you can define the scoring through this
+you can define the score range
+here I will give score range
+I have done 0 to 5
+so it will be 6 to 9
+and what is the expected outcome?
+we can keep expected outcome
+answer is mostly correct
+but has minor differences
+we can write minor differences
+and last rubric is 10 on 10
+this is completely optional
+you can set it if you want
+if you don't want to set it
+then it won't be a big loss
+100% correct
+100% correct
+let's count it
+and put it in raw string
+now it is correct
+100% correct
+so we have defined our rubric
+if you want you can define your evaluation model
+using the model parameter
+but we will keep it as base line
+which is our gpd 5.4
+you can set a threshold
+which is your passing threshold
+and other things like verbose mode
+you can define that too
+as I told you
+geval is exactly like your other metrics
+now we have to pass a test case
+to our geval
+so we have to make a llm test case
+for that
+so what we can do is
+we have already made a dataset
+from there we can copy an example
+so here I will make the test case
+test case
+test case
+test case
+test case
+test case will be my llm test case
+here I have to pass two things
+my expected output
+which I will get from my dataset
+and my actual output
+so I will go to my datasets
+my eval dataset
+this is my dataset
+randomly here I
+will get some value from
+a particular dataset
+let's take this
+because from here I need
+my actual
+so I will copy the whole thing
+I hope it gets copied properly
+just a second guys
+I have copied this
+and I have pasted it here
+and next I have to give
+my
+expected
+I have passed the expected
+I have to give here
+my expected output
+just a second
+this was my
+actual and this is my expected
+if I can copy this one
+cleanly
+yes
+here is
+copy
+and paste
+so I have added these two missing pieces of information
+in my test case
+my expected output is my reference
+and my actual output is my llm response
+now what I have to do is
+I have to test this particular metric
+so for that
+I will use answer correctness
+this is my metric
+and after measuring it
+I have
+method available
+let's do one thing
+let's turn on verbose
+so that I know what is happening internally
+let's turn on verbose mode
+to set
+here I will get
+my score
+I will print that score
+here you have to pass two things
+you have to pass your test case
+I think you have to pass this
+you have to pass one thing
+I have passed this
+now let's run this
+uve run
+answer correctness
+metric.py
+some problem has come
+input should be a valid tuple
+here
+I think
+now everything is fine
+let's run
+now problem has come
+in llm test case
+llm test case input is missing
+ok
+let's pass input here
+although we don't need input for evaluation
+let's pass an empty string
+I think now this will work
+why this error is coming
+ok comma is missing
+just a second guys
+now it is running
+I will expand the terminal
+see
+this is our
+custom
+evaluation
+which I have made in class
+criteria is
+and my llm
+automatically using
+chain of thought
+here it has made evaluation steps
+see what is written
+this was my rubric
+this was my rubric
+this was my rubric
+if it is 0 to 5
+then answer it as incorrect
+if it is 6 to 9
+then most correct but minor differences
+and 10 is 100% correct
+so this rubric I have given to my llm
+as input inside the prompt
+and here see my score is coming
+0.33
+this is some points
+which are missing
+ok
+so here I can see proper scoring
+and reason
+and you can see this score and understand
+that this particular metric
+this particular answer correctness metric
+fails on this particular example
+because my threshold is 0.5
+I hope
+this whole thing is getting clear
+is it clear guys
+how you can build your custom
+metrics
+it was easy in code
+nothing difficult here
+yes it is clear
+and the code is also easy
+now let's do one thing here
+let's make one more metric
+now what we will do in that metric
+we will not define criteria here
+we will write these evaluation steps
+manually here
+ok so what you can do
+so in deep eval
+either you can
+pass your criteria
+if I show you
+see
+either you can pass the criteria
+or you can pass the evaluation steps
+but you can't pass both
+because on the basis of your criteria
+your llm generates these evaluation steps
+so it is written here clearly
+you can only provide either
+criteria or evaluation steps
+but not both
+so what we will do
+we have seen how you can make
+evaluation steps using COT
+now we will see how we can
+pass our evaluation steps manually
+now you must be having a doubt
+that sir if we can pass
+criteria here and generate
+these steps from our llm
+then why are we mentioning
+our evaluation steps from here
+so basically what you are doing here
+you are basically doing API calls
+you are sending these criteria to your llm
+so you are saying using your reasoning capability
+you generate these steps
+now because llm's output
+is probabilistic
+so in every run these steps will be different
+so if you want
+to set a deterministic
+criteria here
+so what you do here
+you manually pass these expected steps
+I will show you
+if you see these evaluation steps
+you read them once
+and I will rerun this particular
+and you will see
+these steps will be changed
+I will show you
+same code, I haven't changed anything
+just rerun this file
+see what happened
+my score is different
+that is because llm as a judge
+is not deterministic
+it is probabilistic
+now you see here evaluation steps
+have changed
+there are many changes
+but you will see many changes
+here it is telling to compare
+answer matches in meaning and conclusion
+this was not written above
+meaning and required facts
+now it is on conclusion
+meaning has been completely changed
+check all factual claims
+in the actual output against the expected output
+and penalize any wrong, contradicted
+and unsupported facts strictly
+so strictly was not done
+in the second point
+so we are using that point
+first point was in third
+now it is in second
+verify that the actual output
+includes the key information
+required by the expected output
+without omitting
+essential correct details
+now third point is completely different
+and this is fourth point
+so you can see clearly
+these steps are changing with every run
+so what we will do
+we will manually define these steps
+and set deterministic criteria
+so what I will do
+I will create one more file
+first I will clear the terminal
+and create one more file
+we will name the file
+simple explanation
+metric.py
+created
+now we will code
+some things I will import
+from here
+because we are going to use
+this code as it is
+copy and paste
+now we will define
+define the
+custom
+criteria
+now in custom criteria
+we will define our metric
+we will define our metric
+simple
+explanation
+for this we will use
+gval
+we have to tell our name in gval
+name is our
+simple
+explanation
+after that we have to tell
+evaluation parameters
+so we don't have to do
+any comparison in evaluation parameters
+we just have to see
+the output we are getting
+is the explanation simple or not
+so we are passing two things
+first is our
+input from single turn parameters
+and second is our actual output
+from single turn parameters
+we don't need any grounded answer
+because we are seeing the simplicity
+that is our answer simple or not
+now instead of defining
+criteria
+we will give explanation steps
+evaluation steps
+it will be in the form of list
+so we will give our steps
+first is
+read
+the
+now what you have to do
+is define your inputs
+like read the
+actual
+output first
+just a second guys
+I will define it
+read the actual
+output first
+and then the
+input
+so I am simply
+telling my LLM
+to read my input
+and actual output first
+check
+whether
+the
+response
+is simple
+and easy
+to understand
+or
+not
+okay
+make sure
+the response
+has
+least
+number of
+technical
+inputs
+technical
+jargons
+and is
+student
+friendly
+okay
+so I have added some
+evaluation steps
+now after that if you want
+you can define your custom rubric
+so we will do it
+because we are doing it before
+so we will use the rubric class
+here we will define our
+score range
+now we will
+set it to 0 to 3
+okay, we will set the expected outcome
+to
+difficult
+then we will
+again rubric
+here we will
+set the score range
+4 to 7
+and
+set the expected outcome
+slightly
+difficult
+again you can tweak this
+because I am live porting so I don't have
+categories in my mind
+so whatever categories
+are coming I am feeding them
+okay this will be my
+8 to 9
+and
+let's set the expected outcome
+moderately
+simple
+and the final rubric will be
+this will be
+my score range
+which will be
+10 by 10
+and let's set the expected outcome
+very
+simple
+okay, so we
+defined our rubric
+again
+here we will
+true set
+and that's it
+now what I have to do here
+I have to make my LLM test case
+test case
+let's do one thing
+here we will make a custom
+test case
+instead of
+copying and pasting
+here we will
+pass our input
+input is
+what is linear
+regression
+okay, and let's do one thing
+online
+let's get a definition from google
+what is linear
+regression
+and
+let's use this particular definition
+let's see
+whether it works or not
+just an example
+our actual output
+is this particular definition
+now what I have to do
+I have to simply measure here
+so
+my metric name is
+simple explanation
+so I will use simple explanation dot
+measure
+and here I will pass my test case
+simply we will
+run this file
+simple explanation
+and this metric is also
+running
+see
+it is starting from here
+this was the criteria
+I didn't pass the criteria
+I passed my own evaluation steps
+this was my rubric and this is my score
+the reason is
+the response is concise and mostly understandable
+but it uses
+several technical terms like
+foundational, supervised, machine learning model
+continuous, numerical values
+dependent variable and
+independent variable
+for a simple question asking what is linear regression
+this makes somewhat less student
+friendly and slightly difficult
+rather than
+very simple
+I hope you understood this whole thing
+how you define your custom
+metrics using gval
+this whole framework
+and the whole code is getting cleared
+is it clear guys?
+you can see clearly
+you are getting proper reasoning
+whatever steps you defined
+according to those steps
+you are getting proper things
+are you understanding the power of custom metrics?
+using this
+gval framework
+how easily you can define your metrics
+here
+does a low gval
+score indicate an issue
+with the retriever or the generator?
+which component should be improved?
+see gval
+is only a framework
+it is not a metric
+here what you are targeting
+depends on that
+we are not targeting retriever or generator
+what are we targeting in these two metrics?
+we are targeting
+our custom metrics
+like whatever answer
+you got is correct
+that is correct
+you are targeting that in this particular metric
+it is possible that
+for correct
+you need an accurate context
+and your response is
+grounded
+then only your answer will be correct
+here you are comparing
+your grounded response with the actual response
+whereas here
+you are doing your domain specific
+evaluation
+I am making a chat bot for students
+so I want that
+whatever explanation my chat bot gives
+should be simple
+so that my students understand and their doubt is cleared
+that is why
+I have built this custom metric
+is it clear guys?
+is it clear?
+clear
+now let us cover the last thing
+which is also
+very important
+let us cover it quickly
+that is the evaluate API
+now this evaluate API
+is our whole
+we have read it till now
+we will implement it
+through evaluate API
+this is a practical thing
+evaluate API, there is no much theory in it
+let me tell you
+evaluate API is basically your
+method, here you call it a function
+which gives you deep evaluation
+through which you can
+evaluate your data sets
+the evaluation data set that we have made
+you can evaluate it
+on your multiple metrics
+on your multiple metrics
+here you can evaluate
+and this
+evaluation is parallel
+means concurrently
+you can quickly
+using LLM as a judge
+you can evaluate multiple metrics
+basically if I tell you in simple words
+you can make your evaluation pipeline
+through evaluate API
+evaluation pipeline in deep eval
+here you can
+evaluate your multiple metrics together
+and you have
+an evaluation report
+as an output
+and you can save this report
+and you can
+further use this report
+so basically
+you can see how your application is behaving
+so whatever we have read
+whatever metrics we have read
+you basically use this evaluate API
+through a pipeline
+and by running that pipeline
+your evaluation report
+is ready
+so this is basically
+a practical thing, we will implement it
+in the code
+so let's implement it
+in the code
+let me switch off my camera
+and let's do one thing
+let's clear our terminal
+just a second
+let's clear the terminal
+and let's create a new file
+and we will name the file
+evaluate
+evaluate
+rag app
+I think
+we have not made any file like this
+ok
+so this is our
+evaluate rag app file
+ok, if you want to import something
+then first of all we will do
+from
+deep eval
+dot
+metrics
+we are going to import
+metrics, from here
+we will import our metrics
+first of all we will import g eval
+because we have two custom metrics
+let's open it
+in a tacle
+first will be your g eval
+second will be your
+answer relevancy
+faithfulness
+and your
+contextual precision
+your
+contextual recall
+and your
+contextual relevancy
+so we have done all our
+imports, metrics
+then what I have to do
+from deep eval
+dot evaluate
+I have to import
+evaluate
+function, this is my evaluate function
+which will basically do my evaluation
+in this what I have to do
+I have to provide list of test cases
+and I have to provide all my list
+of metrics
+and simply my evaluation will be done
+ok, it is super easy
+and I
+have to import some more things
+so
+deep eval dot
+metrics dot
+g eval
+I will import
+rubric
+I will work
+I will take these imports from here
+ok, let's copy
+I will remove this
+ok
+I have to import some more things
+from deep eval
+dot
+test case dot
+llm test case
+I will import my
+llm test case
+from deep eval
+dot data set
+dot data set
+I will import
+evaluation data set
+ok, first of all
+what we will do, first of all we will
+load the
+API keys
+ok, after that what we will do
+here, first of all we will
+define our metrics here
+ok
+define the metrics
+so we will define our metrics one by one
+first of all is our
+recall
+so we will keep its name, recall
+what will be its type
+contextual recall, we don't need
+to change the default, we are using
+5.4e model
+ok, so we are not changing
+anything here, we are working with
+the default values
+then we will have our precision
+precision
+it will be contextual precision
+here also we will
+work with the default values
+ok, then we will have
+contextual
+relevancy
+for this we will
+use contextual
+contextual
+contextual
+contextual
+relevancy
+in this also we will
+keep everything default
+we will not change anything
+then we will have our answer
+relevancy
+answer relevancy
+again everything
+will be default
+last will be our
+faithfulness
+this will be our
+faithfulness metric
+in this we will add some things
+like we will set
+the roots extraction limit here
+let's say
+5 for now
+ok, penalize
+ambiguous claims to true
+so here we have
+added some customization
+now what we will do here
+we will define, define the
+custom
+metrics
+so here we have made two custom metrics
+one is this one
+so I will simply
+copy
+and paste
+and the other one is our
+this one
+I will simply
+copy
+and paste
+one thing we will change here
+we will close this verbose mode
+we don't have this environment
+we know how it works internally
+so these are our custom metrics
+now what we have to do
+we have to load our evaluation
+data set here
+so we will define the
+data set
+path
+so to define the path what we will do
+we will use pathlet
+so from
+pathlet we will import
+path class
+ok
+I have done this
+now first of all I will define
+the
+root directory
+what will be the root directory
+in path
+I will pass the file
+so this will pass the path of my current file
+and its parent
+this will be my project root
+ok, this is my root
+now I have to define here
+my data set
+directory
+where is my data set
+my data set is in my root
+I have to go
+inside data sets
+ok, so here I will write
+data sets, so I went to data sets folder
+I have to go inside
+data sets, eval data set
+ok, now I don't want golden, I want eval
+data set which is passed
+from my application and I have finally
+got eval
+data set
+and
+next
+here
+is
+eval
+data set
+dot json
+let's do one thing
+instead of data set directory
+let's pass the data set
+because here we have
+mentioned the whole path
+let's check one more thing
+that does the path
+exist or not, because maybe we have
+wrongly defined the path, so let's check
+if
+data set path
+exists, then we will move
+forward, first of all
+what we have to do here is load our data set
+ok, so we will load
+the data set
+so for that we will make a data set
+which will be of type
+evaluation data set
+evaluation data set and
+inside this we will load the
+test cases
+load the test
+cases
+for that what will you do, data set
+has a method
+add
+add
+test cases from
+json file, ok
+here you have to tell some things like
+file path
+so what is file path, file path is my
+data set path
+then you have to tell that
+in your test data set
+what is the input key name
+what is the name
+in your json
+what is the input key
+so let's go and check our data set
+so the input key
+is the name of input
+ok, so we will write
+here that it is
+the name of input, then
+what is your actual output
+key, what is the name
+that is my actual
+output
+then expected
+output, what is that name
+that is expected
+output name
+and finally
+my
+retrieval context
+what is that name, that
+retrieval
+context name
+let me check once, is there any typo here
+I think everything is good
+now what I have to do, I have loaded
+all my test cases, now
+I will extract the test cases
+from my evaluation data set
+so I will store it in one list
+store
+the test
+cases in a
+list, so here
+we make a variable named test cases
+and in my data set
+there is an attribute
+test cases, where all my
+test cases are there, all this
+came to me, now what I
+have to do, I have to do the evaluation
+here, so
+I will use the evaluate method
+I will write here
+evaluate
+the data set
+so let's do one thing, let's write this in the
+block, so I will use
+the evaluate
+now here I have to pass
+my test cases, which will be my
+test cases, I have to pass
+all my metrics
+so I have to pass this in one list
+metric is my
+recall, my
+precision, my
+answer
+relevancy
+my
+faithfulness
+contextual
+relevancy
+my answer
+correctness
+and my
+simple explanation
+I hope I have added all
+here, this is my metrics list
+now what you have to do, here
+you have to define some other things, which are basically
+your configs, like we
+design configs, here
+in the filtration, in the context, so
+here you have to define some configs
+using some config classes
+so here you have to tell
+your asic config and one is
+your display config
+so for this we have to
+import some things
+so what I will do is
+I will import here
+so what you have to do is from
+deepeval
+evaluate
+dot if you will do, then here you will get
+a configs submodule
+from that you have to import
+your async
+config and your
+display config
+and now you have to define
+now let's do one thing
+let's go once
+towards the
+documentation
+this is my deepeval
+documentation
+and once I will show you
+what you can fill in these configs
+this is the flags and configs tab
+if you go in this
+here you will see all the configs of
+evaluate api
+so first is your async config
+what it controls is
+concurrently how you can evaluate
+the metrics, now generally
+what we are doing here is
+we are using llm as a judge
+so here we are making api calls
+so to do these api calls
+you have to hit
+your llm provider's api
+so here in most of the cases
+you hit the api rate limit
+so here you have to
+set some parameters
+so here the parameter is your throttle value
+throttle value basically tells you
+how much you will
+keep a gap in sending each batch
+how many seconds gap will be there
+so you can set it
+through throttle value
+and when it is set that if your
+evaluation model is getting stuck
+in rate limit errors then you increase it
+so we will set it
+we will go to the code and first
+we will use
+async config and
+pass our throttle value
+we will keep throttle value
+for 3 seconds
+we kept a gap
+then max concurrent
+how many test cases you want to
+evaluate parallelly
+so we will set its value
+max concurrent value
+as 5
+so we have set it
+now through display config
+what you can do is
+you can tell that your results
+how they will look in the console
+in the terminal
+and which file will be saved
+basically the report I am telling you
+where will it be saved
+so you have to keep most of the settings default
+you just have to tell the results
+folder
+this folder will tell you
+your particular report
+as a json file where it should be stored
+and you can
+save a log file here
+by telling the file output
+so I will tell you how
+you will set these two things
+here you will use display config
+and you have to tell
+two things in it
+first you have to tell results folder
+so for results folder
+we will use pathlib
+so our root path
+root directory, in root directory
+we make a folder and
+we keep the name of this folder
+evaluation
+just a second
+we keep the name of this
+evaluation results
+and how we will give
+its path as o6
+because it should be in string form
+so I have defined
+my results folder
+next what I have to define here
+next I have to define here
+one more parameter
+that is
+file output directory
+here my
+report will be saved
+as a log file
+you can say anything
+in that format
+again we will use pathlib
+in root directory
+we will
+make one more directory
+directory will be
+our
+evaluation
+report
+first one was
+evaluation results and second is
+evaluation report
+again we will set it as
+o6
+and that's it guys
+you have set your evaluation api here
+now what you have to do
+you have to run this particular file
+and through this
+all your
+test cases
+in this dataset I think 56
+you will evaluate it parallelly
+on all of the metrics
+so let's run it once
+so I will write here uvrun
+evaluate
+evaluate rack app dot
+py and as soon as I press enter
+guys you will see my evaluation
+will start hopefully
+there is no error
+what is written here you are running
+deep eval latest
+these are your metrics, these are my two custom
+metrics that I have set
+through geval
+and rest are my five built in metrics
+and see here
+in all 68 test cases
+the evaluation has started
+so let's run it
+till the time the evaluation is done
+and till then you have questions
+so I will answer your questions
+I am looking at the chat guys
+is it clear guys?
+clear
+let's let it run once
+and your whole report will be generated
+and come
+what I can do is
+let's stop it once
+ok
+let's stop it once
+and what I do here
+because I am using the default model
+let's do one thing here
+let's use a small model
+because unnecessary
+expense will be sitting here
+so we will use
+GPT
+5.4 mini
+because our
+application is simple
+so we can work with a small model
+so basically what I have to do here
+in the model
+set the model
+and if you also run this code
+then your expense will not be sitting here
+so it is a good strategy
+just a second guys
+I will set this
+for each of the metric
+model will be my model
+and here also we will set
+our model will be
+and
+here also we will set
+model
+equals model
+ok
+so GPT 5.4 mini
+will be used
+I have set the evaluate
+so here you cannot define your model
+but if it was there
+it would be so good that we define it once
+and our model
+as an evaluator will be used
+once again I clear this whole thing
+clear
+let's rerun it
+yes
+so 5.4 mini is being used everywhere
+ok let's let it run and I will share the
+results with you, till then if you have any questions
+you can ask me
+how was today's class guys?
+how was the class?
+good
+thank you
+see we are approaching everything step by step
+we
+read about rack-triad today
+we saw how you can define your custom metrics
+and finally
+through evaluate API we read how we can
+put everything in a pipeline
+with this we have completed the evaluation
+module and from next class
+we will focus on prompt versioning
+now we have
+evaluated
+we will get our baseline scores
+now we will see how to improve
+these baseline scores
+so experimentation
+prompt versioning
+in the next session we will discuss about
+those things
+no it will not require prompt engineering
+not for now because our system prompt
+is also very simple
+but you can see like I have some custom metrics
+where there is a custom metric
+so this simple explanation
+prompt
+instruction
+I can put it in my system prompt
+so whatever result I get from my metric
+it may improve tomorrow
+because I am forcing
+my LLM to give a simplistic explanation
+so once results come
+then we will discuss
+what all things we will improve
+any more questions?
+any questions for today's session?
+one thing guys
+I want to ask you and frankly
+give the answer
+is my explanation good
+that you don't get any questions or is it confusing
+that you don't get any questions
+I actually think after class
+why I am not getting any questions
+in only two scenarios
+that you are understanding everything or you are not understanding anything
+tell me in chat
+frankly tell me
+frankly tell me
+explanation is good
+tell me more guys
+how do you guys feel
+tell me everything once
+I will get feedback
+whoever is in the session
+where can we improve
+ok good from my side
+few things are confusing
+yes that will be there
+because there are many technical things
+you have read a lot
+you can understand that
+you have covered almost the entire D.P.Val
+from the perspective of LLM based application
+whether you have read the metrics
+for one application
+but you have understood the entire framework
+now you have to do for the agenti application
+so tomorrow you will have to change the metrics
+you should know what the metrics are judging
+that's it
+you have learned implementation once
+now you can reuse it again and again
+yes you have to practice
+actually the code that I am sharing with you
+you should do some experimentation on this
+some things like
+some evaluation steps
+like we have read in custom metrics
+so try to change the steps
+try to refine the criteria
+because what I am doing
+I am doing live code
+so I am defining these
+criteria and steps
+so obviously these will not be as good
+as you can define
+so you should work on it
+define it
+you will see better results
+so
+our 168
+test cases have been
+covered 50%
+52%
+have been covered
+I was making
+my notes and then found that most of
+the things are repeated again and again
+so
+ok
+so is it a good thing
+that I take the recap
+or it is bad
+because I feel that if someone is taking the recap
+and no one covered the previous class
+or there is some backlog
+then it is easy for them
+yes
+yes
+yes
+yes
+I will check on it
+I don't know
+last 10-15 minutes
+after 10
+people just leave
+I don't know why
+after 10
+they don't want to attend class
+they watch recordings
+I will check on that
+so
+see
+if you have signed in a little LLMops
+then it will be a little technical
+I can't do much in this
+this is a little technical
+and right now
+we are doing evaluations
+this is the easier part
+when the deployment time comes
+then docker CICD will be
+very technical
+questions guys
+from your side
+any question
+because today we will
+cover this evaluation topic
+completely
+so
+if you have any doubt
+question or feedback
+then you can share it with me
+yes
+I know Jitendra sir
+I know Jitendra sir
+I know Jitendra sir
+yes
+I know Jitendra sir
+thanks
+if you like analogies
+then thank you
+everything is impromptu
+you have seen my teaching methodology
+I don't know anything by making notes
+I just go through
+the technical documentation
+papers everything
+and without any reference
+I teach you
+so this is my style
+I hope you like it
+if you think there should be
+notes or information
+to refer to then I will include that
+I wanted to discuss this paper with you
+but
+today
+sentiment is low
+so I didn't discuss it in detail
+rest of the paper is
+very good
+if there will be any doubt session
+then we will discuss it that day
+I actually wanted to tell you
+what are covered in the paper
+and what does GEval inherit from it
+and if most of you are interested
+then we can spend 10 minutes
+in the next class
+and discuss this paper in the recap section
+you can watch this class again
+so you can understand this paper better
+80% is completed
+let's wait a little more
+and then we will discuss
+the next section
+so let's see
+what is the next section
+so let's see
+what is the next section
+let's wait a little more
+rest 20%
+will be completed
+and you will see
+here some problem has occurred
+maybe rate limit has been hit
+some missing
+test case parameter has come
+retrieval context
+some data set has been broken
+some data set has been broken
+and result has not come
+and result has not come
+guys we have to check this
+guys we have to check this
+where this error comes from
+sometimes there is an API error
+80% was completed
+some part of it has been broken
+some part of it has been broken
+and here
+somewhere recall
+retrieval context is none
+I have to check that
+I have to check that
+let's do one thing
+I have to show you these things
+let's do one thing
+let's take a smart approach
+so what I do
+once from random module
+I import
+random integer
+and
+and here
+randomly
+let's filter out some test cases
+this is our file
+just a second guys
+give me one second
+here we are
+filter out
+10 test cases
+randomly
+so what we will do here
+first we will define indexes
+on which we have to filter
+so
+indexes will be
+our
+we will call the
+import is not done
+I have imported in wrong file
+I have imported in wrong file
+random
+import
+random
+integer
+let's keep its range
+from 0 to
+full length
+of test cases
+minus 1
+minus 1
+and how many
+and how many
+and
+i in
+i in
+range of
+range of
+we need 10
+we need 10
+so this
+my indexes
+will come
+and what I have to do is
+filter out our test cases
+filtered
+test
+cases
+test
+cases
+for
+indexes
+indexes
+indexes
+here my filtered test cases will come
+and I will pass there
+filtered test cases
+let's do one thing here
+my random indexes
+let's print them too
+I hope guys you are understanding the code
+so what I am doing here is
+I am choosing a random number
+and running this loop 10 times
+so 10 random indexes will come
+and I am filtering them
+and on those filtered test cases
+I am running my evaluation
+let's clear
+this whole thing
+and
+rerun it again
+so these are indexes
+which have been filtered
+and our evaluation is running on them
+almost
+complete
+again some error
+again some error
+guys I have to check once why this error is coming
+it's fine guys I will figure out this once
+after the class
+I will see once why this error is coming
+and show you the result
+let's do one more try
+one final try
+let's do 5 instead of 10
+so
+so
+so
+so
+so
+so
+this is happening in recall
+others are doing good
+others are doing good
+so
+retrieval context cannot be
+none
+and text will recall
+and text will recall
+I don't
+I don't
+I don't know because if there was none, there would be error in all where it is needed
+it is needed in precision also, there is no none, there is issue in recall
+Guys I will figure out this once, maybe there will be some error
+Let's do one thing, if I
+comment out the recall
+and let's see, I will remove it from here
+Let's run it once without the recall
+I have to show you the output, how it looks
+because when I was testing this code, it was working
+hmm, the precision one is also working
+Guys I will check the code once
+and in the next session I will show you the results
+I hope you are understanding this
+Now it will be difficult to debug it
+There will be some error, I will fix it once
+Is it clear guys?
+Any more questions?
+I am ending the session now
+In the next session, we will discuss a small recap where we will discuss the paper
+and I will show you the working code
+I will see you in the next one guys
+Bye and take care

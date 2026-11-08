@@ -1,0 +1,1408 @@
+Hi everyone, I hope you guys are doing great.
+So guys, welcome to another video of the agentic project in LLM Ops.
+Guys, our goal in today's video is very simple.
+We are going to start our agentic project's evaluations from today's video.
+So we will build an evaluation pipeline around our agentic project in this video.
+So let's start.
+So before starting, let's take a small recap and discuss what we have covered in the previous two lectures.
+So you will remember that in the first lecture, we built our application.
+We built the application and the front end and back end of this application.
+Both of them we built and not only we built them, we also demoed them.
+Now in the industry, what we manually demo anything is called vibe testing.
+So basically we manually tested our application and judged its performance.
+Now our application was performing well on some tasks and not so well on some tasks.
+But we didn't have the actual scores that how well it is performing and how poorly it is performing.
+In today's video, we are going to change this thing.
+Today we will build a proper evaluation pipeline around our application.
+So what will happen with this? We will get proper scores from this.
+We will have some agent specific metrics.
+We will get scores on those metrics and those metrics will tell us how our application is performing.
+I hope this point is clear to you.
+After that, in the second video, we discussed about prompt management.
+Where again we used Langfuse and made our three system prompts version.
+You will remember that which three system prompts are in our project.
+First is our planner prompt which is used for planning.
+Second is our executor prompt.
+And the third is our responder prompt.
+So we had properly versioned these three prompts and not only we were doing the proper version.
+We are now bringing these prompts from the load from Langfuse.
+So now our agentic application is not hard-poded.
+We are making a client of Langfuse and bringing these prompts from there.
+So the agenda of today's lecture is very straightforward.
+From today's lecture, we are moving to the evaluations of our agent.
+We will understand how to evaluate an agent.
+How to build an evaluation pipeline for this and what are the metrics through which you evaluate your agent.
+So if the agenda of today's video is clear to you, then let's start.
+So let's move the discussion forward and discuss how you evaluate the agent.
+So far we have evaluated the rag application in this particular series.
+And trust me, the evaluation of the rag application is pretty straightforward.
+I am not saying that it is easy, but it is straightforward.
+You understand things.
+Agent evaluation is not that straightforward.
+I will give you a reason for this.
+Agent evaluation is not that straightforward because your agentic application can have different architectures.
+And you have to build an evaluation pipeline on the basis of architecture.
+So before discussing the architecture or the evaluation pipeline, I will tell you in general how to do agentic evaluations.
+So because we are using DPVAL here, I will tell you from the perspective of DPVAL.
+So DPVAL says that there are three layers which are important to work on any agent.
+When any agent executes a task or does any work, then three layers work there.
+The first layer is the reasoning layer.
+You can also call this layer a planning layer.
+DPVAL is called a reasoning layer, but internally it is called planning layer.
+The second layer is your action layer.
+And the third layer is your orchestration layer.
+Now I will tell you how these three layers work.
+So your reasoning layer and action layer are sequentially arranged.
+Meaning that here your reasoning layer is the top layer and below that comes your action layer.
+Now let's discuss what happens in both the layers.
+So in the reasoning layer or planning layer, the task of your user comes to you and your reasoning layer generates a detailed plan.
+Now how will any plan be, it depends on a lot of things.
+So you have to understand what the work of the reasoning layer actually is.
+So what is the work of the reasoning layer?
+We have said that it generates a detailed plan, but does it generate a straight-forward plan?
+The answer is no.
+First of all, it understands the user's intent or it understands the task.
+After that, it breaks down the task into sub-tasks.
+Any task can have different steps, so it breaks down the big task into small tasks.
+Then the reasoning layer generates the plan around each of the sub-tasks.
+It also takes care of the order of execution.
+So let's say there are two or three steps to do something.
+Let's say step A, step B, step C.
+So first of all, it breaks down any task within these three steps.
+It generates a plan around how to do these three steps and maintains its order.
+So if A, B and C are in this order, then the plan is also generated in this order.
+It's not like first B, then A, then C.
+So the work of the reasoning layer is not to make a detailed plan.
+It's to understand the user's intent.
+It breaks down any task into sub-tasks, then generates a plan around each of the sub-tasks.
+It also takes care of the order of execution.
+So these are the things that the reasoning layer handles.
+After that, as soon as this plan is generated, it goes to your action layer.
+Now what is the action layer?
+Action layer is basically the layer which does or executes the task.
+It's the layer which does some work.
+Now it does work, so you should click on it in your mind.
+This action layer will have tools within this action layer.
+So this is basically the tooling layer of the agent.
+So you have a plan generated, it goes to your action layer.
+Now your action layer will take some actions or do some task with that plan.
+And your agent will need tools to do those tasks.
+Now how the action layer works is not straightforward.
+It has many layers.
+First of all, your action layer decides which tool to use.
+Your agent has many tools.
+For example, for task A, which tool to use?
+This action layer decides through the LLM.
+After that, second is that the action layer calls the tool with right arguments.
+You have selected the tool.
+Now how to call the tool and what input to give it?
+This is also decided by your action layer.
+Third, how to process the tool result.
+If your tool gives a result, how to process it?
+Suppose your tool did not work and there was an error.
+How to handle it?
+All this is done by your action layer.
+And after that, fourth decides whether the task was executed or retry required.
+This is your action layer which decides on these steps.
+I hope this point is clear to you.
+Reasoning layer does the plan and action layer does the task.
+And finally comes your orchestration layer.
+When you combine these two layers, first reasoning and then action.
+This combined layer is called the orchestration layer.
+What is the work of the orchestration layer?
+The work of the orchestration layer is that it takes the task from the user.
+It takes a task from the user and checks the response generated on it.
+Basically, it is an end to end layer.
+And in this orchestration, both planning and action are integrated.
+I hope this point is clear to you.
+First is the planning layer which is making the plan.
+Then there is the action layer which is doing the task.
+And when we combine both together, then comes our orchestration layer.
+So this is the work of the agent around these three layers.
+Now the good thing is that in deep eval, you have metrics around these three layers.
+If you remember rag triad, then rag triad was available to judge the different components of your rag pipeline.
+Similarly, metrics are available around the three layers of your agent in deep eval.
+I will tell you what are the metrics and then we will discuss about them later.
+So the planning layer where you are working on planning or reasoning layer.
+I say planning layer again and again because it is used to generate plans.
+You can call it any of the two.
+So in your planning or reasoning layer, there are two metrics available in deep eval.
+First is your plan quality metric.
+From the name itself, we can understand what this metric does.
+It tells you the quality of your plan.
+The plan generated is how good or bad it is.
+This metric judges and tells you.
+The second is your plan adherence metric.
+Adherence metric.
+The plan that the reasoning layer has generated, how much your agent is able to stick to that plan.
+This metric tells you.
+Then if I talk about the action layer, then in the action layer where the tool is calling,
+Here you have two metrics.
+The first is your tool correctness metric.
+It tells you that the agent chose the right tool for a given task.
+And the second is the argument correctness metric.
+From the name itself, this metric tells you that did you pass the right tool or not.
+Then if we talk about the orchestration layer.
+Where your planning and action layer are end to end combined.
+In this, your two metrics come.
+The first comes task completion metric.
+In the task completion metric, you judge that the given task that the user gave you,
+whether it was completed properly or not.
+Now you also understand that the task will be completed only when the planning is done well.
+And then the execution is done well.
+If there is any problem in any layer, whether in the reasoning layer or the action layer,
+then the task will not be completed.
+So this task completion metric judges this.
+That's why this is the part of the orchestration layer.
+And the second is your step efficiency metric.
+What does this step efficiency metric tell you?
+It tells you that whatever planning layer has generated the plan,
+whether your action layer has performed it efficiently or not.
+Whether it is that he has taken some extra steps that are not in the plan.
+Or he has gone in some other direction.
+Or he also judges that the planning layer has generated the plan.
+Whether he was taking too many steps that were not required.
+So this type of thing is calculated by this step efficiency metric.
+So these are six built-in metrics that DeepEval gives you for your agentic evaluations.
+Now what can you do?
+Apart from these six metrics, you can use GEval, which we have already read in the rack.
+And through GEval you can also create your custom metrics here.
+So this is also possible.
+Okay, so I have told you about this metric.
+Now let's do one thing.
+Let's discuss a little more about what type of metrics are there in DeepEval.
+We have found out about all these built-in metrics.
+But they also have a broad categorization.
+So there are three types of metrics for your agentic evaluation.
+Now the categorization of these three types of metrics is made so that you can tell how these metrics work.
+The methodology of these metrics is around the categorization of how they work.
+Again, you can ignore this point if you don't know.
+But I will repeat these terms many times in the future.
+So I am telling you here first.
+So there are three types.
+The first is end-to-end.
+Here it is also called black box.
+Now this type is not available in DeepEval.
+So I will tell you quickly.
+What does end-to-end mean?
+This metric calculates the relationship between input and output and tells how our application is performing.
+Now the relationship between input and output,
+or checking if the input was this or output was that,
+whether it is correct or not,
+this type of evaluation is not available in DeepEval.
+So this end-to-end, which is category number one,
+DeepEval does not support this.
+Because it is a very weak category.
+The second category that DeepEval supports a lot is trajectory-based.
+What happens in trajectory-based evals is that you have the entire trajectory of your agent execution.
+Which means what you do here is that you send all the steps or all the trajectories of your agent evals to your eval.
+In simple words, if I tell you, then you send the entire trace of your agent to your eval.
+So trajectory-based metrics are nothing but your trace-based metrics.
+What we do is that we take your entire trace.
+We have already seen the trace in the rag application.
+What is the trace?
+The entire journey of input and output.
+So what was planned in planning, what was executed in the executer node,
+what tool call happened, what results came.
+So all this eval and metrics take all the information and give their answers on the basis of it.
+Now what is generally the criteria in the trace-based metrics?
+First of all, you generate the trace.
+I know you will not understand it so well now.
+If you see it practically, you will understand it better.
+Just understand the steps now.
+What do you do first?
+You generate a trace for any task.
+Let's say it was a task.
+Task A.
+So as soon as I sent this task to the agent, the agent will do its work.
+And as soon as the agent finishes his work, what we will do is we will track this entire workflow.
+And we will save its trace.
+Basically, this task went to my agent.
+What steps did he do internally and what was his result?
+We will lock it in one place through the trace.
+After that, what you do is you take this trace.
+And you extract information out of it.
+Each metric needs different information from the trace.
+So you take this information out of these traces.
+After that, the extracted information is given to LLM.
+And here LLM is your LLM as a judge.
+As a judge.
+You gave this information.
+And on the basis of this information, your LLM gives you a score.
+And also gives you a reason why it gave that score.
+Very similar to your rag application.
+You were doing the same in the rag application.
+What did you do?
+You used to make a LLM test case.
+LLM test case.
+What did you do in that?
+Let's say if you want to see contextual relevancy, then you had context.
+You had to check if it is noisy or not.
+You used to extract claims from context.
+Then you used to see which of the claims is noisy.
+You also had an expected output in some cases.
+You used to extract the claim from the reference based metrics.
+So exactly the things are there.
+What you are doing here is you are breaking down the available information into facts.
+Here you are extracting information from the trace.
+Whatever you require.
+And you are giving that extracted information to LLM as a judge.
+And LLM as a judge is giving you back your answer.
+I hope this thing is clear to you.
+And the third category that comes here.
+That is your component wise evaluation.
+In this generally you evaluate your action layer.
+In the whole trace, there is your reasoning layer.
+There is also an action layer and orchestration layer.
+Component wise evaluation, you only focus on your action layer.
+Means you only focus on that part of the trace where the tool calls are.
+You extract the information from the tool calls.
+And again you give this extracted information to your LLM as a judge.
+He gives you a score.
+So the way to work is exactly the same.
+But the difference is that in trajectory you give the whole trace.
+And in component wise you give a section or part of the trace where you are doing tool calls.
+I hope you understood this point.
+Again this is not so important.
+But if you know then it is good.
+Because we are going to use these terms in the future.
+Now as I told you that the agent evaluation is different from the rag evaluation.
+The reason behind this is that your different agentic apps use different architectures behind the scenes.
+So the work of making this evaluation pipeline is very architecture specific.
+So what we will do is we will make our evaluation pipeline according to the architecture of our current project.
+So what is our architecture?
+Our main agent is a plan and execute agent.
+So this agent first makes a plan and on the basis of that plan he executes the task.
+So this plan or your node or step you can simply understand it as your planning layer.
+So we have a proper planning layer in our agent.
+And after that execution is happening.
+What is the execution?
+This is the action layer.
+And finally what I am getting here?
+Finally I am getting my response.
+So this response is my outcome of the agent.
+You can also call it output.
+And this executor, this action layer, I am telling you about my architecture.
+This is an agent in itself.
+This is basically acting as a sub agent to the main agent.
+And internally it is a react style agent.
+He is getting this plan and he is executing this plan step by step.
+So guys it is very important to understand these points.
+Because we are using a plan and execute agent here.
+So we can work with almost all the metrics here.
+Because we are working with a planning layer, we are working with an action layer and we have a proper outcome.
+I hope this point is clear to you.
+So let's move ahead and discuss about the individual metrics in our application.
+Now let's discuss about our first metric.
+That is our task completion metric.
+So task completion metric simply evaluates that.
+The input given by our user.
+Whether it was successfully executed or not.
+Whether it got a valid outcome or not.
+So basically task completion metric calculates your alignment score.
+Between two things.
+First is your task, that is the input of the user and your outcome.
+Whether the task given to my agent was completed or not.
+Whether it was completed or not.
+That is your task completion metric.
+Now this task completion metric comes from your orchestration layer.
+This means that you are dependent on both planning and action.
+And it is very much obvious.
+If your task has to be completed properly.
+Then you should have a proper plan for that.
+And along with that, the execution of that plan should also be correct.
+That is why you will be able to complete your task properly.
+Let's say you have to do a task.
+So what will you do first?
+You will make a plan for it.
+So that plan should be correct.
+Let's say I want to go from place A to place B.
+So first of all, how to reach here?
+Because there are multiple ways to go here.
+So which path will be the most correct for me?
+I have to decide that through the planning.
+And then I have to cover that path and reach my destination.
+That is my action.
+So until I do these two steps properly.
+And I will not do it in the right order.
+I will not be able to reach my destination.
+So that is your task completion metric.
+It calculates your alignment score between your task and the outcome.
+Now this metric is your trajectory based metric.
+Means it requires a complete agent trace.
+What happens in this metric is that you give your agent a task as input.
+Now your agent starts doing this task.
+And in doing this task, whatever steps he takes, he keeps logging them.
+Log to a trace.
+And as soon as this task is completed, the agent gets an outcome.
+It also logs this outcome in the trace.
+So this whole detail of what task the agent has, what steps he took, what plan he made, what outcome came after that, everything is available in his trace.
+First of all, what do you do?
+You extract two things from this trace.
+What?
+Task and outcome.
+Because you have to give these two things to your metric to judge your alignment score.
+So what did you do?
+You took out the task and outcome from this whole trace.
+Now you have your task and you have your outcome.
+Next you have to calculate this alignment score.
+So you can't calculate this alignment score programmatically.
+So what you do is you give the work of this scoring to an LLM.
+You give this LLM a system prompt, which is a detailed system prompt.
+And you tell it that you have this task and this outcome related to it.
+You have to judge whether the task that I gave to the agent is completed or not.
+And LLM tells on the basis of prompt and on the basis of its inputs that what task is completed or not.
+And it represents it as a score.
+And this LLM is nothing but my LLM as a judge.
+Not only I get the score, but I also get a proper reason for the score that why my LLM generated that score.
+So I can calculate this task completion metric in this way.
+Super simple. I will summarize it again.
+To calculate this particular metric, you have to calculate an alignment score.
+For this, you need two things from the input that is task and outcome.
+Where will you get this from? You will get this from the agent's trace.
+Agent's trace is a log that stores the entire execution of your agent from input to output.
+You took out these two things from it, task and outcome.
+You gave this task and outcome to your LLM with a system prompt.
+And said that judge whether this task has been completed properly or not.
+And on the basis of that, your LLM will generate a score and give a reason.
+And through this you can evaluate your agent.
+One thing to note is that this particular metric is a reference-free metric.
+Reference, just a second. Reference-free metric.
+Here you do not have to give any expected outcome.
+Your judge, on the basis of his intelligence, figures out whether this particular trace has been completed or not.
+He judges based on the outcome.
+He compares the task and outcome and judges with his reasoning power and tells whether everything has been done properly or not.
+I hope this point has been clear to you.
+Now let's discuss about the plan quality metric.
+What does plan quality metric simply tell you?
+Plan quality metric tells you how good the plan quality is based on the quality of the plan generated by your planning layer.
+How good the plan is based on your given task.
+This plan quality metric judges this.
+Again, this metric is part of the planning layer.
+As we said, this planning layer judges how good it is performing.
+And this particular metric is also the trajectory-based metric.
+It also works on your trajectory.
+Here what you do, if I tell you the formula, it is again you calculate an alignment score.
+But at this time, the inputs of this alignment score change.
+Here you get one thing which is your task and one thing which is your plan.
+So what you do here is you give a task to your agent as input.
+Your agent executes this task and whatever execution steps are there or whatever internal things are there,
+like plan, tool calls, etc.
+Whatever he is doing, he logs everything inside a trace.
+What you do is you take this trace and extract two things from it.
+First is your task, which is your user's input and second is generated plan.
+Now you take these two inputs and you provide it to an LLM.
+Now LLM has a system prompt where you specifically tell that this is your given task
+and this is the related plan which is generated in my planning node.
+What you have to do is simply check how much is the plan generated for this given task.
+How much is the quality of it.
+So this LLM will take these two inputs and this system prompt and on its basis,
+will generate a score according to my plan quality and will also give me a reason why it gave that score.
+So the task is almost done in a similar way.
+In task completion, there was task and outcome.
+Here your task and plan are there.
+And the plan quality metric is very simple to understand.
+You are simply judging the quality of the generated plan.
+Here you don't care if this plan was executed properly or not.
+You don't care about the outcome.
+Because you are judging the planning layer.
+So you are only focused on the plan which is also generated.
+And what is your focus on the plan?
+You are judging the plan quality.
+I hope this point is clear to you.
+If this point is clear to you, then let's go towards the code part.
+And let's see how you implement these two metrics in the code.
+So let's discuss how you will implement agent evaluation in the code.
+So as I told you that to work on every metric here, the agent's trace requirement is there.
+And how does this trace is generated?
+As soon as you give a task to your agent, then he plans that task and executes it.
+And he locks all execution steps and plans inside the trace.
+So we have to execute our agent here and give him a task.
+So what I have done for the task is I have prepared a golden data set here.
+So if you go to the golden directory, then in golden.json I have my golden data set.
+Now I will do one thing, I will turn on the word drive here.
+I have listed 9 tasks in this golden data set.
+And these tasks are specific to my agent.
+Now here the tasks that I have made, I have categorized them as easy, medium and difficult.
+So I have 3 easy tasks for my agent, 3 medium tasks and 3 difficult tasks.
+Let's do one thing, let's read some tasks here.
+For example, if I talk about the easy task, then if you see this task,
+screen ananya rao's resume and add her to the tracker.
+So this is a simple task.
+So I have added information in metadata that difficulty is easy.
+And type of the task is screen1.
+By the way, if I talk about a medium task, then this is a medium task.
+Screen Tara Menon and Isha Reddy add both to the tracker and move each resume to shortlisted or rejected based on the result.
+So this is a medium level task.
+Here there is a little more planning requirement, we are taking a little more steps.
+And if I talk about a difficult task, then you can see this task.
+Add every candidate with spark experience to the tracker.
+So here every candidate's resume has to be screened first and see which resumes have spark skills available.
+Move their resumes to shortlisted or rejected based on the result.
+And draft an interview invite for each one who is shortlisted.
+So this is a little complex task.
+And we are expecting a lot from our agent in just one task.
+So I have prepared my golden data set.
+Now I will show you the actual code through which we are going to run our evaluation pipeline here.
+Now let's discuss how you write the code of your evaluation pipeline.
+So you will get its code inside the source hiding agent.
+And inside this eval directory, you have all the code available.
+Now this code that I am going to share with you, this is actually the final version of the code.
+So I have made a lot of changes in this code.
+You have to use this final version only.
+I will explain how the code works.
+But we will break down this code in a step by step manner.
+This will make things a little clearer.
+So the code of your evaluation pipeline is in your eval agent.py file.
+But the code in this file is the final version of the code.
+So first of all, I will tell you what all things you are using here to run this pipeline.
+So here I have made necessary imports.
+After that, I have told you my golden path.
+First of all, you have to load this golden data set.
+So first of all, we make an evaluation data set here.
+After that, we add golden data set from json file.
+Because this is in json file.
+We load our golden data set and add it to the data set.
+After that, I have extracted the golden data set.
+After that, I have added the golden data set to my evaluation data set.
+So now I have my evaluation data set in which I have my golden data set ready.
+After that, what I am doing here is I am running a loop in my golden data set.
+So what will happen is that one task will come here.
+And I will send my agent to each task.
+And I will evaluate on that task.
+So what will happen is that like in rack, you used to get one query per query.
+And you used to get the aggregates scores.
+So that's what we are doing here.
+See this line you can see here.
+For golden in data set.eval.
+So what we are doing is we are making a generator on our evaluation data set.
+And from this generator, we are extracting one golden by doing one by one.
+So here I have added some configurations like async config, display config.
+We have seen this in our rack playlist.
+First of all, what I am doing here is I am resetting my workspace.
+Because if I execute every task, there will be changes in my workspace.
+So what I have to do first is I have to reset my task.
+So that's what I am doing here.
+And after that, what I am doing is I am running my agent.
+Like my workspace is reset and it is in its original state.
+So I am running my agent and I am providing it a task.
+So now let's ignore all these lines for now.
+And come to the state line.
+So what we are doing is we are using run agent.
+We are sending our agent.
+Just a second.
+Which we have built here.
+Here we have compiled our graph.
+We have our agent.
+And now we are running that agent.
+And what are we sending in the input?
+We are sending our task by using golden.input.
+And when you run the loop on this evaluation data set,
+You will get one golden each.
+Now there is a lot of information in the golden.
+There is also input and additional metadata.
+What we are doing is we are using input.
+Because it is our actual task.
+And we are sending that task to our agent.
+For generating the trace,
+What I said is you send the task and you capture the internal execution in the task.
+So who is doing the work of capturing in the trace?
+The work of capturing in the trace is this callback handler.
+So here in callback,
+We are sending our callback handler in the callback handler.
+What is this callback handler?
+This is basically a callback by deep eval.
+I will show you.
+Here we are importing this.
+From deep eval.integrations.lang chain,
+We are importing the callback handler.
+The work of this callback handler is very simple.
+What is he doing?
+He is going to my agent.
+And in my agent's graph,
+Whatever steps are being executed,
+Whether it is plan generation, action layer or outcome,
+He is saving them all in one trace.
+That's it.
+This is the work of callback handler to generate the trace.
+So that my deep eval matrix can read that trace.
+And extract important information from it.
+And can evaluate on the basis of it.
+I hope this point is clear to you.
+Now here you will see some other files.
+The second important file from this is matrix.py.
+What does matrix.py do?
+It prepares my matrix.
+So here I have told you some things.
+First of all, I have made some imports.
+And here I have also imported my metric from deep eval.
+That is task completion metric.
+Then I am telling you my judge model.
+What is my threshold?
+With which I will know that my metric has passed.
+And here I have set some paths.
+Where will my results be saved?
+Where will the traces be saved?
+And where will the generated reports be saved?
+So I have told you all this.
+After that what are you doing here?
+You are making a new version of task completion here.
+And you are using this function with sim trace.
+Now I will tell you what this slim trace is doing.
+Actually what is that your actual trace that is generated.
+By using the callback handler.
+That is very big.
+That is around 50,000 token.
+And when you are evaluating every golden.
+Then this 50,000 token trace.
+You are sending it to your LLM as a judge.
+So what is happening with this?
+Your input cost is increasing.
+Your time is taking more time in your evaluation.
+So what have we done here?
+We have used this with slim trace function.
+And made our trace small.
+We have only used those things in our trace.
+Which are useful for a particular metric.
+And the rest of the extra things from the trace.
+We have removed them.
+So it is basically a wrapper function with slim trace.
+What will it do?
+It will make my task completion metric.
+Slim task completion.
+Means now this task completion metric.
+Without getting complete trace.
+You will get a slim version of the trace.
+Which will save my input tokens.
+And here I have two more metrics.
+My plan quality and adherence.
+Now we will talk about these later.
+Now I will show you.
+How this slim trace file is working.
+So this is the file.
+I have written above.
+It's work is.
+It shrinks the deep eval trace.
+Before the metric judge reads it.
+So it makes the trace smaller before going to my LLM judge.
+So that I can save on input tokens.
+And also my evaluation will be faster.
+It is written here clearly.
+The callback hander saves the full input and output.
+Of every Langraaff step.
+Same message history is copied into every node.
+So basically what is there.
+In your subsequent node.
+Traces of the upper node are also being copied.
+Because this.
+Like a trace was generated in the planning node.
+Now the next job is the execution node.
+In that, the trace of the planning node.
+Will be duplicated again.
+So basically what you are doing.
+You are copying the same information again and again.
+So this becomes very big.
+It becomes 30,000 to 50,000 tokens.
+So what you will do.
+You will make it small.
+And after making it small.
+The length of this trace.
+Is around 5000 tokens.
+So you can do a reduction of 6 to 10x.
+So it is written here.
+One small run is already around 30,000 tokens.
+And each metric sends the whole trace to the judge.
+Slim trace keeps each fact once.
+What all things are mentioned here.
+And this is its code.
+How you are extracting important things from the trace.
+Now if this code looks difficult to you.
+Don't worry.
+You can use this code exactly.
+You should know its purpose.
+Its purpose is very simple.
+What it is doing.
+It is only the useful things from my complete trace.
+Which is non-duplicate information.
+It is bringing that.
+It is making a slim trace.
+And it is giving that slim trace to my LLM.
+To do the judgment.
+Okay.
+So here all these things are happening.
+Okay.
+I hope you understood this point.
+Okay.
+There is one more file.
+On which you have to pay attention.
+That is report.pby.
+Again.
+Again.
+You don't need to understand its code.
+Its purpose is simply.
+Whatever evaluation is happening.
+We will see its results in the terminal.
+But what we want is.
+We want a detailed report.
+We want a markdown report.
+Now you will remember.
+When we needed a markdown report in the rack.
+We used to use evaluate API.
+But because you have the requirement of traces.
+You don't use evaluate API.
+You use evalze iterator.
+And it doesn't have any method of report generation.
+So this is our custom code.
+Through which we can generate a markdown report.
+Again.
+Its code is difficult.
+If you don't understand.
+Don't worry.
+You have to use this file as it is.
+I will show you its output.
+Here you get the output.
+So basically.
+What I did in the first iteration.
+In the first iteration.
+I.
+Using this evalze iterator.
+Okay.
+One by one.
+Task.
+To our agent.
+He generated the trace here.
+I converted the trace into a slim trace.
+And.
+Through that slim trace.
+I did judgment.
+I did judgment on my two metrics.
+That is my plan quality.
+And my task completion.
+Now I will show you.
+What is the result of it.
+So if I go to evalze result.
+Here you will get this particular markdown file.
+Okay.
+I will do one thing.
+I will open it in preview.
+See.
+So this is the report.
+It is written here.
+Which model I was using for planning.
+And all things are written here.
+Which was the judge model.
+And you can clearly see.
+For planning.
+I was using GPT 6.1.
+This was my executor model.
+This was my judge model.
+Which prompt word I was using.
+How many goldens and pass threshold.
+So in this particular run.
+On these nine goldens.
+My task completion.
+The score was 86%.
+Out of eight.
+Eight tasks were passed.
+One task failed.
+The score of the plan quality.
+Which was built in metric.
+Was 56%.
+And out of nine.
+Only four of my tasks were passed.
+Now you ignore this third plan quality.
+Okay.
+So task completion was scoring well.
+Eight results were passing.
+Whereas plan quality was performing very poorly.
+So let's do one thing.
+Let's investigate a little.
+Why is the score of plan quality so low.
+So here.
+Per golden I have results.
+And if you see here.
+So this is the easy task.
+In this only.
+My built in plan quality.
+Score is very low.
+And if I talk about.
+Other tasks.
+Like this medium task.
+It is also 0.5.
+And in the difficult one.
+In general.
+My built in plan quality.
+Is failing.
+Okay.
+So let's explore this a little.
+So this is failing on the second task.
+Okay.
+So this is my task.
+Okay.
+This is his plan.
+First read the job description.
+Then read Ananya Rao's resume.
+And then add it to the tracker.
+So this is what is written here.
+That screen Ananya Rao's resume.
+And add her to the tracker.
+Whatever the score is.
+According to that.
+Add her to the tracker.
+So on the task completion.
+It is scoring 0.85.
+What is the reason?
+The actual outcome does.
+Screen Ananya Rao's resume.
+And successfully adds to the tracker.
+Which matches the core of the task.
+However.
+It also makes a rejection decision.
+Provides evaluation details.
+Rather than just adding her.
+So it is not a perfect match.
+So this is a little strict.
+My task completion.
+It says that.
+It says that.
+It rejected her.
+Whereas if you read it clearly.
+Then it should not be rejected.
+It should be shortlisted.
+Because it has.
+I think all the must have's.
+So.
+Added to the tracker.
+But the information added after adding.
+Was a little wrong.
+So in the task completion.
+It says that.
+Added to the tracker.
+But things did not handle so well.
+Whatever it is.
+Here.
+My.
+This particular agent.
+The work that was given to him.
+He did.
+Okay.
+No matter what the values are.
+Now let's talk about.
+Built-in plan quality metric.
+Which is given to me by DPVAL.
+Okay.
+So here it is written.
+The plan reads the job description.
+And resume.
+And then adds the candidate.
+Which covers the core work flow.
+However it omits any explicit validation.
+Of required fields.
+Before calling add candidate.
+And is vague about how to derive years of experience.
+So.
+By looking at it.
+I am understanding that.
+What is here.
+That the plan that my agent has generated.
+Is absolutely fine.
+According to him.
+It is also working.
+But here.
+My plan quality metric.
+It is not able to understand things properly.
+And that is why.
+It is not able to understand things properly.
+And that is why.
+It is not able to understand things properly.
+And that is why.
+It is not able to understand things properly.
+And that is why.
+It is not able to understand things properly.
+And that is why.
+It is not able to understand things properly.
+Because my plan quality metric.
+Does not have information about my workspace.
+Okay.
+If you go down.
+Where there is a difficult task.
+So in general you will see.
+That my plan is correct there too.
+Okay.
+But it is failing because.
+It has no idea.
+That which files.
+Exist in my workspace.
+Okay.
+If you look at it.
+Then the task completion is 95%.
+But the plan is failing.
+Okay.
+Plan omits reading.
+Okay.
+Plan omits reading.
+Okay.
+Plan omits reading.
+Okay.
+Plan omits reading.
+Okay.
+Plan omits reading.
+Okay.
+Plan omits reading.
+Karan Shah resume before screening him.
+Rely On later tracker.
+So,
+He add in the tracker.
+So,
+We have explicitly written.
+That he bring information from the tracker.
+Not from the resume.
+Because it is already added in the tracker.
+So,
+Plan is being correct.
+But because information is not there.
+About my workspace.
+So,
+Here it is getting a faulty task.
+So,
+What I did is.
+I bypassed.
+Your built-in plan quality metric.
+And here I have made my custom plan quality metric.
+quality metric and custom plan quality metric I have made through G eval
+I have written its code here in planjudge.py
+So in this file, my custom plan quality metric is written here
+a plan quality judge that sees what the planner saw
+We are giving information of our planner about the whole workspace
+So here we are giving information of the whole workspace to this plan quality metric
+D p eval's plan quality metric grades the plan from task and the plan text only
+It never sees the workspace or tools so it cannot tell a complete plan from an incomplete one
+Here we have given an example, we cannot add snapshot in this
+So what we are doing here is we are creating a custom evaluation through G eval
+Where we have input, actual output and the context
+So we are building this through G eval
+So you know the code of G eval, how to write it
+Here we have imported the G eval
+Then these are our individual evaluation steps
+Now I am not reading these steps in front of you, you read it
+What is written in this
+I have listed down the evaluation steps here
+First we have to do this
+How to work as a judge, conditional steps, completeness, check
+Real names only, tools used for what they do
+I have written all these things here
+After that I have defined proper rubrics here
+That how much score you have to give on every condition
+So rubrics come to define you already, I have defined here
+After that what you are doing
+After that you are taking a snapshot of the workspace
+I will show you
+After resetting here, you are taking a snapshot of your workspace
+Basically you are taking a picture of it
+And with whom are you sharing this snapshot
+You are sharing this snapshot with the plan quality metric
+You are sharing it with this plan judge
+After that what are you doing
+You are making a test case here
+You know you make a test case in G eval
+In the test case, you have input which is your task
+You have actual output
+And after that you have context
+What is in the context, your snapshot of the workspace
+And you have added all the other things here
+You have added your tools list
+And now your plan quality metric
+Which is your custom plan quality metric
+It has all the information of workspace and tools
+And after that you have made this judge using G eval
+So in G eval, you have first of all told the name
+What will be the name of your custom metric
+Evaluation steps which you told in grading steps
+You have passed that
+You have passed your detailed rubrics
+After that you have passed your inputs
+So you will get input, actual output and context
+After that you have told your judge model
+What will be the threshold
+And whether it should be used in async mode or not
+So all these things you have told
+And through this custom plan metric
+When I evaluated it again
+So these were the results
+Which you were seeing the third row
+This one
+So this was my custom plan quality metric
+So where earlier on my built-in plan quality metric
+Only 4 tasks were passing on the plan quality
+Now my 8 tasks were passing
+And my aggregate score was 0.78
+So on the custom one
+Simple ones were passing 3 out of 3
+Difficult ones were also passing 3 out of 3
+But one was failing in the medium
+So I investigated this whole thing again
+And after investigating
+I got to know that
+There are some errors in my system prompt
+Because of this my medium task
+This duplicate resume task
+Not this one
+This one
+This one is failing
+So what I did there
+I updated my planner prompt
+And not only I updated it
+I also created a version of it
+On linefuse
+I will show you the version I have created
+If you can see my screen
+So see
+Here you can see
+These are my 3 system prompts
+If you go to the planner prompt
+The version I am using
+It is version 2
+If I open it
+This is my first version
+And this is my latest
+If you want to check
+What you have updated
+You can compare with version 1
+This is version 1 and this is version 2
+And these are all the things
+Where I have changed my planner prompt
+I have added these phrases
+And I have removed them
+So you can clearly go and see
+What I have added and removed
+So here I am working
+With version 2 of my planner prompt
+So as soon as
+I updated my
+Planner prompt
+So I got a change in my results
+And I share the results with you
+So this is a particular report
+I share it with you
+See
+So here you can see
+The planner model is 6.1
+There is no change in it
+Executor responder is also 5.4
+Judge model is also 5.4
+But if you see the Langfuse prompts
+So you can see version 2
+Of the planner prompt
+And if you see
+This plan quality
+Which is my custom plan quality metric
+So now its score is 87
+And it is passing
+On all my tasks
+If I talk about my
+Previous results
+So in previous results it was 78
+So clearly you can see
+The improvement here
+We have reached 87 from 78
+So guys lets go
+And discuss the last metric of today's video
+That is the plan adherence metric
+Now plan adherence metric simply
+Tells you that
+Your executor
+Has it
+Has it gone above the generated plan
+Or has it gone to the right
+Basically you are checking here
+That the planning layer
+Has generated the plan
+Did the agent go according to that plan
+Or did he take some steps
+On his own
+So in plan adherence generally
+What you do is
+Whatever extra steps your agent takes
+Which are beyond the plan
+You penalize those extra steps
+I hope this point
+Has been clear to you
+So what you do is
+Firstly get the trace
+Because it is also a
+Trajectory based metric
+So what you do is
+You give the task
+To your agent
+Your agent executes this task
+And all the execution steps
+It locks in the trace
+Now what you do is
+You take this trace and extract
+Some things from it
+So this plan adherence metric
+Scores
+You calculate the alignment score
+Between three things
+First is your task
+And plan
+And then your
+Execution steps
+If you go to
+Official documentation
+If I show you
+This is the official page of plan adherence
+And if I go down
+You will get this formula
+What is plan adherence score
+You calculate the alignment score
+Between task and plan
+Here task and plan work like a unit
+Task and generated plan
+Now how is the generated plan
+You don't need to calculate it
+In this metric
+Because you are checking it in plan quality
+So whatever plan will be generated here
+You just make sure that
+Your executor
+Follows that plan religiously
+You don't have to take this tension
+In the metric that
+Is the plan generated or not
+That is plan quality work
+Here you just have to check
+Whatever plan is generated
+Again I will tell you
+Whatever plan is generated
+Your executor will follow it
+That's it
+So what you do is
+You have plan adherence metric
+First of all you extract
+From the trace
+Which shows your user's intent or goal
+Then you extract the plan from the trace
+After that you evaluate
+The execution steps from the trace
+And see how accurately
+The agent has adhered to the plan
+Or stick to the plan
+After that you calculate the alignment score
+Again I am telling you
+Here you don't judge the plan quality
+Even if the plan is bad
+You just check that
+Is the executor sticking to that plan or not
+So here
+What you did is
+You took the plan and extracted 3 things from it
+What task my user gave
+What plan was generated
+And what steps my executor took
+Around that plan
+And you give these 3 inputs
+To an LLM
+This LLM has a system prompt
+This system prompt
+Is clearly defined
+In this system prompt
+That you have to penalize
+Your executor
+Here a very strict prompt is used
+Keep this in mind
+And this strict prompt says
+That you have to penalize your executor
+If he deviates from the plan
+Even a little bit
+If he is denied even a little bit
+Then hardly strictly penalize him
+And on the basis of that
+Your LLM as a judge
+Gives a score and also
+Produces a reason
+So this is how your plan adherence metric works
+If you understood this
+Then let's go towards the code part
+And see how you implement this in the code
+Now let's discuss about the plan
+Adherence metric
+So when I was using the built-in plan
+Adherence metric of DeepEval
+The problem was that
+As I told you that plan adherence is very strict
+So if any step is wrong
+It penalizes my plan
+Adherence very much
+So the problem was that
+We were using a planner node
+In the Langraph
+So my plan adherence
+Was taking that planner node
+Or that planning step as an execution step
+Because DeepEval says
+That the reasoning and planning
+Should be done internally
+Not a separate node
+But because we are generating plans
+From our agent as separate
+As steps
+So here plan adherence
+Because it is a major step
+In my Langraph graph
+So it was penalizing it very heavily
+Around 30-40%
+So what I did is
+For this particular thing
+I made a custom judge
+See here it is written
+A plan adherence judge that checks the executor
+Against plan without being harsh
+So this plan adherence
+Checks my executor against the plan
+But it is not that strict
+It is written here that DeepEval's plan adherence metric
+Is adversarial in nature
+Its prompt says to assume non-adherence
+And to give the lowest score for any
+Extra action
+So if my planning which is required
+And it was happening in every step
+So because of that my scores were very low
+This just asks one question per plan step
+Was this step carried out
+As written or not
+So if anything is out of it
+Because my plan is being executed
+With the previous generator
+And planning is also being considered as execution
+So for that it was heavily penalizing it
+So what I did here
+I made a custom metric here
+Now what I am doing in this custom metric
+I am giving my task in input
+I am giving my plan in context
+And in actual output
+I am telling all the steps
+Of the executor
+So you know that
+The plan adherence
+Needs tasks, he needs plans
+And he needs all the steps
+Of the executor
+So that is what we are doing here
+First I made my custom metric here
+Then I defined my rubrics
+After that what I am doing here
+First I am fetching my executor steps
+Through this execution log
+After that
+I am creating my LLM test case
+Which will go to my metric
+And in that I gave my task
+In actual output
+Means the steps of my execution
+Are coming from the execution log
+And I am passing it
+In my actual output
+And in context is my whole plan
+Which I have generated
+After that I am creating a GEval metric
+Whose code is here
+This is the name, these are the evaluation steps
+Rubrics, what is going on in input
+In this metric, what is the model, what is the threshold
+And everything is defined here
+Now what I have done finally
+As soon as these three metrics
+Task completion which is built in
+And plan quality and plan adherence which is custom
+I have integrated this
+Into my evaluation pipeline
+So this is the code
+Where I have integrated everything
+Here I have defined my metrics
+They are bringing all the information from my test case
+And my judge is
+Measuring each of the test case
+Right, after that
+Whatever results I am getting
+I am saving it in the report
+And finally
+I have got the results
+Which plan adherence
+Because of its adversarial nature
+Was giving me a 40% score
+Now it is giving me a 87% score
+And it is passing on
+7 cases or 7 tasks
+Out of 9
+Now these 3 difficult ones
+Out of 2 are failing
+So you can go and see
+Why it is failing
+But I think for the current scenario
+This score is pretty good
+We can improve it
+By changing our executor prompt
+We can improve this score
+But I think for now we will work with this score
+If we need further we will improve it
+Now one final thing I want to show you
+That I will run this evaluation pipeline
+In front of you in the terminal
+And here we will see
+Our results inside the terminal
+And we will also generate
+A new report
+So what I will do is
+I will write command here uvrun
+After that I will execute this file
+I will go in source, hiring agent
+I will go in eval and run
+evalagent.py
+Let me run this file
+Now my evaluations are running
+Now these evaluations
+Will take around 10 minutes to run
+So as soon as all this runs
+I will show you the results
+I will share the results with you
+Let me pause the video
+So guys our evaluation is complete
+And
+If I show you
+If I
+Show you the traces
+So if you go to eval results
+You will see the traces folder
+And here
+For your 9 goldens
+You will see 9 traces
+Now why are you seeing 18 traces
+Because for each of the task
+You have 2 traces
+This raw trace is your actual trace
+And when you pass it with slim trace
+This is your slim trace
+Let me show you the difference
+See your actual trace is this big
+This is a very big trace
+See this
+Because I think
+It was a medium level task
+You can see here
+This is a trace of 11000 lines
+And when I converted it
+To slim trace
+See this
+Is a trace of 2000 lines
+So there is a lot of reduction
+And if you see this
+This is a difficult task
+If I show you the raw trace
+So this big trace is yours
+This is also small
+Around 5400 lines
+And if I show you
+Its slim version
+So you can see clearly
+This is yours
+Around 1400 lines
+Your slim trace is being made
+So we are sending this slim trace
+To our LLM
+And finally you have your reports here
+So this report is generated
+Let me show you this report
+If I review the report
+So this is your slim trace
+You can see the scores have improved
+Why the scores have improved
+The reason is
+Because you are using LLM as a judge
+So sometimes the judge
+Due to noise will pass
+And sometimes he will fail
+We have seen this in the rack
+So we have seen the same thing here
+Task completion is 97%
+Plan quality has increased
+89%
+Plan adherence has increased
+So the task in which it was failing
+Is passing
+So the score has increased
+And you can clearly see
+How the scores are getting
+Plan adherence has failed
+And the rest of the things
+Are working
+Again you can read this detailed report
+I will share it with you
+And you can go and check out
+What is being planned for each task
+What steps are being executed
+And how the agent is working
+So you must be asking
+We have completed the task
+Plan quality, plan adherence
+But we have not done the step efficiency
+So in this particular agent evaluation
+We will not cover the step efficiency metric
+The simple reason for this is
+The step efficiency metric
+Checks how efficient our executor is
+How many steps
+The agent is able to execute
+The plan
+The problem is that the plan
+Is being generated as a list of steps
+And the code written in the executor
+The system problem
+Is written in such a way
+That it is following our plan
+Exactly
+Step efficiency calculates
+That my executor is not
+Going through the plan
+And is not doing the steps
+Which are taking more time
+Meaning that it is not doing any extra steps
+Which it should not do
+So the executor is not executing
+The steps by itself
+And because
+It does not have its own reasoning
+To execute some extra steps
+So we are not
+Measuring the step efficiency
+And the step efficiency metric
+We are actually measuring in the plan adherence
+What is plan adherence saying
+That the steps generated in the plan
+Is my executor following it
+So how much is it following
+This is already being told by the plan adherence
+Step efficiency only tells
+That how many number of steps
+Now this number of steps control
+Is not with our executor
+It is with our planner
+So we are skipping this particular metric
+For this particular project
+But it is possible that
+Tomorrow in some other architecture
+Where you are not planning
+Through a separate node
+But through your LLM
+And you are using that as the executor
+So there you will use step efficiency
+I hope I have made my point clear
+So this is all I had to do in this video
+In the next video, we will explore
+Our tool related metrics
+And around that
+We will build our evaluation pipeline
+So I will see you in the next one guys
+Bye and take care

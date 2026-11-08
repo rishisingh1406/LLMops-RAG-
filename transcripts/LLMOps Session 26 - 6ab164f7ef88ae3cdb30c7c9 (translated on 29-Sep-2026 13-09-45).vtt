@@ -1,0 +1,7247 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:16.000
+So let's start in 5 minutes, people are still joining in, till then let's wait, till then if you have any questions then you can ask me
+
+00:00:16.000 --> 00:00:28.000
+Who has any questions?
+
+00:00:46.000 --> 00:00:53.000
+will the AI security course start from next month?
+
+00:00:53.000 --> 00:00:55.000
+yes
+
+00:00:55.000 --> 00:01:00.000
+but I think that course will not be live
+
+00:01:00.000 --> 00:01:02.000
+will be recorded
+
+00:01:02.000 --> 00:01:05.000
+it has not been finalized yet but we will tell you
+
+00:01:05.000 --> 00:01:11.000
+and there is a quick update, I am not taking that course
+
+00:01:11.000 --> 00:01:13.000
+I am not taking that course
+
+00:01:13.000 --> 00:01:17.000
+Rupinder will be taking that course
+
+00:01:17.000 --> 00:01:19.000
+I am taking some other course
+
+00:01:19.000 --> 00:01:22.000
+I will announce that to you soon
+
+00:01:22.000 --> 00:01:25.000
+because next month we are doing the project
+
+00:01:25.000 --> 00:01:27.000
+so we will focus on the project now
+
+00:01:27.000 --> 00:01:31.000
+and after that I will share more details with you
+
+00:01:31.000 --> 00:01:38.000
+so 3 more classes in which we are together
+
+00:01:38.000 --> 00:01:40.000
+in live form
+
+00:01:40.000 --> 00:01:44.000
+after that you will get the videos in recorded form
+
+00:01:44.000 --> 00:01:56.000
+let's wait a little more so that other people can join
+
+00:01:56.000 --> 00:01:58.000
+any other question?
+
+00:01:58.000 --> 00:02:12.000
+today's session is going to be interesting
+
+00:02:12.000 --> 00:02:18.000
+and it is a very sweet and short session on online evals
+
+00:02:18.000 --> 00:02:25.000
+memory course
+
+00:02:25.000 --> 00:02:27.000
+we will share updates with you
+
+00:02:27.000 --> 00:02:37.000
+announcements will be with you as the classes are going to be
+
+00:02:37.000 --> 00:02:39.000
+and Nidhi sir will share announcements with you
+
+00:02:39.000 --> 00:02:44.000
+that is the next course that is in pipeline
+
+00:02:44.000 --> 00:02:45.000
+memory one
+
+00:02:45.000 --> 00:02:47.000
+I can tell you this
+
+00:02:47.000 --> 00:02:50.000
+and maybe that will be your next live course
+
+00:02:50.000 --> 00:03:04.000
+from the month of October
+
+00:03:04.000 --> 00:03:06.000
+any other question?
+
+00:03:06.000 --> 00:03:13.000
+anything around upcoming courses or LLM ops course project
+
+00:03:13.000 --> 00:03:16.000
+if there are any you can ask me
+
+00:03:16.000 --> 00:03:19.000
+we will wait for 2 more minutes and then start
+
+00:03:19.000 --> 00:03:23.000
+I don't know people are joining late today
+
+00:03:23.000 --> 00:03:28.000
+are you getting messages from the class?
+
+00:03:28.000 --> 00:03:34.000
+are you getting mails or reminders?
+
+00:03:34.000 --> 00:03:37.000
+ok
+
+00:03:37.000 --> 00:03:47.000
+let's start
+
+00:03:47.000 --> 00:03:54.000
+can anyone tell me is recording going on?
+
+00:03:54.000 --> 00:03:56.000
+can you see the recording logo?
+
+00:03:56.000 --> 00:04:00.000
+ok let's start
+
+00:04:00.000 --> 00:04:04.000
+I will share updates with you
+
+00:04:04.000 --> 00:04:10.000
+if I go to the flying fuse
+
+00:04:10.000 --> 00:04:14.000
+this is my dashboard
+
+00:04:14.000 --> 00:04:19.000
+we built some graphs on observability
+
+00:04:19.000 --> 00:04:23.000
+but you can see that during the live session
+
+00:04:23.000 --> 00:04:25.000
+they were not properly structured
+
+00:04:25.000 --> 00:04:28.000
+so I gave it a proper structure
+
+00:04:28.000 --> 00:04:30.000
+and another thing I did is
+
+00:04:30.000 --> 00:04:35.000
+you can display any dashboard on your home page
+
+00:04:35.000 --> 00:04:39.000
+so whenever I login to my flying fuse dashboard
+
+00:04:39.000 --> 00:04:43.000
+I will see my custom dashboard on my home page
+
+00:04:43.000 --> 00:04:46.000
+see how well everything is organized
+
+00:04:46.000 --> 00:04:48.000
+and everything is being tracked
+
+00:04:48.000 --> 00:04:51.000
+again whatever we built in the previous session
+
+00:04:51.000 --> 00:04:54.000
+you can see everything being tracked
+
+00:04:54.000 --> 00:04:57.000
+ok now what we are going to do in today's session
+
+00:04:57.000 --> 00:04:59.000
+I will show you
+
+00:04:59.000 --> 00:05:02.000
+these are some traces that I have created today
+
+00:05:02.000 --> 00:05:04.000
+if you remember the old traces
+
+00:05:04.000 --> 00:05:07.000
+I will show you the old traces
+
+00:05:07.000 --> 00:05:11.000
+if you go down you will see some old traces
+
+00:05:11.000 --> 00:05:14.000
+let's say we see this trace
+
+00:05:14.000 --> 00:05:17.000
+so in this trace you can see clearly
+
+00:05:17.000 --> 00:05:19.000
+that the time was taking too much
+
+00:05:19.000 --> 00:05:21.000
+and in our retrieval step
+
+00:05:21.000 --> 00:05:24.000
+in our first step it took 30-40 seconds
+
+00:05:24.000 --> 00:05:26.000
+this is still looking good
+
+00:05:26.000 --> 00:05:28.000
+if I see something else
+
+00:05:28.000 --> 00:05:33.000
+that was performing too badly
+
+00:05:33.000 --> 00:05:34.000
+like this one
+
+00:05:34.000 --> 00:05:36.000
+it took 1 minute 12 seconds
+
+00:05:36.000 --> 00:05:40.000
+and around 50 seconds in retrieval
+
+00:05:40.000 --> 00:05:42.000
+ok I have already told you
+
+00:05:42.000 --> 00:05:44.000
+that we were tracking everything
+
+00:05:44.000 --> 00:05:46.000
+what will change in today's session
+
+00:05:46.000 --> 00:05:49.000
+we will perform evals online
+
+00:05:49.000 --> 00:05:51.000
+I can show you that too
+
+00:05:51.000 --> 00:05:53.000
+I have run some test runs
+
+00:05:53.000 --> 00:05:55.000
+you can see clearly
+
+00:05:55.000 --> 00:05:58.000
+that you can see the metrics
+
+00:05:58.000 --> 00:06:00.000
+you can see in this trace
+
+00:06:00.000 --> 00:06:03.000
+answer relevancy, contextual relevancy and plus one
+
+00:06:03.000 --> 00:06:06.000
+you can see these three metrics
+
+00:06:06.000 --> 00:06:08.000
+if you want to visualize it better
+
+00:06:08.000 --> 00:06:11.000
+then in any trace you can go to the scores tab
+
+00:06:11.000 --> 00:06:14.000
+from the preview section
+
+00:06:14.000 --> 00:06:17.000
+and in the scores you will see all the metrics
+
+00:06:17.000 --> 00:06:20.000
+and you can see the reason behind the metrics
+
+00:06:20.000 --> 00:06:25.000
+we have connected the line fuse with the eval
+
+00:06:25.000 --> 00:06:29.000
+so the values I am getting are from the eval
+
+00:06:29.000 --> 00:06:32.000
+and the reasoning I am getting is also provided by eval
+
+00:06:32.000 --> 00:06:35.000
+so we are going to build this setup
+
+00:06:35.000 --> 00:06:37.000
+in today's session
+
+00:06:37.000 --> 00:06:40.000
+how you connect the eval and line fuse
+
+00:06:40.000 --> 00:06:43.000
+and this connection will be in our production setup
+
+00:06:43.000 --> 00:06:44.000
+on AWS
+
+00:06:44.000 --> 00:06:47.000
+we are not going to run anything locally on our system
+
+00:06:47.000 --> 00:06:49.000
+I hope this thing is clear
+
+00:06:49.000 --> 00:06:52.000
+the second thing I have changed
+
+00:06:52.000 --> 00:06:54.000
+if you see here
+
+00:06:54.000 --> 00:06:56.000
+the chat response is our whole trace
+
+00:06:56.000 --> 00:06:58.000
+it is taking around 32 seconds to complete
+
+00:06:58.000 --> 00:07:01.000
+but if you look at the retrieval
+
+00:07:01.000 --> 00:07:04.000
+so clearly you can see that the retrieval step
+
+00:07:04.000 --> 00:07:07.000
+where I was getting 40-50 seconds
+
+00:07:07.000 --> 00:07:09.000
+now it is happening within 10 seconds
+
+00:07:09.000 --> 00:07:12.000
+and here your whole retrieval along with your
+
+00:07:12.000 --> 00:07:15.000
+contextual compression we are able to achieve in 10 seconds
+
+00:07:15.000 --> 00:07:18.000
+so what I have done here
+
+00:07:18.000 --> 00:07:20.000
+I have introduced concurrency
+
+00:07:20.000 --> 00:07:22.000
+and through that we are able to do
+
+00:07:22.000 --> 00:07:24.000
+parallel contextual compression
+
+00:07:24.000 --> 00:07:27.000
+so with this our latency has decreased to a lot
+
+00:07:27.000 --> 00:07:30.000
+we have reduced the latency by more than 50%
+
+00:07:30.000 --> 00:07:33.000
+in some cases the latency of the whole trace
+
+00:07:33.000 --> 00:07:36.000
+is coming around 18 seconds 20 seconds
+
+00:07:36.000 --> 00:07:39.000
+and now look at the maximum time
+
+00:07:39.000 --> 00:07:42.000
+earlier your retrieval was taking maximum time
+
+00:07:42.000 --> 00:07:45.000
+now you will see that the time you are taking
+
+00:07:45.000 --> 00:07:47.000
+that is the generation step
+
+00:07:47.000 --> 00:07:49.000
+12 seconds 13 seconds
+
+00:07:49.000 --> 00:07:52.000
+but because we are working with streaming response
+
+00:07:52.000 --> 00:07:55.000
+so you will not feel the generation gap
+
+00:07:55.000 --> 00:07:58.000
+in tracing, your whole generation tracks it
+
+00:07:58.000 --> 00:08:01.000
+until it is complete
+
+00:08:01.000 --> 00:08:04.000
+but in front end you can see that
+
+00:08:04.000 --> 00:08:06.000
+things are being printed token by token
+
+00:08:06.000 --> 00:08:09.000
+so you will see that latency is less
+
+00:08:09.000 --> 00:08:12.000
+I hope these things are clear to you
+
+00:08:12.000 --> 00:08:15.000
+is this point clear?
+
+00:08:15.000 --> 00:08:18.000
+if it is clear then write clear in the chat
+
+00:08:18.000 --> 00:08:21.000
+and let's move ahead
+
+00:08:21.000 --> 00:08:24.000
+is this concept clear?
+
+00:08:24.000 --> 00:08:27.000
+what are we going to do and what things have been improved in our code
+
+00:08:30.000 --> 00:08:33.000
+guys
+
+00:08:33.000 --> 00:08:36.000
+if it is clear then write clear in the chat
+
+00:08:36.000 --> 00:08:39.000
+and let's move ahead
+
+00:08:51.000 --> 00:08:54.000
+what happened guys no response is coming
+
+00:08:54.000 --> 00:08:57.000
+clear
+
+00:08:57.000 --> 00:09:00.000
+a little late response is coming I don't know why
+
+00:09:00.000 --> 00:09:03.000
+now I will show you what we are going to do in today's session
+
+00:09:03.000 --> 00:09:06.000
+before that let's take a small recap
+
+00:09:06.000 --> 00:09:09.000
+around post deployment, it will not be a big recap
+
+00:09:09.000 --> 00:09:12.000
+we will cover this in 2 minutes
+
+00:09:12.000 --> 00:09:15.000
+so we have moved on to post deployment
+
+00:09:15.000 --> 00:09:18.000
+and our goal is that in this post deployment stage
+
+00:09:18.000 --> 00:09:21.000
+we are going to cover two things
+
+00:09:21.000 --> 00:09:24.000
+first we will be observing or monitoring our application
+
+00:09:26.000 --> 00:09:29.000
+and secondly we will monitor our infrastructure
+
+00:09:29.000 --> 00:09:32.000
+infrastructure
+
+00:09:34.000 --> 00:09:37.000
+so we are currently in the application monitoring and observability phase
+
+00:09:37.000 --> 00:09:40.000
+and for this we have used Langfuse
+
+00:09:40.000 --> 00:09:43.000
+so we have developed this thing in the step by step process
+
+00:09:43.000 --> 00:09:46.000
+what did we do in the first session
+
+00:09:46.000 --> 00:09:49.000
+in the first session we enabled our traces or tracing
+
+00:09:49.000 --> 00:09:52.000
+means that whatever our users
+
+00:09:52.000 --> 00:09:55.000
+were interacting with our front end
+
+00:09:55.000 --> 00:09:58.000
+whatever queries were going on my back end
+
+00:09:58.000 --> 00:10:01.000
+what was happening in the step by step manner
+
+00:10:01.000 --> 00:10:04.000
+we were not logging or saving
+
+00:10:04.000 --> 00:10:07.000
+so with the help of Langfuse we enabled our logging
+
+00:10:07.000 --> 00:10:10.000
+or tracing on our production environment
+
+00:10:10.000 --> 00:10:13.000
+all these things are happening in our AWS
+
+00:10:13.000 --> 00:10:16.000
+and whatever queries and responses are generated
+
+00:10:16.000 --> 00:10:19.000
+in our AWS we are able to monitor them properly
+
+00:10:19.000 --> 00:10:22.000
+in a step by step manner
+
+00:10:22.000 --> 00:10:25.000
+secondly what we did here is that these individual traces
+
+00:10:25.000 --> 00:10:28.000
+it is very difficult to study them manually
+
+00:10:28.000 --> 00:10:31.000
+we needed a dashboard
+
+00:10:31.000 --> 00:10:34.000
+an observability tool where we can understand
+
+00:10:34.000 --> 00:10:37.000
+the health of our traces in one look
+
+00:10:37.000 --> 00:10:40.000
+all these things should be there in front of us
+
+00:10:40.000 --> 00:10:43.000
+on our screen so we studied the concept
+
+00:10:43.000 --> 00:10:46.000
+of observability
+
+00:10:46.000 --> 00:10:49.000
+where we discussed the concept of
+
+00:10:49.000 --> 00:10:52.000
+how to set dashboards and alerts
+
+00:10:52.000 --> 00:10:55.000
+how to set dashboards and alerts
+
+00:10:55.000 --> 00:10:58.000
+now what are we going to do in today's session
+
+00:10:58.000 --> 00:11:01.000
+in today's session we are going to
+
+00:11:01.000 --> 00:11:04.000
+apply online evals on our traces
+
+00:11:04.000 --> 00:11:07.000
+so far whatever we are observing
+
+00:11:07.000 --> 00:11:10.000
+is around our cost
+
+00:11:10.000 --> 00:11:13.000
+around our token usage, around latency
+
+00:11:13.000 --> 00:11:16.000
+but how is the performance of our application
+
+00:11:16.000 --> 00:11:19.000
+in the production setup we have not tested it yet
+
+00:11:19.000 --> 00:11:22.000
+so using online evals
+
+00:11:22.000 --> 00:11:25.000
+you check your application in your production environment
+
+00:11:25.000 --> 00:11:28.000
+on quality
+
+00:11:28.000 --> 00:11:31.000
+that how good are the responses generated
+
+00:11:31.000 --> 00:11:34.000
+you test it at that level
+
+00:11:34.000 --> 00:11:37.000
+so what we will do here
+
+00:11:37.000 --> 00:11:40.000
+we will implement rag triad
+
+00:11:40.000 --> 00:11:43.000
+on our traces
+
+00:11:43.000 --> 00:11:46.000
+and what we will do in the next two lectures
+
+00:11:46.000 --> 00:11:49.000
+we will move on to the infrastructure step
+
+00:11:49.000 --> 00:11:52.000
+where we will use a tool
+
+00:11:52.000 --> 00:11:55.000
+for tracing and logging which is Prometheus
+
+00:11:55.000 --> 00:11:58.000
+I told you what Prometheus does
+
+00:11:58.000 --> 00:12:01.000
+it collects all the metrics on your infrastructure
+
+00:12:01.000 --> 00:12:04.000
+like CPU usage, RAM usage, disk usage, network
+
+00:12:04.000 --> 00:12:07.000
+all that information is fetched
+
+00:12:07.000 --> 00:12:10.000
+so we will collect all that information using Prometheus
+
+00:12:10.000 --> 00:12:13.000
+and in the third lecture
+
+00:12:13.000 --> 00:12:16.000
+we will discuss about Grafana
+
+00:12:16.000 --> 00:12:19.000
+which is again a dashboard
+
+00:12:19.000 --> 00:12:22.000
+but this dashboard will show us
+
+00:12:22.000 --> 00:12:25.000
+all the details of our infrastructure
+
+00:12:25.000 --> 00:12:28.000
+is this point clear
+
+00:12:28.000 --> 00:12:31.000
+the whole setup is clear so far
+
+00:12:37.000 --> 00:12:40.000
+so let's discuss once
+
+00:12:40.000 --> 00:12:43.000
+what will be our plan of action today
+
+00:12:43.000 --> 00:12:46.000
+what we will do in today's session
+
+00:12:46.000 --> 00:12:49.000
+what will be our plan of attack
+
+00:12:49.000 --> 00:12:52.000
+first of all
+
+00:12:52.000 --> 00:12:55.000
+what we will do here
+
+00:12:55.000 --> 00:12:58.000
+we will add traces
+
+00:12:58.000 --> 00:13:01.000
+to our line fields
+
+00:13:01.000 --> 00:13:04.000
+because we have to run
+
+00:13:04.000 --> 00:13:07.000
+online evals here
+
+00:13:07.000 --> 00:13:10.000
+so we will add some traces here
+
+00:13:10.000 --> 00:13:13.000
+we have already built the flow of this particular thing
+
+00:13:13.000 --> 00:13:16.000
+after that we will connect
+
+00:13:16.000 --> 00:13:19.000
+our deep eval framework
+
+00:13:19.000 --> 00:13:22.000
+with line fields
+
+00:13:25.000 --> 00:13:28.000
+what we have to do to do online evaluation
+
+00:13:28.000 --> 00:13:31.000
+the evaluation that is happening
+
+00:13:31.000 --> 00:13:34.000
+that is happening on deep eval
+
+00:13:34.000 --> 00:13:37.000
+and the tracing that is happening on line fields
+
+00:13:37.000 --> 00:13:40.000
+so we have to connect these two
+
+00:13:40.000 --> 00:13:43.000
+basically what we will do is
+
+00:13:43.000 --> 00:13:46.000
+we will use a framework called as line fields api
+
+00:13:46.000 --> 00:13:49.000
+we will connect with the help of line fields api
+
+00:13:49.000 --> 00:13:52.000
+in our dashboard
+
+00:13:52.000 --> 00:13:55.000
+and we will fetch all the traces in the dashboard
+
+00:13:55.000 --> 00:13:58.000
+and we will fetch all the traces in the dashboard
+
+00:13:58.000 --> 00:14:01.000
+from those fetched traces
+
+00:14:01.000 --> 00:14:04.000
+and we will extract important information
+
+00:14:04.000 --> 00:14:07.000
+what is important information
+
+00:14:07.000 --> 00:14:10.000
+do you need latency to do online evaluation
+
+00:14:10.000 --> 00:14:13.000
+what cost do you need
+
+00:14:13.000 --> 00:14:16.000
+the answer is no because we are not working with any operation evals
+
+00:14:16.000 --> 00:14:19.000
+our evaluation suite is very small
+
+00:14:19.000 --> 00:14:22.000
+that is our rack triad
+
+00:14:22.000 --> 00:14:25.000
+so we are working with only 3 metrics
+
+00:14:25.000 --> 00:14:28.000
+so what we will do here is from our int traces
+
+00:14:28.000 --> 00:14:31.000
+we will extract the information we need
+
+00:14:31.000 --> 00:14:34.000
+what is that
+
+00:14:34.000 --> 00:14:37.000
+what was our input
+
+00:14:37.000 --> 00:14:40.000
+what response was generated by our LLM
+
+00:14:40.000 --> 00:14:43.000
+what chunks were retrieved by our retriever
+
+00:14:43.000 --> 00:14:46.000
+we will extract these 3 pieces of information
+
+00:14:46.000 --> 00:14:49.000
+after that we will make a LLM
+
+00:14:49.000 --> 00:14:52.000
+test case
+
+00:14:52.000 --> 00:14:55.000
+so now we are coming out of the world of line fields
+
+00:14:55.000 --> 00:14:58.000
+we have all these 3 information
+
+00:14:58.000 --> 00:15:01.000
+we cannot give it directly to DeepEval
+
+00:15:01.000 --> 00:15:04.000
+so we will have to convert it into a LLM test case
+
+00:15:04.000 --> 00:15:07.000
+so we will make a LLM test case with all these 3 information
+
+00:15:07.000 --> 00:15:10.000
+and after that we will build our 3 metrics
+
+00:15:10.000 --> 00:15:13.000
+which are our rack triad metrics
+
+00:15:13.000 --> 00:15:16.000
+and we will give them LLM test case
+
+00:15:16.000 --> 00:15:19.000
+so for these 3 metrics
+
+00:15:19.000 --> 00:15:22.000
+we will get 3 scores
+
+00:15:22.000 --> 00:15:25.000
+so now DeepEval work is done
+
+00:15:25.000 --> 00:15:28.000
+let's say we have 5 traces
+
+00:15:28.000 --> 00:15:31.000
+we made 5 LLM test cases for 5 traces
+
+00:15:31.000 --> 00:15:34.000
+and we have given all 3 metrics
+
+00:15:34.000 --> 00:15:37.000
+so for these 5 traces how many values will come
+
+00:15:37.000 --> 00:15:40.000
+I will get 15 values or scores
+
+00:15:40.000 --> 00:15:43.000
+3 for each of my trace
+
+00:15:43.000 --> 00:15:46.000
+now what I will do is I will come back to the line fields universe
+
+00:15:46.000 --> 00:15:49.000
+and where will I take these scores
+
+00:15:49.000 --> 00:15:52.000
+I will take them back to my line fields dashboard
+
+00:15:55.000 --> 00:15:58.000
+and once I will take these scores on line fields dashboard
+
+00:15:58.000 --> 00:16:01.000
+through the API then they will start to display
+
+00:16:01.000 --> 00:16:04.000
+so this is a complete setup which we will build in today's session
+
+00:16:04.000 --> 00:16:07.000
+we will bring traces from line fields
+
+00:16:07.000 --> 00:16:10.000
+and come to the environment of DeepEval
+
+00:16:10.000 --> 00:16:13.000
+we have calculated all our scores here
+
+00:16:13.000 --> 00:16:16.000
+whatever scores we have got
+
+00:16:16.000 --> 00:16:19.000
+we have sent them on line fields
+
+00:16:19.000 --> 00:16:22.000
+and as soon as our whole setup is done
+
+00:16:22.000 --> 00:16:25.000
+then finally we will also add
+
+00:16:25.000 --> 00:16:28.000
+observability for our metrics
+
+00:16:31.000 --> 00:16:34.000
+till now we are not observing our metrics
+
+00:16:34.000 --> 00:16:37.000
+because we have not calculated them yet
+
+00:16:37.000 --> 00:16:40.000
+but in today's session we will calculate them
+
+00:16:40.000 --> 00:16:43.000
+and put them in our dashboard
+
+00:16:43.000 --> 00:16:46.000
+because again the reason is that you will not study
+
+00:16:46.000 --> 00:16:49.000
+metrics on individual traces
+
+00:16:49.000 --> 00:16:52.000
+you will study aggregate results
+
+00:16:52.000 --> 00:16:55.000
+so we will add them on our line fields dashboard
+
+00:16:55.000 --> 00:16:58.000
+and they will be displayed in the home page
+
+00:16:58.000 --> 00:17:01.000
+is this point clear? the whole setup is clear
+
+00:17:01.000 --> 00:17:04.000
+what are we going to do today
+
+00:17:14.000 --> 00:17:17.000
+ok now what is the problem in this setup
+
+00:17:17.000 --> 00:17:20.000
+the problem is that
+
+00:17:20.000 --> 00:17:23.000
+where do we have to run this
+
+00:17:23.000 --> 00:17:26.000
+where to execute this
+
+00:17:26.000 --> 00:17:29.000
+we are saying that we will fetch the traces
+
+00:17:29.000 --> 00:17:32.000
+we will calculate our metrics on them
+
+00:17:32.000 --> 00:17:35.000
+whatever are the calculated metrics we will push them on line fields
+
+00:17:35.000 --> 00:17:38.000
+the question comes that where will you do all this calculation
+
+00:17:38.000 --> 00:17:41.000
+which environment will you do it on
+
+00:17:41.000 --> 00:17:44.000
+what are you doing here
+
+00:17:44.000 --> 00:17:47.000
+you are doing post production or post deployment monitoring
+
+00:17:47.000 --> 00:17:50.000
+obviously your application has gone to cloud environment
+
+00:17:50.000 --> 00:17:53.000
+instead of your local environment
+
+00:17:53.000 --> 00:17:56.000
+so you cannot do all this testing
+
+00:17:56.000 --> 00:17:59.000
+on your local environment because
+
+00:17:59.000 --> 00:18:02.000
+there is an issue of availability
+
+00:18:02.000 --> 00:18:05.000
+you cannot run your local environment 24x7
+
+00:18:05.000 --> 00:18:08.000
+you need an automated system which goes on line fields
+
+00:18:08.000 --> 00:18:26.520
+so you need to pick the
+
+00:18:26.520 --> 00:18:29.520
+and how will we automate this
+
+00:18:29.520 --> 00:18:32.520
+we will automate it by setting up a cron job
+
+00:18:32.520 --> 00:18:35.520
+so cron is basically
+
+00:18:36.040 --> 00:18:39.040
+a CLI tool which you can set
+
+00:18:39.040 --> 00:18:42.040
+if you want to run any script or file
+
+00:18:42.040 --> 00:18:45.040
+on this particular frequency
+
+00:18:45.040 --> 00:18:48.040
+then you set cron job
+
+00:18:48.040 --> 00:18:51.040
+and it will automatically run in background
+
+00:18:51.040 --> 00:18:54.040
+as soon as the time comes
+
+00:18:54.040 --> 00:18:57.040
+so let's say we have set the evaluation time
+
+00:18:57.040 --> 00:19:00.040
+so as soon as the evaluation time is 1 hour
+
+00:19:00.040 --> 00:19:03.040
+your evaluation script will run
+
+00:19:03.560 --> 00:19:06.560
+it will pull your traces
+
+00:19:06.560 --> 00:19:09.560
+will calculate the scores and update on line fields
+
+00:19:09.560 --> 00:19:12.560
+is it clear
+
+00:19:12.560 --> 00:19:15.560
+is it clear the whole setup
+
+00:19:15.560 --> 00:19:18.560
+what are you going to do, where are you going to do
+
+00:19:18.560 --> 00:19:21.560
+how are you going to do, is everything clear
+
+00:19:21.560 --> 00:19:24.560
+if it is clear then only we will move ahead
+
+00:19:24.560 --> 00:19:27.560
+otherwise we can wait here
+
+00:19:27.560 --> 00:19:30.560
+I will take some questions if there are
+
+00:19:31.080 --> 00:19:34.080
+clear
+
+00:19:34.080 --> 00:19:37.080
+great
+
+00:19:37.080 --> 00:19:40.080
+so let's move ahead
+
+00:19:40.080 --> 00:19:43.080
+before creating a setup
+
+00:19:43.080 --> 00:19:46.080
+let's discuss about online evals
+
+00:19:46.080 --> 00:19:49.080
+because we are going to do online evals
+
+00:19:49.080 --> 00:19:52.080
+you should have an idea about online evals
+
+00:19:52.080 --> 00:19:55.080
+so you already know the definition
+
+00:19:55.080 --> 00:19:58.080
+you have heard about online evals many times
+
+00:19:58.600 --> 00:20:01.600
+so what is the need to perform online evals
+
+00:20:01.600 --> 00:20:04.600
+why do we need to perform online evals
+
+00:20:04.600 --> 00:20:07.600
+why can't offline evals work
+
+00:20:07.600 --> 00:20:10.600
+here offline and online
+
+00:20:10.600 --> 00:20:13.600
+there are two branches
+
+00:20:13.600 --> 00:20:16.600
+can anyone tell me in the chat
+
+00:20:19.600 --> 00:20:22.600
+to monitor if our system is working as expected
+
+00:20:22.600 --> 00:20:25.600
+we don't have golden
+
+00:20:26.120 --> 00:20:29.120
+yes Pritika is right
+
+00:20:29.120 --> 00:20:32.120
+we need real failures in production
+
+00:20:32.120 --> 00:20:35.120
+we want to see using online evals
+
+00:20:35.120 --> 00:20:38.120
+evals are numbers that tell us the health of our application
+
+00:20:38.120 --> 00:20:41.120
+how it is working
+
+00:20:41.120 --> 00:20:44.120
+we want real production setup
+
+00:20:44.120 --> 00:20:47.120
+where we don't have good goldens from context
+
+00:20:47.120 --> 00:20:50.120
+where are we making goldens from
+
+00:20:50.120 --> 00:20:53.120
+we are making LLM calls on it
+
+00:20:53.639 --> 00:20:56.639
+we are making a pipeline
+
+00:20:56.639 --> 00:20:59.639
+so it is a properly curated data set
+
+00:20:59.639 --> 00:21:02.639
+whereas online data set
+
+00:21:02.639 --> 00:21:05.639
+has a different distribution
+
+00:21:05.639 --> 00:21:08.639
+and you may have many edge cases
+
+00:21:08.639 --> 00:21:11.639
+so you want to evaluate those edge cases
+
+00:21:11.639 --> 00:21:14.639
+in real settings
+
+00:21:14.639 --> 00:21:17.639
+and if there is a need
+
+00:21:17.639 --> 00:21:20.639
+if there is a problem arise
+
+00:21:21.160 --> 00:21:24.160
+you are calculating the matrix
+
+00:21:24.160 --> 00:21:27.160
+you want to see where the problem is
+
+00:21:27.160 --> 00:21:30.160
+just calculating matrix and score is not enough
+
+00:21:30.160 --> 00:21:33.160
+you want to see where the problem is
+
+00:21:33.160 --> 00:21:36.160
+and what are the measures to fix it
+
+00:21:36.160 --> 00:21:39.160
+so the biggest reason of online evals
+
+00:21:39.160 --> 00:21:42.160
+is that you want to monitor your application
+
+00:21:42.160 --> 00:21:45.160
+while it is facing real users
+
+00:21:45.160 --> 00:21:48.160
+now I will ask you
+
+00:21:48.680 --> 00:21:51.680
+apart from the data set
+
+00:21:51.680 --> 00:21:54.680
+what is the other difference
+
+00:21:54.680 --> 00:21:57.680
+this is a data set
+
+00:21:57.680 --> 00:22:00.680
+online data set is available
+
+00:22:00.680 --> 00:22:03.680
+and offline data set is available
+
+00:22:03.680 --> 00:22:06.680
+what is the other difference
+
+00:22:06.680 --> 00:22:09.680
+which basically lets us decide
+
+00:22:09.680 --> 00:22:12.680
+which matrix to use
+
+00:22:12.680 --> 00:22:15.680
+no not processing
+
+00:22:16.200 --> 00:22:19.200
+now what is the key thing
+
+00:22:19.200 --> 00:22:22.200
+that is our grounded response
+
+00:22:25.200 --> 00:22:28.200
+and where can we create
+
+00:22:28.200 --> 00:22:31.200
+this grounded response or expected output
+
+00:22:31.200 --> 00:22:34.200
+because we have context
+
+00:22:34.200 --> 00:22:37.200
+and this context is also our golden context
+
+00:22:37.200 --> 00:22:40.200
+we have filtered it out
+
+00:22:40.200 --> 00:22:43.200
+with the help of this we can generate grounded response
+
+00:22:43.720 --> 00:22:46.720
+but when your application is in production
+
+00:22:46.720 --> 00:22:49.720
+then you don't have any answer key
+
+00:22:49.720 --> 00:22:52.720
+or grounded response or context
+
+00:22:52.720 --> 00:22:55.720
+you don't have best of anything
+
+00:22:55.720 --> 00:22:58.720
+what do you have
+
+00:22:58.720 --> 00:23:01.720
+you have two major components
+
+00:23:01.720 --> 00:23:04.720
+first is retriever
+
+00:23:04.720 --> 00:23:07.720
+and second is generator or LLM
+
+00:23:07.720 --> 00:23:10.720
+these are the outputs
+
+00:23:11.240 --> 00:23:14.240
+and you have to evaluate these outputs
+
+00:23:14.240 --> 00:23:17.240
+and third thing is
+
+00:23:17.240 --> 00:23:20.240
+that is your user input
+
+00:23:20.240 --> 00:23:23.240
+because on the basis of user input
+
+00:23:23.240 --> 00:23:26.240
+your retriever will retrieve some chunks
+
+00:23:26.240 --> 00:23:29.240
+and generator will generate
+
+00:23:29.240 --> 00:23:32.240
+based on what the retriever fetched
+
+00:23:32.240 --> 00:23:35.240
+and what input came from the user
+
+00:23:35.240 --> 00:23:38.240
+so basically in online evals
+
+00:23:38.760 --> 00:23:41.760
+we never measure input
+
+00:23:41.760 --> 00:23:44.760
+what is our control on input
+
+00:23:44.760 --> 00:23:47.760
+user can write abuse
+
+00:23:47.760 --> 00:23:50.760
+we don't have control on user
+
+00:23:50.760 --> 00:23:53.760
+we have to check that our retriever
+
+00:23:53.760 --> 00:23:56.760
+or generator is working as expected
+
+00:23:56.760 --> 00:23:59.760
+so we monitor the outputs
+
+00:23:59.760 --> 00:24:02.760
+of retriever and generator
+
+00:24:02.760 --> 00:24:05.760
+using our online evals
+
+00:24:06.280 --> 00:24:09.280
+which captures the relationship between these two
+
+00:24:09.280 --> 00:24:12.280
+and we have read this relationship
+
+00:24:12.280 --> 00:24:15.280
+inside the rack triad
+
+00:24:15.280 --> 00:24:18.280
+where we have retrieved context
+
+00:24:18.280 --> 00:24:21.280
+input and output
+
+00:24:21.280 --> 00:24:24.280
+we build a triangular relationship between these two
+
+00:24:24.280 --> 00:24:27.280
+where if we want to see how our generator is performing
+
+00:24:27.280 --> 00:24:30.280
+then we calculate the relationship between input and output
+
+00:24:30.280 --> 00:24:33.280
+and for this we use a metric called
+
+00:24:33.800 --> 00:24:36.800
+answer relevancy
+
+00:24:36.800 --> 00:24:39.800
+this tells us that our generated output
+
+00:24:39.800 --> 00:24:42.800
+is it suitable for the input or not
+
+00:24:42.800 --> 00:24:45.800
+then comes your input
+
+00:24:45.800 --> 00:24:48.800
+and retriever output
+
+00:24:48.800 --> 00:24:51.800
+who captures the relationship between these two
+
+00:24:51.800 --> 00:24:54.800
+your contextual relevancy captures
+
+00:24:54.800 --> 00:24:57.800
+the context your retriever fetched
+
+00:24:57.800 --> 00:25:00.800
+was it relevant according to the input
+
+00:25:01.320 --> 00:25:04.320
+and finally comes your retriever and output
+
+00:25:04.320 --> 00:25:07.320
+and your faithfulness comes in this
+
+00:25:07.320 --> 00:25:10.320
+that whether your generator output
+
+00:25:10.320 --> 00:25:13.320
+was aligned with the output of the retriever
+
+00:25:13.320 --> 00:25:16.320
+or not, is it clear? I hope you remember this matrix
+
+00:25:16.320 --> 00:25:19.320
+so you are not only understanding the difference
+
+00:25:19.320 --> 00:25:22.320
+between reference free and reference based metrics
+
+00:25:22.320 --> 00:25:25.320
+you are also understanding
+
+00:25:25.320 --> 00:25:28.320
+why these three metrics are focused on online evals
+
+00:25:28.840 --> 00:25:31.840
+because this triangular relationship
+
+00:25:31.840 --> 00:25:34.840
+can capture the proper relationship between outputs and inputs
+
+00:25:34.840 --> 00:25:37.840
+and we have to see this
+
+00:25:37.840 --> 00:25:40.840
+in our production environment
+
+00:25:40.840 --> 00:25:43.840
+that whether our two components are working properly
+
+00:25:43.840 --> 00:25:46.840
+this point is clear
+
+00:25:46.840 --> 00:25:49.840
+you can think in a broader way
+
+00:25:49.840 --> 00:25:52.840
+not reference less or reference based
+
+00:25:52.840 --> 00:25:55.840
+you can understand the broader perspective
+
+00:25:56.360 --> 00:25:59.360
+so we have done the same
+
+00:25:59.360 --> 00:26:02.360
+we have used deep eval's rack triad
+
+00:26:02.360 --> 00:26:05.360
+for our online eval setup
+
+00:26:05.360 --> 00:26:08.360
+now we have two custom evals
+
+00:26:08.360 --> 00:26:11.360
+one is reference based and one is reference free
+
+00:26:11.360 --> 00:26:14.360
+you could have used that too
+
+00:26:14.360 --> 00:26:17.360
+which is a simplistic answer
+
+00:26:17.360 --> 00:26:20.360
+but I didn't use it because you have already
+
+00:26:20.360 --> 00:26:23.360
+tested the system prompt and because your system prompt
+
+00:26:23.879 --> 00:26:26.879
+you are getting simple answers
+
+00:26:26.879 --> 00:26:29.879
+you can include it, it is up to you
+
+00:26:29.879 --> 00:26:32.879
+you know how to write the eval code
+
+00:26:32.879 --> 00:26:35.879
+we haven't done it yet, you can do it
+
+00:26:35.879 --> 00:26:38.879
+but it is necessary to include rack triad
+
+00:26:38.879 --> 00:26:41.879
+let's move ahead
+
+00:26:41.879 --> 00:26:44.879
+and now let's discuss how our setup will be
+
+00:26:44.879 --> 00:26:47.879
+setup will be very simple
+
+00:26:47.879 --> 00:26:50.879
+first we will make a python file
+
+00:26:51.400 --> 00:26:54.400
+we will make a script in which we will write
+
+00:26:54.400 --> 00:26:57.400
+the entire code where we are integrating
+
+00:26:57.400 --> 00:27:00.400
+langfuse and deep eval
+
+00:27:00.400 --> 00:27:03.400
+and as soon as we write this code
+
+00:27:03.400 --> 00:27:06.400
+we will take this code on our AWS
+
+00:27:06.400 --> 00:27:09.400
+we will make a special instance
+
+00:27:09.400 --> 00:27:12.400
+on AWS
+
+00:27:12.400 --> 00:27:15.400
+which is only used for online evaluations
+
+00:27:15.400 --> 00:27:18.400
+we have defined a sole purpose of it
+
+00:27:18.920 --> 00:27:21.920
+it will automatically run on a particular frequency
+
+00:27:21.920 --> 00:27:24.920
+in the background
+
+00:27:24.920 --> 00:27:27.920
+and will do online evaluations on all our traces
+
+00:27:27.920 --> 00:27:30.920
+non stop
+
+00:27:30.920 --> 00:27:33.920
+you can't close it in any way until and unless
+
+00:27:33.920 --> 00:27:36.920
+you close that instance
+
+00:27:36.920 --> 00:27:39.920
+and that instance can be a small instance
+
+00:27:39.920 --> 00:27:42.920
+because it doesn't need much compute
+
+00:27:42.920 --> 00:27:45.920
+the whole setup is getting cleared
+
+00:27:46.440 --> 00:27:49.440
+let's move ahead
+
+00:27:52.440 --> 00:27:53.440
+guys
+
+00:27:54.440 --> 00:27:55.440
+yes
+
+00:27:55.440 --> 00:27:58.440
+let's move towards the code part
+
+00:27:58.440 --> 00:28:01.440
+and understand how to implement these things
+
+00:28:01.440 --> 00:28:04.440
+we will go step by step
+
+00:28:04.440 --> 00:28:07.440
+and I will explain the code to you
+
+00:28:07.440 --> 00:28:10.440
+first I will tell you how I fasted
+
+00:28:10.440 --> 00:28:13.440
+our contextual compression
+
+00:28:13.960 --> 00:28:16.960
+I was experimenting
+
+00:28:16.960 --> 00:28:19.960
+and we discussed that
+
+00:28:19.960 --> 00:28:22.960
+contextual compression was the best result
+
+00:28:22.960 --> 00:28:25.960
+and the biggest drawback was that
+
+00:28:25.960 --> 00:28:28.960
+it took a lot of time
+
+00:28:28.960 --> 00:28:31.960
+I thought that the contextual compression
+
+00:28:31.960 --> 00:28:34.960
+is done sequentially
+
+00:28:34.960 --> 00:28:37.960
+but what is the point of it being sequentially
+
+00:28:37.960 --> 00:28:40.960
+our key is 3
+
+00:28:41.480 --> 00:28:44.480
+we are giving all the chunks one by one
+
+00:28:44.480 --> 00:28:47.480
+and we are telling it to compress
+
+00:28:47.480 --> 00:28:50.480
+and release the noisy information
+
+00:28:50.480 --> 00:28:53.480
+we could have given all the chunks one by one
+
+00:28:53.480 --> 00:28:56.480
+and our compression would have been done
+
+00:28:56.480 --> 00:28:59.480
+actually I have done the same thing
+
+00:28:59.480 --> 00:29:02.480
+if you see the recent traces
+
+00:29:02.480 --> 00:29:05.480
+if I bring it on the past 1 day
+
+00:29:05.480 --> 00:29:08.480
+and any recent trace
+
+00:29:09.000 --> 00:29:12.000
+you can see 12 seconds time in retrieve
+
+00:29:12.000 --> 00:29:15.000
+and in contextual compression
+
+00:29:15.000 --> 00:29:18.000
+you can see 11.69 seconds
+
+00:29:18.000 --> 00:29:21.000
+now you will see that every step
+
+00:29:21.000 --> 00:29:24.000
+has 11.69 seconds written
+
+00:29:24.000 --> 00:29:27.000
+although the chunks are different
+
+00:29:27.000 --> 00:29:30.000
+this is the chunk with golden data set
+
+00:29:30.000 --> 00:29:33.000
+this is the output of the online eval
+
+00:29:33.000 --> 00:29:36.000
+this is something else
+
+00:29:36.520 --> 00:29:39.520
+and here everyone's time is equal
+
+00:29:39.520 --> 00:29:42.520
+11.69 seconds
+
+00:29:42.520 --> 00:29:45.520
+because it is happening parallely
+
+00:29:45.520 --> 00:29:48.520
+and why is everyone's time equal
+
+00:29:48.520 --> 00:29:51.520
+if you have a question in your mind
+
+00:29:51.520 --> 00:29:54.520
+why is it parallel
+
+00:29:54.520 --> 00:29:57.520
+you can see it only one time
+
+00:29:57.520 --> 00:30:00.520
+because it is being calculated in the weakest part of the link
+
+00:30:00.520 --> 00:30:03.520
+which means that the chunk is taking the most time
+
+00:30:04.040 --> 00:30:07.040
+and for this I have simply
+
+00:30:07.040 --> 00:30:10.040
+put a batch operation
+
+00:30:10.040 --> 00:30:13.040
+in my LLM which is doing the compression
+
+00:30:13.040 --> 00:30:16.040
+batch operation means
+
+00:30:16.040 --> 00:30:19.040
+instead of giving chunks one by one
+
+00:30:19.040 --> 00:30:22.040
+I took all my 3 chunks
+
+00:30:22.040 --> 00:30:25.040
+and made a batch of it
+
+00:30:25.040 --> 00:30:28.040
+and along with the system prompt
+
+00:30:28.040 --> 00:30:31.040
+I gave the whole batch to my LLM
+
+00:30:31.560 --> 00:30:34.560
+and here I did the internal processing
+
+00:30:34.560 --> 00:30:37.560
+and returned the whole batch
+
+00:30:37.560 --> 00:30:40.560
+and what is in this batch
+
+00:30:40.560 --> 00:30:43.560
+now I have my compressed chunks
+
+00:30:43.560 --> 00:30:46.560
+so this is the change I made in the code
+
+00:30:46.560 --> 00:30:49.560
+if I go here
+
+00:30:49.560 --> 00:30:52.560
+and if I go to my app
+
+00:30:52.560 --> 00:30:55.560
+and go to my vector store
+
+00:30:55.560 --> 00:30:58.560
+so see
+
+00:30:59.080 --> 00:31:02.080
+just a second
+
+00:31:02.080 --> 00:31:05.080
+yes, first I was using
+
+00:31:05.080 --> 00:31:08.080
+LLM chain extractor
+
+00:31:08.080 --> 00:31:11.080
+I am still using it but I have customized it a little
+
+00:31:11.080 --> 00:31:14.080
+I have made a new class here
+
+00:31:14.080 --> 00:31:17.080
+parallel LLM chain extractor
+
+00:31:17.080 --> 00:31:20.080
+it is being understood by the name that it is doing the work
+
+00:31:20.080 --> 00:31:23.080
+parallel is compressing my chunks and I have made it inherit
+
+00:31:23.080 --> 00:31:26.080
+from LLM chain extractor class and I have done a
+
+00:31:26.600 --> 00:31:29.600
+overwrite of the whole batch
+
+00:31:29.600 --> 00:31:32.600
+and what I am doing is taking my inputs
+
+00:31:32.600 --> 00:31:35.600
+these are all my chunks which my retriever
+
+00:31:35.600 --> 00:31:38.600
+has retrieved
+
+00:31:38.600 --> 00:31:41.600
+and after that I am making an outputs variable
+
+00:31:41.600 --> 00:31:44.600
+and on my LLM chain
+
+00:31:44.600 --> 00:31:47.600
+I am running a batch operation
+
+00:31:47.600 --> 00:31:50.600
+and I am putting the output in the list
+
+00:31:50.600 --> 00:31:53.600
+that's it, this is a simple change
+
+00:31:54.120 --> 00:31:57.120
+and see how much latency is decreasing
+
+00:31:57.120 --> 00:32:00.120
+this is a small code change
+
+00:32:00.120 --> 00:32:03.120
+and we have done a lot of time savings
+
+00:32:03.120 --> 00:32:06.120
+I hope this thing is clear to you
+
+00:32:06.120 --> 00:32:09.120
+now let's go to the actual file
+
+00:32:09.120 --> 00:32:12.120
+in which we are running our online evals
+
+00:32:12.120 --> 00:32:15.120
+so again I will go into source
+
+00:32:15.120 --> 00:32:18.120
+in source we will go into evals
+
+00:32:18.120 --> 00:32:21.120
+in evals you will see a directory called online evals
+
+00:32:21.639 --> 00:32:24.639
+this is the script which will run on AWS
+
+00:32:24.639 --> 00:32:27.639
+inside a crown job
+
+00:32:27.639 --> 00:32:30.639
+and this will run and according to that
+
+00:32:30.639 --> 00:32:33.639
+you will have evalations and results
+
+00:32:33.639 --> 00:32:36.639
+will be pushed back on linefuse
+
+00:32:36.639 --> 00:32:39.639
+so you understood the setup so far
+
+00:32:39.639 --> 00:32:42.639
+if you are ready write clear in the chat
+
+00:32:42.639 --> 00:32:45.639
+and we will discuss this code step by step
+
+00:32:46.160 --> 00:32:49.160
+this is a simple code
+
+00:32:49.160 --> 00:32:52.160
+and I will explain you everything
+
+00:32:52.160 --> 00:32:55.160
+clear, great
+
+00:32:55.160 --> 00:32:58.160
+tell me more people
+
+00:32:58.160 --> 00:33:01.160
+here I have made all my necessary imports
+
+00:33:01.160 --> 00:33:04.160
+I will turn on the annotation
+
+00:33:04.160 --> 00:33:07.160
+and we can keep the red color because it is visible on the screen
+
+00:33:07.160 --> 00:33:10.160
+now what I am doing here
+
+00:33:10.160 --> 00:33:13.160
+from deep eval.metrics I am importing
+
+00:33:13.680 --> 00:33:16.680
+these three metrics
+
+00:33:16.680 --> 00:33:19.680
+which are these three metrics
+
+00:33:19.680 --> 00:33:22.680
+here I have imported my LLM test case
+
+00:33:22.680 --> 00:33:25.680
+and from lagfuse I am importing get client
+
+00:33:25.680 --> 00:33:28.680
+after that
+
+00:33:28.680 --> 00:33:31.680
+if I go down
+
+00:33:31.680 --> 00:33:34.680
+I find annotation a bit useless
+
+00:33:34.680 --> 00:33:37.680
+zoom but what can we do
+
+00:33:37.680 --> 00:33:40.680
+here I have told you my judge model
+
+00:33:41.200 --> 00:33:44.200
+and I am doing my evaluation through offline setup
+
+00:33:44.200 --> 00:33:47.200
+so offline and online
+
+00:33:47.200 --> 00:33:50.200
+here the difference should not be of your evaluators
+
+00:33:50.200 --> 00:33:53.200
+your judge model should not be different
+
+00:33:53.200 --> 00:33:56.200
+the entire pipeline should be exactly same
+
+00:33:56.200 --> 00:33:59.200
+the difference should be in your simple data set
+
+00:33:59.200 --> 00:34:02.200
+if you change in your evaluation criteria
+
+00:34:02.200 --> 00:34:05.200
+then you can't do comparisons
+
+00:34:05.200 --> 00:34:08.200
+for one to one comparisons
+
+00:34:08.719 --> 00:34:11.719
+for one to one comparisons everything has to be static
+
+00:34:11.719 --> 00:34:14.719
+just change your data set
+
+00:34:14.719 --> 00:34:17.719
+after that we are telling you which traces you have to filter
+
+00:34:17.719 --> 00:34:20.719
+so the production people
+
+00:34:20.719 --> 00:34:23.719
+you will remember when we were reading tracing
+
+00:34:23.719 --> 00:34:26.719
+that you can set environment label production development staging
+
+00:34:26.719 --> 00:34:29.719
+so the production people are going to our traces
+
+00:34:29.719 --> 00:34:32.719
+which I am not testing and putting there
+
+00:34:32.719 --> 00:34:35.719
+which my users are putting, they have to be retrieved
+
+00:34:36.239 --> 00:34:39.239
+so you can see in lagfuse
+
+00:34:39.239 --> 00:34:42.239
+and retrievers span name is retrieve
+
+00:34:42.239 --> 00:34:45.239
+I will show you
+
+00:34:45.239 --> 00:34:48.239
+here you will see retrieve
+
+00:34:48.239 --> 00:34:51.239
+in retrieve all retrieval work is done
+
+00:34:51.239 --> 00:34:54.239
+and your root span is chat response
+
+00:34:54.239 --> 00:34:57.240
+so we have mentioned this in the code
+
+00:34:57.240 --> 00:35:00.240
+ok, after that what is the next step
+
+00:35:00.240 --> 00:35:03.240
+next step
+
+00:35:03.759 --> 00:35:06.759
+you have set a look back minute which is 15
+
+00:35:06.759 --> 00:35:09.759
+I will discuss about this now
+
+00:35:09.759 --> 00:35:12.759
+after that you have set your path
+
+00:35:12.759 --> 00:35:15.759
+and after that you are making a JSON file
+
+00:35:15.759 --> 00:35:18.759
+with the name of eval checkpoint.json
+
+00:35:18.759 --> 00:35:21.759
+after that what you have done is
+
+00:35:21.759 --> 00:35:24.759
+you have written your critical fallback message and soft fallback message
+
+00:35:24.759 --> 00:35:27.759
+now you must be thinking that fallback messages are not in guard rail
+
+00:35:27.759 --> 00:35:30.759
+what are you doing here
+
+00:35:31.280 --> 00:35:34.280
+we are not calculating any safety eval
+
+00:35:34.280 --> 00:35:37.280
+we are calculating our rack triad
+
+00:35:37.280 --> 00:35:40.280
+now you must be thinking that if your guard rail
+
+00:35:40.280 --> 00:35:43.280
+is triggered, let's say input guard rail is triggered
+
+00:35:43.280 --> 00:35:46.280
+will your retriever retrieve any chunk
+
+00:35:46.280 --> 00:35:49.280
+the answer is no, you will get an empty list
+
+00:35:49.280 --> 00:35:52.280
+will you go to generator step
+
+00:35:52.280 --> 00:35:55.280
+the answer is no, you will get
+
+00:35:55.280 --> 00:35:58.280
+blank generator, nothing will be there
+
+00:35:58.800 --> 00:36:01.800
+so if your input guard rail is triggered
+
+00:36:01.800 --> 00:36:04.800
+then you will have
+
+00:36:04.800 --> 00:36:07.800
+only fallback messages in this response
+
+00:36:07.800 --> 00:36:10.800
+so there is no reason to evaluate
+
+00:36:10.800 --> 00:36:13.800
+them in any way
+
+00:36:13.800 --> 00:36:16.800
+because your evaluation will be bad
+
+00:36:16.800 --> 00:36:19.800
+if I capture faithfulness
+
+00:36:19.800 --> 00:36:22.800
+then my soft fallback message will never be
+
+00:36:22.800 --> 00:36:25.800
+related to my context
+
+00:36:25.800 --> 00:36:28.800
+this is triggered when my guard rail is triggered
+
+00:36:28.800 --> 00:36:31.800
+so there is no reason to evaluate
+
+00:36:31.800 --> 00:36:34.800
+we are simply wasting our
+
+00:36:34.800 --> 00:36:37.800
+API calls, simply wasting tokens
+
+00:36:37.800 --> 00:36:40.800
+so we have put a filter here
+
+00:36:40.800 --> 00:36:43.800
+that at any step, whether it is input, retrieval
+
+00:36:43.800 --> 00:36:46.800
+or output, at any step if a guard rail
+
+00:36:46.800 --> 00:36:49.800
+is triggered, then we will not evaluate
+
+00:36:49.800 --> 00:36:52.800
+those traces here, we will only evaluate
+
+00:36:52.800 --> 00:36:55.800
+those traces which are correct
+
+00:36:55.800 --> 00:36:58.800
+when will you evaluate them
+
+00:36:58.800 --> 00:37:01.800
+you will evaluate them when you have some safety evals
+
+00:37:01.800 --> 00:37:04.800
+which we don't have now
+
+00:37:04.800 --> 00:37:07.800
+so we are bypassing them, I hope this point is clear
+
+00:37:07.800 --> 00:37:10.800
+again we are going with logic and reason
+
+00:37:10.800 --> 00:37:13.800
+according to the setup in our application
+
+00:37:13.800 --> 00:37:16.800
+we have made this code, so don't say
+
+00:37:16.800 --> 00:37:19.800
+sir why are we not implementing safety evals
+
+00:37:19.800 --> 00:37:22.800
+we should do this, yes we should do this
+
+00:37:22.800 --> 00:37:25.800
+I leave it to you, please calculate safety evals
+
+00:37:25.800 --> 00:37:28.800
+I am telling you the method but
+
+00:37:28.800 --> 00:37:31.800
+in this current situation, in my application
+
+00:37:31.800 --> 00:37:34.800
+which I have built, we don't need to calculate
+
+00:37:34.800 --> 00:37:37.800
+because we are not working with any safety evals
+
+00:37:37.800 --> 00:37:40.800
+after that I have set my logger
+
+00:37:40.800 --> 00:37:43.800
+and I have created my matrix
+
+00:37:43.800 --> 00:37:46.800
+now let's see how this whole setup is
+
+00:37:46.800 --> 00:37:49.800
+in this setup, what we are doing first
+
+00:37:49.800 --> 00:37:52.800
+is making a checkpoint.json file
+
+00:37:52.800 --> 00:37:55.800
+you must have seen that we have defined its path
+
+00:37:55.800 --> 00:37:58.800
+this checkpoint.json file is basically
+
+00:37:58.800 --> 00:38:01.800
+noting our time
+
+00:38:01.800 --> 00:38:04.800
+means the time at which this script was run
+
+00:38:04.800 --> 00:38:07.800
+we are noting that time in checkpoints.json
+
+00:38:07.800 --> 00:38:10.800
+what will be the benefit of this
+
+00:38:10.800 --> 00:38:13.800
+we can basically check that when this script
+
+00:38:13.800 --> 00:38:16.800
+was run last time
+
+00:38:16.800 --> 00:38:19.800
+so what we have to do is we have
+
+00:38:19.800 --> 00:38:22.800
+a start time
+
+00:38:22.800 --> 00:38:25.800
+which is for the current script and one is
+
+00:38:25.800 --> 00:38:28.800
+our previous time which is stored in my checkpoint.json
+
+00:38:28.800 --> 00:38:31.800
+and from these two times
+
+00:38:31.800 --> 00:38:34.800
+I am getting my time window
+
+00:38:34.800 --> 00:38:37.800
+let's understand through an example
+
+00:38:37.800 --> 00:38:40.800
+what we are doing here is we are doing
+
+00:38:40.800 --> 00:38:43.800
+let's say I have set a cron job for 30 minutes
+
+00:38:46.800 --> 00:38:49.800
+and now I have started the cron job
+
+00:38:49.800 --> 00:38:52.800
+at 8.30 so as soon as I have started
+
+00:38:52.800 --> 00:38:55.800
+this cron job at 8.30 then this time
+
+00:38:55.800 --> 00:38:58.800
+will be saved in my checkpoint.json
+
+00:38:58.800 --> 00:39:01.800
+now I will calculate in this
+
+00:39:01.800 --> 00:39:04.800
+that when was my previous time
+
+00:39:04.800 --> 00:39:07.800
+at that time this particular script
+
+00:39:07.800 --> 00:39:10.800
+was running so when was my previous time
+
+00:39:10.800 --> 00:39:13.800
+obviously 30 minutes before which was
+
+00:39:13.800 --> 00:39:16.800
+8 pm so at 8 pm my script was running
+
+00:39:16.800 --> 00:39:19.800
+so what I am simply saying to Langfuse
+
+00:39:19.800 --> 00:39:22.800
+that from 8 to 8.30
+
+00:39:22.800 --> 00:39:25.800
+all the traces are only fetched
+
+00:39:25.800 --> 00:39:28.800
+if you have any trace locked at 7.59
+
+00:39:28.800 --> 00:39:31.800
+don't fetch it and go I hope you are able to understand this reason
+
+00:39:31.800 --> 00:39:34.800
+we have set a time window here
+
+00:39:34.800 --> 00:39:37.800
+we have set a time window here that all the traces in the 30 minutes
+
+00:39:37.800 --> 00:39:40.800
+we will only evaluate on that
+
+00:39:40.800 --> 00:39:43.800
+because here you are avoiding duplication
+
+00:39:43.800 --> 00:39:46.800
+if you will evaluate all traces again and again
+
+00:39:46.800 --> 00:39:49.800
+then it is of no use your traces will keep increasing
+
+00:39:49.800 --> 00:39:52.800
+so you have to set a time window here
+
+00:39:52.800 --> 00:39:55.800
+that the traces that have come in this time window
+
+00:39:55.800 --> 00:39:58.800
+will be evaluated on them only
+
+00:39:58.800 --> 00:40:01.800
+and we will assume on the traces that have already been evaluated
+
+00:40:01.800 --> 00:40:04.800
+like if we are considering traces of 8.30
+
+00:40:04.800 --> 00:40:07.800
+then all the traces before 8.00
+
+00:40:07.800 --> 00:40:10.800
+have been evaluated in our window of 7.30
+
+00:40:10.800 --> 00:40:13.800
+I hope you understood this point
+
+00:40:13.800 --> 00:40:16.800
+is this point clear?
+
+00:40:16.800 --> 00:40:19.800
+it is very important to understand this point
+
+00:40:19.800 --> 00:40:22.800
+why we are working with a time window
+
+00:40:22.800 --> 00:40:25.800
+we are saving our API calls and again and again
+
+00:40:25.800 --> 00:40:28.800
+we are not evaluating the already evaluated traces
+
+00:40:28.800 --> 00:40:31.800
+is it clear?
+
+00:40:31.800 --> 00:40:34.800
+is it clear guys?
+
+00:40:34.800 --> 00:40:37.800
+yes
+
+00:40:37.800 --> 00:40:40.800
+and where is the 30 minutes check
+
+00:40:40.800 --> 00:40:43.800
+I will tell you that Tushar don't worry
+
+00:40:43.800 --> 00:40:46.800
+and it is not of 30 minutes you can keep it for any number of minutes
+
+00:40:46.800 --> 00:40:49.800
+but I hope you are able to understand why we are checking in the time window
+
+00:40:52.800 --> 00:40:55.800
+is this point clear?
+
+00:40:56.800 --> 00:40:59.800
+I will tell you how to put that check
+
+00:40:59.800 --> 00:41:02.800
+you can keep it for 30 minutes
+
+00:41:02.800 --> 00:41:05.800
+or 10 minutes it is up to you
+
+00:41:05.800 --> 00:41:08.800
+it will work according to your cron job
+
+00:41:08.800 --> 00:41:11.800
+so what is the load check point doing?
+
+00:41:11.800 --> 00:41:14.800
+simple code, you don't have to go on this code
+
+00:41:14.800 --> 00:41:17.800
+you might be scared to see it
+
+00:41:17.800 --> 00:41:20.800
+what is the meaning of default?
+
+00:41:20.800 --> 00:41:23.800
+default is basically that minus 15 minutes from the time that is happening now
+
+00:41:23.800 --> 00:41:26.800
+when will you give the default setting?
+
+00:41:26.800 --> 00:41:29.800
+first time when your check point dot path does not exist
+
+00:41:29.800 --> 00:41:32.800
+because when you run this script then it will become a JSON file
+
+00:41:32.800 --> 00:41:35.800
+if you are running this script for the first time
+
+00:41:35.800 --> 00:41:38.800
+then what you do is let's say I am running this script right now
+
+00:41:38.800 --> 00:41:41.800
+so let's say the current time is 8.45
+
+00:41:41.800 --> 00:41:44.800
+let's say it is 44 but let's say 45
+
+00:41:44.800 --> 00:41:47.800
+so current time is 8.45 and what happened to the previous time?
+
+00:41:47.800 --> 00:41:50.800
+according to 15 minutes is 8.30
+
+00:41:50.800 --> 00:41:53.800
+so this is my current time window
+
+00:41:53.800 --> 00:41:56.800
+on which I will run my evaluations
+
+00:41:56.800 --> 00:41:59.800
+I am basically saying that between 8.45 and 8.45
+
+00:41:59.800 --> 00:42:02.800
+take all the traces on the line fuse and evaluate them
+
+00:42:02.800 --> 00:42:05.800
+if I have my check point dot path already existing
+
+00:42:05.800 --> 00:42:08.800
+which will obviously be existing after being created
+
+00:42:08.800 --> 00:42:11.800
+then what I will do at that time
+
+00:42:11.800 --> 00:42:14.800
+I will simply load my JSON file here
+
+00:42:14.800 --> 00:42:17.800
+and pass my time from there
+
+00:42:17.800 --> 00:42:20.800
+simple, what is the function of load check point?
+
+00:42:20.800 --> 00:42:23.800
+whatever time is the latest in the JSON file
+
+00:42:23.800 --> 00:42:26.800
+go and read it that's it and nothing else
+
+00:42:26.800 --> 00:42:29.800
+this load check point function is not doing
+
+00:42:29.800 --> 00:42:32.800
+loading the previous timestamp that's it
+
+00:42:32.800 --> 00:42:35.800
+now let's move ahead and discuss
+
+00:42:35.800 --> 00:42:38.800
+sorry for that save check point
+
+00:42:38.800 --> 00:42:41.800
+you understood the load check point, what is the save check point?
+
+00:42:41.800 --> 00:42:44.800
+save check point is basically creating a JSON file
+
+00:42:44.800 --> 00:42:47.800
+and in that, your last process timestamp
+
+00:42:47.800 --> 00:42:50.800
+is adding timestamp information
+
+00:42:50.800 --> 00:42:53.800
+so this simple code is basically adding your timestamp
+
+00:42:53.800 --> 00:42:56.800
+now here we have put a clever hack
+
+00:42:56.800 --> 00:42:59.800
+what is clever hack? that we are not directly
+
+00:42:59.800 --> 00:43:02.800
+writing time in our JSON, first of all we are making
+
+00:43:02.800 --> 00:43:05.800
+temporary file, we are noting our time in it
+
+00:43:05.800 --> 00:43:08.800
+and if our temporary file is being made
+
+00:43:08.800 --> 00:43:11.800
+and our JSON file is being able to be joined
+
+00:43:11.800 --> 00:43:14.800
+then we are writing our new time there
+
+00:43:14.800 --> 00:43:17.800
+the reason is simply because it is possible that
+
+00:43:17.800 --> 00:43:20.800
+your script will crash while running
+
+00:43:20.800 --> 00:43:23.800
+there can be some instance where your EC2 machine
+
+00:43:23.800 --> 00:43:26.800
+is running and it will crash, any problem may arise
+
+00:43:26.800 --> 00:43:29.800
+so the previous time saved in JSON
+
+00:43:29.800 --> 00:43:32.800
+do not overwrite it until you are
+
+00:43:32.800 --> 00:43:35.800
+not ready to write new time
+
+00:43:35.800 --> 00:43:38.800
+till the end moment, whatever changes you are doing
+
+00:43:38.800 --> 00:43:41.800
+do it in a temporary file and in the original file
+
+00:43:41.800 --> 00:43:44.800
+you can overwrite it only when everything is done
+
+00:43:44.800 --> 00:43:47.800
+properly without any error
+
+00:43:47.800 --> 00:43:50.800
+what is the benefit of that? let's say
+
+00:43:50.800 --> 00:43:53.800
+I just run the script 8.45 and my previous time
+
+00:43:53.800 --> 00:43:56.800
+was 8.30, now as soon as my script is run
+
+00:43:56.800 --> 00:43:59.800
+then what is the next logical step?
+
+00:43:59.800 --> 00:44:02.800
+that now I will save my current time in the previous one
+
+00:44:02.800 --> 00:44:05.800
+because now when the script runs at 9 o'clock
+
+00:44:05.800 --> 00:44:08.800
+then the current will be there and 8.45 will be my previous
+
+00:44:08.800 --> 00:44:11.800
+so this 8.45 should go in my JSON file
+
+00:44:11.800 --> 00:44:14.800
+and should replace 8.30 and come there
+
+00:44:14.800 --> 00:44:17.800
+8.45 but there may be some problem
+
+00:44:17.800 --> 00:44:20.800
+so first of all what I will do here
+
+00:44:20.800 --> 00:44:23.800
+I will write 8.45 in a temporary file
+
+00:44:23.800 --> 00:44:26.800
+I will run my entire script
+
+00:44:26.800 --> 00:44:29.800
+and only in the end I will take this time
+
+00:44:29.800 --> 00:44:32.800
+and dump it in JSON
+
+00:44:32.800 --> 00:44:35.800
+the benefit of this is that tomorrow
+
+00:44:35.800 --> 00:44:38.800
+if I have a crash then in my original JSON
+
+00:44:38.800 --> 00:44:41.800
+the time is 8.30 and my script will run at 9 o'clock
+
+00:44:41.800 --> 00:44:44.800
+so no problem if my script has a crash
+
+00:44:44.800 --> 00:44:47.800
+or if there is a problem then I will capture
+
+00:44:47.800 --> 00:44:50.800
+all the traces in this time window and evaluate
+
+00:44:50.800 --> 00:44:53.800
+I will have to evaluate the traces of 15 minutes again
+
+00:44:53.800 --> 00:44:56.800
+I will have to spend some money here but my script
+
+00:44:56.800 --> 00:44:59.800
+will never stop or there will be no such situation
+
+00:44:59.800 --> 00:45:02.800
+I hope you understand this problem
+
+00:45:02.800 --> 00:45:05.800
+so we will write it at the end
+
+00:45:05.800 --> 00:45:08.800
+so that we don't lose any information
+
+00:45:08.800 --> 00:45:11.800
+I hope I could explain this point to you
+
+00:45:11.800 --> 00:45:14.800
+it is a bit complex but if you listen carefully
+
+00:45:14.800 --> 00:45:17.800
+you will understand
+
+00:45:17.800 --> 00:45:20.800
+so you will understand this point why
+
+00:45:20.800 --> 00:45:23.800
+it is written in a temporary file just a fail safe mechanism
+
+00:45:23.800 --> 00:45:26.800
+so that we don't lose our previous
+
+00:45:26.800 --> 00:45:29.800
+time or previous checkpoint
+
+00:45:29.800 --> 00:45:32.800
+we can override it only when our entire process
+
+00:45:32.800 --> 00:45:35.800
+has been run here
+
+00:45:35.800 --> 00:45:38.800
+is this point clear?
+
+00:45:38.800 --> 00:45:41.800
+tell me guys
+
+00:45:41.800 --> 00:45:44.800
+is it going step by step?
+
+00:45:44.800 --> 00:45:47.800
+yes
+
+00:45:47.800 --> 00:45:50.800
+so I will tell you
+
+00:45:50.800 --> 00:45:53.800
+so I will tell you
+
+00:45:54.800 --> 00:45:57.800
+clear
+
+00:45:57.800 --> 00:46:00.800
+fine let's move ahead
+
+00:46:00.800 --> 00:46:03.800
+I will also be your question
+
+00:46:03.800 --> 00:46:06.800
+let's understand this script once and then I will take your questions
+
+00:46:06.800 --> 00:46:09.800
+now our next function is fetch new root spans
+
+00:46:09.800 --> 00:46:12.800
+I understood from the name what it will do
+
+00:46:12.800 --> 00:46:15.800
+it will fetch my traces from Langfuse
+
+00:46:15.800 --> 00:46:18.800
+it will fetch my traces from Langfuse
+
+00:46:18.800 --> 00:46:21.800
+in a particular given time window
+
+00:46:21.800 --> 00:46:24.800
+so here I made a list by doing spans
+
+00:46:24.800 --> 00:46:27.800
+here I have a cursor and I have set it to none
+
+00:46:27.800 --> 00:46:30.800
+and here I have run a while loop
+
+00:46:30.800 --> 00:46:33.800
+basically what I am doing in the while loop is
+
+00:46:33.800 --> 00:46:36.800
+I am calling Langfuse API so its code is very simple
+
+00:46:36.800 --> 00:46:39.800
+you call getMany method in client.api.observations
+
+00:46:39.800 --> 00:46:42.800
+you tell it that
+
+00:46:42.800 --> 00:46:45.800
+what is the name of your root span
+
+00:46:45.800 --> 00:46:48.800
+which environment you want to filter the traces from
+
+00:46:48.800 --> 00:46:51.800
+then you tell two important things here
+
+00:46:51.800 --> 00:46:54.800
+which is from start time and to start time
+
+00:46:54.800 --> 00:46:57.800
+these two things we are telling here
+
+00:46:57.800 --> 00:47:00.800
+from start time what will tell us that from this time
+
+00:47:00.800 --> 00:47:03.800
+to this time all the traces you have fetch them
+
+00:47:03.800 --> 00:47:06.800
+after that it is fields
+
+00:47:06.800 --> 00:47:09.800
+fields basically tells you that the information you get
+
+00:47:09.800 --> 00:47:12.800
+it comes as a JSON
+
+00:47:12.800 --> 00:47:15.800
+so what attributes should be there in that JSON
+
+00:47:15.800 --> 00:47:18.800
+so here we are telling core, basic and IO
+
+00:47:18.800 --> 00:47:21.800
+you should have core information of your trace
+
+00:47:21.800 --> 00:47:24.800
+basic information of your trace
+
+00:47:24.800 --> 00:47:27.800
+and input and output of your trace
+
+00:47:27.800 --> 00:47:30.800
+and here it comes through pagination
+
+00:47:30.800 --> 00:47:33.800
+so here we have set the limit that per page
+
+00:47:33.800 --> 00:47:36.800
+you will fetch only 100 results
+
+00:47:36.800 --> 00:47:39.800
+and here we are passing our cursor
+
+00:47:39.800 --> 00:47:42.800
+first time your cursor is null
+
+00:47:42.800 --> 00:47:45.800
+and as soon as your first page is fetched
+
+00:47:45.800 --> 00:47:48.800
+you get your cursor with that result
+
+00:47:48.800 --> 00:47:51.800
+and what you do is you pass that cursor
+
+00:47:51.800 --> 00:47:54.800
+again in this function
+
+00:47:54.800 --> 00:47:57.800
+and till your cursor is null you keep passing that cursor
+
+00:47:57.800 --> 00:48:00.800
+and fetch the traces
+
+00:48:00.800 --> 00:48:03.800
+I will explain you how the whole process is
+
+00:48:03.800 --> 00:48:06.800
+you made an empty list and you told me that
+
+00:48:06.800 --> 00:48:09.800
+I need 100 results on every input of the cursor
+
+00:48:09.800 --> 00:48:12.800
+so what you did is you set the cursor to null
+
+00:48:12.800 --> 00:48:15.800
+so as soon as you sent the cursor
+
+00:48:15.800 --> 00:48:18.800
+it fetched 100 results and added it in this list
+
+00:48:18.800 --> 00:48:21.800
+now you have set a condition
+
+00:48:21.800 --> 00:48:24.800
+that if the cursor is still null
+
+00:48:24.800 --> 00:48:27.800
+then you have to exit from the loop
+
+00:48:27.800 --> 00:48:30.800
+we are running a while loop so exit from the loop
+
+00:48:30.800 --> 00:48:33.800
+but if you have more than 100 results
+
+00:48:33.800 --> 00:48:36.800
+means you have page number 2 also
+
+00:48:36.800 --> 00:48:39.800
+and if the cursor is null
+
+00:48:39.800 --> 00:48:42.800
+then you will send that cursor again in this function
+
+00:48:42.800 --> 00:48:45.800
+again you will get 100 more results
+
+00:48:45.800 --> 00:48:48.800
+and you will extend it in this list
+
+00:48:48.800 --> 00:48:51.800
+then you will check whether the cursor is null or not
+
+00:48:51.800 --> 00:48:54.800
+again you have page number 3 also
+
+00:48:54.800 --> 00:48:57.800
+means you have 270 results
+
+00:48:57.800 --> 00:49:00.800
+first 100 came, your cursor was active
+
+00:49:00.800 --> 00:49:03.800
+you put it in the list, second 100 came, cursor was active
+
+00:49:03.800 --> 00:49:06.800
+you put it in the list, now on the third time
+
+00:49:06.800 --> 00:49:09.800
+your cursor will be null or none
+
+00:49:09.800 --> 00:49:12.800
+so finally you will exit from the loop
+
+00:49:12.800 --> 00:49:15.800
+and all the results which you have
+
+00:49:15.800 --> 00:49:18.800
+you will return them
+
+00:49:18.800 --> 00:49:21.800
+so this is the code for this particular function
+
+00:49:21.800 --> 00:49:24.800
+now you must be thinking that
+
+00:49:24.800 --> 00:49:27.800
+where did you get this particular code
+
+00:49:27.800 --> 00:49:30.800
+how will I know, I am writing this code for the first time
+
+00:49:30.800 --> 00:49:33.800
+don't worry, all this explanation is in the documentation
+
+00:49:33.800 --> 00:49:36.800
+of langfuse, let me show you
+
+00:49:36.800 --> 00:49:39.800
+everything is in the documentation
+
+00:49:39.800 --> 00:49:42.800
+I don't get anything from outside, you simply google search
+
+00:49:42.800 --> 00:49:45.800
+langfuse public API
+
+00:49:45.800 --> 00:49:48.800
+here it is written
+
+00:49:48.800 --> 00:49:51.800
+langfuse is open and meant to be extended via custom workflows and integration
+
+00:49:51.800 --> 00:49:54.800
+all the data and features of langfuse are available
+
+00:49:54.800 --> 00:49:57.800
+through the API
+
+00:49:57.800 --> 00:50:00.800
+all the references are there
+
+00:50:00.800 --> 00:50:03.800
+here it is written
+
+00:50:03.800 --> 00:50:06.800
+your observations will be available in the API.observation
+
+00:50:06.800 --> 00:50:09.800
+and the metrics will be available in the API.metrics
+
+00:50:09.800 --> 00:50:12.800
+where will you get the scores
+
+00:50:12.800 --> 00:50:15.800
+you will get the scores in the API.scores v3
+
+00:50:15.800 --> 00:50:18.800
+this is the latest update
+
+00:50:18.800 --> 00:50:21.800
+here you can see the code, I am using this exact code
+
+00:50:21.800 --> 00:50:24.800
+observation API.observation.getmany
+
+00:50:24.800 --> 00:50:27.800
+we are not using metrics
+
+00:50:27.800 --> 00:50:30.800
+because we are using dpval for calculating metrics
+
+00:50:30.800 --> 00:50:33.800
+so you can leave this and this is the code
+
+00:50:33.800 --> 00:50:36.800
+and you have to see
+
+00:50:36.800 --> 00:50:39.800
+your low level APIs will tell you which versions are being used
+
+00:50:39.800 --> 00:50:42.800
+if we talk about observation
+
+00:50:42.800 --> 00:50:45.800
+from where we are fetching our traces
+
+00:50:45.800 --> 00:50:48.800
+then you have a function of getmany for that
+
+00:50:48.800 --> 00:50:51.800
+now you can see what all things you have to pass
+
+00:50:51.800 --> 00:50:54.800
+you can see here
+
+00:50:54.800 --> 00:50:57.800
+if you see this particular link
+
+00:50:57.800 --> 00:51:00.800
+b2observations.apireference
+
+00:51:00.800 --> 00:51:03.800
+so if you go down here
+
+00:51:03.800 --> 00:51:06.800
+you will see these observations
+
+00:51:06.800 --> 00:51:09.800
+you will click on this
+
+00:51:09.800 --> 00:51:12.800
+and see
+
+00:51:12.800 --> 00:51:15.800
+it is telling you get a list of observations with cursor based pagination
+
+00:51:15.800 --> 00:51:18.800
+and flexible field selection
+
+00:51:18.800 --> 00:51:21.800
+and here are the fields you can pass
+
+00:51:21.800 --> 00:51:24.800
+you know you get all the information of the field
+
+00:51:24.800 --> 00:51:27.800
+we have passed core
+
+00:51:27.800 --> 00:51:30.800
+so you will get all this information with traces
+
+00:51:30.800 --> 00:51:33.800
+your trace id, start time, end time
+
+00:51:33.800 --> 00:51:36.800
+if you give core then you will get all these things in the data
+
+00:51:36.800 --> 00:51:39.800
+if you give basic then you will get all these things
+
+00:51:39.800 --> 00:51:42.800
+name, level, status, message and everything
+
+00:51:42.800 --> 00:51:45.800
+if you give time then you will get all these things
+
+00:51:45.800 --> 00:51:48.800
+so for that we need input and response
+
+00:51:48.800 --> 00:51:51.800
+we have given IO here, you can give model, usage, prompts
+
+00:51:51.800 --> 00:51:54.800
+and what all things you have to pass in other parameters
+
+00:51:54.800 --> 00:51:57.800
+all the details are here
+
+00:51:57.800 --> 00:52:00.800
+everything is from the documentation
+
+00:52:00.800 --> 00:52:03.800
+I have not put anything from my mind
+
+00:52:03.800 --> 00:52:06.800
+you can read it, all the details are here
+
+00:52:06.800 --> 00:52:09.800
+is this point clear?
+
+00:52:09.800 --> 00:52:12.800
+I will show you here also
+
+00:52:12.800 --> 00:52:15.800
+field retrieval
+
+00:52:15.800 --> 00:52:18.800
+what all fields are returning
+
+00:52:18.800 --> 00:52:21.800
+by default what all are there
+
+00:52:21.800 --> 00:52:24.800
+and cursor based pagination
+
+00:52:24.800 --> 00:52:27.800
+instead of offset based page number
+
+00:52:27.800 --> 00:52:30.800
+V2 paginates with cursor for consistent performance on large data sets
+
+00:52:30.800 --> 00:52:33.800
+first of all what you know is
+
+00:52:33.800 --> 00:52:36.800
+in your initial request with a limit parameter we have set it to 100
+
+00:52:36.800 --> 00:52:39.800
+you can give maximum 100
+
+00:52:39.800 --> 00:52:42.800
+but now I think you can give 1000
+
+00:52:42.800 --> 00:52:45.800
+V1 was 100, so we have given 100
+
+00:52:45.800 --> 00:52:48.800
+because we don't have so many traces
+
+00:52:48.800 --> 00:52:51.800
+what you do after that is you have the results
+
+00:52:51.800 --> 00:52:54.800
+you have cursor in the metadata
+
+00:52:54.800 --> 00:52:57.800
+pass this cursor via the cursor parameter in your next request
+
+00:52:57.800 --> 00:53:00.800
+to continue where you left off
+
+00:53:00.800 --> 00:53:03.800
+repeat until no cursor is returned
+
+00:53:03.800 --> 00:53:06.800
+means until none or null comes you run it
+
+00:53:06.800 --> 00:53:09.800
+and as soon as none comes we are going out of our loop
+
+00:53:09.800 --> 00:53:12.800
+how to adjust scores
+
+00:53:12.800 --> 00:53:15.800
+is given in the scores section
+
+00:53:15.800 --> 00:53:18.800
+now when we will come to the scores section
+
+00:53:18.800 --> 00:53:21.800
+I will show you, is it clear?
+
+00:53:21.800 --> 00:53:24.800
+is this point clear guys?
+
+00:53:24.800 --> 00:53:27.800
+everything is in the documentation
+
+00:53:27.800 --> 00:53:30.800
+I have not put any code from my mind
+
+00:53:30.800 --> 00:53:33.800
+is it clear?
+
+00:53:33.800 --> 00:53:36.800
+you also start reading the documentation
+
+00:53:36.800 --> 00:53:39.800
+you will get the solution to everything
+
+00:53:39.800 --> 00:53:42.800
+ok, so what we did in this step
+
+00:53:42.800 --> 00:53:45.800
+this was our step
+
+00:53:45.800 --> 00:53:48.800
+just a minute
+
+00:53:48.800 --> 00:53:51.800
+this was our step
+
+00:53:51.800 --> 00:53:54.800
+in this step we have given all our traces
+
+00:53:54.800 --> 00:53:57.800
+are all traces here? No
+
+00:53:57.800 --> 00:54:00.800
+here traces are in a given time window
+
+00:54:00.800 --> 00:54:03.800
+so let's say in 15 minutes
+
+00:54:03.800 --> 00:54:06.800
+we had 50 traces
+
+00:54:06.800 --> 00:54:09.800
+on our linefuse
+
+00:54:09.800 --> 00:54:12.800
+so we will return those 50 traces
+
+00:54:12.800 --> 00:54:15.800
+we have set all the information in them
+
+00:54:15.800 --> 00:54:18.800
+now the problem is that here you are getting
+
+00:54:18.800 --> 00:54:21.800
+only input and output information
+
+00:54:21.800 --> 00:54:24.800
+means the input your user is sending
+
+00:54:24.800 --> 00:54:27.800
+and the output your trace is generating
+
+00:54:27.800 --> 00:54:30.800
+so you are getting only that response
+
+00:54:30.800 --> 00:54:33.800
+because what are you fetching?
+
+00:54:33.800 --> 00:54:36.800
+I will show you in UI that what I am actually fetching
+
+00:54:36.800 --> 00:54:39.800
+if I take you here
+
+00:54:39.800 --> 00:54:42.800
+in tracing, then see this is your route
+
+00:54:42.800 --> 00:54:45.800
+from this you are only getting input and output
+
+00:54:45.800 --> 00:54:48.800
+ok
+
+00:54:48.800 --> 00:54:51.800
+but do you think it is enough?
+
+00:54:51.800 --> 00:54:54.800
+one thing is missing here, can anyone tell me?
+
+00:54:54.800 --> 00:54:57.800
+what is missing?
+
+00:54:57.800 --> 00:55:00.800
+I will take your question
+
+00:55:00.800 --> 00:55:03.800
+it is a very valid question, I will take this question
+
+00:55:03.800 --> 00:55:06.800
+let me explain this code once
+
+00:55:06.800 --> 00:55:09.800
+all your questions you keep in mind
+
+00:55:09.800 --> 00:55:12.800
+copy it, again you will paste it, I will answer each and everything
+
+00:55:12.800 --> 00:55:15.800
+someone will tell that here input and output
+
+00:55:15.800 --> 00:55:18.800
+if I am getting it from my route trace
+
+00:55:18.800 --> 00:55:21.800
+then why is my work not getting done here
+
+00:55:21.800 --> 00:55:24.800
+so do you need any other piece of information from your traces?
+
+00:55:24.800 --> 00:55:27.800
+or is it enough?
+
+00:55:27.800 --> 00:55:30.800
+if I take out these two pieces of information
+
+00:55:30.800 --> 00:55:33.800
+yes, Amarjeet is absolutely right
+
+00:55:33.800 --> 00:55:36.800
+we need our retrieved chunks here
+
+00:55:36.800 --> 00:55:39.800
+because in our rack triad there are two metrics
+
+00:55:39.800 --> 00:55:42.800
+contextual relevancy and our faithfulness
+
+00:55:42.800 --> 00:55:45.800
+both depend on my retrieved chunks
+
+00:55:45.800 --> 00:55:48.800
+so what I have to do here is to take out information
+
+00:55:48.800 --> 00:55:51.800
+see it is here
+
+00:55:51.800 --> 00:55:54.800
+what is the input of my retrieved span?
+
+00:55:54.800 --> 00:55:57.800
+my query, guardrail status etc.
+
+00:55:57.800 --> 00:56:00.800
+and where are the retrieved chunks?
+
+00:56:00.800 --> 00:56:03.800
+here they are, individual chunks and their page content
+
+00:56:03.800 --> 00:56:06.800
+here the text is in the page content
+
+00:56:06.800 --> 00:56:09.800
+and in this context, my entire context is available
+
+00:56:09.800 --> 00:56:12.800
+as a single string
+
+00:56:12.800 --> 00:56:15.800
+means I have merged all my three chunks into the context
+
+00:56:15.800 --> 00:56:18.800
+but I will not use the context here
+
+00:56:18.800 --> 00:56:21.800
+because I need individual chunks here
+
+00:56:21.800 --> 00:56:24.800
+because my metrics need list of chunks
+
+00:56:24.800 --> 00:56:27.800
+so I have to fetch these three items from my retrieved docs
+
+00:56:27.800 --> 00:56:30.800
+these 0, 1, 2 indexes
+
+00:56:30.800 --> 00:56:33.800
+and you will see the code of that here
+
+00:56:33.800 --> 00:56:36.800
+fetch retrieval chunks
+
+00:56:36.800 --> 00:56:39.800
+I will give this to my client object and trace id
+
+00:56:39.800 --> 00:56:42.800
+I will tell you through trace id
+
+00:56:42.800 --> 00:56:45.800
+so I have fetched 50 traces
+
+00:56:45.800 --> 00:56:48.800
+now I am only fetching retrieved context from my individual traces
+
+00:56:48.800 --> 00:56:51.800
+so I will have trace id of every trace
+
+00:56:51.800 --> 00:56:54.800
+so I will tell you the trace id and what will I get by flipping it
+
+00:56:54.800 --> 00:56:57.800
+my list of chunks in a list
+
+00:56:57.800 --> 00:57:00.800
+here I am telling the trace id in my client.api.observation.getmany
+
+00:57:00.800 --> 00:57:03.800
+that this is the particular trace id
+
+00:57:03.800 --> 00:57:06.800
+like this is the trace, this is its id
+
+00:57:06.800 --> 00:57:09.800
+this is the id, this is the top, ok
+
+00:57:09.800 --> 00:57:12.800
+so you catch this and against this trace id
+
+00:57:12.800 --> 00:57:15.800
+you get the information from this span
+
+00:57:15.800 --> 00:57:18.800
+what should be the fields?
+
+00:57:18.800 --> 00:57:21.800
+should be core and I should be Ion input output
+
+00:57:21.800 --> 00:57:24.800
+but this input output is for the retriever
+
+00:57:24.800 --> 00:57:27.800
+and because I know that my chunks are limited
+
+00:57:27.800 --> 00:57:30.800
+so I don't need to pass cursors
+
+00:57:30.800 --> 00:57:33.800
+but I have set a limit of 5, what is this limit?
+
+00:57:33.800 --> 00:57:36.800
+this is the limit of my k, here I have taken 5
+
+00:57:36.800 --> 00:57:39.800
+so this is a big number but you can also set it to 3
+
+00:57:39.800 --> 00:57:42.800
+and if your k becomes 10
+
+00:57:42.800 --> 00:57:45.800
+then you have to set it to 10
+
+00:57:45.800 --> 00:57:48.800
+because you have to fetch 10 chunks of information
+
+00:57:48.800 --> 00:57:51.800
+and then what are you doing?
+
+00:57:51.800 --> 00:57:54.800
+after that you are basically putting some checks
+
+00:57:54.800 --> 00:57:57.800
+that the output that is coming out
+
+00:57:57.800 --> 00:58:00.800
+so where will you get the output?
+
+00:58:00.800 --> 00:58:03.800
+so the output that is coming out
+
+00:58:03.800 --> 00:58:06.800
+so what is the output in?
+
+00:58:06.800 --> 00:58:09.800
+is it in JSON form? if it is in JSON form then read it in JSON form
+
+00:58:09.800 --> 00:58:12.800
+if it is in dictionary form then read it in dictionary form
+
+00:58:12.800 --> 00:58:15.800
+if it is in string form then read it in string form
+
+00:58:15.800 --> 00:58:18.800
+this is just a fail safe mechanism that your format changes tomorrow
+
+00:58:18.800 --> 00:58:21.800
+then also you can retrieve your chunks there
+
+00:58:21.800 --> 00:58:24.800
+but what we are retrieving here is in dictionary form
+
+00:58:24.800 --> 00:58:27.800
+you can see clearly here
+
+00:58:27.800 --> 00:58:30.800
+there is a key called retrieve redox in output
+
+00:58:30.800 --> 00:58:33.800
+so here you will get a list of chunks
+
+00:58:33.800 --> 00:58:36.800
+and you will also get a key in every chunk
+
+00:58:36.800 --> 00:58:39.800
+page content in which your actual chunk is available
+
+00:58:39.800 --> 00:58:42.800
+we have written that in the code
+
+00:58:42.800 --> 00:58:45.800
+we have made a list of chunks and we are looping through
+
+00:58:45.800 --> 00:58:48.800
+where? every document or every chunk in output.get
+
+00:58:48.800 --> 00:58:51.800
+because it is a dictionary
+
+00:58:51.800 --> 00:58:54.800
+so we are fetching their values in the retrieved docs key
+
+00:58:54.800 --> 00:58:57.800
+and looping through every document
+
+00:58:57.800 --> 00:59:00.800
+so now we will get our entire chunk
+
+00:59:00.800 --> 00:59:03.800
+this one is 0th index
+
+00:59:03.800 --> 00:59:06.800
+it will have id, metadata and page content
+
+00:59:06.800 --> 00:59:09.800
+what do we mean by this? we only mean page content
+
+00:59:09.800 --> 00:59:12.800
+so we are checking here that if it is string
+
+00:59:12.800 --> 00:59:15.800
+then append it directly but it is not string
+
+00:59:15.800 --> 00:59:18.800
+it is a dictionary, so what should we do here?
+
+00:59:18.800 --> 00:59:21.800
+save the page content in chunks in my chunks list
+
+00:59:21.800 --> 00:59:24.800
+save the page content in chunks in my chunks list
+
+00:59:24.800 --> 00:59:27.800
+so we are checking if page content in docs is available
+
+00:59:27.800 --> 00:59:30.800
+if it is available then add its value in this list
+
+00:59:30.800 --> 00:59:33.800
+and finally what should I do here?
+
+00:59:33.800 --> 00:59:36.800
+return my chunks list, so from here
+
+00:59:36.800 --> 00:59:39.800
+for every trace id, my chunks will come
+
+00:59:39.800 --> 00:59:42.800
+in the form of what? in the form of a list
+
+00:59:42.800 --> 00:59:45.800
+it will be a list of chunks, clear?
+
+00:59:45.800 --> 00:59:48.800
+this is a small function below, it is basically checking
+
+00:59:48.800 --> 00:59:51.800
+this is a filtering function which is checking
+
+00:59:51.800 --> 00:59:54.800
+if there are any fallback, then I will simply
+
+00:59:54.800 --> 00:59:57.800
+return true and I will filter them out
+
+00:59:57.800 --> 01:00:00.800
+and this is the main function, this is your measure and push
+
+01:00:00.800 --> 01:00:03.800
+from the name only we can understand what it will do
+
+01:00:03.800 --> 01:00:06.800
+it will take every test case of mine
+
+01:00:06.800 --> 01:00:09.800
+on that my metric will run
+
+01:00:09.800 --> 01:00:12.800
+and whatever the result is
+
+01:00:12.800 --> 01:00:15.800
+it will push it to Langfuse
+
+01:00:15.800 --> 01:00:18.800
+so this is my dpval code
+
+01:00:18.800 --> 01:00:21.800
+I am giving these things in input
+
+01:00:21.800 --> 01:00:24.800
+and simply I am calling dot measure
+
+01:00:24.800 --> 01:00:27.800
+on the metric I am giving
+
+01:00:27.800 --> 01:00:30.800
+you know that whenever you have to evaluate a single thing
+
+01:00:30.800 --> 01:00:33.800
+then you use dot measure and if you have to calculate
+
+01:00:33.800 --> 01:00:36.800
+multiple things at the same time then you use
+
+01:00:36.800 --> 01:00:39.800
+evaluate API, so because we are going trace by trace
+
+01:00:39.800 --> 01:00:42.800
+then we will use the metric dot measure
+
+01:00:42.800 --> 01:00:45.800
+after that whatever score we are getting
+
+01:00:45.800 --> 01:00:48.800
+we are sending it back to Langfuse
+
+01:00:48.800 --> 01:00:51.800
+this client is my Langfuse object
+
+01:00:51.800 --> 01:00:54.800
+we are telling you to create a score on the trace
+
+01:00:54.800 --> 01:00:57.800
+so for that I have to tell you some things like
+
+01:00:57.800 --> 01:01:00.800
+what is the trace id, what is the name of the metric
+
+01:01:00.800 --> 01:01:03.800
+what is the value of the metric, from where I will get it
+
+01:01:03.800 --> 01:01:06.800
+from the score of this metric
+
+01:01:06.800 --> 01:01:09.800
+what is the data type of my metric, it is a numerical metric
+
+01:01:09.800 --> 01:01:12.800
+you have three types here, one is numerical
+
+01:01:12.800 --> 01:01:15.800
+you can understand it by the name, you have floating numbers or integers
+
+01:01:15.800 --> 01:01:18.800
+one is your Boolean which is true and false
+
+01:01:18.800 --> 01:01:21.800
+and one is your categorical
+
+01:01:21.800 --> 01:01:24.800
+you can understand it by the name that what metrics are doing
+
+01:01:24.800 --> 01:01:27.800
+and whatever reason you are getting
+
+01:01:27.800 --> 01:01:30.800
+by doing metric dot measure
+
+01:01:30.800 --> 01:01:33.800
+whatever reason you are getting here, you can save it in the comment
+
+01:01:33.800 --> 01:01:36.800
+and also provide a score id
+
+01:01:36.800 --> 01:01:39.800
+what is the score id, in the score id is your trace id
+
+01:01:39.800 --> 01:01:42.800
+and the score is your metric name
+
+01:01:42.800 --> 01:01:45.800
+so let's say my trace id is 123
+
+01:01:45.800 --> 01:01:48.800
+and the metric name is contextual relevancy
+
+01:01:48.800 --> 01:01:51.800
+so this is my score id, for contextual relevancy
+
+01:01:51.800 --> 01:01:54.800
+for my trace id 123
+
+01:01:54.800 --> 01:01:57.800
+as your answer relevancy, as your faithfulness
+
+01:01:57.800 --> 01:02:00.800
+is this point clear, this is your main function
+
+01:02:00.800 --> 01:02:03.800
+which is doing your calculation and finally
+
+01:02:03.800 --> 01:02:06.800
+you are compiling all these things
+
+01:02:06.800 --> 01:02:09.800
+in this score trace
+
+01:02:09.800 --> 01:02:12.800
+the upper one, measure and push
+
+01:02:12.800 --> 01:02:15.800
+is calculating individual metrics
+
+01:02:15.800 --> 01:02:18.800
+it is supporting your whole trace
+
+01:02:18.800 --> 01:02:21.800
+you are giving all your inputs here
+
+01:02:21.800 --> 01:02:24.800
+query, response, chunks, trace id, you are giving everything
+
+01:02:24.800 --> 01:02:27.800
+first of all you are saying that I will make a test case
+
+01:02:27.800 --> 01:02:30.800
+you have made a test case
+
+01:02:30.800 --> 01:02:33.800
+then you are telling in a list, metrics to run
+
+01:02:33.800 --> 01:02:36.800
+basically a list of tuples
+
+01:02:36.800 --> 01:02:39.800
+here the first element is your tuple, your metric name
+
+01:02:39.800 --> 01:02:42.800
+and the second is your metric object
+
+01:02:42.800 --> 01:02:45.800
+now you are checking, first of all you are checking
+
+01:02:45.800 --> 01:02:48.800
+that is there any chunk information in your input
+
+01:02:48.800 --> 01:02:51.800
+it is possible that you could not retrieve the chunk information
+
+01:02:51.800 --> 01:02:54.800
+so these two metrics, faithfulness and contextual relevancy
+
+01:02:54.800 --> 01:02:57.800
+are dependent on the chunk
+
+01:02:57.800 --> 01:03:00.800
+you cannot run them, so here there are two ways
+
+01:03:00.800 --> 01:03:03.800
+either you ignore that trace at all
+
+01:03:03.800 --> 01:03:06.800
+or there is a better way that if you could not get the chunk information
+
+01:03:06.800 --> 01:03:09.800
+if you have input and output, then you can give answer relevancy
+
+01:03:09.800 --> 01:03:12.800
+so what we are doing here is
+
+01:03:12.800 --> 01:03:15.800
+we are checking that if you are getting retrieved chunks
+
+01:03:15.800 --> 01:03:18.800
+then you will run your three metrics here
+
+01:03:18.800 --> 01:03:21.800
+and if you are not getting then you will use only answer relevancy
+
+01:03:21.800 --> 01:03:24.800
+what we have done is
+
+01:03:24.800 --> 01:03:27.800
+we have extended this list, I hope you know this python code
+
+01:03:27.800 --> 01:03:30.800
+here we have added some logs
+
+01:03:30.800 --> 01:03:33.800
+then what we are doing after that
+
+01:03:33.800 --> 01:03:36.800
+for name, metrics in metrics to run
+
+01:03:36.800 --> 01:03:39.800
+in this metrics.run list
+
+01:03:39.800 --> 01:03:42.800
+we are unpacking our tuple
+
+01:03:42.800 --> 01:03:45.800
+and we are calling measure and push
+
+01:03:45.800 --> 01:03:48.800
+sending our trace id, name, what is the name?
+
+01:03:48.800 --> 01:03:51.800
+this string name of my metric which I will see on line fuse
+
+01:03:51.800 --> 01:03:54.800
+and what is this metric?
+
+01:03:54.800 --> 01:03:57.800
+this is the actual metric object on which I will calculate the score
+
+01:03:57.800 --> 01:04:00.800
+and my test case
+
+01:04:00.800 --> 01:04:03.800
+which I have built up here
+
+01:04:03.800 --> 01:04:06.800
+is this point clear? and from that
+
+01:04:06.800 --> 01:04:09.800
+my score will be calculated and pushed to line fuse
+
+01:04:09.800 --> 01:04:12.800
+and finally what I have done is I have compiled all these things
+
+01:04:12.800 --> 01:04:15.800
+in a main function here, basically I have made a pipeline
+
+01:04:15.800 --> 01:04:18.800
+now if you understand all the functions
+
+01:04:18.800 --> 01:04:21.800
+then pipeline is very easy to understand
+
+01:04:21.800 --> 01:04:24.800
+so first of all we are calling this pipeline
+
+01:04:24.800 --> 01:04:27.800
+and calculating when this script started
+
+01:04:27.800 --> 01:04:30.800
+run started at, so let's say this script
+
+01:04:30.800 --> 01:04:33.800
+started at 9 o'clock, so I will
+
+01:04:33.800 --> 01:04:36.800
+save 9 o'clock in this variable
+
+01:04:36.800 --> 01:04:39.800
+then I will load the check point here that
+
+01:04:39.800 --> 01:04:42.800
+what time did my previous run happen? let's say my previous run happened at 8.45
+
+01:04:42.800 --> 01:04:45.800
+then that time will also come, after that I am making my client object
+
+01:04:45.800 --> 01:04:48.800
+and after that what I am doing
+
+01:04:48.800 --> 01:04:51.800
+is I am telling you to fetch my traces
+
+01:04:51.800 --> 01:04:54.800
+from line fuse, from where to where
+
+01:04:54.800 --> 01:04:57.800
+since check point, check point means from 8.45 to
+
+01:04:57.800 --> 01:05:00.800
+9 o'clock means current run
+
+01:05:00.800 --> 01:05:03.800
+which is 9 o'clock, previous run which is 8.45
+
+01:05:03.800 --> 01:05:06.800
+in between that window, in between the 15 minute window
+
+01:05:06.800 --> 01:05:09.800
+fetch all the traces here
+
+01:05:09.800 --> 01:05:12.800
+and tell me how many traces you have fetched
+
+01:05:12.800 --> 01:05:15.800
+ok, after that what you do is you run a loop
+
+01:05:15.800 --> 01:05:18.800
+for span in spans means you go inside each trace
+
+01:05:18.800 --> 01:05:21.800
+run a loop, first of all you
+
+01:05:21.800 --> 01:05:24.800
+take out the trace id from that trace
+
+01:05:24.800 --> 01:05:27.800
+take out the trace id from your output
+
+01:05:27.800 --> 01:05:30.800
+ok, if you are not getting the trace id then continue
+
+01:05:30.800 --> 01:05:33.800
+means don't stop, don't crash, you move ahead
+
+01:05:33.800 --> 01:05:36.800
+after that you check that is it not the fallback
+
+01:05:36.800 --> 01:05:39.800
+message, if it is then you skip it and move ahead
+
+01:05:39.800 --> 01:05:42.800
+if everything is fine, it is a normal trace
+
+01:05:42.800 --> 01:05:45.800
+if you are able to fetch normal trace and trace id
+
+01:05:45.800 --> 01:05:48.800
+then you fetch its retrieved chunks
+
+01:05:48.800 --> 01:05:51.800
+after that you do scoring and after scoring
+
+01:05:51.800 --> 01:05:54.800
+increase the value of the score from 1
+
+01:05:54.800 --> 01:05:57.800
+this is basically a counter that how many you have fetched
+
+01:05:57.800 --> 01:06:00.800
+how many have skipped, how many have scored, how many have failed
+
+01:06:00.800 --> 01:06:03.800
+that's it, you are maintaining the basic counter
+
+01:06:03.800 --> 01:06:06.800
+which you are adding in your logs
+
+01:06:06.800 --> 01:06:09.800
+ok, after that what you are finally doing
+
+01:06:09.800 --> 01:06:12.800
+after that when all this is happening
+
+01:06:12.800 --> 01:06:15.800
+then you are doing client.flush here
+
+01:06:15.800 --> 01:06:18.800
+this is a very important operation, ok
+
+01:06:18.800 --> 01:06:21.800
+if you want to push any data on LangFuse
+
+01:06:21.800 --> 01:06:24.800
+then it is currently stored in your cache
+
+01:06:24.800 --> 01:06:27.800
+and you have to flush it through .flush operation
+
+01:06:27.800 --> 01:06:30.800
+where? on the dashboard
+
+01:06:30.800 --> 01:06:33.800
+so you are calling .flush for every trace
+
+01:06:33.800 --> 01:06:36.800
+by which you are sending your scores and calculations
+
+01:06:36.800 --> 01:06:39.800
+and finally you are calling an outer flush
+
+01:06:39.800 --> 01:06:42.800
+just for a fail-sync mechanism
+
+01:06:42.800 --> 01:06:45.800
+that finally everything is done, now I am completing the process
+
+01:06:45.800 --> 01:06:48.800
+next you are calling safe checkpoint
+
+01:06:48.800 --> 01:06:51.800
+what will the safe checkpoint do?
+
+01:06:51.800 --> 01:06:54.800
+inside your checkpoint and JSON, the previous timestamp 8.45
+
+01:06:54.800 --> 01:06:57.800
+what will you do with that? Overwrite
+
+01:06:57.800 --> 01:07:00.800
+now remember we have run the whole script
+
+01:07:00.800 --> 01:07:03.800
+after that we are going to the final and running the safe checkpoint
+
+01:07:03.800 --> 01:07:06.800
+if we do this calculation and if there is any problem
+
+01:07:06.800 --> 01:07:09.800
+then our 8.45 time should not be lost
+
+01:07:09.800 --> 01:07:12.800
+now everything is fine, everything has been pushed to LangFuse
+
+01:07:12.800 --> 01:07:15.800
+now it is time to replace this 8.45 time to 9 o'clock
+
+01:07:15.800 --> 01:07:18.800
+and my script started at 9 o'clock
+
+01:07:18.800 --> 01:07:21.800
+let's say I had 50 traces
+
+01:07:21.800 --> 01:07:24.800
+while running, these 9 became 5
+
+01:07:24.800 --> 01:07:27.800
+let's assume, so when will my next script run?
+
+01:07:27.800 --> 01:07:30.800
+next script run will be on 9.25
+
+01:07:30.800 --> 01:07:34.800
+and between 9.25 and 9, the traces that my user has locked on LangFuse
+
+01:07:34.800 --> 01:07:37.800
+will come again in the script
+
+01:07:37.800 --> 01:07:40.800
+and I will score them again
+
+01:07:40.800 --> 01:07:43.800
+I hope guys you understood the whole code
+
+01:07:43.800 --> 01:07:46.800
+step by step we understood the code
+
+01:07:46.800 --> 01:07:49.800
+if I show you one more thing before taking your questions
+
+01:07:49.800 --> 01:07:52.800
+that is this public API, we use the scores API
+
+01:07:52.800 --> 01:07:55.800
+whatever scores we are pushing
+
+01:07:55.800 --> 01:07:58.800
+for that we use this scores API
+
+01:07:58.800 --> 01:08:01.800
+let me show you
+
+01:08:01.800 --> 01:08:04.800
+here it is
+
+01:08:04.800 --> 01:08:07.800
+create score, we are using this API for this
+
+01:08:07.800 --> 01:08:10.800
+you can see here
+
+01:08:10.800 --> 01:08:13.800
+what you do in the value field, these are the values
+
+01:08:13.800 --> 01:08:16.800
+numeric, boolean, categorical, text is also there, correction is also there
+
+01:08:16.800 --> 01:08:19.800
+you can pass this
+
+01:08:19.800 --> 01:08:22.800
+and which fields are there, you have that information here
+
+01:08:22.800 --> 01:08:25.800
+so you can read it, again
+
+01:08:25.800 --> 01:08:28.800
+I am sharing the documentation here
+
+01:08:28.800 --> 01:08:31.800
+I hope you understood the code script
+
+01:08:31.800 --> 01:08:34.800
+now I am ready to take your questions
+
+01:08:34.800 --> 01:08:37.800
+we will stop here for 2 minutes
+
+01:08:37.800 --> 01:08:40.800
+I will take questions and then we will take this whole thing
+
+01:08:40.800 --> 01:08:43.800
+on AWS
+
+01:08:43.800 --> 01:08:46.800
+and that will be it
+
+01:08:46.800 --> 01:08:49.800
+question came, why aren't we using a single framework
+
+01:08:49.800 --> 01:08:52.800
+like LangFuse instead of combining LangFuse and DPV
+
+01:08:52.800 --> 01:08:55.800
+so that the real time production environment doesn't
+
+01:08:55.800 --> 01:08:58.800
+add extra complexity
+
+01:08:58.800 --> 01:09:01.800
+yes it adds extra complexity but we are using deep eval
+
+01:09:01.800 --> 01:09:04.800
+for evaluation
+
+01:09:04.800 --> 01:09:07.800
+so we will use deep eval in our online evals
+
+01:09:07.800 --> 01:09:10.800
+because the comparison we are doing here
+
+01:09:10.800 --> 01:09:13.800
+that has to be similar, I told you that your pipeline
+
+01:09:13.800 --> 01:09:16.800
+is static, only your input changes there
+
+01:09:16.800 --> 01:09:19.800
+and these are the operations
+
+01:09:19.800 --> 01:09:22.800
+so you get salary for this only
+
+01:09:22.800 --> 01:09:25.800
+you have to integrate multiple things here
+
+01:09:25.800 --> 01:09:28.800
+obviously you have options there that you can do this in LangFuse
+
+01:09:28.800 --> 01:09:31.800
+but let's say DPVal is used in your company
+
+01:09:31.800 --> 01:09:34.800
+for doing everything
+
+01:09:34.800 --> 01:09:37.800
+and LangFuse is used for tracing
+
+01:09:37.800 --> 01:09:40.800
+so how will you do it
+
+01:09:40.800 --> 01:09:43.800
+you can't say that this option was on DPVal
+
+01:09:43.800 --> 01:09:46.800
+so we should have traced on DPVal, you can't say that
+
+01:09:46.800 --> 01:09:49.800
+and this is the challenge of ops and this is the money
+
+01:09:49.800 --> 01:09:52.800
+can't we configure the evaluation job
+
+01:09:52.800 --> 01:09:55.800
+directly in Amazon, Bittorak and so on
+
+01:09:55.800 --> 01:09:58.800
+yes we can do
+
+01:09:58.800 --> 01:10:01.800
+again the same problem, you are not understanding that
+
+01:10:01.800 --> 01:10:04.800
+there are multiple options to do all these things
+
+01:10:04.800 --> 01:10:07.800
+multiple ways but
+
+01:10:07.800 --> 01:10:10.800
+which is the best way for our current setup
+
+01:10:10.800 --> 01:10:13.800
+we are discussing about that
+
+01:10:13.800 --> 01:10:16.800
+why are you afraid of configuration
+
+01:10:16.800 --> 01:10:19.800
+don't be afraid, this is the challenge you have to accept
+
+01:10:27.800 --> 01:10:30.800
+any other question
+
+01:10:32.800 --> 01:10:35.800
+do you agree
+
+01:10:35.800 --> 01:10:38.800
+or do you agree with Mayank
+
+01:10:39.800 --> 01:10:42.800
+you avoid vendor locking
+
+01:10:42.800 --> 01:10:45.800
+you always keep your options open
+
+01:10:45.800 --> 01:10:48.800
+you don't want us to deploy on AWS
+
+01:10:48.800 --> 01:10:51.800
+so we use bedrock
+
+01:10:51.800 --> 01:10:54.800
+through bedrock we get guardrails
+
+01:10:54.800 --> 01:10:57.800
+but still we used guardrails AI
+
+01:11:01.800 --> 01:11:04.800
+yes but those security concerns
+
+01:11:04.800 --> 01:11:07.800
+are also on AWS
+
+01:11:07.800 --> 01:11:10.800
+we are not sending any data here
+
+01:11:10.800 --> 01:11:13.800
+we are sending to open AI
+
+01:11:15.800 --> 01:11:18.800
+you will run models in open AI in bedrock
+
+01:11:18.800 --> 01:11:21.800
+so you have to trust
+
+01:11:21.800 --> 01:11:24.800
+you have to set trust somewhere
+
+01:11:27.800 --> 01:11:30.800
+and we are not sharing any financial data
+
+01:11:30.800 --> 01:11:33.800
+whenever you share it you have to mask it
+
+01:11:34.800 --> 01:11:37.800
+this is simple data
+
+01:11:37.800 --> 01:11:40.800
+students are coming, asking questions and getting answers
+
+01:11:40.800 --> 01:11:43.800
+nothing private about it
+
+01:11:46.800 --> 01:11:49.800
+and for our personal details
+
+01:11:49.800 --> 01:11:52.800
+we have set a guardrail of PII
+
+01:11:52.800 --> 01:11:55.800
+student's name, number and email id are being masked
+
+01:11:55.800 --> 01:11:58.800
+so we are blocking personal details there also
+
+01:11:58.800 --> 01:12:01.940
+we are blocking the
+
+01:12:04.800 --> 01:12:07.800
+pipeline is cleared
+
+01:12:07.800 --> 01:12:10.800
+did you understand the code
+
+01:12:10.800 --> 01:12:13.800
+how is it working
+
+01:12:22.800 --> 01:12:25.800
+we will run it on AWS
+
+01:12:25.800 --> 01:12:28.800
+we will not run the whole setup on my laptop
+
+01:12:28.800 --> 01:12:31.800
+we will take it on AWS
+
+01:12:34.800 --> 01:12:37.800
+our setup is this linefuse dpval AWS
+
+01:12:40.800 --> 01:12:43.800
+the setup you are talking about bedrock
+
+01:12:43.800 --> 01:12:46.800
+is not the current setup of our application
+
+01:12:46.800 --> 01:12:49.800
+we are into post production
+
+01:12:55.800 --> 01:12:58.800
+let's go ahead
+
+01:12:58.800 --> 01:13:01.800
+write clear in the chat
+
+01:13:10.800 --> 01:13:13.800
+yes, let's go ahead
+
+01:13:13.800 --> 01:13:16.800
+let's close the VS code
+
+01:13:16.800 --> 01:13:19.800
+because I think we don't need it anymore
+
+01:13:19.800 --> 01:13:22.800
+no, we need it once
+
+01:13:22.800 --> 01:13:25.800
+let's keep it open
+
+01:13:25.800 --> 01:13:28.800
+and what I will do is
+
+01:13:28.800 --> 01:13:31.800
+I will also turn off the camera now
+
+01:13:31.800 --> 01:13:34.800
+it interferes a little
+
+01:13:34.800 --> 01:13:37.800
+so how is the setup
+
+01:13:37.800 --> 01:13:40.800
+you already know the setup
+
+01:13:40.800 --> 01:13:43.800
+we have instances running
+
+01:13:43.800 --> 01:13:46.800
+which instance? this one app instance
+
+01:13:46.800 --> 01:13:49.800
+I have also closed it just to save cost
+
+01:13:49.800 --> 01:13:52.800
+I will launch it once
+
+01:13:52.800 --> 01:13:55.800
+I already have an application in it
+
+01:13:55.800 --> 01:13:58.800
+I have started it
+
+01:13:58.800 --> 01:14:01.800
+let's go over it
+
+01:14:01.800 --> 01:14:04.800
+let's connect it
+
+01:14:04.800 --> 01:14:07.800
+it is starting
+
+01:14:07.800 --> 01:14:10.800
+running
+
+01:14:10.800 --> 01:14:13.800
+let's connect
+
+01:14:13.800 --> 01:14:16.800
+again we are not discussing this application side
+
+01:14:16.800 --> 01:14:19.800
+I have already done it
+
+01:14:19.800 --> 01:14:22.800
+here I will write
+
+01:14:22.800 --> 01:14:25.800
+sudo docker images
+
+01:14:25.800 --> 01:14:28.800
+so these are my two images
+
+01:14:28.800 --> 01:14:31.800
+I simply have to do this
+
+01:14:31.800 --> 01:14:34.800
+sudo docker ps
+
+01:14:34.800 --> 01:14:37.800
+so no container is running
+
+01:14:37.800 --> 01:14:40.800
+first of all I will go to
+
+01:14:40.800 --> 01:14:43.800
+opt directory
+
+01:14:43.800 --> 01:14:46.800
+where I have my application
+
+01:14:46.800 --> 01:14:49.800
+let's go to
+
+01:14:49.800 --> 01:14:52.800
+campus xrat
+
+01:14:52.800 --> 01:14:55.800
+let's do ls again
+
+01:14:55.800 --> 01:14:58.800
+now I have to run this file
+
+01:14:58.800 --> 01:15:01.800
+and it will start my containers
+
+01:15:01.800 --> 01:15:04.800
+so let's do it
+
+01:15:04.800 --> 01:15:07.800
+sudo docker compose app
+
+01:15:07.800 --> 01:15:10.800
+and let's run it
+
+01:15:10.800 --> 01:15:13.800
+let's run it in detach mode
+
+01:15:13.800 --> 01:15:16.800
+my containers have started
+
+01:15:16.800 --> 01:15:19.800
+because the images are already downloaded
+
+01:15:19.800 --> 01:15:22.800
+so I don't need to pull the images
+
+01:15:22.800 --> 01:15:25.800
+again
+
+01:15:25.800 --> 01:15:28.800
+my front and back end are running
+
+01:15:28.800 --> 01:15:31.800
+and I think a volume is also created
+
+01:15:31.800 --> 01:15:34.800
+what is the volume doing? it is maintaining my chat history
+
+01:15:34.800 --> 01:15:37.800
+let's copy this ip
+
+01:15:37.800 --> 01:15:40.800
+let's hit our back end and front end
+
+01:15:40.800 --> 01:15:43.800
+just to be sure that everything is working properly
+
+01:15:43.800 --> 01:15:46.800
+or not
+
+01:15:46.800 --> 01:15:49.800
+let's hit it once
+
+01:15:49.800 --> 01:15:52.800
+port is running on 1000
+
+01:15:52.800 --> 01:15:55.800
+let's continue
+
+01:15:55.800 --> 01:15:58.800
+my back end is running
+
+01:15:58.800 --> 01:16:01.800
+if I show you swagger ui
+
+01:16:01.800 --> 01:16:04.800
+yes it is working
+
+01:16:04.800 --> 01:16:07.800
+it will be on 01
+
+01:16:07.800 --> 01:16:10.800
+and it is working
+
+01:16:10.800 --> 01:16:13.800
+again we are working with one instance
+
+01:16:13.800 --> 01:16:16.800
+I am not using auto scaling group
+
+01:16:16.800 --> 01:16:19.800
+just to save cost
+
+01:16:19.800 --> 01:16:22.800
+I have to stop it because there is time between sessions
+
+01:16:22.800 --> 01:16:25.800
+so unnecessarily the cost is bearing
+
+01:16:25.800 --> 01:16:28.800
+let's give some dummy questions
+
+01:16:28.800 --> 01:16:31.800
+and if I show you line fuse
+
+01:16:31.800 --> 01:16:34.800
+let's stop them
+
+01:16:34.800 --> 01:16:37.800
+just to interfere
+
+01:16:37.800 --> 01:16:40.800
+yes
+
+01:16:40.800 --> 01:16:43.800
+if I show you the tracing of past 1 hour
+
+01:16:43.800 --> 01:16:46.800
+I am not showing you any trace
+
+01:16:46.800 --> 01:16:49.800
+because we have not given any input
+
+01:16:49.800 --> 01:16:52.800
+let's do one thing
+
+01:16:52.800 --> 01:16:55.800
+I have noted some questions
+
+01:16:55.800 --> 01:16:58.800
+let's copy this question
+
+01:16:58.800 --> 01:17:01.800
+and ask this question
+
+01:17:01.800 --> 01:17:04.800
+let's generate some traces
+
+01:17:04.800 --> 01:17:07.800
+you will see that the responses
+
+01:17:07.800 --> 01:17:10.800
+will be a little faster as compared to your previous process
+
+01:17:15.800 --> 01:17:18.800
+let's wait a little
+
+01:17:18.800 --> 01:17:21.800
+we need a few traces
+
+01:17:21.800 --> 01:17:24.800
+traces here
+
+01:17:24.800 --> 01:17:27.800
+let's generate 5-6
+
+01:17:27.800 --> 01:17:30.800
+and I think that will be it
+
+01:17:41.800 --> 01:17:44.800
+some responses have come
+
+01:17:44.800 --> 01:17:47.800
+I don't know how much balance I have not checked
+
+01:17:47.800 --> 01:17:50.800
+I have that balance
+
+01:17:50.800 --> 01:17:53.800
+let's see if there is any balance between classes
+
+01:17:53.800 --> 01:17:56.800
+if there is then it's okay
+
+01:17:56.800 --> 01:17:59.800
+I will do a recharge
+
+01:17:59.800 --> 01:18:02.800
+let's copy this
+
+01:18:02.800 --> 01:18:05.800
+let's paste it here
+
+01:18:05.800 --> 01:18:08.800
+again I am copying the questions without reading
+
+01:18:08.800 --> 01:18:11.800
+just generating traces
+
+01:18:11.800 --> 01:18:14.800
+if I go here then the first trace is here
+
+01:18:14.800 --> 01:18:17.800
+it shows around 34 seconds, in retrieval it is 9 seconds
+
+01:18:17.800 --> 01:18:20.800
+I have fixed the retrieval
+
+01:18:20.800 --> 01:18:23.800
+I am taking time in guardrails
+
+01:18:23.800 --> 01:18:26.800
+and generation
+
+01:18:26.800 --> 01:18:29.800
+because we can't fix it now
+
+01:18:29.800 --> 01:18:32.800
+because we are using LLMs for our guardrails
+
+01:18:32.800 --> 01:18:35.800
+let's create one more session
+
+01:18:35.800 --> 01:18:38.800
+and ask some more questions
+
+01:18:38.800 --> 01:18:41.800
+let's ask some more questions
+
+01:18:41.800 --> 01:18:44.800
+from LLM eval and LLM op
+
+01:18:44.800 --> 01:18:47.800
+let's ask these
+
+01:18:52.800 --> 01:18:55.800
+let's ask 2 questions in each session
+
+01:18:55.800 --> 01:18:58.800
+I didn't copy it properly
+
+01:18:58.800 --> 01:19:01.800
+no problem, the answer should come
+
+01:19:05.800 --> 01:19:08.800
+till then any questions you have?
+
+01:19:08.800 --> 01:19:11.800
+in future lectures we are planning to have a session
+
+01:19:11.800 --> 01:19:14.800
+let's see if all the matrix in AWS is fixed
+
+01:19:17.800 --> 01:19:20.800
+Mayank not for this course
+
+01:19:20.800 --> 01:19:23.800
+because all the frameworks are fixed
+
+01:19:23.800 --> 01:19:26.800
+and currently we are
+
+01:19:26.800 --> 01:19:29.800
+at the sunset of our course
+
+01:19:29.800 --> 01:19:32.800
+we are going to build a project after this
+
+01:19:32.800 --> 01:19:35.800
+we have to use the same frameworks
+
+01:19:35.800 --> 01:19:38.800
+so the matrix will be different
+
+01:19:38.800 --> 01:19:41.800
+we will use our own pipeline
+
+01:19:41.800 --> 01:19:44.800
+so no for this course
+
+01:19:44.800 --> 01:19:47.800
+but in any future course yes, we can use it
+
+01:19:47.800 --> 01:19:50.800
+there is also a course coming up on bedrock
+
+01:19:50.800 --> 01:19:53.800
+and you will learn bedrock there
+
+01:19:53.800 --> 01:19:56.800
+and I am also planning to integrate
+
+01:19:56.800 --> 01:19:59.800
+bedrock guardrails in that course
+
+01:19:59.800 --> 01:20:02.800
+so the answer is here
+
+01:20:08.800 --> 01:20:11.800
+ok guys stay back
+
+01:20:11.800 --> 01:20:14.800
+I have to do an announcement
+
+01:20:14.800 --> 01:20:17.800
+I will announce it once this particular part is done
+
+01:20:17.800 --> 01:20:20.800
+so just wait for the announcement
+
+01:20:23.800 --> 01:20:26.800
+this will be done quickly
+
+01:20:26.800 --> 01:20:29.800
+it won't take much time
+
+01:20:29.800 --> 01:20:32.800
+let's generate this once
+
+01:20:32.800 --> 01:20:35.800
+so the announcement is that
+
+01:20:35.800 --> 01:20:38.800
+the next session is scheduled for Thursday
+
+01:20:38.800 --> 01:20:41.800
+but again this week is also a swap
+
+01:20:41.800 --> 01:20:44.800
+so the Wednesday session of Niti sir
+
+01:20:44.800 --> 01:20:47.800
+will be on Thursday and my Thursday session
+
+01:20:47.800 --> 01:20:50.800
+will be on Wednesday
+
+01:20:50.800 --> 01:20:53.800
+so we will meet on Wednesday
+
+01:20:53.800 --> 01:20:56.800
+and will do Prometheus on Wednesday
+
+01:20:56.800 --> 01:20:59.800
+there is no update in the calendar
+
+01:20:59.800 --> 01:21:02.800
+but I will update it
+
+01:21:02.800 --> 01:21:05.800
+I didn't get the answer
+
+01:21:05.800 --> 01:21:08.800
+so no problem, I got a fallback one
+
+01:21:08.800 --> 01:21:11.800
+let's take this one
+
+01:21:11.800 --> 01:21:14.800
+guardrails one
+
+01:21:14.800 --> 01:21:17.800
+I haven't taken this one already
+
+01:21:21.800 --> 01:21:24.800
+fallback one is also important
+
+01:21:24.800 --> 01:21:27.800
+it's good
+
+01:21:27.800 --> 01:21:30.800
+after this we will do one more
+
+01:21:30.800 --> 01:21:33.800
+from the AI pulse
+
+01:21:33.800 --> 01:21:36.800
+let's see the question
+
+01:21:36.800 --> 01:21:39.800
+let's take the previous one
+
+01:21:39.800 --> 01:21:42.800
+open AI and anthropic
+
+01:21:47.800 --> 01:21:50.800
+the announcement is cleared
+
+01:21:50.800 --> 01:21:53.800
+next we will meet on Wednesday
+
+01:21:53.800 --> 01:21:56.800
+and sir's session will be on Tuesdays
+
+01:21:56.800 --> 01:21:59.800
+and this change is only for this week
+
+01:21:59.800 --> 01:22:02.800
+done
+
+01:22:02.800 --> 01:22:05.800
+let's make a new session
+
+01:22:05.800 --> 01:22:08.800
+and let's paste this one
+
+01:22:13.800 --> 01:22:16.800
+you can see clearly
+
+01:22:16.800 --> 01:22:19.800
+if I show you the sessions on linefuse
+
+01:22:19.800 --> 01:22:22.800
+you can see clearly 2 sessions
+
+01:22:22.800 --> 01:22:25.800
+you can see the number of traces
+
+01:22:25.800 --> 01:22:28.800
+we asked 2 in the previous one
+
+01:22:45.800 --> 01:22:48.800
+we got the answer
+
+01:22:48.800 --> 01:22:51.800
+and we have our 3 sessions
+
+01:22:51.800 --> 01:22:54.800
+renaming is done
+
+01:22:54.800 --> 01:22:57.800
+we have 3 sessions on linefuse
+
+01:22:57.800 --> 01:23:00.800
+so yes we are assuming
+
+01:23:00.800 --> 01:23:03.800
+all our responses are in production
+
+01:23:03.800 --> 01:23:06.800
+our application is deployed
+
+01:23:06.800 --> 01:23:09.800
+and our users are asking questions
+
+01:23:09.800 --> 01:23:12.800
+from our application
+
+01:23:12.800 --> 01:23:15.800
+and we are tracking all the steps
+
+01:23:15.800 --> 01:23:18.800
+between the query and the response
+
+01:23:18.800 --> 01:23:21.800
+using linefuse
+
+01:23:21.800 --> 01:23:24.800
+you can see the details
+
+01:23:24.800 --> 01:23:27.800
+how much was the latency, cost, input, output
+
+01:23:27.800 --> 01:23:30.800
+and session id
+
+01:23:30.800 --> 01:23:33.800
+everything is tracked
+
+01:23:33.800 --> 01:23:36.800
+now we will do one thing
+
+01:23:36.800 --> 01:23:39.800
+we will make our online eval setup
+
+01:23:39.800 --> 01:23:42.800
+you can see clearly
+
+01:23:42.800 --> 01:23:45.800
+you can see no eval scores
+
+01:23:45.800 --> 01:23:48.800
+scores are missing
+
+01:23:48.800 --> 01:23:51.800
+if I see traces
+
+01:23:51.800 --> 01:23:54.800
+I should get the output of my traces
+
+01:23:54.800 --> 01:23:57.800
+how will I get it?
+
+01:23:57.800 --> 01:24:00.800
+the answer is simple
+
+01:24:00.800 --> 01:24:03.800
+I will go back
+
+01:24:03.800 --> 01:24:06.800
+and create a new instance
+
+01:24:06.800 --> 01:24:09.800
+we will name this instance
+
+01:24:09.800 --> 01:24:12.800
+online evals
+
+01:24:12.800 --> 01:24:15.800
+evals
+
+01:24:15.800 --> 01:24:18.800
+or rag online evals
+
+01:24:18.800 --> 01:24:21.800
+rag online evals
+
+01:24:21.800 --> 01:24:24.800
+instance
+
+01:24:24.800 --> 01:24:27.800
+for this you will select Ubuntu
+
+01:24:27.800 --> 01:24:30.800
+go to machine T3 micro
+
+01:24:30.800 --> 01:24:33.800
+your free tier is eligible
+
+01:24:33.800 --> 01:24:36.800
+you can use this
+
+01:24:36.800 --> 01:24:39.800
+for this you don't need much compute
+
+01:24:39.800 --> 01:24:42.800
+for security group we need SSH
+
+01:24:42.800 --> 01:24:45.800
+we will run commands on the terminal
+
+01:24:45.800 --> 01:24:48.800
+for that we need
+
+01:24:48.800 --> 01:24:51.800
+HTTP on for the safe side
+
+01:24:51.800 --> 01:24:54.800
+8GB storage is ok
+
+01:24:54.800 --> 01:24:57.800
+and in advance you have to attach a role
+
+01:24:57.800 --> 01:25:00.800
+that is online eval's role
+
+01:25:00.800 --> 01:25:03.800
+I have taken 2 permissions
+
+01:25:03.800 --> 01:25:06.800
+I will tell you what are those 2 permissions
+
+01:25:06.800 --> 01:25:09.800
+I have already explained how to add permissions
+
+01:25:09.800 --> 01:25:12.800
+I will tell you
+
+01:25:12.800 --> 01:25:15.800
+one is to read from S3
+
+01:25:15.800 --> 01:25:18.800
+and second is to read secrets from secrets manager
+
+01:25:18.800 --> 01:25:21.800
+now the thing is
+
+01:25:21.800 --> 01:25:24.800
+this python file
+
+01:25:24.800 --> 01:25:27.800
+I have pushed it to S3
+
+01:25:27.800 --> 01:25:30.800
+and now in this instance
+
+01:25:30.800 --> 01:25:33.800
+I will read my S3
+
+01:25:33.800 --> 01:25:36.800
+and download the script of online eval
+
+01:25:36.800 --> 01:25:39.800
+instead of copy paste
+
+01:25:39.800 --> 01:25:42.800
+I have pushed this python file to S3
+
+01:25:42.800 --> 01:25:45.800
+and I will download it
+
+01:25:45.800 --> 01:25:48.800
+and why I need secrets manager
+
+01:25:48.800 --> 01:25:51.800
+because I need my API keys
+
+01:25:51.800 --> 01:25:54.800
+for deep eval matrix I need a judge model
+
+01:25:54.800 --> 01:25:57.800
+for that I need my open AI key
+
+01:25:57.800 --> 01:26:00.800
+and to integrate with Limefuse I need Limefuse keys
+
+01:26:00.800 --> 01:26:03.800
+now I have done this, simply I have to fetch them
+
+01:26:03.800 --> 01:26:06.800
+and save them on my .env instance
+
+01:26:06.800 --> 01:26:09.800
+we have done this many times
+
+01:26:09.800 --> 01:26:12.800
+we will do it on this instance too
+
+01:26:12.800 --> 01:26:15.800
+ok, so I have attached these roles
+
+01:26:15.800 --> 01:26:18.800
+everything is done and I will click on launch
+
+01:26:23.800 --> 01:26:26.800
+done, let's go
+
+01:26:26.800 --> 01:26:29.800
+and with this we will connect
+
+01:26:29.800 --> 01:26:32.800
+let's connect to this instance
+
+01:26:35.800 --> 01:26:38.800
+now what we have to do in terminal
+
+01:26:38.800 --> 01:26:41.800
+what happened
+
+01:26:41.800 --> 01:26:44.800
+I have enabled ssh
+
+01:26:44.800 --> 01:26:47.800
+hmmm
+
+01:26:47.800 --> 01:26:50.800
+let me see why it is failing
+
+01:26:52.800 --> 01:26:55.800
+hmmm
+
+01:26:55.800 --> 01:26:58.800
+let me see, let's go and see
+
+01:26:58.800 --> 01:27:01.800
+yes it is connected, it is coming in inbound
+
+01:27:04.800 --> 01:27:07.800
+let's go again
+
+01:27:07.800 --> 01:27:10.800
+connect
+
+01:27:10.800 --> 01:27:13.800
+if it doesn't work then we will recreate
+
+01:27:13.800 --> 01:27:16.800
+done
+
+01:27:16.800 --> 01:27:19.800
+I don't know what happens on AWS
+
+01:27:19.800 --> 01:27:22.800
+sometimes things stop working and stop working
+
+01:27:22.800 --> 01:27:25.800
+you never know
+
+01:27:25.800 --> 01:27:28.800
+now you have to run commands in this markdown file
+
+01:27:28.800 --> 01:27:31.800
+again this is in updated code, I have pushed to get up
+
+01:27:31.800 --> 01:27:34.800
+you will find them in root in online eval steps
+
+01:27:34.800 --> 01:27:37.800
+simply we have to run these commands step by step
+
+01:27:37.800 --> 01:27:40.800
+for that there are some prerequisites
+
+01:27:40.800 --> 01:27:43.800
+you should have an instance, you should have a role
+
+01:27:43.800 --> 01:27:46.800
+and these secrets should be available
+
+01:27:46.800 --> 01:27:49.800
+there should be an S3 bucket with the name of
+
+01:27:49.800 --> 01:27:52.800
+campusx-rack-online-eval
+
+01:27:52.800 --> 01:27:55.800
+let's create a bucket, what we will do on this bucket
+
+01:27:55.800 --> 01:27:58.800
+we will store our python file on this bucket
+
+01:27:58.800 --> 01:28:01.800
+so I don't have this bucket now, I will create the bucket
+
+01:28:01.800 --> 01:28:04.800
+this is the name of my bucket
+
+01:28:04.800 --> 01:28:07.800
+I will simply create it
+
+01:28:07.800 --> 01:28:10.800
+done, now what I have to do on this
+
+01:28:10.800 --> 01:28:13.800
+I have to upload my files, so I will click on upload
+
+01:28:13.800 --> 01:28:16.800
+I will click on add file
+
+01:28:16.800 --> 01:28:19.800
+ok, I will go to LLMops in my project
+
+01:28:19.800 --> 01:28:22.800
+and here I will get my file, where will I get it
+
+01:28:22.800 --> 01:28:25.800
+in source, I will go to evals
+
+01:28:25.800 --> 01:28:28.800
+in evals, online evals and here is my python file
+
+01:28:28.800 --> 01:28:31.800
+simply select it and I will click on open
+
+01:28:31.800 --> 01:28:34.800
+so I have pushed this file
+
+01:28:34.800 --> 01:28:37.800
+here
+
+01:28:37.800 --> 01:28:40.800
+I will click on upload and it is uploaded
+
+01:28:40.800 --> 01:28:43.800
+ok, we have to upload one more file
+
+01:28:43.800 --> 01:28:46.800
+I will tell you what that is
+
+01:28:46.800 --> 01:28:49.800
+you have to run this command
+
+01:28:49.800 --> 01:28:52.800
+this command is simply
+
+01:28:52.800 --> 01:28:55.800
+running pip3s in uv and deep eval langfuse
+
+01:28:55.800 --> 01:28:58.800
+and python.env
+
+01:28:58.800 --> 01:29:01.800
+against your version numbers, I have created a new
+
+01:29:01.800 --> 01:29:04.800
+requirements file
+
+01:29:04.800 --> 01:29:07.800
+I have opened a terminal, I will paste this command
+
+01:29:07.800 --> 01:29:10.800
+and simply run
+
+01:29:10.800 --> 01:29:13.800
+ok, this command is of your powershell
+
+01:29:13.800 --> 01:29:16.800
+so it will not run in mac
+
+01:29:16.800 --> 01:29:19.800
+this command is of powershell
+
+01:29:19.800 --> 01:29:22.800
+so it will run on windows, I have created this window
+
+01:29:22.800 --> 01:29:25.800
+so that you don't have any problem in running
+
+01:29:25.800 --> 01:29:28.800
+so let's create this manually
+
+01:29:28.800 --> 01:29:31.800
+if it is not happening then it's ok
+
+01:29:31.800 --> 01:29:34.800
+we will create a requirements file
+
+01:29:34.800 --> 01:29:37.800
+and here is the name of it, requirements.txt
+
+01:29:37.800 --> 01:29:40.800
+but I have already requirements.txt here
+
+01:29:40.800 --> 01:29:43.800
+so let's change the name of this
+
+01:29:43.800 --> 01:29:46.800
+let's keep it as requirement
+
+01:29:49.800 --> 01:29:52.800
+online evals.txt
+
+01:29:52.800 --> 01:29:55.800
+you have to add 3 things
+
+01:29:55.800 --> 01:29:58.800
+add
+
+01:29:58.800 --> 01:30:01.800
+langfuse, add deep eval
+
+01:30:01.800 --> 01:30:04.800
+and add
+
+01:30:04.800 --> 01:30:07.800
+python.env
+
+01:30:07.800 --> 01:30:10.800
+that's it
+
+01:30:10.800 --> 01:30:13.800
+now you have to take it to
+
+01:30:13.800 --> 01:30:16.800
+on your s3
+
+01:30:16.800 --> 01:30:19.800
+we will upload here, click on add files
+
+01:30:19.800 --> 01:30:22.800
+and you will see this file here
+
+01:30:22.800 --> 01:30:25.800
+these are the libraries, langfuse, deep eval and python.env
+
+01:30:25.800 --> 01:30:28.800
+click on open
+
+01:30:28.800 --> 01:30:31.800
+click on upload and this file is also uploaded
+
+01:30:31.800 --> 01:30:34.800
+here are your files
+
+01:30:34.800 --> 01:30:37.800
+so you have created whatever you wanted
+
+01:30:37.800 --> 01:30:40.800
+here
+
+01:30:40.800 --> 01:30:43.800
+after that you will run these commands on your machine
+
+01:30:43.800 --> 01:30:46.800
+these commands are basically from your AWS CLI
+
+01:30:46.800 --> 01:30:49.800
+what you are doing, this is the CLI command
+
+01:30:49.800 --> 01:30:52.800
+for the manually uploaded command
+
+01:30:52.800 --> 01:30:55.800
+AWS CLI is not configured on my system
+
+01:30:55.800 --> 01:30:58.800
+so I am not running it, if you have configured then you can run
+
+01:30:58.800 --> 01:31:01.800
+first of all we will copy some commands
+
+01:31:01.800 --> 01:31:04.800
+so what are these commands doing?
+
+01:31:04.800 --> 01:31:07.800
+basically they are installing AWS CLI on their instance
+
+01:31:07.800 --> 01:31:10.800
+let's go, here it is not this one
+
+01:31:10.800 --> 01:31:13.800
+this one
+
+01:31:13.800 --> 01:31:16.800
+let's paste the commands and click enter
+
+01:31:16.800 --> 01:31:19.800
+so my AWS CLI is being installed here
+
+01:31:19.800 --> 01:31:22.800
+why do I need AWS CLI? to connect to my s3
+
+01:31:22.800 --> 01:31:25.800
+to connect to secret manager
+
+01:31:25.800 --> 01:31:28.800
+after that what I am doing here
+
+01:31:28.800 --> 01:31:31.800
+I am creating a directory
+
+01:31:31.800 --> 01:31:34.800
+in the name of online eval
+
+01:31:34.800 --> 01:31:37.800
+let's copy this
+
+01:31:37.800 --> 01:31:40.800
+and I will show you everything
+
+01:31:40.800 --> 01:31:43.800
+done
+
+01:31:43.800 --> 01:31:46.800
+let's paste this one
+
+01:31:46.800 --> 01:31:49.800
+and run it
+
+01:31:49.800 --> 01:31:52.800
+now I will show you where the directory is made
+
+01:31:52.800 --> 01:31:55.800
+so this is my project folder, if I click on ls in the name of opt
+
+01:31:55.800 --> 01:31:58.800
+then you can see campus xrack
+
+01:31:58.800 --> 01:32:01.800
+so let's create a cd in this
+
+01:32:01.800 --> 01:32:04.800
+if I click on ls again, then you can see a folder
+
+01:32:04.800 --> 01:32:07.800
+in the name of online eval
+
+01:32:07.800 --> 01:32:10.800
+let's go inside this and click on ls
+
+01:32:10.800 --> 01:32:13.800
+now it is completely empty
+
+01:32:13.800 --> 01:32:16.800
+now we have to bring our script in this online eval
+
+01:32:16.800 --> 01:32:19.800
+and I have to bring my requirements file
+
+01:32:19.800 --> 01:32:22.800
+and after that I will install my python
+
+01:32:22.800 --> 01:32:25.800
+and my packages
+
+01:32:25.800 --> 01:32:28.800
+so basically I am making a complete setup
+
+01:32:28.800 --> 01:32:31.800
+your directory will look like this
+
+01:32:31.800 --> 01:32:34.800
+your environment file will come here
+
+01:32:34.800 --> 01:32:37.800
+your virtual environment will come here
+
+01:32:37.800 --> 01:32:40.800
+you will run evals through a script
+
+01:32:40.800 --> 01:32:43.800
+and all your files will come in this eval
+
+01:32:43.800 --> 01:32:46.800
+so what is the next step?
+
+01:32:46.800 --> 01:32:49.800
+we have to copy our scripts
+
+01:32:49.800 --> 01:32:52.800
+and after that you are simply creating a folder
+
+01:32:52.800 --> 01:32:55.800
+in python3 by calling venv
+
+01:32:55.800 --> 01:32:58.800
+and you are installing the things in requirements.txt
+
+01:32:58.800 --> 01:33:01.800
+here
+
+01:33:01.800 --> 01:33:04.800
+the thing is that you have to make some changes
+
+01:33:04.800 --> 01:33:07.800
+I will show you the changes
+
+01:33:07.800 --> 01:33:10.800
+the changes are that your file name is not requirements.txt
+
+01:33:10.800 --> 01:33:13.800
+on your s3
+
+01:33:13.800 --> 01:33:16.800
+it's name is requirements online evals.txt
+
+01:33:16.800 --> 01:33:19.800
+so you have to change this in command
+
+01:33:19.800 --> 01:33:22.800
+here we will change requirements
+
+01:33:22.800 --> 01:33:25.800
+online evals
+
+01:33:25.800 --> 01:33:28.800
+I will check once
+
+01:33:28.800 --> 01:33:31.800
+this is the name
+
+01:33:31.800 --> 01:33:34.800
+and you have to change this thing up here
+
+01:33:34.800 --> 01:33:37.800
+just a second guys
+
+01:33:37.800 --> 01:33:40.800
+does it move? yes it does
+
+01:33:40.800 --> 01:33:43.800
+I have to come here
+
+01:33:43.800 --> 01:33:46.800
+and move here
+
+01:33:46.800 --> 01:33:49.800
+it's not moving there
+
+01:33:49.800 --> 01:33:52.800
+I have to take it
+
+01:33:52.800 --> 01:33:55.800
+a little patience guys
+
+01:33:55.800 --> 01:33:58.800
+it's name is requirements online evals
+
+01:33:58.800 --> 01:34:01.800
+now what it will do
+
+01:34:01.800 --> 01:34:04.800
+see it's downloading from s3
+
+01:34:04.800 --> 01:34:07.800
+it's downloading
+
+01:34:07.800 --> 01:34:10.800
+and now it's downloading from s3
+
+01:34:10.800 --> 01:34:13.800
+see it's downloading from s3
+
+01:34:13.800 --> 01:34:16.800
+it's downloading and it's downloading my python file
+
+01:34:16.800 --> 01:34:19.800
+and my requirements file
+
+01:34:19.800 --> 01:34:22.800
+now it will read the requirements file
+
+01:34:22.800 --> 01:34:25.800
+and after reading it will install my packages
+
+01:34:25.800 --> 01:34:28.800
+could not install due to disc code exceeded
+
+01:34:28.800 --> 01:34:31.800
+what happened?
+
+01:34:31.800 --> 01:34:34.800
+hmm
+
+01:34:34.800 --> 01:34:37.800
+what error is this?
+
+01:34:37.800 --> 01:34:40.800
+is it exceeded?
+
+01:34:40.800 --> 01:34:43.800
+we have not downloaded anything
+
+01:34:43.800 --> 01:34:46.800
+we have not downloaded anything
+
+01:34:46.800 --> 01:34:49.800
+we have not downloaded anything
+
+01:34:49.800 --> 01:34:52.800
+we have not downloaded anything
+
+01:34:52.800 --> 01:34:55.800
+let's close it and reopen it
+
+01:34:55.800 --> 01:34:58.800
+if it doesn't work then don't worry guys
+
+01:34:58.800 --> 01:35:01.800
+I have made a test instance
+
+01:35:01.800 --> 01:35:04.800
+it will work
+
+01:35:04.800 --> 01:35:07.800
+this problem shouldn't have come
+
+01:35:07.800 --> 01:35:10.800
+let's check once
+
+01:35:10.800 --> 01:35:13.800
+let's go again to opt
+
+01:35:13.800 --> 01:35:16.800
+and let's go here
+
+01:35:16.800 --> 01:35:19.800
+let's go to campus x rack
+
+01:35:19.800 --> 01:35:22.800
+let's go to online evals and let's do ls
+
+01:35:22.800 --> 01:35:25.800
+so files are here if I want to read
+
+01:35:25.800 --> 01:35:28.800
+I am able to read
+
+01:35:28.800 --> 01:35:31.800
+there is no issue and if I want to read python
+
+01:35:31.800 --> 01:35:34.800
+run online eval
+
+01:35:34.800 --> 01:35:37.800
+so these files are here
+
+01:35:37.800 --> 01:35:40.800
+I don't know where the error came
+
+01:35:40.800 --> 01:35:43.800
+let's run it step by step
+
+01:35:43.800 --> 01:35:46.800
+let's see
+
+01:35:53.800 --> 01:35:56.800
+permission denied is coming
+
+01:35:56.800 --> 01:35:59.800
+hmm
+
+01:36:01.800 --> 01:36:04.800
+why is permission denied?
+
+01:36:04.800 --> 01:36:07.800
+hmm
+
+01:36:20.800 --> 01:36:23.800
+there is an issue of permissions
+
+01:36:23.800 --> 01:36:26.800
+due to which vn is not being made
+
+01:36:26.800 --> 01:36:29.800
+and due to which it is not being installed
+
+01:36:31.800 --> 01:36:34.800
+hmm
+
+01:36:39.800 --> 01:36:42.800
+all other commands have been run correctly
+
+01:36:42.800 --> 01:36:45.800
+I don't know what is the issue
+
+01:36:45.800 --> 01:36:48.800
+what we can do is guys
+
+01:36:48.800 --> 01:36:51.800
+let's do one thing
+
+01:36:51.800 --> 01:36:54.800
+let's make an instance again
+
+01:36:54.800 --> 01:36:57.800
+I will delete this instance
+
+01:36:57.800 --> 01:37:00.800
+because I have made it and it is working
+
+01:37:00.800 --> 01:37:03.800
+I will use that one
+
+01:37:03.800 --> 01:37:06.800
+let's terminate it
+
+01:37:06.800 --> 01:37:09.800
+this is shutting down
+
+01:37:09.800 --> 01:37:12.800
+let's make one more instance
+
+01:37:12.800 --> 01:37:15.800
+and let's name it test online evals
+
+01:37:15.800 --> 01:37:18.800
+because name doesn't matter
+
+01:37:18.800 --> 01:37:21.800
+hmm
+
+01:37:21.800 --> 01:37:24.800
+I will have to debug a little
+
+01:37:24.800 --> 01:37:27.800
+because I won't be able to do it in between the lectures
+
+01:37:27.800 --> 01:37:30.800
+let's do one thing
+
+01:37:30.800 --> 01:37:33.800
+I have created security group
+
+01:37:33.800 --> 01:37:36.800
+here is RGB
+
+01:37:36.800 --> 01:37:39.800
+I have defined the role
+
+01:37:39.800 --> 01:37:42.800
+I am instance profile is
+
+01:37:42.800 --> 01:37:45.800
+this role
+
+01:37:45.800 --> 01:37:48.800
+let's do one thing
+
+01:37:48.800 --> 01:37:51.800
+let's paste the script here
+
+01:37:51.800 --> 01:37:54.800
+let's see
+
+01:37:54.800 --> 01:37:57.800
+and let's run launch
+
+01:37:57.800 --> 01:38:00.800
+as soon as it will launch
+
+01:38:00.800 --> 01:38:03.800
+the script will run in the background
+
+01:38:03.800 --> 01:38:06.800
+let me tell you what the script is doing
+
+01:38:06.800 --> 01:38:09.800
+so what we are doing here is guys
+
+01:38:09.800 --> 01:38:12.800
+here we have done
+
+01:38:12.800 --> 01:38:15.800
+updates
+
+01:38:15.800 --> 01:38:18.800
+installed AWS CLI and python
+
+01:38:18.800 --> 01:38:21.800
+then we are doing
+
+01:38:21.800 --> 01:38:24.800
+we are pulling these two files
+
+01:38:24.800 --> 01:38:27.800
+our requirements file and python file
+
+01:38:27.800 --> 01:38:30.800
+and the requirements
+
+01:38:30.800 --> 01:38:33.800
+we need to run this online eval
+
+01:38:33.800 --> 01:38:36.800
+we need Langfuse, deep eval
+
+01:38:36.800 --> 01:38:39.800
+and we need .env
+
+01:38:39.800 --> 01:38:42.800
+python.env
+
+01:38:42.800 --> 01:38:45.800
+to read the api keys from .env file
+
+01:38:45.800 --> 01:38:48.800
+we are installing it here
+
+01:38:48.800 --> 01:38:51.800
+we will bring it from our secrets manager
+
+01:38:51.800 --> 01:38:54.800
+and we will convert it in an environment file
+
+01:38:54.800 --> 01:38:57.800
+then we are simply running
+
+01:38:57.800 --> 01:39:00.800
+a small script through which we are setting the cron job
+
+01:39:00.800 --> 01:39:03.800
+now let me tell you what is happening in this cron job
+
+01:39:03.800 --> 01:39:06.800
+what we are doing is
+
+01:39:06.800 --> 01:39:09.800
+we are first doing cd in our online eval directory
+
+01:39:09.800 --> 01:39:12.800
+then we are simply saying through this piece of command
+
+01:39:12.800 --> 01:39:15.800
+that first of all you activate
+
+01:39:15.800 --> 01:39:18.800
+your virtual environment
+
+01:39:18.800 --> 01:39:21.800
+when you have to run python command in terminal
+
+01:39:21.800 --> 01:39:24.800
+then what do you do in your VS code
+
+01:39:24.800 --> 01:39:27.800
+first of all you activate your virtual environment
+
+01:39:27.800 --> 01:39:30.800
+then we are doing the same step here that first activate my virtual environment
+
+01:39:30.800 --> 01:39:33.800
+after activating
+
+01:39:33.800 --> 01:39:36.800
+you run this script eval.py
+
+01:39:36.800 --> 01:39:39.800
+and after running
+
+01:39:39.800 --> 01:39:42.800
+save the output from this in a cron.log
+
+01:39:42.800 --> 01:39:45.800
+and then you can save it
+
+01:39:45.800 --> 01:39:48.800
+and here we are making the script executable
+
+01:39:48.800 --> 01:39:51.800
+and then we are starting our cron
+
+01:39:51.800 --> 01:39:54.800
+we are enabling our cron job
+
+01:39:54.800 --> 01:39:57.800
+and here we are setting our time
+
+01:39:57.800 --> 01:40:00.800
+we are setting our frequency
+
+01:40:00.800 --> 01:40:03.800
+so if you want to set your cron job then you set your time
+
+01:40:03.800 --> 01:40:06.800
+through this syntax
+
+01:40:06.800 --> 01:40:09.800
+I will explain its code to you very simple
+
+01:40:09.800 --> 01:40:12.800
+so what you are doing here is
+
+01:40:12.800 --> 01:40:15.800
+after running this script
+
+01:40:15.800 --> 01:40:18.800
+you are setting your time in this time
+
+01:40:18.800 --> 01:40:21.800
+which is basically your 15 minutes
+
+01:40:21.800 --> 01:40:24.800
+you can see this as slash 15
+
+01:40:24.800 --> 01:40:27.800
+this is your 15 minutes cron job
+
+01:40:27.800 --> 01:40:30.800
+and in every 15 minutes it will run this script
+
+01:40:30.800 --> 01:40:33.800
+as soon as 15 minutes are over
+
+01:40:33.800 --> 01:40:36.800
+it will run it again
+
+01:40:36.800 --> 01:40:39.800
+so this point is clear to you
+
+01:40:42.800 --> 01:40:45.800
+so this is the complete setup
+
+01:40:52.800 --> 01:40:55.800
+yes, let's do one thing
+
+01:40:55.800 --> 01:40:58.800
+I made a mistake, no one told me
+
+01:40:58.800 --> 01:41:01.800
+we simply copied and pasted it
+
+01:41:01.800 --> 01:41:04.800
+we didn't want to do it directly
+
+01:41:04.800 --> 01:41:07.800
+so that too must have crashed
+
+01:41:07.800 --> 01:41:10.800
+it must not have run properly
+
+01:41:10.800 --> 01:41:13.800
+so let's close this instance which has been launched
+
+01:41:13.800 --> 01:41:16.800
+let's terminate it
+
+01:41:16.800 --> 01:41:19.800
+and let's make a fresh instance
+
+01:41:19.800 --> 01:41:22.800
+this is also terminated
+
+01:41:22.800 --> 01:41:25.800
+let's launch a new instance
+
+01:41:25.800 --> 01:41:28.800
+let's simply name it as test
+
+01:41:28.800 --> 01:41:31.800
+Ubuntu
+
+01:41:31.800 --> 01:41:34.800
+I have told you the key pair
+
+01:41:34.800 --> 01:41:37.800
+again I am allowing traffic
+
+01:41:37.800 --> 01:41:40.800
+it is 8GB, I am setting the role
+
+01:41:40.800 --> 01:41:43.800
+this is my role
+
+01:41:43.800 --> 01:41:46.800
+and I am pasting my script here
+
+01:41:46.800 --> 01:41:49.800
+let's go through this script once
+
+01:41:49.800 --> 01:41:52.800
+so that there are no errors
+
+01:41:52.800 --> 01:41:55.800
+everything is ok, this is ap south 1
+
+01:41:55.800 --> 01:41:58.800
+this is my s3 bucket
+
+01:41:58.800 --> 01:42:01.800
+now I have to change the name
+
+01:42:01.800 --> 01:42:04.800
+instead of requirements.txt
+
+01:42:04.800 --> 01:42:07.800
+I can simply copy and paste
+
+01:42:07.800 --> 01:42:10.800
+let's copy it
+
+01:42:10.800 --> 01:42:13.800
+and I will paste it here
+
+01:42:13.800 --> 01:42:16.800
+here are the requirements
+
+01:42:16.800 --> 01:42:19.800
+online evals
+
+01:42:19.800 --> 01:42:22.800
+and online evals
+
+01:42:22.800 --> 01:42:25.800
+secrets are correct
+
+01:42:25.800 --> 01:42:28.800
+I am running my script
+
+01:42:28.800 --> 01:42:31.800
+let's change the time
+
+01:42:31.800 --> 01:42:34.800
+15 minutes is a lot of time
+
+01:42:34.800 --> 01:42:37.800
+let's set it to 5
+
+01:42:37.800 --> 01:42:40.800
+I have set the time to 5 minutes
+
+01:42:40.800 --> 01:42:43.800
+and let's launch this instance
+
+01:42:43.800 --> 01:42:46.800
+so every 5 minutes
+
+01:42:46.800 --> 01:42:49.800
+my online eval will run
+
+01:42:49.800 --> 01:42:52.800
+let's let it execute once
+
+01:42:52.800 --> 01:42:55.800
+if this script is successfully executed
+
+01:42:55.800 --> 01:42:58.800
+then I can see my results
+
+01:42:58.800 --> 01:43:01.800
+in my traces
+
+01:43:01.800 --> 01:43:04.800
+but if it is successfully executed
+
+01:43:04.800 --> 01:43:07.800
+then you can see your eval
+
+01:43:07.800 --> 01:43:10.800
+why am I saying this?
+
+01:43:10.800 --> 01:43:13.800
+because I have manually run this script
+
+01:43:13.800 --> 01:43:16.800
+if I show you
+
+01:43:16.800 --> 01:43:19.800
+you can see here
+
+01:43:19.800 --> 01:43:22.800
+I am running it manually
+
+01:43:22.800 --> 01:43:25.800
+after that I will set the cron job
+
+01:43:25.800 --> 01:43:28.800
+so that if any problem comes
+
+01:43:28.800 --> 01:43:31.800
+then it will be detected early
+
+01:43:31.800 --> 01:43:34.800
+as soon as this script is executed
+
+01:43:34.800 --> 01:43:37.800
+it will run manually
+
+01:43:37.800 --> 01:43:40.800
+let's wait a little
+
+01:43:40.800 --> 01:43:43.800
+now I can run it from here
+
+01:43:43.800 --> 01:43:46.800
+let's run it from here
+
+01:43:49.800 --> 01:43:52.800
+let's close it
+
+01:43:52.800 --> 01:43:55.800
+I am closing extra tabs
+
+01:43:55.800 --> 01:43:58.800
+let's go to the instances
+
+01:43:58.800 --> 01:44:01.800
+and these are my running instances
+
+01:44:01.800 --> 01:44:04.800
+let's go to running
+
+01:44:04.800 --> 01:44:07.800
+there are two running
+
+01:44:07.800 --> 01:44:10.800
+one is test one
+
+01:44:10.800 --> 01:44:13.800
+let's get to the terminal
+
+01:44:13.800 --> 01:44:16.800
+let's get to the terminal
+
+01:44:16.800 --> 01:44:19.800
+let's check
+
+01:44:19.800 --> 01:44:22.800
+if my cron job is done
+
+01:44:22.800 --> 01:44:25.800
+I will copy and run this command
+
+01:44:25.800 --> 01:44:28.800
+I will copy and run this command
+
+01:44:28.800 --> 01:44:31.800
+no cron tab for Ubuntu
+
+01:44:31.800 --> 01:44:34.800
+let's run cd in directory
+
+01:44:34.800 --> 01:44:37.800
+let's run it there
+
+01:44:37.800 --> 01:44:40.800
+let's run ls
+
+01:44:40.800 --> 01:44:43.800
+did not make a directory
+
+01:44:43.800 --> 01:44:46.800
+did not make a directory
+
+01:44:46.800 --> 01:44:49.800
+is awcli being installed
+
+01:44:49.800 --> 01:44:52.800
+is awcli being installed
+
+01:44:52.800 --> 01:44:55.800
+let's wait
+
+01:44:55.800 --> 01:44:58.800
+let's wait
+
+01:44:58.800 --> 01:45:01.800
+let's wait
+
+01:45:01.800 --> 01:45:04.800
+let's wait
+
+01:45:04.800 --> 01:45:07.800
+let's wait
+
+01:45:07.800 --> 01:45:10.800
+let's wait
+
+01:45:10.800 --> 01:45:13.800
+directory is done
+
+01:45:13.800 --> 01:45:16.800
+let's go to the directory
+
+01:45:16.800 --> 01:45:19.800
+let's run ls
+
+01:45:22.800 --> 01:45:25.800
+there is no directory in this
+
+01:45:25.800 --> 01:45:28.800
+let's run ls again
+
+01:45:33.800 --> 01:45:36.800
+is awcli being installed
+
+01:45:40.800 --> 01:45:43.800
+let's run ls
+
+01:45:51.800 --> 01:45:54.800
+yes, I have done it
+
+01:45:54.800 --> 01:45:57.800
+it will be auto installed
+
+01:46:01.800 --> 01:46:04.800
+no, it didn't
+
+01:46:04.800 --> 01:46:07.800
+anyway guys
+
+01:46:07.800 --> 01:46:10.800
+I will share the rest of the process
+
+01:46:10.800 --> 01:46:13.800
+you just have to copy and paste the commands
+
+01:46:13.800 --> 01:46:16.800
+I will show you the actual running job
+
+01:46:16.800 --> 01:46:19.800
+if I go to instances and close this filter
+
+01:46:19.800 --> 01:46:22.800
+then
+
+01:46:22.800 --> 01:46:25.800
+what I made before
+
+01:46:25.800 --> 01:46:28.800
+that was this one rag online evals
+
+01:46:28.800 --> 01:46:31.800
+let me check
+
+01:46:31.800 --> 01:46:34.800
+I have not terminated it
+
+01:46:34.800 --> 01:46:37.800
+let's start
+
+01:46:40.800 --> 01:46:43.800
+you will get all the code in this
+
+01:46:43.800 --> 01:46:46.800
+let's wait
+
+01:46:46.800 --> 01:46:49.800
+I don't know why it didn't work here
+
+01:46:49.800 --> 01:46:52.800
+why the permissions were denied
+
+01:46:52.800 --> 01:46:55.800
+I ran the exact script here and it was working fine
+
+01:46:58.800 --> 01:47:01.800
+ok, if I go to opt
+
+01:47:04.800 --> 01:47:07.800
+opt not opot
+
+01:47:07.800 --> 01:47:10.800
+ok, it is working, let's run ls
+
+01:47:10.800 --> 01:47:13.800
+let's run cd in campus x rag
+
+01:47:13.800 --> 01:47:16.800
+let's run ls, here is my virtual environment
+
+01:47:16.800 --> 01:47:19.800
+and online evals
+
+01:47:19.800 --> 01:47:22.800
+let's run cd in online evals
+
+01:47:22.800 --> 01:47:25.800
+let's run ls, yes, here I have
+
+01:47:25.800 --> 01:47:28.800
+all the things you can see
+
+01:47:28.800 --> 01:47:31.800
+ok, let's check once
+
+01:47:31.800 --> 01:47:34.800
+the cron job is running
+
+01:47:34.800 --> 01:47:37.800
+so, for that, what I will do is
+
+01:47:37.800 --> 01:47:40.800
+I will simply copy this one
+
+01:47:40.800 --> 01:47:43.800
+and let's paste it here
+
+01:47:43.800 --> 01:47:46.800
+so, yes, here I have set the cron job of 15 minutes
+
+01:47:46.800 --> 01:47:49.800
+so, what will it do in every 15 minutes
+
+01:47:49.800 --> 01:47:52.800
+it will start the evalations
+
+01:47:52.800 --> 01:47:55.800
+and to start it manually
+
+01:47:55.800 --> 01:47:58.800
+we don't have script now, we will execute our python file
+
+01:48:01.800 --> 01:48:04.800
+so
+
+01:48:04.800 --> 01:48:07.800
+let's execute it manually
+
+01:48:07.800 --> 01:48:10.800
+python file name is run online evals
+
+01:48:10.800 --> 01:48:13.800
+ok
+
+01:48:13.800 --> 01:48:16.800
+because I didn't activate
+
+01:48:16.800 --> 01:48:19.800
+virtual environment here
+
+01:48:19.800 --> 01:48:22.800
+so, I will use this particular command
+
+01:48:22.800 --> 01:48:25.800
+to activate virtual environment
+
+01:48:25.800 --> 01:48:28.800
+just a second guys
+
+01:48:28.800 --> 01:48:31.800
+just a second guys
+
+01:48:34.800 --> 01:48:37.800
+I will copy this completely
+
+01:48:37.800 --> 01:48:40.800
+copy and paste
+
+01:48:40.800 --> 01:48:43.800
+copy and paste
+
+01:48:43.800 --> 01:48:46.800
+yes
+
+01:48:46.800 --> 01:48:49.800
+ok
+
+01:48:49.800 --> 01:48:52.800
+see, now you can see logs here
+
+01:48:52.800 --> 01:48:55.800
+the logs of dp eval came
+
+01:48:55.800 --> 01:48:58.800
+and now you can run online evalations
+
+01:49:01.800 --> 01:49:04.800
+faithfulness
+
+01:49:04.800 --> 01:49:07.800
+contextual relevancy
+
+01:49:10.800 --> 01:49:13.800
+answer relevancy
+
+01:49:25.800 --> 01:49:28.800
+so, actually it is a blessing in disguise
+
+01:49:28.800 --> 01:49:31.800
+I was able to show you these logs
+
+01:49:31.800 --> 01:49:34.800
+you can't see logs through those commands
+
+01:49:40.800 --> 01:49:43.800
+let's let it complete
+
+01:49:56.800 --> 01:49:59.800
+ok
+
+01:49:59.800 --> 01:50:02.800
+let's run the evalations
+
+01:50:02.800 --> 01:50:05.800
+ok
+
+01:50:05.800 --> 01:50:08.800
+ok
+
+01:50:08.800 --> 01:50:11.800
+ok
+
+01:50:11.800 --> 01:50:14.800
+ok
+
+01:50:14.800 --> 01:50:17.800
+ok
+
+01:50:17.800 --> 01:50:20.800
+ok
+
+01:50:20.800 --> 01:50:23.800
+ok
+
+01:50:24.800 --> 01:50:27.800
+done
+
+01:50:27.800 --> 01:50:30.800
+now where will you see it, here are your traces
+
+01:50:30.800 --> 01:50:33.800
+let's refresh it
+
+01:50:33.800 --> 01:50:36.800
+and now you will see any trace here
+
+01:50:36.800 --> 01:50:39.800
+let's see this trace
+
+01:50:39.800 --> 01:50:42.800
+and you can clearly see here
+
+01:50:42.800 --> 01:50:45.800
+here are your scores
+
+01:50:45.800 --> 01:50:48.800
+now you have to see them in detail, you go to the scores tab and see
+
+01:50:48.800 --> 01:50:51.800
+on this particular trace
+
+01:50:51.800 --> 01:50:54.800
+faithfulness is 100%
+
+01:50:54.800 --> 01:50:57.800
+answer relevancy is 100%
+
+01:50:57.800 --> 01:51:00.800
+if you want to see the reasoning, you can expand it
+
+01:51:00.800 --> 01:51:03.800
+and see, here it is telling you
+
+01:51:03.800 --> 01:51:06.800
+the score is 0.78 because the context does not include key matches
+
+01:51:06.800 --> 01:51:09.800
+like guardrails should be transparent and not visible to the end user
+
+01:51:09.800 --> 01:51:12.800
+this is missing here, so it gave a low score
+
+01:51:12.800 --> 01:51:15.800
+why it gave a score of 100%? here is reasoning
+
+01:51:15.800 --> 01:51:18.800
+you can also check it for any other trace if you want
+
+01:51:21.800 --> 01:51:24.800
+see, here you can see very little contextual relevancy
+
+01:51:24.800 --> 01:51:27.800
+faithfulness is here and answer relevancy is here
+
+01:51:27.800 --> 01:51:30.800
+and why it is showing like this?
+
+01:51:30.800 --> 01:51:33.800
+here is reasoning also
+
+01:51:33.800 --> 01:51:36.800
+and if I show you the fallback one
+
+01:51:36.800 --> 01:51:39.800
+just a second
+
+01:51:39.800 --> 01:51:42.800
+if I show you the fallback one, no it's this one maybe
+
+01:51:42.800 --> 01:51:45.800
+no it's not this one
+
+01:51:45.800 --> 01:51:48.800
+which one was the fallback one?
+
+01:51:48.800 --> 01:51:51.800
+this one? yes this one
+
+01:51:51.800 --> 01:51:54.800
+so see, scores are not calculated for the fallback one
+
+01:51:54.800 --> 01:51:57.800
+because this is what we put in the code
+
+01:51:57.800 --> 01:52:00.800
+that you will not calculate scores for fallback
+
+01:52:00.800 --> 01:52:03.800
+ok, for every trace
+
+01:52:03.800 --> 01:52:06.800
+this whole cycle will run in 15 minutes
+
+01:52:06.800 --> 01:52:09.800
+and score all the traces in 15 minutes
+
+01:52:09.800 --> 01:52:12.800
+is this step clear guys?
+
+01:52:12.800 --> 01:52:15.800
+if you want to check
+
+01:52:15.800 --> 01:52:18.800
+this, you can ask one more question
+
+01:52:18.800 --> 01:52:21.800
+let's say I ask one more question
+
+01:52:21.800 --> 01:52:24.800
+and this one we ask
+
+01:52:24.800 --> 01:52:27.800
+sovereign AI one, now you will see clearly
+
+01:52:27.800 --> 01:52:30.800
+the scores of this tracing you will not get now
+
+01:52:30.800 --> 01:52:33.800
+next when your script will run
+
+01:52:33.800 --> 01:52:36.800
+you will get its scores
+
+01:52:40.800 --> 01:52:43.800
+let's wait for the response
+
+01:52:43.800 --> 01:52:46.800
+10 more minutes guys
+
+01:52:46.800 --> 01:52:49.800
+you just have to show me how to observe
+
+01:52:49.800 --> 01:52:52.800
+actually it will take 5 more minutes
+
+01:52:52.800 --> 01:52:55.800
+how to add them in your dashboard
+
+01:52:55.800 --> 01:52:58.800
+because here you will not see individual scores in traces
+
+01:52:58.800 --> 01:53:01.800
+you will visualize them using your dashboard
+
+01:53:08.800 --> 01:53:11.800
+see some response has come
+
+01:53:11.800 --> 01:53:14.800
+and this is our properly
+
+01:53:14.800 --> 01:53:17.800
+one trace has also come
+
+01:53:17.800 --> 01:53:20.800
+if I refresh it, then a new trace will come
+
+01:53:23.800 --> 01:53:26.800
+it has not come, let's refresh it again
+
+01:53:26.800 --> 01:53:29.800
+sovereign AI one
+
+01:53:29.800 --> 01:53:32.800
+now here you will see clearly
+
+01:53:32.800 --> 01:53:35.800
+if I open it, then no results will come
+
+01:53:35.800 --> 01:53:38.800
+but if you wait long enough
+
+01:53:38.800 --> 01:53:41.800
+you will see results
+
+01:53:41.800 --> 01:53:44.800
+let's do one thing
+
+01:53:44.800 --> 01:53:47.800
+in the meanwhile, let's go to our dashboard
+
+01:53:47.800 --> 01:53:50.800
+our dashboard is campusX Rack Dashboard
+
+01:53:50.800 --> 01:53:53.800
+and here we add some things
+
+01:53:53.800 --> 01:53:56.800
+for our scores
+
+01:53:56.800 --> 01:53:59.800
+add some graphs, first of all you will go to add widget
+
+01:53:59.800 --> 01:54:02.800
+again you will go to custom chart
+
+01:54:02.800 --> 01:54:05.800
+now you will not go to observations in view
+
+01:54:05.800 --> 01:54:08.800
+here there is a small change, you will go to scores
+
+01:54:08.800 --> 01:54:11.800
+now you get 3 options in scores
+
+01:54:11.800 --> 01:54:14.800
+numeric, categorical and boolean
+
+01:54:14.800 --> 01:54:17.800
+our scores are numeric
+
+01:54:17.800 --> 01:54:20.800
+then in metric it can be count and value
+
+01:54:20.800 --> 01:54:23.800
+we don't care about count
+
+01:54:23.800 --> 01:54:26.800
+because we are calculating scores for every trace
+
+01:54:26.800 --> 01:54:29.800
+we care about their value
+
+01:54:29.800 --> 01:54:32.800
+see values have come
+
+01:54:32.800 --> 01:54:35.800
+first average was 0.91
+
+01:54:35.800 --> 01:54:38.800
+now it is 0.89
+
+01:54:38.800 --> 01:54:41.800
+but we don't understand what score it is
+
+01:54:41.800 --> 01:54:44.800
+so we will put group by here
+
+01:54:44.800 --> 01:54:47.800
+we will put group by according to our score
+
+01:54:47.800 --> 01:54:50.800
+only name of the score
+
+01:54:50.800 --> 01:54:53.800
+accuracy, toxicity whatever it is
+
+01:54:53.800 --> 01:54:56.800
+as you name it, you will see individual scores
+
+01:54:56.800 --> 01:54:59.800
+when you ran on 17th september
+
+01:54:59.800 --> 01:55:02.800
+you will see how much accuracy, answer relevancy, faithfulness
+
+01:55:02.800 --> 01:55:05.800
+and now what are your values
+
+01:55:05.800 --> 01:55:08.800
+and these are your average values
+
+01:55:08.800 --> 01:55:11.800
+you generally calculate average values
+
+01:55:11.800 --> 01:55:14.800
+so here is your title
+
+01:55:14.800 --> 01:55:17.800
+and description, you can tweak them
+
+01:55:17.800 --> 01:55:20.800
+I will tweak them later
+
+01:55:20.800 --> 01:55:23.800
+but you can see clearly that you are able to monitor your scores
+
+01:55:23.800 --> 01:55:26.800
+you can see past 1 hour
+
+01:55:26.800 --> 01:55:29.800
+so you can easily monitor your scores
+
+01:55:29.800 --> 01:55:32.800
+here we will put title
+
+01:55:32.800 --> 01:55:35.800
+average
+
+01:55:35.800 --> 01:55:38.800
+metric
+
+01:55:38.800 --> 01:55:41.800
+value
+
+01:55:41.800 --> 01:55:44.800
+with time
+
+01:55:44.800 --> 01:55:47.800
+we will remove it
+
+01:55:47.800 --> 01:55:50.800
+I don't know, you can't delete it first
+
+01:55:50.800 --> 01:55:53.800
+you can do it later because it auto fills
+
+01:55:53.800 --> 01:55:56.800
+so the good thing is
+
+01:55:56.800 --> 01:55:59.800
+instead of by name
+
+01:55:59.800 --> 01:56:02.800
+you can do it
+
+01:56:02.800 --> 01:56:05.800
+shows the average value of
+
+01:56:05.800 --> 01:56:08.800
+metrics per day
+
+01:56:11.800 --> 01:56:14.800
+and here is your graph
+
+01:56:14.800 --> 01:56:17.800
+you can adjust it, we will leave it here
+
+01:56:17.800 --> 01:56:20.800
+we will add some more widgets
+
+01:56:20.800 --> 01:56:23.800
+so you can see how your metrics with time are changing
+
+01:56:23.800 --> 01:56:26.800
+but you have to check absolute values
+
+01:56:26.800 --> 01:56:29.800
+that what is the current value
+
+01:56:29.800 --> 01:56:32.800
+so for that you will go to scores numeric
+
+01:56:32.800 --> 01:56:35.800
+you will select value
+
+01:56:35.800 --> 01:56:38.800
+and now you will add a filter
+
+01:56:38.800 --> 01:56:41.800
+for filter you will go to your name
+
+01:56:41.800 --> 01:56:44.800
+score name
+
+01:56:44.800 --> 01:56:47.800
+and you will select which score you want to add
+
+01:56:47.800 --> 01:56:50.800
+and what I want to see
+
+01:56:50.800 --> 01:56:53.800
+here is the average value of
+
+01:56:53.800 --> 01:56:56.800
+answer
+
+01:56:56.800 --> 01:56:59.800
+relays, bensi
+
+01:56:59.800 --> 01:57:02.800
+I have added it here
+
+01:57:02.800 --> 01:57:05.800
+you can change the description
+
+01:57:05.800 --> 01:57:08.800
+here we are adjusting past 1 day and we are selecting big number
+
+01:57:08.800 --> 01:57:11.800
+so it will give you your average value in one shot
+
+01:57:11.800 --> 01:57:14.800
+and see
+
+01:57:14.800 --> 01:57:17.800
+drag it and drop it here
+
+01:57:17.800 --> 01:57:20.800
+here it is giving you
+
+01:57:20.800 --> 01:57:23.800
+average answer relays value of one day
+
+01:57:23.800 --> 01:57:26.800
+same you can do it with other metrics
+
+01:57:26.800 --> 01:57:29.800
+you simply copy it
+
+01:57:29.800 --> 01:57:32.800
+and after copying
+
+01:57:32.800 --> 01:57:35.800
+you simply clone it
+
+01:57:35.800 --> 01:57:38.800
+and here you can edit it
+
+01:57:38.800 --> 01:57:41.800
+instead of answer relays you select
+
+01:57:41.800 --> 01:57:44.800
+faithfulness and
+
+01:57:44.800 --> 01:57:47.800
+answer relays instead of answer relays
+
+01:57:47.800 --> 01:57:50.800
+faithfulness
+
+01:57:50.800 --> 01:57:53.800
+and same
+
+01:57:53.800 --> 01:57:56.800
+here is your average faithfulness
+
+01:57:56.800 --> 01:57:59.800
+score 0.932
+
+01:57:59.800 --> 01:58:02.800
+and same you can do with the third one
+
+01:58:02.800 --> 01:58:05.800
+simply clone it
+
+01:58:05.800 --> 01:58:08.800
+and here you can edit it
+
+01:58:08.800 --> 01:58:11.800
+contextual relevancy
+
+01:58:11.800 --> 01:58:14.800
+big number faithfulness
+
+01:58:14.800 --> 01:58:17.800
+contextual relevancy
+
+01:58:17.800 --> 01:58:20.800
+contextual relevancy
+
+01:58:20.800 --> 01:58:23.800
+and you simply save it
+
+01:58:23.800 --> 01:58:26.800
+and here is your
+
+01:58:26.800 --> 01:58:29.800
+contextual relevancy value
+
+01:58:29.800 --> 01:58:32.800
+if we had custom here
+
+01:58:32.800 --> 01:58:35.800
+then you can see clearly
+
+01:58:35.800 --> 01:58:38.800
+what is the average metric value of all the numbers
+
+01:58:38.800 --> 01:58:41.800
+and how they are changing with time
+
+01:58:41.800 --> 01:58:44.800
+so with this guys we have
+
+01:58:44.800 --> 01:58:47.800
+understood how you run your online eval
+
+01:58:47.800 --> 01:58:50.800
+using a cron job
+
+01:58:50.800 --> 01:58:53.800
+and how you observe them
+
+01:58:53.800 --> 01:58:56.800
+so you have saved it in your dashboard
+
+01:58:56.800 --> 01:58:59.800
+everything is saved, if you go to home
+
+01:58:59.800 --> 01:59:02.800
+because we are looking at this dashboard
+
+01:59:02.800 --> 01:59:05.800
+is this point clear?
+
+01:59:10.800 --> 01:59:13.800
+this is it guys, that's all I had to do today
+
+01:59:13.800 --> 01:59:16.800
+if you have any questions
+
+01:59:16.800 --> 01:59:19.800
+you can ask me
+
+01:59:19.800 --> 01:59:22.800
+and those who can wait for 5 minutes
+
+01:59:22.800 --> 01:59:25.800
+they can wait and actually I will show you
+
+01:59:25.800 --> 01:59:28.800
+if I show you in tracing
+
+01:59:28.800 --> 01:59:31.800
+so here you
+
+01:59:31.800 --> 01:59:34.800
+see your scores are here
+
+01:59:34.800 --> 01:59:37.800
+cron job automatically run and your scores are here
+
+01:59:37.800 --> 01:59:40.800
+so yes
+
+01:59:40.800 --> 01:59:43.800
+see this particular
+
+01:59:43.800 --> 01:59:46.800
+trace, this one
+
+01:59:46.800 --> 01:59:49.800
+this is your contextual relevancy
+
+01:59:49.800 --> 01:59:52.800
+why it is less, it has given the full reason
+
+01:59:52.800 --> 01:59:55.800
+faithfulness and answer relevancy
+
+01:59:55.800 --> 01:59:58.800
+if answer relevancy is less then it has given the full reason
+
+01:59:58.800 --> 02:00:01.800
+I hope you understood this whole concept
+
+02:00:01.800 --> 02:00:04.800
+guys
+
+02:00:04.800 --> 02:00:07.800
+is this point clear?
+
+02:00:15.800 --> 02:00:18.800
+is it clear guys?
+
+02:00:18.800 --> 02:00:21.800
+and I can actually show you
+
+02:00:21.800 --> 02:00:24.800
+we are logging everything here in this cron.log
+
+02:00:24.800 --> 02:00:27.800
+so I can show you
+
+02:00:27.800 --> 02:00:30.800
+log
+
+02:00:30.800 --> 02:00:33.800
+see
+
+02:00:33.800 --> 02:00:36.800
+here you are logging everything
+
+02:00:36.800 --> 02:00:39.800
+you have run this
+
+02:00:39.800 --> 02:00:42.800
+and after that
+
+02:00:42.800 --> 02:00:45.800
+see this one is your run
+
+02:00:45.800 --> 02:00:48.800
+there is a script written in it
+
+02:00:48.800 --> 02:00:51.800
+ok there is no script, fetched is one and you have run it
+
+02:00:51.800 --> 02:00:54.800
+which is this one? this one is the same that you have currently run
+
+02:00:55.800 --> 02:00:58.800
+this one is your run through cron job
+
+02:01:08.800 --> 02:01:11.800
+is this point clear guys?
+
+02:01:19.800 --> 02:01:22.800
+any questions?
+
+02:01:22.800 --> 02:01:25.800
+how was today's session guys?
+
+02:01:25.800 --> 02:01:28.800
+if you ignore the commands
+
+02:01:28.800 --> 02:01:31.800
+I don't know why this didn't work
+
+02:01:31.800 --> 02:01:34.800
+maybe there was some issue in copying
+
+02:01:34.800 --> 02:01:37.800
+same commands
+
+02:01:37.800 --> 02:01:40.800
+we are using in this particular instance
+
+02:01:40.800 --> 02:01:43.800
+and this one is doing its work
+
+02:01:43.800 --> 02:01:46.800
+you can see here, all this is logged
+
+02:01:53.800 --> 02:01:56.800
+how was today's session guys?
+
+02:01:59.800 --> 02:02:02.800
+the concept of online evals
+
+02:02:05.800 --> 02:02:08.800
+you can understand how you integrate
+
+02:02:08.800 --> 02:02:11.800
+all these things through code
+
+02:02:11.800 --> 02:02:14.800
+so now we have completed
+
+02:02:14.800 --> 02:02:17.800
+our application monitoring work
+
+02:02:17.800 --> 02:02:20.800
+now what we have to do is
+
+02:02:20.800 --> 02:02:23.800
+we have to do our infrastructure monitoring
+
+02:02:23.800 --> 02:02:26.800
+so in next two lectures
+
+02:02:26.800 --> 02:02:29.800
+which will be on Wednesday
+
+02:02:29.800 --> 02:02:32.800
+and on Monday
+
+02:02:32.800 --> 02:02:35.800
+we will cover our infrastructure monitoring using Prometheus
+
+02:02:35.800 --> 02:02:38.800
+which will be used for logging and Grafana
+
+02:02:38.800 --> 02:02:41.800
+for dashboarding
+
+02:02:41.800 --> 02:02:44.800
+and this will be it
+
+02:02:44.800 --> 02:02:47.800
+we will complete our rag LLM Ops pipeline
+
+02:02:50.800 --> 02:02:53.800
+yes Tushar
+
+02:02:53.800 --> 02:02:56.800
+again you can write these commands
+
+02:02:56.800 --> 02:02:59.800
+through chat gpt or cloud
+
+02:02:59.800 --> 02:03:02.800
+but you should know in the script
+
+02:03:02.800 --> 02:03:05.800
+like I have to run this command
+
+02:03:05.800 --> 02:03:08.800
+to activate my environment and run the python file
+
+02:03:08.800 --> 02:03:11.800
+I know exactly that this is a command
+
+02:03:11.800 --> 02:03:14.800
+so you can write this from chat gpt
+
+02:03:14.800 --> 02:03:17.800
+but what are they doing?
+
+02:03:17.800 --> 02:03:20.800
+nobody is expecting that you should get bash
+
+02:03:20.800 --> 02:03:23.800
+nobody is expecting that
+
+02:03:23.800 --> 02:03:26.800
+now this vnv error I don't know how to fix
+
+02:03:26.800 --> 02:03:29.800
+I will also debug through chat gpt only
+
+02:03:29.800 --> 02:03:32.800
+yes you can do it with any chat bot
+
+02:03:32.800 --> 02:03:35.800
+cloud, chat gpt, codex, cloud code
+
+02:03:35.800 --> 02:03:38.800
+cursor, do it with anyone
+
+02:03:41.800 --> 02:03:44.800
+you are not becoming bash expert
+
+02:03:44.800 --> 02:03:47.800
+you are learning to integrate things
+
+02:03:47.800 --> 02:03:50.800
+you should know the basics
+
+02:03:50.800 --> 02:03:53.800
+you should know the syntax
+
+02:03:53.800 --> 02:03:56.800
+you should not go into details
+
+02:04:06.800 --> 02:04:09.800
+advanced drag vf capstone project based on
+
+02:04:09.800 --> 02:04:12.800
+agentic research for the LLM Ops capstone
+
+02:04:12.800 --> 02:04:15.800
+we have already discussed this
+
+02:04:15.800 --> 02:04:18.800
+our goal in LLM Ops
+
+02:04:18.800 --> 02:04:21.800
+whether it is a project or
+
+02:04:21.800 --> 02:04:24.800
+our current pipeline
+
+02:04:24.800 --> 02:04:27.800
+application side is not our focus
+
+02:04:27.800 --> 02:04:30.800
+our focus is the operation side
+
+02:04:30.800 --> 02:04:33.800
+how do you build things around applications
+
+02:04:33.800 --> 02:04:36.800
+so you can take it as a challenge
+
+02:04:36.800 --> 02:04:39.800
+as a homework
+
+02:04:39.800 --> 02:04:42.800
+I have taught you agentic drag in advanced drag
+
+02:04:42.800 --> 02:04:45.800
+and I have used it in the project
+
+02:04:45.800 --> 02:04:48.800
+you build a better project over it
+
+02:04:48.800 --> 02:04:51.800
+you use that agentic drag capability
+
+02:04:51.800 --> 02:04:54.800
+and implement the operations we are learning
+
+02:05:00.800 --> 02:05:03.800
+because the thing you will build with your own hands
+
+02:05:03.800 --> 02:05:06.800
+will increase your learning
+
+02:05:06.800 --> 02:05:09.800
+you can deploy it
+
+02:05:09.800 --> 02:05:12.800
+but you will not be able to explain it in the interview
+
+02:05:12.800 --> 02:05:15.800
+because that project is mine
+
+02:05:15.800 --> 02:05:18.800
+I have built it, you have not
+
+02:05:18.800 --> 02:05:21.800
+so it was a conscious plan
+
+02:05:21.800 --> 02:05:24.800
+I had discussed this with my sir
+
+02:05:24.800 --> 02:05:27.800
+that we will keep our application very simple
+
+02:05:27.800 --> 02:05:30.800
+I have not decided on the application yet
+
+02:05:30.800 --> 02:05:33.800
+but whatever will happen will be very simple
+
+02:05:33.800 --> 02:05:36.800
+and the chain will be through Langraaf
+
+02:05:42.800 --> 02:05:45.800
+we are also planning to come up with a specific
+
+02:05:45.800 --> 02:05:48.800
+series which will focus on your projects
+
+02:05:51.800 --> 02:05:54.800
+that is also something which is in pipeline
+
+02:05:57.800 --> 02:06:00.800
+but I can't promise when it will be delivered
+
+02:06:03.800 --> 02:06:06.800
+because our team is small
+
+02:06:06.800 --> 02:06:09.800
+and everyone has a lot on their plate
+
+02:06:09.800 --> 02:06:12.800
+right now
+
+02:06:12.800 --> 02:06:15.800
+I am currently working on LLM Ops
+
+02:06:15.800 --> 02:06:18.800
+I am also working on the notes part
+
+02:06:18.800 --> 02:06:21.800
+and good news is that
+
+02:06:21.800 --> 02:06:24.800
+we have started making notes for advanced drag course
+
+02:06:24.800 --> 02:06:27.800
+and as promised you will get it by 14th or 15th October
+
+02:06:27.800 --> 02:06:30.800
+and you will get it by 15th October
+
+02:06:30.800 --> 02:06:33.800
+the thing is that
+
+02:06:33.800 --> 02:06:36.800
+we make notes in multiple iterations
+
+02:06:36.800 --> 02:06:39.800
+and we have to review the bentor
+
+02:06:39.800 --> 02:06:42.800
+so that is a heavy part
+
+02:06:42.800 --> 02:06:45.800
+when LLM Ops project will be done
+
+02:06:45.800 --> 02:06:48.800
+we had an upside
+
+02:06:48.800 --> 02:06:51.800
+we had transcripts already available with us
+
+02:06:51.800 --> 02:06:54.800
+for that we don't have transcripts
+
+02:06:54.800 --> 02:06:57.800
+we made those
+
+02:06:57.800 --> 02:07:00.800
+and for 2 hour session
+
+02:07:00.800 --> 02:07:03.800
+we spend around 1.5 hours of compute
+
+02:07:03.800 --> 02:07:06.800
+that too on a Mac
+
+02:07:06.800 --> 02:07:09.800
+so you can understand
+
+02:07:09.800 --> 02:07:12.800
+that if you want to make a 40-45 hours course
+
+02:07:12.800 --> 02:07:15.800
+transcript, then how much time will you have to spend
+
+02:07:18.800 --> 02:07:21.800
+but don't worry, the process is going on
+
+02:07:21.800 --> 02:07:24.800
+and you will get the notes
+
+02:07:24.800 --> 02:07:27.800
+soon
+
+02:07:29.800 --> 02:07:32.800
+parallel we are making notes for many courses
+
+02:07:38.800 --> 02:07:41.800
+so how was today's session?
+
+02:07:44.800 --> 02:07:47.800
+you tell me
+
+02:07:48.800 --> 02:07:51.800
+if you can implement it properly
+
+02:07:51.800 --> 02:07:54.800
+then any project is good
+
+02:07:54.800 --> 02:07:57.800
+your implementation should be good
+
+02:07:57.800 --> 02:08:00.800
+the architecture behind it should be well thought out
+
+02:08:00.800 --> 02:08:03.800
+and you should be able to give answers
+
+02:08:03.800 --> 02:08:06.800
+in the interview
+
+02:08:06.800 --> 02:08:09.800
+if you are able to do all that then any project is good
+
+02:08:09.800 --> 02:08:12.800
+nobody is expecting
+
+02:08:12.800 --> 02:08:15.800
+that you should make a heavy project
+
+02:08:15.800 --> 02:08:18.800
+for a fresher level role
+
+02:08:30.800 --> 02:08:33.800
+students generally do this mistake
+
+02:08:33.800 --> 02:08:36.800
+they run after big projects and in the interview
+
+02:08:36.800 --> 02:08:39.800
+they are unable to explain the project
+
+02:08:39.800 --> 02:08:42.800
+because they have copied and pasted many things
+
+02:08:42.800 --> 02:08:45.800
+on the other side, if a student has made a simple project
+
+02:08:45.800 --> 02:08:48.800
+but has shown the entire pipeline
+
+02:08:48.800 --> 02:08:51.800
+and has shown his understanding
+
+02:08:51.800 --> 02:08:54.800
+then the chances of clearing his interview are
+
+02:08:54.800 --> 02:08:57.800
+2-3x more
+
+02:09:12.800 --> 02:09:15.800
+any other questions?
+
+02:09:15.800 --> 02:09:18.800
+2 more minutes and then I will close
+
+02:09:36.800 --> 02:09:39.800
+guys
+
+02:09:42.800 --> 02:09:45.800
+I have made 3-4 on MLOPS
+
+02:09:45.800 --> 02:09:48.800
+after watching your MLOPS
+
+02:09:48.800 --> 02:09:51.800
+no thinking of doing same with any MLOPS
+
+02:09:51.800 --> 02:09:54.800
+yes, if you have already made
+
+02:09:54.800 --> 02:09:57.800
+and have seen your MLOPS
+
+02:09:57.800 --> 02:10:00.800
+then you will have to work hard
+
+02:10:00.800 --> 02:10:03.800
+I would highly suggest those who are attending live classes
+
+02:10:03.800 --> 02:10:06.800
+do not copy and paste this project
+
+02:10:06.800 --> 02:10:09.800
+you will not be able to learn
+
+02:10:12.800 --> 02:10:15.800
+and update things
+
+02:10:15.800 --> 02:10:18.800
+like what I have done today
+
+02:10:18.800 --> 02:10:21.800
+when we read Langfuse
+
+02:10:21.800 --> 02:10:24.800
+I understood the problem
+
+02:10:24.800 --> 02:10:27.800
+although I knew there is a problem in contextual compression
+
+02:10:27.800 --> 02:10:30.800
+but I observed how much latency is coming
+
+02:10:30.800 --> 02:10:33.800
+on Langfuse and found out
+
+02:10:33.800 --> 02:10:36.800
+so I fixed it
+
+02:10:36.800 --> 02:10:39.800
+you can treat it like your version 2
+
+02:10:39.800 --> 02:10:42.800
+if you went to production and you were getting latency issues
+
+02:10:42.800 --> 02:10:45.800
+then you fixed it
+
+02:10:54.800 --> 02:10:57.800
+if not then write clear
+
+02:11:09.800 --> 02:11:12.800
+good night guys, see you on Wednesday
+
+02:11:12.800 --> 02:11:15.800
+Wednesday is LLM MLOPS class
+
+02:11:15.800 --> 02:11:18.800
+and Thursday is Nitya Sir class
+
+02:11:18.800 --> 02:11:21.800
+tomorrow and Thursday, I will update the rest in the calendar
+
+02:11:21.800 --> 02:11:24.800
+bye guys
+

@@ -1,0 +1,5060 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:13.000
+Hi, good evening guys. How are you? How are you?
+
+00:00:13.000 --> 00:00:21.000
+Are you all hearing me?
+
+00:00:22.000 --> 00:00:27.000
+Great. Great guys.
+
+00:00:28.000 --> 00:00:35.000
+Let's wait for a few minutes so that more people can join and then we can start. Good evening, Shweta.
+
+00:00:35.000 --> 00:00:43.000
+Okay, guys, there is a small announcement. Actually, I am not feeling well today.
+
+00:00:44.000 --> 00:00:49.000
+So currently I have fever around 103. That's why I am speaking a little slow today.
+
+00:00:50.000 --> 00:00:57.000
+And the camera is also not switched on. So our class will be absolutely fine. There will be no issue in it.
+
+00:00:57.000 --> 00:01:03.000
+But I didn't want to postpone it. First, I had the idea that I should take it tomorrow.
+
+00:01:04.000 --> 00:01:10.000
+But again, then there are changes in the schedule and you also have a problem. That's why I have kept the class today.
+
+00:01:11.000 --> 00:01:13.000
+I hope you will not mind.
+
+00:01:13.000 --> 00:01:15.000
+We will not mind.
+
+00:01:21.000 --> 00:01:25.000
+Let's wait for two minutes. If you have any questions, you can ask me.
+
+00:01:26.000 --> 00:01:28.000
+And then we will start.
+
+00:01:28.000 --> 00:01:32.000
+I created an account on Amazon, but I forgot my account ID. I am unable to log in and use user.
+
+00:01:33.000 --> 00:01:35.000
+What should we work as a root user?
+
+00:01:36.000 --> 00:01:40.000
+Yes, you can take account ID. Again, the UI has changed a little.
+
+00:01:41.000 --> 00:01:46.000
+So you do one thing. Ask the chat GPT once. How to get the root user ID back.
+
+00:01:47.000 --> 00:01:53.000
+There is a way I don't remember actually. But my root user ID was lost. So it gets retrieved.
+
+00:01:53.000 --> 00:01:55.000
+Don't worry.
+
+00:02:03.000 --> 00:02:05.000
+Any other question?
+
+00:02:07.000 --> 00:02:10.000
+If you still don't have a Tushar, after.
+
+00:02:12.000 --> 00:02:20.000
+No, no, I am using the AWS services that I am using through the IAM user. But I do the sign-in with the root.
+
+00:02:20.000 --> 00:02:25.000
+I will show you. Actually, you have to make a user here too.
+
+00:02:27.000 --> 00:02:36.000
+Root users do not work. You have to make a user internally. If I go to the IAM users, then I have made a user.
+
+00:02:37.000 --> 00:02:42.000
+So you make a user here too and use the root user outside for login.
+
+00:02:42.000 --> 00:02:51.000
+And because I am using this account, I have given administrative access to this user.
+
+00:02:56.000 --> 00:03:03.000
+Again, we do not control the IAM. You already get it controlled in your company.
+
+00:03:03.000 --> 00:03:11.000
+They are experts basically who control it and they give you access to services that are required for your current project.
+
+00:03:13.000 --> 00:03:20.000
+Based on your hierarchy in the team. So you get access to as much as is required.
+
+00:03:25.000 --> 00:03:27.000
+Any other question?
+
+00:03:33.000 --> 00:03:44.000
+Yes, no problem. If you have made it with your ID, then there is no problem. Just go to the IAM and create a user.
+
+00:03:45.000 --> 00:03:50.000
+You get the secret access and access ID.
+
+00:03:51.000 --> 00:03:58.000
+Which you can use on the GitHub and when you interact with AWS CLI, you can use it there.
+
+00:03:58.000 --> 00:04:05.000
+Basically, you make a user to give you permissions and API keys.
+
+00:04:11.000 --> 00:04:13.000
+Any other question guys?
+
+00:04:13.000 --> 00:04:21.000
+So as everyone knows, today is our last live lecture.
+
+00:04:22.000 --> 00:04:33.000
+After this lecture, we will execute the entire LLM Ops workflow and pipeline of our rag project.
+
+00:04:37.000 --> 00:04:39.000
+Start it.
+
+00:04:40.000 --> 00:04:42.000
+Right, clear and then we will start.
+
+00:04:44.000 --> 00:04:46.000
+Let's start guys.
+
+00:04:47.000 --> 00:04:50.000
+So in today's session, we are going to read about Grafana.
+
+00:04:51.000 --> 00:04:56.000
+Before that, I will explain the whole setup of AWS.
+
+00:04:57.000 --> 00:04:59.000
+So the setup is very simple for this lecture.
+
+00:05:00.000 --> 00:05:03.000
+The setup is that I currently have two instances running.
+
+00:05:03.000 --> 00:05:09.000
+So this instance is my auto scaling group.
+
+00:05:10.000 --> 00:05:12.000
+In the previous lecture, I was running two instances.
+
+00:05:13.000 --> 00:05:15.000
+For this, I am running one instance.
+
+00:05:16.000 --> 00:05:25.000
+Again, whatever your code is, whatever you are writing, your queries will work for your 10 instances.
+
+00:05:26.000 --> 00:05:29.000
+So there is no issue. You can work with one or two instances.
+
+00:05:29.000 --> 00:05:30.000
+So it's up to you.
+
+00:05:31.000 --> 00:05:33.000
+And this is our monitoring instance.
+
+00:05:34.000 --> 00:05:39.000
+Now I have already installed Prometheus and Grafana on this instance.
+
+00:05:40.000 --> 00:05:43.000
+But what we will do is we will build an instance from scratch.
+
+00:05:44.000 --> 00:05:46.000
+We will name it monitoring instance 2.
+
+00:05:47.000 --> 00:05:50.000
+And we will make our whole monitoring setup on it.
+
+00:05:50.000 --> 00:05:58.000
+And after that, we will see how you can monitor your EC2 instances using Prometheus and Grafana.
+
+00:05:59.000 --> 00:06:01.000
+So before starting, let's do one thing.
+
+00:06:02.000 --> 00:06:03.000
+Let's take a small recap.
+
+00:06:04.000 --> 00:06:08.000
+Around the topics that we covered in the previous session.
+
+00:06:09.000 --> 00:06:12.000
+And let's also discuss what our plan of attack will be in today's session.
+
+00:06:13.000 --> 00:06:19.000
+So guys, you will remember that in the previous session, we discussed about Prometheus.
+
+00:06:20.000 --> 00:06:30.000
+And we decided that we will monitor our application site through LangFuse.
+
+00:06:31.000 --> 00:06:35.000
+Now today we will monitor our infrastructure.
+
+00:06:36.000 --> 00:06:38.000
+So we set Prometheus for monitoring.
+
+00:06:39.000 --> 00:06:43.000
+Prometheus basically does the central component inside Prometheus.
+
+00:06:44.000 --> 00:06:45.000
+That is your time series database.
+
+00:06:45.000 --> 00:06:51.000
+Prometheus goes over your target and scrapes the matrix from there.
+
+00:06:52.000 --> 00:06:57.000
+And after scraping, it saves your matrix in your time series database.
+
+00:06:58.000 --> 00:07:02.000
+And using PromQL, which is Prometheus's query language.
+
+00:07:03.000 --> 00:07:08.000
+Through that, you can query this database and fetch the results from here.
+
+00:07:08.000 --> 00:07:16.000
+We also studied that to set up Prometheus, you have two types of components.
+
+00:07:17.000 --> 00:07:20.000
+First is your client libraries.
+
+00:07:21.000 --> 00:07:23.000
+Client libraries are basically your SDKs.
+
+00:07:24.000 --> 00:07:29.000
+Which you get for different languages like Python, javascript, c.
+
+00:07:30.000 --> 00:07:35.000
+Through this, you can monitor anything in your application code.
+
+00:07:35.000 --> 00:07:39.000
+You can use client libraries to calculate any matrix.
+
+00:07:40.000 --> 00:07:47.000
+We are not using client libraries because we are using LangFuse for monitoring.
+
+00:07:48.000 --> 00:07:51.000
+And second is your exporters.
+
+00:07:52.000 --> 00:07:53.000
+What are exporters?
+
+00:07:54.000 --> 00:07:58.000
+These are your pre-built packages which expose your matrix.
+
+00:07:58.000 --> 00:08:06.000
+And to expose our system matrix, the exporter we are using is called node exporter.
+
+00:08:07.000 --> 00:08:15.000
+So if you want to expose your Linux based system, like CPU, RAM, disk, network.
+
+00:08:16.000 --> 00:08:22.000
+If you want to expose your hardware based matrix, you use pre-built exporters.
+
+00:08:22.000 --> 00:08:28.000
+And exporters expose all your matrix at a particular endpoint.
+
+00:08:29.000 --> 00:08:34.000
+And the speciality of that endpoint is that it always starts with the defaults and matrix.
+
+00:08:35.000 --> 00:08:44.000
+So we have created our EC2 instances through the auto scaling group.
+
+00:08:44.000 --> 00:08:54.000
+So what we have done here is that we have added our code to the launch template.
+
+00:08:55.000 --> 00:08:58.000
+To install node exporter.
+
+00:08:59.000 --> 00:09:07.000
+So as soon as my EC2 instance is created, it will automatically install the node exporter.
+
+00:09:07.000 --> 00:09:14.000
+And automatically the matrix of that particular machine will be exposed at this particular endpoint.
+
+00:09:15.000 --> 00:09:18.000
+Now what I have to do is that my matrix is exposed.
+
+00:09:19.000 --> 00:09:22.000
+Now I have to scrape them through Prometheus.
+
+00:09:23.000 --> 00:09:31.000
+So if you want to set any target in Prometheus, on which you basically scrape the matrix, there are two ways.
+
+00:09:31.000 --> 00:09:35.000
+First is you set it through static configs.
+
+00:09:36.000 --> 00:09:41.000
+And second is you set it through a service discovery.
+
+00:09:42.000 --> 00:09:45.000
+Which is also called SDB.
+
+00:09:46.000 --> 00:09:47.000
+So what is static configs?
+
+00:09:48.000 --> 00:09:54.000
+If you know the full address of your endpoint, then you can add it to this static config.
+
+00:09:54.000 --> 00:10:03.000
+But the problem is that in our auto scaling group, we are scaling up and down according to the CPU usage.
+
+00:10:04.000 --> 00:10:10.000
+So sometimes it happens that some new instances are being created and sometimes the instances that are already running are being closed.
+
+00:10:11.000 --> 00:10:13.000
+And traffic is managing our load balancer.
+
+00:10:14.000 --> 00:10:15.000
+So what is here?
+
+00:10:16.000 --> 00:10:19.000
+Here we have this static config or this static address.
+
+00:10:20.000 --> 00:10:21.000
+It is not available.
+
+00:10:21.000 --> 00:10:24.000
+All the things we have are dynamic.
+
+00:10:25.000 --> 00:10:31.000
+Addresses are also dynamic and how many instances are running at the same time, all those things are happening dynamically.
+
+00:10:32.000 --> 00:10:35.000
+So we have to use another mechanism here, that is service discovery.
+
+00:10:36.000 --> 00:10:44.000
+Service discovery is made so that it can automatically track your dynamic endpoints and scrape the matrix from there.
+
+00:10:44.000 --> 00:10:56.000
+So what we did here is we set our EC2 service discovery in our YAML file, which is the config file of our Prometheus.
+
+00:10:57.000 --> 00:11:08.000
+As soon as I set this service discovery in the config file, automatically my Prometheus starts scraping the matrix of my instances at the end point of this matrix.
+
+00:11:08.000 --> 00:11:09.000
+So let me show you.
+
+00:11:10.000 --> 00:11:12.000
+So this is the monitoring instance that I have made.
+
+00:11:13.000 --> 00:11:14.000
+Prometheus is running on this.
+
+00:11:15.000 --> 00:11:17.000
+And let's say this is our home page of Prometheus.
+
+00:11:18.000 --> 00:11:19.000
+It starts with a query.
+
+00:11:20.000 --> 00:11:24.000
+And if I go to status, target health, then see this end point here.
+
+00:11:25.000 --> 00:11:28.000
+See your metrics are being tracked on it.
+
+00:11:29.000 --> 00:11:35.000
+Now this ID, this address is basically your private IP.
+
+00:11:35.000 --> 00:11:40.000
+If you want public IP, then you have to go to your instance.
+
+00:11:41.000 --> 00:11:43.000
+So what is listed here is private IP.
+
+00:11:44.000 --> 00:11:45.000
+Let me show you.
+
+00:11:46.000 --> 00:11:49.000
+If you see public IP here, then this is your public IP address and this is your private IP.
+
+00:11:50.000 --> 00:11:52.000
+And Prometheus tracks your private IP.
+
+00:11:53.000 --> 00:11:56.000
+This is 172.31.28.180.
+
+00:11:57.000 --> 00:12:01.000
+You will see this particular IP address here.
+
+00:12:01.000 --> 00:12:02.000
+See.
+
+00:12:03.000 --> 00:12:09.000
+If you want to see here what metrics are being exposed, then simply use public IP here.
+
+00:12:10.000 --> 00:12:13.000
+And you go here to port 2100.
+
+00:12:14.000 --> 00:12:15.000
+Node exporter is running.
+
+00:12:16.000 --> 00:12:21.000
+And if you go to the end point of its metrics, then see all your metrics are being exposed here.
+
+00:12:22.000 --> 00:12:25.000
+So we achieved this in the previous class.
+
+00:12:26.000 --> 00:12:29.000
+What we will do today is we will move one step forward.
+
+00:12:29.000 --> 00:12:32.000
+So we have created our logs on Prometheus.
+
+00:12:33.000 --> 00:12:39.000
+The tracking data is being saved on our Prometheus in our time series database.
+
+00:12:40.000 --> 00:12:45.000
+Now you can read this raw data, analyze it, understand it.
+
+00:12:46.000 --> 00:12:48.000
+The second way is that you build a dashboard around it.
+
+00:12:49.000 --> 00:12:50.000
+You build visualizations around it.
+
+00:12:51.000 --> 00:12:55.000
+And we are going to use Grafana to make those visualizations.
+
+00:12:55.000 --> 00:12:59.000
+So what will be the plan of action of today's class?
+
+00:13:00.000 --> 00:13:03.000
+First of all, we will make an instance from scratch.
+
+00:13:04.000 --> 00:13:05.000
+Which will be our monitoring instance.
+
+00:13:06.000 --> 00:13:09.000
+First of all, we will install our Prometheus here.
+
+00:13:10.000 --> 00:13:16.000
+After that, you will set your targets here using the YAML config.
+
+00:13:17.000 --> 00:13:21.000
+After that, you will install Grafana on this instance.
+
+00:13:21.000 --> 00:13:32.000
+And as soon as you install Grafana, then you will build a connection between Prometheus and Grafana.
+
+00:13:33.000 --> 00:13:39.000
+Because the data of the visualizations you want to make will come from your Prometheus.
+
+00:13:40.000 --> 00:13:41.000
+And from where will Prometheus also come?
+
+00:13:42.000 --> 00:13:43.000
+From that time series database.
+
+00:13:44.000 --> 00:13:47.000
+So what we will do is using our PromQL, we will query this database.
+
+00:13:47.000 --> 00:13:48.000
+We will query it.
+
+00:13:49.000 --> 00:13:50.000
+We will fetch the matrix from here.
+
+00:13:51.000 --> 00:13:52.000
+And then we will plot it.
+
+00:13:53.000 --> 00:13:56.000
+And we will observe our infrastructure matrix.
+
+00:13:57.000 --> 00:13:59.000
+I hope you have cleared the whole flow.
+
+00:14:00.000 --> 00:14:02.000
+Is everything clear guys?
+
+00:14:03.000 --> 00:14:04.000
+Flow is cleared.
+
+00:14:13.000 --> 00:14:14.000
+Great.
+
+00:14:14.000 --> 00:14:17.000
+Mahesh, you can ask your question in chat.
+
+00:14:19.000 --> 00:14:22.000
+If you have any question, then ask in chat.
+
+00:14:26.000 --> 00:14:30.000
+Now I will not be able to take your voice questions.
+
+00:14:31.000 --> 00:14:32.000
+So you can ask in chat.
+
+00:14:34.000 --> 00:14:35.000
+Ok.
+
+00:14:36.000 --> 00:14:37.000
+Is everyone clear?
+
+00:14:38.000 --> 00:14:39.000
+Let's move ahead.
+
+00:14:40.000 --> 00:14:41.000
+Fine Mahesh, no problem.
+
+00:14:42.000 --> 00:14:43.000
+Let's move ahead.
+
+00:14:44.000 --> 00:14:46.000
+We will implement the flow here.
+
+00:14:47.000 --> 00:14:48.000
+Right.
+
+00:14:49.000 --> 00:14:50.000
+So what will we do first?
+
+00:14:51.000 --> 00:14:54.000
+We will go to our instances and create a new instance here.
+
+00:14:55.000 --> 00:14:56.000
+So we went here.
+
+00:14:57.000 --> 00:14:58.000
+Ok.
+
+00:14:59.000 --> 00:15:00.000
+We clicked on launch instance.
+
+00:15:01.000 --> 00:15:02.000
+Just a second guys.
+
+00:15:03.000 --> 00:15:04.000
+Give me one second.
+
+00:15:11.000 --> 00:15:13.000
+Here we will write the instance name.
+
+00:15:14.000 --> 00:15:15.000
+Let's see.
+
+00:15:16.000 --> 00:15:19.000
+Monitoring instance 2.
+
+00:15:20.000 --> 00:15:21.000
+Ok.
+
+00:15:22.000 --> 00:15:23.000
+Here is the name of my instance.
+
+00:15:24.000 --> 00:15:25.000
+We will select OS 1.2.
+
+00:15:26.000 --> 00:15:27.000
+Ok.
+
+00:15:28.000 --> 00:15:31.000
+We will work with T3 micro because we don't require a big instance here.
+
+00:15:32.000 --> 00:15:34.000
+Here it is asking network settings.
+
+00:15:35.000 --> 00:15:36.000
+I have already made a security group here.
+
+00:15:37.000 --> 00:15:40.000
+Which is our monitoring security group.
+
+00:15:41.000 --> 00:15:42.000
+Ok.
+
+00:15:42.000 --> 00:15:43.000
+We will work with 8GB.
+
+00:15:44.000 --> 00:15:47.000
+If we go to advanced details, we will attach a role here.
+
+00:15:48.000 --> 00:15:49.000
+Do you know what this role is for?
+
+00:15:50.000 --> 00:15:54.000
+Prometheus uses the describe instance policy to get the metadata.
+
+00:15:55.000 --> 00:15:57.000
+So we will attach this role here.
+
+00:15:58.000 --> 00:15:59.000
+We made this role in the previous class.
+
+00:16:00.000 --> 00:16:02.000
+I am reusing the exact same role here.
+
+00:16:03.000 --> 00:16:04.000
+Ok.
+
+00:16:05.000 --> 00:16:06.000
+Everything else is fine here.
+
+00:16:07.000 --> 00:16:08.000
+I don't want to change anything else.
+
+00:16:09.000 --> 00:16:10.000
+I will simply launch the instance.
+
+00:16:10.000 --> 00:16:11.000
+Let's go back to our instances.
+
+00:16:12.000 --> 00:16:13.000
+And refresh it once.
+
+00:16:14.000 --> 00:16:15.000
+Ok.
+
+00:16:16.000 --> 00:16:17.000
+This is running.
+
+00:16:18.000 --> 00:16:19.000
+Monitoring instance 2.
+
+00:16:20.000 --> 00:16:21.000
+We will work with this instance.
+
+00:16:22.000 --> 00:16:23.000
+Let's connect it once.
+
+00:16:24.000 --> 00:16:25.000
+Ok.
+
+00:16:26.000 --> 00:16:27.000
+Let's connect.
+
+00:16:28.000 --> 00:16:29.000
+It is not connecting here.
+
+00:16:30.000 --> 00:16:31.000
+It's ok.
+
+00:16:32.000 --> 00:16:33.000
+Let's give it some time.
+
+00:16:34.000 --> 00:16:35.000
+It will connect in a while.
+
+00:16:36.000 --> 00:16:37.000
+Let's redo it again.
+
+00:16:40.000 --> 00:16:41.000
+Ok.
+
+00:16:42.000 --> 00:16:43.000
+It's done.
+
+00:16:44.000 --> 00:16:48.000
+Now we have to install our Prometheus on this instance.
+
+00:16:49.000 --> 00:16:50.000
+The steps are very simple.
+
+00:16:51.000 --> 00:16:55.000
+First of all, download and unzip the Prometheus.
+
+00:16:56.000 --> 00:16:57.000
+We will go here.
+
+00:16:58.000 --> 00:16:59.000
+We will paste the commands.
+
+00:17:00.000 --> 00:17:01.000
+And see.
+
+00:17:02.000 --> 00:17:05.000
+My Prometheus will be downloaded and then extracted.
+
+00:17:06.000 --> 00:17:09.000
+If I show it by LS, you will see that this Prometheus
+
+00:17:10.000 --> 00:17:11.000
+folder is visible.
+
+00:17:12.000 --> 00:17:13.000
+I will make it a CD.
+
+00:17:14.000 --> 00:17:15.000
+Ok.
+
+00:17:16.000 --> 00:17:17.000
+Let's do LS again.
+
+00:17:18.000 --> 00:17:19.000
+Here is Prometheus.
+
+00:17:20.000 --> 00:17:21.000
+There is a config file of Prometheus and prompt tool.
+
+00:17:22.000 --> 00:17:23.000
+Now you know what we have to do.
+
+00:17:24.000 --> 00:17:25.000
+We have to set our target here.
+
+00:17:26.000 --> 00:17:30.000
+I will use nano and enter Prometheus.yml.
+
+00:17:31.000 --> 00:17:34.000
+Prometheus.yml.
+
+00:17:35.000 --> 00:17:36.000
+Ok.
+
+00:17:37.000 --> 00:17:38.000
+My editor is open here.
+
+00:17:38.000 --> 00:17:41.000
+Now we have to set our targets.
+
+00:17:42.000 --> 00:17:45.000
+You know how to set your targets using EC2SD config.
+
+00:17:46.000 --> 00:17:49.000
+We will simply copy this whole thing.
+
+00:17:50.000 --> 00:17:52.000
+And we will paste the whole thing here.
+
+00:17:53.000 --> 00:17:56.000
+We will take this cursor down.
+
+00:17:57.000 --> 00:17:59.000
+And we will paste everything here.
+
+00:18:02.000 --> 00:18:03.000
+Done.
+
+00:18:04.000 --> 00:18:05.000
+Let's check indentation.
+
+00:18:06.000 --> 00:18:07.000
+I think indentation is ok.
+
+00:18:08.000 --> 00:18:09.000
+We have set everything here.
+
+00:18:10.000 --> 00:18:15.000
+We will press control O and then press enter and control X.
+
+00:18:16.000 --> 00:18:20.000
+Let's check once that we have written correctly or not.
+
+00:18:21.000 --> 00:18:22.000
+We will write Prometheus.yml.
+
+00:18:23.000 --> 00:18:24.000
+Ok.
+
+00:18:25.000 --> 00:18:27.000
+We have written our SD config here.
+
+00:18:28.000 --> 00:18:31.000
+Now what we have to do is simply start our Prometheus here.
+
+00:18:32.000 --> 00:18:36.000
+We will use this command and it will start up Prometheus.
+
+00:18:38.000 --> 00:18:41.000
+Prometheus has started on port 1990.
+
+00:18:42.000 --> 00:18:46.000
+And it has read my config file here.
+
+00:18:47.000 --> 00:18:48.000
+No error has come.
+
+00:18:49.000 --> 00:18:50.000
+Let's wait for 2 minutes here.
+
+00:18:51.000 --> 00:18:53.000
+Let everything start up and then we will press enter.
+
+00:18:54.000 --> 00:18:55.000
+So yes.
+
+00:18:56.000 --> 00:18:58.000
+This process is running in my background and my terminal is free.
+
+00:18:59.000 --> 00:19:02.000
+Once we go to this particular address.
+
+00:19:02.000 --> 00:19:03.000
+Let's go to this particular address.
+
+00:19:04.000 --> 00:19:09.000
+And let's hit port 9090.
+
+00:19:11.000 --> 00:19:12.000
+Let's continue.
+
+00:19:13.000 --> 00:19:17.000
+So see my Prometheus is working on this particular instance which I have made with scratch.
+
+00:19:18.000 --> 00:19:20.000
+If I go to status and target help.
+
+00:19:21.000 --> 00:19:25.000
+Here I am able to capture the target matrix.
+
+00:19:26.000 --> 00:19:28.000
+I hope all these things will be clear to you.
+
+00:19:28.000 --> 00:19:31.000
+Again we have done all these things in the previous class.
+
+00:19:32.000 --> 00:19:35.000
+So what we have done is we have installed Prometheus here.
+
+00:19:36.000 --> 00:19:37.000
+So we have completed this step.
+
+00:19:38.000 --> 00:19:39.000
+Ok.
+
+00:19:40.000 --> 00:19:41.000
+We have also set the targets.
+
+00:19:42.000 --> 00:19:43.000
+Now what we have to do is install Grafana here.
+
+00:19:44.000 --> 00:19:45.000
+So installing Grafana is super simple.
+
+00:19:46.000 --> 00:19:53.000
+What you have to do here is simply write install Grafana on Ubuntu in Google.
+
+00:19:54.000 --> 00:19:55.000
+Ok.
+
+00:19:55.000 --> 00:19:56.000
+So you will get Grafana documentation.
+
+00:19:57.000 --> 00:19:59.000
+Install Grafana on Debian and Ubuntu.
+
+00:20:00.000 --> 00:20:01.000
+You have to open it.
+
+00:20:02.000 --> 00:20:03.000
+Ok.
+
+00:20:04.000 --> 00:20:05.000
+Simply what you have to do is go down here.
+
+00:20:06.000 --> 00:20:09.000
+And you have to run these commands one by one.
+
+00:20:10.000 --> 00:20:11.000
+Ok.
+
+00:20:12.000 --> 00:20:14.000
+So first of all we will install the prerequisites here.
+
+00:20:15.000 --> 00:20:16.000
+So we will paste it.
+
+00:20:17.000 --> 00:20:18.000
+And we will press enter.
+
+00:20:19.000 --> 00:20:22.000
+Once I clear the terminal so that you can see the commands here.
+
+00:20:22.000 --> 00:20:23.000
+So it was clearly visible.
+
+00:20:24.000 --> 00:20:26.000
+After that you have to create the key.
+
+00:20:27.000 --> 00:20:28.000
+Copy it.
+
+00:20:29.000 --> 00:20:30.000
+Paste it.
+
+00:20:31.000 --> 00:20:32.000
+And run it.
+
+00:20:33.000 --> 00:20:34.000
+Ok.
+
+00:20:35.000 --> 00:20:40.000
+After that what you have to do is you have to add Grafana repository from where you have to download Grafana.
+
+00:20:41.000 --> 00:20:44.000
+So you have added its location here.
+
+00:20:45.000 --> 00:20:46.000
+After that what you will do is.
+
+00:20:46.000 --> 00:20:49.000
+You have to copy this one.
+
+00:20:50.000 --> 00:20:51.000
+Ok.
+
+00:20:52.000 --> 00:20:53.000
+You don't have to copy beta releases.
+
+00:20:54.000 --> 00:20:55.000
+If you want beta release then you have to do it.
+
+00:20:56.000 --> 00:20:57.000
+I would suggest you to download stable release only.
+
+00:20:58.000 --> 00:20:59.000
+Ok.
+
+00:21:00.000 --> 00:21:02.000
+After that you have to update the rest of the packages.
+
+00:21:03.000 --> 00:21:05.000
+I think we have already done this work.
+
+00:21:06.000 --> 00:21:08.000
+So there will not be anything to update here.
+
+00:21:09.000 --> 00:21:11.000
+Let's wait.
+
+00:21:16.000 --> 00:21:17.000
+It was not there.
+
+00:21:18.000 --> 00:21:19.000
+Ok.
+
+00:21:20.000 --> 00:21:23.000
+After that what you have to do is you have to install Grafana here.
+
+00:21:24.000 --> 00:21:25.000
+So we will simply copy this command.
+
+00:21:26.000 --> 00:21:27.000
+We have done copy.
+
+00:21:28.000 --> 00:21:29.000
+And we will paste it here.
+
+00:21:30.000 --> 00:21:34.000
+This will install Grafana on this instance.
+
+00:21:35.000 --> 00:21:36.000
+See it is downloading.
+
+00:21:37.000 --> 00:21:39.000
+It is around 376 MBs.
+
+00:21:40.000 --> 00:21:43.000
+And Grafana is being unpacked and installed here.
+
+00:21:44.000 --> 00:21:45.000
+Ok.
+
+00:21:46.000 --> 00:21:51.000
+Now what you have to do is you have to install Grafana's enterprise version here.
+
+00:21:56.000 --> 00:21:58.000
+You will go back.
+
+00:21:59.000 --> 00:22:00.000
+Let it get unpacked.
+
+00:22:01.000 --> 00:22:02.000
+Grafana is getting set up.
+
+00:22:03.000 --> 00:22:04.000
+Ok.
+
+00:22:05.000 --> 00:22:06.000
+So basically there are two versions of Grafana.
+
+00:22:07.000 --> 00:22:09.000
+One is open source version which is community driven.
+
+00:22:10.000 --> 00:22:11.000
+And one is its enterprise version.
+
+00:22:12.000 --> 00:22:15.000
+And this enterprise version is the recommended Grafana installation.
+
+00:22:16.000 --> 00:22:20.000
+But sometimes there are some packages which are in the community version.
+
+00:22:21.000 --> 00:22:24.000
+So Grafana advises you to install both.
+
+00:22:25.000 --> 00:22:28.000
+But when you have to run then you have to run only the enterprise version.
+
+00:22:29.000 --> 00:22:30.000
+Ok.
+
+00:22:31.000 --> 00:22:32.000
+So this is done.
+
+00:22:33.000 --> 00:22:34.000
+Let's paste it for enterprise.
+
+00:22:35.000 --> 00:22:36.000
+And let's install this one as well.
+
+00:22:46.000 --> 00:22:47.000
+What happened?
+
+00:22:48.000 --> 00:22:49.000
+Waiting for headers.
+
+00:22:50.000 --> 00:22:51.000
+Let me see.
+
+00:22:59.000 --> 00:23:00.000
+Yes, now it is happening.
+
+00:23:01.000 --> 00:23:02.000
+I don't know what issue was there earlier.
+
+00:23:06.000 --> 00:23:07.000
+Ok.
+
+00:23:08.000 --> 00:23:09.000
+Grafana is installed here.
+
+00:23:10.000 --> 00:23:13.000
+Now what you have to do next is you have to install Grafana.
+
+00:23:13.000 --> 00:23:14.000
+Installation is done.
+
+00:23:15.000 --> 00:23:18.000
+Now what you have to do next is you have to go back.
+
+00:23:20.000 --> 00:23:22.000
+Here and you will scroll down.
+
+00:23:23.000 --> 00:23:24.000
+Now you have to start Grafana.
+
+00:23:25.000 --> 00:23:26.000
+You will click on this.
+
+00:23:27.000 --> 00:23:29.000
+So here you will get commands that how to start Grafana.
+
+00:23:30.000 --> 00:23:33.000
+So what you have to do here is you have to copy these two commands.
+
+00:23:34.000 --> 00:23:35.000
+Ok.
+
+00:23:37.000 --> 00:23:38.000
+You have to go back to your EC2.
+
+00:23:39.000 --> 00:23:40.000
+You have to paste it.
+
+00:23:41.000 --> 00:23:42.000
+And hit enter.
+
+00:23:43.000 --> 00:23:44.000
+Ok.
+
+00:23:45.000 --> 00:23:47.000
+And if you have to verify that Grafana is running or not.
+
+00:23:48.000 --> 00:23:49.000
+You have to copy it.
+
+00:23:51.000 --> 00:23:52.000
+You have to hit paste.
+
+00:23:53.000 --> 00:23:56.000
+And your Grafana is running here.
+
+00:23:57.000 --> 00:23:58.000
+Ok.
+
+00:23:59.000 --> 00:24:00.000
+So active running is coming.
+
+00:24:01.000 --> 00:24:03.000
+This means that Grafana is properly installed on your EC2 machine.
+
+00:24:04.000 --> 00:24:06.000
+So you have to follow these few steps.
+
+00:24:07.000 --> 00:24:08.000
+Ok.
+
+00:24:09.000 --> 00:24:10.000
+First of all you have to install it.
+
+00:24:11.000 --> 00:24:12.000
+After that you have to start your Grafana service.
+
+00:24:13.000 --> 00:24:14.000
+So you have to understand the commands.
+
+00:24:15.000 --> 00:24:16.000
+Simply you have to copy paste the commands.
+
+00:24:17.000 --> 00:24:18.000
+Is it clear guys?
+
+00:24:19.000 --> 00:24:20.000
+This whole setup is clear.
+
+00:24:21.000 --> 00:24:22.000
+It is simple.
+
+00:24:23.000 --> 00:24:24.000
+We simply copy pasted the commands.
+
+00:24:25.000 --> 00:24:26.000
+If it is clear then write clear in the chat.
+
+00:24:27.000 --> 00:24:28.000
+And let's move forward.
+
+00:24:32.000 --> 00:24:33.000
+Clear.
+
+00:24:34.000 --> 00:24:35.000
+It was easy right.
+
+00:24:36.000 --> 00:24:37.000
+Rest you have to focus on any other command.
+
+00:24:38.000 --> 00:24:39.000
+Ok.
+
+00:24:40.000 --> 00:24:41.000
+You can read them.
+
+00:24:41.000 --> 00:24:42.000
+So I have started Grafana.
+
+00:24:43.000 --> 00:24:44.000
+Now you have to go to sign into Grafana.
+
+00:24:45.000 --> 00:24:46.000
+Ok.
+
+00:24:47.000 --> 00:24:48.000
+So what will you know in sign into Grafana.
+
+00:24:49.000 --> 00:24:52.000
+You will know that Grafana if you don't configure it.
+
+00:24:53.000 --> 00:24:55.000
+Then by default it runs on port 3000.
+
+00:24:56.000 --> 00:24:57.000
+So we test it.
+
+00:24:58.000 --> 00:25:02.000
+We will copy our IP address here.
+
+00:25:03.000 --> 00:25:04.000
+We will go here.
+
+00:25:05.000 --> 00:25:07.000
+Paste it and we will hit port 3000.
+
+00:25:08.000 --> 00:25:10.000
+If Grafana is installed then I will see Grafana here.
+
+00:25:11.000 --> 00:25:13.000
+And you can see here welcome to Grafana.
+
+00:25:14.000 --> 00:25:16.000
+Now here it is asking username and password.
+
+00:25:17.000 --> 00:25:19.000
+But the question is that we have not made any username and password.
+
+00:25:20.000 --> 00:25:21.000
+Ok.
+
+00:25:22.000 --> 00:25:23.000
+And here only login option is coming.
+
+00:25:24.000 --> 00:25:25.000
+No sign up option is coming.
+
+00:25:26.000 --> 00:25:27.000
+So where will you get username and password.
+
+00:25:28.000 --> 00:25:29.000
+Again this is clarified in the documentation.
+
+00:25:30.000 --> 00:25:31.000
+It is written on the sign in page.
+
+00:25:32.000 --> 00:25:34.000
+Enter admin for username and password.
+
+00:25:35.000 --> 00:25:36.000
+Ok.
+
+00:25:37.000 --> 00:25:40.000
+So by default you will add admin in username and password.
+
+00:25:41.000 --> 00:25:42.000
+Both are admin.
+
+00:25:43.000 --> 00:25:44.000
+Username and password same.
+
+00:25:45.000 --> 00:25:49.000
+But then Grafana will ask you that do you want to give your password.
+
+00:25:50.000 --> 00:25:51.000
+You can give it.
+
+00:25:52.000 --> 00:25:53.000
+For now we will skip here.
+
+00:25:54.000 --> 00:25:55.000
+And you have entered into Grafana.
+
+00:25:56.000 --> 00:25:58.000
+This is your Grafana's home page or dashboard.
+
+00:25:59.000 --> 00:26:00.000
+Ok.
+
+00:26:01.000 --> 00:26:02.000
+You will work with Grafana here.
+
+00:26:03.000 --> 00:26:04.000
+The whole setup is cleared.
+
+00:26:05.000 --> 00:26:06.000
+So what have we done here.
+
+00:26:07.000 --> 00:26:10.000
+We have successfully installed Grafana here.
+
+00:26:11.000 --> 00:26:12.000
+Next what we have to do here.
+
+00:26:13.000 --> 00:26:14.000
+Prometheus and Grafana.
+
+00:26:15.000 --> 00:26:16.000
+We have to link these two.
+
+00:26:17.000 --> 00:26:18.000
+Ok.
+
+00:26:19.000 --> 00:26:20.000
+Now we don't have any connection here.
+
+00:26:21.000 --> 00:26:22.000
+I will show you from where you see the connection.
+
+00:26:23.000 --> 00:26:24.000
+You will go here.
+
+00:26:25.000 --> 00:26:26.000
+You can see the connection.
+
+00:26:27.000 --> 00:26:28.000
+If you go to data sources.
+
+00:26:29.000 --> 00:26:30.000
+What is the data source?
+
+00:26:31.000 --> 00:26:32.000
+From where your data is coming into Grafana.
+
+00:26:33.000 --> 00:26:34.000
+Currently no data source is defined here.
+
+00:26:35.000 --> 00:26:36.000
+What you will do here is.
+
+00:26:37.000 --> 00:26:38.000
+You will click on add data source.
+
+00:26:39.000 --> 00:26:40.000
+And see.
+
+00:26:41.000 --> 00:26:42.000
+In these databases.
+
+00:26:43.000 --> 00:26:44.000
+The first option is Prometheus.
+
+00:26:45.000 --> 00:26:46.000
+So we will select this.
+
+00:26:47.000 --> 00:26:48.000
+What I have told you.
+
+00:26:49.000 --> 00:26:50.000
+This is Jai and Veeru's pair.
+
+00:26:51.000 --> 00:26:52.000
+They work together.
+
+00:26:53.000 --> 00:26:54.000
+So see.
+
+00:26:55.000 --> 00:26:56.000
+The first option is Prometheus.
+
+00:26:57.000 --> 00:26:58.000
+You will select Prometheus here.
+
+00:26:59.000 --> 00:27:00.000
+Now you have to configure some things here.
+
+00:27:01.000 --> 00:27:02.000
+What you have to do.
+
+00:27:03.000 --> 00:27:04.000
+I will tell you.
+
+00:27:05.000 --> 00:27:06.000
+First of all you have to tell where is your Prometheus.
+
+00:27:07.000 --> 00:27:08.000
+Ok.
+
+00:27:09.000 --> 00:27:10.000
+So because we are running Prometheus on this EC2 instance.
+
+00:27:11.000 --> 00:27:12.000
+So from the perspective of our Grafana.
+
+00:27:13.000 --> 00:27:15.000
+Prometheus is running on localhost.
+
+00:27:16.000 --> 00:27:17.000
+Because we are working on the same system.
+
+00:27:18.000 --> 00:27:19.000
+Ok.
+
+00:27:20.000 --> 00:27:21.000
+So we are going to use this address here.
+
+00:27:22.000 --> 00:27:23.000
+Localhost port 1990.
+
+00:27:24.000 --> 00:27:25.000
+Where is your Prometheus running?
+
+00:27:26.000 --> 00:27:27.000
+It runs on port 1990.
+
+00:27:28.000 --> 00:27:29.000
+So we have set Prometheus here.
+
+00:27:30.000 --> 00:27:31.000
+Ok.
+
+00:27:32.000 --> 00:27:33.000
+You don't have to set anything else here.
+
+00:27:34.000 --> 00:27:35.000
+You have to simply go down.
+
+00:27:36.000 --> 00:27:37.000
+And you have to click on save and test.
+
+00:27:38.000 --> 00:27:39.000
+So what will Grafana do now?
+
+00:27:39.000 --> 00:27:40.000
+It will go to Prometheus.
+
+00:27:41.000 --> 00:27:44.000
+And it will check if it is able to fetch the Prometheus matrix.
+
+00:27:45.000 --> 00:27:46.000
+Ok.
+
+00:27:47.000 --> 00:27:49.000
+You know here at the end point of port 1990.
+
+00:27:50.000 --> 00:27:51.000
+Whose matrix is exposed?
+
+00:27:52.000 --> 00:27:53.000
+See.
+
+00:27:54.000 --> 00:27:55.000
+Prometheus.
+
+00:27:56.000 --> 00:27:57.000
+So if it is able to read the Prometheus matrix.
+
+00:27:58.000 --> 00:27:59.000
+It means that it is able to connect with Prometheus.
+
+00:28:00.000 --> 00:28:01.000
+So Grafana uses this only.
+
+00:28:02.000 --> 00:28:03.000
+Ok.
+
+00:28:04.000 --> 00:28:05.000
+So we will save and test here.
+
+00:28:06.000 --> 00:28:07.000
+And see.
+
+00:28:07.000 --> 00:28:08.000
+It will read the Prometheus API.
+
+00:28:09.000 --> 00:28:11.000
+So if you have set everything correctly.
+
+00:28:12.000 --> 00:28:13.000
+Then your data source will be added here.
+
+00:28:14.000 --> 00:28:15.000
+See.
+
+00:28:16.000 --> 00:28:17.000
+If you go to the data source again.
+
+00:28:18.000 --> 00:28:19.000
+Then you will see Prometheus here.
+
+00:28:20.000 --> 00:28:21.000
+Now what you have to do here.
+
+00:28:22.000 --> 00:28:23.000
+If you want to build a dashboard.
+
+00:28:24.000 --> 00:28:25.000
+Then you have to go to the dashboard section.
+
+00:28:26.000 --> 00:28:28.000
+As soon as you click on the dashboard section.
+
+00:28:29.000 --> 00:28:31.000
+Because you are working with scratch for the first time.
+
+00:28:32.000 --> 00:28:34.000
+So here you will not see any dashboard currently.
+
+00:28:34.000 --> 00:28:35.000
+So what you have to do here.
+
+00:28:36.000 --> 00:28:38.000
+Click on create dashboard.
+
+00:28:40.000 --> 00:28:43.000
+And here you can build your dashboard.
+
+00:28:44.000 --> 00:28:48.000
+Now you will be remembering the line fuse dashboard.
+
+00:28:49.000 --> 00:28:51.000
+So dashboards are generally very similar in approach.
+
+00:28:52.000 --> 00:28:55.000
+You add multiple visualizations or graphs here.
+
+00:28:56.000 --> 00:28:57.000
+Ok.
+
+00:28:58.000 --> 00:29:02.000
+So here we are going to add graphs or plots of system specific matrix.
+
+00:29:02.000 --> 00:29:03.000
+So we are going to add that.
+
+00:29:04.000 --> 00:29:06.000
+So guys, the whole flow is clear now.
+
+00:29:11.000 --> 00:29:12.000
+Is everything clear?
+
+00:29:13.000 --> 00:29:14.000
+It was super simple right?
+
+00:29:15.000 --> 00:29:17.000
+Prometheus we have learnt to install in the previous class.
+
+00:29:18.000 --> 00:29:19.000
+Simply you have to follow the commands here.
+
+00:29:20.000 --> 00:29:21.000
+And you have to install the graphon.
+
+00:29:22.000 --> 00:29:23.000
+Clear?
+
+00:29:24.000 --> 00:29:25.000
+Fine.
+
+00:29:26.000 --> 00:29:27.000
+Now let's do one thing.
+
+00:29:28.000 --> 00:29:29.000
+Let's learn to build our dashboard.
+
+00:29:29.000 --> 00:29:32.000
+Now I would like to share a small disclaimer with you guys.
+
+00:29:33.000 --> 00:29:35.000
+Disclaimer is that if I show you here.
+
+00:29:36.000 --> 00:29:39.000
+If we close this instance.
+
+00:29:40.000 --> 00:29:45.000
+And let's get back to our instance where our exporter is running.
+
+00:29:46.000 --> 00:29:47.000
+This one.
+
+00:29:48.000 --> 00:29:49.000
+Here our application is also running.
+
+00:29:50.000 --> 00:29:51.000
+If I show you see.
+
+00:29:52.000 --> 00:29:53.000
+Our application is also running on this instance.
+
+00:29:54.000 --> 00:29:55.000
+And our backend is also running.
+
+00:29:55.000 --> 00:29:56.000
+So if I.
+
+00:29:58.000 --> 00:29:59.000
+Copy the address.
+
+00:30:00.000 --> 00:30:01.000
+Which I want to show you.
+
+00:30:02.000 --> 00:30:04.000
+And I hit port 9100.
+
+00:30:05.000 --> 00:30:06.000
+Here is my matrix.
+
+00:30:07.000 --> 00:30:08.000
+At the end point of the slash matrix.
+
+00:30:09.000 --> 00:30:14.000
+So you can see here that you get a lot of matrix exposed from your node exporter.
+
+00:30:16.000 --> 00:30:17.000
+Ok.
+
+00:30:18.000 --> 00:30:21.000
+Now at first glance, anyone's mind will be confused by this matrix.
+
+00:30:21.000 --> 00:30:24.000
+Because there are a lot of matrix here.
+
+00:30:25.000 --> 00:30:28.000
+There are a lot of names that we don't understand.
+
+00:30:29.000 --> 00:30:31.000
+And secondly, we don't have an idea.
+
+00:30:32.000 --> 00:30:35.000
+What are the matrix exposed on a Linux based system.
+
+00:30:36.000 --> 00:30:37.000
+And what things we have to track.
+
+00:30:38.000 --> 00:30:39.000
+Because we don't understand Linux kernel.
+
+00:30:40.000 --> 00:30:43.000
+So what is the best approach you have to take here.
+
+00:30:44.000 --> 00:30:47.000
+The best approach is that you can go to either cloud or chat gpd.
+
+00:30:48.000 --> 00:30:49.000
+And you specifically tell it.
+
+00:30:49.000 --> 00:30:51.000
+What all things you have to track.
+
+00:30:52.000 --> 00:30:53.000
+And on the basis of that.
+
+00:30:54.000 --> 00:30:56.000
+You can generate the queries of promql from it.
+
+00:30:57.000 --> 00:30:58.000
+Test them.
+
+00:30:59.000 --> 00:31:01.000
+And build your dashboards on it.
+
+00:31:02.000 --> 00:31:03.000
+Ok.
+
+00:31:04.000 --> 00:31:05.000
+This is the most easiest way.
+
+00:31:06.000 --> 00:31:07.000
+And the most logical way to build dashboards.
+
+00:31:08.000 --> 00:31:09.000
+Based on the node exporter.
+
+00:31:10.000 --> 00:31:11.000
+Ok.
+
+00:31:12.000 --> 00:31:13.000
+So we are going to use this method here.
+
+00:31:14.000 --> 00:31:15.000
+We will generate some plots here.
+
+00:31:16.000 --> 00:31:17.000
+Again.
+
+00:31:17.000 --> 00:31:18.000
+There is another solution to this.
+
+00:31:19.000 --> 00:31:20.000
+The solution is that.
+
+00:31:21.000 --> 00:31:25.000
+The community has already built your templates here.
+
+00:31:26.000 --> 00:31:27.000
+Ok.
+
+00:31:28.000 --> 00:31:29.000
+Around your node exporter.
+
+00:31:30.000 --> 00:31:32.000
+So once we will generate our custom plots here.
+
+00:31:33.000 --> 00:31:34.000
+And after that I will show you.
+
+00:31:35.000 --> 00:31:36.000
+How you can use the pre-built template here.
+
+00:31:37.000 --> 00:31:40.000
+Again, you will get a wide variety of graphs in the pre-built template.
+
+00:31:41.000 --> 00:31:43.000
+A lot of detailed observability around your EC2 machines.
+
+00:31:44.000 --> 00:31:45.000
+They give you those templates.
+
+00:31:45.000 --> 00:31:46.000
+What is my recommendation?
+
+00:31:47.000 --> 00:31:48.000
+My recommendation is that you use templates.
+
+00:31:49.000 --> 00:31:51.000
+But since we are learning to work with graphana.
+
+00:31:52.000 --> 00:31:54.000
+So let's create some custom visualizations here.
+
+00:31:55.000 --> 00:31:56.000
+And at last I will show you.
+
+00:31:57.000 --> 00:31:59.000
+How you can see the visualizations through the template.
+
+00:32:00.000 --> 00:32:01.000
+This point is clear to you.
+
+00:32:04.000 --> 00:32:05.000
+Do you understand the reasoning?
+
+00:32:06.000 --> 00:32:07.000
+Why we are doing this?
+
+00:32:12.000 --> 00:32:13.000
+Clear.
+
+00:32:13.000 --> 00:32:14.000
+Ok.
+
+00:32:15.000 --> 00:32:18.000
+So I have already pushed the promql queries on the GitHub.
+
+00:32:19.000 --> 00:32:20.000
+If I show you.
+
+00:32:21.000 --> 00:32:23.000
+So I have pushed a small markdown file here.
+
+00:32:24.000 --> 00:32:25.000
+And it is a very simple markdown file.
+
+00:32:26.000 --> 00:32:28.000
+Look here is graphana promql queries.
+
+00:32:29.000 --> 00:32:30.000
+If you go on this.
+
+00:32:31.000 --> 00:32:34.000
+So here I have written promql queries for every use case.
+
+00:32:35.000 --> 00:32:37.000
+Ok. I will explain you how to do this query.
+
+00:32:38.000 --> 00:32:39.000
+I will give you a basic idea.
+
+00:32:40.000 --> 00:32:42.000
+But what we will do is that we will use them directly in our graphs.
+
+00:32:43.000 --> 00:32:44.000
+So here I am tracking some things.
+
+00:32:45.000 --> 00:32:46.000
+Like CPU usage per core.
+
+00:32:47.000 --> 00:32:48.000
+I basically want to see.
+
+00:32:49.000 --> 00:32:51.000
+How is my CPU usage of every core.
+
+00:32:52.000 --> 00:32:53.000
+You see in task manager.
+
+00:32:54.000 --> 00:32:55.000
+How much load is being applied on every core.
+
+00:32:56.000 --> 00:32:58.000
+So you can visualize that load through this particular query.
+
+00:32:59.000 --> 00:33:00.000
+Ok.
+
+00:33:01.000 --> 00:33:02.000
+How much RAM you are using.
+
+00:33:03.000 --> 00:33:04.000
+How much RAM you have available.
+
+00:33:05.000 --> 00:33:06.000
+You can see that through these queries.
+
+00:33:07.000 --> 00:33:08.000
+Ok. Ram usage will tell you these queries.
+
+00:33:09.000 --> 00:33:10.000
+Then comes your network speed.
+
+00:33:11.000 --> 00:33:12.000
+In kilobyte per second.
+
+00:33:13.000 --> 00:33:14.000
+How much data you are sending on your EC2 instances.
+
+00:33:15.000 --> 00:33:16.000
+How much inbound data is there.
+
+00:33:17.000 --> 00:33:21.000
+And how much data is coming out of that EC2 machine on your network.
+
+00:33:22.000 --> 00:33:23.000
+So you will track these two.
+
+00:33:24.000 --> 00:33:26.000
+And finally you will track the disk usage.
+
+00:33:27.000 --> 00:33:31.000
+How much percentage of your 30 GB disk you are using.
+
+00:33:32.000 --> 00:33:34.000
+And how many GB's you are using in it.
+
+00:33:35.000 --> 00:33:36.000
+We will also track that here.
+
+00:33:37.000 --> 00:33:38.000
+Ok. So it will be simple.
+
+00:33:39.000 --> 00:33:40.000
+I will show you how all these things will be.
+
+00:33:41.000 --> 00:33:42.000
+First you have to copy your query.
+
+00:33:43.000 --> 00:33:44.000
+Ok.
+
+00:33:45.000 --> 00:33:46.000
+And what you have to do first.
+
+00:33:47.000 --> 00:33:48.000
+You have to go to Prometheus.
+
+00:33:49.000 --> 00:33:50.000
+This is Prometheus app.
+
+00:33:51.000 --> 00:33:52.000
+You will go to query.
+
+00:33:53.000 --> 00:33:54.000
+And you will paste this query.
+
+00:33:55.000 --> 00:33:56.000
+And once you execute it.
+
+00:33:57.000 --> 00:33:58.000
+What is the result.
+
+00:33:59.000 --> 00:34:00.000
+So what is the result.
+
+00:34:01.000 --> 00:34:04.000
+Here it is 0.8 and here it is 0.83.
+
+00:34:05.000 --> 00:34:06.000
+Ok.
+
+00:34:07.000 --> 00:34:08.000
+Now what we are doing here.
+
+00:34:09.000 --> 00:34:10.000
+You have to understand the queries.
+
+00:34:10.000 --> 00:34:11.000
+You have to understand.
+
+00:34:12.000 --> 00:34:14.000
+Once we remove 100 minus.
+
+00:34:15.000 --> 00:34:17.000
+Ok. Once we simply remove it.
+
+00:34:18.000 --> 00:34:19.000
+And once we run it.
+
+00:34:20.000 --> 00:34:21.000
+Ok.
+
+00:34:22.000 --> 00:34:23.000
+Now what this thing is telling us.
+
+00:34:24.000 --> 00:34:25.000
+This thing is telling us.
+
+00:34:26.000 --> 00:34:27.000
+What we are doing here.
+
+00:34:28.000 --> 00:34:29.000
+To the seconds of our node CPU.
+
+00:34:30.000 --> 00:34:31.000
+Which is its total.
+
+00:34:32.000 --> 00:34:33.000
+What is total. Its sum.
+
+00:34:34.000 --> 00:34:35.000
+We are calculating that.
+
+00:34:36.000 --> 00:34:37.000
+Basically this is our counter metric.
+
+00:34:38.000 --> 00:34:39.000
+And what this counter is calculating.
+
+00:34:40.000 --> 00:34:43.000
+How much time it stays in idle mode.
+
+00:34:44.000 --> 00:34:45.000
+Ok. It keeps counting it.
+
+00:34:46.000 --> 00:34:47.000
+Every second if it is in idle mode.
+
+00:34:48.000 --> 00:34:49.000
+Then it will keep increasing from plus one to that counter.
+
+00:34:50.000 --> 00:34:51.000
+We had studied about counters.
+
+00:34:52.000 --> 00:34:53.000
+Now I will do one thing.
+
+00:34:54.000 --> 00:34:56.000
+I will show you by removing all this thing.
+
+00:34:57.000 --> 00:34:58.000
+Just we are learning to work with one metric.
+
+00:34:59.000 --> 00:35:02.000
+And after that we will use the rest of the metrics directly.
+
+00:35:03.000 --> 00:35:04.000
+See what is this.
+
+00:35:05.000 --> 00:35:06.000
+I will remove this too.
+
+00:35:07.000 --> 00:35:08.000
+This is my node.
+
+00:35:08.000 --> 00:35:09.000
+My node.
+
+00:35:10.000 --> 00:35:11.000
+CPU seconds total.
+
+00:35:12.000 --> 00:35:13.000
+Now we will work with this.
+
+00:35:14.000 --> 00:35:16.000
+Now if I check node CPU seconds total.
+
+00:35:17.000 --> 00:35:21.000
+Then here you have different data.
+
+00:35:22.000 --> 00:35:23.000
+Ok. Some are idle.
+
+00:35:24.000 --> 00:35:25.000
+Some are IO weight. Some are IRQ.
+
+00:35:26.000 --> 00:35:28.000
+These are basically the CPU stages.
+
+00:35:29.000 --> 00:35:30.000
+That in which stage it is currently.
+
+00:35:31.000 --> 00:35:32.000
+Is it busy.
+
+00:35:33.000 --> 00:35:34.000
+Or it is idle.
+
+00:35:35.000 --> 00:35:36.000
+Or it is working with IO related.
+
+00:35:36.000 --> 00:35:37.000
+This is the information.
+
+00:35:38.000 --> 00:35:39.000
+This is the detail.
+
+00:35:40.000 --> 00:35:42.000
+When we want to do filtration here.
+
+00:35:43.000 --> 00:35:44.000
+What we want to check.
+
+00:35:45.000 --> 00:35:46.000
+We want to check that in idle mode.
+
+00:35:47.000 --> 00:35:48.000
+How much is our CPU.
+
+00:35:49.000 --> 00:35:50.000
+So we simply have to use curly braces.
+
+00:35:51.000 --> 00:35:52.000
+After curly braces.
+
+00:35:53.000 --> 00:35:54.000
+Auto fill will come here.
+
+00:35:55.000 --> 00:35:56.000
+We have to select mode.
+
+00:35:57.000 --> 00:35:58.000
+What should be the value of mode.
+
+00:35:59.000 --> 00:36:00.000
+It should be equal to.
+
+00:36:01.000 --> 00:36:02.000
+And you will get options here too.
+
+00:36:03.000 --> 00:36:04.000
+As I am opening the codes here.
+
+00:36:04.000 --> 00:36:05.000
+You will get the option idle.
+
+00:36:06.000 --> 00:36:07.000
+If I run it.
+
+00:36:08.000 --> 00:36:09.000
+Then what will happen.
+
+00:36:10.000 --> 00:36:11.000
+It will be filtration based on the dimension.
+
+00:36:12.000 --> 00:36:13.000
+This is our dimension.
+
+00:36:14.000 --> 00:36:15.000
+As soon as I execute.
+
+00:36:16.000 --> 00:36:17.000
+Because there are two cores on my instance.
+
+00:36:18.000 --> 00:36:19.000
+CPU 0 is my first code.
+
+00:36:20.000 --> 00:36:21.000
+CPU 1 is my second code.
+
+00:36:22.000 --> 00:36:24.000
+So this is the idle time of both the cores.
+
+00:36:25.000 --> 00:36:26.000
+Ok.
+
+00:36:27.000 --> 00:36:28.000
+But this is an instance vector.
+
+00:36:29.000 --> 00:36:30.000
+Now what value is currently running.
+
+00:36:31.000 --> 00:36:32.000
+It is showing me.
+
+00:36:32.000 --> 00:36:33.000
+If I want to see it in a range.
+
+00:36:34.000 --> 00:36:35.000
+Then what I will do.
+
+00:36:36.000 --> 00:36:38.000
+I will put a range in the square brackets.
+
+00:36:39.000 --> 00:36:44.000
+So I want to know my idle time in the last 5 minutes.
+
+00:36:45.000 --> 00:36:46.000
+Now what does Prometheus do.
+
+00:36:47.000 --> 00:36:51.000
+Prometheus scrapes your data in every 15 seconds.
+
+00:36:52.000 --> 00:36:53.000
+So if 5 minutes is here.
+
+00:36:54.000 --> 00:36:57.000
+So how many values will I have here.
+
+00:36:58.000 --> 00:36:59.000
+Someone will tell me.
+
+00:37:00.000 --> 00:37:01.000
+If I bring one value in 15 seconds.
+
+00:37:02.000 --> 00:37:04.000
+I will check it in the last 5 minutes.
+
+00:37:05.000 --> 00:37:06.000
+So how many total values will I have.
+
+00:37:09.000 --> 00:37:10.000
+In one minute I have 4.
+
+00:37:11.000 --> 00:37:12.000
+So how many will be in 5 minutes.
+
+00:37:14.000 --> 00:37:15.000
+20.
+
+00:37:16.000 --> 00:37:17.000
+You can count these 20 values.
+
+00:37:18.000 --> 00:37:19.000
+And same for my core number 2.
+
+00:37:20.000 --> 00:37:21.000
+Ok.
+
+00:37:22.000 --> 00:37:23.000
+Now what I will do here.
+
+00:37:24.000 --> 00:37:25.000
+I am not getting any benefit from these values.
+
+00:37:26.000 --> 00:37:27.000
+It is showing the value of every 15 seconds.
+
+00:37:28.000 --> 00:37:29.000
+Now I will put an aggregate function here.
+
+00:37:30.000 --> 00:37:31.000
+Which is called rate.
+
+00:37:32.000 --> 00:37:34.000
+Per second increase over a range vector.
+
+00:37:35.000 --> 00:37:36.000
+Especially for counter.
+
+00:37:37.000 --> 00:37:39.000
+I told you that this node CPU seconds total.
+
+00:37:40.000 --> 00:37:42.000
+This is my counter based metric.
+
+00:37:43.000 --> 00:37:44.000
+If I highlight here.
+
+00:37:45.000 --> 00:37:46.000
+Then its value will also come.
+
+00:37:47.000 --> 00:37:48.000
+Now it is not coming.
+
+00:37:49.000 --> 00:37:50.000
+But what will happen through the rate.
+
+00:37:51.000 --> 00:37:52.000
+It will show me per second change.
+
+00:37:53.000 --> 00:37:54.000
+And we use this for range metrics.
+
+00:37:55.000 --> 00:37:56.000
+So as soon as I put a rate here.
+
+00:37:57.000 --> 00:37:58.000
+And run it.
+
+00:37:59.000 --> 00:38:00.000
+So see here this rate is coming.
+
+00:38:00.000 --> 00:38:06.000
+That how this particular metric is behaving per second.
+
+00:38:07.000 --> 00:38:12.000
+Means how much percentage was free in 5 minutes.
+
+00:38:13.000 --> 00:38:14.000
+Or how much percentage was busy.
+
+00:38:15.000 --> 00:38:17.000
+So I am understanding that in the last 5 minutes.
+
+00:38:18.000 --> 00:38:21.000
+Generally 99% of this CPU was free.
+
+00:38:22.000 --> 00:38:23.000
+Ok.
+
+00:38:24.000 --> 00:38:25.000
+I was not using any CPU here.
+
+00:38:26.000 --> 00:38:27.000
+Now what I will do here.
+
+00:38:28.000 --> 00:38:29.000
+I want to calculate.
+
+00:38:30.000 --> 00:38:32.000
+Now I can put some group by operations here.
+
+00:38:33.000 --> 00:38:34.000
+Ok.
+
+00:38:35.000 --> 00:38:37.000
+It is possible that based on the core or based on the mode.
+
+00:38:38.000 --> 00:38:39.000
+I want to calculate some things here.
+
+00:38:40.000 --> 00:38:41.000
+So what we do for that.
+
+00:38:42.000 --> 00:38:43.000
+We put by operations.
+
+00:38:44.000 --> 00:38:45.000
+If I show you here.
+
+00:38:46.000 --> 00:38:47.000
+What is written here.
+
+00:38:48.000 --> 00:38:50.000
+Average by means I am calculating average of the rate.
+
+00:38:51.000 --> 00:38:53.000
+Based on two things.
+
+00:38:54.000 --> 00:38:56.000
+Here I am putting group by on two features.
+
+00:38:57.000 --> 00:38:58.000
+Instance type and CPU.
+
+00:38:58.000 --> 00:38:59.000
+Ok.
+
+00:39:00.000 --> 00:39:01.000
+So if you see here.
+
+00:39:02.000 --> 00:39:03.000
+In my metrics.
+
+00:39:04.000 --> 00:39:05.000
+If I show you.
+
+00:39:06.000 --> 00:39:07.000
+So what is the instance.
+
+00:39:08.000 --> 00:39:09.000
+This is the instance ID.
+
+00:39:10.000 --> 00:39:11.000
+And what is the CPU.
+
+00:39:12.000 --> 00:39:13.000
+This is my cores.
+
+00:39:14.000 --> 00:39:15.000
+So basically I am doing average on two things.
+
+00:39:16.000 --> 00:39:17.000
+Based on my instance ID and my core.
+
+00:39:18.000 --> 00:39:20.000
+So here I will get information of each of my core.
+
+00:39:21.000 --> 00:39:22.000
+Average free time.
+
+00:39:23.000 --> 00:39:25.000
+And if I want to calculate busy time.
+
+00:39:25.000 --> 00:39:26.000
+So here I have to calculate busy time.
+
+00:39:27.000 --> 00:39:28.000
+And it is in percentage.
+
+00:39:29.000 --> 00:39:30.000
+So I will make it from 100 to minus.
+
+00:39:31.000 --> 00:39:32.000
+What will be my 100 minus free time.
+
+00:39:33.000 --> 00:39:34.000
+My busy time.
+
+00:39:35.000 --> 00:39:36.000
+What is my busy time.
+
+00:39:37.000 --> 00:39:38.000
+My usage.
+
+00:39:39.000 --> 00:39:40.000
+I hope you understood how to write this query.
+
+00:39:41.000 --> 00:39:42.000
+And finally you will multiply by 100.
+
+00:39:43.000 --> 00:39:45.000
+So that you can calculate the percentage here.
+
+00:39:46.000 --> 00:39:47.000
+Ok.
+
+00:39:48.000 --> 00:39:49.000
+So simply you have to copy it.
+
+00:39:50.000 --> 00:39:51.000
+You have to go back.
+
+00:39:52.000 --> 00:39:53.000
+Here you have to go to new dashboard.
+
+00:39:53.000 --> 00:39:54.000
+Here you have to go to panel.
+
+00:39:55.000 --> 00:39:56.000
+Panel means a visualization.
+
+00:39:57.000 --> 00:39:58.000
+So here you will create a panel.
+
+00:39:59.000 --> 00:40:01.000
+On that you will go to configure visualizations.
+
+00:40:02.000 --> 00:40:03.000
+Ok.
+
+00:40:04.000 --> 00:40:05.000
+Now here is your main panel.
+
+00:40:06.000 --> 00:40:07.000
+Here you will see your visualization.
+
+00:40:08.000 --> 00:40:10.000
+Here you will see all your settings on the right hand side.
+
+00:40:11.000 --> 00:40:14.000
+And below you can write your queries.
+
+00:40:15.000 --> 00:40:17.000
+Now there are two methods to write queries.
+
+00:40:18.000 --> 00:40:19.000
+One is your builder method.
+
+00:40:20.000 --> 00:40:22.000
+Which basically helps you to write queries through drag and drop.
+
+00:40:23.000 --> 00:40:27.000
+But the problem with builder method is that you can't write advanced queries.
+
+00:40:28.000 --> 00:40:29.000
+Ok.
+
+00:40:30.000 --> 00:40:31.000
+So what we will do is we will go to code method.
+
+00:40:32.000 --> 00:40:34.000
+And simply you have to put your promptql query here.
+
+00:40:35.000 --> 00:40:36.000
+Which I have copied.
+
+00:40:37.000 --> 00:40:38.000
+Paste it and I will click on run query.
+
+00:40:40.000 --> 00:40:41.000
+Ok.
+
+00:40:42.000 --> 00:40:43.000
+So here you can see a graph.
+
+00:40:44.000 --> 00:40:45.000
+So here you have multiple options.
+
+00:40:46.000 --> 00:40:47.000
+If you want to see the start graph.
+
+00:40:48.000 --> 00:40:49.000
+You can see gauge.
+
+00:40:49.000 --> 00:40:54.000
+So we want to see our CPU usage in gauge.
+
+00:40:55.000 --> 00:40:56.000
+So we will go to all visualizations.
+
+00:40:57.000 --> 00:40:58.000
+And we will select gauge.
+
+00:40:59.000 --> 00:41:00.000
+So you can see here.
+
+00:41:01.000 --> 00:41:03.000
+What you can see here is 0.75 and 0.82.
+
+00:41:04.000 --> 00:41:07.000
+These are exactly the same things that you can see in the promptql query.
+
+00:41:08.000 --> 00:41:09.000
+If I paste this thing.
+
+00:41:10.000 --> 00:41:11.000
+Then my data is coming from here.
+
+00:41:12.000 --> 00:41:13.000
+Now it has changed.
+
+00:41:14.000 --> 00:41:15.000
+0.80 and 0.84.
+
+00:41:16.000 --> 00:41:17.000
+If I go back here.
+
+00:41:17.000 --> 00:41:18.000
+And if I refresh it.
+
+00:41:19.000 --> 00:41:20.000
+See.
+
+00:41:21.000 --> 00:41:22.000
+So now it is changing.
+
+00:41:23.000 --> 00:41:24.000
+I am not able to show you exactly.
+
+00:41:25.000 --> 00:41:27.000
+Because things are changing very quickly.
+
+00:41:28.000 --> 00:41:30.000
+But you can see clearly where my data is coming from.
+
+00:41:31.000 --> 00:41:32.000
+Ok.
+
+00:41:33.000 --> 00:41:34.000
+Now what I have to do is I have options on the right hand side.
+
+00:41:35.000 --> 00:41:38.000
+And through this I can simply modify my things.
+
+00:41:39.000 --> 00:41:40.000
+One more thing we will do here.
+
+00:41:41.000 --> 00:41:43.000
+That we have to show you below.
+
+00:41:44.000 --> 00:41:46.000
+Which you can call as legend or label.
+
+00:41:47.000 --> 00:41:48.000
+We will set this label.
+
+00:41:49.000 --> 00:41:50.000
+So this is your legend.
+
+00:41:51.000 --> 00:41:52.000
+You have to copy this.
+
+00:41:55.000 --> 00:41:56.000
+I will explain to you.
+
+00:41:57.000 --> 00:41:58.000
+This is very easy.
+
+00:41:59.000 --> 00:42:00.000
+It is not that hard and fast.
+
+00:42:01.000 --> 00:42:02.000
+You have to go here.
+
+00:42:03.000 --> 00:42:04.000
+You have to go to options.
+
+00:42:05.000 --> 00:42:06.000
+You have to go to legend.
+
+00:42:07.000 --> 00:42:08.000
+You have to go to custom.
+
+00:42:09.000 --> 00:42:10.000
+And you have to give this legend here.
+
+00:42:11.000 --> 00:42:13.000
+Legend says that first you should have your instance id.
+
+00:42:14.000 --> 00:42:15.000
+Then you should have a hyphen.
+
+00:42:15.000 --> 00:42:17.000
+Then you should have a core and core number.
+
+00:42:18.000 --> 00:42:19.000
+Basically the number you are seeing here.
+
+00:42:20.000 --> 00:42:21.000
+So you will not see this whole thing like this.
+
+00:42:22.000 --> 00:42:23.000
+Legend will be shown in a proper structure.
+
+00:42:24.000 --> 00:42:25.000
+If I run c.
+
+00:42:26.000 --> 00:42:30.000
+So here you can see your instance id, hyphen core and which core.
+
+00:42:31.000 --> 00:42:34.000
+Now what you can do is you can give a title here.
+
+00:42:35.000 --> 00:42:36.000
+So we will keep the title here.
+
+00:42:37.000 --> 00:42:43.000
+CPU usage in percentages.
+
+00:42:43.000 --> 00:42:44.000
+I have given this title.
+
+00:42:45.000 --> 00:42:46.000
+You can add a description too.
+
+00:42:47.000 --> 00:43:01.000
+Plot to monitor CPU usage on EC2 instances.
+
+00:43:02.000 --> 00:43:03.000
+Where will you see this description?
+
+00:43:04.000 --> 00:43:05.000
+You will see it here.
+
+00:43:06.000 --> 00:43:10.000
+Everything that we are doing here will be shown here.
+
+00:43:10.000 --> 00:43:11.000
+You can check panel link.
+
+00:43:12.000 --> 00:43:15.000
+You can select the style you want.
+
+00:43:16.000 --> 00:43:17.000
+You can select auto.
+
+00:43:18.000 --> 00:43:19.000
+You can select this style or that style.
+
+00:43:20.000 --> 00:43:21.000
+You have multiple options.
+
+00:43:22.000 --> 00:43:23.000
+We will customize here.
+
+00:43:24.000 --> 00:43:27.000
+First of all you have to select your gauge.
+
+00:43:28.000 --> 00:43:29.000
+How do you want gauge?
+
+00:43:30.000 --> 00:43:31.000
+Do you want arc style or circle style?
+
+00:43:32.000 --> 00:43:33.000
+So we will work with arc style.
+
+00:43:34.000 --> 00:43:35.000
+How do you want orientation?
+
+00:43:36.000 --> 00:43:38.000
+How should you see these two gauges?
+
+00:43:38.000 --> 00:43:40.000
+Should it be horizontal, vertical or auto?
+
+00:43:41.000 --> 00:43:42.000
+We will select auto here.
+
+00:43:43.000 --> 00:43:48.000
+Then you can tune the width here.
+
+00:43:49.000 --> 00:43:50.000
+How thin should it be?
+
+00:43:51.000 --> 00:43:52.000
+I am bringing the slider here.
+
+00:43:53.000 --> 00:43:54.000
+This gray area is decreasing.
+
+00:43:55.000 --> 00:43:57.000
+If I am increasing it, it is increasing.
+
+00:43:58.000 --> 00:44:00.000
+You can add some segments here.
+
+00:44:01.000 --> 00:44:04.000
+You will get the speedometer effect.
+
+00:44:05.000 --> 00:44:07.000
+You can tweak it as per your choice.
+
+00:44:08.000 --> 00:44:09.000
+I will keep the value 10.
+
+00:44:10.000 --> 00:44:12.000
+By looking at this, I will know that currently,
+
+00:44:13.000 --> 00:44:15.000
+my usage is around 10%.
+
+00:44:16.000 --> 00:44:18.000
+After that, text mode is coming here.
+
+00:44:19.000 --> 00:44:20.000
+What do you want to show here?
+
+00:44:21.000 --> 00:44:22.000
+Do you want to show text only?
+
+00:44:23.000 --> 00:44:24.000
+Do you want to show value only?
+
+00:44:25.000 --> 00:44:26.000
+Or do you want to show only name?
+
+00:44:27.000 --> 00:44:28.000
+You can select all these things.
+
+00:44:29.000 --> 00:44:30.000
+After that, there are color options.
+
+00:44:31.000 --> 00:44:32.000
+If you want to set the gradient.
+
+00:44:33.000 --> 00:44:34.000
+You will see the threshold bar.
+
+00:44:35.000 --> 00:44:36.000
+You can see clearly green, yellow and red.
+
+00:44:36.000 --> 00:44:38.000
+If you do gradient, you will get the gradient feel.
+
+00:44:39.000 --> 00:44:40.000
+It will merge.
+
+00:44:41.000 --> 00:44:42.000
+You can do bar glow.
+
+00:44:43.000 --> 00:44:45.000
+If you can do center glow, you can do center glow.
+
+00:44:46.000 --> 00:44:47.000
+Again, these are your customizations.
+
+00:44:48.000 --> 00:44:49.000
+You can tell the text size here.
+
+00:44:50.000 --> 00:44:52.000
+What should be the size of the text and value?
+
+00:44:53.000 --> 00:44:54.000
+Then we come to standard options.
+
+00:44:55.000 --> 00:44:56.000
+This is the most important part.
+
+00:44:57.000 --> 00:44:58.000
+First of all, you choose the unit here.
+
+00:44:59.000 --> 00:45:01.000
+Now it is showing 0.8.839.
+
+00:45:02.000 --> 00:45:03.000
+What we have written here?
+
+00:45:04.000 --> 00:45:05.000
+CPU usage in percentages.
+
+00:45:06.000 --> 00:45:07.000
+What we will do here?
+
+00:45:08.000 --> 00:45:09.000
+Select the unit.
+
+00:45:10.000 --> 00:45:11.000
+We will select percentage.
+
+00:45:12.000 --> 00:45:13.000
+Now what should be the percentage?
+
+00:45:14.000 --> 00:45:15.000
+It should be between 0 to 1.
+
+00:45:16.000 --> 00:45:17.000
+Because 0.8 is what?
+
+00:45:18.000 --> 00:45:19.000
+8% If I will set it to 0 to 100.
+
+00:45:20.000 --> 00:45:21.000
+Then it will look like this.
+
+00:45:22.000 --> 00:45:23.000
+Which is not correct.
+
+00:45:24.000 --> 00:45:26.000
+I have to select percentage 0 to 1.
+
+00:45:27.000 --> 00:45:28.000
+And see.
+
+00:45:29.000 --> 00:45:30.000
+What do you see here?
+
+00:45:31.000 --> 00:45:34.000
+It is showing 83.9%.
+
+00:45:34.000 --> 00:45:35.000
+It means that the usage is more.
+
+00:45:36.000 --> 00:45:38.000
+Maybe because my application is running here.
+
+00:45:39.000 --> 00:45:40.000
+That's why.
+
+00:45:41.000 --> 00:45:42.000
+So we have calculated this.
+
+00:45:43.000 --> 00:45:44.000
+And.
+
+00:45:45.000 --> 00:45:46.000
+That's all.
+
+00:45:47.000 --> 00:45:49.000
+And you can tweak the rest of the thresholds.
+
+00:45:50.000 --> 00:45:52.000
+This red part, this orange part, how much should it be?
+
+00:45:53.000 --> 00:45:54.000
+You can set it here.
+
+00:45:55.000 --> 00:45:56.000
+Like I want to set it in red.
+
+00:45:57.000 --> 00:45:58.000
+Let's say 90.
+
+00:45:59.000 --> 00:46:01.000
+So my red part will be ahead of 90.
+
+00:46:01.000 --> 00:46:02.000
+And.
+
+00:46:03.000 --> 00:46:04.000
+I want to set this yellow one.
+
+00:46:05.000 --> 00:46:06.000
+Let's say 75.
+
+00:46:07.000 --> 00:46:10.000
+So you can also set these thresholds.
+
+00:46:11.000 --> 00:46:12.000
+See.
+
+00:46:13.000 --> 00:46:14.000
+I have set this.
+
+00:46:15.000 --> 00:46:18.000
+And if I want to save it, then I will click on save.
+
+00:46:19.000 --> 00:46:22.000
+You will give the title here of your dashboard.
+
+00:46:23.000 --> 00:46:24.000
+Let's keep it.
+
+00:46:25.000 --> 00:46:27.000
+And you can give a description.
+
+00:46:28.000 --> 00:46:29.000
+I will simply click save.
+
+00:46:29.000 --> 00:46:31.000
+And your dashboard is saved here.
+
+00:46:32.000 --> 00:46:33.000
+See.
+
+00:46:34.000 --> 00:46:37.000
+You can easily track the core usage.
+
+00:46:38.000 --> 00:46:40.000
+For your EC2 instances.
+
+00:46:41.000 --> 00:46:42.000
+This part is clear.
+
+00:46:43.000 --> 00:46:44.000
+This observation is clear.
+
+00:46:45.000 --> 00:46:46.000
+Again, you have multiple options here.
+
+00:46:47.000 --> 00:46:48.000
+You can go and tweak them.
+
+00:46:50.000 --> 00:46:51.000
+Is this point clear?
+
+00:46:51.000 --> 00:46:52.000
+Clear.
+
+00:46:53.000 --> 00:46:54.000
+Great.
+
+00:46:55.000 --> 00:46:56.000
+Let's do one thing.
+
+00:46:56.000 --> 00:46:59.000
+Let's ask some questions and see if this changes or not.
+
+00:47:00.000 --> 00:47:05.000
+Let's ask what is the difference.
+
+00:47:06.000 --> 00:47:07.000
+Between.
+
+00:47:08.000 --> 00:47:09.000
+Online.
+
+00:47:09.000 --> 00:47:10.000
+Versus.
+
+00:47:10.000 --> 00:47:11.000
+Offline.
+
+00:47:11.000 --> 00:47:12.000
+Revals.
+
+00:47:13.000 --> 00:47:16.000
+So now clearly, looking at the CPU usage, we can understand that.
+
+00:47:17.000 --> 00:47:18.000
+This is the CPU usage.
+
+00:47:18.000 --> 00:47:21.000
+So now clearly, looking at the CPU usage, we can understand that.
+
+00:47:22.000 --> 00:47:24.000
+Why we have used T3 medium here.
+
+00:47:25.000 --> 00:47:27.000
+And T3 medium is also like.
+
+00:47:28.000 --> 00:47:29.000
+Very close to your 80%.
+
+00:47:31.000 --> 00:47:32.000
+Now you will see.
+
+00:47:33.000 --> 00:47:35.000
+As soon as I generate this, then after a while, my metrics will also.
+
+00:47:36.000 --> 00:47:37.000
+Change.
+
+00:47:37.000 --> 00:47:38.000
+Because CPU usage will increase.
+
+00:47:40.000 --> 00:47:42.000
+If I refresh it.
+
+00:47:43.000 --> 00:47:44.000
+Something has decreased.
+
+00:47:44.000 --> 00:47:45.000
+But again, it will keep changing.
+
+00:47:48.000 --> 00:47:53.000
+Let's execute it once.
+
+00:47:54.000 --> 00:47:57.000
+Yes, so it has reached 100% now.
+
+00:47:58.000 --> 00:48:00.000
+Let's refresh it once.
+
+00:48:01.000 --> 00:48:02.000
+See.
+
+00:48:02.000 --> 00:48:03.000
+It is reaching up to 103%.
+
+00:48:04.000 --> 00:48:05.000
+It will be some boost.
+
+00:48:05.000 --> 00:48:07.000
+Again, these are not like 0 to 100.
+
+00:48:07.000 --> 00:48:09.000
+Something will be added to it.
+
+00:48:09.000 --> 00:48:10.000
+But you can easily track.
+
+00:48:11.000 --> 00:48:13.000
+That my CPU has to work very hard here.
+
+00:48:14.000 --> 00:48:16.000
+And let's see that I am getting a response here.
+
+00:48:16.000 --> 00:48:17.000
+I am getting responses.
+
+00:48:19.000 --> 00:48:20.000
+Now let's do one thing.
+
+00:48:20.000 --> 00:48:22.000
+Let's set our next dashboard here.
+
+00:48:22.000 --> 00:48:24.000
+Sorry, our visualization.
+
+00:48:24.000 --> 00:48:25.000
+That is.
+
+00:48:25.000 --> 00:48:26.000
+Ram.
+
+00:48:26.000 --> 00:48:28.000
+That on this particular instance.
+
+00:48:28.000 --> 00:48:29.000
+How much RAM I am using.
+
+00:48:29.000 --> 00:48:30.000
+Okay.
+
+00:48:30.000 --> 00:48:32.000
+So you have to go again to your demo.
+
+00:48:32.000 --> 00:48:33.000
+You have to click here.
+
+00:48:33.000 --> 00:48:34.000
+On this plus icon.
+
+00:48:34.000 --> 00:48:36.000
+And you have to select the panel here.
+
+00:48:37.000 --> 00:48:38.000
+Again.
+
+00:48:38.000 --> 00:48:39.000
+Configure.
+
+00:48:39.000 --> 00:48:40.000
+Okay.
+
+00:48:40.000 --> 00:48:41.000
+Now what is inside the RAM.
+
+00:48:41.000 --> 00:48:43.000
+You have two queries inside the RAM.
+
+00:48:43.000 --> 00:48:44.000
+There are two queries.
+
+00:48:45.000 --> 00:48:46.000
+What is the first one?
+
+00:48:46.000 --> 00:48:47.000
+The first query is.
+
+00:48:47.000 --> 00:48:49.000
+That you are calculating here.
+
+00:48:49.000 --> 00:48:51.000
+That you have on an average.
+
+00:48:51.000 --> 00:48:53.000
+How much GB RAM is available.
+
+00:48:53.000 --> 00:48:54.000
+This node memory.
+
+00:48:54.000 --> 00:48:55.000
+Available.
+
+00:48:55.000 --> 00:48:56.000
+Okay.
+
+00:48:56.000 --> 00:48:57.000
+What is it telling you?
+
+00:48:57.000 --> 00:48:58.000
+It is understanding from the name.
+
+00:48:58.000 --> 00:49:00.000
+That how much GB of RAM you have available.
+
+00:49:02.000 --> 00:49:03.000
+Okay.
+
+00:49:03.000 --> 00:49:04.000
+It shows us in bytes.
+
+00:49:04.000 --> 00:49:06.000
+So we have divided it by billion.
+
+00:49:06.000 --> 00:49:08.000
+From that we have information in gigabytes.
+
+00:49:09.000 --> 00:49:10.000
+See.
+
+00:49:10.000 --> 00:49:11.000
+Now.
+
+00:49:11.000 --> 00:49:13.000
+2.8 GB of RAM is available.
+
+00:49:13.000 --> 00:49:14.000
+Okay.
+
+00:49:14.000 --> 00:49:16.000
+And if I have to see here.
+
+00:49:16.000 --> 00:49:18.000
+How much RAM I have here.
+
+00:49:20.000 --> 00:49:21.000
+Used.
+
+00:49:21.000 --> 00:49:23.000
+So what I have to do for that.
+
+00:49:23.000 --> 00:49:25.000
+Total minus available.
+
+00:49:25.000 --> 00:49:27.000
+So this particular query.
+
+00:49:27.000 --> 00:49:29.000
+It is calculating there.
+
+00:49:29.000 --> 00:49:30.000
+See this.
+
+00:49:30.000 --> 00:49:31.000
+What is telling from mem total bytes.
+
+00:49:31.000 --> 00:49:33.000
+How much total memory is there on my system.
+
+00:49:33.000 --> 00:49:35.000
+And how much is available from that.
+
+00:49:35.000 --> 00:49:37.000
+So what will I know.
+
+00:49:37.000 --> 00:49:39.000
+How much I am using here.
+
+00:49:39.000 --> 00:49:41.000
+So if I paste it.
+
+00:49:41.000 --> 00:49:43.000
+So here I will get value.
+
+00:49:43.000 --> 00:49:45.000
+Around 1.2.
+
+00:49:45.000 --> 00:49:46.000
+1.14.
+
+00:49:46.000 --> 00:49:48.000
+So now what I will do.
+
+00:49:48.000 --> 00:49:49.000
+Here.
+
+00:49:49.000 --> 00:49:50.000
+These two.
+
+00:49:50.000 --> 00:49:53.000
+I will show the values in one visualization.
+
+00:49:53.000 --> 00:49:54.000
+Okay.
+
+00:49:54.000 --> 00:49:55.000
+And for that I will use here.
+
+00:49:55.000 --> 00:49:56.000
+Donut chart.
+
+00:49:56.000 --> 00:49:57.000
+So I will go here.
+
+00:49:57.000 --> 00:49:59.000
+In pie chart.
+
+00:49:59.000 --> 00:50:01.000
+And I will select.
+
+00:50:01.000 --> 00:50:02.000
+Option donut.
+
+00:50:02.000 --> 00:50:04.000
+And what you have to do here.
+
+00:50:04.000 --> 00:50:06.000
+You have to paste your queries one by one.
+
+00:50:06.000 --> 00:50:07.000
+So what I will do.
+
+00:50:07.000 --> 00:50:08.000
+I will go here.
+
+00:50:08.000 --> 00:50:09.000
+First of all.
+
+00:50:09.000 --> 00:50:12.000
+I will select this promql query.
+
+00:50:12.000 --> 00:50:13.000
+After selecting.
+
+00:50:13.000 --> 00:50:14.000
+I will go back.
+
+00:50:16.000 --> 00:50:17.000
+Here.
+
+00:50:17.000 --> 00:50:18.000
+Let's do one thing.
+
+00:50:18.000 --> 00:50:19.000
+Let's close these extra tabs.
+
+00:50:19.000 --> 00:50:21.000
+Because they confuse me.
+
+00:50:21.000 --> 00:50:23.000
+And I will run it.
+
+00:50:23.000 --> 00:50:24.000
+See what I can see from run.
+
+00:50:24.000 --> 00:50:25.000
+I can see donut.
+
+00:50:25.000 --> 00:50:28.000
+And here I have some value.
+
+00:50:28.000 --> 00:50:30.000
+Now I will go to options.
+
+00:50:30.000 --> 00:50:32.000
+I will select custom.
+
+00:50:32.000 --> 00:50:33.000
+And what is this.
+
+00:50:33.000 --> 00:50:34.000
+This is telling me.
+
+00:50:34.000 --> 00:50:35.000
+My used memory.
+
+00:50:35.000 --> 00:50:37.000
+I will set legend here.
+
+00:50:37.000 --> 00:50:38.000
+It is used.
+
+00:50:38.000 --> 00:50:39.000
+Okay.
+
+00:50:39.000 --> 00:50:40.000
+This is done.
+
+00:50:40.000 --> 00:50:41.000
+Now what I will do here.
+
+00:50:41.000 --> 00:50:43.000
+I will go to add query.
+
+00:50:43.000 --> 00:50:44.000
+And see.
+
+00:50:44.000 --> 00:50:46.000
+Here I can paste my second query.
+
+00:50:46.000 --> 00:50:47.000
+What is my second query.
+
+00:50:47.000 --> 00:50:50.000
+My second query is available.
+
+00:50:50.000 --> 00:50:52.000
+Available is this one.
+
+00:50:52.000 --> 00:50:53.000
+Okay.
+
+00:50:53.000 --> 00:50:54.000
+Select it.
+
+00:50:54.000 --> 00:50:55.000
+I will go back.
+
+00:50:55.000 --> 00:50:56.000
+I will paste it here.
+
+00:50:56.000 --> 00:50:59.000
+And here we will put legend.
+
+00:50:59.000 --> 00:51:02.000
+What will we put available.
+
+00:51:05.000 --> 00:51:06.000
+Available.
+
+00:51:06.000 --> 00:51:07.000
+Okay.
+
+00:51:07.000 --> 00:51:08.000
+I will run this.
+
+00:51:08.000 --> 00:51:09.000
+And see.
+
+00:51:09.000 --> 00:51:11.000
+Here you can see proper legend.
+
+00:51:11.000 --> 00:51:12.000
+How much percent is available.
+
+00:51:12.000 --> 00:51:13.000
+And how much is used.
+
+00:51:13.000 --> 00:51:15.000
+And if you hover.
+
+00:51:15.000 --> 00:51:17.000
+Then you can see exact value.
+
+00:51:17.000 --> 00:51:19.000
+See this is your ram usage.
+
+00:51:19.000 --> 00:51:22.000
+So the T3 media has 4GB available.
+
+00:51:22.000 --> 00:51:24.000
+From that we are using this much.
+
+00:51:24.000 --> 00:51:26.000
+And we have this much available.
+
+00:51:26.000 --> 00:51:28.000
+Now you have to customize it.
+
+00:51:28.000 --> 00:51:29.000
+So you.
+
+00:51:29.000 --> 00:51:32.000
+Here you will give ram.
+
+00:51:32.000 --> 00:51:36.000
+Usage in gigabytes.
+
+00:51:36.000 --> 00:51:37.000
+Okay.
+
+00:51:37.000 --> 00:51:38.000
+After that you will go down.
+
+00:51:38.000 --> 00:51:39.000
+We have selected donut.
+
+00:51:39.000 --> 00:51:41.000
+You can select sorting.
+
+00:51:41.000 --> 00:51:43.000
+Then you can select label.
+
+00:51:43.000 --> 00:51:45.000
+That you have to show name.
+
+00:51:45.000 --> 00:51:46.000
+Show value.
+
+00:51:46.000 --> 00:51:47.000
+Show what all things.
+
+00:51:47.000 --> 00:51:48.000
+So we want to show name and value.
+
+00:51:48.000 --> 00:51:49.000
+Both.
+
+00:51:49.000 --> 00:51:50.000
+Okay.
+
+00:51:50.000 --> 00:51:52.000
+After that if you go down.
+
+00:51:52.000 --> 00:51:53.000
+Then you can select.
+
+00:51:53.000 --> 00:51:54.000
+That the legend here.
+
+00:51:54.000 --> 00:51:55.000
+How should it look.
+
+00:51:55.000 --> 00:51:56.000
+Should see bottom.
+
+00:51:56.000 --> 00:51:57.000
+Should see right.
+
+00:51:57.000 --> 00:51:58.000
+We will show right.
+
+00:51:58.000 --> 00:51:59.000
+Okay.
+
+00:51:59.000 --> 00:52:02.000
+You can select legend values.
+
+00:52:02.000 --> 00:52:04.000
+That you have to show value.
+
+00:52:04.000 --> 00:52:07.000
+So we can figure out these things.
+
+00:52:07.000 --> 00:52:08.000
+If you want to show percentage.
+
+00:52:08.000 --> 00:52:09.000
+Then you can show that too.
+
+00:52:09.000 --> 00:52:10.000
+See.
+
+00:52:11.000 --> 00:52:12.000
+After that.
+
+00:52:12.000 --> 00:52:14.000
+You will select unit here.
+
+00:52:14.000 --> 00:52:15.000
+What is unit?
+
+00:52:15.000 --> 00:52:16.000
+Now this is not percentage.
+
+00:52:16.000 --> 00:52:17.000
+This is gigabytes.
+
+00:52:17.000 --> 00:52:18.000
+So you will write here.
+
+00:52:18.000 --> 00:52:19.000
+Gigabytes.
+
+00:52:19.000 --> 00:52:22.000
+And you will select gigabytes here.
+
+00:52:23.000 --> 00:52:24.000
+Selected.
+
+00:52:24.000 --> 00:52:25.000
+Okay.
+
+00:52:25.000 --> 00:52:26.000
+And see.
+
+00:52:26.000 --> 00:52:27.000
+Here.
+
+00:52:27.000 --> 00:52:29.000
+Your GB units are visible.
+
+00:52:29.000 --> 00:52:30.000
+And that's it guys.
+
+00:52:30.000 --> 00:52:32.000
+This is your RAM usage.
+
+00:52:32.000 --> 00:52:33.000
+You will click on save.
+
+00:52:33.000 --> 00:52:34.000
+And save.
+
+00:52:34.000 --> 00:52:36.000
+Let's go back to our dashboard.
+
+00:52:36.000 --> 00:52:37.000
+And see.
+
+00:52:37.000 --> 00:52:40.000
+This is your RAM usage.
+
+00:52:40.000 --> 00:52:41.000
+Is visible.
+
+00:52:41.000 --> 00:52:43.000
+I hope how to make visualizations here.
+
+00:52:43.000 --> 00:52:44.000
+You have cleared it.
+
+00:52:49.000 --> 00:52:50.000
+Is this point clear?
+
+00:52:53.000 --> 00:52:55.000
+Harry, I will take your question later.
+
+00:52:55.000 --> 00:52:57.000
+Note down this question.
+
+00:52:57.000 --> 00:52:58.000
+Till now.
+
+00:52:58.000 --> 00:53:00.000
+What we are discussing.
+
+00:53:00.000 --> 00:53:01.000
+Around Grafana.
+
+00:53:01.000 --> 00:53:02.000
+It is clear.
+
+00:53:05.000 --> 00:53:07.000
+Is everything clear?
+
+00:53:07.000 --> 00:53:08.000
+Yes.
+
+00:53:08.000 --> 00:53:09.000
+Okay.
+
+00:53:09.000 --> 00:53:10.000
+Let's refresh it.
+
+00:53:10.000 --> 00:53:11.000
+See.
+
+00:53:11.000 --> 00:53:12.000
+Now.
+
+00:53:12.000 --> 00:53:13.000
+Because I am not interacting with my application.
+
+00:53:13.000 --> 00:53:15.000
+So my CPU usage has decreased here.
+
+00:53:15.000 --> 00:53:16.000
+Okay.
+
+00:53:16.000 --> 00:53:18.000
+So this is showing me the average of 5 minutes.
+
+00:53:18.000 --> 00:53:19.000
+The more you interact.
+
+00:53:19.000 --> 00:53:20.000
+The more the CPU usage will increase.
+
+00:53:20.000 --> 00:53:21.000
+The less you do.
+
+00:53:21.000 --> 00:53:23.000
+The more it will decrease.
+
+00:53:23.000 --> 00:53:24.000
+Okay.
+
+00:53:24.000 --> 00:53:25.000
+Now.
+
+00:53:25.000 --> 00:53:26.000
+Let's discuss further.
+
+00:53:26.000 --> 00:53:28.000
+And here you can see the colors.
+
+00:53:28.000 --> 00:53:29.000
+See.
+
+00:53:29.000 --> 00:53:31.000
+We have set the threshold of 75% on yellow.
+
+00:53:31.000 --> 00:53:33.000
+So this one is visible in yellow.
+
+00:53:33.000 --> 00:53:35.000
+And the rest is visible in green.
+
+00:53:35.000 --> 00:53:36.000
+Next is.
+
+00:53:36.000 --> 00:53:39.000
+We want to see the network speed.
+
+00:53:39.000 --> 00:53:41.000
+Inbound and outbound.
+
+00:53:41.000 --> 00:53:43.000
+Again you are using the rate.
+
+00:53:43.000 --> 00:53:45.000
+And why are you dividing the rate by 1000.
+
+00:53:45.000 --> 00:53:47.000
+Because here you are seeing in bytes.
+
+00:53:47.000 --> 00:53:48.000
+Bytes per second.
+
+00:53:48.000 --> 00:53:49.000
+But here.
+
+00:53:49.000 --> 00:53:52.000
+The unit you are setting.
+
+00:53:52.000 --> 00:53:53.000
+Unit set.
+
+00:53:53.000 --> 00:53:54.000
+That is kilo byte per second.
+
+00:53:54.000 --> 00:53:56.000
+That's why you are dividing it by 1000.
+
+00:53:56.000 --> 00:53:58.000
+So I have copied it.
+
+00:53:58.000 --> 00:53:59.000
+I will go here.
+
+00:53:59.000 --> 00:54:00.000
+I will click on.
+
+00:54:00.000 --> 00:54:01.000
+Panel.
+
+00:54:01.000 --> 00:54:02.000
+And configure.
+
+00:54:02.000 --> 00:54:03.000
+Okay.
+
+00:54:03.000 --> 00:54:06.000
+Here I will give my query.
+
+00:54:06.000 --> 00:54:08.000
+And here what will you do.
+
+00:54:08.000 --> 00:54:10.000
+You will select a legend here.
+
+00:54:10.000 --> 00:54:13.000
+Again I have given the information of the legend.
+
+00:54:13.000 --> 00:54:14.000
+The name of the instance.
+
+00:54:14.000 --> 00:54:16.000
+Then the name of the device.
+
+00:54:16.000 --> 00:54:17.000
+And what does in mean.
+
+00:54:17.000 --> 00:54:18.000
+Inbound.
+
+00:54:18.000 --> 00:54:21.000
+You can also write inbound here.
+
+00:54:21.000 --> 00:54:22.000
+Let's do one thing.
+
+00:54:22.000 --> 00:54:24.000
+Let's use the whole name.
+
+00:54:24.000 --> 00:54:27.000
+Inbound.
+
+00:54:29.000 --> 00:54:31.000
+Let's see I have run here.
+
+00:54:32.000 --> 00:54:33.000
+Run query.
+
+00:54:33.000 --> 00:54:35.000
+So you can see inbound here.
+
+00:54:35.000 --> 00:54:36.000
+Okay.
+
+00:54:36.000 --> 00:54:38.000
+If I go here.
+
+00:54:38.000 --> 00:54:40.000
+And click on add query.
+
+00:54:40.000 --> 00:54:43.000
+And let me copy.
+
+00:54:43.000 --> 00:54:45.000
+The other thing.
+
+00:54:45.000 --> 00:54:46.000
+Okay.
+
+00:54:46.000 --> 00:54:49.000
+And let's paste it.
+
+00:54:50.000 --> 00:54:52.000
+I will paste it here.
+
+00:54:52.000 --> 00:54:54.000
+And if I run it.
+
+00:54:54.000 --> 00:54:55.000
+It's simple.
+
+00:54:55.000 --> 00:54:56.000
+Here you calculate the rate.
+
+00:54:56.000 --> 00:54:57.000
+See this is the receive one.
+
+00:54:57.000 --> 00:54:59.000
+And this is the transmit one.
+
+00:54:59.000 --> 00:55:00.000
+Again you see this.
+
+00:55:00.000 --> 00:55:01.000
+Okay.
+
+00:55:01.000 --> 00:55:02.000
+It's very simple.
+
+00:55:02.000 --> 00:55:04.000
+Means nothing is difficult in this.
+
+00:55:04.000 --> 00:55:06.000
+You have to set the legend.
+
+00:55:06.000 --> 00:55:08.000
+So here you set inbound.
+
+00:55:08.000 --> 00:55:09.000
+You will copy.
+
+00:55:09.000 --> 00:55:12.000
+And here you will paste.
+
+00:55:12.000 --> 00:55:14.000
+And instead of inbound.
+
+00:55:14.000 --> 00:55:16.000
+It will be outbound.
+
+00:55:17.000 --> 00:55:19.000
+Outbound.
+
+00:55:19.000 --> 00:55:20.000
+Okay.
+
+00:55:20.000 --> 00:55:24.000
+Here you can see different networks.
+
+00:55:24.000 --> 00:55:26.000
+How much docker is using.
+
+00:55:26.000 --> 00:55:27.000
+Okay.
+
+00:55:27.000 --> 00:55:29.000
+Again you can do filtration here.
+
+00:55:29.000 --> 00:55:31.000
+You can see suggestions.
+
+00:55:31.000 --> 00:55:33.000
+We are using time series here.
+
+00:55:33.000 --> 00:55:34.000
+Okay.
+
+00:55:34.000 --> 00:55:35.000
+In time series.
+
+00:55:35.000 --> 00:55:36.000
+We will write here.
+
+00:55:36.000 --> 00:55:38.000
+Network.
+
+00:55:38.000 --> 00:55:40.000
+Speed.
+
+00:55:40.000 --> 00:55:42.000
+Network speed is done.
+
+00:55:42.000 --> 00:55:43.000
+After that.
+
+00:55:43.000 --> 00:55:45.000
+We will set our graph here.
+
+00:55:45.000 --> 00:55:46.000
+So in graph.
+
+00:55:46.000 --> 00:55:47.000
+Legend will be ours.
+
+00:55:47.000 --> 00:55:49.000
+You can keep it in right.
+
+00:55:49.000 --> 00:55:50.000
+Or you can keep it in bottom.
+
+00:55:50.000 --> 00:55:51.000
+We will keep it in bottom.
+
+00:55:51.000 --> 00:55:54.000
+I think I have selected someone here.
+
+00:55:54.000 --> 00:55:55.000
+Yes.
+
+00:55:55.000 --> 00:55:56.000
+Now it's okay.
+
+00:55:56.000 --> 00:55:57.000
+All are visible.
+
+00:55:57.000 --> 00:55:58.000
+And.
+
+00:56:00.000 --> 00:56:02.000
+You can select values.
+
+00:56:02.000 --> 00:56:03.000
+You can select time zone.
+
+00:56:03.000 --> 00:56:04.000
+We do one thing.
+
+00:56:04.000 --> 00:56:05.000
+We set the axis.
+
+00:56:05.000 --> 00:56:07.000
+The axis you can see.
+
+00:56:07.000 --> 00:56:08.000
+This plane is visible.
+
+00:56:08.000 --> 00:56:09.000
+So we do one thing.
+
+00:56:09.000 --> 00:56:10.000
+We set a label of axis.
+
+00:56:10.000 --> 00:56:12.000
+So our speed is labeled.
+
+00:56:12.000 --> 00:56:14.000
+In kilobytes per second.
+
+00:56:14.000 --> 00:56:16.000
+So you can see the label of axis here.
+
+00:56:16.000 --> 00:56:17.000
+Okay.
+
+00:56:17.000 --> 00:56:19.000
+You can set width.
+
+00:56:19.000 --> 00:56:21.000
+You can set minimum and maximum.
+
+00:56:21.000 --> 00:56:24.000
+You can set all these things.
+
+00:56:24.000 --> 00:56:25.000
+Okay.
+
+00:56:25.000 --> 00:56:26.000
+How should be the graph.
+
+00:56:26.000 --> 00:56:27.000
+Line, bars, point.
+
+00:56:27.000 --> 00:56:28.000
+This is everything.
+
+00:56:28.000 --> 00:56:29.000
+Okay.
+
+00:56:29.000 --> 00:56:30.000
+How much should be the line width.
+
+00:56:30.000 --> 00:56:31.000
+You can select.
+
+00:56:31.000 --> 00:56:33.000
+How should be the opacity.
+
+00:56:33.000 --> 00:56:34.000
+You can select fill opacity.
+
+00:56:34.000 --> 00:56:36.000
+How to see the line.
+
+00:56:36.000 --> 00:56:38.000
+Solid, dash, dot.
+
+00:56:38.000 --> 00:56:39.000
+Everything you can select.
+
+00:56:39.000 --> 00:56:42.000
+You have multiple customization options.
+
+00:56:42.000 --> 00:56:43.000
+If you want to show points.
+
+00:56:43.000 --> 00:56:45.000
+What should be their size.
+
+00:56:45.000 --> 00:56:46.000
+Okay.
+
+00:56:46.000 --> 00:56:47.000
+Now you will select unit here.
+
+00:56:47.000 --> 00:56:48.000
+So what will be your unit.
+
+00:56:48.000 --> 00:56:50.000
+You will write kilobytes here.
+
+00:56:50.000 --> 00:56:51.000
+So this will be your unit.
+
+00:56:51.000 --> 00:56:53.000
+Kilobytes per second.
+
+00:56:53.000 --> 00:56:55.000
+You have to calculate the rate on data.
+
+00:56:55.000 --> 00:56:56.000
+Selected.
+
+00:56:56.000 --> 00:57:00.000
+So you will see the data rate in kilobytes per second.
+
+00:57:00.000 --> 00:57:04.000
+And we don't want to set thresholds.
+
+00:57:04.000 --> 00:57:05.000
+So you can leave it.
+
+00:57:05.000 --> 00:57:07.000
+And I will click on save.
+
+00:57:07.000 --> 00:57:12.000
+And let's click on save.
+
+00:57:12.000 --> 00:57:15.000
+So here you can see CKEA.
+
+00:57:15.000 --> 00:57:17.000
+This is your instance.
+
+00:57:17.000 --> 00:57:18.000
+Okay.
+
+00:57:18.000 --> 00:57:19.000
+In that.
+
+00:57:19.000 --> 00:57:21.000
+Your application is Docker.
+
+00:57:21.000 --> 00:57:23.000
+How much data is being sent by Docker.
+
+00:57:23.000 --> 00:57:24.000
+You can see that.
+
+00:57:24.000 --> 00:57:25.000
+Or your security group.
+
+00:57:25.000 --> 00:57:26.000
+How much data is being sent.
+
+00:57:26.000 --> 00:57:27.000
+You can see that.
+
+00:57:27.000 --> 00:57:29.000
+Multiple more components.
+
+00:57:29.000 --> 00:57:30.000
+You can see here.
+
+00:57:30.000 --> 00:57:31.000
+Okay.
+
+00:57:31.000 --> 00:57:33.000
+So you can see the network detail of everyone.
+
+00:57:33.000 --> 00:57:34.000
+Okay.
+
+00:57:34.000 --> 00:57:35.000
+So what is this.
+
+00:57:35.000 --> 00:57:36.000
+So what is this.
+
+00:57:36.000 --> 00:57:38.000
+This is your input.
+
+00:57:38.000 --> 00:57:39.000
+Your security group.
+
+00:57:39.000 --> 00:57:41.000
+Basically when I send a request here.
+
+00:57:41.000 --> 00:57:43.000
+I will send it to you.
+
+00:57:43.000 --> 00:57:46.000
+Here we write.
+
+00:57:46.000 --> 00:58:01.000
+What are LLM leader boards.
+
+00:58:01.000 --> 00:58:03.000
+Let's go outside once.
+
+00:58:03.000 --> 00:58:05.000
+And we drag it down.
+
+00:58:05.000 --> 00:58:07.000
+Again like you do in Langfuse.
+
+00:58:07.000 --> 00:58:12.000
+And we do expand.
+
+00:58:12.000 --> 00:58:13.000
+Let's see.
+
+00:58:13.000 --> 00:58:14.000
+I got the answer.
+
+00:58:14.000 --> 00:58:27.000
+Not yet.
+
+00:58:27.000 --> 00:58:28.000
+Look.
+
+00:58:28.000 --> 00:58:29.000
+It came.
+
+00:58:29.000 --> 00:58:30.000
+Okay.
+
+00:58:30.000 --> 00:58:31.000
+So here must be some API calls.
+
+00:58:31.000 --> 00:58:33.000
+So the traffic must have been outbound.
+
+00:58:33.000 --> 00:58:34.000
+And inbound.
+
+00:58:34.000 --> 00:58:36.000
+Because I have sent my query to the API.
+
+00:58:36.000 --> 00:58:37.000
+Let's test once.
+
+00:58:37.000 --> 00:58:40.000
+That is, did my network usage change.
+
+00:58:40.000 --> 00:58:42.000
+If I refresh.
+
+00:58:42.000 --> 00:58:44.000
+Then see.
+
+00:58:44.000 --> 00:58:47.000
+Here you will see a graph rising.
+
+00:58:47.000 --> 00:58:49.000
+And this red part will also rise.
+
+00:58:49.000 --> 00:58:50.000
+You will see.
+
+00:58:50.000 --> 00:58:51.000
+What does it mean.
+
+00:58:51.000 --> 00:58:55.000
+Here some network activity.
+
+00:58:55.000 --> 00:58:56.000
+Is being tracked.
+
+00:58:56.000 --> 00:58:57.000
+Okay.
+
+00:58:57.000 --> 00:58:58.000
+I will show you outbound.
+
+00:58:58.000 --> 00:58:59.000
+Hmm.
+
+00:58:59.000 --> 00:59:00.000
+This thing.
+
+00:59:00.000 --> 00:59:01.000
+So this is not happening.
+
+00:59:01.000 --> 00:59:02.000
+Okay.
+
+00:59:02.000 --> 00:59:03.000
+It is not happening.
+
+00:59:03.000 --> 00:59:04.000
+But you will see this.
+
+00:59:04.000 --> 00:59:05.000
+See inbound.
+
+00:59:05.000 --> 00:59:06.000
+You can see it.
+
+00:59:06.000 --> 00:59:07.000
+And if I show you this outbound.
+
+00:59:07.000 --> 00:59:08.000
+Then see outbound.
+
+00:59:08.000 --> 00:59:09.000
+You can see it.
+
+00:59:09.000 --> 00:59:10.000
+So again these are different metrics.
+
+00:59:10.000 --> 00:59:11.000
+You are tracking.
+
+00:59:11.000 --> 00:59:12.000
+Again you can select it.
+
+00:59:12.000 --> 00:59:13.000
+But we are here.
+
+00:59:13.000 --> 00:59:14.000
+All our network services.
+
+00:59:14.000 --> 00:59:15.000
+We are tracking everyone here.
+
+00:59:15.000 --> 00:59:16.000
+Okay.
+
+00:59:16.000 --> 00:59:17.000
+Now what do you have to do next.
+
+00:59:17.000 --> 00:59:18.000
+Next you have to track here.
+
+00:59:18.000 --> 00:59:19.000
+Disk usage.
+
+00:59:19.000 --> 00:59:20.000
+So for disk usage.
+
+00:59:20.000 --> 00:59:21.000
+The simple thing is.
+
+00:59:21.000 --> 00:59:22.000
+That you will use this query.
+
+00:59:22.000 --> 00:59:23.000
+Again very simple.
+
+00:59:23.000 --> 00:59:24.000
+You are here.
+
+00:59:24.000 --> 00:59:25.000
+From the total disk.
+
+00:59:25.000 --> 00:59:26.000
+From that.
+
+00:59:26.000 --> 00:59:27.000
+All that is available.
+
+00:59:27.000 --> 00:59:28.000
+Minus from 1 to minus.
+
+00:59:28.000 --> 00:59:29.000
+Okay.
+
+00:59:29.000 --> 00:59:30.000
+So I will show you.
+
+00:59:30.000 --> 00:59:31.000
+See.
+
+00:59:31.000 --> 00:59:32.000
+See.
+
+00:59:32.000 --> 00:59:33.000
+See.
+
+00:59:33.000 --> 00:59:34.000
+See.
+
+00:59:34.000 --> 00:59:35.000
+See.
+
+00:59:35.000 --> 00:59:36.000
+See.
+
+00:59:36.000 --> 00:59:37.000
+See.
+
+00:59:37.000 --> 00:59:38.000
+See.
+
+00:59:38.000 --> 00:59:39.000
+See.
+
+00:59:39.000 --> 00:59:40.000
+See.
+
+00:59:40.000 --> 00:59:41.000
+See.
+
+00:59:41.000 --> 00:59:42.000
+See.
+
+00:59:42.000 --> 00:59:43.000
+See.
+
+00:59:43.000 --> 00:59:44.000
+See.
+
+00:59:44.000 --> 00:59:45.000
+Okay.
+
+00:59:45.000 --> 00:59:46.000
+So you can see.
+
+00:59:46.000 --> 00:59:47.000
+How much you are using.
+
+00:59:47.000 --> 00:59:48.000
+Okay.
+
+00:59:48.000 --> 00:59:49.000
+I have selected this.
+
+00:59:49.000 --> 00:59:52.000
+And I will click on add.
+
+00:59:52.000 --> 00:59:53.000
+Panel.
+
+00:59:53.000 --> 00:59:54.000
+Let's configure.
+
+00:59:54.000 --> 00:59:57.000
+Let's configure and put our query here.
+
+00:59:57.000 --> 00:59:59.000
+And let's run it.
+
+00:59:59.000 --> 01:00:00.000
+Okay.
+
+01:00:00.000 --> 01:00:01.000
+I can see this.
+
+01:00:01.000 --> 01:00:02.000
+And its label.
+
+01:00:02.000 --> 01:00:07.000
+You can set the label as disk usage.
+
+01:00:07.000 --> 01:00:10.000
+So here we will go to options.
+
+01:00:10.000 --> 01:00:12.000
+We will go to custom.
+
+01:00:12.000 --> 01:00:13.000
+And.
+
+01:00:13.000 --> 01:00:14.000
+Usage.
+
+01:00:14.000 --> 01:00:16.000
+We have set this.
+
+01:00:16.000 --> 01:00:17.000
+Okay.
+
+01:00:17.000 --> 01:00:19.000
+Now we don't need line graph.
+
+01:00:19.000 --> 01:00:21.000
+We can go with this visualization.
+
+01:00:21.000 --> 01:00:25.000
+We can go with bar gauge.
+
+01:00:25.000 --> 01:00:27.000
+You can go with bar gauge.
+
+01:00:27.000 --> 01:00:29.000
+So bar gauge looks like this.
+
+01:00:29.000 --> 01:00:30.000
+It doesn't look so good.
+
+01:00:30.000 --> 01:00:33.000
+But you can tweak it like this.
+
+01:00:33.000 --> 01:00:34.000
+Okay.
+
+01:00:34.000 --> 01:00:36.000
+You can also bring the gradient thing.
+
+01:00:36.000 --> 01:00:38.000
+We will go with this style.
+
+01:00:38.000 --> 01:00:39.000
+Okay.
+
+01:00:39.000 --> 01:00:40.000
+And we will write this.
+
+01:00:40.000 --> 01:00:41.000
+And this.
+
+01:00:41.000 --> 01:00:44.000
+Usage in.
+
+01:00:44.000 --> 01:00:45.000
+Percentage.
+
+01:00:45.000 --> 01:00:46.000
+Okay.
+
+01:00:46.000 --> 01:00:47.000
+And after that.
+
+01:00:47.000 --> 01:00:48.000
+What will we do here.
+
+01:00:48.000 --> 01:00:49.000
+You can change the orientation.
+
+01:00:49.000 --> 01:00:50.000
+You have to keep it vertical.
+
+01:00:50.000 --> 01:00:51.000
+You have to keep it horizontal.
+
+01:00:51.000 --> 01:00:52.000
+Okay.
+
+01:00:52.000 --> 01:00:53.000
+How to keep the gradient.
+
+01:00:53.000 --> 01:00:54.000
+You can select it.
+
+01:00:54.000 --> 01:00:55.000
+Okay.
+
+01:00:55.000 --> 01:00:56.000
+How to show the value.
+
+01:00:56.000 --> 01:00:57.000
+The main focus will be on standard options.
+
+01:00:57.000 --> 01:00:58.000
+It is usage.
+
+01:00:58.000 --> 01:00:59.000
+So it will be percentage.
+
+01:00:59.000 --> 01:01:00.000
+We will go percentage.
+
+01:01:00.000 --> 01:01:01.000
+And see.
+
+01:01:01.000 --> 01:01:02.000
+Twenty percent.
+
+01:01:02.000 --> 01:01:03.000
+Okay.
+
+01:01:03.000 --> 01:01:04.000
+And then.
+
+01:01:05.000 --> 01:01:06.000
+Okay.
+
+01:01:06.000 --> 01:01:07.000
+So it will be percentage.
+
+01:01:07.000 --> 01:01:08.000
+We will go percentage.
+
+01:01:08.000 --> 01:01:09.000
+And see.
+
+01:01:09.000 --> 01:01:10.000
+Twenty percent.
+
+01:01:10.000 --> 01:01:11.000
+Our disk.
+
+01:01:11.000 --> 01:01:12.000
+Out of 30 GBs.
+
+01:01:12.000 --> 01:01:13.000
+It is used.
+
+01:01:13.000 --> 01:01:14.000
+So.
+
+01:01:14.000 --> 01:01:16.000
+We will select it here.
+
+01:01:16.000 --> 01:01:17.000
+Again.
+
+01:01:17.000 --> 01:01:18.000
+You can select the threshold.
+
+01:01:18.000 --> 01:01:19.000
+Which is the default here.
+
+01:01:19.000 --> 01:01:20.000
+We will work with that.
+
+01:01:20.000 --> 01:01:21.000
+Click on save.
+
+01:01:21.000 --> 01:01:22.000
+And save.
+
+01:01:22.000 --> 01:01:23.000
+See.
+
+01:01:23.000 --> 01:01:24.000
+So you can also see the disk usage here.
+
+01:01:24.000 --> 01:01:25.000
+Now we have to put a final here.
+
+01:01:25.000 --> 01:01:26.000
+That is.
+
+01:01:26.000 --> 01:01:27.000
+Disk utilization.
+
+01:01:27.000 --> 01:01:28.000
+Okay.
+
+01:01:28.000 --> 01:01:29.000
+Okay.
+
+01:01:29.000 --> 01:01:30.000
+So we will go with this style.
+
+01:01:30.000 --> 01:01:31.000
+Okay.
+
+01:01:31.000 --> 01:01:32.000
+And we will also change the orientation.
+
+01:01:32.000 --> 01:01:33.000
+Okay.
+
+01:01:33.000 --> 01:01:34.000
+And then we will go with this.
+
+01:01:34.000 --> 01:01:35.000
+Disk utilization in GBs.
+
+01:01:35.000 --> 01:01:36.000
+Again.
+
+01:01:36.000 --> 01:01:37.000
+We will select panel.
+
+01:01:37.000 --> 01:01:38.000
+We will customize it.
+
+01:01:38.000 --> 01:01:39.000
+After customizing it.
+
+01:01:39.000 --> 01:01:40.000
+We will go here.
+
+01:01:40.000 --> 01:01:41.000
+Okay.
+
+01:01:41.000 --> 01:01:42.000
+Disk usage.
+
+01:01:42.000 --> 01:01:43.000
+You will see it in GBs.
+
+01:01:43.000 --> 01:01:44.000
+So this was your available bytes.
+
+01:01:44.000 --> 01:01:45.000
+Okay.
+
+01:01:45.000 --> 01:01:46.000
+Here is your used bytes.
+
+01:01:46.000 --> 01:01:47.000
+Okay.
+
+01:01:47.000 --> 01:01:48.000
+And we will set it in GBs.
+
+01:01:48.000 --> 01:01:49.000
+What difference will there be in GBs?
+
+01:01:49.000 --> 01:01:50.000
+There will be the same difference in GBs.
+
+01:01:50.000 --> 01:01:51.000
+That you are not doing into 100.
+
+01:01:51.000 --> 01:01:52.000
+You are dividing it by 1 billion.
+
+01:01:52.000 --> 01:01:53.000
+So here we will go into 100.
+
+01:01:53.000 --> 01:01:54.000
+Okay.
+
+01:01:54.000 --> 01:01:55.000
+And we will also go into 100.
+
+01:01:55.000 --> 01:01:56.000
+Okay.
+
+01:01:56.000 --> 01:01:57.000
+So here we will go into 100.
+
+01:01:57.000 --> 01:01:58.000
+Okay.
+
+01:01:58.000 --> 01:01:59.000
+And we will also go into 100.
+
+01:01:59.000 --> 01:02:00.000
+Okay.
+
+01:02:00.000 --> 01:02:01.000
+And we will also go into 100.
+
+01:02:01.000 --> 01:02:02.000
+Okay.
+
+01:02:02.000 --> 01:02:04.440
+So here we will go into all visualizations.
+
+01:02:04.440 --> 01:02:12.080
+And to this, we can select only the gauge.
+
+01:02:12.080 --> 01:02:13.340
+And take a title here.
+
+01:02:13.340 --> 01:02:18.360
+Disk usage in GBs and paste the query.
+
+01:02:18.360 --> 01:02:20.520
+Run the query here.
+
+01:02:20.520 --> 01:02:24.760
+Okay, to get the change of stuff.
+
+01:02:24.760 --> 01:02:30.700
+Alex Scully going into the option he goes in terms of custom.
+
+01:02:30.700 --> 01:02:34.700
+let's give it a name disk usage
+
+01:02:34.700 --> 01:02:38.700
+now you can select here what kind of style you want
+
+01:02:38.700 --> 01:02:42.700
+let's say we select this variant here, this style
+
+01:02:42.700 --> 01:02:46.700
+we will not make more changes here, the changes we have to make
+
+01:02:46.700 --> 01:02:50.700
+we will do in the threshold, now before threshold
+
+01:02:50.700 --> 01:02:54.700
+we will select the unit, so our unit will be
+
+01:02:54.700 --> 01:02:58.700
+again gigabytes, so we are using 6 GB around
+
+01:02:58.700 --> 01:03:02.700
+and threshold will not be on percentages, you will select
+
+01:03:02.700 --> 01:03:06.700
+absolute values, so in absolute let's say I want to set
+
+01:03:06.700 --> 01:03:10.700
+this red one 25 GB, so if usage is above 25 GB
+
+01:03:10.700 --> 01:03:14.700
+then it will start showing in red and for yellow
+
+01:03:14.700 --> 01:03:18.700
+we can set 20 GB and these are my thresholds
+
+01:03:18.700 --> 01:03:22.700
+set it and let's click on
+
+01:03:22.700 --> 01:03:26.700
+save, save
+
+01:03:26.700 --> 01:03:30.700
+and that's it guys
+
+01:03:30.700 --> 01:03:34.700
+let's go out and you can actually track your disk usage in gigabytes
+
+01:03:34.700 --> 01:03:38.700
+is this point clear guys, this is clear
+
+01:03:38.700 --> 01:03:42.700
+all setup
+
+01:03:42.700 --> 01:03:46.700
+again you can understand 20% of 30 GB
+
+01:03:46.700 --> 01:03:50.700
+is 6 GB, so we are able to track all metrics properly
+
+01:03:50.700 --> 01:03:54.700
+so this is how you work with grafana
+
+01:03:54.700 --> 01:03:58.700
+again there are many customization options here
+
+01:03:58.700 --> 01:04:02.700
+we can't understand all of them in this class, again this is a practical thing
+
+01:04:02.700 --> 01:04:06.700
+you can customize things, if you understand what prometheus is doing
+
+01:04:06.700 --> 01:04:10.700
+in this setup, what grafana is doing and how to customize
+
+01:04:10.700 --> 01:04:14.700
+it, then you can easily do it, now I will show you a final hack
+
+01:04:14.700 --> 01:04:18.700
+although we are working hard here, writing queries of promql
+
+01:04:18.700 --> 01:04:22.700
+custom visualizations are being made here
+
+01:04:22.700 --> 01:04:26.700
+the better approach is to use pre-built visualizations or templates
+
+01:04:26.700 --> 01:04:30.700
+for that you will use this template id
+
+01:04:30.700 --> 01:04:34.700
+1860, how to make this dashboard, I will explain, it's very simple
+
+01:04:34.700 --> 01:04:38.700
+you have to go to the dashboard section, you have to click on new dashboard
+
+01:04:38.700 --> 01:04:42.700
+and instead of new, you have to do import
+
+01:04:42.700 --> 01:04:46.700
+as you click on import, it asks you to give a template id
+
+01:04:46.700 --> 01:04:50.700
+so this is my template id, you simply click on load
+
+01:04:50.700 --> 01:04:54.700
+as you load, see here what is coming
+
+01:04:54.700 --> 01:04:58.700
+the name of your dashboard is node exporter full, so node exporter
+
+01:04:58.700 --> 01:05:02.700
+all the important metrics, you get a complete dashboard
+
+01:05:02.700 --> 01:05:06.700
+and all the information on it is
+
+01:05:06.700 --> 01:05:10.700
+when was the last update, who published it, simply you have to click on import
+
+01:05:10.700 --> 01:05:14.700
+and see, around your ec2 instance
+
+01:05:14.700 --> 01:05:18.700
+all the metrics information is shown here
+
+01:05:18.700 --> 01:05:22.700
+so there is one way to track
+
+01:05:22.700 --> 01:05:26.700
+all your usage, see in the storage disk
+
+01:05:26.700 --> 01:05:30.700
+you can see read and write, input and output operations
+
+01:05:30.700 --> 01:05:34.700
+queue size, again these are hardware related things
+
+01:05:34.700 --> 01:05:38.700
+we don't have knowledge about it, so the better technique is to use this template
+
+01:05:38.700 --> 01:05:42.700
+around the CPU, you can see
+
+01:05:42.700 --> 01:05:46.700
+which apps are you using, how much memory is there in cache
+
+01:05:46.700 --> 01:05:50.700
+how much memory is there in swap, network traffic
+
+01:05:50.700 --> 01:05:54.700
+everything is available
+
+01:05:54.700 --> 01:05:58.700
+so we took both the approaches, we understood the template approach
+
+01:05:58.700 --> 01:06:02.700
+and how you make custom visualizations, we understood that approach
+
+01:06:02.700 --> 01:06:06.700
+again it is up to you, how much you want to expand it
+
+01:06:06.700 --> 01:06:10.700
+I leave it on you, so I hope guys, this whole
+
+01:06:10.700 --> 01:06:14.700
+today's session, you understood, in today's session, we have to do this much
+
+01:06:14.700 --> 01:06:18.700
+we have seen how Prometheus and Grafana work together in monitoring
+
+01:06:18.700 --> 01:06:22.700
+now I am open to your questions
+
+01:06:22.700 --> 01:06:26.700
+and this is it guys, today we have completed our rag project
+
+01:06:26.700 --> 01:06:30.700
+on LLMops playlist, going forward
+
+01:06:30.700 --> 01:06:34.700
+we will continue with another project, that is our
+
+01:06:34.700 --> 01:06:38.700
+agentic application project, now you can ask your questions
+
+01:06:38.700 --> 01:06:42.700
+again, I will not be able to do it by speaking
+
+01:06:42.700 --> 01:06:46.700
+because I don't have my headphones ready right now
+
+01:06:46.700 --> 01:06:50.700
+you can ask me in chat, I am open to your questions
+
+01:06:50.700 --> 01:06:54.700
+and one more thing guys, I am planning a doubt clearance
+
+01:06:54.700 --> 01:06:58.700
+session for you guys, for LLMops playlist
+
+01:06:58.700 --> 01:07:02.700
+so what we will do, we will meet next Monday, till then
+
+01:07:02.700 --> 01:07:06.700
+you can practice all these things, so next Monday we will meet
+
+01:07:06.700 --> 01:07:10.700
+at 8 o'clock and I will take your doubts
+
+01:07:10.700 --> 01:07:14.700
+will Monday be okay guys? you guys tell me in chat
+
+01:07:18.700 --> 01:07:22.700
+Sir, how to practice this all as AWS
+
+01:07:22.700 --> 01:07:26.700
+is expensive, no Mahesh, if you are signing up for the first time
+
+01:07:26.700 --> 01:07:30.700
+and you have your free tier account, then these things will not be expensive
+
+01:07:30.700 --> 01:07:34.700
+in my case, I am getting expensive because I have already
+
+01:07:34.700 --> 01:07:38.700
+crossed free tier, but if you are practicing this for the first time
+
+01:07:38.700 --> 01:07:42.700
+then you just have to keep in mind that whatever you are creating
+
+01:07:42.700 --> 01:07:46.700
+you should stop it after using, and how to check
+
+01:07:46.700 --> 01:07:50.700
+if something is working or not, you will go to the instances section
+
+01:07:50.700 --> 01:07:54.700
+instances are the most expensive, so what you have to do here
+
+01:07:54.700 --> 01:07:58.700
+see, you will see the whole dashboard, you can understand everything
+
+01:07:58.700 --> 01:08:02.700
+in the dashboard, which is working and which is not
+
+01:08:02.700 --> 01:08:06.700
+so you will see clearly, how many instances are running,
+
+01:08:06.700 --> 01:08:10.700
+how many security groups, how many auto scaling groups,
+
+01:08:10.700 --> 01:08:14.700
+you will see everything here, so you can easily judge
+
+01:08:14.700 --> 01:08:18.700
+which thing is running or not
+
+01:08:18.700 --> 01:08:22.700
+is this point clear?
+
+01:08:22.700 --> 01:08:26.700
+how to delete, we have done it many times, it is super simple
+
+01:08:26.700 --> 01:08:30.700
+you will select here, go to instance state, click on terminate
+
+01:08:30.700 --> 01:08:34.700
+it will be deleted
+
+01:08:34.700 --> 01:08:38.700
+if you want to do it for S3, then you will go to S3
+
+01:08:38.700 --> 01:08:42.700
+select my buckets
+
+01:08:42.700 --> 01:08:46.700
+here you will go to delete, it will say to empty it
+
+01:08:46.700 --> 01:08:50.700
+then you will delete it, same with your
+
+01:08:50.700 --> 01:08:54.700
+ECR, go to ECR
+
+01:08:54.700 --> 01:08:58.700
+select my Docker images, delete
+
+01:08:58.700 --> 01:09:02.700
+then you have the delete option
+
+01:09:02.700 --> 01:09:06.700
+if you want to see the use, how much you have used, how much your bill is sitting
+
+01:09:06.700 --> 01:09:10.700
+then simply you will go here, and if you go here, you will see cost and usage
+
+01:09:10.700 --> 01:09:14.700
+see, you will see detailed usage
+
+01:09:14.700 --> 01:09:18.700
+currently I have used around $8, because I am not in free tier
+
+01:09:18.700 --> 01:09:22.700
+and you can see here, my main expense is
+
+01:09:22.700 --> 01:09:26.700
+like load balancer is around $3.50
+
+01:09:26.700 --> 01:09:30.700
+but you will not get this expense
+
+01:09:30.700 --> 01:09:34.700
+trust me, it will come up to $50-60
+
+01:09:34.700 --> 01:09:38.700
+if you use it carelessly
+
+01:09:54.700 --> 01:09:58.700
+can you also create a small video on how to close all instances
+
+01:09:58.700 --> 01:10:02.700
+I have told you Tushar
+
+01:10:02.700 --> 01:10:06.700
+whatever you are doing, you will see it, it is not running
+
+01:10:18.700 --> 01:10:22.700
+Akash's question is
+
+01:10:28.700 --> 01:10:32.700
+enough
+
+01:10:32.700 --> 01:10:36.700
+Akash again it depends on
+
+01:10:36.700 --> 01:10:40.700
+what you are expecting from the company you are interviewing
+
+01:10:40.700 --> 01:10:44.700
+this is not a clear criteria
+
+01:10:44.700 --> 01:10:48.700
+because different companies have different deployments
+
+01:10:48.700 --> 01:10:52.700
+your services are similar to this
+
+01:10:52.700 --> 01:10:56.700
+on other cloud platforms
+
+01:10:56.700 --> 01:11:00.700
+what you are using for a current project, what you are not using
+
+01:11:00.700 --> 01:11:04.700
+depends on it
+
+01:11:04.700 --> 01:11:08.700
+we have covered the entire pipeline
+
+01:11:08.700 --> 01:11:12.700
+there is one more thing, that is measuring the drift and retraining
+
+01:11:12.700 --> 01:11:16.700
+we are not doing that now
+
+01:11:16.700 --> 01:11:20.700
+it will take a lot of time
+
+01:11:20.700 --> 01:11:24.700
+so I will teach you how to calculate drift
+
+01:11:26.700 --> 01:11:30.700
+so drift is calculated in machine learning application
+
+01:11:30.700 --> 01:11:34.700
+and in LLM based applications
+
+01:11:34.700 --> 01:11:38.700
+if the data used in the production contains large pdf
+
+01:11:38.700 --> 01:11:42.700
+with more than 500 pages
+
+01:11:42.700 --> 01:11:46.700
+then would the approach for LLM eval still say the same
+
+01:11:46.700 --> 01:11:50.700
+yes harry
+
+01:11:50.700 --> 01:11:54.700
+because you are building your goldens from context
+
+01:11:54.700 --> 01:11:58.700
+so the bigger the context, the bigger the sample
+
+01:11:58.700 --> 01:12:02.700
+to create your goldens
+
+01:12:02.700 --> 01:12:06.700
+so in that case
+
+01:12:06.700 --> 01:12:10.700
+you will generate more goldens
+
+01:12:10.700 --> 01:12:14.700
+we are doing 14 pages
+
+01:12:14.700 --> 01:12:18.700
+but in real production setup you don't work with 14 pages
+
+01:12:18.700 --> 01:12:22.700
+it is either 100, 200, 300
+
+01:12:22.700 --> 01:12:26.700
+because we have to save on EPA cost
+
+01:12:26.700 --> 01:12:30.700
+so we are working with less
+
+01:12:30.700 --> 01:12:34.700
+so that's it
+
+01:12:34.700 --> 01:12:38.700
+any other questions guys
+
+01:12:42.700 --> 01:12:46.700
+so this was it guys
+
+01:12:46.700 --> 01:12:50.700
+now we will meet again
+
+01:12:50.700 --> 01:12:54.700
+but through the recorded lectures only
+
+01:12:54.700 --> 01:12:58.700
+and next week we will meet in our doubt clearance class
+
+01:13:00.700 --> 01:13:04.700
+and I will miss you guys
+
+01:13:04.700 --> 01:13:08.700
+it was a very long journey
+
+01:13:08.700 --> 01:13:12.700
+and we covered it very well
+
+01:13:12.700 --> 01:13:16.700
+and I hope you liked my lectures
+
+01:13:16.700 --> 01:13:20.700
+and how I taught
+
+01:13:20.700 --> 01:13:24.700
+and thanks for sticking around guys
+
+01:13:24.700 --> 01:13:28.700
+I know it is very painstakingly long
+
+01:13:28.700 --> 01:13:32.700
+but we will meet soon
+
+01:13:36.700 --> 01:13:40.700
+so next monday is it ok for doubt clearance
+
+01:13:40.700 --> 01:13:44.700
+confirm it
+
+01:13:44.700 --> 01:13:48.700
+ok fine, till then clear all your backlogs
+
+01:13:48.700 --> 01:13:52.700
+yes I will
+
+01:13:52.700 --> 01:13:56.700
+this is not the end game
+
+01:13:56.700 --> 01:14:00.700
+so I am telling you about the current course
+
+01:14:00.700 --> 01:14:04.700
+excited for new live courses
+
+01:14:04.700 --> 01:14:08.700
+now I am going to take the next course
+
+01:14:08.700 --> 01:14:12.700
+which is AWS bedrock
+
+01:14:12.700 --> 01:14:16.700
+I am thinking it should be recorded
+
+01:14:16.700 --> 01:14:20.700
+because you are working on AWS
+
+01:14:20.700 --> 01:14:24.700
+there are multiple errors which you can face
+
+01:14:24.700 --> 01:14:28.700
+if you are getting errors then it is difficult to debug
+
+01:14:28.700 --> 01:14:32.700
+I would assume recorded is better
+
+01:14:32.700 --> 01:14:36.700
+live class is better for topics where there are more interactions
+
+01:14:36.700 --> 01:14:40.700
+like Jeff's topic
+
+01:14:40.700 --> 01:14:44.700
+the code part was simple but other things were interesting
+
+01:14:44.700 --> 01:14:48.700
+so they enjoy reading
+
+01:14:48.700 --> 01:14:52.700
+so I think that is better for live
+
+01:14:52.700 --> 01:14:56.700
+so I have not built the curriculum yet
+
+01:14:56.700 --> 01:15:00.700
+my focus is to build the agentic project
+
+01:15:00.700 --> 01:15:04.700
+and then I will build the curriculum and share it with you
+
+01:15:08.700 --> 01:15:12.700
+let's see what are the things that are covered
+
+01:15:12.700 --> 01:15:16.700
+thanks everyone
+
+01:15:16.700 --> 01:15:20.700
+and the fun I want to do with you is due
+
+01:15:20.700 --> 01:15:24.700
+so we will do that next week in the doubt session
+
+01:15:24.700 --> 01:15:28.700
+so you can ask me questions
+
+01:15:28.700 --> 01:15:32.700
+and if you want to ask anything else
+
+01:15:32.700 --> 01:15:36.700
+or give feedback or share something
+
+01:15:36.700 --> 01:15:40.700
+then you can do that
+
+01:15:40.700 --> 01:15:44.700
+that session will be open for you
+
+01:15:44.700 --> 01:15:48.700
+I will keep it open
+
+01:15:54.700 --> 01:15:58.700
+so I think there are no more questions
+
+01:15:58.700 --> 01:16:02.700
+signing off for today
+
+01:16:02.700 --> 01:16:06.700
+bye guys, I will miss everyone
+
+01:16:06.700 --> 01:16:10.700
+and I will see you in the next lecture on Monday
+
+01:16:10.700 --> 01:16:14.700
+good night
+

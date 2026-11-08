@@ -1,0 +1,3588 @@
+Can someone confirm the recording has started?
+People are still joining, let's wait a little and then start
+So how was your journey till now?
+How is the complete journey?
+Whatever we are building the application, whatever we are implementing
+You are understanding all that logically, right?
+Are you able to make a mental map in your mind?
+So far so good, so it will be good in the future too
+Any questions guys?
+You can ask me
+For that simply what you have to do is you have to basically install an extension
+This is the extension
+Material design icons
+Material icon theme
+If you install this, it will come like this
+Just a simple extension
+Any other questions guys?
+We will wait for 2-3 minutes and then start
+If you want to follow along in the code part
+So today I have pushed the updated code to get up
+What you can do is you can simply import that
+Pull it and you can follow along if you want
+Let me see
+There is one more commit, I will push it too
+Everything is up to date, you can pull it and you can follow along on your system
+Any questions guys?
+Anything?
+I wanted to take a feedback about our next session
+So in the next session, as I told you in the previous session
+I am travelling so I am unavailable
+Do you want a live lecture for that session?
+Because we are going to cover the CI part
+We will cover GitHub actions
+And how you implement CI through GitHub actions
+We will cover the whole part
+So recording will be fine
+Or do you want a live session?
+Live, tell me more guys
+Live for CI
+Ok then
+Tell me more guys
+Whatever is available
+I am getting one recording, three live
+Most of them are saying live
+So what we will be doing is
+I will update it in the calendar
+There is already a tentative marked there
+I will update it in the schedule
+So we will be meeting next Monday
+So utilize this whole week very well
+You can complete the backlogs by watching the recordings
+And in the application part
+Whatever we will cover today
+You can come up to date
+Because the upcoming sessions
+Are all deployment related
+So there will be a lot of code
+There will be a lot of technical things
+So I want you to cover the application aspect properly
+Because today's session is basically
+That juncture in our course
+Where we will cover the application part
+On hosting LangFuse using Docker
+You are saying self hosting
+I will give you the commands
+You can check it out
+Now we will not self host it
+But I will give you the resources
+It is easy, you just run the commands
+And it starts running on some port on your system
+On the local host
+You can access it from there
+We will wait for two more minutes
+People are still joining it
+Again guys, join from time
+So that we can start on time
+Any more questions?
+Just two minutes more and then we will start
+Contextual relevancy is always
+Come less for me even when I have
+Same parameter
+Why is that?
+We have improved the contextual relevancy
+As we have put contextual compression
+Again our rag application
+Is very basic
+So in basic application
+Contextual relevancy generally comes less
+We can filter it out
+In advanced way
+If you are following my advanced
+Track course
+You must have seen that contextual
+Relevancy was coming less
+But as we switched to agentic
+Application
+The metrics improved
+So that is why you do
+Rag implementation in advance
+In our case we are working with
+Basic implementation
+We did not tweak much
+From the basic components
+That's why
+But the steps are the same
+You can repeat these steps
+One more minute guys
+Then we will start
+The resource
+I shared with you
+PDF resource
+How did you like it?
+Was it helpful?
+Did you get a quick overview?
+In a single glance
+Our journey must have been
+Recapped
+So part 2
+I will share
+A complete part
+As soon as our project is completed
+We will complete everything
+Till post deployment
+So I will share the next part with you
+It will give you a complete picture
+It will be a resource
+That you can use
+If you want to use
+An entire LLM Ops pipeline
+On any application
+Then simply
+Refer that particular resource
+And you can implement LLM Ops
+For yourself
+Bit more detail
+Ok guys
+For today's class
+We will understand the code
+In detail in today's class
+I will explain the code
+Through annotations
+And you don't worry about the code part
+Let's start
+Let's start our discussion
+I will give your questions after some time
+So in the last session
+We discussed
+About APIs
+We understood at the basic level
+What are APIs
+Where do we need them
+We also understood a server
+Client architecture
+How client
+Who wants to access your application
+He doesn't directly
+Contact the server
+He uses middleman
+That is your API
+And server doesn't directly
+Responds back to client
+He also uses APIs
+And what is the benefit of this
+The benefit is
+Your application
+Which you call your backend
+You can develop it separately
+And your client side
+Frontend
+Through which you interact with your application
+You can develop it separately
+Here you
+Break their interlinkage
+They are not dependent on each other
+And that is the power of API
+If I
+Tell you about your LLM based applications
+Specifically
+APIs are basically used
+To serve your application
+If someone asks you in an interview
+Why are you
+Implementing APIs in your application
+What is the reason behind it
+You simply have to say
+We are using APIs here because
+We have to serve this application
+To our client or to our user
+Till now what we were doing
+We were directly
+Loading our application
+You know we were importing
+In the code
+And using our application
+Which is not a good idea
+The problem is
+When your backend and frontend
+Are so tightly coupled
+If in your backend code
+There is a slight change
+You have to change your frontend
+Which is not a good thing
+Frontend developers are different
+And the application you are making
+You as an AI engineer
+Are a separate developer
+So you have to decouple both
+You have to remove the coupling
+Then we discussed further
+That your API frameworks
+Were coming in Python
+That is Flask
+And Django
+These are actually very good frameworks
+These are basically your mature frameworks
+They are being used in the industry for many years
+But
+Their biggest problem is
+That they handle your API calls
+In a synchronous way
+They handle your requests one by one
+Till your one request
+Is not processed completely
+They don't take the other request
+So here we need to
+Use a framework
+Where we can take asynchronous
+Responses
+What will be the main benefit of this
+You will get
+While you are scaling your application
+Your one application
+Is deployed at one place
+Let's say on AWS
+And multiple users
+Interact with that application
+At a single time
+Your application is having
+Let's say a thousand users
+So thousand users can use
+Your application concurrently
+That's why we use asynchronous
+APIs
+And here in the picture
+Fast API
+Fast API's core philosophy
+Is your asynchronous philosophy
+You can understand it like this
+Fast API is built on
+Some core primitives
+First of all
+Starlet
+Starlet is your web framework
+We discussed
+How do APIs communicate
+Through the HTTP protocol
+So they communicate
+On the web or internet
+And who handles that communication
+Starlet
+Starlet is an asynchronous
+Framework
+Starlet uses
+A particular component
+Which is called
+ASGI
+Which is your asynchronous gateway interface
+So this is asynchronous
+What is its function
+It acts as a translator
+It acts as a translator
+It translates your HTTP request
+Into python
+It translates it into python understandable code
+It translates it
+Third is your server
+Which basically
+Is used to deploy
+Or run
+And you are using that too
+Uvcon
+The server you get in Flask or Django
+Is G-Unicon
+That is a synchronous web server
+The web server you use here
+Uvcon that is also asynchronous in nature
+I hope you remember this
+And we also discussed
+In detail that what is the difference between
+Parallelism and concurrency
+So fast API doesn't give you parallelism
+It gives you concurrency
+I hope all these points are clear to you
+Now
+What we have done
+We have implemented
+In our application
+API
+So what you do
+When you implement API
+You define different roots
+Now
+You will feel what are these roots
+Or what are these endpoints
+It is called root and endpoints
+It feels like
+It is something new
+You have to read it in detail
+Roots and endpoints are very simple
+Basically what you are doing here
+Again you are implementing
+Separation of concern in APIs
+I mean
+Here you
+Through different endpoints
+You are able to use
+Different things in your application
+Basically
+What we do here
+When we use fast API
+We build functions
+So endpoints
+Actually internally
+They are your functions
+And in those functions
+You are able to
+Access different aspects of your application
+Now we will see
+What are the endpoints
+In our application
+And what are their use cases
+You make endpoints because
+It is like an enclosed scope
+It is a separate scope
+Where you are doing the same work
+Like in our rag-based application
+There can be one endpoint
+Chat endpoint
+Now what is the work of this chat endpoint
+It is a function
+It will behave like a function
+So function will take some input
+What will this chat endpoint take
+It will get the query input of our user
+There will be some logic
+In this function internally
+There will be some logic
+And in the end
+What will we get
+In the end we will get our response
+In the end we will get our response
+So your chat function
+And other endpoints
+Which do different things
+For your application
+Like we have a health
+And an endpoint
+Which basically checks
+The two key components of our application
+That is your retriever and your generator
+Are they working or not
+So to test these
+We have made health endpoints
+Similarly there can be some vector store
+Endpoints like
+There can be one endpoint
+Which is adding your transcripts
+Into your vector store
+There can be one which is telling
+How many chunks are stored in your vector store
+There can be one which is telling
+How many files are stored in your vector store
+Or which files are stored
+Chunks are different
+And files are different
+So all these endpoints
+We will make in this session
+And not only we will make endpoints
+We will make
+A frontend here
+What did I tell you
+Why do you make APIs here
+You have a backend
+And a frontend
+Frontend is your client
+Backend is your server
+Between these two
+You have to communicate
+With your client
+In the middle you have an API
+So we have made APIs
+Now what we have to do
+To communicate with this backend
+We have to make a frontend
+So we will make the same frontend
+In today's session
+Backend is nothing but application
+We have already built this
+This is our done part
+Frontend we will make in today's session
+And we will see how
+Your frontend interacts with this API
+So today when we
+Complete this session
+We will have
+Proper APIs
+Which we can query or call
+And interact with our application
+We will have a proper frontend
+Which we can use
+And use our application
+We can give it to our end user
+So that our application is usable
+Is this point clear guys
+Is this point clear guys
+Is it clear
+Ok
+I will take your questions
+In a while
+This point is clear
+Let's move forward
+Let's do one thing
+First I will give you a small demo
+If you will see visually
+The application and the APIs
+Then you will understand better
+So let's do one thing
+First we will start our server
+Server is basically what
+Server is a uvcon instance
+Where are our APIs
+Serving using the uvcon server
+So what we will do is
+Start this uvcon server
+And then what we will do
+After that we will start our frontend
+And you will see that both
+Can't interact properly
+So let's do one thing
+I will do one thing
+I will clear
+Sessions.json
+Once
+Ok
+I have done this
+I will write command here
+Whenever you want to turn on your server
+You will write uvrun
+Because you are using uv
+So there is a difference
+Then you will write uvcon
+After that what you have to write
+After that you have to write
+Where is your fast api application
+So if you go to your source folder
+And go to this
+Api folder
+So you will see
+Main.py here
+And here is your particular application
+Ok
+We made a fast api instance
+And here I have kept the title
+Rag application internal api
+So basically what I will do
+I will define this path here
+So where is this
+This is in my source api
+And here is the main.py file
+So I will write
+Api.main
+As soon as I write api.main
+I will come to this main.py file
+Now I have to tell here
+Which is the application
+Defined by which variable
+So the application is defined by my app variable
+So I am telling simply to my uvcon
+Server to go to this api.main file
+And access this app variable
+Or run
+So whenever I have to tell variable
+I tell colon here
+And after that I write the name of the variable
+Now I am writing its name app
+Tomorrow if I do rag app
+Then I will write rag app after colon
+Ok
+You have to remember this
+But convention is that you
+In the main file, you make your fast api
+App by the name of app
+After that what you will do
+You will give a tag that is your reload
+Reload you basically give because
+If you have changed something in your backend
+Code or api code
+Then you will not have to turn on this server again and again
+Ok
+It will take your changes and automatically
+Restart here
+Basically you use this at the development time
+If you have written a code
+There was some error in the code
+Or it is not working as intended
+Workflow
+So you can fix the code and test it again
+So this is the test we have already written
+But it is a good practice
+In the development you give a reload flag
+But you should not give a reload flag
+In production
+Ok
+Because if you have a bug
+Then your server will be down again and again
+Up will be down and up will be up
+That is not good for production
+If there is a bug in production or an error
+Then it should down your server
+It should completely crash and should be shut down
+After that you will tell here
+App directory
+Which directory is your app in
+As relative to your project
+Where is this app in our project
+It is in the api folder
+But which is the parent directory
+That is the source
+So you will tell here in the app directory
+And that's all you have to write
+And simply you will press enter
+Ok
+I had to put a flag here
+That is left
+Double hyphen
+See our server has started
+Let's see
+What is written in terminal
+See what is happening
+Basically my
+Guardrails models
+Which I am running locally
+They are loading here
+My config is loading here
+My chunk size is 270
+Overlap is 15
+And this is my embedding dimensions
+And you can see here
+Where all the models are loading
+Let's wait
+Ok
+And here my application has started
+Now let's do one thing
+Let's open another terminal
+And let's start our streamlit app
+Now where is the streamlit app
+Streamlit app is in your source
+You will see here front end
+This is front end
+And in this your particular app
+This is your streamlit app
+So what you have to do is
+Write a command uvrun
+Whatever file you want to run
+You write uvrun for that
+After that you have to tell
+Which command you want to run
+Streamlit has its own run command
+And after that you tell the path of the file
+So it is in the source
+In front end
+What is the file app.py
+Let's run it
+See the streamlit page has opened
+See this is our UI
+You can see guys
+Streamlit UI is visible
+To all
+Yes you can use any other framework
+You can build it in react
+This front end development
+Is not our work
+So we use streamlit for POCs
+Because it is easy to code
+Inside python
+See guys
+To all
+See here I have given a title
+CampusX doubt solver
+For insider's program
+Ask a doubt and get an instant answer
+From campusX knowledge base
+Now here if you see in sidebar
+This section is called sidebar
+Inside sidebar
+Loaded documents are coming
+And here what is visible
+14 files indexed
+If I expand it
+See here all my
+Transcripts are visible
+Currently I have these transcripts
+In my process folder
+From 1 to 14
+You can see it in the application
+Now the reason to include this
+Is tomorrow whatever transcripts
+We are uploading here
+Our students can come here and check
+Which transcripts are available
+Which courses or
+Which sessions can be asked
+Here I have
+Some checks
+Like check LLM you can see a button
+Check retriever you can see a button
+If I press it
+Now with this I can check
+Whether my LLM and retriever
+Is working properly
+You can check it through health check
+The benefit of this is
+The API key I am using
+Currently for this application
+This is my personal API key
+But when you deploy this application
+You will use your API key
+So here we are giving
+A button to the user
+To check
+That our RAC chatbot components
+Are working properly
+Is everything fine on the backend
+So let's wait a little
+It takes time to run in streamlit
+Check LLM
+Which color you can see
+Green, retriever green
+Overall health is also green
+It means everything is working fine
+Now let's ask a question
+The question is simple
+What is
+Contextual
+Relevancy
+Metric
+And how is
+The metric
+Calculated
+Calculated
+Ok
+I asked this question
+Now you can see
+Here you can see new sessions
+Automatically you can see
+It will automatically be renamed
+As chatgpd is used
+Let's let it generate
+It will take some time
+Latency is more in our application
+Because guard rays are also there
+And contextual compression is also there
+That's why
+Let's wait a little
+To improve latency
+You can use a better vector database
+You can use
+Some advanced
+RAC technique
+Which will reduce your retrieval
+Basically the brute force approach
+You should not use
+Now you saw
+As soon as I wrote my first question
+How did you get the answer
+In streaming fashion
+Like you get in chatgpd
+Let's read it
+How many of the true human labeled
+Golden documents
+That are actually relevant to a query
+Are returned by a retriever or context
+How is its calculation
+Some examples are shown
+If you see in the session section
+Here your question
+And its response
+Your session id is renamed
+As you see in chatgpd
+As soon as your first answer comes
+The name of the session
+Is renamed
+As you can see
+You can ask follow questions
+Again this is a multi-turn application
+Single turn
+If I want to ask about contextual relevancy
+I have to write a detailed query
+We have done that intentionally
+Because
+It's a simple application
+Secondly, if you build
+Multi-turn application
+You can
+Send your previous history
+To your query
+You can see
+If you send a bloated query
+To your rack chatbot
+How will its response come
+Obviously it will be bad
+Again we have to use an advanced technique
+Which can read our message history
+And can fetch out
+The actual query
+We have to use an agentic
+Component
+Again it is missing
+So we are working in single turn
+You can also ask follow up questions
+As soon as I get a question in my mind
+What is the
+Difference
+Between
+Reference
+Based and
+Reference
+Less
+Metrics
+Let's wait
+Once
+How is your application
+Looking
+Useful
+Don't think about
+Latency
+If you are given this chatbot
+To ask questions
+Do you think it is a good chatbot
+And the good thing is
+That whatever work we are doing
+Directly with our application
+We are not interacting
+Whatever generation work
+Which we are able to fetch
+Which files we have uploaded
+All that work
+We are doing through API
+So your API is working in the backend
+And the streaming response
+You can see it because of the API
+It's taking some time
+Let's wait
+Here are some answers
+You can read this
+Let's open a new chat
+As soon as you open a new chat
+It's not like your old chat is deleted
+You can come back to this chat
+Let's ask in the new session
+What is the
+Difference
+Between
+Online vs
+Offline
+EVAS
+Again
+It will take some time
+Latency
+You can cut short
+If you don't use
+Contextual compression
+It will be cut short
+We have uploaded a lot of chunks
+In our chroma database
+You can reduce it
+You can use a good vector database
+If you use pinecon
+This latency will be reduced
+You can try all that
+At the end
+Again, you don't need
+To change much in the code
+You just need to use the
+Lang chain integration
+You are getting a response
+Response generated
+And here is your particular response
+You can see
+Your session is automatically
+Renamed
+You can easily switch between your sessions
+I hope this particular thing is
+Clear to you
+In this session
+We will build the UI using streamlit
+And the APIs working behind it
+We will build that
+I will show you one more thing
+If you go to
+Your
+API server
+It is working here
+Now the detail is not found
+Because we have not put anything in the home root
+But if we see docs
+Then see
+These particular endpoints
+Which are working in the backend
+You can see
+In the chat section
+You have 2 endpoints
+One is your chat
+Through which you can chat
+You will send a query in the input
+You will get a streaming response in the output
+Then the second is your get method
+Where you can ask
+Which files are available in your vector source
+We can test it here
+If I test it
+Then see here
+My details are getting returned
+In this way
+The collection name is coming
+Which is our collection name
+How many unique files are there
+And what are the names of the files
+You can also do health checks
+Like your application is working
+If I click on try it out
+I can do the health check
+Again, don't get overwhelmed
+We will see all these things in detail
+I am giving you a demo
+These are your vector store related endpoints
+Here you can also
+Take out your chunk count
+And you can also sync your documents
+Is this point clear guys?
+Is this clear?
+Shiv Saran is saying
+I have made an application
+And we have added
+And we have added both
+But for processing I am using pinecon
+And it is really fast
+That will happen
+You can write that code
+We have already discussed pinecon code
+It is super easy to integrate it in the line chain
+You can use pinecon in this particular application
+We will do one thing
+In the next class I will also use pinecon
+We will ditch it
+Shall we move ahead?
+Excited for the class?
+I hope I have motivated you
+Right, clear in the chat guys
+If you have any question you can ask
+Then we will move ahead towards the code part
+Bit by bit
+We will understand the code
+Clear
+So what is our goal guys?
+Our goal is simply
+That we are seeing 6 end points
+We have to build these 6 end points
+2 for each of our routes
+Which is your chat route
+Where chat related work is going on
+Health route
+Where you are doing health checks
+And vector store admin route
+Where you are doing vector store related work
+So let's start with the code part
+Let's start with the code part
+We will move slowly
+And we will move ahead understanding things
+What I will do is
+I will close the terminal
+And I will close all these files
+Let's start
+First of all what we will do guys
+We will go inside the source
+So here the front end
+You can see clearly that is in the front end directory
+So here is the front end related code
+And the API related code
+I have kept it inside the source
+API
+So I will go inside this
+So you can see 2 things
+2 levels
+Let me turn on the annotation
+Just give me a second
+This color will be ok guys
+You tell me
+Give thumbs up
+I won't be able to read the chat
+Give thumbs up so I can see it
+Is this color good?
+Ok
+So here you can see clearly
+Here we have
+In this API directory
+This is our parent directory
+We will understand the layout of the project
+You will get some practice
+Inside that you have a sub directory
+Called as routers
+Ok, inside this routers
+Basically we will define our roots
+What does it mean to define roots?
+Here we will define our end points
+Here we will define our end points
+Now what are end points?
+I told you that end points are basically your functions
+You have to keep this in mind
+End points are nothing but your functions
+After that
+This is our main.py file
+What are we doing inside this?
+We are building our application inside this
+Which application?
+API application
+That is your fast API application
+Which I have shown you in the code
+So we are doing that code in main.py
+By convention you write that code in main.py
+After that
+There is your security.py
+What is this security.py doing?
+Basically we are checking
+Our admin key
+If you remember the previous class
+I told you that
+Update in vector store
+It is an operation to read
+Chunks in the vector store
+I have kept this on admin end
+Means campus team, campus staff
+Or only Nitish sir
+Can interact with this particular vector store
+We have not given this capability to students
+Because this is our knowledge base
+We have built chatbot on this base
+So we are not giving any feature
+To upload any document and ask questions
+So which transcripts should be added
+When should they be added
+This should be in our control internally
+So what we will do for that
+We will use an internal API key
+And if that API key matches
+Then only we will be able to
+Change the changes in the vector store
+Otherwise we won't be able to
+And lastly what we have done
+Schemas.py is also defined
+What we are doing in schemas
+Basically we are
+Defining the pydantic objects
+I told you that
+In your fast API
+There are not only
+API related or web framework related things
+Here you give asynchronous
+Web framework
+And also you give
+Data and type validation
+And I told you that
+What you do with data and type validation
+That is done through your pydantic
+So basically in schemas.py
+We will build our pydantic classes
+Whenever you design
+APIs
+You have two classes
+Two main classes
+The first class is
+Response Schema
+Response Schema
+Response Schema
+And one is
+Request Schema
+Request Schema
+Now I told you that
+Your server client architecture
+What client sends to your server
+Or to the API
+Request sends
+And the answer that the server gives
+In what form
+In response form
+So we define our classes
+Or validation
+In these two broad schemas
+Where your
+Response Schema
+Handles your
+Server to client
+Whatever data is going
+And what is data called
+In the language of the API
+Data is called your payload
+So whatever payload or data
+Is going to the client
+From the server
+That will be validated through your response schema
+And whatever request
+Is going to your server
+That will be validated
+Through your request schema
+I hope this point
+Is clear to you
+So what we have done
+In our API
+Main.py is made
+Main.py which is your main file
+Through which you will access your APIs
+After that is Schema.py
+Through which you will validate
+Security.py just to handle
+Your internal APIs
+And in routers we have defined our endpoints
+Which are basically your functions
+I hope this point
+Is clear to you
+Is this point clear guys?
+Project layout is clear to you?
+I am looking at the chat
+Because this layout
+Is very important to you
+To understand the code
+How the code is linked
+If you have any doubt you can ask me
+Let's wait for a minute
+If anyone has any doubt
+We will clear it and move ahead
+If not, then write clear in the chat
+Let's move ahead
+Clear, let's go
+So what we have done
+Clear, let's go
+Now before going to the code
+Let's discuss one more thing
+Which are basically your
+HTTP methods
+I know you may have heard a lot about
+HTTP methods before
+But let's take a 5 minute overview
+What are HTTP methods basically?
+These are your
+Endpoints, if you say it in simple language
+These are the types of your endpoints
+If I show you docs
+So what you see here
+This post in green color
+Get in blue color
+These are basically your HTTP methods
+And your
+Most commonly used
+HTTP methods are of 4 types
+I will tell you their names
+They are your Get
+One is your post
+One is your put
+And one is your delete
+And these 4 methods
+Are used to perform your
+Crud operations
+I hope you know about
+Crud operations
+If you are working with any software
+Or database
+Then you perform crud operations
+Crud stands for
+C comes, your create
+Means you create a new entry
+A new row inside your data
+R is to read or retrieve
+Means you
+Read the data
+Which is already existing in your database
+U stands for your update
+You want to update
+Any entry or row
+And D stands for your delete
+So to perform these crud operations
+In your application
+We use these HTTP methods
+So get method
+Whenever you see it in APS
+So get is always used
+To retrieve
+Post is always used
+Post is used for
+When you are posting a letter
+What are you doing?
+Your data is your letter
+In which you have added information
+You are giving it to someone
+Who will receive your letter
+So post is always for sending data
+So this is used to create
+Put is already used
+You have to update it
+For that
+You use the put method
+And delete is for delete
+Delete is for your delete
+Now if you see clearly
+The two methods we have implemented
+Among them is post
+And the second is get
+We have not implemented put and delete
+Because we are not doing those operations
+We are doing two types of operations
+With our rag application
+First is either we are asking
+For information from our application
+Using the get method
+Or we are sending some data
+Using the post method
+Now you have to understand
+One thing that in get method
+And in post method
+What kind of validation
+You will apply
+It is very important to understand
+Students generally make mistakes
+And get confused
+That they are working with fastvp
+But they don't understand
+What kind of validation
+We have to apply
+Generally you apply validation
+Generally you apply validation
+Where you have the most risk
+To get wrong data
+You will not apply validation
+At that place which is already
+Cleared properly
+What is validation
+Validation is type of a check
+So you
+Will not apply check at that place
+Which you know is already secure
+Which is unchecked
+You will apply some extra checks and balances
+So get
+Now what is get?
+We are reading the data
+So where are we reading from?
+From our application
+Or database
+So our validation
+That happens from the response side
+Where is our application?
+Our application is the server
+And our client
+Is the front
+Now we are asking the server
+To go to the database
+And return a particular row
+I am asking for data
+From the server
+So what I will do is
+I will send a get request to my server
+And I will get my
+Response back
+So where do I have to apply validation?
+I have to apply validation on the response
+Because my data is on the response
+Where am I getting the data?
+Data is getting back from the server
+To the client
+So I should get the data after the check
+So I apply validation
+So in the case of get
+Validation always stays at the
+Response side
+On the response you have to apply
+Data and type
+Both types of validation
+Now let's talk about the post method
+Where do you apply validation in the post method?
+What do you do in the post method?
+You are sending data
+Means you are sending data through the client
+To the server
+So here you are basically
+Creating a request
+The client who goes to the server
+Is always requested
+So this time
+Data will be inside your request
+So where will the validation be applied?
+On the request side
+So I told you that
+There are two schemes of validation
+One is request
+Schema which is applied on your request body
+And the other is response scheme
+Which is applied on your response
+So I hope that
+Where you have to apply proper validation
+If your method is post
+Then you will implement
+Request scheme
+If your method is get
+Then you will implement response scheme
+Is this point clear guys?
+Very important point and generally
+Students get confused in this
+Did you understand what to apply in which place?
+Is this thing looking logical?
+Very important concept
+Write clear in the chat
+If you understood then move ahead
+If you didn't understand then you can ask questions now
+We will clear this once and move ahead
+Clear
+Any other question?
+If you don't have then write clear
+Get method has header part
+And it is not secure
+When sharing password
+And post as header
+Body part so that is secure
+Get method has header part
+And it is not secure
+When sharing password
+So in get method
+Generally when you send get method
+You don't put passwords
+You put tokens there
+Your bearer tokens
+We also have
+Your bearer tokens
+We are also putting API key
+So we encode it
+We will not put API key directly in header
+Any other question?
+Again ask fast API or API related questions
+You should not know in this depth
+You should know the basics
+How you will serve your application
+Let's go
+Towards the code part
+Now let's go
+Towards our different
+Routes
+Let's study the roots first
+And then we will come out
+In hierarchy and study these things
+So here I have
+Opened chat.py
+And here I have
+Opened my schemas
+Because I need them
+Now here I have
+Imported these particular things
+From my API.schemas
+I have imported two schemas
+Chat request and
+Upload file response
+What I told you
+Which end you put schema
+If you are using
+Post method
+You put request end
+Whereas if you have data from server
+Then you put schema on response side
+So you will see the same thing
+In the code
+So we have done some imports
+After that what I have done
+I have imported from fast API
+API router, HTTP exception and status
+And from responses
+I have imported streaming response
+Whenever you are building
+A generative application
+Then this particular streaming response
+It is very important
+What does streaming response mean
+You are streaming your output token by token
+Like you see in chat.gpt
+Streaming response or in blank graph
+Or in your LLMs
+You do stream equal to true
+So internally here
+Streaming response is implemented
+Here we have implemented
+Logger and
+Our application
+We have imported it
+Here
+We have imported our parameters
+Basically we are handling the imports
+First of all
+We will make an API router
+What will be its prefix
+It will be chat
+And we have put chat in tag
+Now where will you see this prefix
+You will see it here
+You will see this above in bold
+This is your prefix
+Now if you have already coded in fast API
+Then you will find this
+A little weird
+Actually it is not weird
+Basically what we have done here
+We have made 3 API routers
+In fast API
+Generally it is recommended
+That for a particular category
+You write all your api's in one file
+Like here chat related api's
+Should be in one file
+Vector related api's should be in one file
+Vector store related api's should be in one file
+Separation of concern
+So for that what you do
+You put a prefix in your end point
+What is the prefix
+If you want to
+Access your chat end points
+So how will you access it
+If I show you here
+See
+Chat
+After that
+This is chat post
+You will access it like this
+If I show you
+Here is another one
+Here is a prefix chat
+And after that files
+So basically this chat prefix
+You will see it everywhere
+If I show you health
+As soon as I expand
+After docs you will see health
+So means
+All health related end points
+Are in your health end point
+This is your prefix
+So you made
+Categories here
+Chat category is different, health is different
+Vector store admin
+After docs you will see
+Vector store admin
+Below that in hierarchy
+You will see different end points
+Let's go back to the code
+So here I have added my prefix
+That is chat
+Chat related api's
+Now I will write in this file
+I have made a function here
+This is basically a generator
+In the name of stream response
+This will break my response
+From my LLM
+Into separate words
+And here
+Will yield one by one
+Wherever yield is used instead of return
+That function becomes your generator
+It is python 101
+So we have made a streaming
+Iterator or generator
+And here we have
+Gap through time dot sleep
+So you can change this time
+If you increase it
+Then words will be
+Printed more slowly
+And if you decrease it then it will be fast
+So you can change the speed
+Of your print
+Now see here
+This is your main api code
+So whenever you want to make
+Any end point in fast api
+So what you do here
+After app dot method
+You make your end point
+So where did you make your app
+We made it inside the router
+Separation of concern
+So here we are using router dot post
+If you use
+Get method here
+You use dot and get
+After get you tell your path or end point
+We are using post here
+So we will use the post method
+So here you made a decorator
+Router dot post
+I will annotate it
+And tell you
+When you are writing router dot post
+So basically you are setting
+Your HTTP method
+As post
+Now you have set the post
+It means you are going to send some data
+But in this particular post request
+We are going to get data
+So what we will do here
+We will define a function
+Under decorator
+What you do here
+You define a function
+So we will define the function
+So APIs
+Basically
+Are python functions
+Under the hood they are python functions
+Nothing is different
+We simply put a decorator on it
+To define the end point
+Now here we are telling
+This chat will get a request or query
+What type of query will it get
+Chat request type
+And how will this chat give you output
+It will give you the output of streaming response class
+Which we have imported above
+So here we have set all our cartels
+And what we are doing here
+If I can clear this thing
+And go down
+Here we are basically
+Trying
+Using the try accept block
+Here we are trying
+Here we are invoking our graph
+Simply you know
+You have built this graph in your lang graph
+You have to give it a query
+In the input
+You will get this query
+Request.query
+Now here we have written request.query
+This thing to be noted
+How are we getting the input
+In the chat request form
+What is chat request behind the back
+It is a pydantic object
+Because it is a class
+An object
+It will have an attribute by doing a query
+Now let's see how it looks
+So see
+Here we have
+We have imported base model
+You have already worked a little bit
+This is your chat request
+It is a simple class
+In editing from the base model class
+And what will it get in the input query
+Here validation is
+That query will always be in your string form
+No number, floating point number
+Or any list dictionary
+It will not get it
+It will only accept your string query
+So here you can't send any message list
+You have to send your input in a single string
+And what did you do from there
+Write.query and accept your query
+If
+Any error comes here
+Means your API is down
+Your LLM is down, it is not responding back
+So what will you do
+First of all, you will lock your error
+After that you will
+Raise an HTTP exception
+HTTP exception is basically
+A special exception class of your fast API
+Which here
+For HTTP methods
+Allows you to raise an HTTP exception
+You will pass status code in it
+So what is the status code
+Our is 500
+500 is basically server side errors
+Again we are not understanding the status code in detail
+If you want to refer
+You can go to the fast API playlist on YouTube
+There sir has told you the status code in detail
+And after that
+You will send a detailed message
+Fail to process the chat request
+If everything is fine
+Then you will get a response here
+You will get a response here
+Where will you get the response
+It is a Langraph graph
+So you will get the entire final state
+In the result
+What you have to fetch from the result
+Response
+This response is your validated response
+You have to keep this in mind
+After that whatever response you got
+You return it in the streaming response class
+So you give it
+Input your content
+But the content should be
+A streaming content
+So basically you pass your generator
+And you give your text to the generator
+And after that
+You tell in a media type
+What kind of output is this
+This is our text
+So you tell your output in this way
+I hope this thing is clear to you
+Is this point clear guys
+This level explanation is ok
+Do you understand
+You are able to pick the code
+Again I have shared the code with you
+You can easily see line by line
+It is easy
+In this particular line
+We have
+Invoked our graph
+If there is an exception, we handle it
+Otherwise whatever response we have
+We fetch it here
+And after that we stream it
+Back to the user
+What if there is error after this
+Required from guardrail
+So did you see the previous class
+This is our validated output
+Watch recording
+So there you will know
+If there was an error in guardrail
+We have fallback message
+So here in response
+Instead of actual output
+Fallback message will be printed
+I told you that
+Whenever you implement guardrail
+There is a fallback message
+When you implement guardrail
+It is handled through a fallback
+It is not like you crash your application
+But we have made two types of fallback
+Hard fallback
+Which was dealing with exception cases
+Where we were telling our attacker
+That you can't access it anymore
+One was soft fallback
+Which was for our user
+That maybe we have made a mistake
+And we are trying to fix it
+So you will see the message here
+You will always see the string in the output
+Now it depends on
+If you have installed guardrail
+You will see fallback message
+And everything is correct
+So you will see proper message
+Let's try out this whole thing
+Let's go back
+Let's try out this
+Our application is running
+Here we write some messages
+Some jailbreak messages
+Let's write some jailbreak messages
+So I have put a very straight forward prompt here
+It is jailbreak
+So this should be blocked
+In my input
+See
+You can see here
+I didn't get any response
+What did I get here
+My input guardrail got triggered
+And exception was raised at the time of input
+So see how quick the response was
+Let's ask some off topics
+What was in off topic
+So this prompt will generate response here
+So let's create a new session here
+And ask off topic
+Who won
+Who won
+The IPL
+This
+This season
+See
+What came here
+Something went wrong while processing your request
+It could not be completed safely
+Please try again in a moment
+I think I have put the same exception in both
+Let me check
+Which one we have put for soft
+Just give me a second guys
+If I go to the guardrails
+Off topic
+Maybe I think we
+Okay
+We have put fix in PII
+And on topic
+But you won't see the fix of PII
+These two are your
+Exceptions
+You can't see the short fallback in this
+But if there was a refrain
+We could have triggered it and printed it
+I hope you understand this
+Your guardrails are implemented
+Everything is inbuilt here
+You don't have to show your user
+See we have shown the fallback message
+But the user doesn't know which guardrail is there
+What is happening internally
+That API is not exposing
+Your API work is simple
+The question came
+Take it to the application
+The application will do its work
+And print whatever response it will give
+That's it
+This is the
+The application
+This is the exception handling
+In the API
+It is doing it from the end of the API
+If you pass a query in the API
+There is an internal error
+There is a server error
+Your server is down
+You are calling the API
+It is not able to call
+So at that time you give some response
+Is this clear
+This part is clear
+Is it clear
+Let's move ahead
+Now you will see in front end
+This particular thing
+We are extracting
+From our vector store
+Which documents are available
+In our vector store
+Basically what will they do
+These particular documents
+Will help our end user
+To decide which type of questions to ask
+Which transcripts of the session are available
+Which type of responses are available
+In chatbot
+So we have made an endpoint for that
+Again this is a user facing
+Endpoint
+So we have not kept it like an internal endpoint
+But kept it in our chat
+Endpoint
+Chat files
+Because it is accessing our front end
+If it was internal
+We would have kept it in our vector store admin
+I hope this point is clear to you
+Again what will you do for this
+We have made a utility function
+This function basically
+Sorts your file names
+That's it
+This 1 to 14
+Sorts and answers
+We have made another route using the router
+This is a get
+What you do in get
+You retrieve some data from your server
+What we want from our server
+We want that
+The chunks of files
+Which are available in our vector store
+Give us the details
+We are not sending any data
+We are asking for some response
+So what will you do here
+You will tell us your end point
+That is slash files
+If you see here in docs
+In chat
+In slash files
+This is your particular end point
+Second thing
+You will tell us a response model
+That the data you will get
+That should be properly validated
+In get
+You will see this response model
+You pass your parent class in this
+So what is our response model
+Whatever data
+Will come back from this function
+Will come back from this api
+After validating it
+We will send it to our user or client
+And how will we validate it
+Through the uploaded files response
+Let's see what is uploaded files response
+This is your particular class
+You have to tell 3 things in this
+First is your collection name
+Which collection is the data coming from
+In your chroma db
+You can have different collections
+Basically you can have different
+Sub directories
+In which you can keep chunks for different things
+So there collection name
+Will be fetched
+Then how many unique files are in your vector store
+This will come and what are their names
+You will fetch these 3 things
+And in this format
+The name of collections will always be in the string
+Unique files will always be in integer
+Never in float
+And file names will be a list of string
+So
+Let's go back to the chat.py
+And see this is its whole code
+Simply what you are doing here
+You are using vector store.get
+You are fetching all the chunks
+And what you have done is
+You have put the source name of the file in your metadata
+Which file is this
+Chunk has gone to the vector store
+You have put that detail in your metadata
+Then this whole code is exception handling
+Then what you are doing here
+You are making a variable by doing file names
+Inside that you are sorting
+That whatever is the source name
+Inside that
+You are extracting the name of your file
+And simply by running loop here
+You are making a
+Iterable that's it
+Inside that you are fetching all the things
+And here the sorting function
+You are passing this function
+And how you are returning
+You are returning
+In the form of this particular object
+In the form of file response
+Here you are telling what is the collection name
+Which you will get from your parameters
+How many unique files are there
+Which will be length of file name
+And inside file names
+You will send the name of your file name
+Clear
+Is this particular thing clear
+Any code is not difficult
+So we have discussed
+Both the endpoints of our chat
+Here
+Which endpoints are these
+These endpoints are user facing
+This is going to use our
+Streamlit application
+Let's move ahead
+To the health
+Let's move ahead
+Now let's discuss about the health endpoints
+So here we have imported
+We have imported our LLM
+We have imported Retriever
+In the health check
+We are checking their health
+We have imported our
+Both our Pyrantic schemas
+This is our app health response
+And dependency health response
+Why are the responses being validated
+Because these are our get method
+In the get method
+You validate the answer from the server
+We have defined simple routes
+First of all we have defined an API router
+With the name of health
+Which section you can see here
+We have implemented two routes
+First is our application health
+What does this application health do
+Simply it gives us a welcome message
+Now this particular
+Endpoint you will not use now
+But when we deploy
+This particular application
+On AWS
+When you use load balancer
+You use this kind of
+Health endpoint
+It will work there so I will tell you
+This is your main
+Endpoint which you are using
+In your streamlit application
+Which is your
+Again get endpoint
+And its end point path
+That is slash dependencies
+What is its response model
+Dependency health response
+You have defined a function
+With the name of dependency health
+It is not getting anything in the input
+Because it is a get method
+And it is giving you the answer
+In dependency health response object
+You have set some variables
+You have set healthy as LLM health
+You have set error as LLM and none
+First of all what you should do
+Is to make your LLM
+In separate clients
+We have talked in the previous session
+That you have made your LLM, retriever, vector store
+In different files
+You will simply import your LLM
+And invoke it and send a small message
+And you will wait
+To get an answer from LLM
+If you get an answer
+And it is giving you the answer
+And none is getting returned
+What you will do here
+You will let LLM health be healthy
+If you get some error
+You will use your LLM
+Like we are using open A LLM
+If you are unable to access its API
+Then there will be an exception
+And you will set your LLM health
+As unhealthy
+And whatever error message is coming
+You will store it in LLM error
+Again, for retriever health
+You are doing the same thing
+You are calling your retriever
+And you are giving a dummy message
+What is contextual recall
+Now retriever is working or not
+How will we know
+If any document is coming in your retrieved context
+It is good or bad
+We have to see if the retriever is working or not
+If it is coming
+We will say that our retriever is working
+And if our docs are empty
+We will say that our retriever is not working
+So we simply check here
+Nothing comes from the retriever side
+So we will say that retriever is unhealthy
+And we will put no documents return in error
+If there is an exception raise
+We will note that too
+After that
+What we are doing here
+We are returning dependency health response
+Object
+Now I will go to the schemas
+And show you this
+Dependency health response
+In this
+We will take two options of LLM health
+You pass choice in literal
+So either it can be healthy or unhealthy
+So LLM is working then it will be healthy
+If it is not working then it will be unhealthy
+And if it is not working
+Then there will be an error message
+After that your retriever is healthy
+Again healthy unhealthy
+If it is not working then there will be an error message
+After that what we are doing here
+We are making a computed field
+Now what is computed field
+This is your
+A very important concept of Pydantic
+You have some
+Dynamic fields
+Field means attribute
+Like LLM health is an attribute
+Error is an attribute
+Dynamic means
+You will get this in runtime
+What you have to feed in this
+This information will be available in runtime
+And we are making a computed field
+Which is called overall health
+From the name only we can understand
+Overall health will be healthy
+When our LLM
+And our retriever
+Both will return healthy
+If any of these are unhealthy
+Then our overall health
+Will be unhealthy
+And why is this
+Because in this rag application
+Our retriever and LLM
+Both are sequentially
+Arranged inside the graph
+If any of these stops working
+Then our application will be down
+So we are calculating
+Overall health here
+So you can see
+Overall in front end
+Here
+This overall
+This green is coming from
+This computed field
+So here you simply
+Use a decorator
+And set it as a property
+Then define a function
+Overall health which is in input
+This has two values
+Healthy or unhealthy
+You are checking here
+If LLM health and retriever health
+Are healthy then return healthy
+If any of these are unhealthy
+Then return unhealthy
+And here we are making
+Our two health end points
+Which you can see here
+Is this piece of code clear guys
+It is getting clear
+We are going step by step
+Nothing is difficult
+Is this point clear
+Who invokes
+Compute field automatically
+Compute field means
+That it will get information in runtime
+When we press this button
+Then this API will call internally
+So as soon as we press this button
+This function will execute
+It will check LLM and retriever health
+So here when we
+Press this button
+Let me show you
+As soon as I press this button
+As soon as I press this button
+It says checking back end health
+So as soon as I press this button
+API call happened
+API call happened so it sent LLM high
+And told retriever to retrieve docs
+For the dummy query
+If both are coming then red will come
+Or green will come
+Oh sorry, if both are coming then green will come
+Or red will come
+See everything is coming green
+Because everything is working
+Now let's do one thing
+I think I can't break this
+Without closing the server
+If I can show you
+If I can show you
+Let's do one thing
+Let's do one thing
+Go to the code and purposefully
+Set docs as empty list
+To show you
+And let's see
+That it works
+Let's run again
+My server must be reloaded
+Let's wait a little
+Let's see
+Now you can see
+My LLM should be green
+And retriever should be red
+And overall how it should be
+It is computed
+It will be unhealthy
+So my user will know
+That LLM is working on my back end
+But the retriever implemented in this app
+Is not working
+It is taking some time
+Because the server
+Is taking time to restart
+If I can show you
+The terminal
+Yes, it has started
+See
+Check LLM is green
+Because LLM is working
+Check retriever is not working
+And what is written
+No documents written
+Overall it is red
+Again, LLM is working
+Overall it is red
+Again, we have computed it
+At runtime time
+That's why it is computed
+I hope this point is clear
+Clear guys
+Step by step
+Let's clear everything
+Any questions till now
+Or is everything clear
+Code is simple
+Not difficult
+Let's move ahead
+After that
+This is our final
+That is our vector store
+This is our final API router
+Vector store admin
+As I told you
+This is my internal API
+So I am doing some things differently
+I will tell you differently
+I imported all these things
+I imported from vector store
+Where I have kept my process transcripts
+Parameters, overlap, chunk size
+I imported all these
+I imported absurd documents
+I imported from vector store
+I imported all the utility functions
+Now I am importing two schemes
+Chunk count response
+If it is response
+I can understand it from the name
+I will hit my API
+And it will tell me
+How many chunks are stored in the vector store
+And transcript sync response
+If it is also a response
+I will get it from the get
+From api.security
+From security.py file
+I am importing my admin key
+Now what I did
+I made an API router
+I gave prefix
+Internal slash vector store
+So you mark all the internal APIs
+Internal means
+These are the APIs of your developer
+Private to the developer
+I set the tag
+And here you set a dependency
+What is the meaning of setting dependency
+If your API router works
+Internally it will require
+This function
+Require admin key
+This function will be executed
+And if this particular thing
+Returns your API
+Then only you will move forward
+So you use a function
+And set a dependency
+Now what is the reason to set this dependency
+What is the benefit from this
+What is the benefit from this
+This internal API
+This internal API
+Here you are checking
+At every endpoint
+That you have this API key
+Internal or not
+If you are retrieving chunks
+Then also checking
+And if you are doing this transcript sync
+Then also checking these things
+So what you did
+On top of the API router
+In the hierarchy
+Set your API key
+So whenever these particular
+Endpoints will be called
+Then automatically API key
+Will be checked
+If you don't add this thing in dependencies
+Then what you have to do
+At every endpoint
+You have to have logic of this particular thing
+That is my API key or not
+We put this check up
+So now it will be automatically checked
+With every endpoint
+You can understand it like
+There is a callback in your Langraph
+That with every execution
+That function will run
+It's something like that
+After that
+I have told my raw transcript directory
+Here
+Just a second
+And after that
+Our first endpoint
+Which is using the get method
+Which is chunks slash count
+What will it tell me
+Chunk count response
+Let's see what chunk count response is
+So here is your chunk count response
+It tells you which collection
+Chunks you have to see and how many chunks
+Are saved in the vector store
+Let's run it once
+What will you do to run it
+You will go
+It is asking for an admin key
+Let's try it out
+And I do one thing
+For 2 minutes
+I will close the screen share
+Just because I want this API key
+Again this API key is not that important
+And the other API keys
+I have stored inside the environment file
+That is important
+Just a second guys
+Just a second guys
+Just a minute
+Just a second guys
+Just a second guys
+That API key I saved here
+That API key I saved here
+Now I am not able to find it
+Give me one second guys
+I am not able to find it
+Anyways no problem
+What I will do is
+I will share the screen again
+API key is not that important
+I will just save it
+API key
+I have written it somewhere
+I am not able to find it
+And without it
+I am not able to authorize it with any other key
+I remember
+I saved it somewhere in the file
+Or in some notes
+I guess
+I will not be able to show you this endpoint
+But no problem
+I will explain you its code
+And its functioning
+I will show you in the next session
+No problem
+Anyways this is an internal site
+So this is not that much useful
+If you run it
+Your code will run normally
+You don't need this particular endpoint
+I think
+I have put the API key somewhere
+I am loading it here
+Not able to see it
+Currently
+No problem
+Let's not digress
+So what is the chunk count response
+Your collection and count number
+You will get
+Let's get back to that file
+That is your vector store
+Now what you are basically doing
+You are checking
+You have checked your API key
+Because you added it in dependency
+And after that
+You are simply
+Entering your collection in your vector store
+And calculating the count
+That how many chunks are stored
+And it will give you a value
+You are returning it in chunk count response
+By turning it
+Your collection name and total count
+Is this point clear guys?
+In between
+A little flow break
+Because of the key
+Is this point clear?
+Great
+Again I have not found the key
+I don't know where I have pasted it
+Let's move ahead
+Second is your
+This is your main internal point
+Your main endpoint
+That is your
+Router.post
+Here you are doing
+Transcript-sync
+And this is your
+Transcript-sync response
+This is your method
+Here you are basically
+I will explain the whole thing
+About this function
+What was your problem
+You had a problem
+That you manually
+Had to enter this data folder
+Manually you had to
+Create your embeddings
+And manually
+You had to create this vector store
+Now what we have done
+Here we have made a folder
+By doing a sync transcript
+Basically what it will do
+It will enter your data folder
+And check that
+How many files you already have
+Available
+Now we have 14 files available
+After that what it will do
+You will add any new files
+It will chunk them
+It will process them properly
+And
+After that you will remember
+We had changed one thing
+In our vector store
+That now we will embed only those files
+We will embed those files
+Which are here with different
+Chunk ID
+So what you will do
+Let's say you have 14 files
+14 files
+And with every chunk
+You have attached a chunk ID
+Which has
+Source of this file
+Right, and how this chunk ID
+Is created, this chunk ID
+Is created by using
+The text of the chunk
+So as soon as your chunk
+Text changes
+So this chunk ID will also change
+Means you have added a new file
+Which will have a different text
+So you will first enter your vector store
+And check
+That the new chunk IDs
+Are they available in your vector store
+If they are available
+You will not re-embed those files
+And will skip them
+Whereas if they are unavailable
+What will you do here
+You will embed them and add them
+In your vector store
+So basically
+In this particular endpoint
+I will add one file here
+And I will write the data folder
+So what I have to do here
+Is simply go to this data
+And add a file in this raw
+Let's say I have added it yesterday
+The file is
+I will use some other color
+Let's say 15.txt
+So
+This will load, all files will load
+But you will get different
+Chunk IDs
+Because this is your new file
+And it is unavailable in your vector store
+So if you get a new chunk ID
+Only these chunks will be re-embed
+And saved in your vector store
+Rest will be used as it is
+So what will happen
+You will save your API calls here
+Is this point clear guys
+So we are doing the same here
+First of all we are doing
+Load and clean transcript
+Which is our utility function
+We are going to our raw folder
+And saving it in the process
+After saving
+We are calling this absurd documents function
+It will basically hash
+And after hashing it will check
+Which chunks are new
+And it will only embed them
+And not embed the rest
+If there is any problem
+We are raising exception
+And finally what we are doing
+In the transcript sync response
+Which is giving us this function
+We are returning it as key value pair
+Double asterisk means
+It is returning in the form of key value pair
+Is this point clear
+Again I wanted to show you its functioning
+No problem
+You remind me in the next session
+I will show you this API
+Should we not have a separate
+Questions are coming
+Sorry for that
+We were doing some digress in the middle
+And we are back in the class
+So we will focus here
+Yes you can do it separately
+But again you have to do
+All the steps
+Chunking and embedding
+So do it in one or multiple endpoints
+It will not make any difference
+You cannot skip the steps
+In this particular function
+You are not chunking all
+You are simply embedding
+Your new chunks
+And chunking is a very fast process
+You must have seen
+It doesn't take much time
+Should we not have a separate
+Determination end point to incorporate
+Different type of document
+Yes sorry but for our application
+We have only the transcript
+So we are using a single endpoint
+Yes
+So you can have sync transcripts
+Sync images
+Sync PDFs
+So it will have its own logic
+Accordingly
+You just have to keep in mind
+That API is not a magical thing
+Internally APIs
+Are your Python functions
+Whenever they are called
+You have to execute them
+That's it
+If it is a function
+You will take something in the input
+You see all the API endpoints
+All are function
+Nothing fancy
+The difference is
+We have separated the logic of the back end
+And front end
+Now our front end
+No need to worry about
+How will this chunk count come
+We have defined it in our API
+How will this particular sync
+How will these health checks
+We have defined it
+How will this chat be defined
+Simply we have to call them
+And get our output
+We have discussed our roots
+Now let's go to
+Main.py
+Main.py file is very simple
+What are you doing here
+Making an app using fast API
+Making an object of fast API
+You have made 3 routers
+Chat, health and
+Vector store
+You are simply including them
+Inside your application using
+IncludeRouter function
+You pass your API router
+Your routers are added
+And some are shown
+In your UI docs page
+Clear
+And the matter is
+Security.py
+We are checking if the admin
+That we have got is correct
+Verifying whether the API key
+Is authentic or not
+Is this whole thing clear
+Guys
+Again this API key
+I get it
+So it was fun
+Again I can find it
+I have saved it in the file
+But unnecessarily time wasted
+So far
+The whole flow is clear
+Designing your APIs
+Everything is logical
+Any doubts
+Is the doc page
+From python function
+No, no, in your fast API
+Automatically your docs are built
+What you have to do
+You have to go to your end point
+To your server
+Your server is running on your system
+Localhost port 8000
+And after that
+You have to do slash docs
+So this swagger UI will open
+Yes, here is redoc
+If you write redoc instead of docs
+Then redoc page will open
+This is redoc page
+Again different styles
+To present your documentation
+You can see here
+In tabs
+But both are the same thing
+Just a different style
+Sorry
+Here will write docs
+This seems less cluttered to me
+So I prefer this
+Again you can use any one of them
+Let's move ahead
+So guys we have cleared a major milestone
+In our class
+How to build APIs
+Basically how to serve
+Your application to client
+We have seen this part in the code
+Whenever you build your APIs
+You test your APIs properly
+It's not like you build your API
+And you will give it to your client
+No, you have to do proper test
+On it
+So for that we will manually test our APIs
+Again we have not made
+Bigger APIs
+To test it in the code
+You can do it easily
+Because you have to make it once
+And then as it is
+But if you have a massive code base
+Then you test your APIs properly
+So here you can see
+In the demo chat endpoint
+Health endpoint
+Upload files, transcript sync
+So what we will do
+Code is already written
+We will test these APIs
+To test the APIs
+You use the request module in python
+What does request module do
+You must have heard about this module
+And used it many times
+It basically helps you to send HTTP requests
+What we said
+That your API
+Works on HTTP
+So what you do
+You send an HTTP request
+On your endpoint
+If you have get method
+You will send get request
+If you have post method you will send post request
+And through that you get one response
+One request and one response
+And you implement it
+In the code
+Very simple
+So what you will do
+Import the request
+And then define your base URL
+Base URL means
+Where is your application running
+So our application is running on localhost
+Port 8000
+This is our small dummy query
+And through this we will see
+Whether we get streaming response or not
+So this is the difference between online vs. offline evals
+So we have made a function
+Which will send query in input
+And this function
+Will send a post request
+So here
+We are first printing our query
+Then we are
+Printing a variable by responding
+After that we are sending
+Our post request to the endpoint
+So what is our endpoint
+Base URL slash chat
+So if I show you
+If you want to chat
+Then in your base URL
+Here is the chat endpoint
+Here you have to send your query request
+Here you have to send your query request
+And here you will get
+Streaming response
+And what you will do
+Here chunk by chunk you will print
+Basically in streaming fashion
+You will print whatever response you are getting
+So let's test this
+The code to test is
+Very simple, you have to write UV run
+After that you have to go to test
+Write demo
+Chat
+Endpoint.py
+And run this file
+Now you can see this response empty
+Once you will get a response
+From your LLM
+Then you will see the response properly
+Let's wait a little
+We have set streaming response
+So what we want is
+That we see word by word response in terminal
+See
+Your answer is coming
+I hope
+This thing is clear to you
+So what you have to do is
+Send an HTTP request
+That way you can use your APIs
+See how your response is coming
+What is implemented in your application
+This is not mentioned anywhere in this code
+Simply what you have to do is
+Send a request and whatever answer is coming
+Print it
+So this is the power of APIs
+About internal logic
+Client never needs to worry
+Simply we have made an endpoint
+It is telling what it needs in input
+That particular input is sent
+And we got our response
+By the way this is your health endpoint
+So what this was telling you
+It was sending you a response
+LLM status, retriever status
+All those things were being printed
+So simply you sent a get request
+On this particular endpoint
+Health cell dependencies
+If I can show you
+Here it is
+Health dependencies
+Here you sent it and you got
+The entire response
+This is our demo
+Help endpoint
+Let's run it
+Let's run it once
+Simply you are printing everything
+On a single RIG by space
+Retriever is healthy
+Generator is healthy
+And our computed field is also healthy
+Because both are healthy
+Now let's check this endpoint
+Here it will tell us
+Which files are uploaded
+Basically the name of the files
+So we can check this
+This is our demo uploaded
+Don't worry
+This is not my vector store endpoint
+Because I am using this in my client
+See
+Collection name is reg demo
+Unique files are 14
+And this is my file name
+Is this point clear guys
+Is it clear
+Do we need to add authorization
+For the endpoints too
+Not for this one, just for the internal one
+For that you need API key
+Just this internal one
+Here you need this API key
+This one and this one
+In this
+You don't need the rest
+This is completely exposed
+On your client side
+We are authorizing here
+When you login in your dashboard
+Where will this application go
+It will not be in streamlit
+This application will be integrated in my graph
+So when you authenticate properly
+Then only you can use it
+Again the front end work
+You don't need to take tension
+The gateway internally is
+Converting our request into python functions
+Right
+Yes
+The gateway which is your request or response on the HTT
+Is internally converting it into python understandable language
+Not functions
+The input that you have to pass in functions
+How it is done in python
+How the function is called
+That is internally handled in your gateway
+Move forward
+Right
+Right, clear in the chat
+If there is no question then move forward
+Because I have two questions for you
+I want to ask you some questions
+Right, clear in the chat
+Clear
+Now there are two questions for you
+And I would be interested
+If you answer
+And I will be happy if you answer correctly
+Because if you are clearly paying attention
+Then I am expecting that you will answer correctly
+The first question is
+You must have seen here
+The health check that I am doing
+I have added buttons
+In my UI
+Right
+Generally, what is health check?
+It is done automatically
+Means you check
+Whether your retriever or LLM is working
+Or not
+You run it automatically in a loop
+Like it can be done in every 5 minutes
+It can be done in every 10 minutes
+It can be done in every 1 hour
+Its frequency can be anything
+But when I am checking
+LLM or my retriever
+Then why am I doing it through buttons
+Can anyone tell me what is the reason behind it
+And the follow up question is
+When I am checking my LLM
+Then why am I sending
+A simple Hi
+Don't you think I should send a proper query
+Does sending Hi only
+Solve my purpose
+I would be happy if you
+Answer this particular question
+We only want to check whether the LLM is working
+Right
+We are just checking
+The LLM service is not down
+What is the benefit of this
+We are saving on our input and output cost
+Because
+The output of Hi will be small
+We are saving on tokens
+We are saving on cost
+We just want to check whether our LLM is down
+Is there any error
+Can anyone tell me about this
+Health check
+Why have I added buttons
+Why we are not running this one
+In a certain frequency
+Preventing unnecessary LLM
+API cost and latency
+Yes, you are absolutely right
+What we have done is
+We have put this thing on the user
+That if you want to check
+Whether LLM and retriever is working
+You should check
+For health check
+We have a dummy health check
+Where it is printing
+Welcome to
+The chatbot
+Let me show you
+If you
+Go to
+API
+Localhost 8000
+If you go to health
+Just the health end point
+Not the dependencies
+You will see it printed
+Welcome to the campusx chatbot
+So for our
+Instance
+Which we will use during deployment
+Or to check whether our application
+Is up or down
+We have made this dummy end point
+And you know that
+There is no API cost in printing this dummy end point
+Here we have a hard coded message
+So simply we
+Hit this health end point
+And check whether our application is up or not
+We have kept this health check
+Just to check whether our application
+Individual components are working
+Or not
+And we are asking our user to press the button
+And check
+Because it takes a lot of time to check
+So the user will not press it again and again
+If he feels that the application is not working
+Then he will check it once or twice
+And again we will save on our
+Token cost and API equals
+I hope this thing is clear to you
+Is this point clear guys
+So I am very happy
+Let's go
+Now let's discuss
+How do you build this front end
+Again the front end code is very simple
+And we will not spend
+A lot of time on this
+Because you generally
+Do not have to build front ends
+And this code is self explainable
+You will understand
+First of all, you will see two files in front end
+So we will talk about
+How to arrange the file
+And about the folder structure
+Because that is very important for ops
+So this is your API client
+And this is your
+App.py
+So in this app.py
+Basically your streamlet code is written
+So whatever you see on this page
+On the streamlet page
+If I can show you
+This whole thing you see
+Whatever is printed on the screen
+This is written in your
+App.py
+So now you will have a question
+What is written in api client.py
+Basically
+In this
+Your api calls are written
+You are also calling api
+This is not your
+Open AI api call
+Api call means
+What you were doing through request module
+What you saw in testing
+You are doing that in api client
+So api client
+Client is basically
+Client contacting your api
+So whatever code
+To call that
+Is in this file and front end code
+Is in this file
+Again you can keep both these codes in one file
+What is the benefit
+The benefit is separation of concern
+Yes, so shahan is right
+Separation of concern between the UI and the request
+You are updating the request code tomorrow
+It will not affect the UI
+You are updating the UI tomorrow
+So it will not affect your api calls
+It will not affect your api calls
+Ok
+I will delete
+This particular part
+And let's go inside the api client.py
+This code is easy
+Here you have set your base URL
+You need a request in import
+And simply you need
+Iterators from collections
+Basically to define that the output
+Is coming as an iterator
+Again you sent a post request
+Post request
+And you got your answer
+As chunk
+And you yielded the chunk
+Basically it is a generator
+So what is stream chat doing
+It is acting like a generator
+And it will give you output word by word
+Again it is simply contacting your api
+This is your check dependency
+What it will give in output
+It will give you a dictionary in output
+Basically what you are doing
+At the end point of your dependency
+You are sending a request, waiting for 90 seconds
+And after that you are creating your response
+You can reduce this time
+But again this time is given
+So that
+If it takes time to call LLM
+Then you should give proper wait time
+From last your list uploaded files
+Which is telling you
+How many files are inside the vector store
+You are sending a request
+Using the get method
+To the chat slash files end point
+And whatever output you have
+You are returning it
+Simple code
+Now let's go into the main file
+That is our app.py
+Was it easy guys code
+I will share the code with you
+Very easy code
+Now let's discuss
+How to build your app
+Again we will not dive down
+But we will discuss a little
+I have done my imports
+These are your important imports
+Which you are getting from api client file
+I have imported streamlit as st
+After that
+I am loading my environment variables
+After that what I am doing first
+First of all I am setting
+Page config
+Where I am setting my page title, page icon
+And layout
+Where you can see this
+You can see this emoji
+This title, campus x
+Doubt solver
+I have printed it here
+Using this piece of code
+After that I am making a session file
+Which is a JSON file
+And here I am making
+An LLM, rename LLM
+They are understanding from the name
+What they are doing
+I am using GPT 5.4 nano
+I am using nano
+Because I don't need any heavy model
+For renaming
+So I have told you all these things
+Now I will show you
+What is in the session file
+One thing
+You can see this
+Session file is grayed out
+Why it is grayed out? Because I am not uploading it on git
+But what I am saving here
+Basically what I am saving
+My chat history
+I am saving my session's record
+It is like my chat database
+And you should
+Make it in a proper database
+But because we are making our application
+For ourselves
+Now we are learning LLM op
+So I have maintained this database
+Here the keys
+These are my unique IDs
+My session IDs
+I am saving those session IDs
+In the ID
+Here I am setting the name
+Where I am getting this name
+From my LLM
+Which is renaming my LLM
+For my every session
+This is a new session
+If I write a query on this
+This particular thing will be renamed
+Let's say I write
+What is
+What are
+Golden
+Data sets
+And where
+Are they used
+So if I show you
+Inside this particular code
+So see
+What is here
+This is my new session
+This is the ID
+But in the name
+What is written is new session
+And what is in this name is false
+Because we haven't renamed it
+And this is my particular message
+User asked
+What are golden data sets and where are they used
+Now let's go back to the UI
+Let's wait
+See some answers
+Printed
+Let's go back to the code
+See
+Now the name which was the new session
+It was automatically renamed Golden data sets usage
+And this is the name
+Basically we are using this database
+This JSON file to load the name
+Okay
+This name is true and these are messages
+My user asked and my assistant
+Responded back
+If I turn on the word wrap
+You can see the full response of my assistant
+You can see the response
+Is this whole thing clear
+What are we storing in session.json
+Basically it is acting as
+Chat database
+I am looking at the chat guys
+Very important
+Okay
+This particular function we have made
+Load session
+We have to load the sessions from inside
+So as soon as this page is rendered
+So if any existing
+Sessions will be there, then it will be loaded here
+Like this particular page
+I have closed it
+Okay
+And here I open it again
+Localhost
+Localhost
+It is typo
+Localhost
+It is opened again
+As soon as my page is opened again
+First of all, it went into my database
+In chat history and from there
+It has loaded all my chat history
+Here you can see proper session names
+I can see all my chats in every session
+And here
+I can continue the chat
+That is also possible
+Here I continue another chat
+Let's do one thing
+Let's do it in some other one so that I can show you
+Here we ask
+In LLMEval
+What are
+Benchmarks
+In LLMEval
+Or model benchmarks
+Let's write
+I don't know
+If I have uploaded its transcript
+Let's see what the response is
+I hope I have done it
+Okay
+10 minutes more guys
+5 to 10 minutes
+It won't take more than this
+In which I practically want to show you
+Things happening because
+You will understand the code better
+It's taking more time
+Let's wait
+Yes, something has been printed
+Because I have uploaded
+MMLU, GSM8, Knowledge
+Are being printed
+So this particular
+I have started the chat
+And continued it
+Online vs offline
+If I go to my database
+This particular entry
+It must be there
+Here it is
+Online vs offline evaluation
+This is the first one
+And this is the second one
+What are model benchmarks and its output
+So here I can store my entire chat history
+Okay
+Save session is understood by name
+Whatever chat is running
+It will be saved in this JSON
+Okay
+Persist chat
+Will persist all my chats
+It will save all my metadata
+And persist chat
+Basically what I am doing
+That whatever is my chat history
+I am persisting it
+Inside the JSON file
+Then there is my generate session name
+What this function is doing
+It is basically giving my LLM prompt
+And my LLM is giving me a session name
+Okay, here I am basically
+Invoicing my rename LLM
+And passing it a system message
+What am I passing
+Generate a concise 3 to 5 word title
+For a chat session
+Based on the user's first question
+Return only the title
+No punctuation at the end, no quotes
+And what is the role
+I am sending user message
+And sending my first message in input
+Okay, I am getting a response
+I am returning the response
+If I am not getting anything
+There is an error in renaming
+So I am simply naming my session as
+New session
+And even after renaming
+If there is an error, it is a new session
+Again, I have made this rename session
+It basically checks
+That
+Did my renaming fail in the first attempt
+If it fails, it attempts again
+Okay
+So let's say I am going ahead in chat
+And still the renaming has not happened
+So I want the renaming to happen
+So here it will reattempt again
+If it has happened before
+We will simply skip here
+And it will reattempt again
+You can remove this function if you want
+But basically
+If we are failing for the first time
+We are trying again
+Create session, what does this function do
+It creates an empty session
+As soon as I click on new chat
+So see this new session is made
+My entire chat area is empty
+My input is empty
+So this new session
+And the task of naming it
+This particular function
+I have to handle
+This is creating a unique session ID
+Using UUID4
+And after that
+Add it to metadata
+And I am saving this whole thing
+In my JSON
+I called the save session
+And I am saving this whole thing
+To the JSON
+Now what I am doing in this particular thing
+In this particular code
+Here I am loading my session
+I am checking first
+Now my session's metadata
+Basically metadata around my session
+Is empty, if it is empty
+Then I am loading the new session
+Means if I click on this new chat
+Then here
+My new session will open
+Ok, it will check
+That in this particular session
+No data is already available
+If not then I will open a new session
+I will show you one more thing
+If I
+Clear this particular JSON
+I simply deleted it
+Ok, and I
+Reload it again
+So you will see that all the information is deleted
+So this blank slate
+I got it because
+I have kept a check here
+This check
+That if there is no session
+Already in my session
+Then you load a blank session here
+Ok, and if there are chats
+Then load my chats
+Ok, then here
+I am checking about the health
+That whether I have done the health check
+If I have not done the health check
+Then here
+I will signify all these things
+As grey color
+See, when I have not pressed the health check
+buttons, then you will see it as grey color
+After pressing
+Either they will be green or red
+Depending on what result comes
+So basically here I am defining
+That when my user will use this application
+For the first time
+Then what kind of page will be shown
+Ok, exactly same
+The code of that is written here
+You can read it here
+It is an easy code, nothing difficult
+Now what is this
+Basically I am rendering the buttons
+Render dot
+If the status is healthy, then show it in green color
+If the status is unhealthy, then show it in red color
+And if nothing is there
+If you are using it for the first time, then show it in grey color
+Ok, then this is run health check
+What will this run health check do
+It will show me the spinner
+And my API will call
+Which is check dependency health
+I will get the data
+And I am printing the data here
+Ok, if there is an exception
+Then I will print
+This whole thing
+Ok, then I have made
+These particular containers
+What are the containers, basically these are boxes
+I have defined these boxes here
+Using the columns
+Ok, and here I am defining
+The health check button
+Like this is my health check button
+Ok, as soon as I am doing the health check
+I am reading my script
+Just to refresh the page
+Ok, and if there is an error
+Then I am printing an error message
+Same with the retriever, again I am doing the health check
+And if there is an error, then I am printing it
+Overall, I am doing the same thing here
+Just doing health check
+Basic stuff
+Ok, here I have put a markdown
+Which is basically my subtitle
+You can see it here
+Ok, it is also called sub-atter
+Then here is the sidebar code
+Inside the sidebar, I have some features
+Like I have new chat
+Ok, as soon as I click new chat
+Then one blank session
+Is created here, I will show you
+I clicked new chat
+One blank session is created here
+Again everything is loaded
+In the database
+Ok, I am sorting
+The sessions here, I am sorting
+I am doing it as per the list, created at
+And the sorting
+Is in descending order
+Means, the new sessions
+Will be shown here
+And the old sessions will be shown below
+Simple
+Ok, here I am sorting
+And here I am doing renaming, that's it
+Here I am showing the loaded documents
+This thing
+Loaded documents, and I am doing the
+API call again
+I am calling the uploaded documents
+And whatever returns I have
+I am printing it here
+Then this is my chat feature
+Here I am
+Displaying my old chats
+If any of my sessions have old chats
+Then simply I am displaying the old chat
+And here
+I am basically taking input from my user
+Ok, and whatever input I am taking
+Through persist chat
+I am saving it in my session
+And whatever response is coming from my assistant
+I am printing it
+Here as a
+Generated response
+So here in Streamlit, you have this write stream function
+Which basically takes a generator in input
+And prints your output word by word
+Ok
+That's it guys
+This is the whole streamlit code
+Again, we have not discussed it in detail
+Because you have already seen this code
+You will see it line by line
+You will see it here
+If you ask me to explain it on chat gpd
+Then it will explain it to you
+Nothing fancy here
+And you don't have to
+Write this code yourself
+Frontend is not your job
+Yes, you can tell me
+Is it unclear
+Is it from the code part or the concept part
+If the code is unclear
+Then yes, it will understand by watching the recording
+If you want to know the concept part, then tell me
+I know we have discussed a lot of code
+Code part
+So you will pause and see
+Again, you are also watching this running code in live lecture
+You will not understand a lot of things
+Concept part is clear
+How the APIs are linked, how they are called
+What all things we are passing
+What is the request body, what is the response
+How is the pedantic used, how is the validation
+Ok
+If the concept is clear, then that's great
+We will be using
+APIs for LME valves too
+By creating goldens
+No
+Because we
+Create APIs while we are serving it to
+The client, so this is done for
+Frontend, you will directly call on the development side
+It will come in your CI series
+Don't worry, we will see that
+In that, you will directly
+Call your scripts
+That will also be very logical
+You will see everything in full flow
+You will not feel out of place
+In this whole playlist
+Trust me
+Maybe we have discussed a lot of code
+You might be a little overwhelmed
+That there is a lot of code
+But it is simple code
+And I also
+Wrote this from cloud
+Frontend code
+So you also have to do this
+I didn't write this by hand
+But do you understand
+How these things work
+If you understand the internals, then you will understand the code part
+Yes, I have written this code
+With APIs
+So which endpoints
+To define, what is the logic inside it
+I have told you everything
+Is this point clear
+That's it for today
+Please practice this week
+I know it is too much
+But our discussion on the application side
+As I told you
+After today's session
+Our application side
+That is complete
+We have our backend ready
+Backend is ready
+Frontend
+Is ready
+We can interact properly
+With our application
+As a normal user
+Now what is the next step
+The next step is
+To take our application to production
+Till now
+In experiment tracking
+In LangFuse where we are doing prompt versioning
+Stage is set everywhere
+Staging
+Now it is time to set it to production
+But this
+Set to production will not be done manually
+This will be done through the CI
+CI's job
+Is to take your staging flow
+Inside and if everything is fine
+Then label it in production
+That is CI in a nutshell
+So what we will do in CI
+Basically
+Inside CI, where we will
+Change something in our app configuration
+Automatically
+Our CI will be triggered
+There
+After that, what will happen first
+A new experiment will be created
+Experiment tracking will be there
+Where the whole evaluation will be done
+Evaluation data set will be made
+The whole script will be rerun
+After that we will do testing
+We have set two types of gates
+A regression testing gate
+And a promotion testing gate
+Both of these
+Both of them will have to pass our application
+And as soon as it passes
+We will simply
+Inside our application
+The stage we have set
+Staging
+We will promote it to
+Production
+And then we will containerize this production application
+Using dockers
+Means we will make it
+In an executable
+Means we will pack it in a package
+So that anyone can open it and use it
+And after that
+We will take it to our AWS
+Server
+Is this point clear?
+So how is the whole CI
+How do you integrate these things
+How is a CI pipeline written
+And how do you write a CI pipeline
+Using the GitHub actions
+We will see that whole thing
+How an YAML file is made
+What is its thought process
+Is this point clear?
+If anyone has questions
+You can go
+Those who have questions, they can stay and ask
+We have two more minutes
+Then we will close off the session
+How was today's session?
+I am tired of talking
+There was too much code
+But again
+Today we did all these discussions
+Because
+You have one week time
+You practice all this
+And when you come
+You will have this application
+And APIs
+Experiment pipeline, everything will be ready
+Simply we will build the CI pipeline on it
+Yes
+Prometheus Grafana we will use after
+Deployment
+That is post deployment
+We will cover it
+And I will tell you
+If you have not used Prometheus Grafana
+You will be nervous
+So I will tell you the simple work of Prometheus
+What is the work of Prometheus
+Bring your usage matrix
+Like this is my laptop
+So if I open task manager
+Of windows
+Then what does it show you?
+CPU usage, GPU usage, RAM usage
+So the work of Prometheus is
+Your AWS
+System is running
+How much CPU is used in it
+How much RAM is used
+Extract it
+So basically
+It extracts by query
+So in your strings
+Or in a particular data format
+Now it is
+Your numbers
+You will not understand anything by looking at the numbers
+Now in task manager you can see the numbers
+90% from CPU, then 92%
+95% is happening like this
+So what you do is showcase it in a graph
+There is a graph in your task manager
+So similarly, the work of Grafana is
+Build the graphs or the dashboard
+So Prometheus brings data
+Grafana is used to visualize it
+And we will use it in post deployment
+So that we can see the instances that are made
+On AWS
+What is their CPU usage
+How many users are coming there
+What is the latency
+And to track our application there
+What will we use? We will use
+Tracing
+The type of questions that the user is coming
+What is the answer of the retriever
+What action is the guardrail taking
+That all
+We will see that through tracing
+Is this point clear guys?
+How was today's session?
+Thanks if you loved it
+Yes I know live sessions are always good
+Interaction always exists
+How was it?
+No we will not use Terraform
+We don't have a plan in this playlist
+Terraform is a course in itself
+So we will not use Terraform
+Terraform can be a course in itself
+And we are not
+Handling the scale as we used to
+If no one knows
+Terraform is basically
+Used for orchestration
+Basically
+Whatever infrastructure you use
+In AWS
+How many instances are needed
+How much RAM is needed
+How much CPU is needed
+That is also a YAML file
+And on that
+You give your specs
+And according to that
+You get instances
+It has a word
+With orchestration
+I don't remember that word
+What is that
+It has a proper definition
+A proper word
+What do you call that
+This is the use case
+But I don't remember the definition
+Additional of the online evals questions
+Yes we will do online evals
+Arium
+Once we start
+Tracing on LangFuse
+We will bring logs
+Into online evals
+First we will filter
+And we will make a part of the golden dataset
+And we will put a rack triad
+For that we will write a different script
+Where we will evaluate
+Those three metrics
+Rack triad
+Referenceless
+Sir the online evals
+I don't know if we will use
+Tracing in that or not
+But we will have a properly traced application
+We will come through that
+Any more questions guys
+Tool call evaluation
+Yes when our agentic project
+Will come
+Tool call evaluation will also be done
+There is actually a metric
+Which checks
+There are two types of metrics
+One metric evaluates
+That agent
+Picked the right tool or not
+Basically
+Let's say 10 tools
+He had to select one tool for one particular task
+So he selected the right tool or not
+This one metric governs
+And the second is that the right tool he selected
+In it he sent the inputs correctly
+So agents
+Have their own metrics which we will cover in the project
+We are converting
+The current tab into agentic
+No you guys do that
+Already we have covered agentic
+In advance rack
+So once the metrics of agentic
+Are covered
+You mix both
+Merge both pipelines
+What is agentic rack
+Agent doing rack that's it
+No I mean
+The agentic part you are saying
+Yes that will be covered
+In the project
+But there
+We will not cover the evaluation
+In depth as we have covered
+Just simply
+We will cover the metrics in brief
+Because again
+We are doing it for the project
+When this one will complete the whole flow
+Then the project will come
+Project will be recorded
+I will provide you
+Recorded videos because again
+I will have to rewrite the whole code base
+For agentic application
+So I will have to mimic the whole flow
+It will take some time
+I think we will cover in 4-5 videos
+So I will give you recorded fashion
+Because the flow will remain the same
+We will use the same things here
+Prometheus, Grafana, Langfuse
+Deep eval
+Just the metrics will be different
+Not multi agent, simple application
+Like this one
+Again, focus is not on our application
+It is on LLM Ops
+But you can use it
+In multi agent
+How was it guys
+Rate today's session out of 5
+Clarity of concepts, not the code part
+I have shared the code part with you
+You can go and see
+And you will see the recording and you will be clear
+Drop in off
+We will meet next week
+Monday
+Till then
+Clear the backlogs
+And practice
+From your side
+Run all the codes on your system
+You will get confidence
+See you guys
+See you next week
+Bye

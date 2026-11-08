@@ -1,0 +1,8222 @@
+WEBVTT
+
+00:02:30.000 --> 00:02:54.400
+Hi everyone, good evening guys, I am audible, visible, you can see my screen share, tell me
+
+00:02:54.400 --> 00:03:14.080
+, tell me, ok great, just give me a moment, yeah, so let's wait for 3-4 minutes, people
+
+00:03:14.080 --> 00:03:22.440
+are still joining in and if you start, then you can ask me.
+
+00:03:22.440 --> 00:03:36.600
+Let's wait a little longer guys, then we will start.
+
+00:03:36.600 --> 00:03:58.680
+Any questions?
+
+00:03:58.680 --> 00:04:22.920
+I am audible, no questions?
+
+00:05:22.920 --> 00:05:27.680
+Can you please quickly cover it in the session about guidelines for creating it?
+
+00:05:27.680 --> 00:05:35.000
+Ok Harry, I will tell you, rest again see, now we have reached the point inside LLM Ops,
+
+00:05:35.000 --> 00:05:41.560
+so now you will see such yaml files and such instructions files, so it will be a little
+
+00:05:41.560 --> 00:05:46.200
+difficult, you put a little habit to read the documentation, ok, documentation of everything
+
+00:05:46.200 --> 00:05:52.720
+is available, if you want to learn how to write yaml file actions, then simply write
+
+00:05:52.720 --> 00:06:05.280
+github actions, ok, here you write reference, reference and that's it, see this reference
+
+00:06:05.280 --> 00:06:14.320
+has come, here you will get workflow syntax and these are all your points, ok, what to
+
+00:06:14.320 --> 00:06:19.880
+write inside on, what types are there, then how to set the environment here, how to set
+
+00:06:20.880 --> 00:06:27.240
+how to set the name, needs, if, all these things are given here, just you have to go through
+
+00:06:27.240 --> 00:06:34.080
+a little bit, rest again I will give a small recap, but all things are not possible to
+
+00:06:34.080 --> 00:06:35.080
+cover again.
+
+00:06:35.080 --> 00:06:43.320
+I am building a chatbot for my company in healthcare domain, so I keep 600 output token
+
+00:06:43.320 --> 00:06:49.320
+size, so in system prompt I mentioned give answer within the limit, but the model gave
+
+00:06:49.320 --> 00:06:55.320
+half answer, I am using gpt, so Ajay you do one thing, instead of setting the output
+
+00:06:55.320 --> 00:07:01.880
+token limit, set the word limit in system prompt, ok, here you can also make a custom
+
+00:07:01.880 --> 00:07:09.880
+guardrail, what will your guardrail do, you simply use split function and calculate
+
+00:07:09.880 --> 00:07:14.880
+the length there and check that the limit of 600 is not breaching, if it is breaching
+
+00:07:15.440 --> 00:07:21.440
+then you can stop it, again if you want this thing to be reproducible in every step,
+
+00:07:21.440 --> 00:07:28.440
+then it is better to set a hard limit in system prompt, because you are calculating output
+
+00:07:28.440 --> 00:07:34.440
+tokens, now token calculation is different for every model, so internally which mechanism
+
+00:07:34.440 --> 00:07:43.440
+is there to calculate the number of tokens, that is different, use the word limit, it
+
+00:07:44.000 --> 00:08:01.000
+will be different, any more doubts, start today's session, again guys explore the documentation,
+
+00:08:01.000 --> 00:08:12.000
+you will get a lot of things in documentation, let's start, I will take your questions later,
+
+00:08:12.560 --> 00:08:21.560
+fine, so in the last session, you remember we discussed everything around CI, and we
+
+00:08:21.560 --> 00:08:28.560
+also implemented the CI pipeline inside github actions, now what is CI, CI is basically
+
+00:08:29.560 --> 00:08:35.559
+your continuous integration, in this entire pipeline, basically what you do, what is the
+
+00:08:36.119 --> 00:08:43.119
+gist of this, what you did, inside your parameters, which is inside the parent.yml file, you
+
+00:08:43.119 --> 00:08:50.119
+have made some changes in this file, now what will happen with the changes, that your parameters
+
+00:08:51.119 --> 00:08:58.119
+will change, basically your application configuration will change, so now your application will
+
+00:08:59.119 --> 00:09:04.119
+start behaving in a certain way, now first of all you have to do, you have to lock the
+
+00:09:04.680 --> 00:09:11.680
+changes, you have to lock into an experiment, after locking you will make an evaluation
+
+00:09:11.680 --> 00:09:16.680
+data set, because you have to see that the changes you have made are good, are they
+
+00:09:16.680 --> 00:09:22.680
+made in the right direction, or you have made some mistake there, so you will make an evaluation
+
+00:09:22.680 --> 00:09:29.680
+data set and after that you will carry out your evaluation, and in this entire pipeline
+
+00:09:30.239 --> 00:09:37.239
+you will lock your metrics, parameters, and all the other artifacts, so already we have
+
+00:09:38.239 --> 00:09:45.239
+already built an experimentation pipeline, after that we were doing our testing steps,
+
+00:09:48.239 --> 00:09:55.240
+in testing we were focused on two tests, first was our regression test, which you have read
+
+00:09:55.800 --> 00:10:02.800
+in the previous files, in regression test you basically check that any change you have
+
+00:10:02.800 --> 00:10:07.800
+made in this parent.yml, it is not that any metric that was performing well before, now
+
+00:10:07.800 --> 00:10:14.800
+it is performing bad, so you test whether something is bad or not by doing the changes,
+
+00:10:14.800 --> 00:10:21.800
+and second is your promotion testing, in promotion testing you check that the new version
+
+00:10:22.359 --> 00:10:29.359
+you have created is better than the previous version or not, and here we used a terminology
+
+00:10:29.359 --> 00:10:36.359
+that was our challenger and champion, we basically switched the tags and defined which is our
+
+00:10:36.359 --> 00:10:41.359
+best version, which is our baseline, and which is the version that will compete with our
+
+00:10:41.359 --> 00:10:48.359
+best, and after that we made our CI pipeline, in which we have created four different types
+
+00:10:52.359 --> 00:10:59.359
+of stages, and these stages were running sequentially, first stage A, then B, then C, and then
+
+00:11:03.359 --> 00:11:10.359
+D, in stage A we were carrying out our experimentation, meaning we were rerunning the entire pipeline
+
+00:11:13.359 --> 00:11:20.359
+and locking all the results, in stage B we were taking the locked results and doing
+
+00:11:20.920 --> 00:11:27.920
+regression testing, we were comparing our challenger with our previous champion, in C
+
+00:11:29.920 --> 00:11:36.920
+we were checking that if our regression testing passed, then can we promote it or not, so
+
+00:11:36.920 --> 00:11:41.920
+this was for promotion testing, where we check that our next version is better than the
+
+00:11:41.920 --> 00:11:48.920
+previous one, it checks the badness and promotion testing checks to be better, and if we have
+
+00:11:49.479 --> 00:11:54.479
+passed all three stages, then finally what we will do is we will label our current run
+
+00:11:54.479 --> 00:12:01.479
+as champion, and our previous champion as archived, I hope you remember this flow,
+
+00:12:01.480 --> 00:12:08.480
+so in CI pipeline, because I got a doubt, I will tell you how CI pipeline is written,
+
+00:12:12.840 --> 00:12:19.840
+in CI pipeline you tell some things, first of all you tell what is going to be your trigger,
+
+00:12:21.160 --> 00:12:26.160
+meaning what is going to happen at the event, what is going to happen in the event, and
+
+00:12:26.160 --> 00:12:33.160
+what is going to happen in the pipeline, because this is happening on a remote setup, so you
+
+00:12:36.760 --> 00:12:41.760
+should not trigger this pipeline on every change, when our change becomes important
+
+00:12:41.760 --> 00:12:48.760
+or when its testing becomes important, when we change the configuration of our application,
+
+00:12:49.760 --> 00:12:56.760
+let's say we put a logger in the application, here we may have refactored somewhere, now
+
+00:12:56.760 --> 00:13:03.760
+by refactoring or adding a logger, there is no change in the form of our application,
+
+00:13:03.760 --> 00:13:08.760
+when will our application's behavior change, when we change our parameters, so we have
+
+00:13:08.760 --> 00:13:13.760
+set that as a trigger, and we have also kept a manual trigger here, that tomorrow we will
+
+00:13:14.760 --> 00:13:21.760
+change something in our architecture or code, we change something in our code, so that our
+
+00:13:21.760 --> 00:13:28.760
+application changes, so we can manually trigger our pipeline, secondly we have set our jobs,
+
+00:13:29.760 --> 00:13:34.760
+which are these ABCD steps, and we have sequentially arranged them, we have made sure that B will
+
+00:13:34.760 --> 00:13:40.760
+run only when A will be successful, C will run only when B will be successful, we have
+
+00:13:40.760 --> 00:13:45.760
+set these steps, and what we have done in jobs, we have defined the steps of every job,
+
+00:13:45.760 --> 00:13:52.760
+what are the steps, steps are basically your sequential steps, these are also run sequentially,
+
+00:13:52.760 --> 00:13:59.760
+jobs can also run parallel, if you do not make these linkages here, then jobs will run parallel,
+
+00:13:59.760 --> 00:14:04.760
+but steps always run sequentially one after the other, and what are you doing in steps,
+
+00:14:04.760 --> 00:14:09.760
+you are telling me that what are the things happening in the stage of experimentation,
+
+00:14:09.760 --> 00:14:14.760
+what are the things happening in the job of regression testing, and basically the main
+
+00:14:14.760 --> 00:14:22.760
+goal of making this entire CI pipeline is that you want to automate this whole sequence,
+
+00:14:22.760 --> 00:14:29.760
+and how do you want to automate it, you want to run it in a remote setup, you want to run
+
+00:14:29.760 --> 00:14:35.760
+it on a machine, then before running every job, you have to prepare that machine,
+
+00:14:35.760 --> 00:14:39.760
+you have to install your Python inside it, you have to install your UB dependency,
+
+00:14:39.760 --> 00:14:44.760
+you have to install all this and prepare your machine, and after that you trigger your steps,
+
+00:14:44.760 --> 00:14:50.760
+I hope you remember this point, so this is overall just around the CI pipeline, this point
+
+00:14:50.760 --> 00:15:02.760
+is the same, do you remember all this from the previous session, now what we have done,
+
+00:15:02.760 --> 00:15:07.760
+we have made some changes in our code, I will tell you about those changes once, and
+
+00:15:07.760 --> 00:15:14.760
+what we will do after that, we will also run a test CI here, so I will tell you some setup
+
+00:15:14.760 --> 00:15:23.760
+changes, the first change we have done is that we have made our promotion testing a little
+
+00:15:23.760 --> 00:15:29.760
+lenient, it was very strict, you must have seen that when we were doing promotion testing
+
+00:15:29.760 --> 00:15:36.760
+in the previous class, it was not passing our good runs, because the logic we had set
+
+00:15:36.760 --> 00:15:41.760
+there was very strict, so we have made it a little lenient, not much, we have shown our
+
+00:15:41.760 --> 00:15:50.760
+leniency in the previous class, and our regression testing was a little more linear,
+
+00:15:50.760 --> 00:15:55.760
+we have made it a little strict, now I told you that you can use some frameworks to do
+
+00:15:55.760 --> 00:16:01.760
+regression testing, otherwise you also make your custom logic, so we have set our custom
+
+00:16:01.760 --> 00:16:06.760
+logic here, where we used noise thresholds, historical thresholds, basically we made
+
+00:16:06.760 --> 00:16:12.760
+everything dynamic, that we will not set any hard threshold value, we will dynamically
+
+00:16:12.760 --> 00:16:18.760
+calculate everything based on our experiments or runs, so now what we are doing, to make
+
+00:16:18.760 --> 00:16:25.760
+regression testing strict, we are not using historical thresholds anymore, we are not
+
+00:16:25.760 --> 00:16:30.760
+using historical thresholds, and the simple reason for that is that when we were using
+
+00:16:30.760 --> 00:16:35.760
+historical thresholds, we were in the middle of experimentation, we did not build our CI
+
+00:16:35.760 --> 00:16:41.760
+pipeline at that time, so we had different architectures to try on, and we had a lot of
+
+00:16:41.760 --> 00:16:48.760
+varying results, so it was necessary to capture that variability at that time, but in today's
+
+00:16:48.760 --> 00:16:55.760
+date, in this particular step, our architecture is almost fixed, we have put contextual
+
+00:16:55.760 --> 00:17:00.760
+compression here, you will remember that at this particular time, when we applied
+
+00:17:00.760 --> 00:17:05.760
+historical thresholds, we were not working with contextual compression, after evaluating
+
+00:17:05.760 --> 00:17:10.760
+our application, after doing multiple runs, we understood that our contextual relevancy
+
+00:17:10.760 --> 00:17:15.760
+is decreasing, so let's add something, we have done architectural changes, but now
+
+00:17:15.760 --> 00:17:20.760
+that point has come that we do not need these historical thresholds, because we have
+
+00:17:20.760 --> 00:17:25.760
+not used historical thresholds, because we can capture this variability only through
+
+00:17:25.760 --> 00:17:30.760
+noise thresholds, so what we will do after moving forward, we will not use this noise
+
+00:17:30.760 --> 00:17:37.760
+historical thresholds, we have passed the test of our regression testing window, which
+
+00:17:37.760 --> 00:17:43.760
+you can call it ok, we have shrinked it a little, whereas the window of promotion testing
+
+00:17:43.760 --> 00:17:48.760
+has been slightly expanded, what was in the promotion testing first, it was very strict
+
+00:17:48.760 --> 00:17:53.760
+tool, that you have 7 metrics, right, out of 7, 5 metrics should always be better, better
+
+00:17:53.760 --> 00:17:59.760
+means what, either they should be similar, means if your faithfulness is 0.95 in the previous
+
+00:17:59.760 --> 00:18:04.760
+run, then it should be 0.95 in the next run, so we have to be careful, so we have to
+
+00:18:04.760 --> 00:18:09.760
+be careful, so we have to be careful, so we have to be careful, so we have to be careful,
+
+00:18:09.760 --> 00:18:14.760
+so if there is 0.95 in the previous run, then it should be 0.95 in the next run or
+
+00:18:14.760 --> 00:18:19.760
+more than that, ok, we will keep it in the category of better, if it is 0.949, then we will
+
+00:18:19.760 --> 00:18:26.760
+keep it in the category of worst, ok, we will not consider it better, so what we said,
+
+00:18:26.760 --> 00:18:32.760
+we said that 5 metrics should be such that show the same or better results, so they will
+
+00:18:32.760 --> 00:18:38.760
+come in the category of better, whereas there are two metrics in which we can make a little
+
+00:18:38.760 --> 00:18:44.760
+adjustment, and what is the adjustment, we can handle the variability of noise threshold
+
+00:18:44.760 --> 00:18:50.760
+here, which means that let's say for any metric, we take the metric, faithfulness, ok,
+
+00:18:50.760 --> 00:18:56.760
+faithfulness, our noise threshold is that is let's say 0.01, we take the threshold of 1% here,
+
+00:18:56.760 --> 00:19:02.760
+so I am saying that if my initial score was 0.90, then I will consider 0.89 or more
+
+00:19:02.760 --> 00:19:08.760
+than that in the noise, which means that this will also pass my promotion testing, but
+
+00:19:08.760 --> 00:19:14.760
+if it is slightly less than 0.89, then I will stop it there, ok, so 5 metrics should be
+
+00:19:14.760 --> 00:19:20.760
+absolute best, so we have to be careful, so we have to be careful, so we have to be careful,
+
+00:19:20.760 --> 00:19:26.760
+so I will stop it there, ok, so 5 metrics should be absolute best, and we were ready to
+
+00:19:26.760 --> 00:19:32.760
+make some adjustments in 2, so this particular implementation that we had put was a little
+
+00:19:32.760 --> 00:19:38.760
+strict, we have not changed its logic yet, what we have done is that we were considering
+
+00:19:38.760 --> 00:19:44.760
+5 better, now we are saying that let's do one thing, let's consider 4 better, which means
+
+00:19:44.760 --> 00:19:50.760
+that the metrics should be such that either big or similar and in 3 you are ready to make
+
+00:19:50.760 --> 00:19:58.760
+some adjustments, then only you will label this version as champion, so these are the
+
+00:19:58.760 --> 00:20:04.760
+two changes we have made here, the setup changes are clear, and it is also clear that why we have done it,
+
+00:20:04.760 --> 00:20:14.760
+is this point clear, if you have any question, then you can ask me, again whatever noise
+
+00:20:14.760 --> 00:20:18.760
+threshold, historical thresholds are to be calculated, this is our custom implementation,
+
+00:20:18.760 --> 00:20:24.760
+ok, so because we are feeling the need here that now our window should be less in regression
+
+00:20:24.760 --> 00:20:28.760
+testing and should be a little more in promotion testing, so we are making some adjustments,
+
+00:20:28.760 --> 00:20:34.760
+and how do I know this, I know this when I am doing multiple runs here, even after doing multiple runs
+
+00:20:34.760 --> 00:20:40.760
+and even after doing eyeball, I feel that my metrics are performing well, but still I am failing
+
+00:20:40.760 --> 00:20:46.760
+in promotion testing, why am I failing, because of one simple adjustment, so I did that,
+
+00:20:46.760 --> 00:20:50.760
+so that I can get better version, ok, you must have heard from sir in yesterday's session that
+
+00:20:50.760 --> 00:20:56.760
+you basically look at it visually and make some adjustments based on your application,
+
+00:20:56.760 --> 00:21:00.760
+based on your setup, so that is what we are doing here today, is this point clear,
+
+00:21:04.760 --> 00:21:10.760
+yes, yes, because it was our development phase, now we are building this application live during this course,
+
+00:21:10.760 --> 00:21:18.760
+so there will be adjustments here, is this point clear guys,
+
+00:21:18.760 --> 00:21:26.760
+so we are just deciding on removing the historical threshold, if you want you can also do the multiplier,
+
+00:21:26.760 --> 00:21:32.760
+we have kept 2 sigma, you can also do 0.5 sigma, 0.1 sigma, you can also reduce its weightage,
+
+00:21:32.760 --> 00:21:38.760
+but we are basically removing it, just to simplify things, you can also keep it,
+
+00:21:38.760 --> 00:21:44.760
+for some other application, maybe it will work,
+
+00:21:44.760 --> 00:21:50.760
+right clear in the chat, if everyone agrees, and then we will move forward,
+
+00:22:02.760 --> 00:22:08.760
+yes, now I will explain you the complete setup, ok, first let's go towards the code,
+
+00:22:08.760 --> 00:22:12.760
+and let's see what changes we have made here, so let's go in the test,
+
+00:22:12.760 --> 00:22:18.760
+here I have made changes in these 2 files, testpromotion.py and testregression.py,
+
+00:22:18.760 --> 00:22:24.760
+so let me show you these files, ok, first let me show you test regression,
+
+00:22:24.760 --> 00:22:30.760
+here what we were doing earlier, we were working with 2 thresholds, now we are simply working with noise thresholds,
+
+00:22:30.760 --> 00:22:36.760
+so here I have loaded my noise thresholds, loaded my latest matrix, which is from my challenger run,
+
+00:22:36.760 --> 00:22:42.760
+and loaded my champion matrix, and now what I am doing here,
+
+00:22:42.760 --> 00:22:48.760
+I am not using my historical thresholds, earlier we were adding noise plus historical,
+
+00:22:48.760 --> 00:22:54.760
+now we are simply adding noise, and the lower bound we are setting, that is basically our delta,
+
+00:22:54.760 --> 00:22:58.760
+now you must be having a question in your mind, after watching yesterday's session,
+
+00:22:58.760 --> 00:23:04.760
+why are we not checking which matrix is better than our increase or decrease,
+
+00:23:04.760 --> 00:23:12.760
+sir has done that, in our case it is not applicable because all our matrixes are better than increase,
+
+00:23:12.760 --> 00:23:18.760
+so unnecessarily we don't need to add its logic here, but if you make a proper eval pipeline here,
+
+00:23:18.760 --> 00:23:24.760
+where you use safety evals or operational evals, where latency is there,
+
+00:23:24.760 --> 00:23:30.760
+then you will consider that directionality also, we don't have that matrix available here,
+
+00:23:30.760 --> 00:23:36.760
+we don't have use case of that, so we are not using it, so what we have done here,
+
+00:23:36.760 --> 00:23:42.760
+we have removed our historical thresholds from this particular equation, that's the simple change we have done,
+
+00:23:42.760 --> 00:23:50.760
+and promotion testing change is simpler than this, our minimum matrix to pass limit was 5,
+
+00:23:50.760 --> 00:23:56.760
+we have made it 4, that's it, this is the small change, the rest of the code is exactly same,
+
+00:23:56.760 --> 00:24:02.760
+is this point clear, now I will show you my MLflow setup,
+
+00:24:02.760 --> 00:24:10.760
+so let's go on Daxup, we have gone on our Daxup,
+
+00:24:10.760 --> 00:24:20.760
+we have gone into the application, I don't know why it is loading so slow today,
+
+00:24:20.760 --> 00:24:26.760
+we have gone to experiments and we will go to MLflow UI,
+
+00:24:26.760 --> 00:24:34.760
+this is our rack application, now what I have done here, I have rerun these experiments,
+
+00:24:34.760 --> 00:24:40.760
+now all these experiments are all captured by noise threshold,
+
+00:24:40.760 --> 00:24:45.760
+what is noise threshold, where you run without changing your configuration,
+
+00:24:45.760 --> 00:24:51.760
+here I have done multiple runs, if you calculate, I think I have done 10 runs,
+
+00:24:51.760 --> 00:24:56.760
+you must have heard in the previous session that you should run at least 5 to 10 runs,
+
+00:24:56.760 --> 00:25:02.760
+so I have done 10 runs purposefully, and if I compare them,
+
+00:25:06.760 --> 00:25:12.760
+so if I do show diff only in parameters, here I will see only different parameters,
+
+00:25:12.760 --> 00:25:18.760
+see nothing is visible, no parameters to display, this means that I have run with same parameters,
+
+00:25:18.760 --> 00:25:25.760
+you can see here, chunk overlap, chunk size is same, nothing is changing,
+
+00:25:25.760 --> 00:25:32.760
+if I show you the value of k, you can see only 3 everywhere,
+
+00:25:32.760 --> 00:25:39.760
+and what I have done, after running, I have captured the run matrix,
+
+00:25:39.760 --> 00:25:45.760
+if I show you diff, you can see matrix is varying, why this variation is coming,
+
+00:25:45.760 --> 00:25:50.760
+because we are using LLM as a judge, and simply after that,
+
+00:25:50.760 --> 00:25:56.760
+I called my compute noise threshold script and these are my threshold values,
+
+00:25:56.760 --> 00:25:59.760
+now we are not using historical thresholds, so they are null,
+
+00:25:59.760 --> 00:26:04.760
+these are my new threshold values, on which we are going to run our CI pipeline,
+
+00:26:04.760 --> 00:26:09.760
+so this point is clear, this whole setup is getting cleared,
+
+00:26:09.760 --> 00:26:16.760
+so I have spent 6-7 dollars for you today, and I have done all these runs again,
+
+00:26:16.760 --> 00:26:22.760
+you executed new runs and re-ran old runs, these are new runs,
+
+00:26:22.760 --> 00:26:29.760
+you can see, 5 hours ago, 2 hours ago, 3 hours ago, I have done all these today only,
+
+00:26:34.760 --> 00:26:42.760
+now you can see, this intrigued bird is my archived,
+
+00:26:42.760 --> 00:26:47.760
+and this powerful yak is my current champion, now let's do one thing,
+
+00:26:47.760 --> 00:26:54.760
+let's do some manual adjustments, I will remove this champion label,
+
+00:26:54.760 --> 00:27:01.760
+because we are going to re-run our CI pipeline,
+
+00:27:01.760 --> 00:27:07.760
+and I will make this archived as champion again,
+
+00:27:07.760 --> 00:27:14.760
+so I removed this from here, and I have set the value as champion,
+
+00:27:21.760 --> 00:27:27.760
+no, I have to add, champion safe, now it is back as champion,
+
+00:27:27.760 --> 00:27:32.760
+now these are our matrix values, this is the same run,
+
+00:27:32.760 --> 00:27:36.760
+which we have used in noise threshold, chunk size is 275,
+
+00:27:36.760 --> 00:27:40.760
+chunk overlap is 20, and these are my values,
+
+00:27:40.760 --> 00:27:47.760
+answer relevancy is 93, faithfulness is 97, contextual relevancy is improved,
+
+00:27:47.760 --> 00:27:53.760
+it is around 80%, now let's execute a new CI run,
+
+00:27:53.760 --> 00:27:59.760
+now to execute a CI run, you simply have to go to your params.yml,
+
+00:27:59.760 --> 00:28:05.760
+and you have to change the parameters, now the value is 275,
+
+00:28:05.760 --> 00:28:13.760
+and let me see, just a second, the value is 275 and 20,
+
+00:28:13.760 --> 00:28:17.760
+so let's do some changes inside the params.yml,
+
+00:28:17.760 --> 00:28:25.760
+let's do a thing, let's set it to 260, and let's say 18,
+
+00:28:25.760 --> 00:28:29.760
+and let's rerun it, so what I have done is,
+
+00:28:29.760 --> 00:28:36.760
+I have added it, and made a new commit, commit is test CI run,
+
+00:28:36.760 --> 00:28:40.760
+and I am committing it, but committing alone won't do anything,
+
+00:28:40.760 --> 00:28:44.760
+what I have to do is, I have to push it on GitHub,
+
+00:28:44.760 --> 00:28:46.760
+so let me open GitHub for you,
+
+00:28:50.760 --> 00:28:54.760
+ok, we are going to the repositories,
+
+00:28:56.760 --> 00:29:01.760
+here is my LLM Ops Rag app, currently no action has been triggered,
+
+00:29:01.760 --> 00:29:04.760
+why? because I haven't pushed anything here,
+
+00:29:04.760 --> 00:29:07.760
+now I will do one thing, I will push this change here,
+
+00:29:09.760 --> 00:29:12.760
+this action will pull and push commits,
+
+00:29:14.760 --> 00:29:22.760
+done, now you can see our new run,
+
+00:29:22.760 --> 00:29:28.760
+test CI run has come, and now the whole flow will run,
+
+00:29:28.760 --> 00:29:32.760
+let's do one thing, let's wait for a while,
+
+00:29:32.760 --> 00:29:36.760
+let's give some time of 5 minutes, and let's see this whole run,
+
+00:29:36.760 --> 00:29:39.760
+ok, this will be done quickly,
+
+00:29:39.760 --> 00:29:43.760
+just I want to show you how this whole flow happens,
+
+00:29:43.760 --> 00:29:47.760
+ok, now our vector store is being deleted,
+
+00:29:47.760 --> 00:29:49.760
+and then it is being recreated,
+
+00:29:49.760 --> 00:29:51.760
+it is being recreated without new settings,
+
+00:29:51.760 --> 00:29:53.760
+what are the new settings?
+
+00:29:53.760 --> 00:29:56.760
+that our chunk overlap is 18, and chunk size is 260,
+
+00:29:56.760 --> 00:30:02.760
+so let's see, see 260 and it is able to capture 18,
+
+00:30:02.760 --> 00:30:05.760
+any questions guys, any questions till now?
+
+00:30:09.760 --> 00:30:21.760
+are there any questions?
+
+00:30:21.760 --> 00:30:26.760
+just I want to show you how this tags switching happens,
+
+00:30:26.760 --> 00:30:28.760
+and I hope this particular run will pass,
+
+00:30:28.760 --> 00:30:33.760
+till then let's do one thing,
+
+00:30:33.760 --> 00:30:36.760
+till this evaluation data set is done,
+
+00:30:36.760 --> 00:30:38.760
+let's go to the next page,
+
+00:30:38.760 --> 00:30:40.760
+let's revisit this again,
+
+00:30:40.760 --> 00:30:43.760
+so here we have done our new CI run,
+
+00:30:43.760 --> 00:30:47.760
+now let's discuss what is our next plan of action,
+
+00:30:47.760 --> 00:30:50.760
+so now what we have done in CI run,
+
+00:30:50.760 --> 00:30:53.760
+we have made our CI pipeline here,
+
+00:30:53.760 --> 00:30:58.760
+testing is completed automatically through GitHub actions,
+
+00:30:58.760 --> 00:31:02.760
+now if our new version passes,
+
+00:31:02.760 --> 00:31:06.760
+then that will be our new best,
+
+00:31:06.760 --> 00:31:09.760
+that will be our new champion,
+
+00:31:09.760 --> 00:31:12.760
+now the story doesn't end here,
+
+00:31:12.760 --> 00:31:15.760
+now we have done a comparison,
+
+00:31:15.760 --> 00:31:17.760
+with our latest and the previous best,
+
+00:31:17.760 --> 00:31:19.760
+now we have a new best,
+
+00:31:19.760 --> 00:31:25.760
+next step is that I have to take this best and deploy it,
+
+00:31:25.760 --> 00:31:28.760
+till now this best version is on my system,
+
+00:31:28.760 --> 00:31:31.760
+and I can run it locally,
+
+00:31:31.760 --> 00:31:36.760
+but it is not serving any useful purpose,
+
+00:31:36.760 --> 00:31:38.760
+when will it serve its purpose?
+
+00:31:38.760 --> 00:31:40.760
+when I will take it to my end user,
+
+00:31:40.760 --> 00:31:44.760
+when my students will start using this campusX chatbot,
+
+00:31:44.760 --> 00:31:46.760
+that will serve the purpose,
+
+00:31:46.760 --> 00:31:48.760
+this time I have worked hard,
+
+00:31:48.760 --> 00:31:50.760
+we have been reading LLM ops,
+
+00:31:50.760 --> 00:31:53.760
+it will be successful only when it serves the end user,
+
+00:31:53.760 --> 00:31:58.760
+so now it is time to carry out deployment related tasks,
+
+00:31:58.760 --> 00:32:08.760
+the first task is that you package this application in some way,
+
+00:32:08.760 --> 00:32:13.760
+and here comes a very important concept,
+
+00:32:13.760 --> 00:32:16.760
+devops containerization,
+
+00:32:16.760 --> 00:32:19.760
+containerization,
+
+00:32:19.760 --> 00:32:24.760
+now has anyone of you ever heard about containerization or docus,
+
+00:32:24.760 --> 00:32:27.760
+or have you ever used docus,
+
+00:32:27.760 --> 00:32:30.760
+I am looking at the chat,
+
+00:32:30.760 --> 00:32:33.760
+yes sorav has used docus,
+
+00:32:33.760 --> 00:32:37.760
+sorav has used it for ML,
+
+00:32:37.760 --> 00:32:41.760
+no, some people have used docus already,
+
+00:32:41.760 --> 00:32:44.760
+and some are not here,
+
+00:32:44.760 --> 00:32:47.760
+we will not cover docus in detail in this session,
+
+00:32:47.760 --> 00:32:49.760
+because this is not a session for docus,
+
+00:32:49.760 --> 00:32:52.760
+but I will guide you for resources,
+
+00:32:52.760 --> 00:32:55.760
+so the first resource is on YouTube,
+
+00:32:55.760 --> 00:32:58.760
+we have a master class for docker,
+
+00:32:58.760 --> 00:33:00.760
+where will you get introduction of docker,
+
+00:33:00.760 --> 00:33:02.760
+if you go to the playlist fasta,
+
+00:33:02.760 --> 00:33:07.760
+then nity sir has given you a basic idea of docus,
+
+00:33:07.760 --> 00:33:09.760
+how to use docus in ML,
+
+00:33:09.760 --> 00:33:12.760
+and if you want to read docus in advance,
+
+00:33:12.760 --> 00:33:15.760
+then there is a docker course available,
+
+00:33:15.760 --> 00:33:18.760
+I have created a course of 7-8 hours,
+
+00:33:18.760 --> 00:33:20.760
+that is also built around ML,
+
+00:33:20.760 --> 00:33:23.760
+but that will also give you a good knowledge of docker,
+
+00:33:23.760 --> 00:33:26.760
+the components of different docker will be understood,
+
+00:33:26.760 --> 00:33:29.760
+now what we have to do next,
+
+00:33:29.760 --> 00:33:32.760
+first of all we have to package our application,
+
+00:33:32.760 --> 00:33:34.760
+containerize it,
+
+00:33:34.760 --> 00:33:36.760
+the simple meaning of this is that,
+
+00:33:36.760 --> 00:33:39.760
+now this whole setup is running on our local machine,
+
+00:33:39.760 --> 00:33:41.760
+now what we have to do,
+
+00:33:41.760 --> 00:33:45.760
+we have to basically close this application in a box,
+
+00:33:45.760 --> 00:33:48.760
+and that box should be a special box,
+
+00:33:48.760 --> 00:33:50.760
+that if anyone opens that box,
+
+00:33:50.760 --> 00:33:54.760
+then our application can be used in a very easy way,
+
+00:33:54.760 --> 00:33:56.760
+like we are using it on our system,
+
+00:33:56.760 --> 00:33:58.760
+what are we doing on our system,
+
+00:33:58.760 --> 00:34:01.760
+this is our project folder in VS code,
+
+00:34:01.760 --> 00:34:03.760
+here your whole application is available,
+
+00:34:03.760 --> 00:34:05.760
+application is all code,
+
+00:34:05.760 --> 00:34:07.760
+this code is available here,
+
+00:34:07.760 --> 00:34:10.760
+and what you do to run this,
+
+00:34:10.760 --> 00:34:13.760
+you start your backend server,
+
+00:34:13.760 --> 00:34:15.760
+you start your frontend,
+
+00:34:15.760 --> 00:34:17.760
+then you interact with your frontend,
+
+00:34:17.760 --> 00:34:20.760
+so to make this project in this state,
+
+00:34:20.760 --> 00:34:21.760
+what you have done,
+
+00:34:21.760 --> 00:34:23.760
+you have made many changes here,
+
+00:34:23.760 --> 00:34:25.760
+many things have been added,
+
+00:34:25.760 --> 00:34:27.760
+some have been removed,
+
+00:34:27.760 --> 00:34:31.760
+we will take all that and package it inside a container,
+
+00:34:31.760 --> 00:34:34.760
+and that container will run wherever,
+
+00:34:34.760 --> 00:34:36.760
+whatever machine runs,
+
+00:34:36.760 --> 00:34:39.760
+it will run exactly like how our system is running,
+
+00:34:39.760 --> 00:34:42.760
+so the concept of containerization is simply,
+
+00:34:42.760 --> 00:34:46.760
+that you wrap your application in this way,
+
+00:34:46.760 --> 00:34:48.760
+package it in this way,
+
+00:34:48.760 --> 00:34:54.760
+that it runs everywhere,
+
+00:34:54.760 --> 00:34:59.760
+you must have heard a very famous quotation,
+
+00:34:59.760 --> 00:35:01.760
+that it runs on my machine,
+
+00:35:01.760 --> 00:35:03.760
+what does it run on my machine,
+
+00:35:03.760 --> 00:35:06.760
+it is said that when you go to deploy your application,
+
+00:35:06.760 --> 00:35:09.760
+then that application does not work after deployment,
+
+00:35:09.760 --> 00:35:12.760
+so the question is that it was running on my machine,
+
+00:35:12.760 --> 00:35:14.760
+now where I deployed it,
+
+00:35:14.760 --> 00:35:15.760
+that is also a machine,
+
+00:35:15.760 --> 00:35:16.760
+why is it not running there,
+
+00:35:16.760 --> 00:35:19.760
+there are many reasons for it not to run,
+
+00:35:19.760 --> 00:35:21.760
+and to avoid those reasons,
+
+00:35:21.760 --> 00:35:24.760
+we take the support of containerization or Docker,
+
+00:35:24.760 --> 00:35:26.760
+so Docker is basically a framework,
+
+00:35:26.760 --> 00:35:29.760
+which is used a lot in the industry,
+
+00:35:29.760 --> 00:35:31.760
+to containerize your application,
+
+00:35:31.760 --> 00:35:32.760
+industry leader,
+
+00:35:32.760 --> 00:35:34.760
+I hope this point is clear to you,
+
+00:35:34.760 --> 00:35:36.760
+okay,
+
+00:35:36.760 --> 00:35:38.760
+it is clear guys,
+
+00:35:38.760 --> 00:35:40.760
+now we will explore it further,
+
+00:35:40.760 --> 00:35:42.760
+don't worry,
+
+00:35:42.760 --> 00:35:46.760
+so far the point is clear,
+
+00:35:46.760 --> 00:35:48.760
+let's go once,
+
+00:35:48.760 --> 00:35:49.760
+let's revisit it again,
+
+00:35:49.760 --> 00:35:50.760
+it is 12 now,
+
+00:35:50.760 --> 00:35:53.760
+so let's take a little detour here,
+
+00:35:53.760 --> 00:35:54.760
+let's wait for 5 minutes,
+
+00:35:54.760 --> 00:35:55.760
+it will be completed,
+
+00:35:55.760 --> 00:35:57.760
+after that let's move ahead,
+
+00:35:57.760 --> 00:36:02.760
+so if I show you the MLflow,
+
+00:36:02.760 --> 00:36:05.760
+then here a new run has been created,
+
+00:36:05.760 --> 00:36:06.760
+see,
+
+00:36:06.760 --> 00:36:07.760
+it is created by swapping merciful,
+
+00:36:07.760 --> 00:36:09.760
+and now it is running,
+
+00:36:09.760 --> 00:36:11.760
+and it is almost complete,
+
+00:36:27.760 --> 00:36:28.760
+see,
+
+00:36:28.760 --> 00:36:30.760
+the evaluation has started,
+
+00:36:57.760 --> 00:37:03.760
+now see,
+
+00:37:03.760 --> 00:37:05.760
+we don't have any challenge attack,
+
+00:37:05.760 --> 00:37:06.760
+when will the challenge attack come,
+
+00:37:06.760 --> 00:37:08.760
+when this evaluation is complete,
+
+00:37:08.760 --> 00:37:11.760
+let's wait,
+
+00:37:11.760 --> 00:37:23.760
+done,
+
+00:37:23.760 --> 00:37:24.760
+these are our results,
+
+00:37:24.760 --> 00:37:26.760
+contextual relevancy,
+
+00:37:26.760 --> 00:37:27.760
+the precision is good,
+
+00:37:27.760 --> 00:37:31.760
+we have successfully logged the results,
+
+00:37:31.760 --> 00:37:34.760
+and here I have got my challenger tag,
+
+00:37:34.760 --> 00:37:36.760
+this is my new challenger,
+
+00:37:36.760 --> 00:37:38.760
+which is going to challenge this champion,
+
+00:37:38.760 --> 00:37:40.760
+now let's see if it can pass regression testing
+
+00:37:40.760 --> 00:37:43.760
+and promotion testing or not,
+
+00:37:43.760 --> 00:37:45.760
+my regression gate has started,
+
+00:37:45.760 --> 00:37:51.760
+let's see,
+
+00:37:51.760 --> 00:37:52.760
+if you see the summary here,
+
+00:37:52.760 --> 00:37:54.760
+then see everything is running sequentially,
+
+00:37:54.760 --> 00:37:55.760
+this is done,
+
+00:37:55.760 --> 00:37:58.760
+now this step will run,
+
+00:37:58.760 --> 00:38:00.760
+again here you are setting everything up,
+
+00:38:00.760 --> 00:38:01.760
+I have installed python,
+
+00:38:01.760 --> 00:38:02.760
+I have set up uv,
+
+00:38:02.760 --> 00:38:04.760
+you have picked dependencies from cache,
+
+00:38:04.760 --> 00:38:09.760
+now your regression gate is running,
+
+00:38:09.760 --> 00:38:19.760
+your regression has started,
+
+00:38:19.760 --> 00:38:21.760
+see everything has passed,
+
+00:38:21.760 --> 00:38:23.760
+now you can see clearly,
+
+00:38:23.760 --> 00:38:25.760
+everything has passed,
+
+00:38:25.760 --> 00:38:29.760
+now promotion gate is running,
+
+00:38:29.760 --> 00:38:31.760
+all these are happening on different machines,
+
+00:38:31.760 --> 00:38:33.760
+you can see these different jobs,
+
+00:38:33.760 --> 00:38:35.760
+this means that these are happening on different machines,
+
+00:38:35.760 --> 00:38:37.760
+all these steps have been completed on this machine,
+
+00:38:37.760 --> 00:38:42.760
+now these are switched on the next machine,
+
+00:38:42.760 --> 00:38:45.760
+uv is being installed,
+
+00:38:45.760 --> 00:38:47.760
+dependencies will be installed,
+
+00:38:47.760 --> 00:38:48.760
+these are the basic steps,
+
+00:38:48.760 --> 00:38:51.760
+these are being repeated,
+
+00:38:51.760 --> 00:38:57.760
+every machine has to be set up,
+
+00:38:57.760 --> 00:38:59.760
+now promotion gate is running,
+
+00:38:59.760 --> 00:39:01.760
+we have added leniency on promotion gate,
+
+00:39:01.760 --> 00:39:17.760
+that we will accept 3 in noise range,
+
+00:39:17.760 --> 00:39:20.760
+both your tests have been passed,
+
+00:39:20.760 --> 00:39:23.760
+see promotion testing is completed,
+
+00:39:23.760 --> 00:39:25.760
+now you will promote,
+
+00:39:25.760 --> 00:39:29.760
+so this challenger will become champion,
+
+00:39:29.760 --> 00:39:31.760
+see what is its state now,
+
+00:39:31.760 --> 00:39:33.760
+it is still challenger,
+
+00:39:33.760 --> 00:39:34.760
+it has not become champion,
+
+00:39:34.760 --> 00:39:36.760
+champion will come in this step,
+
+00:39:36.760 --> 00:39:38.760
+see new job has started,
+
+00:39:38.760 --> 00:39:44.760
+promote challenger to champion,
+
+00:39:44.760 --> 00:39:46.760
+uv setup is done,
+
+00:39:49.760 --> 00:39:50.760
+complete,
+
+00:39:50.760 --> 00:39:52.760
+cache is read,
+
+00:39:52.760 --> 00:39:53.760
+cache is stored here,
+
+00:39:53.760 --> 00:39:55.760
+all our dependencies are here,
+
+00:39:55.760 --> 00:39:57.760
+it will install them quickly,
+
+00:39:57.760 --> 00:39:58.760
+this is installed,
+
+00:39:58.760 --> 00:40:00.760
+promote challenger has started,
+
+00:40:02.760 --> 00:40:04.760
+simply it will change the tag,
+
+00:40:04.760 --> 00:40:06.760
+see our access is done,
+
+00:40:06.760 --> 00:40:08.760
+our tag has changed,
+
+00:40:08.760 --> 00:40:10.760
+clearly everything is written here,
+
+00:40:10.760 --> 00:40:12.760
+see this is our current champion,
+
+00:40:12.760 --> 00:40:14.760
+this is its run id,
+
+00:40:14.760 --> 00:40:16.760
+let's check it,
+
+00:40:16.760 --> 00:40:18.760
+this is our current champion,
+
+00:40:18.760 --> 00:40:20.760
+what it has done here,
+
+00:40:20.760 --> 00:40:22.760
+archive has done this champion,
+
+00:40:22.760 --> 00:40:24.760
+and this is our challenger,
+
+00:40:24.760 --> 00:40:26.760
+merciful spawn,
+
+00:40:26.760 --> 00:40:30.760
+it has upgraded it,
+
+00:40:30.760 --> 00:40:32.760
+archive has done this one,
+
+00:40:32.760 --> 00:40:34.760
+and this one has become champion,
+
+00:40:34.760 --> 00:40:36.760
+let's go and see visually,
+
+00:40:36.760 --> 00:40:38.760
+let's refresh it,
+
+00:40:38.760 --> 00:40:40.760
+see what has happened below,
+
+00:40:40.760 --> 00:40:42.760
+archive has done this one,
+
+00:40:42.760 --> 00:40:44.760
+and new one has become champion,
+
+00:40:44.760 --> 00:40:46.760
+if I compare its results,
+
+00:40:46.760 --> 00:40:52.760
+this is our parameters difference,
+
+00:40:52.760 --> 00:40:54.760
+and if I show the difference here,
+
+00:40:54.760 --> 00:41:00.760
+you will see that our contextual recall is similar,
+
+00:41:00.760 --> 00:41:02.760
+there is no increase,
+
+00:41:02.760 --> 00:41:04.760
+precision is also same,
+
+00:41:04.760 --> 00:41:06.760
+answer relevancy is increased or decreased,
+
+00:41:06.760 --> 00:41:08.760
+we will have to check that,
+
+00:41:08.760 --> 00:41:12.760
+answer relevancy was 93,
+
+00:41:12.760 --> 00:41:14.760
+now it has become 9,
+
+00:41:14.760 --> 00:41:16.760
+and this is our increase,
+
+00:41:16.760 --> 00:41:20.760
+contextual relevancy has also decreased,
+
+00:41:20.760 --> 00:41:22.760
+this was 80% before,
+
+00:41:22.760 --> 00:41:24.760
+this has become 75,
+
+00:41:24.760 --> 00:41:26.760
+faithfulness has also decreased,
+
+00:41:26.760 --> 00:41:28.760
+but answer correctness has increased,
+
+00:41:28.760 --> 00:41:30.760
+and this is similar,
+
+00:41:30.760 --> 00:41:32.760
+so we have taken leniency,
+
+00:41:32.760 --> 00:41:34.760
+some have decreased,
+
+00:41:34.760 --> 00:41:36.760
+some have increased,
+
+00:41:36.760 --> 00:41:38.760
+you can also put weighted approach here,
+
+00:41:38.760 --> 00:41:40.760
+you can prioritize that,
+
+00:41:40.760 --> 00:41:42.760
+you will focus more on these metrics,
+
+00:41:42.760 --> 00:41:44.760
+and some metrics which you can focus less on,
+
+00:41:44.760 --> 00:41:46.760
+that's up to you,
+
+00:41:46.760 --> 00:41:48.760
+logic is up to you,
+
+00:41:48.760 --> 00:41:50.760
+I had to show you the implementation,
+
+00:41:50.760 --> 00:41:52.760
+and this is the complete implementation,
+
+00:41:52.760 --> 00:41:54.760
+I hope this thing is clear to you,
+
+00:41:54.760 --> 00:41:58.760
+now let's go ahead and discuss today's session,
+
+00:41:58.760 --> 00:42:00.760
+is it clear guys?
+
+00:42:06.760 --> 00:42:08.760
+I have marked the bottom as champion,
+
+00:42:08.760 --> 00:42:10.760
+and that too manually,
+
+00:42:10.760 --> 00:42:12.760
+I have marked the bottom as champion,
+
+00:42:12.760 --> 00:42:14.760
+because this was the first run of my noise threshold,
+
+00:42:14.760 --> 00:42:16.760
+so in the noise threshold,
+
+00:42:16.760 --> 00:42:18.760
+I have marked the first run as champion,
+
+00:42:18.760 --> 00:42:20.760
+that it is my current best,
+
+00:42:20.760 --> 00:42:26.760
+and I have marked 10-12 runs on that configuration,
+
+00:42:26.760 --> 00:42:28.760
+so my configuration is not changing,
+
+00:42:28.760 --> 00:42:30.760
+it means that I have the same version of application,
+
+00:42:30.760 --> 00:42:32.760
+which I am evaluating again and again,
+
+00:42:32.760 --> 00:42:34.760
+that's why I have marked it as champion,
+
+00:42:34.760 --> 00:42:36.760
+you can also do it to someone else,
+
+00:42:36.760 --> 00:42:38.760
+it's up to you,
+
+00:42:38.760 --> 00:42:40.760
+that was my first run,
+
+00:42:40.760 --> 00:42:42.760
+that's it,
+
+00:42:42.760 --> 00:42:44.760
+okay,
+
+00:42:44.760 --> 00:42:46.760
+so what we have to do here,
+
+00:42:46.760 --> 00:42:50.760
+we have to package our application in some way,
+
+00:42:50.760 --> 00:42:52.760
+and the package has to be done in such a way,
+
+00:42:52.760 --> 00:42:54.760
+that it performs well on the other system,
+
+00:42:54.760 --> 00:42:56.760
+and runs well,
+
+00:42:56.760 --> 00:42:58.760
+so what we have to do to do the packaging,
+
+00:42:58.760 --> 00:43:02.760
+how we created this setup,
+
+00:43:02.760 --> 00:43:06.760
+first of all, we have made a project directory,
+
+00:43:06.760 --> 00:43:08.760
+this is what we did,
+
+00:43:08.760 --> 00:43:10.760
+this project directory,
+
+00:43:10.760 --> 00:43:12.760
+which you can see in the code,
+
+00:43:12.760 --> 00:43:14.760
+here, LLMAPS rag app,
+
+00:43:14.760 --> 00:43:16.760
+this project directory is necessary,
+
+00:43:16.760 --> 00:43:18.760
+after that, what we did,
+
+00:43:18.760 --> 00:43:20.760
+after that, we installed python,
+
+00:43:20.760 --> 00:43:22.760
+okay, after installing python,
+
+00:43:22.760 --> 00:43:24.760
+we created our virtual environment,
+
+00:43:24.760 --> 00:43:28.760
+after that, we built our project,
+
+00:43:28.760 --> 00:43:30.760
+now what is the project basically,
+
+00:43:30.760 --> 00:43:32.760
+project is basically your code files,
+
+00:43:32.760 --> 00:43:36.760
+or some more build artifacts,
+
+00:43:36.760 --> 00:43:38.760
+okay,
+
+00:43:38.760 --> 00:43:40.760
+which are made during the project,
+
+00:43:40.760 --> 00:43:42.760
+like your data sets,
+
+00:43:42.760 --> 00:43:44.760
+your project is made from these,
+
+00:43:44.760 --> 00:43:46.760
+and finally,
+
+00:43:46.760 --> 00:43:48.760
+if you want to use this project,
+
+00:43:48.760 --> 00:43:50.760
+then what will you do,
+
+00:43:50.760 --> 00:43:52.760
+you will run some commands,
+
+00:43:52.760 --> 00:43:56.760
+if I automate this whole setup in any way,
+
+00:43:56.760 --> 00:43:58.760
+again, here,
+
+00:43:58.760 --> 00:44:00.760
+we are talking about the information,
+
+00:44:00.760 --> 00:44:02.760
+where my project directory is automatically made,
+
+00:44:02.760 --> 00:44:04.760
+python is automatically installed,
+
+00:44:04.760 --> 00:44:06.760
+okay, these code files are automatically copied
+
+00:44:06.760 --> 00:44:08.760
+in that particular directory,
+
+00:44:08.760 --> 00:44:10.760
+virtual environment is also made,
+
+00:44:10.760 --> 00:44:12.760
+and the commands that I am running,
+
+00:44:12.760 --> 00:44:14.760
+okay, UV run,
+
+00:44:14.760 --> 00:44:16.760
+this also happens automatically,
+
+00:44:16.760 --> 00:44:18.760
+so I can assume that this local setup,
+
+00:44:18.760 --> 00:44:22.760
+I can easily replicate it on any other machine,
+
+00:44:22.760 --> 00:44:24.760
+and to do this,
+
+00:44:24.760 --> 00:44:26.760
+you use Docker,
+
+00:44:26.760 --> 00:44:28.760
+okay,
+
+00:44:28.760 --> 00:44:30.760
+so in Docker, you have two core primitives,
+
+00:44:30.760 --> 00:44:34.760
+the first core primitive is your Docker image,
+
+00:44:34.760 --> 00:44:36.760
+okay,
+
+00:44:36.760 --> 00:44:38.760
+Docker image basically,
+
+00:44:38.760 --> 00:44:42.760
+Docker image is a replica of your project,
+
+00:44:42.760 --> 00:44:44.760
+okay, what are you doing,
+
+00:44:44.760 --> 00:44:46.760
+you are copying this project in one image,
+
+00:44:46.760 --> 00:44:48.760
+that's it,
+
+00:44:48.760 --> 00:44:50.760
+it is like a backup,
+
+00:44:50.760 --> 00:44:52.760
+you have done a lot of work in Windows,
+
+00:44:52.760 --> 00:44:54.760
+you must have seen setup files,
+
+00:44:54.760 --> 00:44:56.760
+you must have seen .exe files,
+
+00:44:56.760 --> 00:44:58.760
+now what is .exe file,
+
+00:44:58.760 --> 00:45:00.760
+in .exe file,
+
+00:45:00.760 --> 00:45:02.760
+your application, your software is there,
+
+00:45:02.760 --> 00:45:04.760
+if you want to install any software,
+
+00:45:04.760 --> 00:45:06.760
+you download .exe file,
+
+00:45:06.760 --> 00:45:08.760
+or .msi file,
+
+00:45:08.760 --> 00:45:12.760
+so that .exe file is your Docker image,
+
+00:45:12.760 --> 00:45:14.760
+your application is there,
+
+00:45:14.760 --> 00:45:16.760
+we have put your application in it,
+
+00:45:16.760 --> 00:45:18.760
+with all these dependencies,
+
+00:45:18.760 --> 00:45:20.760
+with all these things,
+
+00:45:20.760 --> 00:45:22.760
+now if you want to put any layer in this image,
+
+00:45:22.760 --> 00:45:24.760
+if you want to take any image,
+
+00:45:24.760 --> 00:45:26.760
+and run it,
+
+00:45:26.760 --> 00:45:28.760
+then this particular image,
+
+00:45:28.760 --> 00:45:30.760
+when it will run,
+
+00:45:30.760 --> 00:45:32.760
+then it will behave like our application,
+
+00:45:32.760 --> 00:45:34.760
+when you run .exe file,
+
+00:45:34.760 --> 00:45:36.760
+then what happens,
+
+00:45:36.760 --> 00:45:38.760
+your software gets installed,
+
+00:45:38.760 --> 00:45:40.760
+your system starts running,
+
+00:45:40.760 --> 00:45:42.760
+if you share .exe file with someone else,
+
+00:45:42.760 --> 00:45:44.760
+let's say you put it in the pendrive and gave it to me,
+
+00:45:44.760 --> 00:45:46.760
+now I will run that .exe file on my system,
+
+00:45:46.760 --> 00:45:48.760
+then that application will work on my system,
+
+00:45:48.760 --> 00:45:50.760
+why,
+
+00:45:50.760 --> 00:45:54.760
+because developers have packaged it and put it inside the image,
+
+00:45:54.760 --> 00:45:58.760
+now the biggest advantage of this image is that it is portable,
+
+00:45:58.760 --> 00:46:02.760
+you can carry it anywhere,
+
+00:46:02.760 --> 00:46:04.760
+you can share it with anyone,
+
+00:46:04.760 --> 00:46:06.760
+this is the portable version of your application,
+
+00:46:06.760 --> 00:46:08.760
+and you can run it,
+
+00:46:08.760 --> 00:46:10.760
+run means you can execute it,
+
+00:46:10.760 --> 00:46:12.760
+you can install it,
+
+00:46:12.760 --> 00:46:14.760
+and after running,
+
+00:46:14.760 --> 00:46:16.760
+what comes as a thing,
+
+00:46:16.760 --> 00:46:18.760
+is called your container,
+
+00:46:18.760 --> 00:46:20.760
+and this is basically your running instance of application,
+
+00:46:20.760 --> 00:46:22.760
+running instance of your app,
+
+00:46:22.760 --> 00:46:24.760
+So, if I tell you the nutshell of our discussion,
+
+00:46:24.760 --> 00:46:26.760
+then what is the nutshell,
+
+00:46:26.760 --> 00:46:28.760
+what is our problem,
+
+00:46:28.760 --> 00:46:30.760
+just a second,
+
+00:46:30.760 --> 00:46:32.760
+the nutshell is that our problem is that
+
+00:46:32.760 --> 00:46:34.760
+we have tested our application's new version,
+
+00:46:34.760 --> 00:46:36.760
+we have tested our application's new version,
+
+00:46:36.760 --> 00:46:38.760
+and it is not working,
+
+00:46:38.760 --> 00:46:40.760
+so it is not working,
+
+00:46:40.760 --> 00:46:42.760
+and it is not working,
+
+00:46:42.760 --> 00:46:44.760
+so this is our problem,
+
+00:46:44.760 --> 00:46:46.760
+so let's say we have tested our application,
+
+00:46:46.760 --> 00:46:48.760
+we have tested our application's new version,
+
+00:46:48.760 --> 00:46:52.760
+but the code of that new version is still on our system,
+
+00:46:52.760 --> 00:46:54.760
+we have tested it on the GitHub,
+
+00:46:54.760 --> 00:46:56.760
+but the code is still on our system,
+
+00:46:56.760 --> 00:46:58.760
+what we have to do is,
+
+00:46:58.760 --> 00:47:00.760
+we have to wrap our application in some way,
+
+00:47:00.760 --> 00:47:04.760
+we are using Docker for that wrapper,
+
+00:47:04.760 --> 00:47:06.760
+and in Docker,
+
+00:47:06.760 --> 00:47:08.760
+what we do first,
+
+00:47:08.760 --> 00:47:12.760
+is to run and make the things required in our application,
+
+00:47:12.760 --> 00:47:14.760
+we put it in an image,
+
+00:47:14.760 --> 00:47:16.760
+what is the image,
+
+00:47:16.760 --> 00:47:18.760
+it is a portable version of my application,
+
+00:47:18.760 --> 00:47:20.760
+basically I have put my application in the pendrive,
+
+00:47:20.760 --> 00:47:22.760
+and now the pendrive,
+
+00:47:22.760 --> 00:47:24.760
+anyone who has it,
+
+00:47:24.760 --> 00:47:26.760
+can run that code on their own system,
+
+00:47:26.760 --> 00:47:28.760
+can run that code on their own system,
+
+00:47:28.760 --> 00:47:30.760
+so what we have done to run,
+
+00:47:30.760 --> 00:47:32.760
+we have put an instruction file in the pendrive,
+
+00:47:32.760 --> 00:47:34.760
+which is telling you how to run it,
+
+00:47:34.760 --> 00:47:36.760
+which is telling you how to run it,
+
+00:47:36.760 --> 00:47:38.760
+means what commands you have to run to utilize this project,
+
+00:47:38.760 --> 00:47:40.760
+we have told you all that,
+
+00:47:40.760 --> 00:47:42.760
+simply what my user will do,
+
+00:47:42.760 --> 00:47:44.760
+user will run those commands,
+
+00:47:44.760 --> 00:47:46.760
+and can use that application on his own system,
+
+00:47:46.760 --> 00:47:48.760
+and can use that application on his own system,
+
+00:47:48.760 --> 00:47:50.760
+I hope this point is clear to you,
+
+00:47:50.760 --> 00:47:52.760
+is this point clear guys,
+
+00:47:52.760 --> 00:47:54.760
+it is not confusing,
+
+00:47:54.760 --> 00:47:56.760
+if it is, you can tell me,
+
+00:47:56.760 --> 00:47:58.760
+because I have summarized a lot and told you Docker,
+
+00:47:58.760 --> 00:48:00.760
+because I have summarized a lot and told you Docker,
+
+00:48:00.760 --> 00:48:02.760
+is it clear,
+
+00:48:02.760 --> 00:48:04.760
+anyone has any doubt,
+
+00:48:04.760 --> 00:48:06.760
+we will stop here for a minute,
+
+00:48:06.760 --> 00:48:08.760
+it is a very important point in the class,
+
+00:48:08.760 --> 00:48:10.760
+if you have any doubt, you can ask,
+
+00:48:10.760 --> 00:48:12.760
+just I have given you the gist,
+
+00:48:12.760 --> 00:48:14.760
+just I have given you the gist,
+
+00:48:14.760 --> 00:48:16.760
+just I have given you the gist,
+
+00:48:16.760 --> 00:48:18.760
+clear,
+
+00:48:20.760 --> 00:48:22.760
+and the Docker framework,
+
+00:48:22.760 --> 00:48:24.760
+and the Docker framework,
+
+00:48:24.760 --> 00:48:26.760
+the work of making this image,
+
+00:48:26.760 --> 00:48:28.760
+and the work of running the image,
+
+00:48:28.760 --> 00:48:30.760
+that component is Docker engine,
+
+00:48:30.760 --> 00:48:32.760
+which does all this work for you,
+
+00:48:32.760 --> 00:48:34.760
+behind the scenes,
+
+00:48:34.760 --> 00:48:36.760
+a docker engine is working,
+
+00:48:36.760 --> 00:48:38.760
+which does all the work for you,
+
+00:48:38.760 --> 00:48:40.760
+you have to do only two things,
+
+00:48:40.760 --> 00:48:42.760
+first of all you have to prepare this image,
+
+00:48:42.760 --> 00:48:44.760
+all the material of your application,
+
+00:48:44.760 --> 00:48:46.760
+will be in this,
+
+00:48:46.760 --> 00:48:48.760
+all the things to run,
+
+00:48:48.760 --> 00:48:50.760
+you will put it in this,
+
+00:48:50.760 --> 00:48:52.760
+and then you will simply run it
+
+00:48:52.760 --> 00:48:54.760
+using the Docker engine,
+
+00:48:54.760 --> 00:48:56.760
+and that will be your container,
+
+00:48:56.760 --> 00:48:58.760
+if I give you a very good analogy,
+
+00:48:58.760 --> 00:49:00.760
+then you can take the analogy
+
+00:49:00.760 --> 00:49:02.760
+of the Maggi masala,
+
+00:49:02.760 --> 00:49:04.760
+what is Maggi Masala,
+
+00:49:04.760 --> 00:49:06.760
+Maggi has made all the
+
+00:49:06.760 --> 00:49:08.760
+essential spices,
+
+00:49:08.760 --> 00:49:10.760
+and packed it in a wrapper,
+
+00:49:10.760 --> 00:49:12.760
+in a sachet,
+
+00:49:12.760 --> 00:49:14.760
+that whenever you use that Maggi masala,
+
+00:49:14.760 --> 00:49:16.760
+you will get the taste of Maggi,
+
+00:49:16.760 --> 00:49:18.760
+you can put that Maggi masala
+
+00:49:18.760 --> 00:49:20.760
+in anything,
+
+00:49:20.760 --> 00:49:22.760
+it will give you that Maggi taste,
+
+00:49:22.760 --> 00:49:24.760
+and every Maggi masala sachet,
+
+00:49:24.760 --> 00:49:26.760
+is similar to the other sachet,
+
+00:49:26.760 --> 00:49:28.760
+it's not like you are making
+
+00:49:28.760 --> 00:49:30.760
+the sachet in Delhi,
+
+00:49:30.760 --> 00:49:32.760
+and it will give a different taste,
+
+00:49:32.760 --> 00:49:34.760
+if you are making it in Mumbai,
+
+00:49:34.760 --> 00:49:36.760
+then it will give a different taste,
+
+00:49:36.760 --> 00:49:38.760
+no, all over India,
+
+00:49:38.760 --> 00:49:40.760
+that sachet is common,
+
+00:49:40.760 --> 00:49:42.760
+similarly, it is your Docker,
+
+00:49:42.760 --> 00:49:44.760
+I hope this point is clear to you,
+
+00:49:44.760 --> 00:49:46.760
+let's move ahead,
+
+00:49:46.760 --> 00:49:48.760
+and discuss why we need Docker,
+
+00:49:48.760 --> 00:49:50.760
+at this stage,
+
+00:49:50.760 --> 00:49:52.760
+we need Docker,
+
+00:49:52.760 --> 00:50:00.760
+because we have to deploy our application,
+
+00:50:00.760 --> 00:50:02.760
+and in this deployment,
+
+00:50:02.760 --> 00:50:04.760
+we have to make sure,
+
+00:50:04.760 --> 00:50:06.760
+that our application,
+
+00:50:06.760 --> 00:50:08.760
+like it is working on our laptop,
+
+00:50:08.760 --> 00:50:10.760
+it is working on our deployed system,
+
+00:50:10.760 --> 00:50:12.760
+what will we do with this deployment,
+
+00:50:12.760 --> 00:50:14.760
+obviously, we will do it on a cloud provider,
+
+00:50:14.760 --> 00:50:16.760
+like we are using AWS,
+
+00:50:16.760 --> 00:50:18.760
+so what we want,
+
+00:50:18.760 --> 00:50:20.760
+that our application is working on our laptop,
+
+00:50:20.760 --> 00:50:22.760
+we should work on AWS,
+
+00:50:22.760 --> 00:50:24.760
+so for this whole thing,
+
+00:50:24.760 --> 00:50:26.760
+we are going to use Docker,
+
+00:50:26.760 --> 00:50:28.760
+I hope you understood this point,
+
+00:50:28.760 --> 00:50:30.760
+and the second thing,
+
+00:50:30.760 --> 00:50:32.760
+we have to make sure,
+
+00:50:32.760 --> 00:50:34.760
+that the whole application sharing process,
+
+00:50:34.760 --> 00:50:36.760
+has to be highly portable,
+
+00:50:36.760 --> 00:50:38.760
+means, we have to package our application,
+
+00:50:38.760 --> 00:50:40.760
+in something,
+
+00:50:40.760 --> 00:50:42.760
+which we can easily take to AWS,
+
+00:50:42.760 --> 00:50:44.760
+we can move that thing through internet,
+
+00:50:44.760 --> 00:50:46.760
+and that is our Docker image,
+
+00:50:46.760 --> 00:50:48.760
+so Docker does this work,
+
+00:50:48.760 --> 00:50:50.760
+so it gives us portability through image,
+
+00:50:50.760 --> 00:50:52.760
+and when we run it,
+
+00:50:52.760 --> 00:50:54.760
+then it gives us portability,
+
+00:50:54.760 --> 00:50:56.760
+and when we run it,
+
+00:50:56.760 --> 00:50:58.760
+then it gives us portability,
+
+00:50:58.760 --> 00:51:00.760
+and when we run it,
+
+00:51:00.760 --> 00:51:02.760
+then it works like our application,
+
+00:51:02.760 --> 00:51:04.760
+I hope this thing is clear to you,
+
+00:51:04.760 --> 00:51:06.760
+now let's talk about,
+
+00:51:06.760 --> 00:51:08.760
+how this whole process is done,
+
+00:51:08.760 --> 00:51:10.760
+so,
+
+00:51:10.760 --> 00:51:12.760
+to do this process,
+
+00:51:12.760 --> 00:51:14.760
+you need two files,
+
+00:51:14.760 --> 00:51:16.760
+one file is your Docker file,
+
+00:51:16.760 --> 00:51:18.760
+and the second file is your Docker compose,
+
+00:51:18.760 --> 00:51:20.760
+now first of all,
+
+00:51:20.760 --> 00:51:22.760
+I will talk about the Docker file,
+
+00:51:22.760 --> 00:51:24.760
+what is this Docker file,
+
+00:51:24.760 --> 00:51:26.760
+from the name itself,
+
+00:51:26.760 --> 00:51:28.760
+this is a Docker related file,
+
+00:51:28.760 --> 00:51:30.760
+now this is not a magical file,
+
+00:51:30.760 --> 00:51:32.760
+in this file,
+
+00:51:32.760 --> 00:51:34.760
+what you do,
+
+00:51:34.760 --> 00:51:36.760
+it is a set of instructions,
+
+00:51:36.760 --> 00:51:38.760
+you write some instructions in this file,
+
+00:51:38.760 --> 00:51:40.760
+what are the instructions,
+
+00:51:40.760 --> 00:51:42.760
+how you will make your Docker image,
+
+00:51:42.760 --> 00:51:44.760
+in the instructions,
+
+00:51:44.760 --> 00:51:46.760
+I am reiterating again and again,
+
+00:51:46.760 --> 00:51:48.760
+about Docker image,
+
+00:51:48.760 --> 00:51:50.760
+Docker image is a wrapped version of our application,
+
+00:51:50.760 --> 00:51:52.760
+we took our whole application,
+
+00:51:52.760 --> 00:51:54.760
+and wrapped it in a wrapper,
+
+00:51:54.760 --> 00:51:56.760
+in which all the common things
+
+00:51:56.760 --> 00:51:58.760
+of running our application are included,
+
+00:51:58.760 --> 00:52:00.760
+like our Python, dependencies,
+
+00:52:00.760 --> 00:52:02.760
+everything,
+
+00:52:02.760 --> 00:52:04.760
+so what we did here,
+
+00:52:04.760 --> 00:52:06.760
+we wrote some instructions,
+
+00:52:06.760 --> 00:52:08.760
+which will tell the Docker,
+
+00:52:08.760 --> 00:52:10.760
+how you have to make this Docker image,
+
+00:52:10.760 --> 00:52:12.760
+how you have to go to our local folder,
+
+00:52:12.760 --> 00:52:14.760
+which is this one,
+
+00:52:14.760 --> 00:52:16.760
+LLM Ops Rag App,
+
+00:52:16.760 --> 00:52:18.760
+from this,
+
+00:52:18.760 --> 00:52:20.760
+what all things to pick,
+
+00:52:20.760 --> 00:52:22.760
+and what all to wrap,
+
+00:52:22.760 --> 00:52:24.760
+and in which sequence,
+
+00:52:24.760 --> 00:52:26.760
+all these things,
+
+00:52:26.760 --> 00:52:28.760
+we make in this Docker file,
+
+00:52:28.760 --> 00:52:30.760
+so if anyone asks you in the interview,
+
+00:52:30.760 --> 00:52:32.760
+what is a Docker file,
+
+00:52:32.760 --> 00:52:34.760
+Docker file is nothing but a set of instructions,
+
+00:52:34.760 --> 00:52:36.760
+which tell you,
+
+00:52:36.760 --> 00:52:38.760
+how to make a Docker image,
+
+00:52:38.760 --> 00:52:40.760
+and also tell you,
+
+00:52:40.760 --> 00:52:42.760
+how to run it,
+
+00:52:42.760 --> 00:52:44.760
+how to run,
+
+00:52:44.760 --> 00:52:46.760
+because you will also tell the way to run,
+
+00:52:46.760 --> 00:52:48.760
+by copying the code,
+
+00:52:48.760 --> 00:52:50.760
+your application will not run,
+
+00:52:50.760 --> 00:52:52.760
+so in the final,
+
+00:52:52.760 --> 00:52:54.760
+you will run your backend,
+
+00:52:54.760 --> 00:52:56.760
+then your frontend,
+
+00:52:56.760 --> 00:52:58.760
+you will tell all those things,
+
+00:52:58.760 --> 00:53:00.760
+I hope this thing is clear to you,
+
+00:53:00.760 --> 00:53:02.760
+now what is in our setup,
+
+00:53:02.760 --> 00:53:04.760
+in our setup,
+
+00:53:04.760 --> 00:53:06.760
+we are creating two Docker files,
+
+00:53:08.760 --> 00:53:10.760
+one for our backend,
+
+00:53:12.760 --> 00:53:14.760
+and second for our frontend,
+
+00:53:16.760 --> 00:53:18.760
+because these are two different applications,
+
+00:53:18.760 --> 00:53:20.760
+there are different dependencies of our backend,
+
+00:53:20.760 --> 00:53:22.760
+you are using the blank chain in backend,
+
+00:53:22.760 --> 00:53:24.760
+you are using the fast API in backend,
+
+00:53:24.760 --> 00:53:26.760
+you are using the blank graph in backend,
+
+00:53:26.760 --> 00:53:28.760
+whereas in frontend,
+
+00:53:28.760 --> 00:53:30.760
+you are using the streamlit,
+
+00:53:30.760 --> 00:53:32.760
+you are using the request module,
+
+00:53:32.760 --> 00:53:34.760
+so here the dependencies are different,
+
+00:53:34.760 --> 00:53:36.760
+so what you will do here,
+
+00:53:36.760 --> 00:53:38.760
+through two Docker files,
+
+00:53:38.760 --> 00:53:40.760
+how to make your backend,
+
+00:53:40.760 --> 00:53:42.760
+how to package it,
+
+00:53:42.760 --> 00:53:44.760
+you will tell that,
+
+00:53:44.760 --> 00:53:46.760
+and how to make your frontend,
+
+00:53:46.760 --> 00:53:48.760
+you will tell that,
+
+00:53:48.760 --> 00:53:50.760
+what you did here,
+
+00:53:50.760 --> 00:53:52.760
+through Docker files,
+
+00:53:52.760 --> 00:53:54.760
+you have made your two images,
+
+00:53:54.760 --> 00:53:56.760
+this is called in Docker language,
+
+00:53:56.760 --> 00:53:58.760
+your build process,
+
+00:54:00.760 --> 00:54:02.760
+you have basically made your
+
+00:54:02.760 --> 00:54:04.760
+sashes of Maggi Masala,
+
+00:54:04.760 --> 00:54:06.760
+you have packed the spices in it,
+
+00:54:06.760 --> 00:54:08.760
+I hope this point is clear to you,
+
+00:54:10.760 --> 00:54:12.760
+so you can understand the backend,
+
+00:54:12.760 --> 00:54:14.760
+that these are your Maggi noodles,
+
+00:54:14.760 --> 00:54:16.760
+and this is your frontend,
+
+00:54:16.760 --> 00:54:18.760
+this is your masala,
+
+00:54:18.760 --> 00:54:20.760
+so for both, there are different wrappers,
+
+00:54:20.760 --> 00:54:22.760
+but have you ever seen,
+
+00:54:22.760 --> 00:54:24.760
+noodles and Maggi Masala are different,
+
+00:54:24.760 --> 00:54:26.760
+no, they are together,
+
+00:54:26.760 --> 00:54:28.760
+so whenever we want to run it,
+
+00:54:28.760 --> 00:54:30.760
+we have to run it together,
+
+00:54:30.760 --> 00:54:32.760
+because both are dependent on each other,
+
+00:54:32.760 --> 00:54:34.760
+backend is dependent on our frontend,
+
+00:54:34.760 --> 00:54:36.760
+because our user will interact with the frontend,
+
+00:54:36.760 --> 00:54:38.760
+and will trigger this backend,
+
+00:54:38.760 --> 00:54:40.760
+whereas frontend is dependent on our backend,
+
+00:54:40.760 --> 00:54:42.760
+because the whole thing is dependent on the backend,
+
+00:54:42.760 --> 00:54:44.760
+because the entire internal logic of our application,
+
+00:54:44.760 --> 00:54:46.760
+is with the backend,
+
+00:54:46.760 --> 00:54:48.760
+frontend has nothing,
+
+00:54:48.760 --> 00:54:50.760
+so both are related to each other,
+
+00:54:50.760 --> 00:54:52.760
+so there comes our Docker Compose,
+
+00:54:52.760 --> 00:54:54.760
+Docker Compose is basically your outer packaging,
+
+00:54:54.760 --> 00:54:56.760
+of Maggi,
+
+00:54:56.760 --> 00:54:58.760
+where you put the noodles package,
+
+00:54:58.760 --> 00:55:00.760
+and your masala package,
+
+00:55:00.760 --> 00:55:02.760
+in the same package,
+
+00:55:02.760 --> 00:55:04.760
+Docker Compose is written,
+
+00:55:04.760 --> 00:55:06.760
+you are composing something,
+
+00:55:06.760 --> 00:55:08.760
+you are putting some things in the same package,
+
+00:55:08.760 --> 00:55:10.760
+you are putting some things in the same package,
+
+00:55:10.760 --> 00:55:12.760
+you are composing something,
+
+00:55:12.760 --> 00:55:14.760
+you are mixing some things together,
+
+00:55:14.760 --> 00:55:16.760
+in this file, you basically tell,
+
+00:55:16.760 --> 00:55:18.760
+what all services are available,
+
+00:55:18.760 --> 00:55:20.760
+which you have to run,
+
+00:55:20.760 --> 00:55:22.760
+and then you tell,
+
+00:55:22.760 --> 00:55:24.760
+in which sequence you will run those services,
+
+00:55:24.760 --> 00:55:26.760
+so the instruction to make the services,
+
+00:55:26.760 --> 00:55:28.760
+is in the Docker file,
+
+00:55:28.760 --> 00:55:30.760
+and in which sequence you have to run it,
+
+00:55:30.760 --> 00:55:32.760
+is in Docker Compose,
+
+00:55:32.760 --> 00:55:34.760
+is in Docker Compose,
+
+00:55:34.760 --> 00:55:36.760
+is in Docker Compose,
+
+00:55:36.760 --> 00:55:38.760
+Docker Compose is always used,
+
+00:55:38.760 --> 00:55:40.760
+is always used,
+
+00:55:40.760 --> 00:55:42.760
+where you have multiple images,
+
+00:55:42.760 --> 00:55:44.760
+where you have multiple images,
+
+00:55:44.760 --> 00:55:46.760
+or multiple services,
+
+00:55:46.760 --> 00:55:48.760
+which you have to run together,
+
+00:55:48.760 --> 00:55:50.760
+in our case, our front-end and back-end,
+
+00:55:50.760 --> 00:55:52.760
+are two different services,
+
+00:55:52.760 --> 00:55:54.760
+so for that,
+
+00:55:54.760 --> 00:55:56.760
+we will use Docker Compose,
+
+00:55:56.760 --> 00:55:58.760
+is this point clear guys,
+
+00:55:58.760 --> 00:56:00.760
+is this point clear guys,
+
+00:56:00.760 --> 00:56:02.760
+is this point clear guys,
+
+00:56:02.760 --> 00:56:04.760
+is this point clear guys,
+
+00:56:04.760 --> 00:56:06.760
+is this point clear guys,
+
+00:56:06.760 --> 00:56:08.760
+so it will tell us how to package our back-end,
+
+00:56:08.760 --> 00:56:10.760
+and front-end separately,
+
+00:56:10.760 --> 00:56:12.760
+here there will be two files,
+
+00:56:12.760 --> 00:56:14.760
+and Compose will tell us how to run both of them together,
+
+00:56:14.760 --> 00:56:16.760
+so that they can interact with each other,
+
+00:56:22.760 --> 00:56:24.760
+are you getting confused guys,
+
+00:56:26.760 --> 00:56:28.760
+if you are, then tell me,
+
+00:56:30.760 --> 00:56:32.760
+is it clear, fine,
+
+00:56:32.760 --> 00:56:34.760
+tell me more people, is it clear,
+
+00:56:36.760 --> 00:56:38.760
+is it clear,
+
+00:56:40.760 --> 00:56:42.760
+is it clear,
+
+00:56:42.760 --> 00:56:44.760
+is it clear,
+
+00:56:44.760 --> 00:56:46.760
+so Docker Compose,
+
+00:56:46.760 --> 00:56:48.760
+is an essential component of Docker,
+
+00:56:48.760 --> 00:56:50.760
+is an independent service,
+
+00:56:50.760 --> 00:56:52.760
+so I will show you a little bit about Docker Compose,
+
+00:56:52.760 --> 00:56:54.760
+so I will show you a little bit about Docker Compose,
+
+00:56:54.760 --> 00:56:56.760
+we have done a lot of discussions here,
+
+00:56:56.760 --> 00:56:58.760
+let's do one thing, let's search Google once,
+
+00:56:58.760 --> 00:57:00.760
+here I am writing Docker Compose,
+
+00:57:00.760 --> 00:57:02.760
+here I am writing Docker Compose,
+
+00:57:02.760 --> 00:57:04.760
+let's read a little bit about it,
+
+00:57:04.760 --> 00:57:06.760
+let's see the documentation,
+
+00:57:06.760 --> 00:57:08.760
+it is simply written,
+
+00:57:08.760 --> 00:57:10.760
+Docker Compose is a tool,
+
+00:57:10.760 --> 00:57:12.760
+it is a tool or service,
+
+00:57:12.760 --> 00:57:14.760
+for defining and running multi-container applications,
+
+00:57:14.760 --> 00:57:16.760
+what did we say,
+
+00:57:16.760 --> 00:57:18.760
+that you use Docker Compose,
+
+00:57:18.760 --> 00:57:20.760
+when you have multiple services,
+
+00:57:20.760 --> 00:57:22.760
+which you have to run,
+
+00:57:22.760 --> 00:57:24.760
+multiple multi-container applications,
+
+00:57:24.760 --> 00:57:26.760
+it is the key to unlock
+
+00:57:26.760 --> 00:57:28.760
+streamlined and efficient development
+
+00:57:28.760 --> 00:57:30.760
+and deployment experience,
+
+00:57:30.760 --> 00:57:32.760
+so it gives you streamlined experience,
+
+00:57:32.760 --> 00:57:34.760
+streamlined means,
+
+00:57:34.760 --> 00:57:36.760
+you can run both these applications at the same time,
+
+00:57:36.760 --> 00:57:38.760
+Compose simplifies the control
+
+00:57:38.760 --> 00:57:40.760
+of your entire application stack,
+
+00:57:40.760 --> 00:57:42.760
+making it easy to manage
+
+00:57:42.760 --> 00:57:44.760
+services, networks and volumes
+
+00:57:44.760 --> 00:57:46.760
+in a single YAML configuration file,
+
+00:57:46.760 --> 00:57:48.760
+in a single YAML configuration file,
+
+00:57:48.760 --> 00:57:50.760
+again, wherever you see YAML files,
+
+00:57:50.760 --> 00:57:52.760
+this is true in ML Ops
+
+00:57:52.760 --> 00:57:54.760
+and LLM Ops,
+
+00:57:54.760 --> 00:57:56.760
+you will see many YAML files in deployment,
+
+00:57:56.760 --> 00:57:58.760
+do not be afraid of YAML files,
+
+00:57:58.760 --> 00:58:00.760
+YAML files have your configuration
+
+00:58:00.760 --> 00:58:02.760
+instruction file,
+
+00:58:02.760 --> 00:58:04.760
+you are giving instructions to your different services,
+
+00:58:04.760 --> 00:58:06.760
+like we made this YAML file,
+
+00:58:06.760 --> 00:58:08.760
+ci.yaml,
+
+00:58:08.760 --> 00:58:10.760
+what was there,
+
+00:58:10.760 --> 00:58:12.760
+it was only instructions to our GitHub actions,
+
+00:58:12.760 --> 00:58:14.760
+to our runner,
+
+00:58:14.760 --> 00:58:16.760
+how to behave, what steps to take,
+
+00:58:16.760 --> 00:58:18.760
+we wrote all that here,
+
+00:58:18.760 --> 00:58:20.760
+there is only one way to write it,
+
+00:58:20.760 --> 00:58:22.760
+which GitHub has shared in the documentation,
+
+00:58:22.760 --> 00:58:24.760
+and you are telling your steps here,
+
+00:58:24.760 --> 00:58:26.760
+that's it,
+
+00:58:26.760 --> 00:58:28.760
+you do the same in Docker,
+
+00:58:28.760 --> 00:58:30.760
+there are two different files,
+
+00:58:30.760 --> 00:58:32.760
+Docker file, which tells you
+
+00:58:32.760 --> 00:58:34.760
+how to make an image,
+
+00:58:34.760 --> 00:58:36.760
+and Docker Compose, which tells you
+
+00:58:36.760 --> 00:58:38.760
+how to run these images together,
+
+00:58:38.760 --> 00:58:40.760
+so you can stop here,
+
+00:58:40.760 --> 00:58:42.760
+start here,
+
+00:58:42.760 --> 00:58:44.760
+through Docker Compose,
+
+00:58:44.760 --> 00:58:46.760
+you can rebuild your services,
+
+00:58:46.760 --> 00:58:48.760
+you can see the status of the running services,
+
+00:58:48.760 --> 00:58:50.760
+and you can do many more things here,
+
+00:58:50.760 --> 00:58:52.760
+it is written here,
+
+00:58:52.760 --> 00:58:54.760
+why to use compose,
+
+00:58:54.760 --> 00:58:56.760
+how it works, you can explore all this,
+
+00:58:56.760 --> 00:58:58.760
+is this point clear guys,
+
+00:59:00.760 --> 00:59:02.760
+now we will see Docker file and Docker Compose file,
+
+00:59:02.760 --> 00:59:04.760
+we will understand individually,
+
+00:59:04.760 --> 00:59:06.760
+don't worry,
+
+00:59:08.760 --> 00:59:10.760
+is it clear,
+
+00:59:14.760 --> 00:59:16.760
+is the discussion clear,
+
+00:59:18.760 --> 00:59:20.760
+let's keep it interactive,
+
+00:59:20.760 --> 00:59:22.760
+otherwise,
+
+00:59:22.760 --> 00:59:24.760
+it may not be that I move forward,
+
+00:59:24.760 --> 00:59:26.760
+and your old concept is not clear,
+
+00:59:30.760 --> 00:59:32.760
+now if you have read the CI well,
+
+00:59:32.760 --> 00:59:34.760
+then you are able to make a relationship here,
+
+00:59:36.760 --> 00:59:38.760
+what is the relationship with CI,
+
+00:59:38.760 --> 00:59:40.760
+what were we doing in CI,
+
+00:59:40.760 --> 00:59:42.760
+we were using YAML files,
+
+00:59:42.760 --> 00:59:44.760
+what was the YAML file doing there,
+
+00:59:44.760 --> 00:59:46.760
+they were also set of instructions,
+
+00:59:50.760 --> 00:59:52.760
+the same concept is in Docker,
+
+00:59:52.760 --> 00:59:54.760
+you are using two different types of files in Docker,
+
+00:59:54.760 --> 00:59:56.760
+Docker file,
+
+00:59:56.760 --> 00:59:58.760
+which is telling how to make an image,
+
+01:00:00.760 --> 01:00:02.760
+and Compose file,
+
+01:00:02.760 --> 01:00:04.760
+which is telling how to run these images,
+
+01:00:06.760 --> 01:00:08.760
+how to run them together,
+
+01:00:12.760 --> 01:00:14.760
+that's it, you do this much here,
+
+01:00:14.760 --> 01:00:16.760
+so everything you give here,
+
+01:00:16.760 --> 01:00:18.760
+the instructions you give,
+
+01:00:18.760 --> 01:00:20.760
+you have to give some instruction to someone,
+
+01:00:20.760 --> 01:00:22.760
+how do you explain it,
+
+01:00:22.760 --> 01:00:24.760
+do you dump all the instructions together,
+
+01:00:24.760 --> 01:00:26.760
+the answer is no,
+
+01:00:26.760 --> 01:00:28.760
+you tell the instructions in bullet points,
+
+01:00:28.760 --> 01:00:30.760
+step by step,
+
+01:00:30.760 --> 01:00:32.760
+first do this, then this,
+
+01:00:32.760 --> 01:00:34.760
+then this, like a recipe book,
+
+01:00:34.760 --> 01:00:36.760
+how is the recipe,
+
+01:00:36.760 --> 01:00:38.760
+recipe is also an instruction,
+
+01:00:38.760 --> 01:00:40.760
+so it is written in step by step manner,
+
+01:00:40.760 --> 01:00:42.760
+you need these things,
+
+01:00:42.760 --> 01:00:44.760
+first you collect these things,
+
+01:00:44.760 --> 01:00:46.760
+then you prepare your working area,
+
+01:00:46.760 --> 01:00:48.760
+then how to cook food,
+
+01:00:48.760 --> 01:00:50.760
+how much time it will take to cook everything,
+
+01:00:50.760 --> 01:00:52.760
+all those procedures are written in the recipe,
+
+01:00:54.760 --> 01:00:56.760
+likewise these are also your recipes,
+
+01:00:56.760 --> 01:00:58.760
+GitHub actions files are your recipes
+
+01:00:58.760 --> 01:01:00.760
+to perform CICD through your GitHub actions,
+
+01:01:00.760 --> 01:01:02.760
+and Docker file and Docker compose
+
+01:01:02.760 --> 01:01:04.760
+are basically recipes for your Docker engine,
+
+01:01:06.760 --> 01:01:08.760
+is this point clear,
+
+01:01:08.760 --> 01:01:10.760
+let's move ahead,
+
+01:01:10.760 --> 01:01:12.760
+now let's see,
+
+01:01:12.760 --> 01:01:14.760
+how this implementation of our code will be done,
+
+01:01:14.760 --> 01:01:16.760
+how this will happen in the code,
+
+01:01:18.760 --> 01:01:20.760
+don't worry guys,
+
+01:01:20.760 --> 01:01:22.760
+I will explain all the steps here,
+
+01:01:22.760 --> 01:01:24.760
+I will not dump you with the code,
+
+01:01:24.760 --> 01:01:26.760
+we will see things step by step,
+
+01:01:26.760 --> 01:01:28.760
+I have already written the code,
+
+01:01:28.760 --> 01:01:30.760
+but I will explain each and everything to you,
+
+01:01:30.760 --> 01:01:32.760
+so here you will see a folder named Docker,
+
+01:01:34.760 --> 01:01:36.760
+and if you come down here,
+
+01:01:36.760 --> 01:01:38.760
+then you will see Docker compose.yml,
+
+01:01:38.760 --> 01:01:40.760
+so let's go to this Docker folder first,
+
+01:01:40.760 --> 01:01:42.760
+and see what is here,
+
+01:01:44.760 --> 01:01:46.760
+clearly here you can see 3 files,
+
+01:01:46.760 --> 01:01:48.760
+first is Docker file.api,
+
+01:01:48.760 --> 01:01:50.760
+then is your Docker file.frontend,
+
+01:01:50.760 --> 01:01:52.760
+and one is my python script,
+
+01:01:52.760 --> 01:01:54.760
+that is ingest-transfix.py,
+
+01:01:54.760 --> 01:01:56.760
+let's do one thing,
+
+01:01:56.760 --> 01:01:58.760
+I will switch off the camera and
+
+01:01:58.760 --> 01:02:00.760
+will explain everything step by step,
+
+01:02:02.760 --> 01:02:04.760
+now let's go towards my Docker file.api,
+
+01:02:06.760 --> 01:02:08.760
+now I am understanding the name,
+
+01:02:08.760 --> 01:02:10.760
+this is the file through which
+
+01:02:10.760 --> 01:02:12.760
+I will make my api image,
+
+01:02:12.760 --> 01:02:14.760
+I have two services here,
+
+01:02:14.760 --> 01:02:16.760
+first is my service,
+
+01:02:16.760 --> 01:02:18.760
+which is the api service,
+
+01:02:20.760 --> 01:02:22.760
+which I am using fast api for,
+
+01:02:22.760 --> 01:02:24.760
+this fast api server will run one,
+
+01:02:26.760 --> 01:02:28.760
+using uvcon,
+
+01:02:28.760 --> 01:02:30.760
+you know all that command,
+
+01:02:30.760 --> 01:02:32.760
+so what we have to do here,
+
+01:02:32.760 --> 01:02:34.760
+first we have to make an image,
+
+01:02:34.760 --> 01:02:36.760
+which we will run anywhere,
+
+01:02:36.760 --> 01:02:38.760
+so our server of uvcon will automatically start,
+
+01:02:38.760 --> 01:02:40.760
+simple as that,
+
+01:02:40.760 --> 01:02:42.760
+so what I need to start this server,
+
+01:02:42.760 --> 01:02:44.760
+I need to run this particular api,
+
+01:02:44.760 --> 01:02:46.760
+all the dependencies,
+
+01:02:46.760 --> 01:02:48.760
+all the code files,
+
+01:02:48.760 --> 01:02:50.760
+all of them will have to be put in this image,
+
+01:02:50.760 --> 01:02:52.760
+and in the end,
+
+01:02:52.760 --> 01:02:54.760
+I will also have to tell you what is the command
+
+01:02:54.760 --> 01:02:56.760
+to run this server,
+
+01:02:56.760 --> 01:02:58.760
+with that, my api server will run,
+
+01:02:58.760 --> 01:03:00.760
+and what is the second one,
+
+01:03:00.760 --> 01:03:02.760
+I have my frontend,
+
+01:03:02.760 --> 01:03:04.760
+which is built inside streamlit,
+
+01:03:04.760 --> 01:03:06.760
+same setup is here,
+
+01:03:06.760 --> 01:03:08.760
+here I will tell you,
+
+01:03:08.760 --> 01:03:10.760
+what all files are needed to run,
+
+01:03:10.760 --> 01:03:12.760
+what all dependencies are needed,
+
+01:03:12.760 --> 01:03:14.760
+and I will also tell you the command,
+
+01:03:14.760 --> 01:03:16.760
+how to run streamlit,
+
+01:03:16.760 --> 01:03:18.760
+both the commands are different,
+
+01:03:18.760 --> 01:03:20.760
+for this we are using two docker files,
+
+01:03:20.760 --> 01:03:22.760
+docker file.api and docker file.frontend,
+
+01:03:24.760 --> 01:03:26.760
+now let's understand,
+
+01:03:26.760 --> 01:03:28.760
+how to build docker file.api,
+
+01:03:28.760 --> 01:03:30.760
+now here we are using a docker concept,
+
+01:03:30.760 --> 01:03:32.760
+that is called as
+
+01:03:32.760 --> 01:03:34.760
+multi stage builds,
+
+01:03:34.760 --> 01:03:40.760
+now I can't explain this concept to you,
+
+01:03:40.760 --> 01:03:42.760
+it is a very deep concept,
+
+01:03:42.760 --> 01:03:44.760
+it will take 2 hours to explain it,
+
+01:03:44.760 --> 01:03:46.760
+but I will give you a gist of it,
+
+01:03:46.760 --> 01:03:48.760
+in multi stage builds,
+
+01:03:48.760 --> 01:03:50.760
+basically what you do,
+
+01:03:50.760 --> 01:03:52.760
+you make two images here,
+
+01:03:54.760 --> 01:03:56.760
+you can make more than two,
+
+01:03:56.760 --> 01:03:58.760
+basically you make images in sequential order,
+
+01:03:58.760 --> 01:04:00.760
+the first image you have,
+
+01:04:00.760 --> 01:04:02.760
+is a little heavy image,
+
+01:04:04.760 --> 01:04:08.760
+in this you do major installations,
+
+01:04:08.760 --> 01:04:10.760
+and the next image,
+
+01:04:10.760 --> 01:04:12.760
+which you call run time image,
+
+01:04:14.760 --> 01:04:16.760
+this is a little light,
+
+01:04:18.760 --> 01:04:20.760
+it is dependent on this heavy image,
+
+01:04:20.760 --> 01:04:24.760
+but it doesn't use all its features,
+
+01:04:24.760 --> 01:04:26.760
+it is like you can understand,
+
+01:04:26.760 --> 01:04:28.760
+how to explain this,
+
+01:04:28.760 --> 01:04:30.760
+this exe file,
+
+01:04:30.760 --> 01:04:32.760
+during the installation,
+
+01:04:32.760 --> 01:04:34.760
+it installs many extra packages,
+
+01:04:34.760 --> 01:04:36.760
+but as soon as its installation is complete,
+
+01:04:36.760 --> 01:04:38.760
+you remove these extra packages,
+
+01:04:38.760 --> 01:04:40.760
+so whenever you make its portable version,
+
+01:04:40.760 --> 01:04:42.760
+of this image,
+
+01:04:42.760 --> 01:04:44.760
+you never take this heavy image,
+
+01:04:44.760 --> 01:04:46.760
+you always convert this run time image,
+
+01:04:46.760 --> 01:04:48.760
+light image,
+
+01:04:48.760 --> 01:04:50.760
+into portable version,
+
+01:04:50.760 --> 01:04:52.760
+so this is your final image,
+
+01:04:52.760 --> 01:04:54.760
+now you will understand better,
+
+01:04:54.760 --> 01:04:56.760
+if you understand it in the code,
+
+01:04:56.760 --> 01:04:58.760
+you will understand it better,
+
+01:04:58.760 --> 01:05:00.760
+so now you will understand better,
+
+01:05:00.760 --> 01:05:02.760
+if you understand it in the code,
+
+01:05:02.760 --> 01:05:04.760
+so first of all,
+
+01:05:04.760 --> 01:05:06.760
+we are making our builder image,
+
+01:05:06.760 --> 01:05:08.760
+builder image means,
+
+01:05:08.760 --> 01:05:10.760
+this image is my heavy image,
+
+01:05:10.760 --> 01:05:12.760
+you have to keep this in mind,
+
+01:05:12.760 --> 01:05:14.760
+I am going to do more installation of packages,
+
+01:05:14.760 --> 01:05:16.760
+more installation of files,
+
+01:05:16.760 --> 01:05:18.760
+so first of all,
+
+01:05:18.760 --> 01:05:20.760
+what I have to tell here,
+
+01:05:20.760 --> 01:05:22.760
+in my image,
+
+01:05:22.760 --> 01:05:24.760
+I have to tell which language I am using,
+
+01:05:24.760 --> 01:05:26.760
+so I am using python here,
+
+01:05:26.760 --> 01:05:28.760
+so I am using python,
+
+01:05:28.760 --> 01:05:30.760
+now what does from command do in docker,
+
+01:05:30.760 --> 01:05:32.760
+it basically pulls another image,
+
+01:05:32.760 --> 01:05:34.760
+from docker hub,
+
+01:05:34.760 --> 01:05:36.760
+now if you have not heard about docker hub,
+
+01:05:36.760 --> 01:05:38.760
+then docker hub is also like github,
+
+01:05:38.760 --> 01:05:40.760
+what happens on github,
+
+01:05:40.760 --> 01:05:42.760
+on github you have code files,
+
+01:05:42.760 --> 01:05:44.760
+which is on a remote,
+
+01:05:44.760 --> 01:05:46.760
+similarly,
+
+01:05:46.760 --> 01:05:48.760
+the images of docker,
+
+01:05:48.760 --> 01:05:50.760
+to store them,
+
+01:05:50.760 --> 01:05:52.760
+there is a registry online,
+
+01:05:52.760 --> 01:05:54.760
+which is called docker hub,
+
+01:05:54.760 --> 01:05:56.760
+docker,
+
+01:05:56.760 --> 01:05:58.760
+just a second,
+
+01:05:58.760 --> 01:06:00.760
+if I go here and write,
+
+01:06:00.760 --> 01:06:02.760
+docker hub,
+
+01:06:02.760 --> 01:06:04.760
+so see,
+
+01:06:04.760 --> 01:06:06.760
+docker hub is here,
+
+01:06:06.760 --> 01:06:08.760
+what is written here, container image library,
+
+01:06:08.760 --> 01:06:10.760
+now here you will get different containers,
+
+01:06:10.760 --> 01:06:12.760
+see here is python container,
+
+01:06:12.760 --> 01:06:14.760
+now what python image will do,
+
+01:06:14.760 --> 01:06:16.760
+download it on your system,
+
+01:06:16.760 --> 01:06:18.760
+and run it,
+
+01:06:18.760 --> 01:06:20.760
+so you can use python on your system,
+
+01:06:20.760 --> 01:06:22.760
+without installing it,
+
+01:06:22.760 --> 01:06:26.760
+so this is basically your packaged version of python,
+
+01:06:26.760 --> 01:06:28.760
+you can simply download it through docker,
+
+01:06:28.760 --> 01:06:30.760
+and use it,
+
+01:06:30.760 --> 01:06:32.760
+like here tensorflow,
+
+01:06:32.760 --> 01:06:34.760
+pitorch, langchain,
+
+01:06:34.760 --> 01:06:36.760
+you will get many things here,
+
+01:06:36.760 --> 01:06:38.760
+see here is your models,
+
+01:06:38.760 --> 01:06:40.760
+quen3,
+
+01:06:40.760 --> 01:06:42.760
+so many services are available here,
+
+01:06:42.760 --> 01:06:44.760
+you can use them directly through docker,
+
+01:06:44.760 --> 01:06:46.760
+the condition is that you need docker engine for this,
+
+01:06:46.760 --> 01:06:48.760
+so docker engine,
+
+01:06:48.760 --> 01:06:50.760
+if you have,
+
+01:06:50.760 --> 01:06:52.760
+you can download python image,
+
+01:06:52.760 --> 01:06:54.760
+and use it as it is,
+
+01:06:54.760 --> 01:06:56.760
+so in docker file,
+
+01:06:56.760 --> 01:06:58.760
+whenever you use this from,
+
+01:06:58.760 --> 01:07:00.760
+so basically you are telling docker,
+
+01:07:00.760 --> 01:07:04.760
+that you don't have to install python from my system,
+
+01:07:04.760 --> 01:07:08.760
+its image is already available on docker hub,
+
+01:07:08.760 --> 01:07:10.760
+pull it from there,
+
+01:07:10.760 --> 01:07:12.760
+and add it in this image,
+
+01:07:12.760 --> 01:07:14.760
+as it is,
+
+01:07:14.760 --> 01:07:16.760
+for the made image,
+
+01:07:16.760 --> 01:07:18.760
+I don't need to make anything fresh here,
+
+01:07:18.760 --> 01:07:20.760
+and here I have given an alias,
+
+01:07:20.760 --> 01:07:22.760
+as builder,
+
+01:07:22.760 --> 01:07:26.760
+means this particular image is my builder image,
+
+01:07:26.760 --> 01:07:28.760
+after that,
+
+01:07:28.760 --> 01:07:30.760
+I am using copy command here,
+
+01:07:30.760 --> 01:07:32.760
+and what I am copying here,
+
+01:07:32.760 --> 01:07:34.760
+the version of uv on internet,
+
+01:07:34.760 --> 01:07:36.760
+version 0.12,
+
+01:07:36.760 --> 01:07:38.760
+I am copying that and adding it in my image,
+
+01:07:38.760 --> 01:07:40.760
+basically I am installing uv into my image,
+
+01:07:40.760 --> 01:07:42.760
+after that,
+
+01:07:42.760 --> 01:07:44.760
+I am creating a working directory here,
+
+01:07:44.760 --> 01:07:46.760
+like we have created a project directory here,
+
+01:07:46.760 --> 01:07:48.760
+and basically I am creating a working directory in my image,
+
+01:07:48.760 --> 01:07:50.760
+why do we need to do this,
+
+01:07:50.760 --> 01:07:52.760
+because in your image,
+
+01:07:52.760 --> 01:07:54.760
+an OS is installed,
+
+01:07:54.760 --> 01:07:58.760
+a slim version of linux is already installed,
+
+01:07:58.760 --> 01:08:00.760
+linux os,
+
+01:08:00.760 --> 01:08:02.760
+so you have to tell there,
+
+01:08:02.760 --> 01:08:04.760
+that in this OS,
+
+01:08:04.760 --> 01:08:06.760
+let's say you have a C drive,
+
+01:08:06.760 --> 01:08:08.760
+where will you run your project in C drive,
+
+01:08:08.760 --> 01:08:10.760
+for that you set your working directory,
+
+01:08:10.760 --> 01:08:12.760
+again all these details,
+
+01:08:12.760 --> 01:08:14.760
+you will get in docker play list,
+
+01:08:14.760 --> 01:08:16.760
+we will not cover it in depth,
+
+01:08:16.760 --> 01:08:18.760
+if you want to see it,
+
+01:08:18.760 --> 01:08:20.760
+you can go there and see,
+
+01:08:20.760 --> 01:08:22.760
+but how this whole file is working,
+
+01:08:22.760 --> 01:08:24.760
+I will give you the gist of that,
+
+01:08:24.760 --> 01:08:26.760
+after that what you do here,
+
+01:08:26.760 --> 01:08:28.760
+you are setting some environment variables,
+
+01:08:28.760 --> 01:08:30.760
+like you are telling that your uv project environment,
+
+01:08:30.760 --> 01:08:32.760
+where will it be,
+
+01:08:32.760 --> 01:08:34.760
+where will it be in your app folder,
+
+01:08:34.760 --> 01:08:36.760
+.venv,
+
+01:08:36.760 --> 01:08:38.760
+in our case also,
+
+01:08:38.760 --> 01:08:40.760
+where is our whole environment,
+
+01:08:40.760 --> 01:08:42.760
+in .venv,
+
+01:08:42.760 --> 01:08:44.760
+in our llmobs rack app,
+
+01:08:44.760 --> 01:08:46.760
+here we are making vvenv in the app,
+
+01:08:46.760 --> 01:08:48.760
+uvlink mode,
+
+01:08:48.760 --> 01:08:50.760
+copy set,
+
+01:08:50.760 --> 01:08:52.760
+copy means whatever dependencies you download,
+
+01:08:52.760 --> 01:08:54.760
+you don't have to cache them,
+
+01:08:54.760 --> 01:08:56.760
+you have to copy them and take them here,
+
+01:08:56.760 --> 01:08:58.760
+uv python downloads,
+
+01:08:58.760 --> 01:09:00.760
+never,
+
+01:09:00.760 --> 01:09:02.760
+that the python we have already set,
+
+01:09:02.760 --> 01:09:04.760
+3.12,
+
+01:09:04.760 --> 01:09:06.760
+we have to use that only,
+
+01:09:06.760 --> 01:09:08.760
+fresh,
+
+01:09:08.760 --> 01:09:10.760
+then we are setting our python path,
+
+01:09:10.760 --> 01:09:12.760
+imports,
+
+01:09:12.760 --> 01:09:14.760
+and path variable,
+
+01:09:14.760 --> 01:09:18.760
+so we have simply set some of our configs here,
+
+01:09:18.760 --> 01:09:20.760
+clear,
+
+01:09:20.760 --> 01:09:22.760
+now let's move forward,
+
+01:09:22.760 --> 01:09:24.760
+after that what we are doing here,
+
+01:09:24.760 --> 01:09:26.760
+next what we have to do,
+
+01:09:26.760 --> 01:09:28.760
+we have uv, python,
+
+01:09:28.760 --> 01:09:30.760
+next what we have to do,
+
+01:09:30.760 --> 01:09:32.760
+in this virtual environment,
+
+01:09:32.760 --> 01:09:34.760
+we have to install our packages,
+
+01:09:34.760 --> 01:09:36.760
+where are the details of packages,
+
+01:09:36.760 --> 01:09:38.760
+in these 2 files,
+
+01:09:38.760 --> 01:09:40.760
+where are we taking these files,
+
+01:09:40.760 --> 01:09:42.760
+in our image,
+
+01:09:42.760 --> 01:09:44.760
+and in our image also,
+
+01:09:44.760 --> 01:09:46.760
+in our app folder,
+
+01:09:46.760 --> 01:09:48.760
+exactly we are following this structure,
+
+01:09:48.760 --> 01:09:50.760
+in this project folder,
+
+01:09:50.760 --> 01:09:52.760
+we have these 2 files,
+
+01:09:52.760 --> 01:09:54.760
+uvlog and pyproject.toml,
+
+01:09:54.760 --> 01:09:56.760
+so with this command,
+
+01:09:56.760 --> 01:09:58.760
+I am telling you to do this in my image also,
+
+01:09:58.760 --> 01:10:00.760
+after that what I am doing here,
+
+01:10:00.760 --> 01:10:02.760
+after that I am installing my dependencies,
+
+01:10:02.760 --> 01:10:04.760
+what I am telling you,
+
+01:10:04.760 --> 01:10:06.760
+whatever dependencies you install,
+
+01:10:06.760 --> 01:10:08.760
+cache them,
+
+01:10:08.760 --> 01:10:10.760
+and run the uv sync command,
+
+01:10:10.760 --> 01:10:12.760
+so you will see run anywhere,
+
+01:10:12.760 --> 01:10:14.760
+you have seen run in CI,
+
+01:10:14.760 --> 01:10:16.760
+what is run,
+
+01:10:16.760 --> 01:10:18.760
+you are running your terminal commands,
+
+01:10:18.760 --> 01:10:20.760
+that's it,
+
+01:10:20.760 --> 01:10:22.760
+now after this uv sync,
+
+01:10:22.760 --> 01:10:24.760
+all my packages will be installed here,
+
+01:10:24.760 --> 01:10:26.760
+after that we are copying our code files here,
+
+01:10:26.760 --> 01:10:28.760
+what I have told you,
+
+01:10:28.760 --> 01:10:30.760
+in your application,
+
+01:10:30.760 --> 01:10:32.760
+code files are also needed,
+
+01:10:32.760 --> 01:10:34.760
+so we are copying that here,
+
+01:10:34.760 --> 01:10:36.760
+so we are copying that here,
+
+01:10:36.760 --> 01:10:38.760
+using the copy command,
+
+01:10:38.760 --> 01:10:40.760
+we are going in step by step manner,
+
+01:10:40.760 --> 01:10:42.760
+it is very simple, you can write your own docul file,
+
+01:10:42.760 --> 01:10:44.760
+just you should know these steps,
+
+01:10:44.760 --> 01:10:46.760
+how you built your project,
+
+01:10:46.760 --> 01:10:48.760
+you did it like this,
+
+01:10:48.760 --> 01:10:50.760
+first of all what are we copying,
+
+01:10:50.760 --> 01:10:52.760
+we are copying our entire api folder,
+
+01:10:52.760 --> 01:10:54.760
+because it has api backend,
+
+01:10:54.760 --> 01:10:56.760
+it needs api file,
+
+01:10:56.760 --> 01:10:58.760
+then we are copying the entire app folder,
+
+01:10:58.760 --> 01:11:00.760
+because our application is in the app,
+
+01:11:00.760 --> 01:11:02.760
+then we are copying config,
+
+01:11:02.760 --> 01:11:04.760
+where our config related,
+
+01:11:04.760 --> 01:11:06.760
+configuration related,
+
+01:11:06.760 --> 01:11:08.760
+validation,
+
+01:11:08.760 --> 01:11:10.760
+then we are copying utils,
+
+01:11:10.760 --> 01:11:12.760
+where our ml flow utils code is written,
+
+01:11:12.760 --> 01:11:14.760
+we need parents.ml,
+
+01:11:14.760 --> 01:11:16.760
+because this will build our application,
+
+01:11:16.760 --> 01:11:18.760
+here we have our configurations,
+
+01:11:18.760 --> 01:11:20.760
+then we need our transcript,
+
+01:11:20.760 --> 01:11:22.760
+which is in our data folder,
+
+01:11:22.760 --> 01:11:24.760
+and after that what we are doing here,
+
+01:11:24.760 --> 01:11:26.760
+we are copying a python file,
+
+01:11:26.760 --> 01:11:28.760
+and taking it to the docul folder,
+
+01:11:28.760 --> 01:11:30.760
+same as what you can see here,
+
+01:11:30.760 --> 01:11:32.760
+as you can see here,
+
+01:11:32.760 --> 01:11:34.760
+in the docul folder,
+
+01:11:34.760 --> 01:11:36.760
+you can see ingest transcript,
+
+01:11:36.760 --> 01:11:38.760
+same we are doing there,
+
+01:11:38.760 --> 01:11:40.760
+now what is in this ingest transcript,
+
+01:11:40.760 --> 01:11:42.760
+simple code is written,
+
+01:11:42.760 --> 01:11:44.760
+the code is that you have to go to the raw folder,
+
+01:11:44.760 --> 01:11:46.760
+and process your transcript,
+
+01:11:46.760 --> 01:11:48.760
+after processing,
+
+01:11:48.760 --> 01:11:50.760
+you have to put them in vector store,
+
+01:11:50.760 --> 01:11:52.760
+basically you have to create a new vector store,
+
+01:11:52.760 --> 01:11:54.760
+in this particular image,
+
+01:11:54.760 --> 01:11:56.760
+ok,
+
+01:11:56.760 --> 01:11:58.760
+and this is it guys,
+
+01:11:58.760 --> 01:12:00.760
+now to create a vector store,
+
+01:12:00.760 --> 01:12:02.760
+you need an api key,
+
+01:12:02.760 --> 01:12:04.760
+I am loading that api key here,
+
+01:12:04.760 --> 01:12:06.760
+ok,
+
+01:12:06.760 --> 01:12:08.760
+openai key is needed,
+
+01:12:08.760 --> 01:12:10.760
+because the model we are using,
+
+01:12:10.760 --> 01:12:12.760
+embedding model, that is openai model,
+
+01:12:12.760 --> 01:12:14.760
+simply I am loading it,
+
+01:12:14.760 --> 01:12:16.760
+and running this ingest transcript,
+
+01:12:16.760 --> 01:12:18.760
+now what will happen here,
+
+01:12:18.760 --> 01:12:20.760
+in this builder layer,
+
+01:12:20.760 --> 01:12:22.760
+I will have a folder named saved embeddings,
+
+01:12:22.760 --> 01:12:24.760
+which will be created,
+
+01:12:24.760 --> 01:12:26.760
+similar to this particular project,
+
+01:12:26.760 --> 01:12:28.760
+like this saved embeddings,
+
+01:12:28.760 --> 01:12:30.760
+will be created in the same way,
+
+01:12:30.760 --> 01:12:32.760
+and in this,
+
+01:12:32.760 --> 01:12:34.760
+the configuration of embeddings,
+
+01:12:34.760 --> 01:12:36.760
+will be exactly same as in my parents.aml,
+
+01:12:38.760 --> 01:12:40.760
+is this point clear,
+
+01:12:40.760 --> 01:12:42.760
+is this point clear to you,
+
+01:12:44.760 --> 01:12:46.760
+I am looking at the chat guys,
+
+01:12:46.760 --> 01:12:48.760
+this particular point is clear,
+
+01:12:50.760 --> 01:12:52.760
+some questions are coming,
+
+01:12:52.760 --> 01:12:54.760
+plot the ingestion will be from another service,
+
+01:12:54.760 --> 01:12:56.760
+yes,
+
+01:12:56.760 --> 01:12:58.760
+like we are using a vector store locally,
+
+01:12:58.760 --> 01:13:00.760
+you use a proper vector database,
+
+01:13:00.760 --> 01:13:02.760
+like pine cone,
+
+01:13:02.760 --> 01:13:04.760
+in the plot,
+
+01:13:04.760 --> 01:13:06.760
+which is fully managed,
+
+01:13:06.760 --> 01:13:08.760
+so you fetch data from their servers,
+
+01:13:08.760 --> 01:13:10.760
+so it is basically an api call,
+
+01:13:10.760 --> 01:13:12.760
+so it is basically an api call,
+
+01:13:12.760 --> 01:13:14.760
+obviously,
+
+01:13:14.760 --> 01:13:16.760
+you don't do this locally,
+
+01:13:16.760 --> 01:13:18.760
+in your images,
+
+01:13:18.760 --> 01:13:20.760
+so yes,
+
+01:13:20.760 --> 01:13:22.760
+simply we can copy,
+
+01:13:22.760 --> 01:13:24.760
+yes, you can do this,
+
+01:13:24.760 --> 01:13:26.760
+but the problem in this,
+
+01:13:26.760 --> 01:13:28.760
+you will copy all the code files,
+
+01:13:28.760 --> 01:13:30.760
+you will copy all the code files,
+
+01:13:30.760 --> 01:13:32.760
+so the problem with that,
+
+01:13:32.760 --> 01:13:34.760
+is that your entire code,
+
+01:13:34.760 --> 01:13:36.760
+along with your golden data set,
+
+01:13:36.760 --> 01:13:38.760
+along with your reports,
+
+01:13:38.760 --> 01:13:40.760
+everything that you don't want here,
+
+01:13:40.760 --> 01:13:42.760
+we are not experimenting,
+
+01:13:42.760 --> 01:13:44.760
+nor are we running evals,
+
+01:13:44.760 --> 01:13:46.760
+all those things will come in your image,
+
+01:13:46.760 --> 01:13:48.760
+and your image will be bloat,
+
+01:13:48.760 --> 01:13:50.760
+so you don't bloat it,
+
+01:13:50.760 --> 01:13:52.760
+all the things required,
+
+01:13:52.760 --> 01:13:54.760
+you only add them,
+
+01:13:54.760 --> 01:13:56.760
+and you have to build it only once,
+
+01:13:56.760 --> 01:13:58.760
+you have put the copy command of 4-5 lines,
+
+01:13:58.760 --> 01:14:00.760
+so you can make this image more portable,
+
+01:14:04.760 --> 01:14:06.760
+I hope you are understanding this point,
+
+01:14:06.760 --> 01:14:08.760
+try whenever you make images,
+
+01:14:08.760 --> 01:14:10.760
+keep the same things in it,
+
+01:14:10.760 --> 01:14:12.760
+which are required to run that current image,
+
+01:14:12.760 --> 01:14:14.760
+don't add anything unnecessary in it,
+
+01:14:14.760 --> 01:14:16.760
+don't bloat it,
+
+01:14:16.760 --> 01:14:18.760
+move forward,
+
+01:14:20.760 --> 01:14:22.760
+let's move forward,
+
+01:14:22.760 --> 01:14:24.760
+now what we are doing next,
+
+01:14:24.760 --> 01:14:26.760
+this was our heavy image,
+
+01:14:26.760 --> 01:14:28.760
+you can see why it is heavy,
+
+01:14:28.760 --> 01:14:30.760
+because we are doing a lot of installation,
+
+01:14:30.760 --> 01:14:32.760
+and after that we are making vector database,
+
+01:14:32.760 --> 01:14:34.760
+so we have done the work of making this,
+
+01:14:34.760 --> 01:14:36.760
+now we will make our slim image,
+
+01:14:36.760 --> 01:14:38.760
+and this image is called your runtime image,
+
+01:14:38.760 --> 01:14:40.760
+this is your runtime,
+
+01:14:40.760 --> 01:14:42.760
+the upper one was builder,
+
+01:14:42.760 --> 01:14:44.760
+this is runtime,
+
+01:14:44.760 --> 01:14:46.760
+now you will make a working directory,
+
+01:14:46.760 --> 01:14:48.760
+and after that,
+
+01:14:48.760 --> 01:14:50.760
+you will copy the builder stage in the app folder,
+
+01:14:50.760 --> 01:14:52.760
+and bring it here,
+
+01:14:54.760 --> 01:14:56.760
+and here I have also told you,
+
+01:14:56.760 --> 01:14:58.760
+that you should copy my virtual environment,
+
+01:14:58.760 --> 01:15:00.760
+as it is,
+
+01:15:00.760 --> 01:15:02.760
+now the virtual environment that
+
+01:15:02.760 --> 01:15:04.760
+UV has made,
+
+01:15:04.760 --> 01:15:06.760
+there are no cached related files in it,
+
+01:15:08.760 --> 01:15:10.760
+UV does a lot of files,
+
+01:15:10.760 --> 01:15:12.760
+when it installs,
+
+01:15:12.760 --> 01:15:14.760
+it downloads and caches,
+
+01:15:14.760 --> 01:15:16.760
+and a separate copy
+
+01:15:16.760 --> 01:15:18.760
+saves in the virtual environment,
+
+01:15:18.760 --> 01:15:20.760
+means it saves on the local machine,
+
+01:15:20.760 --> 01:15:22.760
+and also on the virtual environment of your project,
+
+01:15:22.760 --> 01:15:24.760
+two copies are made,
+
+01:15:24.760 --> 01:15:26.760
+through this approach,
+
+01:15:26.760 --> 01:15:28.760
+what we did,
+
+01:15:28.760 --> 01:15:30.760
+that the cached on our old image,
+
+01:15:30.760 --> 01:15:32.760
+we left it on the top,
+
+01:15:34.760 --> 01:15:36.760
+once we made it,
+
+01:15:36.760 --> 01:15:38.760
+we copied everything in our virtual environment,
+
+01:15:38.760 --> 01:15:40.760
+and left it on the top,
+
+01:15:40.760 --> 01:15:42.760
+and simply,
+
+01:15:42.760 --> 01:15:44.760
+we have only our virtual environment here,
+
+01:15:44.760 --> 01:15:46.760
+so let's say your virtual environment,
+
+01:15:46.760 --> 01:15:48.760
+let's say it was 100 MB,
+
+01:15:48.760 --> 01:15:50.760
+so previously,
+
+01:15:50.760 --> 01:15:52.760
+what you were doing here,
+
+01:15:52.760 --> 01:15:54.760
+with extra dependencies,
+
+01:15:54.760 --> 01:15:56.760
+you make things of 250 MB,
+
+01:15:56.760 --> 01:15:58.760
+if you don't make it in multi-stage,
+
+01:15:58.760 --> 01:16:00.760
+but now what you have done,
+
+01:16:00.760 --> 01:16:02.760
+you have reduced it to 100 MB,
+
+01:16:02.760 --> 01:16:04.760
+so you have got a saving of 150 MB,
+
+01:16:04.760 --> 01:16:06.760
+after that,
+
+01:16:06.760 --> 01:16:08.760
+you tell that,
+
+01:16:08.760 --> 01:16:10.760
+this particular application,
+
+01:16:10.760 --> 01:16:12.760
+this image,
+
+01:16:12.760 --> 01:16:14.760
+this is basically,
+
+01:16:14.760 --> 01:16:16.760
+an enclosed package,
+
+01:16:16.760 --> 01:16:18.760
+if you have a package,
+
+01:16:18.760 --> 01:16:20.760
+from Amazon,
+
+01:16:20.760 --> 01:16:22.760
+it is wrapped,
+
+01:16:22.760 --> 01:16:24.760
+it is closed from all sides,
+
+01:16:24.760 --> 01:16:26.760
+so if you want to open it,
+
+01:16:26.760 --> 01:16:28.760
+then you have to give an opening,
+
+01:16:28.760 --> 01:16:30.760
+on your box,
+
+01:16:30.760 --> 01:16:32.760
+which is closed with tape,
+
+01:16:32.760 --> 01:16:34.760
+what you do,
+
+01:16:34.760 --> 01:16:36.760
+you cut the tape and open the flaps,
+
+01:16:36.760 --> 01:16:38.760
+so you have to give an opening,
+
+01:16:38.760 --> 01:16:40.760
+on your box,
+
+01:16:40.760 --> 01:16:42.760
+and how do you give that opening,
+
+01:16:42.760 --> 01:16:44.760
+through the expose keyword,
+
+01:16:44.760 --> 01:16:46.760
+through expose,
+
+01:16:46.760 --> 01:16:48.760
+you tell that,
+
+01:16:48.760 --> 01:16:50.760
+when this image is run,
+
+01:16:50.760 --> 01:16:52.760
+which port it will listen to,
+
+01:16:52.760 --> 01:16:54.760
+because this is our fast API application,
+
+01:16:54.760 --> 01:16:56.760
+and the port we are using here,
+
+01:16:56.760 --> 01:16:58.760
+that is port 8000,
+
+01:16:58.760 --> 01:17:00.760
+so we have told that,
+
+01:17:00.760 --> 01:17:02.760
+in this particular image,
+
+01:17:02.760 --> 01:17:04.760
+you expose the 8000 port,
+
+01:17:04.760 --> 01:17:06.760
+and finally you tell that,
+
+01:17:06.760 --> 01:17:08.760
+your final command,
+
+01:17:08.760 --> 01:17:10.760
+which will run this particular image,
+
+01:17:10.760 --> 01:17:12.760
+and will convert it into a container,
+
+01:17:14.760 --> 01:17:16.760
+we have copied the entire API code,
+
+01:17:16.760 --> 01:17:18.760
+or installed dependencies,
+
+01:17:18.760 --> 01:17:20.760
+why we did this,
+
+01:17:20.760 --> 01:17:22.760
+because we have to start our uvcon server,
+
+01:17:22.760 --> 01:17:24.760
+so the final command is,
+
+01:17:24.760 --> 01:17:26.760
+we have to start our uvcon server,
+
+01:17:26.760 --> 01:17:28.760
+and this is the code,
+
+01:17:28.760 --> 01:17:30.760
+we write this code,
+
+01:17:30.760 --> 01:17:32.760
+uvcon api.main app,
+
+01:17:32.760 --> 01:17:34.760
+that's it,
+
+01:17:34.760 --> 01:17:36.760
+is it clear guys,
+
+01:17:36.760 --> 01:17:38.760
+how do we write the docker file,
+
+01:17:38.760 --> 01:17:40.760
+is it clear,
+
+01:17:40.760 --> 01:17:42.760
+is this point clear,
+
+01:17:42.760 --> 01:17:44.760
+I will also take your questions,
+
+01:17:44.760 --> 01:17:46.760
+is this thing clear now,
+
+01:17:52.760 --> 01:17:54.760
+there are some questions,
+
+01:17:54.760 --> 01:17:56.760
+I will take some questions,
+
+01:17:56.760 --> 01:17:58.760
+even if you use pg vector,
+
+01:17:58.760 --> 01:18:00.760
+rather than pine cone,
+
+01:18:00.760 --> 01:18:02.760
+as for different doc types,
+
+01:18:02.760 --> 01:18:04.760
+you have to prepare custom strategies,
+
+01:18:04.760 --> 01:18:06.760
+yes yes yes,
+
+01:18:06.760 --> 01:18:08.760
+again our application is simple,
+
+01:18:08.760 --> 01:18:10.760
+so we are including it in our image,
+
+01:18:10.760 --> 01:18:12.760
+but if you have different formats,
+
+01:18:12.760 --> 01:18:14.760
+then you make different injection pipelines,
+
+01:18:14.760 --> 01:18:16.760
+for them,
+
+01:18:16.760 --> 01:18:18.760
+from where we got the image,
+
+01:18:18.760 --> 01:18:20.760
+please show in docker hub,
+
+01:18:20.760 --> 01:18:22.760
+how we select python 3.12,
+
+01:18:22.760 --> 01:18:24.760
+so we have selected 3.12,
+
+01:18:24.760 --> 01:18:26.760
+because in our local project,
+
+01:18:26.760 --> 01:18:28.760
+we are using 3.12 version,
+
+01:18:28.760 --> 01:18:30.760
+see here,
+
+01:18:30.760 --> 01:18:32.760
+requires python 3.12,
+
+01:18:32.760 --> 01:18:34.760
+so same we are mimicking here,
+
+01:18:34.760 --> 01:18:36.760
+and your python files have
+
+01:18:36.760 --> 01:18:38.760
+different variants,
+
+01:18:38.760 --> 01:18:40.760
+so we are using slim variant,
+
+01:18:40.760 --> 01:18:42.760
+what happens in slim,
+
+01:18:42.760 --> 01:18:44.760
+you don't get pip,
+
+01:18:44.760 --> 01:18:46.760
+because we don't need pip,
+
+01:18:46.760 --> 01:18:48.760
+we are using uv,
+
+01:18:48.760 --> 01:18:50.760
+so we have used 3.12 slim version,
+
+01:18:52.760 --> 01:18:54.760
+is it clear,
+
+01:18:54.760 --> 01:18:56.760
+builder never goes into docker compose,
+
+01:18:56.760 --> 01:18:58.760
+no,
+
+01:18:58.760 --> 01:19:00.760
+you can see,
+
+01:19:00.760 --> 01:19:02.760
+whatever we have made in builder,
+
+01:19:02.760 --> 01:19:04.760
+from that,
+
+01:19:04.760 --> 01:19:06.760
+whatever was in app folder,
+
+01:19:06.760 --> 01:19:08.760
+we have taken it in our app folder,
+
+01:19:08.760 --> 01:19:10.760
+and copied the virtual environment,
+
+01:19:10.760 --> 01:19:12.760
+that's it,
+
+01:19:14.760 --> 01:19:16.760
+what we have made in app folder,
+
+01:19:16.760 --> 01:19:18.760
+in app folder,
+
+01:19:18.760 --> 01:19:20.760
+we have created
+
+01:19:20.760 --> 01:19:22.760
+our transcripts,
+
+01:19:22.760 --> 01:19:24.760
+embeddings,
+
+01:19:24.760 --> 01:19:26.760
+we have taken all that,
+
+01:19:26.760 --> 01:19:28.760
+whatever dependencies,
+
+01:19:28.760 --> 01:19:30.760
+environment variables,
+
+01:19:30.760 --> 01:19:32.760
+we have left them,
+
+01:19:32.760 --> 01:19:34.760
+I have told you,
+
+01:19:34.760 --> 01:19:36.760
+here there is caching,
+
+01:19:36.760 --> 01:19:38.760
+problem in uv is,
+
+01:19:38.760 --> 01:19:40.760
+two copies are made,
+
+01:19:40.760 --> 01:19:42.760
+one on your system,
+
+01:19:42.760 --> 01:19:44.760
+and one in virtual environment,
+
+01:19:44.760 --> 01:19:46.760
+so instead of two copies,
+
+01:19:46.760 --> 01:19:48.760
+you have kept one copy in your final image,
+
+01:19:48.760 --> 01:19:50.760
+that's it,
+
+01:19:50.760 --> 01:19:52.760
+so we have created space,
+
+01:19:52.760 --> 01:19:54.760
+you can do it in one,
+
+01:19:54.760 --> 01:19:56.760
+plus,
+
+01:19:56.760 --> 01:19:58.760
+you have to write code,
+
+01:19:58.760 --> 01:20:00.760
+but your image will be bigger,
+
+01:20:02.760 --> 01:20:04.760
+is it clear,
+
+01:20:04.760 --> 01:20:06.760
+let's move forward,
+
+01:20:06.760 --> 01:20:08.760
+let's move forward,
+
+01:20:10.760 --> 01:20:12.760
+front end file,
+
+01:20:12.760 --> 01:20:14.760
+that's very simple,
+
+01:20:14.760 --> 01:20:16.760
+front end file is super easy,
+
+01:20:16.760 --> 01:20:18.760
+super simple,
+
+01:20:18.760 --> 01:20:20.760
+I will explain it in 2 minutes,
+
+01:20:20.760 --> 01:20:22.760
+python version same,
+
+01:20:22.760 --> 01:20:24.760
+working directory, project folder,
+
+01:20:24.760 --> 01:20:26.760
+now we are not installing uv,
+
+01:20:26.760 --> 01:20:28.760
+we are using pip,
+
+01:20:28.760 --> 01:20:30.760
+why, because in uv,
+
+01:20:30.760 --> 01:20:32.760
+we were installing whole packages,
+
+01:20:32.760 --> 01:20:34.760
+now we don't need that,
+
+01:20:34.760 --> 01:20:36.760
+we just need stream rate,
+
+01:20:36.760 --> 01:20:38.760
+request, lang chain open ai,
+
+01:20:38.760 --> 01:20:42.760
+we are directly installing that through pip,
+
+01:20:42.760 --> 01:20:44.760
+after that,
+
+01:20:44.760 --> 01:20:46.760
+what are we copying,
+
+01:20:46.760 --> 01:20:48.760
+we are taking front end file from source,
+
+01:20:48.760 --> 01:20:50.760
+we don't need anything else,
+
+01:20:50.760 --> 01:20:52.760
+here we have set our python path,
+
+01:20:52.760 --> 01:20:54.760
+and we have exposed port,
+
+01:20:54.760 --> 01:20:56.760
+again this is a different image,
+
+01:20:56.760 --> 01:20:58.760
+so we have exposed the stream rate port,
+
+01:20:58.760 --> 01:21:00.760
+8501,
+
+01:21:00.760 --> 01:21:02.760
+and this is the command to run stream rate,
+
+01:21:02.760 --> 01:21:04.760
+that's it,
+
+01:21:06.760 --> 01:21:08.760
+is this point clear,
+
+01:21:08.760 --> 01:21:10.760
+both docker files are cleared,
+
+01:21:10.760 --> 01:21:12.760
+now what will we do with docker file,
+
+01:21:12.760 --> 01:21:14.760
+basically,
+
+01:21:14.760 --> 01:21:16.760
+we will give instructions to docker engine,
+
+01:21:16.760 --> 01:21:18.760
+what,
+
+01:21:18.760 --> 01:21:20.760
+that you have to make 2 images here,
+
+01:21:20.760 --> 01:21:22.760
+one image will be api image,
+
+01:21:22.760 --> 01:21:24.760
+and the other image will be,
+
+01:21:24.760 --> 01:21:26.760
+front end or stream rate image,
+
+01:21:26.760 --> 01:21:28.760
+that's it,
+
+01:21:28.760 --> 01:21:30.760
+how to make those images,
+
+01:21:30.760 --> 01:21:32.760
+what steps to take,
+
+01:21:32.760 --> 01:21:34.760
+all that I have written here,
+
+01:21:34.760 --> 01:21:36.760
+and all these steps are executed
+
+01:21:36.760 --> 01:21:38.760
+top to bottom in the sequence,
+
+01:21:38.760 --> 01:21:40.760
+clear,
+
+01:21:40.760 --> 01:21:42.760
+now let's go towards the compose file,
+
+01:21:42.760 --> 01:21:44.760
+what will compose file do,
+
+01:21:44.760 --> 01:21:46.760
+compose file will tell docker,
+
+01:21:46.760 --> 01:21:48.760
+how to run it,
+
+01:21:48.760 --> 01:21:50.760
+you have made these 2 images,
+
+01:21:50.760 --> 01:21:52.760
+now in what order you have to run them,
+
+01:21:52.760 --> 01:21:54.760
+what are the requirements to run them,
+
+01:21:54.760 --> 01:21:56.760
+we will tell in docker compose,
+
+01:21:56.760 --> 01:21:58.760
+so it is a yaml file,
+
+01:21:58.760 --> 01:22:00.760
+here it is written docker compose.yaml,
+
+01:22:00.760 --> 01:22:02.760
+this should be in your project root,
+
+01:22:02.760 --> 01:22:04.760
+not in any folder,
+
+01:22:04.760 --> 01:22:06.760
+here you define your services,
+
+01:22:06.760 --> 01:22:08.760
+here you define your services,
+
+01:22:08.760 --> 01:22:10.760
+here you define your services,
+
+01:22:10.760 --> 01:22:12.760
+here you define your services,
+
+01:22:12.760 --> 01:22:14.760
+now I will show you the whole thing in the code,
+
+01:22:16.760 --> 01:22:18.760
+if you write here,
+
+01:22:18.760 --> 01:22:20.760
+docker compose reference,
+
+01:22:20.760 --> 01:22:22.760
+docker compose reference,
+
+01:22:22.760 --> 01:22:24.760
+then you will get the reference of the compose file,
+
+01:22:24.760 --> 01:22:26.760
+how to write any compose file,
+
+01:22:26.760 --> 01:22:28.760
+see,
+
+01:22:28.760 --> 01:22:30.760
+how to write services,
+
+01:22:30.760 --> 01:22:32.760
+how to write network,
+
+01:22:32.760 --> 01:22:34.760
+volume, secrets, everything is written here,
+
+01:22:34.760 --> 01:22:36.760
+what are we writing, we are writing services,
+
+01:22:36.760 --> 01:22:38.760
+click,
+
+01:22:38.760 --> 01:22:40.760
+what is service,
+
+01:22:40.760 --> 01:22:42.760
+it is an abstract definition of computing resource
+
+01:22:42.760 --> 01:22:44.760
+within an application,
+
+01:22:44.760 --> 01:22:46.760
+like we have 2 computing resources,
+
+01:22:46.760 --> 01:22:48.760
+our backend and frontend,
+
+01:22:48.760 --> 01:22:50.760
+we write it here in our compose file,
+
+01:22:50.760 --> 01:22:52.760
+we write it here in our compose file,
+
+01:22:52.760 --> 01:22:54.760
+in each service also include a build section,
+
+01:22:54.760 --> 01:22:56.760
+because we have to build our image,
+
+01:22:56.760 --> 01:22:58.760
+so here build section is also there,
+
+01:22:58.760 --> 01:23:00.760
+which defines how to create the docker image from the service,
+
+01:23:00.760 --> 01:23:04.760
+compose supports building docker image using the service definition,
+
+01:23:04.760 --> 01:23:06.760
+and there are many more attributes,
+
+01:23:06.760 --> 01:23:08.760
+here all the attributes are given,
+
+01:23:08.760 --> 01:23:10.760
+simple example is given here,
+
+01:23:10.760 --> 01:23:12.760
+that you need 2 services,
+
+01:23:12.760 --> 01:23:14.760
+one is your frontend,
+
+01:23:14.760 --> 01:23:16.760
+and one is your database,
+
+01:23:16.760 --> 01:23:18.760
+so here you have told that your frontend,
+
+01:23:18.760 --> 01:23:20.760
+will run through this image,
+
+01:23:20.760 --> 01:23:22.760
+you will expose it on this port,
+
+01:23:22.760 --> 01:23:24.760
+this is your database,
+
+01:23:24.760 --> 01:23:26.760
+in which you are using the Postgres version 18,
+
+01:23:26.760 --> 01:23:28.760
+and these are your environment variables,
+
+01:23:28.760 --> 01:23:30.760
+your username and database,
+
+01:23:30.760 --> 01:23:32.760
+and this is your database,
+
+01:23:32.760 --> 01:23:34.760
+and this is your environment variables,
+
+01:23:34.760 --> 01:23:36.760
+and this is your database name,
+
+01:23:38.760 --> 01:23:40.760
+is this clear?
+
+01:23:40.760 --> 01:23:42.760
+here there are many attributes,
+
+01:23:42.760 --> 01:23:44.760
+you can go and read the separate attributes,
+
+01:23:44.760 --> 01:23:46.760
+which thing is used for what,
+
+01:23:46.760 --> 01:23:48.760
+we don't have to use all things,
+
+01:23:48.760 --> 01:23:50.760
+we have to use some specific things,
+
+01:23:50.760 --> 01:23:52.760
+let's do one thing,
+
+01:23:52.760 --> 01:23:54.760
+I will show you what we are using in this documentation,
+
+01:23:54.760 --> 01:23:56.760
+I will show you what we are using,
+
+01:23:56.760 --> 01:23:58.760
+so first of all what you do in services,
+
+01:23:58.760 --> 01:24:00.760
+like you were doing in CI file,
+
+01:24:00.760 --> 01:24:02.760
+in jobs,
+
+01:24:02.760 --> 01:24:04.760
+you give name to your services,
+
+01:24:04.760 --> 01:24:06.760
+so we have two services,
+
+01:24:06.760 --> 01:24:08.760
+one is API service,
+
+01:24:08.760 --> 01:24:10.760
+and one is frontend service,
+
+01:24:10.760 --> 01:24:12.760
+so we gave it a name,
+
+01:24:12.760 --> 01:24:14.760
+after that what we have to do,
+
+01:24:14.760 --> 01:24:16.760
+we have to build our services,
+
+01:24:16.760 --> 01:24:18.760
+now whatever images are not available on your docker hub,
+
+01:24:18.760 --> 01:24:20.760
+which you have to build from scratch,
+
+01:24:20.760 --> 01:24:22.760
+you keep them inside the build,
+
+01:24:22.760 --> 01:24:24.760
+if you are using a pre-built image,
+
+01:24:24.760 --> 01:24:26.760
+like in this example,
+
+01:24:26.760 --> 01:24:28.760
+the image of Postgres is already on the docker hub,
+
+01:24:28.760 --> 01:24:30.760
+you have to build it,
+
+01:24:30.760 --> 01:24:32.760
+if the image is already on the docker hub,
+
+01:24:32.760 --> 01:24:34.760
+you are not building it,
+
+01:24:34.760 --> 01:24:36.760
+this application is not on your system,
+
+01:24:36.760 --> 01:24:38.760
+its code is not on your system,
+
+01:24:38.760 --> 01:24:40.760
+you simply use the image directly,
+
+01:24:40.760 --> 01:24:42.760
+you don't give any build command here,
+
+01:24:42.760 --> 01:24:44.760
+but in our case,
+
+01:24:44.760 --> 01:24:46.760
+this application is on our local system,
+
+01:24:46.760 --> 01:24:48.760
+and we have to build it,
+
+01:24:48.760 --> 01:24:50.760
+so here we will use the build command,
+
+01:24:50.760 --> 01:24:52.760
+what do we tell in build,
+
+01:24:52.760 --> 01:24:54.760
+first of all we tell context,
+
+01:24:54.760 --> 01:24:56.760
+what is the context,
+
+01:24:56.760 --> 01:24:58.760
+that my build,
+
+01:24:58.760 --> 01:25:00.760
+what context will it be based on,
+
+01:25:00.760 --> 01:25:04.760
+means, how are all the things arranged in my project structure,
+
+01:25:04.760 --> 01:25:06.760
+in which reference,
+
+01:25:06.760 --> 01:25:08.760
+how are the paths arranged,
+
+01:25:08.760 --> 01:25:10.760
+so what context am I giving,
+
+01:25:10.760 --> 01:25:12.760
+my project route,
+
+01:25:12.760 --> 01:25:14.760
+whatever information I have written in my docker file,
+
+01:25:14.760 --> 01:25:16.760
+it is written according to my project route,
+
+01:25:16.760 --> 01:25:18.760
+whatever is in my project route,
+
+01:25:18.760 --> 01:25:20.760
+put it in the docker file,
+
+01:25:20.760 --> 01:25:22.760
+whatever is in my project,
+
+01:25:22.760 --> 01:25:24.760
+in the docker folder,
+
+01:25:24.760 --> 01:25:26.760
+put it in the docker folder,
+
+01:25:26.760 --> 01:25:28.760
+and put it in the docker file,
+
+01:25:28.760 --> 01:25:30.760
+put it as a context,
+
+01:25:30.760 --> 01:25:32.760
+ok,
+
+01:25:32.760 --> 01:25:34.760
+I will show you inside the documentation,
+
+01:25:34.760 --> 01:25:36.760
+so that you can open your fear,
+
+01:25:36.760 --> 01:25:38.760
+around docker compose,
+
+01:25:40.760 --> 01:25:42.760
+just a second,
+
+01:25:42.760 --> 01:25:44.760
+so inside services,
+
+01:25:44.760 --> 01:25:46.760
+where will we go,
+
+01:25:46.760 --> 01:25:48.760
+we will go inside the build section,
+
+01:25:48.760 --> 01:25:50.760
+build, build, build,
+
+01:25:50.760 --> 01:25:52.760
+just a second guys,
+
+01:25:52.760 --> 01:25:54.760
+give me some time,
+
+01:25:54.760 --> 01:25:56.760
+see, this is the build,
+
+01:25:56.760 --> 01:26:00.760
+build specifies the build configuration for creating an image from source,
+
+01:26:00.760 --> 01:26:02.760
+we are doing the same,
+
+01:26:02.760 --> 01:26:04.760
+what all things can you add inside this,
+
+01:26:04.760 --> 01:26:06.760
+what we have added, we have added context,
+
+01:26:06.760 --> 01:26:08.760
+now you can read this too,
+
+01:26:08.760 --> 01:26:10.760
+this one is above,
+
+01:26:10.760 --> 01:26:12.760
+build, build tells you how to build,
+
+01:26:12.760 --> 01:26:14.760
+first context,
+
+01:26:14.760 --> 01:26:20.760
+context tells path to directory containing the docker file url or gate repository,
+
+01:26:20.760 --> 01:26:22.760
+so this tells the path of our project,
+
+01:26:22.760 --> 01:26:24.760
+what is the path of our project,
+
+01:26:24.760 --> 01:26:26.760
+the root path,
+
+01:26:26.760 --> 01:26:28.760
+ok, project directory defaults to the root path,
+
+01:26:28.760 --> 01:26:30.760
+so we have also given the root path here,
+
+01:26:30.760 --> 01:26:32.760
+that's it,
+
+01:26:32.760 --> 01:26:34.760
+let's see what else we have added here,
+
+01:26:34.760 --> 01:26:36.760
+after that we are telling you where we will get our docker file,
+
+01:26:36.760 --> 01:26:38.760
+so where is our docker file,
+
+01:26:38.760 --> 01:26:40.760
+to make this service,
+
+01:26:40.760 --> 01:26:42.760
+that is inside the docker folder,
+
+01:26:42.760 --> 01:26:44.760
+docker file.api,
+
+01:26:44.760 --> 01:26:46.760
+let's go towards the documentation,
+
+01:26:46.760 --> 01:26:48.760
+let's see,
+
+01:26:48.760 --> 01:26:50.760
+docker file,
+
+01:26:50.760 --> 01:26:52.760
+docker file,
+
+01:26:52.760 --> 01:26:54.760
+sets an alternate docker file,
+
+01:26:54.760 --> 01:26:56.760
+a relative path is resolved from the build context,
+
+01:26:56.760 --> 01:27:00.760
+means this path should be set according to my project root,
+
+01:27:00.760 --> 01:27:02.760
+ok, let's see,
+
+01:27:02.760 --> 01:27:04.760
+according to project root,
+
+01:27:04.760 --> 01:27:06.760
+yes, project root is this,
+
+01:27:06.760 --> 01:27:08.760
+inside it is docker folder,
+
+01:27:08.760 --> 01:27:10.760
+inside docker file.api,
+
+01:27:10.760 --> 01:27:12.760
+then I have to tell you secrets,
+
+01:27:12.760 --> 01:27:14.760
+what is the secret,
+
+01:27:14.760 --> 01:27:16.760
+my open ai api key,
+
+01:27:16.760 --> 01:27:18.760
+and why do I need this,
+
+01:27:18.760 --> 01:27:20.760
+I am creating the building,
+
+01:27:20.760 --> 01:27:22.760
+after that,
+
+01:27:22.760 --> 01:27:24.760
+what should be the name of my final image,
+
+01:27:24.760 --> 01:27:26.760
+when the building process is completed,
+
+01:27:26.760 --> 01:27:28.760
+then on my docker,
+
+01:27:28.760 --> 01:27:30.760
+what will be the name of this image,
+
+01:27:30.760 --> 01:27:32.760
+I have given the name of the image,
+
+01:27:32.760 --> 01:27:34.760
+after that I am defining the ports,
+
+01:27:34.760 --> 01:27:36.760
+this whole thing is called port mapping,
+
+01:27:38.760 --> 01:27:40.760
+it is a very important concept in docker,
+
+01:27:40.760 --> 01:27:42.760
+you should know,
+
+01:27:42.760 --> 01:27:44.760
+this is called port mapping or port bridging,
+
+01:27:44.760 --> 01:27:46.760
+this is written in this way,
+
+01:27:46.760 --> 01:27:48.760
+in our case,
+
+01:27:48.760 --> 01:27:50.760
+8000 colon 8000,
+
+01:27:50.760 --> 01:27:52.760
+this port number,
+
+01:27:52.760 --> 01:27:54.760
+which you can see earlier,
+
+01:27:54.760 --> 01:27:56.760
+this is your host port,
+
+01:27:56.760 --> 01:27:58.760
+and this which you can see later,
+
+01:27:58.760 --> 01:28:00.760
+this is your container port,
+
+01:28:00.760 --> 01:28:02.760
+basically,
+
+01:28:02.760 --> 01:28:04.760
+through port mapping,
+
+01:28:04.760 --> 01:28:06.760
+you set that,
+
+01:28:06.760 --> 01:28:08.760
+the port of your container,
+
+01:28:08.760 --> 01:28:10.760
+which port of the host is accessible,
+
+01:28:10.760 --> 01:28:12.760
+means,
+
+01:28:12.760 --> 01:28:14.760
+we have set 8000 in the container,
+
+01:28:14.760 --> 01:28:16.760
+means, if you want to access the container,
+
+01:28:16.760 --> 01:28:18.760
+you can hit 8000 port,
+
+01:28:18.760 --> 01:28:20.760
+then you can access the container,
+
+01:28:20.760 --> 01:28:22.760
+but on the host,
+
+01:28:22.760 --> 01:28:24.760
+like our machine,
+
+01:28:24.760 --> 01:28:26.760
+here you can define the port,
+
+01:28:26.760 --> 01:28:28.760
+which you are giving in the URL,
+
+01:28:28.760 --> 01:28:30.760
+if you change this in the URL,
+
+01:28:30.760 --> 01:28:32.760
+let's say,
+
+01:28:32.760 --> 01:28:34.760
+this is 5000, 8000,
+
+01:28:34.760 --> 01:28:36.760
+you map it like this,
+
+01:28:36.760 --> 01:28:38.760
+so this is your host port,
+
+01:28:38.760 --> 01:28:40.760
+it will look like this on your browser,
+
+01:28:40.760 --> 01:28:42.760
+localhost colon 5000,
+
+01:28:44.760 --> 01:28:46.760
+and as soon as you hit localhost colon 5000,
+
+01:28:46.760 --> 01:28:48.760
+you will be able to access your container,
+
+01:28:48.760 --> 01:28:50.760
+through the 8000 port,
+
+01:28:50.760 --> 01:28:52.760
+basically, it creates a bridge between your
+
+01:28:52.760 --> 01:28:54.760
+host and your container,
+
+01:28:54.760 --> 01:28:56.760
+this is called port mapping,
+
+01:28:56.760 --> 01:28:58.760
+is this point clear guys,
+
+01:28:58.760 --> 01:29:00.760
+it is very important,
+
+01:29:00.760 --> 01:29:02.760
+and you should set it carefully,
+
+01:29:02.760 --> 01:29:04.760
+because this is your entry point,
+
+01:29:04.760 --> 01:29:06.760
+through which you can access your containers,
+
+01:29:06.760 --> 01:29:08.760
+so generally,
+
+01:29:08.760 --> 01:29:10.760
+it is kept the same,
+
+01:29:10.760 --> 01:29:12.760
+because we are running streamlet on the host,
+
+01:29:12.760 --> 01:29:14.760
+and we are running it on the 8000 port,
+
+01:29:14.760 --> 01:29:16.760
+so we are keeping it same,
+
+01:29:16.760 --> 01:29:18.760
+if I show you here,
+
+01:29:18.760 --> 01:29:20.760
+ports section,
+
+01:29:20.760 --> 01:29:22.760
+if I go down,
+
+01:29:22.760 --> 01:29:24.760
+ports,
+
+01:29:24.760 --> 01:29:26.760
+this is used for port mapping,
+
+01:29:26.760 --> 01:29:28.760
+see, first is host,
+
+01:29:28.760 --> 01:29:30.760
+and second is container,
+
+01:29:30.760 --> 01:29:32.760
+ok,
+
+01:29:32.760 --> 01:29:34.760
+which I told you,
+
+01:29:34.760 --> 01:29:36.760
+you can set it like this,
+
+01:29:36.760 --> 01:29:38.760
+there are different ways to set it,
+
+01:29:38.760 --> 01:29:40.760
+what we have used,
+
+01:29:40.760 --> 01:29:42.760
+let's go ahead,
+
+01:29:42.760 --> 01:29:44.760
+then what do you want to tell,
+
+01:29:44.760 --> 01:29:46.760
+that your api keys,
+
+01:29:46.760 --> 01:29:48.760
+where are they,
+
+01:29:48.760 --> 01:29:50.760
+where are all your api keys,
+
+01:29:50.760 --> 01:29:52.760
+in our project,
+
+01:29:52.760 --> 01:29:54.760
+they are in our .env file,
+
+01:29:54.760 --> 01:29:56.760
+so here you use the environment file,
+
+01:29:56.760 --> 01:29:58.760
+and tell where are your api keys,
+
+01:29:58.760 --> 01:30:00.760
+that's it,
+
+01:30:00.760 --> 01:30:02.760
+so your api service is ready,
+
+01:30:02.760 --> 01:30:04.760
+what did you tell here,
+
+01:30:04.760 --> 01:30:06.760
+what is the name of the service,
+
+01:30:06.760 --> 01:30:08.760
+how will it be built,
+
+01:30:08.760 --> 01:30:10.760
+where is the docker file,
+
+01:30:10.760 --> 01:30:12.760
+and the image that will come in output,
+
+01:30:12.760 --> 01:30:14.760
+what will be the name of it,
+
+01:30:14.760 --> 01:30:16.760
+which port can we access that service,
+
+01:30:16.760 --> 01:30:18.760
+and where are its api keys,
+
+01:30:18.760 --> 01:30:20.760
+that's it,
+
+01:30:20.760 --> 01:30:22.760
+next service is your front-end service,
+
+01:30:22.760 --> 01:30:24.760
+we have also told that to build,
+
+01:30:24.760 --> 01:30:26.760
+context is your project route,
+
+01:30:26.760 --> 01:30:28.760
+where is its docker file,
+
+01:30:28.760 --> 01:30:30.760
+what will be the name of the image,
+
+01:30:30.760 --> 01:30:32.760
+how to access it,
+
+01:30:32.760 --> 01:30:34.760
+where will you get your environment variables,
+
+01:30:34.760 --> 01:30:36.760
+related to stream,
+
+01:30:36.760 --> 01:30:38.760
+so here you have to set base url,
+
+01:30:38.760 --> 01:30:40.760
+that is your base url,
+
+01:30:40.760 --> 01:30:42.760
+what were we doing till now,
+
+01:30:42.760 --> 01:30:44.760
+till now,
+
+01:30:44.760 --> 01:30:46.760
+just a second,
+
+01:30:46.760 --> 01:30:48.760
+I will start the annotation,
+
+01:30:48.760 --> 01:30:50.760
+give me one second guys,
+
+01:30:50.760 --> 01:30:52.760
+till now what were we doing,
+
+01:30:52.760 --> 01:30:54.760
+till now our api server,
+
+01:30:54.760 --> 01:30:56.760
+we were running it,
+
+01:30:56.760 --> 01:30:58.760
+localhost 8000,
+
+01:30:58.760 --> 01:31:00.760
+and our streamlit,
+
+01:31:00.760 --> 01:31:02.760
+our front-end was running,
+
+01:31:02.760 --> 01:31:04.760
+and our front-end was running,
+
+01:31:04.760 --> 01:31:06.760
+and our streamlit,
+
+01:31:06.760 --> 01:31:08.760
+our front-end was running,
+
+01:31:08.760 --> 01:31:16.760
+localhost 8501,
+
+01:31:16.760 --> 01:31:18.760
+you were running your streamlit here,
+
+01:31:18.760 --> 01:31:20.760
+and you were able to easily access it,
+
+01:31:20.760 --> 01:31:22.760
+but when you use this docker compose,
+
+01:31:22.760 --> 01:31:26.760
+then you don't have this localhost available,
+
+01:31:26.760 --> 01:31:32.760
+so you simply set its network according to your service,
+
+01:31:32.760 --> 01:31:34.760
+the network on which api service is running,
+
+01:31:34.760 --> 01:31:36.760
+its port will be 8000,
+
+01:31:36.760 --> 01:31:38.760
+so your api will be available,
+
+01:31:38.760 --> 01:31:40.760
+if tomorrow I change the service name to api,
+
+01:31:40.760 --> 01:31:42.760
+and keep it as backend,
+
+01:31:42.760 --> 01:31:44.760
+then this backend colon will be 8000,
+
+01:31:44.760 --> 01:31:46.760
+tomorrow if I change its port,
+
+01:31:46.760 --> 01:31:48.760
+then this api or backend,
+
+01:31:48.760 --> 01:31:50.760
+whatever it is,
+
+01:31:50.760 --> 01:31:52.760
+will be 8000,
+
+01:31:52.760 --> 01:31:54.760
+tomorrow if I change its port,
+
+01:31:54.760 --> 01:31:56.760
+then tomorrow this api or backend,
+
+01:31:56.760 --> 01:31:58.760
+will be 8000,
+
+01:31:58.760 --> 01:32:00.760
+tomorrow if I change its port,
+
+01:32:00.760 --> 01:32:02.760
+then this api or backend,
+
+01:32:02.760 --> 01:32:04.760
+colon will be ported,
+
+01:32:04.760 --> 01:32:06.760
+let's say it is 5000,
+
+01:32:06.760 --> 01:32:08.760
+I hope you understood this,
+
+01:32:08.760 --> 01:32:10.760
+it is simply telling you,
+
+01:32:10.760 --> 01:32:12.760
+which address your backend service is running on,
+
+01:32:12.760 --> 01:32:14.760
+that's it,
+
+01:32:14.760 --> 01:32:18.760
+here I have added in the comments,
+
+01:32:18.760 --> 01:32:20.760
+must override the localhost value,
+
+01:32:20.760 --> 01:32:22.760
+inside the compose network,
+
+01:32:22.760 --> 01:32:26.760
+the api is reachable as service name api,
+
+01:32:26.760 --> 01:32:28.760
+because we have set the service name as api,
+
+01:32:28.760 --> 01:32:30.760
+and finally,
+
+01:32:30.760 --> 01:32:32.760
+you add another one,
+
+01:32:32.760 --> 01:32:34.760
+depends on,
+
+01:32:34.760 --> 01:32:36.760
+like it was needs in the CI,
+
+01:32:36.760 --> 01:32:38.760
+this depends on,
+
+01:32:38.760 --> 01:32:40.760
+depends on which service you need to work on front-end service,
+
+01:32:40.760 --> 01:32:42.760
+so backend service or api service,
+
+01:32:42.760 --> 01:32:44.760
+should work on this service,
+
+01:32:44.760 --> 01:32:46.760
+till it doesn't start properly,
+
+01:32:46.760 --> 01:32:48.760
+till then don't start this service,
+
+01:32:48.760 --> 01:32:50.760
+ok,
+
+01:32:50.760 --> 01:32:52.760
+and finally,
+
+01:32:52.760 --> 01:32:54.760
+what are you doing here,
+
+01:32:54.760 --> 01:32:56.760
+you are passing your build time secrets,
+
+01:32:56.760 --> 01:32:58.760
+which you have passed here,
+
+01:32:58.760 --> 01:33:02.760
+you are showing these secrets,
+
+01:33:02.760 --> 01:33:06.760
+just a second,
+
+01:33:06.760 --> 01:33:08.760
+these secrets,
+
+01:33:08.760 --> 01:33:10.760
+ok,
+
+01:33:10.760 --> 01:33:12.760
+inside this,
+
+01:33:12.760 --> 01:33:14.760
+you are passing your open API,
+
+01:33:14.760 --> 01:33:16.760
+just to create the embeddings,
+
+01:33:16.760 --> 01:33:18.760
+I hope this whole thing will be clear to you guys,
+
+01:33:18.760 --> 01:33:20.760
+is this point clear,
+
+01:33:20.760 --> 01:33:24.760
+this 5000 should match what we have in docker 5,
+
+01:33:24.760 --> 01:33:26.760
+yes,
+
+01:33:26.760 --> 01:33:28.760
+all those things should match,
+
+01:33:28.760 --> 01:33:30.760
+compose is dependent on your docker file,
+
+01:33:30.760 --> 01:33:32.760
+you are seeing,
+
+01:33:32.760 --> 01:33:34.760
+to build it, you need docker file,
+
+01:33:34.760 --> 01:33:36.760
+we have worked so hard,
+
+01:33:36.760 --> 01:33:38.760
+I will show you the visual,
+
+01:33:38.760 --> 01:33:40.760
+don't worry,
+
+01:33:40.760 --> 01:33:42.760
+let's demo it,
+
+01:33:42.760 --> 01:33:44.760
+we have worked so hard,
+
+01:33:44.760 --> 01:33:46.760
+read so many files,
+
+01:33:46.760 --> 01:33:48.760
+you must have lost your mind,
+
+01:33:48.760 --> 01:33:50.760
+you will understand it after demoing,
+
+01:33:50.760 --> 01:33:52.760
+and I will show you its power,
+
+01:33:52.760 --> 01:33:54.760
+I will open up the terminal,
+
+01:33:54.760 --> 01:33:56.760
+do you know the biggest benefit of compose,
+
+01:33:56.760 --> 01:33:58.760
+when you have written all this,
+
+01:33:58.760 --> 01:34:00.760
+through compose,
+
+01:34:00.760 --> 01:34:02.760
+then you don't have to manage
+
+01:34:02.760 --> 01:34:04.760
+individual docker files,
+
+01:34:04.760 --> 01:34:06.760
+now you can do everything through
+
+01:34:06.760 --> 01:34:08.760
+docker compose commands,
+
+01:34:08.760 --> 01:34:10.760
+like I will show you,
+
+01:34:10.760 --> 01:34:12.760
+if I check if my docker is working or not,
+
+01:34:12.760 --> 01:34:14.760
+then I will write docker version,
+
+01:34:14.760 --> 01:34:16.760
+I think docker is working now,
+
+01:34:16.760 --> 01:34:18.760
+so docker is working in the back end,
+
+01:34:18.760 --> 01:34:20.760
+I will open docker desktop,
+
+01:34:20.760 --> 01:34:26.760
+docker desktop,
+
+01:34:26.760 --> 01:34:28.760
+give me one second guys,
+
+01:34:28.760 --> 01:34:30.760
+see,
+
+01:34:30.760 --> 01:34:32.760
+these are some of my images,
+
+01:34:32.760 --> 01:34:34.760
+and these are some of my containers,
+
+01:34:34.760 --> 01:34:36.760
+I will delete it,
+
+01:34:36.760 --> 01:34:38.760
+you can delete it through terminal,
+
+01:34:38.760 --> 01:34:40.760
+but I will simply delete it through UI,
+
+01:34:40.760 --> 01:34:44.760
+ok,
+
+01:34:44.760 --> 01:34:48.760
+delete,
+
+01:34:48.760 --> 01:34:50.760
+done,
+
+01:34:50.760 --> 01:34:52.760
+now we don't have any image or container,
+
+01:34:52.760 --> 01:34:54.760
+what do you do to check,
+
+01:34:54.760 --> 01:34:58.760
+you can simply write docker ps,
+
+01:34:58.760 --> 01:35:00.760
+no container is running,
+
+01:35:00.760 --> 01:35:02.760
+you can see it clearly,
+
+01:35:02.760 --> 01:35:04.760
+and if I write docker images,
+
+01:35:04.760 --> 01:35:06.760
+then you can't see any image,
+
+01:35:06.760 --> 01:35:08.760
+everything is good too,
+
+01:35:08.760 --> 01:35:10.760
+the best thing about compose is,
+
+01:35:10.760 --> 01:35:12.760
+you have tied up both the services,
+
+01:35:12.760 --> 01:35:14.760
+both the applications,
+
+01:35:14.760 --> 01:35:16.760
+now you can do everything through compose,
+
+01:35:16.760 --> 01:35:18.760
+now you can do everything through compose,
+
+01:35:18.760 --> 01:35:20.760
+like,
+
+01:35:20.760 --> 01:35:26.760
+if I show you the help of docker compose,
+
+01:35:26.760 --> 01:35:28.760
+then maybe you will see written here,
+
+01:35:28.760 --> 01:35:30.760
+what does compose do,
+
+01:35:30.760 --> 01:35:34.760
+define and run multi container applications with docker,
+
+01:35:34.760 --> 01:35:36.760
+so we have defined it,
+
+01:35:36.760 --> 01:35:38.760
+now we will run it,
+
+01:35:38.760 --> 01:35:40.760
+so you don't have to worry about
+
+01:35:40.760 --> 01:35:42.760
+individual applications here,
+
+01:35:42.760 --> 01:35:44.760
+don't take the stress of managing them,
+
+01:35:44.760 --> 01:35:46.760
+so this time you have given this
+
+01:35:46.760 --> 01:35:48.760
+in a script,
+
+01:35:48.760 --> 01:35:50.760
+in compose,
+
+01:35:50.760 --> 01:35:52.760
+now you can use it together,
+
+01:35:52.760 --> 01:35:54.760
+you can up it together,
+
+01:35:54.760 --> 01:35:56.760
+you can down it together,
+
+01:35:56.760 --> 01:35:58.760
+you can delete it together,
+
+01:35:58.760 --> 01:36:00.760
+all of them together,
+
+01:36:00.760 --> 01:36:02.760
+treat them like twin applications,
+
+01:36:02.760 --> 01:36:04.760
+so we will write here,
+
+01:36:04.760 --> 01:36:06.760
+first of all docker compose build,
+
+01:36:06.760 --> 01:36:08.760
+what will this command do,
+
+01:36:08.760 --> 01:36:10.760
+it will take our docker file,
+
+01:36:10.760 --> 01:36:12.760
+read it,
+
+01:36:12.760 --> 01:36:14.760
+so this whole build work will do it,
+
+01:36:14.760 --> 01:36:16.760
+which is written in our compose file,
+
+01:36:16.760 --> 01:36:18.760
+so I will do one thing,
+
+01:36:18.760 --> 01:36:20.760
+I will expand this terminal,
+
+01:36:20.760 --> 01:36:22.760
+you will see everything here,
+
+01:36:22.760 --> 01:36:24.760
+see guys,
+
+01:36:32.760 --> 01:36:34.760
+see what happened here,
+
+01:36:34.760 --> 01:36:36.760
+building is coming,
+
+01:36:36.760 --> 01:36:38.760
+first of all my UV was downloaded,
+
+01:36:38.760 --> 01:36:40.760
+then what it did,
+
+01:36:40.760 --> 01:36:42.760
+so I have built it,
+
+01:36:42.760 --> 01:36:44.760
+so I have picked it up from cache,
+
+01:36:44.760 --> 01:36:46.760
+let it be,
+
+01:36:52.760 --> 01:36:54.760
+see everything is happening step by step,
+
+01:37:00.760 --> 01:37:02.760
+I will remove this cache,
+
+01:37:02.760 --> 01:37:04.760
+and then I will build it again,
+
+01:37:04.760 --> 01:37:06.760
+you will see all this step by step,
+
+01:37:06.760 --> 01:37:08.760
+let's wait,
+
+01:37:18.760 --> 01:37:20.760
+see what it is writing,
+
+01:37:20.760 --> 01:37:22.760
+image campus x rag api build,
+
+01:37:22.760 --> 01:37:24.760
+campus x rag front end build,
+
+01:37:24.760 --> 01:37:26.760
+if I write docker images here,
+
+01:37:26.760 --> 01:37:28.760
+then see both the images,
+
+01:37:28.760 --> 01:37:30.760
+and their size,
+
+01:37:30.760 --> 01:37:32.760
+I can see here,
+
+01:37:32.760 --> 01:37:34.760
+content size,
+
+01:37:34.760 --> 01:37:36.760
+content size is basically the size
+
+01:37:36.760 --> 01:37:38.760
+which tells me the size of
+
+01:37:38.760 --> 01:37:40.760
+portable image,
+
+01:37:40.760 --> 01:37:42.760
+means if I put it on docker hub,
+
+01:37:42.760 --> 01:37:44.760
+then it is its size,
+
+01:37:44.760 --> 01:37:46.760
+and disk usage is when it is uncompressed,
+
+01:37:46.760 --> 01:37:48.760
+and ready to run,
+
+01:37:48.760 --> 01:37:50.760
+then it is its size,
+
+01:37:50.760 --> 01:37:52.760
+so when I share it,
+
+01:37:52.760 --> 01:37:54.760
+then the size of my api image will be
+
+01:37:54.760 --> 01:37:56.760
+actually 400 MB,
+
+01:37:56.760 --> 01:37:58.760
+which will do 2n flow inside the network,
+
+01:37:58.760 --> 01:38:00.760
+but after installing it will be 1.83 GB,
+
+01:38:00.760 --> 01:38:02.760
+like with your other exe files,
+
+01:38:02.760 --> 01:38:04.760
+setup file is small,
+
+01:38:04.760 --> 01:38:06.760
+but after installing it,
+
+01:38:06.760 --> 01:38:08.760
+the application gets bigger,
+
+01:38:08.760 --> 01:38:10.760
+so you can see clearly,
+
+01:38:10.760 --> 01:38:12.760
+how much space savings I have done,
+
+01:38:12.760 --> 01:38:14.760
+my virtual environment is very big,
+
+01:38:14.760 --> 01:38:16.760
+but I have put it inside the image,
+
+01:38:16.760 --> 01:38:18.760
+along with my embeddings,
+
+01:38:18.760 --> 01:38:20.760
+along with my code,
+
+01:38:20.760 --> 01:38:22.760
+along with uv,
+
+01:38:22.760 --> 01:38:24.760
+along with a small operating system,
+
+01:38:24.760 --> 01:38:26.760
+and front end is smaller than that,
+
+01:38:26.760 --> 01:38:28.760
+almost 50% here,
+
+01:38:28.760 --> 01:38:30.760
+so let's do one thing,
+
+01:38:30.760 --> 01:38:32.760
+let's rerun it,
+
+01:38:32.760 --> 01:38:34.760
+because I want to show you
+
+01:38:34.760 --> 01:38:36.760
+the whole process,
+
+01:38:36.760 --> 01:38:38.760
+let's delete it once,
+
+01:38:40.760 --> 01:38:42.760
+and I will rerun it,
+
+01:38:42.760 --> 01:38:44.760
+now to rerun it,
+
+01:38:44.760 --> 01:38:46.760
+docker compose build,
+
+01:38:46.760 --> 01:38:48.760
+let me check the help,
+
+01:38:48.760 --> 01:38:50.760
+what is its actual command,
+
+01:38:50.760 --> 01:38:52.760
+is it a flag or something,
+
+01:38:52.760 --> 01:38:54.760
+hmmm
+
+01:38:56.760 --> 01:38:58.760
+hmmm
+
+01:39:00.760 --> 01:39:02.760
+hmm
+
+01:39:06.760 --> 01:39:08.760
+hmm
+
+01:39:10.760 --> 01:39:12.760
+let's do one thing,
+
+01:39:12.760 --> 01:39:14.760
+we can invalidate the cache,
+
+01:39:14.760 --> 01:39:16.760
+hmm
+
+01:39:16.760 --> 01:39:18.760
+if I can invalidate the cache,
+
+01:39:24.760 --> 01:39:26.760
+I can't remember that flag,
+
+01:39:26.760 --> 01:39:28.760
+hmm
+
+01:39:28.760 --> 01:39:30.760
+let's try,
+
+01:39:30.760 --> 01:39:32.760
+compose build
+
+01:39:32.760 --> 01:39:34.760
+debug context string
+
+01:39:34.760 --> 01:39:36.760
+flag is there,
+
+01:39:36.760 --> 01:39:38.760
+which reruns it,
+
+01:39:38.760 --> 01:39:40.760
+docker
+
+01:39:40.760 --> 01:39:42.760
+let's do docker prune,
+
+01:39:44.760 --> 01:39:46.760
+docker
+
+01:39:46.760 --> 01:39:48.760
+prune
+
+01:39:50.760 --> 01:39:52.760
+image
+
+01:39:52.760 --> 01:39:54.760
+hmm
+
+01:39:54.760 --> 01:39:56.760
+docker prune is not there,
+
+01:39:56.760 --> 01:39:58.760
+give me one second,
+
+01:39:58.760 --> 01:40:00.760
+let me check the command,
+
+01:40:00.760 --> 01:40:02.760
+hmm
+
+01:40:02.760 --> 01:40:04.760
+hmm
+
+01:40:06.760 --> 01:40:08.760
+if it doesn't work,
+
+01:40:08.760 --> 01:40:10.760
+we will work with the cached build,
+
+01:40:10.760 --> 01:40:12.760
+it will work,
+
+01:40:12.760 --> 01:40:14.760
+you will see it on your system,
+
+01:40:14.760 --> 01:40:16.760
+because you will build it for the first time,
+
+01:40:16.760 --> 01:40:18.760
+I can't see the prune command,
+
+01:40:18.760 --> 01:40:20.760
+hmm
+
+01:40:22.760 --> 01:40:24.760
+prune, prune, prune,
+
+01:40:26.760 --> 01:40:28.760
+no,
+
+01:40:28.760 --> 01:40:30.760
+I can't see it now,
+
+01:40:30.760 --> 01:40:32.760
+let's make a cached build again,
+
+01:40:36.760 --> 01:40:38.760
+docker,
+
+01:40:38.760 --> 01:40:40.760
+compose build,
+
+01:40:40.760 --> 01:40:42.760
+step by step everything is happening,
+
+01:40:44.760 --> 01:40:46.760
+it is built,
+
+01:40:46.760 --> 01:40:48.760
+next we have to run it,
+
+01:40:48.760 --> 01:40:50.760
+so the command to run it is very simple,
+
+01:40:50.760 --> 01:40:52.760
+you will write docker
+
+01:40:52.760 --> 01:40:54.760
+compose,
+
+01:40:54.760 --> 01:40:56.760
+now it is built,
+
+01:40:56.760 --> 01:40:58.760
+now you will do up,
+
+01:40:58.760 --> 01:41:00.760
+now if you look at docker,
+
+01:41:00.760 --> 01:41:02.760
+you will see these two images,
+
+01:41:02.760 --> 01:41:04.760
+these are your wrapped applications,
+
+01:41:04.760 --> 01:41:06.760
+but now it is not running,
+
+01:41:06.760 --> 01:41:08.760
+when will it run?
+
+01:41:08.760 --> 01:41:10.760
+it will run when you create containers,
+
+01:41:10.760 --> 01:41:12.760
+now you can't see any container,
+
+01:41:12.760 --> 01:41:14.760
+I told you that
+
+01:41:14.760 --> 01:41:16.760
+container is the running instance of the image,
+
+01:41:16.760 --> 01:41:18.760
+so once you write docker compose up,
+
+01:41:18.760 --> 01:41:20.760
+see,
+
+01:41:20.760 --> 01:41:22.760
+you can see logs,
+
+01:41:22.760 --> 01:41:24.760
+what are you seeing?
+
+01:41:24.760 --> 01:41:26.760
+network is created,
+
+01:41:26.760 --> 01:41:28.760
+a network is created,
+
+01:41:28.760 --> 01:41:30.760
+a default network,
+
+01:41:30.760 --> 01:41:32.760
+on which these two images or services will interact,
+
+01:41:32.760 --> 01:41:34.760
+this is your container,
+
+01:41:34.760 --> 01:41:36.760
+llmops ragapp 1
+
+01:41:36.760 --> 01:41:38.760
+and the second container is started,
+
+01:41:38.760 --> 01:41:40.760
+llmops ragapp frontend 1
+
+01:41:40.760 --> 01:41:42.760
+let's see once,
+
+01:41:42.760 --> 01:41:44.760
+here your containers are started,
+
+01:41:44.760 --> 01:41:46.760
+if you expand it,
+
+01:41:46.760 --> 01:41:48.760
+then here are your containers,
+
+01:41:48.760 --> 01:41:50.760
+and these two are running together in the same service,
+
+01:41:50.760 --> 01:41:52.760
+which is called llmops ragapp,
+
+01:41:52.760 --> 01:41:54.760
+and where are all these things getting from?
+
+01:41:54.760 --> 01:41:56.760
+all these things are getting from our
+
+01:41:56.760 --> 01:41:58.760
+compose.yaml,
+
+01:41:58.760 --> 01:42:00.760
+ok,
+
+01:42:00.760 --> 01:42:02.760
+and see, our ubicon server
+
+01:42:02.760 --> 01:42:04.760
+has started,
+
+01:42:04.760 --> 01:42:06.760
+our stream list has started,
+
+01:42:06.760 --> 01:42:08.760
+you can see the logs,
+
+01:42:08.760 --> 01:42:10.760
+exactly the same,
+
+01:42:10.760 --> 01:42:12.760
+and these are our logs for the
+
+01:42:12.760 --> 01:42:14.760
+api endpoint,
+
+01:42:14.760 --> 01:42:16.760
+so let's go once,
+
+01:42:16.760 --> 01:42:18.760
+let's test if all these things are working or not,
+
+01:42:18.760 --> 01:42:20.760
+so here local,
+
+01:42:20.760 --> 01:42:22.760
+post,
+
+01:42:22.760 --> 01:42:24.760
+let's check 8000 first,
+
+01:42:26.760 --> 01:42:28.760
+so yes, api is working here,
+
+01:42:28.760 --> 01:42:30.760
+we write slash
+
+01:42:30.760 --> 01:42:32.760
+docs,
+
+01:42:32.760 --> 01:42:34.760
+and if I
+
+01:42:34.760 --> 01:42:36.760
+do a health test here,
+
+01:42:36.760 --> 01:42:38.760
+to simply check if api is working or not,
+
+01:42:38.760 --> 01:42:40.760
+so yes,
+
+01:42:40.760 --> 01:42:42.760
+I am getting here, welcome to campus
+
+01:42:42.760 --> 01:42:44.760
+x chatbot,
+
+01:42:44.760 --> 01:42:46.760
+and if I check my llm and retriever,
+
+01:42:46.760 --> 01:42:48.760
+so let's go to try it out,
+
+01:42:48.760 --> 01:42:50.760
+let's execute it once,
+
+01:42:50.760 --> 01:42:52.760
+it will take some time,
+
+01:42:52.760 --> 01:42:54.760
+retriever will do a dummy retrieval,
+
+01:42:54.760 --> 01:42:56.760
+lm will call,
+
+01:42:56.760 --> 01:42:58.760
+and after that we will get our results here,
+
+01:43:16.760 --> 01:43:18.760
+done,
+
+01:43:18.760 --> 01:43:20.760
+see what status code we are getting,
+
+01:43:20.760 --> 01:43:22.760
+200,
+
+01:43:22.760 --> 01:43:24.760
+so everything is fine,
+
+01:43:24.760 --> 01:43:26.760
+llm health, healthy,
+
+01:43:26.760 --> 01:43:28.760
+retriever health, healthy,
+
+01:43:28.760 --> 01:43:30.760
+and overall health is also healthy,
+
+01:43:30.760 --> 01:43:32.760
+so yes, our api endpoint is working,
+
+01:43:32.760 --> 01:43:34.760
+now let's check if our front end
+
+01:43:34.760 --> 01:43:36.760
+is working or not,
+
+01:43:36.760 --> 01:43:38.760
+where will we get front end,
+
+01:43:38.760 --> 01:43:40.760
+localhost 8501
+
+01:43:42.760 --> 01:43:44.760
+our stream rate application is working,
+
+01:43:44.760 --> 01:43:46.760
+let's ask it something,
+
+01:43:46.760 --> 01:43:48.760
+can you tell me
+
+01:43:48.760 --> 01:43:50.760
+about
+
+01:43:52.760 --> 01:43:54.760
+tell me about
+
+01:43:54.760 --> 01:43:56.760
+rad
+
+01:43:56.760 --> 01:43:58.760
+triad
+
+01:43:58.760 --> 01:44:00.760
+where is it
+
+01:44:00.760 --> 01:44:02.760
+used
+
+01:44:04.760 --> 01:44:06.760
+ok
+
+01:44:06.760 --> 01:44:08.760
+so I have sent it,
+
+01:44:08.760 --> 01:44:10.760
+now as soon as my response comes,
+
+01:44:10.760 --> 01:44:12.760
+it should come in streaming fashion,
+
+01:44:12.760 --> 01:44:14.760
+and I should also show a
+
+01:44:14.760 --> 01:44:16.760
+renamed session,
+
+01:44:18.760 --> 01:44:20.760
+let's wait a little,
+
+01:44:30.760 --> 01:44:32.760
+it said I don't know,
+
+01:44:32.760 --> 01:44:34.760
+no problem,
+
+01:44:34.760 --> 01:44:36.760
+let's change the question,
+
+01:44:36.760 --> 01:44:38.760
+can you
+
+01:44:38.760 --> 01:44:40.760
+tell me
+
+01:44:40.760 --> 01:44:42.760
+about
+
+01:44:42.760 --> 01:44:44.760
+rad
+
+01:44:44.760 --> 01:44:46.760
+triad
+
+01:44:46.760 --> 01:44:48.760
+in deep eval
+
+01:45:02.760 --> 01:45:04.760
+see,
+
+01:45:04.760 --> 01:45:06.760
+it is automatically renamed,
+
+01:45:06.760 --> 01:45:08.760
+now I have got rad triad and usage,
+
+01:45:08.760 --> 01:45:10.760
+I hope the response comes here,
+
+01:45:12.760 --> 01:45:14.760
+again I don't know,
+
+01:45:14.760 --> 01:45:16.760
+maybe its transcript is not uploaded,
+
+01:45:18.760 --> 01:45:20.760
+let's ask
+
+01:45:20.760 --> 01:45:22.760
+what we have already checked,
+
+01:45:22.760 --> 01:45:24.760
+what is
+
+01:45:24.760 --> 01:45:26.760
+the difference
+
+01:45:26.760 --> 01:45:28.760
+between
+
+01:45:28.760 --> 01:45:30.760
+online vs
+
+01:45:30.760 --> 01:45:32.760
+offline evals
+
+01:45:36.760 --> 01:45:38.760
+maybe
+
+01:45:38.760 --> 01:45:40.760
+the transcript
+
+01:45:40.760 --> 01:45:42.760
+of the rad triad session
+
+01:45:42.760 --> 01:45:44.760
+is not uploaded,
+
+01:45:44.760 --> 01:45:46.760
+but
+
+01:45:46.760 --> 01:45:48.760
+the answer should come,
+
+01:45:48.760 --> 01:45:50.760
+see it came,
+
+01:45:50.760 --> 01:45:52.760
+online vs offline eval
+
+01:45:52.760 --> 01:45:54.760
+and let's ask
+
+01:45:54.760 --> 01:45:56.760
+something on metrics,
+
+01:45:56.760 --> 01:45:58.760
+what is
+
+01:45:58.760 --> 01:46:00.760
+faithfulness
+
+01:46:00.760 --> 01:46:02.760
+faithfulness
+
+01:46:02.760 --> 01:46:04.760
+faithfulness
+
+01:46:04.760 --> 01:46:06.760
+faithfulness
+
+01:46:06.760 --> 01:46:08.760
+metric
+
+01:46:10.760 --> 01:46:12.760
+its answer should also come,
+
+01:46:30.760 --> 01:46:32.760
+see the answer is coming,
+
+01:46:32.760 --> 01:46:34.760
+so you can understand guys,
+
+01:46:34.760 --> 01:46:36.760
+what we have done basically,
+
+01:46:36.760 --> 01:46:38.760
+we have packaged our application here,
+
+01:46:38.760 --> 01:46:40.760
+here,
+
+01:46:40.760 --> 01:46:42.760
+now this application is running on my system,
+
+01:46:42.760 --> 01:46:44.760
+it is not running on my system,
+
+01:46:44.760 --> 01:46:46.760
+it is running through my image,
+
+01:46:46.760 --> 01:46:48.760
+in this container,
+
+01:46:48.760 --> 01:46:50.760
+it is running in this container,
+
+01:46:50.760 --> 01:46:52.760
+I will show you,
+
+01:46:52.760 --> 01:46:54.760
+if you don't believe,
+
+01:46:54.760 --> 01:46:56.760
+I will show you,
+
+01:46:56.760 --> 01:46:58.760
+if you go into images,
+
+01:46:58.760 --> 01:47:00.760
+see,
+
+01:47:00.760 --> 01:47:02.760
+if you go into
+
+01:47:02.760 --> 01:47:04.760
+and if I can,
+
+01:47:04.760 --> 01:47:06.760
+here are your layers,
+
+01:47:06.760 --> 01:47:08.760
+you will get information in containers,
+
+01:47:08.760 --> 01:47:10.760
+see,
+
+01:47:10.760 --> 01:47:12.760
+go into API and files,
+
+01:47:12.760 --> 01:47:14.760
+I told you that this should look like
+
+01:47:14.760 --> 01:47:16.760
+my project folder,
+
+01:47:16.760 --> 01:47:18.760
+so see here you can see all the logs,
+
+01:47:18.760 --> 01:47:20.760
+these are the logs,
+
+01:47:20.760 --> 01:47:22.760
+get endpoint, post endpoint,
+
+01:47:22.760 --> 01:47:24.760
+these are the things you can see,
+
+01:47:24.760 --> 01:47:26.760
+which you can see in your terminal,
+
+01:47:26.760 --> 01:47:28.760
+if you go into files,
+
+01:47:28.760 --> 01:47:30.760
+here are the operating system related files,
+
+01:47:30.760 --> 01:47:32.760
+media, mount, opt, proc,
+
+01:47:32.760 --> 01:47:34.760
+we didn't create this,
+
+01:47:34.760 --> 01:47:36.760
+what we have created,
+
+01:47:36.760 --> 01:47:38.760
+we have created this app folder,
+
+01:47:38.760 --> 01:47:40.760
+this is my project,
+
+01:47:40.760 --> 01:47:42.760
+if you go into this project,
+
+01:47:42.760 --> 01:47:44.760
+here is my virtual environment,
+
+01:47:44.760 --> 01:47:46.760
+and what I said, I want data here,
+
+01:47:46.760 --> 01:47:48.760
+what is data, I have copied only raw data here,
+
+01:47:48.760 --> 01:47:50.760
+why are these new files showing here,
+
+01:47:50.760 --> 01:47:52.760
+they are not sorted,
+
+01:47:52.760 --> 01:47:54.760
+all files are here,
+
+01:47:54.760 --> 01:47:56.760
+14 are there,
+
+01:47:56.760 --> 01:47:58.760
+these are showing in raw,
+
+01:47:58.760 --> 01:48:00.760
+and when I have created my embeddings,
+
+01:48:00.760 --> 01:48:02.760
+I called transcript utils,
+
+01:48:02.760 --> 01:48:04.760
+so see here,
+
+01:48:04.760 --> 01:48:06.760
+my processed embeddings,
+
+01:48:06.760 --> 01:48:08.760
+processed transcripts are also showing,
+
+01:48:08.760 --> 01:48:10.760
+so these are automatically created here,
+
+01:48:10.760 --> 01:48:12.760
+then what I told,
+
+01:48:12.760 --> 01:48:14.760
+put ingest transcript.py file in docker,
+
+01:48:14.760 --> 01:48:16.760
+you can see,
+
+01:48:16.760 --> 01:48:18.760
+copy parent.yml,
+
+01:48:18.760 --> 01:48:20.760
+copy pyproject.toml,
+
+01:48:20.760 --> 01:48:22.760
+I have made these embeddings
+
+01:48:22.760 --> 01:48:24.760
+in my build stage,
+
+01:48:24.760 --> 01:48:26.760
+embeddings are also here,
+
+01:48:26.760 --> 01:48:28.760
+my source code is here,
+
+01:48:28.760 --> 01:48:30.760
+api app config,
+
+01:48:30.760 --> 01:48:32.760
+my code is in utils,
+
+01:48:32.760 --> 01:48:34.760
+everything is copied here,
+
+01:48:34.760 --> 01:48:36.760
+and where I am getting this,
+
+01:48:36.760 --> 01:48:38.760
+in my app folder,
+
+01:48:38.760 --> 01:48:40.760
+is this point clear,
+
+01:48:40.760 --> 01:48:42.760
+and same is with your
+
+01:48:42.760 --> 01:48:44.760
+front-end thing,
+
+01:48:44.760 --> 01:48:46.760
+if you go to files,
+
+01:48:46.760 --> 01:48:48.760
+then same thing,
+
+01:48:48.760 --> 01:48:50.760
+here you will see stream related code,
+
+01:48:50.760 --> 01:48:52.760
+only front-end folder,
+
+01:48:52.760 --> 01:48:54.760
+and less size also,
+
+01:48:54.760 --> 01:48:56.760
+is this point clear guys,
+
+01:48:56.760 --> 01:48:58.760
+is this point clear to you,
+
+01:49:06.760 --> 01:49:08.760
+just a second,
+
+01:49:12.760 --> 01:49:14.760
+one second guys,
+
+01:49:14.760 --> 01:49:16.760
+where is zoom one,
+
+01:49:18.760 --> 01:49:20.760
+right,
+
+01:49:20.760 --> 01:49:22.760
+is it clear,
+
+01:49:24.760 --> 01:49:26.760
+whatever we wrote in docker file,
+
+01:49:26.760 --> 01:49:28.760
+you can see here,
+
+01:49:28.760 --> 01:49:30.760
+whatever we wrote in compose,
+
+01:49:30.760 --> 01:49:32.760
+you can see here,
+
+01:49:32.760 --> 01:49:34.760
+same functionality,
+
+01:49:36.760 --> 01:49:38.760
+and I can prove that,
+
+01:49:38.760 --> 01:49:40.760
+it is running here, not on our system,
+
+01:49:40.760 --> 01:49:42.760
+see, if I delete this,
+
+01:49:42.760 --> 01:49:44.760
+I am deleting my container here,
+
+01:49:46.760 --> 01:49:48.760
+now what will happen,
+
+01:49:48.760 --> 01:49:50.760
+see, connection error,
+
+01:49:50.760 --> 01:49:52.760
+automatically connection error,
+
+01:49:52.760 --> 01:49:54.760
+if I go to this page,
+
+01:49:54.760 --> 01:49:56.760
+refresh it, it will not work,
+
+01:49:56.760 --> 01:49:58.760
+so this proves that,
+
+01:49:58.760 --> 01:50:00.760
+we are running it through the containers,
+
+01:50:02.760 --> 01:50:04.760
+you discuss what are the problems
+
+01:50:04.760 --> 01:50:06.760
+and challenges in this setup,
+
+01:50:06.760 --> 01:50:08.760
+and what are the next steps,
+
+01:50:08.760 --> 01:50:10.760
+that we have to implement,
+
+01:50:10.760 --> 01:50:12.760
+now the biggest challenge,
+
+01:50:12.760 --> 01:50:14.760
+that I faced today,
+
+01:50:14.760 --> 01:50:16.760
+while I was building this image,
+
+01:50:16.760 --> 01:50:18.760
+and running the containers,
+
+01:50:18.760 --> 01:50:20.760
+the problem was,
+
+01:50:20.760 --> 01:50:22.760
+that we are using guardrails,
+
+01:50:22.760 --> 01:50:24.760
+and we are running local models,
+
+01:50:26.760 --> 01:50:28.760
+and you must have seen,
+
+01:50:28.760 --> 01:50:30.760
+when you downloaded these local models,
+
+01:50:30.760 --> 01:50:32.760
+these are super heavy,
+
+01:50:34.760 --> 01:50:36.760
+some models are 1.8 GB,
+
+01:50:36.760 --> 01:50:38.760
+some are 2 GB,
+
+01:50:38.760 --> 01:50:40.760
+these are big models,
+
+01:50:40.760 --> 01:50:42.760
+and they are downloaded from hugging face,
+
+01:50:42.760 --> 01:50:44.760
+now what is the problem,
+
+01:50:44.760 --> 01:50:46.760
+the problem is,
+
+01:50:46.760 --> 01:50:48.760
+that our resultant image,
+
+01:50:48.760 --> 01:50:50.760
+is getting bigger,
+
+01:50:50.760 --> 01:50:52.760
+so the version of application,
+
+01:50:52.760 --> 01:50:54.760
+that I showed you,
+
+01:50:54.760 --> 01:50:56.760
+I am not using guardrails,
+
+01:50:56.760 --> 01:50:58.760
+this is my vanilla rag application,
+
+01:50:58.760 --> 01:51:00.760
+without the guardrails,
+
+01:51:00.760 --> 01:51:02.760
+so what is the possible solution,
+
+01:51:02.760 --> 01:51:04.760
+that we are going to implement in the next class,
+
+01:51:04.760 --> 01:51:06.760
+is that we are going to use remote guardrails,
+
+01:51:06.760 --> 01:51:08.760
+we discussed,
+
+01:51:08.760 --> 01:51:10.760
+when we were reading about guardrails AI,
+
+01:51:10.760 --> 01:51:12.760
+that guardrails AI,
+
+01:51:12.760 --> 01:51:14.760
+gives power to the image,
+
+01:51:14.760 --> 01:51:16.760
+so we are going to use this power,
+
+01:51:16.760 --> 01:51:18.760
+and the models deployed on remote instances,
+
+01:51:18.760 --> 01:51:20.760
+we are going to call them,
+
+01:51:20.760 --> 01:51:22.760
+by using API calls,
+
+01:51:22.760 --> 01:51:24.760
+now what is the added benefit of this,
+
+01:51:24.760 --> 01:51:26.760
+the benefit is,
+
+01:51:26.760 --> 01:51:28.760
+that in your final image,
+
+01:51:28.760 --> 01:51:30.760
+you don't have to import any models,
+
+01:51:30.760 --> 01:51:32.760
+and download them,
+
+01:51:32.760 --> 01:51:34.760
+so the image size will be less,
+
+01:51:34.760 --> 01:51:36.760
+but the disadvantage is,
+
+01:51:36.760 --> 01:51:38.760
+that you are using your models remotely,
+
+01:51:38.760 --> 01:51:40.760
+by using API calls,
+
+01:51:40.760 --> 01:51:42.760
+so we have to bear this,
+
+01:51:42.760 --> 01:51:44.760
+so the possible solution is,
+
+01:51:44.760 --> 01:51:46.760
+that the models that are heavy,
+
+01:51:46.760 --> 01:51:48.760
+like your jailbreak model,
+
+01:51:48.760 --> 01:51:50.760
+is very heavy,
+
+01:51:50.760 --> 01:51:52.760
+so what we can do,
+
+01:51:52.760 --> 01:51:54.760
+we can make custom guardrails,
+
+01:51:54.760 --> 01:51:56.760
+or we can call an LLM,
+
+01:51:56.760 --> 01:51:58.760
+and implement the guardrails,
+
+01:51:58.760 --> 01:52:00.760
+again we have to call LLM,
+
+01:52:00.760 --> 01:52:02.760
+but we will not have to call guardrails,
+
+01:52:02.760 --> 01:52:04.760
+on AI,
+
+01:52:04.760 --> 01:52:06.760
+nor we have to use these,
+
+01:52:06.760 --> 01:52:08.760
+dependencies,
+
+01:52:08.760 --> 01:52:10.760
+so we have to add these models,
+
+01:52:10.760 --> 01:52:12.760
+to run these models,
+
+01:52:12.760 --> 01:52:14.760
+so this is one thing,
+
+01:52:14.760 --> 01:52:16.760
+which we will implement in the next class,
+
+01:52:16.760 --> 01:52:18.760
+is this point clear?
+
+01:52:18.760 --> 01:52:20.760
+ok, there is one more problem,
+
+01:52:20.760 --> 01:52:22.760
+that is the problem of persistence,
+
+01:52:22.760 --> 01:52:24.760
+let me show you how,
+
+01:52:24.760 --> 01:52:26.760
+let's do one thing,
+
+01:52:26.760 --> 01:52:28.760
+let's up this again,
+
+01:52:28.760 --> 01:52:30.760
+so I will write docker-compose-up,
+
+01:52:30.760 --> 01:52:32.760
+my containers will be created again,
+
+01:52:32.760 --> 01:52:34.760
+my application will be live,
+
+01:52:34.760 --> 01:52:36.760
+we have talked a lot,
+
+01:52:36.760 --> 01:52:38.760
+through this,
+
+01:52:38.760 --> 01:52:40.760
+ok,
+
+01:52:40.760 --> 01:52:42.760
+let me show you again,
+
+01:52:42.760 --> 01:52:44.760
+you can see this,
+
+01:52:44.760 --> 01:52:46.760
+if I refresh it,
+
+01:52:46.760 --> 01:52:48.760
+then all the talks are deleted,
+
+01:52:48.760 --> 01:52:50.760
+and this is a problem,
+
+01:52:50.760 --> 01:52:52.760
+if I talk to you again,
+
+01:52:52.760 --> 01:52:54.760
+ok,
+
+01:52:56.760 --> 01:52:58.760
+what can we write,
+
+01:52:58.760 --> 01:53:00.760
+what are model evals,
+
+01:53:00.760 --> 01:53:02.760
+simple question,
+
+01:53:02.760 --> 01:53:04.760
+in the question,
+
+01:53:06.760 --> 01:53:12.760
+let's hope this answer will give,
+
+01:53:28.760 --> 01:53:30.760
+yes,
+
+01:53:30.760 --> 01:53:32.760
+the answer is there,
+
+01:53:32.760 --> 01:53:34.760
+now what I simply do,
+
+01:53:34.760 --> 01:53:36.760
+I go to my terminal,
+
+01:53:36.760 --> 01:53:38.760
+and I keep it closed,
+
+01:53:38.760 --> 01:53:40.760
+see,
+
+01:53:40.760 --> 01:53:42.760
+container stop,
+
+01:53:42.760 --> 01:53:44.760
+if I show you,
+
+01:53:44.760 --> 01:53:46.760
+then the green light is now gone,
+
+01:53:46.760 --> 01:53:48.760
+this is running light,
+
+01:53:48.760 --> 01:53:50.760
+now it is closed,
+
+01:53:50.760 --> 01:53:52.760
+means my containers are stopped,
+
+01:53:52.760 --> 01:53:54.760
+but it is still here,
+
+01:53:54.760 --> 01:53:56.760
+I haven't deleted it,
+
+01:53:56.760 --> 01:53:58.760
+if I show you in terminal,
+
+01:53:58.760 --> 01:54:00.760
+docker ps-a,
+
+01:54:00.760 --> 01:54:02.760
+then yes,
+
+01:54:02.760 --> 01:54:04.760
+you can see both your containers,
+
+01:54:04.760 --> 01:54:06.760
+but these are exited,
+
+01:54:06.760 --> 01:54:08.760
+means they are stopped,
+
+01:54:08.760 --> 01:54:10.760
+no problem,
+
+01:54:10.760 --> 01:54:12.760
+let's restart,
+
+01:54:12.760 --> 01:54:14.760
+restart,
+
+01:54:14.760 --> 01:54:16.760
+I closed them and restarted,
+
+01:54:16.760 --> 01:54:18.760
+now let's refresh again,
+
+01:54:22.760 --> 01:54:24.760
+now you can see the problem,
+
+01:54:24.760 --> 01:54:26.760
+the problem is,
+
+01:54:26.760 --> 01:54:28.760
+you can see it here,
+
+01:54:28.760 --> 01:54:30.760
+because we haven't deleted it,
+
+01:54:30.760 --> 01:54:32.760
+but you can understand,
+
+01:54:32.760 --> 01:54:34.760
+if your server crashes during deployment,
+
+01:54:34.760 --> 01:54:36.760
+or your docker stops working,
+
+01:54:36.760 --> 01:54:38.760
+then all your sessions will be removed,
+
+01:54:38.760 --> 01:54:40.760
+then we have to persist these sessions properly,
+
+01:54:40.760 --> 01:54:42.760
+then what you do to persist,
+
+01:54:42.760 --> 01:54:44.760
+you attach your container with a volume,
+
+01:54:44.760 --> 01:54:46.760
+in that volume,
+
+01:54:46.760 --> 01:54:48.760
+you attach a path to your server,
+
+01:54:48.760 --> 01:54:50.760
+where you are maintaining this database,
+
+01:54:50.760 --> 01:54:52.760
+and you attach a path to your server,
+
+01:54:52.760 --> 01:54:54.760
+then you can see,
+
+01:54:54.760 --> 01:54:56.760
+that you have to do this,
+
+01:54:56.760 --> 01:54:58.760
+you have to do this,
+
+01:54:58.760 --> 01:55:02.760
+then you connect a path to your container,
+
+01:55:02.760 --> 01:55:04.760
+that in the container,
+
+01:55:04.760 --> 01:55:06.760
+any new files will be generated,
+
+01:55:06.760 --> 01:55:08.760
+any new session will be generated,
+
+01:55:08.760 --> 01:55:10.760
+you can save that information in this external file,
+
+01:55:10.760 --> 01:55:12.760
+and tomorrow,
+
+01:55:12.760 --> 01:55:14.760
+when you have to launch your new container,
+
+01:55:14.760 --> 01:55:16.760
+then simply,
+
+01:55:16.760 --> 01:55:18.760
+you can read it and reload your sessions,
+
+01:55:18.760 --> 01:55:20.760
+ok,
+
+01:55:20.760 --> 01:55:22.760
+so we are going to do this persist session,
+
+01:55:22.760 --> 01:55:24.760
+in the next class,
+
+01:55:24.760 --> 01:55:26.760
+what is the third problem,
+
+01:55:26.760 --> 01:55:28.760
+the third problem is,
+
+01:55:28.760 --> 01:55:30.760
+what are we doing in the code,
+
+01:55:30.760 --> 01:55:32.760
+the work of reading the environment variables,
+
+01:55:32.760 --> 01:55:34.760
+we are doing this directly from our environment file,
+
+01:55:34.760 --> 01:55:36.760
+but the problem is,
+
+01:55:36.760 --> 01:55:38.760
+when you go to do cd,
+
+01:55:38.760 --> 01:55:40.760
+on github actions,
+
+01:55:40.760 --> 01:55:42.760
+then you won't get this environment file on github,
+
+01:55:42.760 --> 01:55:44.760
+because I have ignored it,
+
+01:55:44.760 --> 01:55:46.760
+if we go to our github,
+
+01:55:48.760 --> 01:55:50.760
+and if I show you the code,
+
+01:55:52.760 --> 01:55:54.760
+just a second,
+
+01:55:56.760 --> 01:55:58.760
+if I show you the code,
+
+01:56:00.760 --> 01:56:02.760
+here you won't get any file by doing .env,
+
+01:56:02.760 --> 01:56:04.760
+so when you go to do cd,
+
+01:56:04.760 --> 01:56:06.760
+then this cd process will break,
+
+01:56:06.760 --> 01:56:08.760
+because you have not passed any api keys,
+
+01:56:08.760 --> 01:56:10.760
+environment variables,
+
+01:56:10.760 --> 01:56:12.760
+or your images,
+
+01:56:12.760 --> 01:56:14.760
+so what you have to do here,
+
+01:56:14.760 --> 01:56:16.760
+is to do a smart approach,
+
+01:56:16.760 --> 01:56:18.760
+what is smart approach,
+
+01:56:18.760 --> 01:56:20.760
+you must remember,
+
+01:56:20.760 --> 01:56:22.760
+in the previous class,
+
+01:56:22.760 --> 01:56:24.760
+we had already put our secrets on github,
+
+01:56:24.760 --> 01:56:26.760
+we were loading the cf file,
+
+01:56:26.760 --> 01:56:28.760
+see, we were loading the secrets,
+
+01:56:28.760 --> 01:56:30.760
+what you have to do is,
+
+01:56:30.760 --> 01:56:32.760
+use these secrets in your cd,
+
+01:56:32.760 --> 01:56:34.760
+so how it is managed,
+
+01:56:34.760 --> 01:56:38.760
+how you inject your environment variables,
+
+01:56:38.760 --> 01:56:40.760
+in the cd flow,
+
+01:56:40.760 --> 01:56:42.760
+we will learn that in the next class,
+
+01:56:42.760 --> 01:56:44.760
+and finally,
+
+01:56:44.760 --> 01:56:46.760
+we will automate this whole thing,
+
+01:56:46.760 --> 01:56:48.760
+through the cd pipeline,
+
+01:56:48.760 --> 01:56:52.760
+cd is what, continuous delivery or continuous deployment,
+
+01:56:52.760 --> 01:56:54.760
+in that, what you will do,
+
+01:56:56.760 --> 01:56:58.760
+you will write a flow,
+
+01:56:58.760 --> 01:57:00.760
+or you will make a pipeline,
+
+01:57:00.760 --> 01:57:02.760
+again, like your ci.yml,
+
+01:57:02.760 --> 01:57:04.760
+you will make a cd.yml,
+
+01:57:04.760 --> 01:57:06.760
+cd.yml will build this whole thing,
+
+01:57:06.760 --> 01:57:08.760
+will package it,
+
+01:57:08.760 --> 01:57:10.760
+and will share it,
+
+01:57:10.760 --> 01:57:12.760
+on a particular hub,
+
+01:57:12.760 --> 01:57:14.760
+or repository,
+
+01:57:14.760 --> 01:57:16.760
+like docker hub,
+
+01:57:16.760 --> 01:57:18.760
+in the next class,
+
+01:57:18.760 --> 01:57:20.760
+we will introduce AWS,
+
+01:57:20.760 --> 01:57:22.760
+and it is called ECR,
+
+01:57:22.760 --> 01:57:24.760
+you can understand it like this,
+
+01:57:24.760 --> 01:57:26.760
+it is equivalent of docker hub on AWS,
+
+01:57:26.760 --> 01:57:28.760
+it is called,
+
+01:57:28.760 --> 01:57:30.760
+Elastic Container Registry,
+
+01:57:30.760 --> 01:57:34.760
+Elastic Container Registry,
+
+01:57:36.760 --> 01:57:38.760
+ok,
+
+01:57:38.760 --> 01:57:40.760
+this is container registry,
+
+01:57:40.760 --> 01:57:42.760
+like your docker hub,
+
+01:57:42.760 --> 01:57:44.760
+docker hub is public,
+
+01:57:44.760 --> 01:57:46.760
+anyone can access it,
+
+01:57:46.760 --> 01:57:48.760
+on your own setup,
+
+01:57:48.760 --> 01:57:50.760
+ok, so automatically,
+
+01:57:50.760 --> 01:57:52.760
+we will write a cd file,
+
+01:57:52.760 --> 01:57:54.760
+which will build this whole thing,
+
+01:57:54.760 --> 01:57:56.760
+and will bring our image,
+
+01:57:56.760 --> 01:57:58.760
+and will push it on ECR,
+
+01:57:58.760 --> 01:58:00.760
+we will see this whole flow in the next class,
+
+01:58:00.760 --> 01:58:02.760
+is this point clear guys,
+
+01:58:04.760 --> 01:58:06.760
+the next steps are clear,
+
+01:58:06.760 --> 01:58:08.760
+and that's it for today guys,
+
+01:58:08.760 --> 01:58:10.760
+we are doing this much today,
+
+01:58:10.760 --> 01:58:12.760
+now if you have any questions,
+
+01:58:12.760 --> 01:58:14.760
+you can ask me,
+
+01:58:14.760 --> 01:58:16.760
+I know this class is a little conceptually heavy,
+
+01:58:16.760 --> 01:58:18.760
+but I can't help,
+
+01:58:24.760 --> 01:58:26.760
+what happened,
+
+01:58:26.760 --> 01:58:28.760
+are you bored,
+
+01:58:28.760 --> 01:58:30.760
+tell me,
+
+01:58:30.760 --> 01:58:32.760
+how did you like today's class,
+
+01:58:32.760 --> 01:58:34.760
+was it difficult,
+
+01:58:34.760 --> 01:58:36.760
+easy,
+
+01:58:36.760 --> 01:58:38.760
+did you go over your head,
+
+01:58:38.760 --> 01:58:40.760
+Alisha is saying it was good,
+
+01:58:40.760 --> 01:58:42.760
+those who have read docker for the first time,
+
+01:58:42.760 --> 01:58:44.760
+how did you like it,
+
+01:58:44.760 --> 01:58:46.760
+I understood a little,
+
+01:58:46.760 --> 01:58:48.760
+like if you are able to understand 50%
+
+01:58:48.760 --> 01:58:50.760
+in the first instance,
+
+01:58:50.760 --> 01:58:52.760
+then I think it was good,
+
+01:58:52.760 --> 01:58:54.760
+great,
+
+01:58:54.760 --> 01:58:56.760
+ok,
+
+01:58:56.760 --> 01:58:58.760
+we have discussed why on everything,
+
+01:58:58.760 --> 01:59:00.760
+and I will tell you the reason,
+
+01:59:00.760 --> 01:59:02.760
+why I think it was good,
+
+01:59:02.760 --> 01:59:04.760
+because I think it was good,
+
+01:59:04.760 --> 01:59:06.760
+because I think it was good,
+
+01:59:06.760 --> 01:59:08.760
+we have discussed why on everything,
+
+01:59:08.760 --> 01:59:10.760
+and what we have to discuss next,
+
+01:59:10.760 --> 01:59:14.760
+we have made a roadmap here,
+
+01:59:14.760 --> 01:59:16.760
+now I will tell you,
+
+01:59:16.760 --> 01:59:18.760
+what we are going to do in the next coming sessions,
+
+01:59:18.760 --> 01:59:20.760
+so as I said,
+
+01:59:20.760 --> 01:59:22.760
+we will introduce AWS in the next session,
+
+01:59:22.760 --> 01:59:24.760
+so on AWS,
+
+01:59:24.760 --> 01:59:26.760
+first of all,
+
+01:59:26.760 --> 01:59:28.760
+we will push these images,
+
+01:59:28.760 --> 01:59:30.760
+ok,
+
+01:59:30.760 --> 01:59:32.760
+so these images will be on AWS,
+
+01:59:32.760 --> 01:59:34.760
+inside the ECR,
+
+01:59:34.760 --> 01:59:36.760
+so what we will do next,
+
+01:59:36.760 --> 01:59:38.760
+we will see how you make compute instances
+
+01:59:38.760 --> 01:59:40.760
+on AWS,
+
+01:59:40.760 --> 01:59:42.760
+basically how you set your machines,
+
+01:59:42.760 --> 01:59:44.760
+so on AWS,
+
+01:59:44.760 --> 01:59:46.760
+your compute instances are called EC2s,
+
+01:59:46.760 --> 01:59:48.760
+so we will use these EC2s,
+
+01:59:48.760 --> 01:59:50.760
+which will be our compute,
+
+01:59:50.760 --> 01:59:52.760
+or our machines,
+
+01:59:52.760 --> 01:59:54.760
+we will use those machines,
+
+01:59:54.760 --> 01:59:56.760
+install docker on them,
+
+01:59:56.760 --> 01:59:58.760
+and pull these images on our machines,
+
+01:59:58.760 --> 02:00:00.760
+and run them through compose,
+
+02:00:00.760 --> 02:00:02.760
+simple command,
+
+02:00:02.760 --> 02:00:04.760
+and then you will do,
+
+02:00:04.760 --> 02:00:06.760
+your images will be live,
+
+02:00:06.760 --> 02:00:08.760
+so now,
+
+02:00:08.760 --> 02:00:10.760
+I can simply,
+
+02:00:10.760 --> 02:00:12.760
+on the address of this EC2 machine,
+
+02:00:12.760 --> 02:00:14.760
+if I go to port 8000,
+
+02:00:14.760 --> 02:00:16.760
+then I will get my API service here,
+
+02:00:16.760 --> 02:00:18.760
+and if I go to 8501,
+
+02:00:18.760 --> 02:00:20.760
+then I will get my front end service here,
+
+02:00:20.760 --> 02:00:22.760
+just by hitting the addresses,
+
+02:00:22.760 --> 02:00:24.760
+that's it,
+
+02:00:24.760 --> 02:00:26.760
+after that,
+
+02:00:26.760 --> 02:00:28.760
+we will scale it up,
+
+02:00:28.760 --> 02:00:30.760
+now we are doing all this on one machine,
+
+02:00:30.760 --> 02:00:32.760
+we will scale it up,
+
+02:00:32.760 --> 02:00:34.760
+so here,
+
+02:00:34.760 --> 02:00:36.760
+we will use auto scaling groups,
+
+02:00:36.760 --> 02:00:38.760
+which can automatically scale up,
+
+02:00:38.760 --> 02:00:40.760
+scale down,
+
+02:00:40.760 --> 02:00:42.760
+and to manage the traffic,
+
+02:00:42.760 --> 02:00:44.760
+to manage the network,
+
+02:00:44.760 --> 02:00:46.760
+we will use load balancers,
+
+02:00:48.760 --> 02:00:50.760
+and as you understand all these concepts,
+
+02:00:50.760 --> 02:00:52.760
+after that, we will discuss about
+
+02:00:52.760 --> 02:00:54.760
+code deploy,
+
+02:00:54.760 --> 02:00:56.760
+and this is the
+
+02:00:56.760 --> 02:00:58.760
+master orchestrator,
+
+02:00:58.760 --> 02:01:00.760
+what will deploy,
+
+02:01:00.760 --> 02:01:02.760
+it will manage the versions of my application,
+
+02:01:02.760 --> 02:01:04.760
+means, I have changed
+
+02:01:04.760 --> 02:01:06.760
+a change in my local system,
+
+02:01:06.760 --> 02:01:08.760
+I will push that change,
+
+02:01:08.760 --> 02:01:10.760
+that change will go to the getup,
+
+02:01:10.760 --> 02:01:12.760
+automatically, my CI CD will be
+
+02:01:12.760 --> 02:01:14.760
+run on the getup,
+
+02:01:14.760 --> 02:01:16.760
+my new version of application will
+
+02:01:16.760 --> 02:01:18.760
+go to my ECR,
+
+02:01:18.760 --> 02:01:20.760
+automatically,
+
+02:01:20.760 --> 02:01:22.760
+my machines will
+
+02:01:22.760 --> 02:01:24.760
+through our deployment strategies,
+
+02:01:24.760 --> 02:01:26.760
+will import this new version,
+
+02:01:26.760 --> 02:01:28.760
+and it will start to open,
+
+02:01:28.760 --> 02:01:30.760
+is this point clear guys,
+
+02:01:30.760 --> 02:01:32.760
+is this point clear guys,
+
+02:01:32.760 --> 02:01:34.760
+now in our coming lectures,
+
+02:01:34.760 --> 02:01:36.760
+we will execute this flow,
+
+02:01:36.760 --> 02:01:38.760
+now in our coming lectures,
+
+02:01:48.760 --> 02:01:50.760
+so yeah, that's it for today,
+
+02:01:50.760 --> 02:01:52.760
+now if you have any questions, you can ask me,
+
+02:01:52.760 --> 02:01:54.760
+if you have any doubt, you can ask,
+
+02:01:54.760 --> 02:01:56.760
+I will be here for 5-10 minutes,
+
+02:01:56.760 --> 02:01:58.760
+and then we will end the session,
+
+02:02:08.760 --> 02:02:10.760
+actually, I feel something,
+
+02:02:10.760 --> 02:02:12.760
+when I take sessions, I feel,
+
+02:02:12.760 --> 02:02:14.760
+I see Ajay sir's sessions,
+
+02:02:14.760 --> 02:02:16.760
+when Ajay sir takes sessions,
+
+02:02:16.760 --> 02:02:18.760
+he interacts a lot,
+
+02:02:18.760 --> 02:02:20.760
+and I don't interact much,
+
+02:02:20.760 --> 02:02:22.760
+or I don't smile much,
+
+02:02:22.760 --> 02:02:24.760
+the reason is, things are like this,
+
+02:02:24.760 --> 02:02:26.760
+to teach, that I have to take
+
+02:02:26.760 --> 02:02:28.760
+a little serious mode,
+
+02:02:32.760 --> 02:02:34.760
+these are like, very important concepts,
+
+02:02:34.760 --> 02:02:36.760
+but a little tricky too,
+
+02:02:36.760 --> 02:02:38.760
+and bugs will come to you,
+
+02:02:38.760 --> 02:02:40.760
+you have to navigate through the bugs,
+
+02:02:48.760 --> 02:02:50.760
+tell me guys,
+
+02:02:50.760 --> 02:02:52.760
+if you have any doubt, feedback,
+
+02:02:52.760 --> 02:02:54.760
+whatever it is, you will understand the flow,
+
+02:03:00.760 --> 02:03:02.760
+in the next lecture,
+
+02:03:02.760 --> 02:03:04.760
+we have two tasks,
+
+02:03:04.760 --> 02:03:06.760
+one is to implement these next steps,
+
+02:03:06.760 --> 02:03:08.760
+and the second is to understand ECR,
+
+02:03:16.760 --> 02:03:18.760
+if you don't have any question,
+
+02:03:18.760 --> 02:03:20.760
+yes, it is detail oriented,
+
+02:03:20.760 --> 02:03:22.760
+and it takes some time,
+
+02:03:22.760 --> 02:03:24.760
+see, so many things,
+
+02:03:24.760 --> 02:03:26.760
+conceptually, it takes some effort
+
+02:03:26.760 --> 02:03:28.760
+to teach,
+
+02:03:42.760 --> 02:03:44.760
+and your code will have its own challenges,
+
+02:03:44.760 --> 02:03:46.760
+I will tell you to play around,
+
+02:03:46.760 --> 02:03:48.760
+change the configuration,
+
+02:03:48.760 --> 02:03:50.760
+and if the code is breaking,
+
+02:03:50.760 --> 02:03:52.760
+and there are challenges, accept them,
+
+02:03:52.760 --> 02:03:54.760
+and try to navigate them,
+
+02:03:54.760 --> 02:03:56.760
+now you have AI,
+
+02:03:56.760 --> 02:03:58.760
+you can use it,
+
+02:04:00.760 --> 02:04:02.760
+and moreover, you have the documentation,
+
+02:04:02.760 --> 02:04:04.760
+these are the resources,
+
+02:04:04.760 --> 02:04:06.760
+compose file, everything is given here,
+
+02:04:06.760 --> 02:04:08.760
+you simply need to know
+
+02:04:08.760 --> 02:04:10.760
+about the attributes,
+
+02:04:10.760 --> 02:04:12.760
+for this you can use chat jpt,
+
+02:04:12.760 --> 02:04:14.760
+that I have to make such a file,
+
+02:04:14.760 --> 02:04:16.760
+which attributes will be used,
+
+02:04:16.760 --> 02:04:18.760
+go to the documentation,
+
+02:04:18.760 --> 02:04:20.760
+read about it, and try to implement it,
+
+02:04:20.760 --> 02:04:22.760
+examples are also given here,
+
+02:04:24.760 --> 02:04:26.760
+get comfortable with the code,
+
+02:04:28.760 --> 02:04:30.760
+then only you will understand all these things,
+
+02:04:40.760 --> 02:04:42.760
+if you don't have any doubt, then write it clear,
+
+02:04:44.760 --> 02:04:46.760
+if you want to share the feedback,
+
+02:04:46.760 --> 02:04:48.760
+then you can share the feedback,
+
+02:04:52.760 --> 02:04:54.760
+if you have any doubt,
+
+02:04:54.760 --> 02:04:56.760
+watch the recordings,
+
+02:05:02.760 --> 02:05:04.760
+now tell me,
+
+02:05:04.760 --> 02:05:06.760
+how much is your backlog,
+
+02:05:06.760 --> 02:05:08.760
+means,
+
+02:05:08.760 --> 02:05:10.760
+all the people here,
+
+02:05:10.760 --> 02:05:12.760
+how much is your backlog,
+
+02:05:14.760 --> 02:05:16.760
+how many are you following along,
+
+02:05:24.760 --> 02:05:26.760
+because this whole month,
+
+02:05:26.760 --> 02:05:28.760
+our deployment will be related,
+
+02:05:28.760 --> 02:05:30.760
+same pace, that is good,
+
+02:05:32.760 --> 02:05:34.760
+if anyone has a backlog,
+
+02:05:34.760 --> 02:05:36.760
+then don't worry,
+
+02:05:36.760 --> 02:05:38.760
+come to the classes, attend the classes,
+
+02:05:38.760 --> 02:05:40.760
+and follow the recordings,
+
+02:05:40.760 --> 02:05:42.760
+and don't just simply run the code,
+
+02:05:42.760 --> 02:05:44.760
+try to change it,
+
+02:05:44.760 --> 02:05:46.760
+try to play with it,
+
+02:05:46.760 --> 02:05:48.760
+try to break it,
+
+02:05:48.760 --> 02:05:50.760
+you will learn the most from that,
+
+02:05:50.760 --> 02:05:52.760
+you will copy this code,
+
+02:05:52.760 --> 02:05:54.760
+run it,
+
+02:05:54.760 --> 02:05:56.760
+put it in your resume,
+
+02:05:56.760 --> 02:05:58.760
+you will not learn from that,
+
+02:05:58.760 --> 02:06:00.760
+try to challenge yourself,
+
+02:06:00.760 --> 02:06:02.760
+this is all, change it,
+
+02:06:02.760 --> 02:06:04.760
+add some extra steps,
+
+02:06:06.760 --> 02:06:08.760
+that's great Tushar,
+
+02:06:08.760 --> 02:06:10.760
+it always helps,
+
+02:06:10.760 --> 02:06:12.760
+I myself watch my lectures,
+
+02:06:14.760 --> 02:06:16.760
+so that I know what we discussed,
+
+02:06:16.760 --> 02:06:18.760
+what was our flow,
+
+02:06:18.760 --> 02:06:20.760
+because I am also building
+
+02:06:20.760 --> 02:06:22.760
+this application alongside with you guys,
+
+02:06:22.760 --> 02:06:24.760
+so whatever changes are happening,
+
+02:06:24.760 --> 02:06:26.760
+we are doing it together in this project,
+
+02:06:26.760 --> 02:06:28.760
+whatever we are doing, it is all live,
+
+02:06:28.760 --> 02:06:30.760
+I have not made this separately application somewhere,
+
+02:06:32.760 --> 02:06:34.760
+tomorrow, if we have to make some more changes,
+
+02:06:34.760 --> 02:06:36.760
+then we will do that too,
+
+02:06:36.760 --> 02:06:38.760
+it will depend,
+
+02:06:38.760 --> 02:06:40.760
+it is highly dynamic,
+
+02:06:40.760 --> 02:06:42.760
+I have to finish those lectures,
+
+02:06:42.760 --> 02:06:44.760
+Alisha will be done, don't worry about it,
+
+02:06:46.760 --> 02:06:48.760
+currently if you focus on the current lectures,
+
+02:06:48.760 --> 02:06:50.760
+then these are all deployment related,
+
+02:06:50.760 --> 02:06:52.760
+so you read CI and all these now,
+
+02:06:52.760 --> 02:06:54.760
+and you can complete the rest of your backlog slowly,
+
+02:07:00.760 --> 02:07:02.760
+so guys,
+
+02:07:02.760 --> 02:07:04.760
+I think that's it,
+
+02:07:04.760 --> 02:07:06.760
+so I will end the session,
+
+02:07:06.760 --> 02:07:08.760
+bye guys,
+
+02:07:08.760 --> 02:07:10.760
+see you on Monday,
+
+02:07:10.760 --> 02:07:12.760
+and on Monday,
+
+02:07:12.760 --> 02:07:14.760
+we will implement our CD on ECR,
+
+02:07:14.760 --> 02:07:16.760
+bye guys,
+

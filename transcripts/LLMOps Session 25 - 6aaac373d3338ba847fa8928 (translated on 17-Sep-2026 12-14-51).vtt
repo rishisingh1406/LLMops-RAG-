@@ -1,0 +1,8129 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:12.000
+Hi guys, good evening. How are you?
+
+00:00:12.000 --> 00:00:13.000
+How are you all?
+
+00:00:13.000 --> 00:00:15.000
+Am I audible? Visible?
+
+00:00:15.000 --> 00:00:17.000
+Can you see my screen share?
+
+00:00:24.000 --> 00:00:26.000
+Quick check guys
+
+00:00:30.000 --> 00:00:32.000
+Great
+
+00:00:32.000 --> 00:00:34.000
+So let's wait for 5 minutes
+
+00:00:34.000 --> 00:00:36.000
+People are still joining in
+
+00:00:36.000 --> 00:00:38.000
+If you have any questions, you can ask me
+
+00:00:38.000 --> 00:00:40.000
+Let's start in 5 minutes
+
+00:00:45.000 --> 00:00:47.000
+Good evening guys
+
+00:00:47.000 --> 00:01:00.000
+Any questions?
+
+00:01:00.000 --> 00:01:12.000
+Let's discuss today's plan of attack
+
+00:01:12.000 --> 00:01:14.000
+What we are going to cover in upcoming lectures
+
+00:01:14.000 --> 00:01:16.000
+We will discuss that again
+
+00:01:22.000 --> 00:01:24.000
+I think last time, there was some confusion
+
+00:01:24.000 --> 00:01:26.000
+So people joined late
+
+00:01:28.000 --> 00:01:30.000
+I hope that confusion is gone
+
+00:01:30.000 --> 00:01:32.000
+And this swap is only for this week
+
+00:01:32.000 --> 00:01:34.000
+From next week we will be back on schedule
+
+00:01:34.000 --> 00:01:36.000
+Monday and Thursday will be LLM ops
+
+00:01:36.000 --> 00:01:38.000
+And Wednesday and Saturday will be LLM ops
+
+00:01:38.000 --> 00:01:40.000
+And Wednesday and Saturday will be LLM ops
+
+00:01:40.000 --> 00:01:42.000
+And Wednesday and Saturday will be LLM ops
+
+00:01:48.000 --> 00:01:50.000
+If you have any doubts
+
+00:01:50.000 --> 00:01:54.000
+Just connect your calendar to your Google calendar
+
+00:01:54.000 --> 00:01:58.000
+You will get all the updates there
+
+00:02:02.000 --> 00:02:04.000
+Questions guys?
+
+00:02:04.000 --> 00:02:06.000
+If you have any questions
+
+00:02:10.000 --> 00:02:12.000
+Let's wait for a minute
+
+00:02:12.000 --> 00:02:14.000
+And then we will start
+
+00:02:28.000 --> 00:02:30.000
+If you have no questions
+
+00:02:30.000 --> 00:02:32.000
+Write clear in the chat
+
+00:02:40.000 --> 00:02:56.000
+If you have no questions, write clear guys
+
+00:02:56.000 --> 00:02:58.000
+We can start now
+
+00:03:10.000 --> 00:03:16.000
+Is there a lag from my side?
+
+00:03:16.000 --> 00:03:18.000
+I am not getting any answer
+
+00:03:18.000 --> 00:03:22.000
+I am audible, everything is fine
+
+00:03:28.000 --> 00:03:30.000
+No lag
+
+00:03:30.000 --> 00:03:32.000
+Then write clear if you have no doubts
+
+00:03:32.000 --> 00:03:34.000
+Fine
+
+00:03:34.000 --> 00:03:36.000
+Let's start
+
+00:03:36.000 --> 00:03:38.000
+Let's start
+
+00:03:38.000 --> 00:03:44.000
+Before starting, I want to share some metrics with you
+
+00:03:44.000 --> 00:03:46.000
+And I want to share these things
+
+00:03:46.000 --> 00:03:48.000
+Not because they are my spendings
+
+00:03:48.000 --> 00:03:50.000
+I just want to tell you
+
+00:03:50.000 --> 00:03:54.000
+If you develop a project by yourself
+
+00:03:54.000 --> 00:03:56.000
+Like we are developing this project
+
+00:03:56.000 --> 00:03:58.000
+Then what cost can you expect
+
+00:03:58.000 --> 00:04:00.000
+That you have to pay
+
+00:04:00.000 --> 00:04:02.000
+Although this cost is my cost
+
+00:04:02.000 --> 00:04:04.000
+Because I was building this project
+
+00:04:04.000 --> 00:04:06.000
+I was experimenting, running evaluations in class
+
+00:04:06.000 --> 00:04:08.000
+So this is a little inflated cost
+
+00:04:08.000 --> 00:04:10.000
+I have bear this cost at my end
+
+00:04:10.000 --> 00:04:12.000
+But you don't have to pay this much
+
+00:04:12.000 --> 00:04:14.000
+Because you will do the evaluation
+
+00:04:14.000 --> 00:04:16.000
+Maybe 2 or 3 times
+
+00:04:16.000 --> 00:04:18.000
+So this is my cost per month
+
+00:04:18.000 --> 00:04:20.000
+This is my API spending
+
+00:04:20.000 --> 00:04:22.000
+And you can see on an average
+
+00:04:22.000 --> 00:04:24.000
+I am spending around 1500 per month
+
+00:04:24.000 --> 00:04:26.000
+On my LLM API
+
+00:04:26.000 --> 00:04:28.000
+Now you can see in this
+
+00:04:28.000 --> 00:04:30.000
+August month
+
+00:04:30.000 --> 00:04:32.000
+Clearly you can see
+
+00:04:32.000 --> 00:04:34.000
+Now you can see in this
+
+00:04:34.000 --> 00:04:36.000
+August month
+
+00:04:36.000 --> 00:04:38.000
+I have spent a lot of money
+
+00:04:38.000 --> 00:04:40.000
+Around 3500 rupees
+
+00:04:40.000 --> 00:04:42.000
+I have spent here
+
+00:04:42.000 --> 00:04:44.000
+And the sole reason for this
+
+00:04:44.000 --> 00:04:46.000
+Is that in August
+
+00:04:46.000 --> 00:04:48.000
+We were experimenting
+
+00:04:48.000 --> 00:04:50.000
+And you know that
+
+00:04:50.000 --> 00:04:52.000
+In the experimentation pipeline
+
+00:04:52.000 --> 00:04:54.000
+You have to do evaluations again and again
+
+00:04:54.000 --> 00:04:56.000
+Now evaluation is not only just
+
+00:04:56.000 --> 00:04:58.000
+Having a data set
+
+00:04:58.000 --> 00:05:00.000
+And you are testing it
+
+00:05:00.000 --> 00:05:02.000
+You are creating a data set again and again
+
+00:05:02.000 --> 00:05:04.000
+Our golden data set
+
+00:05:04.000 --> 00:05:06.000
+Is being made from our rag application
+
+00:05:06.000 --> 00:05:08.000
+And converting to an evaluation data set
+
+00:05:08.000 --> 00:05:10.000
+So creating an evaluation data set
+
+00:05:10.000 --> 00:05:12.000
+And then
+
+00:05:12.000 --> 00:05:14.000
+Running the evaluations
+
+00:05:14.000 --> 00:05:16.000
+You are bearing the API cost in that
+
+00:05:16.000 --> 00:05:18.000
+And the second thing is
+
+00:05:18.000 --> 00:05:20.000
+You must have seen
+
+00:05:20.000 --> 00:05:22.000
+That we have implemented our guardrails
+
+00:05:22.000 --> 00:05:24.000
+In this time of August and September
+
+00:05:24.000 --> 00:05:26.000
+We have implemented our guardrails
+
+00:05:26.000 --> 00:05:28.000
+And you know
+
+00:05:28.000 --> 00:05:30.000
+You know that
+
+00:05:30.000 --> 00:05:32.000
+We are using a lot of custom guardrails
+
+00:05:32.000 --> 00:05:34.000
+And we are using LLMs at the backend
+
+00:05:34.000 --> 00:05:36.000
+So we have to bear the cost
+
+00:05:36.000 --> 00:05:38.000
+Of these LLMs here
+
+00:05:38.000 --> 00:05:40.000
+And after the deployment
+
+00:05:40.000 --> 00:05:42.000
+We are running the tests
+
+00:05:42.000 --> 00:05:44.000
+And asking questions from our chatbot
+
+00:05:44.000 --> 00:05:46.000
+So we are paying the cost of inference
+
+00:05:46.000 --> 00:05:48.000
+So at multiple levels
+
+00:05:48.000 --> 00:05:50.000
+Cost is included
+
+00:05:50.000 --> 00:05:52.000
+And you can see that cost here
+
+00:05:52.000 --> 00:05:54.000
+You can clearly see that
+
+00:05:54.000 --> 00:05:56.000
+When we were developing our application
+
+00:05:56.000 --> 00:05:58.000
+And testing the evaluations
+
+00:05:58.000 --> 00:06:00.000
+So what was our cost
+
+00:06:00.000 --> 00:06:02.000
+But as soon as the experimentation phase came
+
+00:06:02.000 --> 00:06:04.000
+Our cost inflated
+
+00:06:04.000 --> 00:06:06.000
+Now how can you reduce this cost
+
+00:06:06.000 --> 00:06:08.000
+I will tell you the method
+
+00:06:08.000 --> 00:06:10.000
+The first method is
+
+00:06:10.000 --> 00:06:12.000
+Use smaller models
+
+00:06:12.000 --> 00:06:14.000
+Try that when you are practicing
+
+00:06:14.000 --> 00:06:16.000
+And making a resume project
+
+00:06:16.000 --> 00:06:18.000
+Then don't work with bigger models
+
+00:06:18.000 --> 00:06:20.000
+Although you will feel enticing
+
+00:06:20.000 --> 00:06:22.000
+That I will test big models
+
+00:06:22.000 --> 00:06:24.000
+But big models
+
+00:06:24.000 --> 00:06:26.000
+Bigger models
+
+00:06:26.000 --> 00:06:28.000
+Spend a lot of tokens during the evaluation
+
+00:06:28.000 --> 00:06:30.000
+So your cost will run away
+
+00:06:30.000 --> 00:06:32.000
+It is better
+
+00:06:32.000 --> 00:06:34.000
+To use smaller models
+
+00:06:34.000 --> 00:06:36.000
+You can work with
+
+00:06:36.000 --> 00:06:38.000
+Smaller data sets
+
+00:06:38.000 --> 00:06:40.000
+Although we also work with smaller data sets
+
+00:06:40.000 --> 00:06:42.000
+But I am using 14 transcripts
+
+00:06:42.000 --> 00:06:44.000
+If you want you can reduce the number of transcripts
+
+00:06:44.000 --> 00:06:46.000
+You can
+
+00:06:46.000 --> 00:06:48.000
+Evaluate with that
+
+00:06:48.000 --> 00:06:50.000
+That would be better
+
+00:06:50.000 --> 00:06:52.000
+And you can do less runs
+
+00:06:52.000 --> 00:06:54.000
+I think we did 10 runs
+
+00:06:54.000 --> 00:06:56.000
+To calculate the noise threshold
+
+00:06:56.000 --> 00:06:58.000
+Even before that when we were building the application
+
+00:06:58.000 --> 00:07:00.000
+We did a lot of runs
+
+00:07:00.000 --> 00:07:02.000
+And in this one more extra cost
+
+00:07:02.000 --> 00:07:04.000
+Is coming from contextual compression
+
+00:07:08.000 --> 00:07:10.000
+Because we are using a contextual compression
+
+00:07:10.000 --> 00:07:12.000
+With every inference
+
+00:07:12.000 --> 00:07:14.000
+We are basically doing 3 API calls
+
+00:07:14.000 --> 00:07:16.000
+We saw this during tracing
+
+00:07:16.000 --> 00:07:18.000
+I will show you again
+
+00:07:18.000 --> 00:07:20.000
+If I go to my tracing
+
+00:07:20.000 --> 00:07:22.000
+You can open any trace here
+
+00:07:22.000 --> 00:07:24.000
+You can see in every trace
+
+00:07:24.000 --> 00:07:26.000
+If I collapse all of them
+
+00:07:26.000 --> 00:07:28.000
+And expand it again
+
+00:07:32.000 --> 00:07:34.000
+Retrieval
+
+00:07:34.000 --> 00:07:36.000
+It takes the most time
+
+00:07:36.000 --> 00:07:38.000
+And the cost is also the most
+
+00:07:38.000 --> 00:07:40.000
+And if I expand this too
+
+00:07:40.000 --> 00:07:42.000
+Then this
+
+00:07:42.000 --> 00:07:44.000
+The 3 chunks
+
+00:07:44.000 --> 00:07:46.000
+That we are compressing
+
+00:07:46.000 --> 00:07:48.000
+Through the LLM
+
+00:07:48.000 --> 00:07:50.000
+In this we are taking a lot of cost
+
+00:07:50.000 --> 00:07:52.000
+And this is happening with every query
+
+00:07:52.000 --> 00:07:54.000
+So we can reduce this too
+
+00:07:54.000 --> 00:07:56.000
+There are multiple ways
+
+00:07:56.000 --> 00:07:58.000
+Actually what I have done
+
+00:07:58.000 --> 00:08:00.000
+In these 2 days I have run experimentation
+
+00:08:00.000 --> 00:08:02.000
+There are actually 3 techniques
+
+00:08:02.000 --> 00:08:04.000
+Which comes in your contextual compression
+
+00:08:04.000 --> 00:08:06.000
+One is your LLM extractor
+
+00:08:06.000 --> 00:08:08.000
+I will tell you this once
+
+00:08:08.000 --> 00:08:10.000
+Because I am also developing the application
+
+00:08:10.000 --> 00:08:12.000
+With you on the backend
+
+00:08:12.000 --> 00:08:14.000
+So I am also experimenting
+
+00:08:14.000 --> 00:08:16.000
+So here I am using the technique
+
+00:08:16.000 --> 00:08:18.000
+Which is LLM extractor
+
+00:08:18.000 --> 00:08:20.000
+What LLM extractor does
+
+00:08:20.000 --> 00:08:22.000
+It denoises the chunk
+
+00:08:22.000 --> 00:08:24.000
+It removes
+
+00:08:24.000 --> 00:08:26.000
+The noisy part from it
+
+00:08:26.000 --> 00:08:28.000
+Now whenever you use
+
+00:08:28.000 --> 00:08:30.000
+This LLM extractor
+
+00:08:30.000 --> 00:08:32.000
+You get a lot of reasoning tokens
+
+00:08:32.000 --> 00:08:34.000
+Because your model
+
+00:08:34.000 --> 00:08:36.000
+Has to think
+
+00:08:36.000 --> 00:08:38.000
+Which is the noisy part
+
+00:08:38.000 --> 00:08:40.000
+What to remove
+
+00:08:40.000 --> 00:08:42.000
+So your model is doing extra effort
+
+00:08:42.000 --> 00:08:44.000
+So your cost is getting higher
+
+00:08:44.000 --> 00:08:46.000
+One more way
+
+00:08:46.000 --> 00:08:48.000
+Here you can
+
+00:08:48.000 --> 00:08:50.000
+Use another component
+
+00:08:50.000 --> 00:08:52.000
+That is your embedding filter
+
+00:08:52.000 --> 00:08:54.000
+Here instead of LLM extractor
+
+00:08:54.000 --> 00:08:56.000
+You can use embedding filter
+
+00:08:56.000 --> 00:08:58.000
+Embedding filter is very simple
+
+00:08:58.000 --> 00:09:00.000
+It uses your embedding model
+
+00:09:02.000 --> 00:09:04.000
+And what it does
+
+00:09:04.000 --> 00:09:06.000
+It calculates your query
+
+00:09:06.000 --> 00:09:08.000
+And the noisy chunk
+
+00:09:08.000 --> 00:09:10.000
+In between
+
+00:09:10.000 --> 00:09:12.000
+It calculates the similarity score
+
+00:09:12.000 --> 00:09:14.000
+And it only keeps
+
+00:09:14.000 --> 00:09:16.000
+The chunks in the retriever
+
+00:09:16.000 --> 00:09:18.000
+At the end
+
+00:09:18.000 --> 00:09:20.000
+Whose similarity score is higher
+
+00:09:20.000 --> 00:09:22.000
+Than your query
+
+00:09:22.000 --> 00:09:24.000
+So you can set threshold
+
+00:09:24.000 --> 00:09:26.000
+But through simple comparisons
+
+00:09:26.000 --> 00:09:28.000
+Through similarity scores
+
+00:09:28.000 --> 00:09:30.000
+It does the comparison
+
+00:09:30.000 --> 00:09:32.000
+So the output of this
+
+00:09:32.000 --> 00:09:34.000
+Basically it doesn't denoise your chunks
+
+00:09:34.000 --> 00:09:36.000
+Either it keeps the chunk
+
+00:09:36.000 --> 00:09:38.000
+Even if it has noise
+
+00:09:38.000 --> 00:09:40.000
+It will keep it or either it
+
+00:09:40.000 --> 00:09:42.000
+Discards the chunk
+
+00:09:42.000 --> 00:09:44.000
+These are the two options
+
+00:09:44.000 --> 00:09:46.000
+But you can understand
+
+00:09:46.000 --> 00:09:48.000
+Because we are not using LLM
+
+00:09:48.000 --> 00:09:50.000
+It is the cheapest option
+
+00:09:50.000 --> 00:09:52.000
+And one is
+
+00:09:52.000 --> 00:09:54.000
+Last one
+
+00:09:54.000 --> 00:09:56.000
+I think LLM
+
+00:09:56.000 --> 00:09:58.000
+Is filter chain
+
+00:09:58.000 --> 00:10:00.000
+Whatever it is
+
+00:10:00.000 --> 00:10:02.000
+Basically it works like
+
+00:10:02.000 --> 00:10:04.000
+Embedding filter
+
+00:10:04.000 --> 00:10:06.000
+Here instead of embedding
+
+00:10:06.000 --> 00:10:08.000
+You use LLM
+
+00:10:08.000 --> 00:10:10.000
+You send your chunk to LLM
+
+00:10:10.000 --> 00:10:12.000
+And LLM tells you
+
+00:10:12.000 --> 00:10:14.000
+That this chunk is similar to your query
+
+00:10:14.000 --> 00:10:16.000
+Basically you were calculating
+
+00:10:16.000 --> 00:10:18.000
+Similarity through embedding model
+
+00:10:18.000 --> 00:10:20.000
+Here you calculate similarity score
+
+00:10:20.000 --> 00:10:22.000
+Through LLM
+
+00:10:22.000 --> 00:10:24.000
+And you get a boolier answer
+
+00:10:24.000 --> 00:10:26.000
+That should this chunk be true or false
+
+00:10:26.000 --> 00:10:28.000
+So you keep the chunks that are true
+
+00:10:28.000 --> 00:10:30.000
+On the end retriever
+
+00:10:30.000 --> 00:10:32.000
+And discard the false
+
+00:10:32.000 --> 00:10:34.000
+The good thing about it is
+
+00:10:34.000 --> 00:10:36.000
+That both the techniques
+
+00:10:36.000 --> 00:10:38.000
+Are cheap
+
+00:10:38.000 --> 00:10:40.000
+The bad thing is
+
+00:10:40.000 --> 00:10:42.000
+They completely discard your retrieved chunk
+
+00:10:42.000 --> 00:10:44.000
+So many times
+
+00:10:44.000 --> 00:10:46.000
+If any chunk is not of use
+
+00:10:46.000 --> 00:10:48.000
+Then your retriever can be empty
+
+00:10:48.000 --> 00:10:50.000
+Or you can fetch 3 chunks
+
+00:10:50.000 --> 00:10:52.000
+And you get only 1 at the end
+
+00:10:52.000 --> 00:10:54.000
+So what happens with that
+
+00:10:54.000 --> 00:10:56.000
+Your other metrics like recall
+
+00:10:56.000 --> 00:10:58.000
+Precision
+
+00:10:58.000 --> 00:11:00.000
+They get very bad
+
+00:11:00.000 --> 00:11:02.000
+And the good thing
+
+00:11:02.000 --> 00:11:04.000
+Sorry the other bad thing about this is
+
+00:11:04.000 --> 00:11:06.000
+That it doesn't
+
+00:11:06.000 --> 00:11:08.000
+Can fix your contextual relevancy
+
+00:11:08.000 --> 00:11:10.000
+Which we are targeting
+
+00:11:10.000 --> 00:11:12.000
+Because you are putting
+
+00:11:12.000 --> 00:11:14.000
+Noisy chunk as it is
+
+00:11:14.000 --> 00:11:16.000
+In your retriever output
+
+00:11:16.000 --> 00:11:18.000
+You are not denoising it from inside
+
+00:11:18.000 --> 00:11:20.000
+Either you are keeping it or removing it
+
+00:11:20.000 --> 00:11:22.000
+So if you are keeping it
+
+00:11:22.000 --> 00:11:24.000
+Then the intrinsic noise inside it
+
+00:11:24.000 --> 00:11:26.000
+Is still there as it is
+
+00:11:26.000 --> 00:11:28.000
+The best technique in my experimentation
+
+00:11:28.000 --> 00:11:30.000
+I will share the experimentation results
+
+00:11:30.000 --> 00:11:32.000
+In my experimentation
+
+00:11:32.000 --> 00:11:34.000
+This is the output
+
+00:11:34.000 --> 00:11:36.000
+If we switch to any other technique
+
+00:11:36.000 --> 00:11:38.000
+At this stage
+
+00:11:38.000 --> 00:11:40.000
+Then our architecture will fail
+
+00:11:40.000 --> 00:11:42.000
+In the regression testing
+
+00:11:42.000 --> 00:11:44.000
+But the problem is
+
+00:11:44.000 --> 00:11:46.000
+It takes a lot of time
+
+00:11:46.000 --> 00:11:48.000
+Latency and cost are increasing
+
+00:11:48.000 --> 00:11:50.000
+I hope you are understanding this point
+
+00:11:50.000 --> 00:11:52.000
+I want to show you the side of operations
+
+00:11:52.000 --> 00:11:54.000
+What all things you have to see in operations
+
+00:11:54.000 --> 00:11:56.000
+So this is one side of operations
+
+00:11:56.000 --> 00:11:58.000
+Cost
+
+00:11:58.000 --> 00:12:00.000
+And how to manage cost
+
+00:12:00.000 --> 00:12:02.000
+Costly component and how to
+
+00:12:02.000 --> 00:12:04.000
+Reduce it
+
+00:12:04.000 --> 00:12:06.000
+I hope this point is clear
+
+00:12:06.000 --> 00:12:08.000
+Is this point clear?
+
+00:12:08.000 --> 00:12:10.000
+If it is clear, write clear in the chat
+
+00:12:18.000 --> 00:12:20.000
+Is it clear?
+
+00:12:20.000 --> 00:12:22.000
+Guys
+
+00:12:38.000 --> 00:12:40.000
+Clear
+
+00:12:40.000 --> 00:12:42.000
+I want to show you one more cost
+
+00:12:42.000 --> 00:12:44.000
+Because we have gone towards deployment
+
+00:12:44.000 --> 00:12:46.000
+So our AWS infrastructure
+
+00:12:46.000 --> 00:12:48.000
+Cost of that too
+
+00:12:48.000 --> 00:12:50.000
+We have to bear
+
+00:12:50.000 --> 00:12:52.000
+I will show you the cost of that too
+
+00:12:52.000 --> 00:12:54.000
+Although I am incurring this cost
+
+00:12:54.000 --> 00:12:56.000
+It will not come in your case
+
+00:12:56.000 --> 00:12:58.000
+Because you are starting with AWS
+
+00:12:58.000 --> 00:13:00.000
+And you are in your free plan
+
+00:13:00.000 --> 00:13:02.000
+I have expired my free plan
+
+00:13:02.000 --> 00:13:04.000
+I think you get free tier for 1 year
+
+00:13:04.000 --> 00:13:06.000
+After that you don't get it
+
+00:13:06.000 --> 00:13:08.000
+So my account is old
+
+00:13:08.000 --> 00:13:10.000
+I have to bear this cost
+
+00:13:10.000 --> 00:13:12.000
+You can see the current month cost
+
+00:13:12.000 --> 00:13:14.000
+It is around $6
+
+00:13:14.000 --> 00:13:16.000
+You have to see
+
+00:13:16.000 --> 00:13:18.000
+Actually where I am looking at the money
+
+00:13:18.000 --> 00:13:20.000
+You can expand this particular
+
+00:13:20.000 --> 00:13:22.000
+Graph
+
+00:13:22.000 --> 00:13:24.000
+Billing and cost management
+
+00:13:24.000 --> 00:13:26.000
+And you can come here
+
+00:13:26.000 --> 00:13:28.000
+And see which service you are paying the most
+
+00:13:28.000 --> 00:13:30.000
+So you can see
+
+00:13:30.000 --> 00:13:32.000
+Here you can see the bar graph
+
+00:13:32.000 --> 00:13:34.000
+And you can hover here and see
+
+00:13:34.000 --> 00:13:36.000
+Which service is paying the most
+
+00:13:36.000 --> 00:13:38.000
+So I will show you
+
+00:13:38.000 --> 00:13:40.000
+This elastic load balancer
+
+00:13:40.000 --> 00:13:42.000
+Its cost is paying the most
+
+00:13:42.000 --> 00:13:44.000
+Around $3.23
+
+00:13:44.000 --> 00:13:46.000
+The reason for this is
+
+00:13:46.000 --> 00:13:48.000
+Elastic load balancer
+
+00:13:48.000 --> 00:13:50.000
+Which you are active
+
+00:13:50.000 --> 00:13:52.000
+Even if it is running in the background
+
+00:13:52.000 --> 00:13:54.000
+If you are not sending any traffic
+
+00:13:54.000 --> 00:13:56.000
+Still you have to pay
+
+00:13:56.000 --> 00:13:58.000
+Its cost
+
+00:13:58.000 --> 00:14:00.000
+So the solution is to turn off your load balancer
+
+00:14:00.000 --> 00:14:02.000
+But the problem is
+
+00:14:02.000 --> 00:14:04.000
+Your auto scaling group is dependent on load balancer
+
+00:14:04.000 --> 00:14:06.000
+Because that is the only way
+
+00:14:06.000 --> 00:14:08.000
+You get proper deployments
+
+00:14:08.000 --> 00:14:10.000
+So what is the solution
+
+00:14:10.000 --> 00:14:12.000
+The solution is to create your deployments again and again
+
+00:14:12.000 --> 00:14:14.000
+Create your deployments
+
+00:14:14.000 --> 00:14:16.000
+When you have to practice
+
+00:14:16.000 --> 00:14:18.000
+After that turn off all the infrastructure
+
+00:14:18.000 --> 00:14:20.000
+The other thing is
+
+00:14:20.000 --> 00:14:22.000
+Once you have practiced the deployment
+
+00:14:22.000 --> 00:14:24.000
+Now you know how to deploy your code
+
+00:14:24.000 --> 00:14:26.000
+Here you deploy your versions
+
+00:14:26.000 --> 00:14:28.000
+Everything you have learned
+
+00:14:28.000 --> 00:14:30.000
+After that you come back to your manual setup
+
+00:14:30.000 --> 00:14:32.000
+So we have done the same in today's class
+
+00:14:32.000 --> 00:14:34.000
+We have come back to our
+
+00:14:34.000 --> 00:14:36.000
+EC2 instance setup
+
+00:14:36.000 --> 00:14:38.000
+Where I have manually installed all the commands
+
+00:14:38.000 --> 00:14:40.000
+And run the docker
+
+00:14:40.000 --> 00:14:42.000
+Because the most cost
+
+00:14:42.000 --> 00:14:44.000
+You are paying for load balancer
+
+00:14:44.000 --> 00:14:46.000
+And the second
+
+00:14:46.000 --> 00:14:48.000
+The maximum cost
+
+00:14:48.000 --> 00:14:50.000
+To remove the tax
+
+00:14:50.000 --> 00:14:52.000
+Is your compute cost
+
+00:14:52.000 --> 00:14:54.000
+EC2 cost
+
+00:14:54.000 --> 00:14:56.000
+But you can see that it is around 1$
+
+00:14:56.000 --> 00:14:58.000
+Again I run EC2 instance for 2-2.5 hours
+
+00:14:58.000 --> 00:15:00.000
+And the rest
+
+00:15:00.000 --> 00:15:02.000
+I am practicing from my end
+
+00:15:02.000 --> 00:15:04.000
+So this cost is a little more for me
+
+00:15:04.000 --> 00:15:06.000
+Your cost will be around 0.5$
+
+00:15:06.000 --> 00:15:08.000
+So you can practice
+
+00:15:08.000 --> 00:15:10.000
+You can practice all this in 100$
+
+00:15:10.000 --> 00:15:12.000
+On AWS
+
+00:15:12.000 --> 00:15:14.000
+And the API
+
+00:15:14.000 --> 00:15:16.000
+I think you can practice all this
+
+00:15:16.000 --> 00:15:18.000
+In 5$ or max to max 10$
+
+00:15:18.000 --> 00:15:20.000
+I hope this thing is clear to you
+
+00:15:20.000 --> 00:15:22.000
+Is this point clear?
+
+00:15:24.000 --> 00:15:26.000
+Yes, you can create as many
+
+00:15:26.000 --> 00:15:28.000
+Free accounts as you like
+
+00:15:28.000 --> 00:15:30.000
+But the problem is that I am using this account
+
+00:15:30.000 --> 00:15:32.000
+Because I am working with this
+
+00:15:32.000 --> 00:15:34.000
+And that's why
+
+00:15:34.000 --> 00:15:36.000
+That cost will not come on you
+
+00:15:36.000 --> 00:15:38.000
+It will be in free tier
+
+00:15:38.000 --> 00:15:40.000
+I think load balancer will not come
+
+00:15:40.000 --> 00:15:42.000
+If it comes
+
+00:15:42.000 --> 00:15:44.000
+I have told you how to reduce it
+
+00:15:44.000 --> 00:15:46.000
+Is this point clear?
+
+00:15:46.000 --> 00:15:48.000
+So I have told you
+
+00:15:48.000 --> 00:15:50.000
+The cost of both infrastructure and API
+
+00:15:50.000 --> 00:15:52.000
+From where we are getting the cost
+
+00:15:52.000 --> 00:15:54.000
+And how to reduce it
+
+00:15:54.000 --> 00:15:56.000
+I have told you those techniques
+
+00:15:56.000 --> 00:15:58.000
+There are more techniques
+
+00:15:58.000 --> 00:16:00.000
+But the ones that I can see on my use case
+
+00:16:00.000 --> 00:16:02.000
+I have told you
+
+00:16:02.000 --> 00:16:04.000
+Let's move forward
+
+00:16:04.000 --> 00:16:06.000
+So far everything is clear?
+
+00:16:06.000 --> 00:16:08.000
+Yes, clear
+
+00:16:08.000 --> 00:16:10.000
+Let's move forward
+
+00:16:10.000 --> 00:16:12.000
+So let's do one thing
+
+00:16:12.000 --> 00:16:14.000
+Let's take a recap of what we have discussed
+
+00:16:14.000 --> 00:16:16.000
+In the previous class
+
+00:16:16.000 --> 00:16:18.000
+Because in the previous class we are starting a new module
+
+00:16:18.000 --> 00:16:20.000
+That is our post deployment
+
+00:16:22.000 --> 00:16:24.000
+I have told you post deployment
+
+00:16:24.000 --> 00:16:26.000
+What happens is after deployment
+
+00:16:26.000 --> 00:16:28.000
+You don't leave your application like this
+
+00:16:28.000 --> 00:16:30.000
+Deployment is not the end
+
+00:16:30.000 --> 00:16:32.000
+Of everything
+
+00:16:32.000 --> 00:16:34.000
+It is actually a start
+
+00:16:34.000 --> 00:16:36.000
+Of your observation and monitoring
+
+00:16:36.000 --> 00:16:38.000
+Which is your deployed application
+
+00:16:38.000 --> 00:16:40.000
+You continuously observe it
+
+00:16:40.000 --> 00:16:42.000
+Monitor it
+
+00:16:42.000 --> 00:16:44.000
+So in post deployment
+
+00:16:44.000 --> 00:16:46.000
+You have two aspects that we are going to cover
+
+00:16:46.000 --> 00:16:48.000
+First is your application monitoring
+
+00:16:52.000 --> 00:16:54.000
+In which we will discuss
+
+00:16:54.000 --> 00:16:56.000
+About tracing
+
+00:16:56.000 --> 00:16:58.000
+And observability
+
+00:16:58.000 --> 00:17:00.000
+And the tool that we are using
+
+00:17:00.000 --> 00:17:02.000
+What is its name
+
+00:17:02.000 --> 00:17:04.000
+Its name is Limefuse
+
+00:17:04.000 --> 00:17:06.000
+We have covered this tracing
+
+00:17:06.000 --> 00:17:08.000
+In the previous class
+
+00:17:08.000 --> 00:17:10.000
+And as soon as our application monitoring
+
+00:17:10.000 --> 00:17:12.000
+Will be over
+
+00:17:12.000 --> 00:17:14.000
+Then we will move to the
+
+00:17:14.000 --> 00:17:16.000
+Infrastructure monitoring
+
+00:17:18.000 --> 00:17:20.000
+For this we will use two tools
+
+00:17:20.000 --> 00:17:22.000
+Prometheus
+
+00:17:24.000 --> 00:17:26.000
+And Grafana
+
+00:17:28.000 --> 00:17:30.000
+Now you must be thinking
+
+00:17:30.000 --> 00:17:32.000
+When we are talking about application monitoring
+
+00:17:32.000 --> 00:17:34.000
+Or infrastructure monitoring
+
+00:17:34.000 --> 00:17:36.000
+You must be thinking that these are two
+
+00:17:36.000 --> 00:17:38.000
+Different aspects
+
+00:17:38.000 --> 00:17:40.000
+Application is a different thing
+
+00:17:40.000 --> 00:17:42.000
+Our rag application can change tomorrow
+
+00:17:42.000 --> 00:17:44.000
+It can be agentic
+
+00:17:44.000 --> 00:17:46.000
+It can be a summarization application
+
+00:17:46.000 --> 00:17:48.000
+It can be any type of application
+
+00:17:48.000 --> 00:17:50.000
+Application is changing yours
+
+00:17:50.000 --> 00:17:52.000
+Tomorrow your infrastructure can change
+
+00:17:52.000 --> 00:17:54.000
+The services that you are using for this application
+
+00:17:54.000 --> 00:17:56.000
+It can change tomorrow
+
+00:17:56.000 --> 00:17:58.000
+You see that the concepts
+
+00:17:58.000 --> 00:18:00.000
+Are exactly the same
+
+00:18:00.000 --> 00:18:02.000
+I will tell you how
+
+00:18:02.000 --> 00:18:04.000
+What are you doing in tracing
+
+00:18:04.000 --> 00:18:06.000
+In tracing you are simply
+
+00:18:06.000 --> 00:18:08.000
+Creating your logs
+
+00:18:08.000 --> 00:18:10.000
+Whatever hulcher is happening
+
+00:18:10.000 --> 00:18:12.000
+On your application
+
+00:18:12.000 --> 00:18:14.000
+You are recording that hulcher
+
+00:18:14.000 --> 00:18:16.000
+You are recording every step
+
+00:18:16.000 --> 00:18:18.000
+That is tracing
+
+00:18:18.000 --> 00:18:20.000
+Your input is coming
+
+00:18:20.000 --> 00:18:22.000
+Your user is interacting with your chatbot
+
+00:18:22.000 --> 00:18:24.000
+Giving a query
+
+00:18:24.000 --> 00:18:26.000
+How is it changing on every stage
+
+00:18:26.000 --> 00:18:28.000
+What outputs are coming out
+
+00:18:28.000 --> 00:18:30.000
+From that query
+
+00:18:30.000 --> 00:18:32.000
+How are those outputs generating the response
+
+00:18:32.000 --> 00:18:34.000
+That end to end
+
+00:18:34.000 --> 00:18:36.000
+That you are tracing
+
+00:18:36.000 --> 00:18:38.000
+That is your tracing
+
+00:18:38.000 --> 00:18:40.000
+And if I visualize that same logging
+
+00:18:40.000 --> 00:18:42.000
+Through a dashboard
+
+00:18:42.000 --> 00:18:44.000
+That is your observability
+
+00:18:44.000 --> 00:18:46.000
+Now let's talk about
+
+00:18:46.000 --> 00:18:48.000
+Infrastructure monitoring
+
+00:18:48.000 --> 00:18:50.000
+We are doing the same work here
+
+00:18:50.000 --> 00:18:52.000
+Not on our application
+
+00:18:52.000 --> 00:18:54.000
+We are monitoring the infrastructure
+
+00:18:54.000 --> 00:18:56.000
+On AWS services
+
+00:18:56.000 --> 00:18:58.000
+That whether it is working properly
+
+00:18:58.000 --> 00:19:00.000
+What is Prometheus doing
+
+00:19:00.000 --> 00:19:02.000
+Prometheus again is used for logging
+
+00:19:04.000 --> 00:19:06.000
+What are you doing
+
+00:19:06.000 --> 00:19:08.000
+You are monitoring the CPU usage
+
+00:19:08.000 --> 00:19:10.000
+Ram usage
+
+00:19:10.000 --> 00:19:12.000
+Network usage
+
+00:19:12.000 --> 00:19:14.000
+What you have to do for that
+
+00:19:14.000 --> 00:19:16.000
+Every second or every millisecond
+
+00:19:16.000 --> 00:19:18.000
+You have to track
+
+00:19:18.000 --> 00:19:20.000
+What is my CPU usage
+
+00:19:20.000 --> 00:19:22.000
+What is network usage
+
+00:19:22.000 --> 00:19:24.000
+And you will record it somewhere
+
+00:19:24.000 --> 00:19:26.000
+And finally what you will do
+
+00:19:26.000 --> 00:19:28.000
+You will aggregate your results
+
+00:19:28.000 --> 00:19:30.000
+That is what Prometheus is doing
+
+00:19:30.000 --> 00:19:32.000
+It is very similar to your tracing
+
+00:19:32.000 --> 00:19:34.000
+So what we do on the infrastructure
+
+00:19:34.000 --> 00:19:36.000
+First we do logging
+
+00:19:36.000 --> 00:19:38.000
+Tracing and then comes your Grafana
+
+00:19:38.000 --> 00:19:40.000
+Why Grafana is used
+
+00:19:40.000 --> 00:19:42.000
+You will see Grafana is
+
+00:19:42.000 --> 00:19:44.000
+An observability and monitoring tool
+
+00:19:44.000 --> 00:19:46.000
+It is also used to make your dashboards
+
+00:19:46.000 --> 00:19:48.000
+It is used to make dashboards
+
+00:19:50.000 --> 00:19:52.000
+So clearly application monitoring
+
+00:19:52.000 --> 00:19:54.000
+And infrastructure monitoring
+
+00:19:54.000 --> 00:19:56.000
+Although there are two different aspects
+
+00:19:56.000 --> 00:19:58.000
+But the method of doing them is the same
+
+00:19:58.000 --> 00:20:00.000
+Where is the difference
+
+00:20:00.000 --> 00:20:02.000
+The difference is only on the tooling layer
+
+00:20:02.000 --> 00:20:04.000
+So we will read the tooling layer
+
+00:20:04.000 --> 00:20:06.000
+But remember that the concepts
+
+00:20:06.000 --> 00:20:08.000
+We are discussing now
+
+00:20:08.000 --> 00:20:10.000
+Tracing, observability
+
+00:20:10.000 --> 00:20:12.000
+These concepts again we are going to
+
+00:20:12.000 --> 00:20:14.000
+Reuse in the infrastructure
+
+00:20:14.000 --> 00:20:16.000
+Is this point clear
+
+00:20:18.000 --> 00:20:20.000
+You can see both these things
+
+00:20:20.000 --> 00:20:22.000
+Diversified
+
+00:20:22.000 --> 00:20:24.000
+But there are many commonalities in them
+
+00:20:28.000 --> 00:20:30.000
+Clear guys
+
+00:20:30.000 --> 00:20:32.000
+If this point is clear then only we will move forward
+
+00:20:36.000 --> 00:20:38.000
+Clear
+
+00:20:38.000 --> 00:20:40.000
+Come on
+
+00:20:40.000 --> 00:20:42.000
+Now let's discuss about
+
+00:20:42.000 --> 00:20:44.000
+Tracing, let's take a small recap
+
+00:20:44.000 --> 00:20:46.000
+You already know about tracing
+
+00:20:46.000 --> 00:20:48.000
+Tracing is your logging
+
+00:20:48.000 --> 00:20:50.000
+We have discussed all this
+
+00:20:50.000 --> 00:20:52.000
+What are you doing in tracing
+
+00:20:52.000 --> 00:20:54.000
+Basically the query of your user
+
+00:20:54.000 --> 00:20:56.000
+You are logging
+
+00:20:56.000 --> 00:20:58.000
+Its journey
+
+00:20:58.000 --> 00:21:00.000
+Through your application
+
+00:21:02.000 --> 00:21:04.000
+Ok
+
+00:21:04.000 --> 00:21:06.000
+Your query came
+
+00:21:06.000 --> 00:21:08.000
+And from which stages did it come
+
+00:21:08.000 --> 00:21:10.000
+What things did it transform
+
+00:21:10.000 --> 00:21:12.000
+What outputs came out
+
+00:21:12.000 --> 00:21:14.000
+You are tracking everything
+
+00:21:14.000 --> 00:21:16.000
+And not only you are tracking
+
+00:21:16.000 --> 00:21:18.000
+Your query
+
+00:21:18.000 --> 00:21:20.000
+You are tracking your application
+
+00:21:20.000 --> 00:21:22.000
+Which has additional metadata
+
+00:21:22.000 --> 00:21:24.000
+Information of environment
+
+00:21:24.000 --> 00:21:26.000
+Information of tags
+
+00:21:26.000 --> 00:21:28.000
+Information of your prompts
+
+00:21:28.000 --> 00:21:30.000
+You are tracking everything
+
+00:21:30.000 --> 00:21:32.000
+Ok
+
+00:21:32.000 --> 00:21:34.000
+So this is our tracing concept
+
+00:21:34.000 --> 00:21:36.000
+Tracing is
+
+00:21:36.000 --> 00:21:38.000
+Every query is tracked and locked
+
+00:21:38.000 --> 00:21:40.000
+Simple
+
+00:21:40.000 --> 00:21:42.000
+Now let's talk about
+
+00:21:42.000 --> 00:21:44.000
+What is observability
+
+00:21:44.000 --> 00:21:46.000
+Observability is dependent on your tracing
+
+00:21:46.000 --> 00:21:48.000
+Ok
+
+00:21:48.000 --> 00:21:50.000
+It is the next thing you do after tracing
+
+00:21:50.000 --> 00:21:52.000
+You have traced
+
+00:21:52.000 --> 00:21:54.000
+But after that the story doesn't end
+
+00:21:54.000 --> 00:21:56.000
+After that actually the story begins
+
+00:21:56.000 --> 00:21:58.000
+What you do is
+
+00:21:58.000 --> 00:22:00.000
+You want to monitor your traces
+
+00:22:00.000 --> 00:22:02.000
+You have written logs in a log file
+
+00:22:02.000 --> 00:22:04.000
+But
+
+00:22:04.000 --> 00:22:06.000
+You will read those logs
+
+00:22:06.000 --> 00:22:08.000
+Only then you will understand
+
+00:22:08.000 --> 00:22:10.000
+How your application is behaving
+
+00:22:10.000 --> 00:22:12.000
+So reading those logs
+
+00:22:12.000 --> 00:22:14.000
+Visualizing those logs
+
+00:22:14.000 --> 00:22:16.000
+Is your observability
+
+00:22:16.000 --> 00:22:18.000
+Because you think
+
+00:22:18.000 --> 00:22:20.000
+You are tracing
+
+00:22:20.000 --> 00:22:22.000
+Every user's query
+
+00:22:22.000 --> 00:22:24.000
+And you can see
+
+00:22:24.000 --> 00:22:26.000
+Your individual traces
+
+00:22:26.000 --> 00:22:28.000
+If I talk about this trace
+
+00:22:28.000 --> 00:22:30.000
+Let's say a user has asked a query
+
+00:22:30.000 --> 00:22:32.000
+What exactly is sovereign AI
+
+00:22:32.000 --> 00:22:34.000
+Is it just about country having its own LLM
+
+00:22:34.000 --> 00:22:36.000
+Or does it include hardware and infrastructure too
+
+00:22:36.000 --> 00:22:38.000
+Ok
+
+00:22:38.000 --> 00:22:40.000
+So this is the question my student asked
+
+00:22:40.000 --> 00:22:42.000
+He got this output
+
+00:22:42.000 --> 00:22:44.000
+But besides output
+
+00:22:44.000 --> 00:22:46.000
+You have the journey of this query
+
+00:22:46.000 --> 00:22:48.000
+From input to output
+
+00:22:48.000 --> 00:22:50.000
+You have over tracked
+
+00:22:50.000 --> 00:22:52.000
+Now imagine
+
+00:22:52.000 --> 00:22:54.000
+That this application
+
+00:22:54.000 --> 00:22:56.000
+In one hour
+
+00:22:56.000 --> 00:22:58.000
+My 1000 students are using it
+
+00:22:58.000 --> 00:23:00.000
+And on an average every student
+
+00:23:00.000 --> 00:23:02.000
+Is asking 3 questions
+
+00:23:02.000 --> 00:23:04.000
+In one hour
+
+00:23:04.000 --> 00:23:06.000
+Do you think it is
+
+00:23:06.000 --> 00:23:08.000
+Manually possible
+
+00:23:08.000 --> 00:23:10.000
+That I read every trace
+
+00:23:10.000 --> 00:23:12.000
+The answer is
+
+00:23:12.000 --> 00:23:14.000
+Manually reading it is not possible
+
+00:23:14.000 --> 00:23:16.000
+To monitor anything
+
+00:23:16.000 --> 00:23:18.000
+I am saying you want to monitor
+
+00:23:18.000 --> 00:23:20.000
+Latency only
+
+00:23:20.000 --> 00:23:22.000
+Of 3000 traces
+
+00:23:22.000 --> 00:23:24.000
+Manually reading
+
+00:23:24.000 --> 00:23:26.000
+Latency is not possible
+
+00:23:26.000 --> 00:23:28.000
+For that we use
+
+00:23:28.000 --> 00:23:30.000
+Observability
+
+00:23:30.000 --> 00:23:32.000
+This is a way to visualize
+
+00:23:32.000 --> 00:23:34.000
+The traces you have logged
+
+00:23:34.000 --> 00:23:36.000
+And in observability
+
+00:23:36.000 --> 00:23:38.000
+You do one more thing
+
+00:23:38.000 --> 00:23:40.000
+That whatever your metrics
+
+00:23:40.000 --> 00:23:42.000
+Or whatever values
+
+00:23:42.000 --> 00:23:44.000
+You want to observe
+
+00:23:44.000 --> 00:23:46.000
+You don't observe them
+
+00:23:46.000 --> 00:23:48.000
+As single values
+
+00:23:48.000 --> 00:23:50.000
+It doesn't mean
+
+00:23:50.000 --> 00:23:52.000
+That if I am putting observability
+
+00:23:52.000 --> 00:23:54.000
+I will see 3000 values on my screen
+
+00:23:54.000 --> 00:23:56.000
+And understand
+
+00:23:56.000 --> 00:23:58.000
+What is the issue of latency
+
+00:23:58.000 --> 00:24:00.000
+No, I will always
+
+00:24:00.000 --> 00:24:02.000
+Work with aggregate values
+
+00:24:04.000 --> 00:24:06.000
+Okay, I will have
+
+00:24:06.000 --> 00:24:08.000
+Single values
+
+00:24:08.000 --> 00:24:10.000
+And for that I will use
+
+00:24:10.000 --> 00:24:12.000
+Some aggregate functions
+
+00:24:12.000 --> 00:24:14.000
+Common aggregate functions
+
+00:24:14.000 --> 00:24:16.000
+I will tell you because we will do observability
+
+00:24:16.000 --> 00:24:18.000
+So you will see
+
+00:24:18.000 --> 00:24:20.000
+First is count
+
+00:24:20.000 --> 00:24:22.000
+You understand count
+
+00:24:22.000 --> 00:24:24.000
+What you do in count
+
+00:24:24.000 --> 00:24:26.000
+So this is an integer value
+
+00:24:26.000 --> 00:24:28.000
+This is an increment
+
+00:24:28.000 --> 00:24:30.000
+You will add one by one
+
+00:24:30.000 --> 00:24:32.000
+As you increase the count
+
+00:24:32.000 --> 00:24:34.000
+Same concept guys, you will see in graphana
+
+00:24:34.000 --> 00:24:36.000
+So understand them carefully
+
+00:24:36.000 --> 00:24:38.000
+Then comes your next aggregate function
+
+00:24:38.000 --> 00:24:40.000
+That is min and max
+
+00:24:40.000 --> 00:24:42.000
+You know about them
+
+00:24:42.000 --> 00:24:44.000
+Minimum and maximum value
+
+00:24:44.000 --> 00:24:46.000
+And through this you will know
+
+00:24:46.000 --> 00:24:48.000
+The range of your metrics
+
+00:24:48.000 --> 00:24:50.000
+So you can calculate the range through them
+
+00:24:50.000 --> 00:24:52.000
+Then comes your average
+
+00:24:52.000 --> 00:24:54.000
+What is average?
+
+00:24:54.000 --> 00:24:56.000
+This is mean
+
+00:24:56.000 --> 00:24:58.000
+Let's say
+
+00:24:58.000 --> 00:25:00.000
+Within one hour
+
+00:25:00.000 --> 00:25:02.000
+How much did I tell you?
+
+00:25:02.000 --> 00:25:04.000
+You have 3000 traces
+
+00:25:04.000 --> 00:25:06.000
+So here you are taking out the average
+
+00:25:06.000 --> 00:25:08.000
+In the last one hour
+
+00:25:08.000 --> 00:25:10.000
+So what will you do first
+
+00:25:10.000 --> 00:25:12.000
+Add your latency
+
+00:25:12.000 --> 00:25:14.000
+You will calculate the sum
+
+00:25:14.000 --> 00:25:16.000
+And you will divide it by 3000
+
+00:25:16.000 --> 00:25:18.000
+This will give you your average
+
+00:25:18.000 --> 00:25:20.000
+Then comes your
+
+00:25:20.000 --> 00:25:22.000
+P50
+
+00:25:22.000 --> 00:25:24.000
+So what?
+
+00:25:24.000 --> 00:25:26.000
+Till this point
+
+00:25:26.000 --> 00:25:28.000
+Your 50% values
+
+00:25:28.000 --> 00:25:30.000
+Are equal or less than this current value
+
+00:25:30.000 --> 00:25:32.000
+This is your percentile value
+
+00:25:32.000 --> 00:25:34.000
+What is percentile?
+
+00:25:34.000 --> 00:25:36.000
+Either the value is similar or less than this value
+
+00:25:36.000 --> 00:25:38.000
+So what is P50?
+
+00:25:38.000 --> 00:25:40.000
+P50 is your median value
+
+00:25:40.000 --> 00:25:42.000
+This is your distribution
+
+00:25:42.000 --> 00:25:44.000
+Center, median
+
+00:25:44.000 --> 00:25:46.000
+Then comes your P75
+
+00:25:46.000 --> 00:25:48.000
+From the name
+
+00:25:48.000 --> 00:25:50.000
+75% of the values in your distribution
+
+00:25:50.000 --> 00:25:52.000
+Are either same or less than this value
+
+00:25:52.000 --> 00:25:54.000
+Then comes your P90
+
+00:25:54.000 --> 00:25:56.000
+P95
+
+00:25:56.000 --> 00:25:58.000
+And P99
+
+00:25:58.000 --> 00:26:00.000
+Now in this
+
+00:26:00.000 --> 00:26:02.000
+P95 and P99
+
+00:26:02.000 --> 00:26:04.000
+Are very important
+
+00:26:04.000 --> 00:26:06.000
+Ok
+
+00:26:06.000 --> 00:26:08.000
+Your median percentile value is very important
+
+00:26:08.000 --> 00:26:10.000
+And P95 and P99 are also important
+
+00:26:10.000 --> 00:26:12.000
+What does P95 tell you?
+
+00:26:12.000 --> 00:26:14.000
+P95 tells you
+
+00:26:14.000 --> 00:26:16.000
+That 95%
+
+00:26:16.000 --> 00:26:18.000
+Of the values
+
+00:26:18.000 --> 00:26:20.000
+Are either same or beneath this value
+
+00:26:20.000 --> 00:26:22.000
+Is less than this or equal
+
+00:26:22.000 --> 00:26:24.000
+So
+
+00:26:24.000 --> 00:26:26.000
+Our distribution
+
+00:26:26.000 --> 00:26:28.000
+Generally, if I talk about latency
+
+00:26:28.000 --> 00:26:30.000
+They are all right skewed
+
+00:26:30.000 --> 00:26:32.000
+What does right skewed mean?
+
+00:26:32.000 --> 00:26:34.000
+Right skewed means
+
+00:26:34.000 --> 00:26:36.000
+Our distribution
+
+00:26:36.000 --> 00:26:38.000
+Which is on the left hand side
+
+00:26:38.000 --> 00:26:40.000
+Means more on the side of less
+
+00:26:40.000 --> 00:26:42.000
+Whereas on the right side there is a tail
+
+00:26:42.000 --> 00:26:44.000
+This is called your right skew
+
+00:26:44.000 --> 00:26:46.000
+Here it is also called right tailed
+
+00:26:46.000 --> 00:26:48.000
+So what do we capture in P95?
+
+00:26:48.000 --> 00:26:50.000
+What we capture in P95
+
+00:26:50.000 --> 00:26:52.000
+Is that
+
+00:26:52.000 --> 00:26:54.000
+Our users
+
+00:26:54.000 --> 00:26:56.000
+Who are facing
+
+00:26:56.000 --> 00:26:58.000
+Latency on an average
+
+00:26:58.000 --> 00:27:00.000
+Means 95% of the users
+
+00:27:00.000 --> 00:27:02.000
+You can tell them that
+
+00:27:02.000 --> 00:27:04.000
+They are our users with whom
+
+00:27:04.000 --> 00:27:06.000
+The application is behaving right
+
+00:27:06.000 --> 00:27:08.000
+We calculate the latency of those users
+
+00:27:08.000 --> 00:27:10.000
+Ok
+
+00:27:10.000 --> 00:27:12.000
+The 5% outliers
+
+00:27:12.000 --> 00:27:14.000
+Or the bigger latencies
+
+00:27:14.000 --> 00:27:16.000
+We don't calculate them here
+
+00:27:16.000 --> 00:27:18.000
+Then comes your P99
+
+00:27:18.000 --> 00:27:20.000
+P99 is a little more extreme
+
+00:27:20.000 --> 00:27:22.000
+Here it captures more tail
+
+00:27:22.000 --> 00:27:24.000
+What does P99 say?
+
+00:27:24.000 --> 00:27:26.000
+That 99%
+
+00:27:26.000 --> 00:27:28.000
+Of the values are either similar
+
+00:27:28.000 --> 00:27:30.000
+Or less than this particular value
+
+00:27:30.000 --> 00:27:32.000
+This is used to capture more
+
+00:27:32.000 --> 00:27:34.000
+Tail
+
+00:27:34.000 --> 00:27:36.000
+So whenever you have to see here
+
+00:27:36.000 --> 00:27:38.000
+How much your tail is going
+
+00:27:38.000 --> 00:27:40.000
+You calculate P99 values
+
+00:27:40.000 --> 00:27:42.000
+Now you will have a question in your mind
+
+00:27:42.000 --> 00:27:44.000
+So P99 is ok
+
+00:27:44.000 --> 00:27:46.000
+Why did we leave the last 1%
+
+00:27:46.000 --> 00:27:48.000
+here?
+
+00:27:48.000 --> 00:27:50.000
+The simple reason to leave it is
+
+00:27:50.000 --> 00:27:52.000
+That there are some curious outliers
+
+00:27:52.000 --> 00:27:54.000
+Means generally
+
+00:27:54.000 --> 00:27:56.000
+They will not be in your application
+
+00:27:56.000 --> 00:27:58.000
+If your application is working properly
+
+00:27:58.000 --> 00:28:00.000
+Then those values will not be in your application
+
+00:28:00.000 --> 00:28:02.000
+But due to certain
+
+00:28:02.000 --> 00:28:04.000
+Conditions that are not in your control
+
+00:28:04.000 --> 00:28:06.000
+They come in your application
+
+00:28:06.000 --> 00:28:08.000
+You can think like this
+
+00:28:08.000 --> 00:28:10.000
+That your users
+
+00:28:10.000 --> 00:28:12.000
+Increased suddenly
+
+00:28:12.000 --> 00:28:14.000
+So what happens if your system
+
+00:28:14.000 --> 00:28:16.000
+Increased load
+
+00:28:16.000 --> 00:28:18.000
+Then its processing is a little slow
+
+00:28:18.000 --> 00:28:20.000
+So it takes time
+
+00:28:20.000 --> 00:28:22.000
+To process that particular request
+
+00:28:22.000 --> 00:28:24.000
+It is not your application's fault
+
+00:28:24.000 --> 00:28:26.000
+What is the fault?
+
+00:28:26.000 --> 00:28:28.000
+Due to increased load, your system's load increased
+
+00:28:28.000 --> 00:28:30.000
+And that load is temporary
+
+00:28:30.000 --> 00:28:32.000
+So scaling will not be there at that time
+
+00:28:32.000 --> 00:28:34.000
+Scaling is also in your 5 minutes
+
+00:28:34.000 --> 00:28:36.000
+Interval
+
+00:28:36.000 --> 00:28:38.000
+If the load decreases in it
+
+00:28:38.000 --> 00:28:40.000
+Then it is not a bad thing that you will start a new instance
+
+00:28:40.000 --> 00:28:42.000
+So in that case
+
+00:28:42.000 --> 00:28:44.000
+Some curious outliers come
+
+00:28:44.000 --> 00:28:46.000
+Which should not happen but
+
+00:28:46.000 --> 00:28:48.000
+They happen
+
+00:28:48.000 --> 00:28:50.000
+So we see our extreme outliers
+
+00:28:50.000 --> 00:28:52.000
+Through P99 value
+
+00:28:52.000 --> 00:28:54.000
+More extreme than them
+
+00:28:54.000 --> 00:28:56.000
+We skip them
+
+00:28:56.000 --> 00:28:58.000
+Because we think that
+
+00:28:58.000 --> 00:29:00.000
+These are one of cases
+
+00:29:00.000 --> 00:29:02.000
+There will be no benefit in monitoring them
+
+00:29:02.000 --> 00:29:04.000
+They are not telling us the actual picture
+
+00:29:04.000 --> 00:29:06.000
+I hope you understood
+
+00:29:06.000 --> 00:29:08.000
+So you understood the aggregate functions
+
+00:29:08.000 --> 00:29:10.000
+Is this point clear?
+
+00:29:10.000 --> 00:29:12.000
+Is it clear?
+
+00:29:12.000 --> 00:29:14.000
+In observability
+
+00:29:22.000 --> 00:29:24.000
+Guys, clear
+
+00:29:24.000 --> 00:29:26.000
+Great
+
+00:29:26.000 --> 00:29:28.000
+So what we will do in today's session
+
+00:29:28.000 --> 00:29:30.000
+In today's session
+
+00:29:30.000 --> 00:29:32.000
+We will build our dashboard
+
+00:29:32.000 --> 00:29:34.000
+Here
+
+00:29:34.000 --> 00:29:36.000
+We have traced it
+
+00:29:36.000 --> 00:29:38.000
+Now we have to visualize that tracing
+
+00:29:38.000 --> 00:29:40.000
+So we will build
+
+00:29:40.000 --> 00:29:42.000
+Custom dashboard
+
+00:29:42.000 --> 00:29:44.000
+We will apply observability
+
+00:29:44.000 --> 00:29:46.000
+Here
+
+00:29:46.000 --> 00:29:48.000
+I will show you some built-in dashboards
+
+00:29:48.000 --> 00:29:50.000
+In your LangFuse
+
+00:29:50.000 --> 00:29:52.000
+But how do you build custom dashboards
+
+00:29:52.000 --> 00:29:54.000
+And why are they good for your use case
+
+00:29:54.000 --> 00:29:56.000
+So we will not build
+
+00:29:56.000 --> 00:29:58.000
+Our dashboards blindly
+
+00:29:58.000 --> 00:30:00.000
+We will not build our dashboards blindly
+
+00:30:00.000 --> 00:30:02.000
+We will build our dashboards
+
+00:30:02.000 --> 00:30:04.000
+With the help of observation
+
+00:30:04.000 --> 00:30:06.000
+And build our graphs
+
+00:30:06.000 --> 00:30:08.000
+Is this point clear?
+
+00:30:08.000 --> 00:30:10.000
+This is highly practical
+
+00:30:10.000 --> 00:30:12.000
+There is no theory in observability
+
+00:30:12.000 --> 00:30:14.000
+I don't want to dump you with theory
+
+00:30:14.000 --> 00:30:16.000
+You should know this much
+
+00:30:16.000 --> 00:30:18.000
+Why we are doing observability
+
+00:30:18.000 --> 00:30:20.000
+Simple answer
+
+00:30:20.000 --> 00:30:22.000
+You can't see every trace manually
+
+00:30:22.000 --> 00:30:24.000
+So their aggregate result
+
+00:30:24.000 --> 00:30:26.000
+Its summary, its summary
+
+00:30:26.000 --> 00:30:28.000
+You can see in the dashboard
+
+00:30:28.000 --> 00:30:30.000
+Why the dashboard is made?
+
+00:30:30.000 --> 00:30:32.000
+You can figure out things there
+
+00:30:32.000 --> 00:30:34.000
+Something is increasing or decreasing
+
+00:30:34.000 --> 00:30:36.000
+You can see all those things there
+
+00:30:36.000 --> 00:30:38.000
+Is this point clear?
+
+00:30:38.000 --> 00:30:40.000
+Right clear?
+
+00:30:40.000 --> 00:30:42.000
+And if you have any question
+
+00:30:42.000 --> 00:30:44.000
+I will take 30 seconds
+
+00:30:44.000 --> 00:30:46.000
+Break, water break
+
+00:30:46.000 --> 00:30:48.000
+I will turn off the camera and start
+
+00:30:48.000 --> 00:30:50.000
+Building our dashboard
+
+00:30:50.000 --> 00:30:52.000
+I will show you
+
+00:30:52.000 --> 00:30:54.000
+What all things we are going to build
+
+00:30:54.000 --> 00:30:56.000
+So in total
+
+00:30:56.000 --> 00:30:58.000
+In our custom dashboard
+
+00:30:58.000 --> 00:31:00.000
+We will build our dashboards
+
+00:31:00.000 --> 00:31:02.000
+Or our visualizations
+
+00:31:02.000 --> 00:31:04.000
+Till then
+
+00:31:04.000 --> 00:31:06.000
+If there are any questions you can ask me
+
+00:31:28.000 --> 00:31:30.000
+If there are no questions
+
+00:31:30.000 --> 00:31:32.000
+Write clear
+
+00:31:32.000 --> 00:31:34.000
+And start
+
+00:31:34.000 --> 00:31:36.000
+So today we are not going to write any code
+
+00:31:36.000 --> 00:31:38.000
+Whatever we will do here
+
+00:31:38.000 --> 00:31:40.000
+The work of building dashboards
+
+00:31:40.000 --> 00:31:42.000
+All that is in our Limefuse UI
+
+00:31:42.000 --> 00:31:44.000
+So at the code level
+
+00:31:44.000 --> 00:31:46.000
+We will not make any changes
+
+00:31:46.000 --> 00:31:48.000
+In our application
+
+00:31:48.000 --> 00:31:50.000
+Start building
+
+00:31:50.000 --> 00:31:52.000
+So we will start building
+
+00:31:52.000 --> 00:31:54.000
+So we will start building
+
+00:31:54.000 --> 00:31:56.000
+So we will start building
+
+00:31:56.000 --> 00:31:58.000
+Start
+
+00:32:00.000 --> 00:32:02.000
+Write clear and then we will start
+
+00:32:02.000 --> 00:32:04.000
+Step by step
+
+00:32:04.000 --> 00:32:06.000
+We will go guys
+
+00:32:06.000 --> 00:32:08.000
+Once you come here to make graphs
+
+00:32:08.000 --> 00:32:10.000
+Easily you can also make graphs
+
+00:32:10.000 --> 00:32:12.000
+It is a very easy process
+
+00:32:12.000 --> 00:32:14.000
+Let's start
+
+00:32:14.000 --> 00:32:16.000
+Now we will go here
+
+00:32:16.000 --> 00:32:18.000
+In our UI
+
+00:32:18.000 --> 00:32:20.000
+So you will see this home page
+
+00:32:20.000 --> 00:32:22.000
+In home
+
+00:32:22.000 --> 00:32:24.000
+You can already see some
+
+00:32:24.000 --> 00:32:26.000
+Metrics
+
+00:32:26.000 --> 00:32:28.000
+Like total number of traces
+
+00:32:28.000 --> 00:32:30.000
+How much cost was there
+
+00:32:30.000 --> 00:32:32.000
+You can already see graphs
+
+00:32:32.000 --> 00:32:34.000
+How many observations you have tracked
+
+00:32:34.000 --> 00:32:36.000
+What was the usage of the model
+
+00:32:36.000 --> 00:32:38.000
+Consumption etc
+
+00:32:38.000 --> 00:32:40.000
+You can see everything
+
+00:32:40.000 --> 00:32:42.000
+Latencies etc
+
+00:32:42.000 --> 00:32:44.000
+So in this way
+
+00:32:44.000 --> 00:32:46.000
+You also build your dashboards
+
+00:32:46.000 --> 00:32:48.000
+This is your
+
+00:32:48.000 --> 00:32:50.000
+Provided dashboard
+
+00:32:50.000 --> 00:32:52.000
+You can use it
+
+00:32:52.000 --> 00:32:54.000
+You get some more custom dashboards
+
+00:32:54.000 --> 00:32:56.000
+I will show you
+
+00:32:56.000 --> 00:32:58.000
+The Langfuse home
+
+00:32:58.000 --> 00:33:00.000
+You saw
+
+00:33:00.000 --> 00:33:02.000
+This is the graph
+
+00:33:02.000 --> 00:33:04.000
+This is the dashboard
+
+00:33:04.000 --> 00:33:06.000
+This is your
+
+00:33:06.000 --> 00:33:08.000
+Belt and dashboard from Langfuse
+
+00:33:08.000 --> 00:33:10.000
+Now what is the problem of built-in dashboards
+
+00:33:10.000 --> 00:33:12.000
+You can't edit it
+
+00:33:12.000 --> 00:33:14.000
+You can either copy it
+
+00:33:14.000 --> 00:33:16.000
+Delete it or you can move it
+
+00:33:16.000 --> 00:33:18.000
+Now whatever information is coming in this dashboard
+
+00:33:18.000 --> 00:33:20.000
+You can't change it
+
+00:33:20.000 --> 00:33:22.000
+It says if you want to move it, make a copy of it
+
+00:33:22.000 --> 00:33:24.000
+And you can't customize
+
+00:33:24.000 --> 00:33:26.000
+These dashboards in the copy
+
+00:33:26.000 --> 00:33:28.000
+So they are good
+
+00:33:28.000 --> 00:33:30.000
+But they are not the best
+
+00:33:30.000 --> 00:33:32.000
+What is best is your custom implementation
+
+00:33:32.000 --> 00:33:34.000
+If you want to see the cost dashboard
+
+00:33:34.000 --> 00:33:36.000
+Then you see the cost dashboard
+
+00:33:36.000 --> 00:33:38.000
+You see something like this
+
+00:33:38.000 --> 00:33:40.000
+And if I show you here
+
+00:33:40.000 --> 00:33:42.000
+Latency dashboard
+
+00:33:42.000 --> 00:33:44.000
+So the latency dashboard
+
+00:33:44.000 --> 00:33:46.000
+Is something like this
+
+00:33:46.000 --> 00:33:48.000
+You can see the no data is coming
+
+00:33:48.000 --> 00:33:50.000
+And everything is empty here
+
+00:33:50.000 --> 00:33:52.000
+Because we are not tracking those things
+
+00:33:52.000 --> 00:33:54.000
+Or they are not available in our traces
+
+00:33:54.000 --> 00:33:56.000
+So what is the benefit of displaying them in the dashboard
+
+00:33:56.000 --> 00:33:58.000
+Dashboard is your real estate
+
+00:33:58.000 --> 00:34:00.000
+You have to use it very carefully
+
+00:34:00.000 --> 00:34:02.000
+You don't have to clutter it
+
+00:34:02.000 --> 00:34:04.000
+That you put everything here
+
+00:34:04.000 --> 00:34:06.000
+It doesn't have to be filled with unnecessary information
+
+00:34:06.000 --> 00:34:08.000
+That's why
+
+00:34:08.000 --> 00:34:10.000
+We make custom dashboards here
+
+00:34:10.000 --> 00:34:12.000
+Before that
+
+00:34:12.000 --> 00:34:14.000
+Let's add some traces here
+
+00:34:14.000 --> 00:34:16.000
+If I show you
+
+00:34:16.000 --> 00:34:18.000
+This is my PC2 instance
+
+00:34:18.000 --> 00:34:20.000
+Here is my application
+
+00:34:20.000 --> 00:34:22.000
+This is its backend
+
+00:34:22.000 --> 00:34:24.000
+And this is the frontend
+
+00:34:24.000 --> 00:34:26.000
+So here I asked some questions
+
+00:34:26.000 --> 00:34:28.000
+And took answers
+
+00:34:28.000 --> 00:34:30.000
+Basically I was generating traces
+
+00:34:30.000 --> 00:34:32.000
+So you can see here
+
+00:34:32.000 --> 00:34:34.000
+1,2,3,4
+
+00:34:34.000 --> 00:34:36.000
+I can see some sessions
+
+00:34:36.000 --> 00:34:38.000
+I asked some questions
+
+00:34:38.000 --> 00:34:40.000
+Let's create some more
+
+00:34:40.000 --> 00:34:42.000
+And then I will show you
+
+00:34:42.000 --> 00:34:44.000
+So I have noted the questions
+
+00:34:44.000 --> 00:34:46.000
+I can show you
+
+00:34:46.000 --> 00:34:48.000
+Just a second
+
+00:34:48.000 --> 00:34:50.000
+See here are some questions
+
+00:34:50.000 --> 00:34:52.000
+We can take any question here
+
+00:34:52.000 --> 00:34:54.000
+Let's take this
+
+00:34:54.000 --> 00:34:56.000
+Contextual compression one
+
+00:34:56.000 --> 00:34:58.000
+Because this is our ongoing problem
+
+00:34:58.000 --> 00:35:00.000
+So we use this
+
+00:35:00.000 --> 00:35:02.000
+As a question
+
+00:35:02.000 --> 00:35:04.000
+Here
+
+00:35:04.000 --> 00:35:06.000
+So here is the is
+
+00:35:06.000 --> 00:35:08.000
+It was not copied properly but no problem
+
+00:35:08.000 --> 00:35:10.000
+We will get the answer
+
+00:35:10.000 --> 00:35:12.000
+Let's wait for 2 minutes
+
+00:35:12.000 --> 00:35:14.000
+After that we will make our dashboard
+
+00:35:20.000 --> 00:35:22.000
+And what we will do in the next lecture
+
+00:35:22.000 --> 00:35:24.000
+In the next lecture
+
+00:35:24.000 --> 00:35:26.000
+We will do
+
+00:35:26.000 --> 00:35:28.000
+Online evals
+
+00:35:28.000 --> 00:35:30.000
+As I told you
+
+00:35:30.000 --> 00:35:32.000
+We will implement our Rack Triad
+
+00:35:32.000 --> 00:35:34.000
+But the thing is
+
+00:35:34.000 --> 00:35:36.000
+This online eval concept
+
+00:35:36.000 --> 00:35:38.000
+We will implement it
+
+00:35:38.000 --> 00:35:40.000
+Through an EC2 instance
+
+00:35:40.000 --> 00:35:42.000
+Now our application is deployed
+
+00:35:42.000 --> 00:35:44.000
+So the work of
+
+00:35:44.000 --> 00:35:46.000
+Pushing the score of the eval
+
+00:35:46.000 --> 00:35:48.000
+Online Fuse
+
+00:35:48.000 --> 00:35:50.000
+We do it in a certain frequency
+
+00:35:50.000 --> 00:35:52.000
+Let's say
+
+00:35:52.000 --> 00:35:54.000
+We are doing it in 1 hour or 6 hours
+
+00:35:54.000 --> 00:35:56.000
+So we run cron jobs
+
+00:35:56.000 --> 00:35:58.000
+You know about this
+
+00:35:58.000 --> 00:36:00.000
+So when sir was teaching you
+
+00:36:00.000 --> 00:36:02.000
+Cron jobs
+
+00:36:02.000 --> 00:36:04.000
+He was running locally
+
+00:36:04.000 --> 00:36:06.000
+But now your application is deployed
+
+00:36:06.000 --> 00:36:08.000
+So you don't put cron jobs on your laptop
+
+00:36:08.000 --> 00:36:10.000
+Because your laptop will run cron jobs
+
+00:36:10.000 --> 00:36:12.000
+Only when
+
+00:36:12.000 --> 00:36:14.000
+Your laptop is on
+
+00:36:14.000 --> 00:36:16.000
+If it is off then cron jobs will not work
+
+00:36:16.000 --> 00:36:18.000
+So for that we will use
+
+00:36:18.000 --> 00:36:20.000
+AWS
+
+00:36:20.000 --> 00:36:22.000
+So we will make an AWS instance
+
+00:36:22.000 --> 00:36:24.000
+A separate instance
+
+00:36:24.000 --> 00:36:26.000
+Which will simply
+
+00:36:26.000 --> 00:36:28.000
+Do the work of our evaluations
+
+00:36:28.000 --> 00:36:30.000
+And we will set our cron jobs on it
+
+00:36:30.000 --> 00:36:32.000
+And bring our scores on the line fuse
+
+00:36:32.000 --> 00:36:34.000
+So how do you load the traces
+
+00:36:34.000 --> 00:36:36.000
+On an AWS instance
+
+00:36:36.000 --> 00:36:38.000
+And how do you
+
+00:36:38.000 --> 00:36:40.000
+Push the scores after the evaluation
+
+00:36:40.000 --> 00:36:42.000
+We will learn all these things
+
+00:36:42.000 --> 00:36:44.000
+Now here we didn't get the answer
+
+00:36:44.000 --> 00:36:46.000
+Let's take some other question
+
+00:36:46.000 --> 00:36:48.000
+Let's take some other question
+
+00:36:48.000 --> 00:36:50.000
+Let's do this
+
+00:36:50.000 --> 00:36:52.000
+Didn't come is also good
+
+00:36:54.000 --> 00:36:56.000
+Some guardrail trigger
+
+00:36:56.000 --> 00:36:58.000
+If you want to see
+
+00:36:58.000 --> 00:37:00.000
+You can actually see
+
+00:37:00.000 --> 00:37:02.000
+See I will show you
+
+00:37:02.000 --> 00:37:04.000
+I will not show you
+
+00:37:04.000 --> 00:37:06.000
+What is the reason for not coming
+
+00:37:06.000 --> 00:37:08.000
+See this is
+
+00:37:08.000 --> 00:37:10.000
+Some guardrail trigger must have happened
+
+00:37:10.000 --> 00:37:12.000
+See retrieval has happened
+
+00:37:14.000 --> 00:37:16.000
+Retrieval has happened
+
+00:37:16.000 --> 00:37:18.000
+But you can see a warning here
+
+00:37:18.000 --> 00:37:20.000
+Your output guardrail has been triggered
+
+00:37:20.000 --> 00:37:22.000
+Reframe guardrail has been triggered
+
+00:37:22.000 --> 00:37:24.000
+And you got soft fallback
+
+00:37:24.000 --> 00:37:26.000
+And response failed validation
+
+00:37:26.000 --> 00:37:28.000
+This warning came
+
+00:37:28.000 --> 00:37:30.000
+If you want to know
+
+00:37:30.000 --> 00:37:32.000
+Which validation has failed
+
+00:37:32.000 --> 00:37:34.000
+So
+
+00:37:34.000 --> 00:37:36.000
+Whatever
+
+00:37:36.000 --> 00:37:38.000
+Reframe we had put
+
+00:37:38.000 --> 00:37:40.000
+It failed here
+
+00:37:40.000 --> 00:37:42.000
+And in the router
+
+00:37:42.000 --> 00:37:44.000
+You can see here
+
+00:37:44.000 --> 00:37:46.000
+Just a second
+
+00:37:46.000 --> 00:37:48.000
+I will show you the output
+
+00:37:48.000 --> 00:37:50.000
+See the reframe is visible
+
+00:37:50.000 --> 00:37:52.000
+So you took the path of reframe
+
+00:37:52.000 --> 00:37:54.000
+Maybe answer
+
+00:37:54.000 --> 00:37:56.000
+Relevancy guardrail has been triggered
+
+00:37:56.000 --> 00:37:58.000
+You can see here exception
+
+00:37:58.000 --> 00:38:00.000
+And warning or reframe
+
+00:38:00.000 --> 00:38:02.000
+Both are triggered here
+
+00:38:02.000 --> 00:38:04.000
+And we can also lock everyone here
+
+00:38:04.000 --> 00:38:06.000
+Now we are not able to lock guardrails
+
+00:38:06.000 --> 00:38:08.000
+Or internals here
+
+00:38:08.000 --> 00:38:10.000
+Because it is a third party software
+
+00:38:10.000 --> 00:38:12.000
+Not a part of the line graph
+
+00:38:12.000 --> 00:38:14.000
+But if we put these guardrails
+
+00:38:14.000 --> 00:38:16.000
+Through linefuse
+
+00:38:16.000 --> 00:38:18.000
+Then we can track them here
+
+00:38:18.000 --> 00:38:20.000
+And we can track them
+
+00:38:24.000 --> 00:38:26.000
+Let's go back
+
+00:38:26.000 --> 00:38:28.000
+Let's see if it's response is there
+
+00:38:28.000 --> 00:38:30.000
+Yes, it's response is there
+
+00:38:30.000 --> 00:38:32.000
+Let's make one more session
+
+00:38:32.000 --> 00:38:34.000
+And ask a question in it
+
+00:38:34.000 --> 00:38:36.000
+So
+
+00:38:36.000 --> 00:38:38.000
+We will go back
+
+00:38:38.000 --> 00:38:40.000
+And let's do one thing
+
+00:38:40.000 --> 00:38:42.000
+Let's take this question
+
+00:38:48.000 --> 00:38:50.000
+And guys
+
+00:38:50.000 --> 00:38:52.000
+This is not working locally
+
+00:38:52.000 --> 00:38:54.000
+This is working on my AWS
+
+00:39:14.000 --> 00:39:16.000
+A little bit of weight
+
+00:39:16.000 --> 00:39:18.000
+A little bit of weight
+
+00:39:30.000 --> 00:39:32.000
+Trace is here
+
+00:39:32.000 --> 00:39:34.000
+The second one is also coming
+
+00:39:34.000 --> 00:39:36.000
+As soon as it will be done, trace will come
+
+00:39:36.000 --> 00:39:38.000
+If I show you in sessions
+
+00:39:38.000 --> 00:39:40.000
+Then your sessions are also coming
+
+00:39:46.000 --> 00:39:50.000
+It's taking a lot of time
+
+00:40:00.000 --> 00:40:02.000
+There is one more fix
+
+00:40:02.000 --> 00:40:04.000
+It's a simple fix
+
+00:40:04.000 --> 00:40:06.000
+For that you will have to send a transcript
+
+00:40:06.000 --> 00:40:08.000
+On Cloud or chatgpt
+
+00:40:08.000 --> 00:40:10.000
+And you will have to tell chatgpt
+
+00:40:10.000 --> 00:40:12.000
+That from the transcript
+
+00:40:12.000 --> 00:40:14.000
+Whatever filler words or noisy content
+
+00:40:14.000 --> 00:40:16.000
+You have to filter it out
+
+00:40:16.000 --> 00:40:18.000
+And
+
+00:40:18.000 --> 00:40:20.000
+You have to get a refined transcript
+
+00:40:20.000 --> 00:40:22.000
+So what will happen is
+
+00:40:22.000 --> 00:40:24.000
+Our knowledge source will be cleaned
+
+00:40:24.000 --> 00:40:26.000
+The problem here is
+
+00:40:26.000 --> 00:40:28.000
+Contextual relevancy is not going above 80
+
+00:40:28.000 --> 00:40:30.000
+Because our knowledge source
+
+00:40:30.000 --> 00:40:32.000
+Is not good
+
+00:40:32.000 --> 00:40:34.000
+It has a lot of student interactions
+
+00:40:34.000 --> 00:40:36.000
+Because it's a live transcript
+
+00:40:36.000 --> 00:40:38.000
+And there are a lot of other things
+
+00:40:38.000 --> 00:40:40.000
+So it's a bit noisy
+
+00:40:40.000 --> 00:40:42.000
+What will be better is
+
+00:40:42.000 --> 00:40:44.000
+If you use it in your application
+
+00:40:44.000 --> 00:40:46.000
+Then you don't have to put this contextual compression
+
+00:40:46.000 --> 00:40:48.000
+You will get better scores
+
+00:40:48.000 --> 00:40:50.000
+I have not tried this
+
+00:40:50.000 --> 00:40:52.000
+But this is also a technique
+
+00:40:52.000 --> 00:40:54.000
+Through which you can improve your scores
+
+00:40:54.000 --> 00:40:56.000
+So
+
+00:40:56.000 --> 00:40:58.000
+You got the answer here
+
+00:40:58.000 --> 00:41:00.000
+And if I go to tracing
+
+00:41:00.000 --> 00:41:02.000
+Then you have also properly logged the trace
+
+00:41:02.000 --> 00:41:04.000
+And you are logging
+
+00:41:04.000 --> 00:41:06.000
+All the sessions also
+
+00:41:06.000 --> 00:41:08.000
+You can see six sessions there
+
+00:41:08.000 --> 00:41:10.000
+And six sessions here
+
+00:41:10.000 --> 00:41:12.000
+You can see how many individual traces are there in each session
+
+00:41:12.000 --> 00:41:14.000
+These are my
+
+00:41:14.000 --> 00:41:16.000
+Questions
+
+00:41:16.000 --> 00:41:18.000
+How many questions have been asked in each session
+
+00:41:18.000 --> 00:41:20.000
+So let's go
+
+00:41:20.000 --> 00:41:22.000
+Here
+
+00:41:22.000 --> 00:41:24.000
+Let's implement our custom dashboard
+
+00:41:24.000 --> 00:41:26.000
+So the first graph we are going to build
+
+00:41:26.000 --> 00:41:28.000
+That is your total trace count
+
+00:41:28.000 --> 00:41:30.000
+What will the total trace count tell us
+
+00:41:30.000 --> 00:41:32.000
+It will simply tell us
+
+00:41:32.000 --> 00:41:34.000
+How many traces are there on our application
+
+00:41:34.000 --> 00:41:36.000
+It will calculate the total traces
+
+00:41:36.000 --> 00:41:38.000
+So how do you have to do this
+
+00:41:38.000 --> 00:41:40.000
+So now you have to go to dashboards
+
+00:41:40.000 --> 00:41:42.000
+And here you have to click
+
+00:41:42.000 --> 00:41:44.000
+On new dashboard
+
+00:41:44.000 --> 00:41:46.000
+You have to give it a name
+
+00:41:46.000 --> 00:41:48.000
+We give it a name campusx
+
+00:41:48.000 --> 00:41:50.000
+RAD
+
+00:41:50.000 --> 00:41:52.000
+Dashboard
+
+00:41:52.000 --> 00:41:54.000
+Ok
+
+00:41:54.000 --> 00:41:56.000
+We gave it a name
+
+00:41:56.000 --> 00:41:58.000
+After that you have to give a description
+
+00:41:58.000 --> 00:42:00.000
+You can see the description
+
+00:42:00.000 --> 00:42:02.000
+Dashboard
+
+00:42:02.000 --> 00:42:04.000
+Used
+
+00:42:04.000 --> 00:42:06.000
+To monitor
+
+00:42:06.000 --> 00:42:08.000
+campusx
+
+00:42:08.000 --> 00:42:10.000
+RAD
+
+00:42:10.000 --> 00:42:12.000
+Checkbot
+
+00:42:12.000 --> 00:42:14.000
+Ok, we have added the description
+
+00:42:14.000 --> 00:42:16.000
+here
+
+00:42:16.000 --> 00:42:18.000
+Simply click on create
+
+00:42:18.000 --> 00:42:20.000
+You have created a dashboard
+
+00:42:20.000 --> 00:42:22.000
+And you will get a blank canvas
+
+00:42:22.000 --> 00:42:24.000
+Now you don't have any graph
+
+00:42:24.000 --> 00:42:26.000
+You have to click on add widget
+
+00:42:26.000 --> 00:42:28.000
+first
+
+00:42:28.000 --> 00:42:30.000
+After add widget
+
+00:42:30.000 --> 00:42:32.000
+You will get an option like this
+
+00:42:32.000 --> 00:42:34.000
+Now what is in this option
+
+00:42:34.000 --> 00:42:36.000
+If you go to home cards
+
+00:42:36.000 --> 00:42:38.000
+So the templates available in your home dashboard
+
+00:42:38.000 --> 00:42:40.000
+You will get them here
+
+00:42:40.000 --> 00:42:42.000
+I think there are 11 charts
+
+00:42:42.000 --> 00:42:44.000
+And you can see those 11 charts here
+
+00:42:44.000 --> 00:42:46.000
+So what you can do is
+
+00:42:46.000 --> 00:42:48.000
+You can use any template here
+
+00:42:48.000 --> 00:42:50.000
+Like if I click on it
+
+00:42:50.000 --> 00:42:52.000
+It tells me that I have 12 traces
+
+00:42:52.000 --> 00:42:54.000
+Ok, so I can use this
+
+00:42:54.000 --> 00:42:56.000
+Chart here but I will not use it
+
+00:42:56.000 --> 00:42:58.000
+I will create a fresh chart here
+
+00:42:58.000 --> 00:43:00.000
+from scratch
+
+00:43:00.000 --> 00:43:02.000
+So what you have to do
+
+00:43:02.000 --> 00:43:04.000
+To create a fresh chart
+
+00:43:04.000 --> 00:43:06.000
+You have to click on custom chart
+
+00:43:06.000 --> 00:43:08.000
+Why are you seeing these yaw widgets
+
+00:43:08.000 --> 00:43:10.000
+here
+
+00:43:10.000 --> 00:43:12.000
+Because I have created
+
+00:43:12.000 --> 00:43:14.000
+some graphs here during testing
+
+00:43:14.000 --> 00:43:16.000
+You can see them here
+
+00:43:16.000 --> 00:43:18.000
+In your case, you will see 0
+
+00:43:18.000 --> 00:43:20.000
+So I will click on custom chart
+
+00:43:20.000 --> 00:43:22.000
+And see
+
+00:43:22.000 --> 00:43:24.000
+You will see something like this
+
+00:43:24.000 --> 00:43:26.000
+Now this right hand side
+
+00:43:26.000 --> 00:43:28.000
+Here is your chart
+
+00:43:28.000 --> 00:43:30.000
+And this chart is with your live preview
+
+00:43:30.000 --> 00:43:32.000
+Live preview means
+
+00:43:32.000 --> 00:43:34.000
+You can see the changes
+
+00:43:34.000 --> 00:43:36.000
+in these options
+
+00:43:36.000 --> 00:43:38.000
+on the left hand side
+
+00:43:38.000 --> 00:43:40.000
+So you can visualize
+
+00:43:40.000 --> 00:43:42.000
+the changes you are doing here
+
+00:43:42.000 --> 00:43:44.000
+Now let's go to the left hand side
+
+00:43:44.000 --> 00:43:46.000
+Where you have to select
+
+00:43:46.000 --> 00:43:48.000
+things for your chart
+
+00:43:48.000 --> 00:43:50.000
+First of all, you will tell your data source
+
+00:43:50.000 --> 00:43:52.000
+The data of the chart
+
+00:43:52.000 --> 00:43:54.000
+From where will the data come
+
+00:43:54.000 --> 00:43:56.000
+So there are some ways to bring data
+
+00:43:56.000 --> 00:43:58.000
+First of all, your observations
+
+00:43:58.000 --> 00:44:00.000
+What are observations?
+
+00:44:00.000 --> 00:44:02.000
+Observations are
+
+00:44:02.000 --> 00:44:04.000
+Your single operations within a trace
+
+00:44:04.000 --> 00:44:06.000
+Like span, generation, event
+
+00:44:06.000 --> 00:44:08.000
+Agent specific
+
+00:44:08.000 --> 00:44:10.000
+All your events
+
+00:44:10.000 --> 00:44:12.000
+They all come under your observations
+
+00:44:12.000 --> 00:44:14.000
+Let me tell you what observations are
+
+00:44:14.000 --> 00:44:16.000
+If we go to tracing
+
+00:44:16.000 --> 00:44:18.000
+Let's open it in a new tab
+
+00:44:20.000 --> 00:44:22.000
+So see
+
+00:44:22.000 --> 00:44:24.000
+If we are not looking at our root traces
+
+00:44:24.000 --> 00:44:26.000
+So what we have is
+
+00:44:26.000 --> 00:44:28.000
+All the steps are visible here
+
+00:44:28.000 --> 00:44:30.000
+If I want to see
+
+00:44:30.000 --> 00:44:32.000
+my root observations
+
+00:44:32.000 --> 00:44:34.000
+These are my root observations
+
+00:44:34.000 --> 00:44:36.000
+Root means these are your single end to end observations
+
+00:44:36.000 --> 00:44:38.000
+And if you want to see all its components
+
+00:44:38.000 --> 00:44:40.000
+Then those are your observations
+
+00:44:40.000 --> 00:44:42.000
+If I expand it
+
+00:44:42.000 --> 00:44:44.000
+Then you can understand
+
+00:44:44.000 --> 00:44:46.000
+the individual observations
+
+00:44:46.000 --> 00:44:48.000
+So where will we bring the data
+
+00:44:48.000 --> 00:44:50.000
+We will bring the data
+
+00:44:50.000 --> 00:44:52.000
+from individual steps or observations
+
+00:44:52.000 --> 00:44:54.000
+Fine
+
+00:44:54.000 --> 00:44:56.000
+So there are other ways to bring data
+
+00:44:56.000 --> 00:44:58.000
+Like if you are putting evaluations
+
+00:44:58.000 --> 00:45:00.000
+Then you can bring scores
+
+00:45:00.000 --> 00:45:02.000
+But currently we are not putting evaluations
+
+00:45:02.000 --> 00:45:04.000
+So now we will work with observations
+
+00:45:04.000 --> 00:45:06.000
+Then you will tell
+
+00:45:06.000 --> 00:45:08.000
+What do you have to plot here
+
+00:45:08.000 --> 00:45:10.000
+What is your metric
+
+00:45:10.000 --> 00:45:12.000
+What is our metric
+
+00:45:12.000 --> 00:45:14.000
+You have many metrics
+
+00:45:14.000 --> 00:45:16.000
+These are your different metrics
+
+00:45:16.000 --> 00:45:18.000
+You can plot them
+
+00:45:18.000 --> 00:45:20.000
+Latency, streaming latency
+
+00:45:20.000 --> 00:45:22.000
+Cost, scores
+
+00:45:22.000 --> 00:45:24.000
+You can plot everything
+
+00:45:24.000 --> 00:45:26.000
+What do we have to plot
+
+00:45:26.000 --> 00:45:28.000
+We have to plot count
+
+00:45:28.000 --> 00:45:30.000
+It is written in the count
+
+00:45:30.000 --> 00:45:32.000
+Total number of observations
+
+00:45:32.000 --> 00:45:34.000
+So yes we have to plot count
+
+00:45:34.000 --> 00:45:38.000
+Then comes your breakdown dimensions
+
+00:45:38.000 --> 00:45:40.000
+What do you call breakdown dimensions
+
+00:45:40.000 --> 00:45:42.000
+Breakdown dimensions is basically
+
+00:45:42.000 --> 00:45:44.000
+Your group by operation
+
+00:45:44.000 --> 00:45:46.000
+That you want to group your graph
+
+00:45:46.000 --> 00:45:48.000
+On what basis
+
+00:45:48.000 --> 00:45:50.000
+This is showing you the
+
+00:45:50.000 --> 00:45:52.000
+Global observation
+
+00:45:52.000 --> 00:45:54.000
+Here you have not put any group by operation
+
+00:45:54.000 --> 00:45:56.000
+But you can put it
+
+00:45:56.000 --> 00:45:58.000
+Now I will show you how
+
+00:45:58.000 --> 00:46:00.000
+After that you will give your graph
+
+00:46:00.000 --> 00:46:02.000
+A name
+
+00:46:02.000 --> 00:46:04.000
+Here count observations are written
+
+00:46:04.000 --> 00:46:06.000
+If I change anything here
+
+00:46:06.000 --> 00:46:08.000
+I removed the parenthesis
+
+00:46:08.000 --> 00:46:10.000
+Then you will see the live preview on the right hand side
+
+00:46:10.000 --> 00:46:12.000
+A description
+
+00:46:12.000 --> 00:46:14.000
+We can replace the count of observations
+
+00:46:14.000 --> 00:46:16.000
+With traces
+
+00:46:16.000 --> 00:46:18.000
+Because we are visualizing traces
+
+00:46:18.000 --> 00:46:20.000
+We can put traces inside the count
+
+00:46:20.000 --> 00:46:22.000
+Instead of observations
+
+00:46:22.000 --> 00:46:24.000
+Now if you want
+
+00:46:24.000 --> 00:46:26.000
+You can see the count
+
+00:46:26.000 --> 00:46:28.000
+Through a line graph
+
+00:46:28.000 --> 00:46:30.000
+What is the benefit of line graph
+
+00:46:30.000 --> 00:46:32.000
+Line graph basically shows you
+
+00:46:32.000 --> 00:46:34.000
+Temporal data
+
+00:46:34.000 --> 00:46:36.000
+It shows you data in a given time range
+
+00:46:36.000 --> 00:46:38.000
+Like 9th September
+
+00:46:38.000 --> 00:46:40.000
+10th September
+
+00:46:40.000 --> 00:46:42.000
+It shows you week wise
+
+00:46:42.000 --> 00:46:44.000
+Past 7 days
+
+00:46:44.000 --> 00:46:46.000
+You can change this range here
+
+00:46:46.000 --> 00:46:48.000
+I will change the range here
+
+00:46:48.000 --> 00:46:50.000
+This x axis will change
+
+00:46:50.000 --> 00:46:52.000
+I will do past 1 hour
+
+00:46:52.000 --> 00:46:54.000
+This is divided according to hour
+
+00:46:54.000 --> 00:46:56.000
+Now what is the benefit of this
+
+00:46:56.000 --> 00:46:58.000
+Here you can see
+
+00:46:58.000 --> 00:47:00.000
+Changes with time
+
+00:47:00.000 --> 00:47:02.000
+This is your time based data
+
+00:47:02.000 --> 00:47:04.000
+But
+
+00:47:04.000 --> 00:47:06.000
+If I want to calculate the count
+
+00:47:06.000 --> 00:47:08.000
+I don't want to see
+
+00:47:08.000 --> 00:47:10.000
+That here
+
+00:47:10.000 --> 00:47:12.000
+With time how many traces are locked
+
+00:47:12.000 --> 00:47:14.000
+I want to see
+
+00:47:14.000 --> 00:47:16.000
+How many traces are there in my system
+
+00:47:16.000 --> 00:47:18.000
+So total
+
+00:47:18.000 --> 00:47:20.000
+If you want to calculate
+
+00:47:20.000 --> 00:47:22.000
+Total
+
+00:47:22.000 --> 00:47:24.000
+You have to take a different chart
+
+00:47:24.000 --> 00:47:26.000
+Now you can see
+
+00:47:26.000 --> 00:47:28.000
+Different charts
+
+00:47:28.000 --> 00:47:30.000
+Two categories
+
+00:47:30.000 --> 00:47:32.000
+One is time series
+
+00:47:32.000 --> 00:47:34.000
+Time series is to show your temporal data
+
+00:47:34.000 --> 00:47:36.000
+Like your line chart
+
+00:47:36.000 --> 00:47:38.000
+Or your bar chart
+
+00:47:38.000 --> 00:47:40.000
+The lines in bar chart
+
+00:47:40.000 --> 00:47:42.000
+Are shown in bar shape
+
+00:47:42.000 --> 00:47:44.000
+And rest is your total value
+
+00:47:44.000 --> 00:47:46.000
+If you want to show
+
+00:47:46.000 --> 00:47:48.000
+Only one single value
+
+00:47:48.000 --> 00:47:50.000
+You can use these chart types
+
+00:47:50.000 --> 00:47:52.000
+Horizontal bar chart
+
+00:47:52.000 --> 00:47:54.000
+Vertical bar chart
+
+00:47:54.000 --> 00:47:56.000
+It will show you single value
+
+00:47:56.000 --> 00:47:58.000
+So every chart has a different use case
+
+00:47:58.000 --> 00:48:00.000
+You can select the chart according to you
+
+00:48:00.000 --> 00:48:02.000
+We will select this big number
+
+00:48:02.000 --> 00:48:04.000
+What will big number show us
+
+00:48:04.000 --> 00:48:06.000
+It will show us the count of our traces
+
+00:48:06.000 --> 00:48:08.000
+Now you will feel
+
+00:48:08.000 --> 00:48:10.000
+97
+
+00:48:10.000 --> 00:48:12.000
+Is it a count of our traces
+
+00:48:12.000 --> 00:48:14.000
+How many traces do we have
+
+00:48:14.000 --> 00:48:16.000
+I think if I see here
+
+00:48:16.000 --> 00:48:18.000
+There are 12 traces
+
+00:48:18.000 --> 00:48:20.000
+But what is showing us
+
+00:48:20.000 --> 00:48:22.000
+97, keep in mind 97
+
+00:48:22.000 --> 00:48:24.000
+Because these are your number of
+
+00:48:24.000 --> 00:48:26.000
+Observations
+
+00:48:26.000 --> 00:48:28.000
+All the steps in each trace
+
+00:48:28.000 --> 00:48:30.000
+We have to add a filter
+
+00:48:30.000 --> 00:48:32.000
+Here
+
+00:48:32.000 --> 00:48:34.000
+We are not observing
+
+00:48:34.000 --> 00:48:36.000
+We are
+
+00:48:36.000 --> 00:48:38.000
+Tracing traces
+
+00:48:38.000 --> 00:48:40.000
+What you have to do for that
+
+00:48:40.000 --> 00:48:42.000
+You have to go down
+
+00:48:42.000 --> 00:48:44.000
+In the filter
+
+00:48:44.000 --> 00:48:46.000
+And you have to take this filter
+
+00:48:46.000 --> 00:48:48.000
+This filter will show you
+
+00:48:48.000 --> 00:48:50.000
+Here also
+
+00:48:50.000 --> 00:48:52.000
+And what we have set its value
+
+00:48:52.000 --> 00:48:54.000
+True
+
+00:48:54.000 --> 00:48:56.000
+You have to do that
+
+00:48:56.000 --> 00:48:58.000
+And you can see
+
+00:48:58.000 --> 00:49:00.000
+Your number of traces
+
+00:49:00.000 --> 00:49:02.000
+Now why are these 3 visible
+
+00:49:02.000 --> 00:49:04.000
+Because we are calculating past 1 hour
+
+00:49:04.000 --> 00:49:06.000
+But what we have to do
+
+00:49:06.000 --> 00:49:08.000
+Is to take the total
+
+00:49:08.000 --> 00:49:10.000
+So let's take today
+
+00:49:10.000 --> 00:49:12.000
+Past 1 day
+
+00:49:12.000 --> 00:49:14.000
+You are getting count of 12 traces
+
+00:49:16.000 --> 00:49:18.000
+Is this point clear
+
+00:49:18.000 --> 00:49:20.000
+How do you set the observations
+
+00:49:20.000 --> 00:49:22.000
+You get only these options
+
+00:49:22.000 --> 00:49:24.000
+You have to make changes
+
+00:49:24.000 --> 00:49:26.000
+And set the observations
+
+00:49:28.000 --> 00:49:30.000
+Everything is clear here
+
+00:49:30.000 --> 00:49:32.000
+Yes
+
+00:49:32.000 --> 00:49:34.000
+Yes
+
+00:49:34.000 --> 00:49:36.000
+But let's say
+
+00:49:36.000 --> 00:49:38.000
+Use case is
+
+00:49:38.000 --> 00:49:40.000
+You have to see
+
+00:49:40.000 --> 00:49:42.000
+How much traces
+
+00:49:42.000 --> 00:49:44.000
+My user has generated in each session
+
+00:49:44.000 --> 00:49:46.000
+What will you get from that
+
+00:49:46.000 --> 00:49:48.000
+On average
+
+00:49:48.000 --> 00:49:50.000
+My user holds
+
+00:49:50.000 --> 00:49:52.000
+How long
+
+00:49:52.000 --> 00:49:54.000
+Sessions
+
+00:49:54.000 --> 00:49:56.000
+You may have to see this information
+
+00:49:56.000 --> 00:49:58.000
+So what will you do here
+
+00:49:58.000 --> 00:50:00.000
+Now see here
+
+00:50:00.000 --> 00:50:02.000
+Because we are giving a single number
+
+00:50:02.000 --> 00:50:04.000
+So the option of group buy has gone
+
+00:50:04.000 --> 00:50:06.000
+For that you have to choose
+
+00:50:06.000 --> 00:50:08.000
+Some other data type
+
+00:50:08.000 --> 00:50:10.000
+Like if we choose here
+
+00:50:10.000 --> 00:50:12.000
+Pivot table
+
+00:50:12.000 --> 00:50:14.000
+What is in pivot table
+
+00:50:14.000 --> 00:50:16.000
+You can see the data in the form of table
+
+00:50:16.000 --> 00:50:18.000
+So here you can see total 12
+
+00:50:18.000 --> 00:50:20.000
+But here I don't want to see
+
+00:50:20.000 --> 00:50:22.000
+Total, what I want to see
+
+00:50:22.000 --> 00:50:24.000
+I want to see
+
+00:50:24.000 --> 00:50:26.000
+Based on the
+
+00:50:26.000 --> 00:50:28.000
+Group buy
+
+00:50:28.000 --> 00:50:30.000
+So what I will do for group buy
+
+00:50:30.000 --> 00:50:32.000
+I will use this dimension one
+
+00:50:32.000 --> 00:50:34.000
+What is the dimension
+
+00:50:34.000 --> 00:50:36.000
+Basically it is used for group buy
+
+00:50:36.000 --> 00:50:38.000
+And I will go inside this
+
+00:50:38.000 --> 00:50:40.000
+And I will select my session id
+
+00:50:40.000 --> 00:50:42.000
+Now here you will see an error
+
+00:50:42.000 --> 00:50:44.000
+Invalid query
+
+00:50:44.000 --> 00:50:46.000
+What you have to do for that
+
+00:50:46.000 --> 00:50:48.000
+See it is written
+
+00:50:48.000 --> 00:50:50.000
+Never worry if there is any error
+
+00:50:50.000 --> 00:50:52.000
+High cardinality dimension session id
+
+00:50:52.000 --> 00:50:54.000
+Require both config rule limit and
+
+00:50:54.000 --> 00:50:56.000
+This error is saying that
+
+00:50:56.000 --> 00:50:58.000
+How many session id can be
+
+00:50:58.000 --> 00:51:00.000
+If your chatbot is running
+
+00:51:00.000 --> 00:51:02.000
+Inside the production
+
+00:51:02.000 --> 00:51:04.000
+So how many sessions can be
+
+00:51:04.000 --> 00:51:06.000
+100, 200, 500, no limit
+
+00:51:06.000 --> 00:51:08.000
+So how much will you plot here
+
+00:51:08.000 --> 00:51:10.000
+So you have to set a limit here
+
+00:51:10.000 --> 00:51:12.000
+What will you have to set the limit
+
+00:51:12.000 --> 00:51:14.000
+You will tell here row limit
+
+00:51:14.000 --> 00:51:16.000
+We say that show us only
+
+00:51:16.000 --> 00:51:18.000
+10 sessions at the top
+
+00:51:18.000 --> 00:51:20.000
+OK and how to sort it
+
+00:51:20.000 --> 00:51:22.000
+See here the sort column is written
+
+00:51:22.000 --> 00:51:24.000
+So what will happen here
+
+00:51:24.000 --> 00:51:26.000
+Sort on the basis of count
+
+00:51:26.000 --> 00:51:28.000
+In descending order
+
+00:51:28.000 --> 00:51:30.000
+And you can see here
+
+00:51:30.000 --> 00:51:32.000
+How many traces are there
+
+00:51:32.000 --> 00:51:34.000
+In your individual session
+
+00:51:36.000 --> 00:51:38.000
+Is this point clear
+
+00:51:38.000 --> 00:51:40.000
+And what you have to do simply
+
+00:51:40.000 --> 00:51:42.000
+Save it and see
+
+00:51:42.000 --> 00:51:44.000
+Here you can see
+
+00:51:44.000 --> 00:51:46.000
+All the things
+
+00:51:46.000 --> 00:51:48.000
+Now see the moment I clicked
+
+00:51:48.000 --> 00:51:50.000
+It broke, why it broke
+
+00:51:50.000 --> 00:51:52.000
+And it broke
+
+00:51:52.000 --> 00:51:54.000
+Because it will not work in ascending
+
+00:51:54.000 --> 00:51:56.000
+It will work in descending
+
+00:51:56.000 --> 00:51:58.000
+Again I will save and it will come here
+
+00:51:58.000 --> 00:52:00.000
+But if there was
+
+00:52:00.000 --> 00:52:02.000
+Any other group by operation
+
+00:52:02.000 --> 00:52:04.000
+In which you view in ascending
+
+00:52:04.000 --> 00:52:06.000
+You can see
+
+00:52:06.000 --> 00:52:08.000
+Sorting in ascending order
+
+00:52:08.000 --> 00:52:10.000
+So what is this telling
+
+00:52:10.000 --> 00:52:12.000
+It is telling that there are some session id
+
+00:52:12.000 --> 00:52:14.000
+Where we are doing
+
+00:52:14.000 --> 00:52:16.000
+Long chats and some
+
+00:52:16.000 --> 00:52:18.000
+Where small chats are happening
+
+00:52:18.000 --> 00:52:20.000
+Is this point clear
+
+00:52:20.000 --> 00:52:22.000
+You can make a small change
+
+00:52:22.000 --> 00:52:24.000
+In your UI
+
+00:52:24.000 --> 00:52:26.000
+What you can change in streamlit
+
+00:52:26.000 --> 00:52:28.000
+With session name
+
+00:52:28.000 --> 00:52:30.000
+You can print a session id in UI
+
+00:52:30.000 --> 00:52:32.000
+And you can match the size
+
+00:52:32.000 --> 00:52:34.000
+You must be thinking
+
+00:52:34.000 --> 00:52:36.000
+Sir why we are not setting
+
+00:52:36.000 --> 00:52:38.000
+Session name here, why setting id
+
+00:52:38.000 --> 00:52:40.000
+Because two session names can be similar
+
+00:52:40.000 --> 00:52:42.000
+Because session name
+
+00:52:42.000 --> 00:52:44.000
+Is generating our LLM
+
+00:52:44.000 --> 00:52:46.000
+So if we will give same question
+
+00:52:46.000 --> 00:52:48.000
+As we gave in previous session
+
+00:52:48.000 --> 00:52:50.000
+So same name will be generated
+
+00:52:50.000 --> 00:52:52.000
+There is a high probability
+
+00:52:52.000 --> 00:52:54.000
+So there should not be any conflict
+
+00:52:54.000 --> 00:52:56.000
+So we will work with session id
+
+00:52:56.000 --> 00:52:58.000
+These are your unique id
+
+00:52:58.000 --> 00:53:00.000
+Is this point clear
+
+00:53:00.000 --> 00:53:02.000
+How you see the count
+
+00:53:02.000 --> 00:53:04.000
+You can make it very small
+
+00:53:04.000 --> 00:53:06.000
+By dragging
+
+00:53:06.000 --> 00:53:08.000
+And you can move it
+
+00:53:08.000 --> 00:53:10.000
+In your entire canvas
+
+00:53:10.000 --> 00:53:12.000
+This is your edit button
+
+00:53:12.000 --> 00:53:14.000
+And you can also copy it
+
+00:53:14.000 --> 00:53:16.000
+And you can download it as JSON
+
+00:53:16.000 --> 00:53:18.000
+Or CSV
+
+00:53:18.000 --> 00:53:20.000
+We will copy it
+
+00:53:20.000 --> 00:53:22.000
+And we will paste it
+
+00:53:22.000 --> 00:53:24.000
+Here you will go
+
+00:53:24.000 --> 00:53:26.000
+Paste widget
+
+00:53:26.000 --> 00:53:28.000
+We will allow
+
+00:53:28.000 --> 00:53:30.000
+One more copy is made
+
+00:53:30.000 --> 00:53:32.000
+What we will do in this
+
+00:53:32.000 --> 00:53:34.000
+We will use our
+
+00:53:34.000 --> 00:53:36.000
+Other type
+
+00:53:36.000 --> 00:53:38.000
+Where we can see total number of traces
+
+00:53:38.000 --> 00:53:40.000
+16 is visible
+
+00:53:40.000 --> 00:53:42.000
+Because it is past 7 days
+
+00:53:42.000 --> 00:53:44.000
+We will select past 1 day
+
+00:53:44.000 --> 00:53:46.000
+And we will save it
+
+00:53:48.000 --> 00:53:50.000
+You can change its name
+
+00:53:50.000 --> 00:53:52.000
+You can do count traces per session id
+
+00:53:52.000 --> 00:53:54.000
+We will do it
+
+00:53:54.000 --> 00:53:56.000
+We will do it
+
+00:53:56.000 --> 00:53:58.000
+You can do it here
+
+00:53:58.000 --> 00:54:00.000
+Per
+
+00:54:00.000 --> 00:54:02.000
+Session
+
+00:54:02.000 --> 00:54:04.000
+Id
+
+00:54:04.000 --> 00:54:06.000
+Per
+
+00:54:06.000 --> 00:54:08.000
+Session id
+
+00:54:08.000 --> 00:54:10.000
+Save
+
+00:54:12.000 --> 00:54:14.000
+Just a second guys
+
+00:54:20.000 --> 00:54:22.000
+This zoom interfere
+
+00:54:22.000 --> 00:54:24.000
+It is better
+
+00:54:24.000 --> 00:54:26.000
+What you can do
+
+00:54:26.000 --> 00:54:28.000
+You can drag it and bring it here
+
+00:54:28.000 --> 00:54:30.000
+See
+
+00:54:30.000 --> 00:54:32.000
+And with this we have made
+
+00:54:32.000 --> 00:54:34.000
+This graph
+
+00:54:34.000 --> 00:54:36.000
+Clear
+
+00:54:36.000 --> 00:54:38.000
+Simple, nothing difficult
+
+00:54:38.000 --> 00:54:40.000
+You saw, easy
+
+00:54:42.000 --> 00:54:44.000
+Let's go to
+
+00:54:44.000 --> 00:54:46.000
+Second graph
+
+00:54:46.000 --> 00:54:48.000
+Right clear
+
+00:54:48.000 --> 00:54:50.000
+Then let's go to second graph
+
+00:54:50.000 --> 00:54:52.000
+Now we will make it fast
+
+00:54:52.000 --> 00:54:54.000
+If you get the method to make it
+
+00:54:54.000 --> 00:54:56.000
+Then we will make other graphs fast
+
+00:54:58.000 --> 00:55:00.000
+Yes
+
+00:55:00.000 --> 00:55:02.000
+Now next we have to make
+
+00:55:02.000 --> 00:55:04.000
+Model cost table
+
+00:55:04.000 --> 00:55:06.000
+What model cost table tells us
+
+00:55:06.000 --> 00:55:08.000
+Model cost table will tell us
+
+00:55:08.000 --> 00:55:10.000
+That all the generations
+
+00:55:10.000 --> 00:55:12.000
+We are using generation traces
+
+00:55:12.000 --> 00:55:14.000
+Because we are using our LLM
+
+00:55:14.000 --> 00:55:16.000
+So which model version
+
+00:55:16.000 --> 00:55:18.000
+How much cost is coming
+
+00:55:18.000 --> 00:55:20.000
+We want to calculate that
+
+00:55:20.000 --> 00:55:22.000
+So you can calculate
+
+00:55:22.000 --> 00:55:24.000
+Model cost in two ways
+
+00:55:24.000 --> 00:55:26.000
+You can actually calculate
+
+00:55:26.000 --> 00:55:28.000
+Average cost
+
+00:55:28.000 --> 00:55:30.000
+On an average, in one generation
+
+00:55:30.000 --> 00:55:32.000
+How much cost is being taken
+
+00:55:32.000 --> 00:55:34.000
+And you can also calculate
+
+00:55:34.000 --> 00:55:36.000
+Total cost
+
+00:55:36.000 --> 00:55:38.000
+Since your application is live
+
+00:55:38.000 --> 00:55:40.000
+So how much you have spent on that
+
+00:55:40.000 --> 00:55:42.000
+Your API cost will come out of it
+
+00:55:42.000 --> 00:55:44.000
+So here we will capture both
+
+00:55:44.000 --> 00:55:46.000
+In our visualization
+
+00:55:46.000 --> 00:55:48.000
+Average and total
+
+00:55:48.000 --> 00:55:50.000
+How do you want to do
+
+00:55:50.000 --> 00:55:52.000
+I will show you
+
+00:55:52.000 --> 00:55:54.000
+Add widget
+
+00:55:54.000 --> 00:55:56.000
+Go to custom
+
+00:55:56.000 --> 00:55:58.000
+Table is better for this too
+
+00:55:58.000 --> 00:56:00.000
+Because we are showing two pieces of information
+
+00:56:00.000 --> 00:56:02.000
+You will select observations
+
+00:56:02.000 --> 00:56:04.000
+Now here you will not select count
+
+00:56:04.000 --> 00:56:06.000
+What will you select? Total cost
+
+00:56:06.000 --> 00:56:08.000
+Here is your total cost
+
+00:56:10.000 --> 00:56:12.000
+In total cost
+
+00:56:12.000 --> 00:56:14.000
+You want sum and average
+
+00:56:14.000 --> 00:56:16.000
+So first of all we will change the chart type
+
+00:56:16.000 --> 00:56:18.000
+Let's do pivot table
+
+00:56:18.000 --> 00:56:20.000
+You can see total cost
+
+00:56:20.000 --> 00:56:22.000
+OK
+
+00:56:22.000 --> 00:56:24.000
+And you will also
+
+00:56:24.000 --> 00:56:26.000
+Select
+
+00:56:26.000 --> 00:56:28.000
+Second metric
+
+00:56:28.000 --> 00:56:30.000
+Second metric is again your total cost
+
+00:56:30.000 --> 00:56:32.000
+But this time we will calculate average
+
+00:56:32.000 --> 00:56:34.000
+So you can see total
+
+00:56:34.000 --> 00:56:36.000
+Of sum total cost
+
+00:56:36.000 --> 00:56:38.000
+Of your model and average cost
+
+00:56:38.000 --> 00:56:40.000
+But here
+
+00:56:40.000 --> 00:56:42.000
+There is no model wise information
+
+00:56:42.000 --> 00:56:44.000
+Where will model wise information come from
+
+00:56:44.000 --> 00:56:46.000
+From our dimensions
+
+00:56:46.000 --> 00:56:48.000
+From group by
+
+00:56:48.000 --> 00:56:50.000
+You have to go in this
+
+00:56:50.000 --> 00:56:52.000
+You have to go down
+
+00:56:52.000 --> 00:56:54.000
+And you have to select here
+
+00:56:54.000 --> 00:56:56.000
+Let me see
+
+00:56:56.000 --> 00:56:58.000
+Provided modeling
+
+00:56:58.000 --> 00:57:00.000
+If you hover here
+
+00:57:00.000 --> 00:57:02.000
+Then you will know what is the option
+
+00:57:02.000 --> 00:57:04.000
+You have to select use for the observation
+
+00:57:04.000 --> 00:57:06.000
+You have to select this
+
+00:57:06.000 --> 00:57:08.000
+OK
+
+00:57:08.000 --> 00:57:10.000
+Because we are using only one model
+
+00:57:10.000 --> 00:57:12.000
+So its information is coming
+
+00:57:12.000 --> 00:57:14.000
+But you can see here if you use multiple model versions
+
+00:57:14.000 --> 00:57:16.000
+Then you will get this information
+
+00:57:16.000 --> 00:57:18.000
+Let's do past one day
+
+00:57:18.000 --> 00:57:20.000
+And this is your information
+
+00:57:20.000 --> 00:57:22.000
+OK
+
+00:57:22.000 --> 00:57:24.000
+Simply what you have to do here
+
+00:57:24.000 --> 00:57:26.000
+You can see here the title
+
+00:57:26.000 --> 00:57:28.000
+And the description
+
+00:57:28.000 --> 00:57:30.000
+It is coming automatically here
+
+00:57:32.000 --> 00:57:38.000
+You are getting information here
+
+00:57:38.000 --> 00:57:40.000
+Now you can see clearly that here
+
+00:57:40.000 --> 00:57:42.000
+This NA value is also getting captured
+
+00:57:42.000 --> 00:57:44.000
+Why is this NA value getting captured
+
+00:57:44.000 --> 00:57:46.000
+Because in any trace
+
+00:57:46.000 --> 00:57:48.000
+We are not able to properly log the model information
+
+00:57:48.000 --> 00:57:50.000
+Maybe our guardrails where we are using LLMs
+
+00:57:50.000 --> 00:57:52.000
+There is no model information coming
+
+00:57:52.000 --> 00:57:54.000
+So what can we do
+
+00:57:54.000 --> 00:57:56.000
+We can clean it a little
+
+00:57:56.000 --> 00:57:58.000
+For now we can set the limit here
+
+00:57:58.000 --> 00:58:00.000
+That is 1
+
+00:58:00.000 --> 00:58:02.000
+So we will get only one model
+
+00:58:02.000 --> 00:58:04.000
+Tomorrow if you are using different models
+
+00:58:04.000 --> 00:58:06.000
+Then you can basically tweak it
+
+00:58:06.000 --> 00:58:08.000
+Let's drag it here
+
+00:58:08.000 --> 00:58:10.000
+And bring it here
+
+00:58:10.000 --> 00:58:12.000
+Let's readjust it a little
+
+00:58:12.000 --> 00:58:14.000
+And let's readjust it a little
+
+00:58:14.000 --> 00:58:16.000
+And it is too much
+
+00:58:16.000 --> 00:58:18.000
+Let's make it smaller
+
+00:58:18.000 --> 00:58:20.000
+And like this
+
+00:58:20.000 --> 00:58:22.000
+OK
+
+00:58:22.000 --> 00:58:24.000
+So we have added this graph
+
+00:58:24.000 --> 00:58:26.000
+Now what we have to tell
+
+00:58:26.000 --> 00:58:28.000
+Next graph is
+
+00:58:28.000 --> 00:58:30.000
+Model cost by type
+
+00:58:30.000 --> 00:58:32.000
+And model usage by type
+
+00:58:32.000 --> 00:58:34.000
+And these two will be our line charts
+
+00:58:34.000 --> 00:58:36.000
+Basically what we are telling in this graph
+
+00:58:36.000 --> 00:58:38.000
+In this graph we are telling
+
+00:58:38.000 --> 00:58:40.000
+That your model cost
+
+00:58:40.000 --> 00:58:42.000
+In it
+
+00:58:42.000 --> 00:58:44.000
+Input cost is coming this much
+
+00:58:44.000 --> 00:58:46.000
+Reasoning cost is coming this much
+
+00:58:46.000 --> 00:58:48.000
+Output cost is coming this much
+
+00:58:48.000 --> 00:58:50.000
+That means internally your costing in the model
+
+00:58:50.000 --> 00:58:52.000
+We are segregating it
+
+00:58:52.000 --> 00:58:54.000
+So it is being segregated by type
+
+00:58:54.000 --> 00:58:56.000
+So it is segregated by type
+
+00:58:56.000 --> 00:58:58.000
+So it is being said by type
+
+00:58:58.000 --> 00:59:00.000
+So you want to see
+
+00:59:00.000 --> 00:59:02.000
+In your generation
+
+00:59:02.000 --> 00:59:04.000
+How much is the cost in reasoning
+
+00:59:04.000 --> 00:59:06.000
+How much is the cost in input and output
+
+00:59:06.000 --> 00:59:08.000
+And model usage means
+
+00:59:08.000 --> 00:59:10.000
+If you see usage in linefuse
+
+00:59:10.000 --> 00:59:12.000
+Then you will understand that this is your
+
+00:59:12.000 --> 00:59:14.000
+Number of tokens
+
+00:59:14.000 --> 00:59:16.000
+You want to see number of tokens based on
+
+00:59:16.000 --> 00:59:18.000
+How are your input tokens, output
+
+00:59:18.000 --> 00:59:20.000
+And reasoning
+
+00:59:20.000 --> 00:59:22.000
+And why are we plotting them in line charts
+
+00:59:22.000 --> 00:59:24.000
+Why are we not plotting it in two tables
+
+00:59:24.000 --> 00:59:26.000
+The reason is that we want to see
+
+00:59:26.000 --> 00:59:28.000
+The pattern of our cost
+
+00:59:28.000 --> 00:59:30.000
+And token usage
+
+00:59:30.000 --> 00:59:32.000
+With time
+
+00:59:32.000 --> 00:59:34.000
+How is our cost affecting
+
+00:59:34.000 --> 00:59:36.000
+And with time
+
+00:59:36.000 --> 00:59:38.000
+How is our token usage affecting
+
+00:59:38.000 --> 00:59:40.000
+From that we will know
+
+00:59:40.000 --> 00:59:42.000
+What kind of inputs our users are sending
+
+00:59:42.000 --> 00:59:44.000
+And what kind of generation is happening there
+
+00:59:44.000 --> 00:59:46.000
+Are big paragraphs
+
+00:59:46.000 --> 00:59:48.000
+Being generated, small ones
+
+00:59:48.000 --> 00:59:50.000
+Everything will be clear
+
+00:59:50.000 --> 00:59:52.000
+Let's build this
+
+00:59:52.000 --> 00:59:54.000
+To build this we will use add widget
+
+00:59:54.000 --> 00:59:56.000
+We will go to custom chart
+
+00:59:56.000 --> 00:59:58.000
+Again observation
+
+00:59:58.000 --> 01:00:00.000
+What will you do in metric
+
+01:00:00.000 --> 01:00:02.000
+You have a special metric cost by type
+
+01:00:02.000 --> 01:00:04.000
+It is written here
+
+01:00:04.000 --> 01:00:06.000
+Sum of cost per category
+
+01:00:06.000 --> 01:00:08.000
+You will select this
+
+01:00:08.000 --> 01:00:10.000
+Now you are getting a boring graph
+
+01:00:10.000 --> 01:00:12.000
+You will say that
+
+01:00:12.000 --> 01:00:14.000
+We have selected by type
+
+01:00:14.000 --> 01:00:16.000
+But type is not coming
+
+01:00:16.000 --> 01:00:18.000
+Where will type come from?
+
+01:00:18.000 --> 01:00:20.000
+You will get type when you will put group by
+
+01:00:20.000 --> 01:00:22.000
+You will get type on cost type
+
+01:00:24.000 --> 01:00:26.000
+And see guys
+
+01:00:26.000 --> 01:00:28.000
+How beautiful graph
+
+01:00:28.000 --> 01:00:30.000
+You can see here
+
+01:00:30.000 --> 01:00:32.000
+Simply we can do this
+
+01:00:32.000 --> 01:00:34.000
+Past one day
+
+01:00:34.000 --> 01:00:36.000
+And we save it
+
+01:00:40.000 --> 01:00:42.000
+And see guys
+
+01:00:42.000 --> 01:00:44.000
+It is telling you
+
+01:00:44.000 --> 01:00:46.000
+If you hover here
+
+01:00:46.000 --> 01:00:48.000
+It is telling you how much cost is coming
+
+01:00:48.000 --> 01:00:50.000
+Total cost is coming
+
+01:00:50.000 --> 01:00:52.000
+Input cost is coming
+
+01:00:52.000 --> 01:00:54.000
+Output cost is coming
+
+01:00:54.000 --> 01:00:56.000
+So you can see clearly
+
+01:00:56.000 --> 01:00:58.000
+Input cost is always less
+
+01:00:58.000 --> 01:01:00.000
+Than your output cost
+
+01:01:00.000 --> 01:01:02.000
+So you can see it in the graph
+
+01:01:02.000 --> 01:01:04.000
+I think four times
+
+01:01:04.000 --> 01:01:06.000
+So you can see this four times
+
+01:01:06.000 --> 01:01:08.000
+Difference in the graph
+
+01:01:08.000 --> 01:01:10.000
+And this graph is your width time
+
+01:01:10.000 --> 01:01:12.000
+As you will keep on doing more conversations
+
+01:01:12.000 --> 01:01:14.000
+It will keep on increasing
+
+01:01:14.000 --> 01:01:16.000
+Currently it is showing 9 pm
+
+01:01:16.000 --> 01:01:18.000
+It is 9 pm
+
+01:01:18.000 --> 01:01:20.000
+As we will keep on increasing
+
+01:01:20.000 --> 01:01:22.000
+Graph will keep on increasing
+
+01:01:22.000 --> 01:01:24.000
+Is this point clear?
+
+01:01:24.000 --> 01:01:26.000
+And this is live
+
+01:01:26.000 --> 01:01:28.000
+Same we will do here
+
+01:01:28.000 --> 01:01:30.000
+With our token usage
+
+01:01:30.000 --> 01:01:32.000
+Making a graph of token usage is very easy
+
+01:01:32.000 --> 01:01:34.000
+We will go to custom chart
+
+01:01:34.000 --> 01:01:36.000
+We will select here
+
+01:01:36.000 --> 01:01:38.000
+Metric
+
+01:01:38.000 --> 01:01:40.000
+Cost by type
+
+01:01:40.000 --> 01:01:42.000
+Usage by type
+
+01:01:42.000 --> 01:01:44.000
+If you come down, you will get
+
+01:01:44.000 --> 01:01:46.000
+Same thing
+
+01:01:46.000 --> 01:01:48.000
+We will go here and
+
+01:01:48.000 --> 01:01:50.000
+Select usage type
+
+01:01:50.000 --> 01:01:52.000
+And see
+
+01:01:52.000 --> 01:01:54.000
+Here we will go down
+
+01:01:54.000 --> 01:01:56.000
+Select range
+
+01:01:56.000 --> 01:01:58.000
+We will keep one day
+
+01:01:58.000 --> 01:02:00.000
+And you can clearly see
+
+01:02:00.000 --> 01:02:02.000
+In seven days you were seeing a little different
+
+01:02:02.000 --> 01:02:04.000
+See this was a little different
+
+01:02:04.000 --> 01:02:06.000
+And in one day
+
+01:02:06.000 --> 01:02:08.000
+This is different
+
+01:02:08.000 --> 01:02:10.000
+But information is carrying there
+
+01:02:10.000 --> 01:02:12.000
+These are your tokens
+
+01:02:12.000 --> 01:02:14.000
+This red one is your total tokens
+
+01:02:14.000 --> 01:02:16.000
+33000
+
+01:02:16.000 --> 01:02:18.000
+And how many are there in reasoning
+
+01:02:18.000 --> 01:02:20.000
+In output, input
+
+01:02:20.000 --> 01:02:22.000
+And in generation
+
+01:02:22.000 --> 01:02:24.000
+So you can see clearly
+
+01:02:24.000 --> 01:02:26.000
+That your input tokens
+
+01:02:26.000 --> 01:02:28.000
+Are more than output tokens
+
+01:02:28.000 --> 01:02:30.000
+So means model
+
+01:02:30.000 --> 01:02:32.000
+Which is generating output
+
+01:02:32.000 --> 01:02:34.000
+In that number of tokens are being spent less
+
+01:02:34.000 --> 01:02:36.000
+Whereas the user asking your question
+
+01:02:36.000 --> 01:02:38.000
+Is more
+
+01:02:38.000 --> 01:02:40.000
+And in this input token
+
+01:02:40.000 --> 01:02:42.000
+You will get the same
+
+01:02:42.000 --> 01:02:44.000
+So we are taking that in account
+
+01:02:44.000 --> 01:02:46.000
+So we will click on save widget
+
+01:02:46.000 --> 01:02:48.000
+And this is our other graph
+
+01:02:48.000 --> 01:02:50.000
+It is easy
+
+01:02:50.000 --> 01:02:52.000
+It is getting clear
+
+01:02:52.000 --> 01:02:54.000
+But you are getting reasoning behind every graph
+
+01:02:54.000 --> 01:02:56.000
+We are using our real estate very well
+
+01:02:56.000 --> 01:02:58.000
+We are not spreading any clutter
+
+01:02:58.000 --> 01:03:00.000
+It is not like we have added unnecessary graphs
+
+01:03:00.000 --> 01:03:02.000
+And we are just building
+
+01:03:02.000 --> 01:03:04.000
+Anything here
+
+01:03:04.000 --> 01:03:06.000
+We are arranging things
+
+01:03:06.000 --> 01:03:08.000
+With a lot of thought
+
+01:03:08.000 --> 01:03:10.000
+It is getting clear
+
+01:03:12.000 --> 01:03:14.000
+And same thing you do in Grafana
+
+01:03:14.000 --> 01:03:16.000
+Grafana's setup is also
+
+01:03:16.000 --> 01:03:18.000
+Very similar
+
+01:03:18.000 --> 01:03:20.000
+Just there
+
+01:03:20.000 --> 01:03:22.000
+You monitor different things
+
+01:03:22.000 --> 01:03:24.000
+You might be feeling easy
+
+01:03:24.000 --> 01:03:26.000
+By seeing monitoring
+
+01:03:26.000 --> 01:03:28.000
+But you see
+
+01:03:28.000 --> 01:03:30.000
+How much information
+
+01:03:30.000 --> 01:03:32.000
+You are getting here
+
+01:03:32.000 --> 01:03:34.000
+In a very concise form
+
+01:03:34.000 --> 01:03:36.000
+Now you think your application is running
+
+01:03:36.000 --> 01:03:38.000
+And you have this dashboard
+
+01:03:38.000 --> 01:03:40.000
+How easily
+
+01:03:40.000 --> 01:03:42.000
+You can monitor everything
+
+01:03:42.000 --> 01:03:44.000
+You can see everything here
+
+01:03:44.000 --> 01:03:46.000
+So we have made this graph
+
+01:03:46.000 --> 01:03:48.000
+Next
+
+01:03:48.000 --> 01:03:50.000
+What we have to make
+
+01:03:50.000 --> 01:03:52.000
+Next we have to check
+
+01:03:52.000 --> 01:03:54.000
+Per session token cost
+
+01:03:54.000 --> 01:03:56.000
+Basically we want to see
+
+01:03:56.000 --> 01:03:58.000
+Activity of our session
+
+01:03:58.000 --> 01:04:00.000
+How long our sessions are running
+
+01:04:00.000 --> 01:04:02.000
+How much cost
+
+01:04:02.000 --> 01:04:04.000
+We have to bear in them
+
+01:04:04.000 --> 01:04:06.000
+So we have to bear
+
+01:04:06.000 --> 01:04:08.000
+To make that
+
+01:04:08.000 --> 01:04:10.000
+Again we will use the head widget
+
+01:04:10.000 --> 01:04:12.000
+We will go to custom chart
+
+01:04:12.000 --> 01:04:14.000
+Here we will go to metric
+
+01:04:14.000 --> 01:04:16.000
+What we have to take metric
+
+01:04:16.000 --> 01:04:18.000
+Total cost
+
+01:04:18.000 --> 01:04:20.000
+Right
+
+01:04:20.000 --> 01:04:22.000
+You want to calculate total
+
+01:04:22.000 --> 01:04:24.000
+So here you
+
+01:04:24.000 --> 01:04:26.000
+Aggregate function will use sum
+
+01:04:26.000 --> 01:04:28.000
+You can take average or max
+
+01:04:28.000 --> 01:04:30.000
+All options are available here
+
+01:04:30.000 --> 01:04:32.000
+But we will take sum here
+
+01:04:32.000 --> 01:04:34.000
+What is our chart type
+
+01:04:34.000 --> 01:04:36.000
+Our chart type is bar chart
+
+01:04:38.000 --> 01:04:40.000
+But we are also using group by
+
+01:04:40.000 --> 01:04:42.000
+Group by on which we are using
+
+01:04:42.000 --> 01:04:44.000
+Based on our session id
+
+01:04:44.000 --> 01:04:46.000
+And you can see here
+
+01:04:46.000 --> 01:04:48.000
+Here per session you can see
+
+01:04:48.000 --> 01:04:50.000
+Total cost
+
+01:04:50.000 --> 01:04:52.000
+Simply
+
+01:04:52.000 --> 01:04:54.000
+Let's do it for past one day
+
+01:04:54.000 --> 01:04:56.000
+And let's save the widget
+
+01:04:56.000 --> 01:04:58.000
+Let's save the widget
+
+01:05:00.000 --> 01:05:02.000
+Again you can set limit here
+
+01:05:02.000 --> 01:05:04.000
+One second
+
+01:05:04.000 --> 01:05:06.000
+It is a little small
+
+01:05:06.000 --> 01:05:08.000
+We will put it here
+
+01:05:10.000 --> 01:05:12.000
+Here you can edit things
+
+01:05:12.000 --> 01:05:14.000
+What you can edit is you can set limit
+
+01:05:14.000 --> 01:05:16.000
+Let's say you want to see
+
+01:05:16.000 --> 01:05:18.000
+Your
+
+01:05:18.000 --> 01:05:20.000
+5 or 10 most costly
+
+01:05:20.000 --> 01:05:22.000
+Sessions which are they
+
+01:05:22.000 --> 01:05:24.000
+And what total cost you are giving them
+
+01:05:24.000 --> 01:05:26.000
+Here we have set limit of 10
+
+01:05:26.000 --> 01:05:28.000
+And see
+
+01:05:28.000 --> 01:05:30.000
+Now you will see top 10 sessions
+
+01:05:30.000 --> 01:05:32.000
+Session id
+
+01:05:32.000 --> 01:05:34.000
+Is not able to be printed here
+
+01:05:34.000 --> 01:05:36.000
+Because they are big
+
+01:05:36.000 --> 01:05:38.000
+There is no option to rotate
+
+01:05:38.000 --> 01:05:40.000
+But you can hover and see
+
+01:05:40.000 --> 01:05:42.000
+Session id and total cost
+
+01:05:42.000 --> 01:05:44.000
+Interactive
+
+01:05:44.000 --> 01:05:46.000
+I hope this point
+
+01:05:46.000 --> 01:05:48.000
+Is also clear
+
+01:05:48.000 --> 01:05:50.000
+One more thing we will calculate
+
+01:05:50.000 --> 01:05:52.000
+Average cost
+
+01:05:52.000 --> 01:05:54.000
+And token usage per session
+
+01:05:54.000 --> 01:05:56.000
+What is your average cost
+
+01:05:56.000 --> 01:05:58.000
+And what is the token usage
+
+01:05:58.000 --> 01:06:00.000
+Per session
+
+01:06:00.000 --> 01:06:02.000
+This information is also
+
+01:06:02.000 --> 01:06:04.000
+Important to calculate
+
+01:06:04.000 --> 01:06:06.000
+This is telling you the total cost
+
+01:06:06.000 --> 01:06:08.000
+That in every session
+
+01:06:08.000 --> 01:06:10.000
+How much total cost you are getting
+
+01:06:10.000 --> 01:06:12.000
+You also have to see that in your session
+
+01:06:12.000 --> 01:06:14.000
+How much average cost you are getting
+
+01:06:14.000 --> 01:06:16.000
+Means how much cost you are getting in one query
+
+01:06:16.000 --> 01:06:18.000
+Or how much average cost you are getting in one session
+
+01:06:18.000 --> 01:06:20.000
+Ok
+
+01:06:20.000 --> 01:06:22.000
+And you will calculate token usage
+
+01:06:22.000 --> 01:06:24.000
+Per session
+
+01:06:24.000 --> 01:06:26.000
+On an average
+
+01:06:26.000 --> 01:06:28.000
+How much cost you have to pay
+
+01:06:28.000 --> 01:06:30.000
+For that we will select
+
+01:06:30.000 --> 01:06:32.000
+Add widget
+
+01:06:32.000 --> 01:06:34.000
+We will go to custom chart
+
+01:06:34.000 --> 01:06:36.000
+Guys now you have to keep one thing in mind
+
+01:06:36.000 --> 01:06:38.000
+Title description
+
+01:06:38.000 --> 01:06:40.000
+I am not showing you that by changing it
+
+01:06:40.000 --> 01:06:42.000
+Because it is a very mundane task
+
+01:06:42.000 --> 01:06:44.000
+You do that
+
+01:06:44.000 --> 01:06:46.000
+Don't leave everything on me
+
+01:06:46.000 --> 01:06:48.000
+I am showing you by building these things
+
+01:06:48.000 --> 01:06:50.000
+You can do that here
+
+01:06:50.000 --> 01:06:52.000
+I hope this thing is clear to you
+
+01:06:52.000 --> 01:06:54.000
+So now
+
+01:06:54.000 --> 01:06:56.000
+If I show you from behind
+
+01:06:56.000 --> 01:06:58.000
+Let's close this
+
+01:06:58.000 --> 01:07:00.000
+I go again
+
+01:07:00.000 --> 01:07:02.000
+To dashboards
+
+01:07:02.000 --> 01:07:04.000
+And let's go to this
+
+01:07:04.000 --> 01:07:06.000
+Now you will see this table
+
+01:07:06.000 --> 01:07:08.000
+Here we were calculating
+
+01:07:08.000 --> 01:07:10.000
+Only one metric
+
+01:07:10.000 --> 01:07:12.000
+Now we have not calculated any table
+
+01:07:12.000 --> 01:07:14.000
+Where we have multiple rows
+
+01:07:14.000 --> 01:07:16.000
+And multiple columns in columns
+
+01:07:16.000 --> 01:07:18.000
+This was where there were multiple columns
+
+01:07:18.000 --> 01:07:20.000
+But only one row
+
+01:07:20.000 --> 01:07:22.000
+So here
+
+01:07:22.000 --> 01:07:24.000
+2D table or matrix
+
+01:07:24.000 --> 01:07:26.000
+Will be built here
+
+01:07:26.000 --> 01:07:28.000
+For that you have to go to metric
+
+01:07:28.000 --> 01:07:30.000
+Before that you select
+
+01:07:30.000 --> 01:07:32.000
+Pivot table
+
+01:07:32.000 --> 01:07:34.000
+Ok your table is here
+
+01:07:34.000 --> 01:07:36.000
+Now you will tell metric one
+
+01:07:36.000 --> 01:07:38.000
+What is metric one
+
+01:07:38.000 --> 01:07:40.000
+It is your cost
+
+01:07:40.000 --> 01:07:42.000
+You will go here
+
+01:07:42.000 --> 01:07:44.000
+Total cost
+
+01:07:46.000 --> 01:07:48.000
+Total cost
+
+01:07:48.000 --> 01:07:50.000
+Here is the aggregate function
+
+01:07:50.000 --> 01:07:52.000
+You want to calculate average cost
+
+01:07:52.000 --> 01:07:54.000
+Then you want to put another metric
+
+01:07:54.000 --> 01:07:56.000
+Here you will tell
+
+01:07:56.000 --> 01:07:58.000
+What is metric
+
+01:07:58.000 --> 01:08:00.000
+It is usage
+
+01:08:00.000 --> 01:08:02.000
+Use means your number of tokens
+
+01:08:02.000 --> 01:08:04.000
+So you will go total
+
+01:08:06.000 --> 01:08:08.000
+Tokens
+
+01:08:08.000 --> 01:08:10.000
+And here also
+
+01:08:10.000 --> 01:08:12.000
+You will calculate average
+
+01:08:12.000 --> 01:08:14.000
+And this is it
+
+01:08:14.000 --> 01:08:16.000
+Ok you have done this
+
+01:08:16.000 --> 01:08:18.000
+After that you will go to dimension
+
+01:08:18.000 --> 01:08:20.000
+And you will apply the group by operation
+
+01:08:20.000 --> 01:08:22.000
+What is group by
+
+01:08:22.000 --> 01:08:24.000
+We want to see on the basis of session id
+
+01:08:24.000 --> 01:08:26.000
+Again he will say
+
+01:08:26.000 --> 01:08:28.000
+Cardinality is more here set
+
+01:08:28.000 --> 01:08:30.000
+We want to set let's say
+
+01:08:30.000 --> 01:08:32.000
+Top 5 sessions
+
+01:08:32.000 --> 01:08:34.000
+Average of top 5 sessions
+
+01:08:34.000 --> 01:08:36.000
+Or
+
+01:08:36.000 --> 01:08:38.000
+You want to see average token
+
+01:08:38.000 --> 01:08:40.000
+And average cost
+
+01:08:40.000 --> 01:08:42.000
+Ok so 5 is set
+
+01:08:42.000 --> 01:08:44.000
+You want to set order by
+
+01:08:44.000 --> 01:08:46.000
+So you can sort here
+
+01:08:46.000 --> 01:08:48.000
+You can do it according to any column
+
+01:08:48.000 --> 01:08:50.000
+Which column you want to sort
+
+01:08:50.000 --> 01:08:52.000
+Let's say I want to sort based on the cost
+
+01:08:54.000 --> 01:08:56.000
+So here you got things sorted
+
+01:08:56.000 --> 01:08:58.000
+And why did I select cost
+
+01:08:58.000 --> 01:09:00.000
+Because it is understood
+
+01:09:00.000 --> 01:09:02.000
+The more cost it will be
+
+01:09:02.000 --> 01:09:04.000
+It means there are more tokens in it
+
+01:09:04.000 --> 01:09:06.000
+Tokens is your cost
+
+01:09:06.000 --> 01:09:08.000
+So you can sort on anyone
+
+01:09:08.000 --> 01:09:10.000
+These are my 5 sessions
+
+01:09:10.000 --> 01:09:12.000
+Which are a little expensive
+
+01:09:14.000 --> 01:09:16.000
+And one more thing
+
+01:09:16.000 --> 01:09:18.000
+We can do in this
+
+01:09:18.000 --> 01:09:20.000
+Let's add one more metric
+
+01:09:20.000 --> 01:09:22.000
+That is our number of traces
+
+01:09:22.000 --> 01:09:24.000
+With that we will know
+
+01:09:24.000 --> 01:09:26.000
+In this session
+
+01:09:26.000 --> 01:09:28.000
+How many observations we have recorded
+
+01:09:28.000 --> 01:09:30.000
+So total count has come here
+
+01:09:30.000 --> 01:09:32.000
+And we have to add a filter
+
+01:09:32.000 --> 01:09:34.000
+We have to add filter
+
+01:09:34.000 --> 01:09:36.000
+Based on the
+
+01:09:36.000 --> 01:09:38.000
+Root observation
+
+01:09:38.000 --> 01:09:40.000
+And you can see
+
+01:09:44.000 --> 01:09:46.000
+Why did cost stop
+
+01:09:54.000 --> 01:09:56.000
+I don't know
+
+01:09:56.000 --> 01:09:58.000
+Here observations is coming
+
+01:09:58.000 --> 01:10:00.000
+Here that thing is being calculated
+
+01:10:00.000 --> 01:10:02.000
+Whatever it is
+
+01:10:02.000 --> 01:10:04.000
+We will save it here
+
+01:10:04.000 --> 01:10:06.000
+And we take this table
+
+01:10:10.000 --> 01:10:12.000
+To this side
+
+01:10:12.000 --> 01:10:14.000
+Let's make it a little smaller
+
+01:10:14.000 --> 01:10:16.000
+And let's drag it over
+
+01:10:16.000 --> 01:10:18.000
+Here
+
+01:10:20.000 --> 01:10:22.000
+Let's do it here
+
+01:10:22.000 --> 01:10:24.000
+I think it is better to do it here
+
+01:10:24.000 --> 01:10:26.000
+Let's arrange it a little
+
+01:10:28.000 --> 01:10:30.000
+Yes, so we did it
+
+01:10:30.000 --> 01:10:32.000
+Yes, so we did it
+
+01:10:34.000 --> 01:10:36.000
+A little order has been changed
+
+01:10:36.000 --> 01:10:38.000
+Nothing is being adjusted here
+
+01:10:38.000 --> 01:10:40.000
+Again you can fix it
+
+01:10:40.000 --> 01:10:42.000
+A little
+
+01:10:42.000 --> 01:10:44.000
+Ordering is custom
+
+01:10:44.000 --> 01:10:46.000
+You can change things
+
+01:10:46.000 --> 01:10:48.000
+We are not focused on that
+
+01:10:48.000 --> 01:10:50.000
+So this we have also done
+
+01:10:50.000 --> 01:10:52.000
+Yes, this is a very important table
+
+01:10:52.000 --> 01:10:54.000
+Latency for each component
+
+01:10:54.000 --> 01:10:56.000
+What we will do here
+
+01:10:56.000 --> 01:10:58.000
+Latency of each component
+
+01:10:58.000 --> 01:11:00.000
+We will see the latency of each component
+
+01:11:00.000 --> 01:11:02.000
+Which components
+
+01:11:02.000 --> 01:11:04.000
+Are showing more
+
+01:11:04.000 --> 01:11:06.000
+Latency here
+
+01:11:06.000 --> 01:11:08.000
+And here we will see the entire
+
+01:11:08.000 --> 01:11:10.000
+Percentile table
+
+01:11:10.000 --> 01:11:12.000
+We will print p50 here
+
+01:11:12.000 --> 01:11:14.000
+We will print p75 here
+
+01:11:14.000 --> 01:11:16.000
+We can see or not
+
+01:11:16.000 --> 01:11:18.000
+90, 95, 99
+
+01:11:18.000 --> 01:11:20.000
+We will print all here
+
+01:11:20.000 --> 01:11:22.000
+And we will print the maximum value here
+
+01:11:22.000 --> 01:11:24.000
+So there will be a lot of information
+
+01:11:24.000 --> 01:11:26.000
+here
+
+01:11:26.000 --> 01:11:28.000
+Here we will see the group by operation
+
+01:11:28.000 --> 01:11:30.000
+Component wise
+
+01:11:30.000 --> 01:11:32.000
+And every component
+
+01:11:32.000 --> 01:11:34.000
+p50 latency, p90 latency
+
+01:11:34.000 --> 01:11:36.000
+95, 99 and max
+
+01:11:36.000 --> 01:11:38.000
+All values will be visible
+
+01:11:38.000 --> 01:11:40.000
+Very useful table
+
+01:11:40.000 --> 01:11:42.000
+You will get a lot of information in one table
+
+01:11:42.000 --> 01:11:44.000
+This is a very dense table
+
+01:11:44.000 --> 01:11:46.000
+Let's go to custom chart
+
+01:11:46.000 --> 01:11:48.000
+Again the method is very simple
+
+01:11:48.000 --> 01:11:50.000
+You will go here to pivot table
+
+01:11:50.000 --> 01:11:52.000
+You will select
+
+01:11:52.000 --> 01:11:54.000
+Past one day
+
+01:11:54.000 --> 01:11:56.000
+You have to select things here
+
+01:11:56.000 --> 01:11:58.000
+First of all you have to tell your metric
+
+01:11:58.000 --> 01:12:00.000
+What is metric
+
+01:12:00.000 --> 01:12:02.000
+Metric is your latency
+
+01:12:02.000 --> 01:12:04.000
+Here is your latency
+
+01:12:04.000 --> 01:12:06.000
+Which you will select
+
+01:12:06.000 --> 01:12:08.000
+Which latency you want to calculate
+
+01:12:08.000 --> 01:12:10.000
+Which latencies we want to calculate
+
+01:12:10.000 --> 01:12:12.000
+here
+
+01:12:12.000 --> 01:12:14.000
+p50, 90, 95, 99
+
+01:12:14.000 --> 01:12:16.000
+and max
+
+01:12:16.000 --> 01:12:18.000
+We will not keep average here
+
+01:12:18.000 --> 01:12:20.000
+We will select p50
+
+01:12:20.000 --> 01:12:22.000
+After that
+
+01:12:22.000 --> 01:12:24.000
+We will select add
+
+01:12:24.000 --> 01:12:26.000
+Again we want to calculate latency
+
+01:12:26.000 --> 01:12:28.000
+Which one
+
+01:12:28.000 --> 01:12:30.000
+p90
+
+01:12:30.000 --> 01:12:32.000
+Then we want to add latency
+
+01:12:32.000 --> 01:12:34.000
+Which one
+
+01:12:34.000 --> 01:12:36.000
+p95
+
+01:12:36.000 --> 01:12:38.000
+Then we will select latency
+
+01:12:38.000 --> 01:12:40.000
+Which one
+
+01:12:40.000 --> 01:12:42.000
+p99
+
+01:12:42.000 --> 01:12:44.000
+Add and finally we will select the max
+
+01:12:44.000 --> 01:12:46.000
+Latency
+
+01:12:46.000 --> 01:12:48.000
+Max
+
+01:12:48.000 --> 01:12:50.000
+See we have all the values
+
+01:12:50.000 --> 01:12:52.000
+But these are the total values
+
+01:12:52.000 --> 01:12:54.000
+All the total
+
+01:12:54.000 --> 01:12:56.000
+Traces are coming to us
+
+01:12:56.000 --> 01:12:58.000
+p50, 90, 95, 99
+
+01:12:58.000 --> 01:13:00.000
+and max
+
+01:13:00.000 --> 01:13:02.000
+Which latency we want here
+
+01:13:02.000 --> 01:13:04.000
+Component wise
+
+01:13:04.000 --> 01:13:06.000
+Again we will apply a group by operation
+
+01:13:06.000 --> 01:13:08.000
+What you have to do in group by operation
+
+01:13:08.000 --> 01:13:10.000
+You have to go here
+
+01:13:10.000 --> 01:13:12.000
+In the name
+
+01:13:12.000 --> 01:13:14.000
+Name of the observation
+
+01:13:14.000 --> 01:13:16.000
+What I have told
+
+01:13:16.000 --> 01:13:18.000
+Every single stage of operation is your observation
+
+01:13:18.000 --> 01:13:20.000
+You will name it like this
+
+01:13:20.000 --> 01:13:22.000
+You can see the steps
+
+01:13:22.000 --> 01:13:24.000
+Augmentation, chat response, chat open AI
+
+01:13:24.000 --> 01:13:26.000
+You can see many types of observation
+
+01:13:26.000 --> 01:13:28.000
+But it is not important to see
+
+01:13:28.000 --> 01:13:30.000
+Latency of all the observations
+
+01:13:30.000 --> 01:13:32.000
+See this
+
+01:13:32.000 --> 01:13:34.000
+Runnable sequence
+
+01:13:34.000 --> 01:13:36.000
+It is showing the total of a runnable sequence
+
+01:13:36.000 --> 01:13:38.000
+We don't know which one is this
+
+01:13:38.000 --> 01:13:40.000
+Output, parser, what will be the latency
+
+01:13:40.000 --> 01:13:42.000
+So what you have to do here
+
+01:13:42.000 --> 01:13:44.000
+You have to filter out
+
+01:13:44.000 --> 01:13:46.000
+all these information
+
+01:13:46.000 --> 01:13:48.000
+Filter
+
+01:13:48.000 --> 01:13:50.000
+What will we do in filter
+
+01:13:50.000 --> 01:13:52.000
+We will select observation name
+
+01:13:52.000 --> 01:13:54.000
+We have to filter
+
+01:13:54.000 --> 01:13:56.000
+Observation name
+
+01:13:56.000 --> 01:13:58.000
+There are two options
+
+01:13:58.000 --> 01:14:00.000
+Any and none
+
+01:14:00.000 --> 01:14:02.000
+Any means include, none means exclude
+
+01:14:02.000 --> 01:14:04.000
+We will select here
+
+01:14:04.000 --> 01:14:06.000
+Which information we want
+
+01:14:06.000 --> 01:14:08.000
+For that
+
+01:14:08.000 --> 01:14:10.000
+We can open a trace
+
+01:14:10.000 --> 01:14:12.000
+We want input guardrail
+
+01:14:12.000 --> 01:14:14.000
+How much time it takes in input guardrail
+
+01:14:14.000 --> 01:14:16.000
+How much time it takes in retrieve
+
+01:14:16.000 --> 01:14:18.000
+See
+
+01:14:18.000 --> 01:14:20.000
+After that
+
+01:14:20.000 --> 01:14:22.000
+Retrieval guardrail
+
+01:14:22.000 --> 01:14:24.000
+Augmentation
+
+01:14:24.000 --> 01:14:26.000
+Generation
+
+01:14:26.000 --> 01:14:28.000
+Output guardrail and that's it
+
+01:14:28.000 --> 01:14:30.000
+You have to filter
+
+01:14:30.000 --> 01:14:32.000
+These names
+
+01:14:32.000 --> 01:14:34.000
+We will go here and select them
+
+01:14:34.000 --> 01:14:36.000
+We will go down
+
+01:14:40.000 --> 01:14:42.000
+We will select augmentation
+
+01:14:42.000 --> 01:14:44.000
+Generation
+
+01:14:44.000 --> 01:14:46.000
+Input guardrail
+
+01:14:46.000 --> 01:14:48.000
+Output guardrail
+
+01:14:48.000 --> 01:14:50.000
+Retrieval guardrail
+
+01:14:50.000 --> 01:14:52.000
+Retrieve
+
+01:14:52.000 --> 01:14:54.000
+We can leave these
+
+01:14:56.000 --> 01:14:58.000
+We can leave this too
+
+01:14:58.000 --> 01:15:00.000
+I think these are
+
+01:15:00.000 --> 01:15:02.000
+Our steps
+
+01:15:02.000 --> 01:15:04.000
+Let's see
+
+01:15:04.000 --> 01:15:06.000
+These are the 6 steps
+
+01:15:06.000 --> 01:15:08.000
+And these are the 6 steps
+
+01:15:08.000 --> 01:15:10.000
+We have captured this information
+
+01:15:10.000 --> 01:15:12.000
+We are able to capture the latency of every component
+
+01:15:12.000 --> 01:15:14.000
+We are able to capture the latency of every component
+
+01:15:14.000 --> 01:15:16.000
+Now what we have to do
+
+01:15:16.000 --> 01:15:18.000
+We have to do sorting
+
+01:15:18.000 --> 01:15:20.000
+Because what we want
+
+01:15:20.000 --> 01:15:22.000
+We want
+
+01:15:22.000 --> 01:15:24.000
+The latency we see
+
+01:15:24.000 --> 01:15:26.000
+According to P95
+
+01:15:26.000 --> 01:15:28.000
+In the descending order
+
+01:15:28.000 --> 01:15:30.000
+So obviously you know your retrieval step
+
+01:15:30.000 --> 01:15:32.000
+Is the slowest
+
+01:15:32.000 --> 01:15:34.000
+So you can see P95 latency at the top
+
+01:15:36.000 --> 01:15:38.000
+And you can actually see the complete
+
+01:15:38.000 --> 01:15:40.000
+Distribution through this table
+
+01:15:44.000 --> 01:15:46.000
+Let's drag this
+
+01:15:46.000 --> 01:15:48.000
+It won't come here
+
+01:15:48.000 --> 01:15:50.000
+I don't know if this right space is available
+
+01:15:50.000 --> 01:15:52.000
+But still it is not coming
+
+01:15:52.000 --> 01:15:54.000
+Anyways whatever
+
+01:15:54.000 --> 01:15:56.000
+It is done
+
+01:15:56.000 --> 01:15:58.000
+Why is it not being dragged properly
+
+01:16:04.000 --> 01:16:06.000
+It gets dragged suddenly
+
+01:16:06.000 --> 01:16:08.000
+See
+
+01:16:08.000 --> 01:16:10.000
+Now you can see this table clearly
+
+01:16:10.000 --> 01:16:12.000
+And understand
+
+01:16:12.000 --> 01:16:14.000
+Let's give it a title
+
+01:16:14.000 --> 01:16:16.000
+It is a little big and useless
+
+01:16:16.000 --> 01:16:18.000
+Let's give it
+
+01:16:20.000 --> 01:16:22.000
+Title as
+
+01:16:22.000 --> 01:16:24.000
+Component
+
+01:16:24.000 --> 01:16:26.000
+Twice
+
+01:16:26.000 --> 01:16:28.000
+Latency
+
+01:16:32.000 --> 01:16:34.000
+See
+
+01:16:34.000 --> 01:16:36.000
+Now you can see
+
+01:16:36.000 --> 01:16:38.000
+In this graph clearly
+
+01:16:38.000 --> 01:16:40.000
+You can understand guys
+
+01:16:40.000 --> 01:16:42.000
+Should not have messed with it
+
+01:16:42.000 --> 01:16:44.000
+Just a second guys
+
+01:16:44.000 --> 01:16:46.000
+It's UI is a little misbehaving
+
+01:16:48.000 --> 01:16:50.000
+Now you can see clearly in this graph
+
+01:16:50.000 --> 01:16:52.000
+You can understand everything
+
+01:16:52.000 --> 01:16:54.000
+In your retrieval
+
+01:16:54.000 --> 01:16:56.000
+What is every latency
+
+01:16:56.000 --> 01:16:58.000
+In your generation
+
+01:16:58.000 --> 01:17:00.000
+How are the latencies
+
+01:17:00.000 --> 01:17:02.000
+Input guardrail
+
+01:17:02.000 --> 01:17:04.000
+And how are the limitations in the documentation
+
+01:17:04.000 --> 01:17:06.000
+You think about it
+
+01:17:06.000 --> 01:17:08.000
+This information is with you
+
+01:17:08.000 --> 01:17:10.000
+Of your application
+
+01:17:10.000 --> 01:17:12.000
+You can judge it easily
+
+01:17:12.000 --> 01:17:14.000
+Don't you think guys
+
+01:17:20.000 --> 01:17:22.000
+How easy is it to judge
+
+01:17:24.000 --> 01:17:26.000
+Let's do one thing
+
+01:17:26.000 --> 01:17:28.000
+Let's take some rest
+
+01:17:28.000 --> 01:17:30.000
+And I will take your questions
+
+01:17:30.000 --> 01:17:32.000
+I am tired of talking
+
+01:17:32.000 --> 01:17:34.000
+Question
+
+01:17:34.000 --> 01:17:36.000
+Is it possible to publish so that all admin
+
+01:17:36.000 --> 01:17:38.000
+Can view this entry
+
+01:17:38.000 --> 01:17:40.000
+Yes
+
+01:17:40.000 --> 01:17:42.000
+Basically this plan
+
+01:17:42.000 --> 01:17:44.000
+This is a hobby plan
+
+01:17:44.000 --> 01:17:46.000
+But if you go to upgrade plan
+
+01:17:46.000 --> 01:17:48.000
+You get enterprise plans
+
+01:17:48.000 --> 01:17:50.000
+In that you can actually create multiple users
+
+01:17:50.000 --> 01:17:52.000
+And share these dashboards
+
+01:17:52.000 --> 01:17:54.000
+Between users
+
+01:17:54.000 --> 01:17:56.000
+So every user who will access
+
+01:17:56.000 --> 01:17:58.000
+Can see this dashboard
+
+01:17:58.000 --> 01:18:00.000
+And share it
+
+01:18:00.000 --> 01:18:02.000
+Now because we are working in a free plan
+
+01:18:02.000 --> 01:18:04.000
+So single user is only allowed
+
+01:18:08.000 --> 01:18:10.000
+Any question
+
+01:18:10.000 --> 01:18:12.000
+How did you feel
+
+01:18:12.000 --> 01:18:14.000
+By seeing these things
+
+01:18:14.000 --> 01:18:16.000
+Observability
+
+01:18:16.000 --> 01:18:18.000
+Is very important
+
+01:18:18.000 --> 01:18:20.000
+You should know
+
+01:18:20.000 --> 01:18:22.000
+What are we making here
+
+01:18:22.000 --> 01:18:24.000
+We are not taking any metric
+
+01:18:24.000 --> 01:18:26.000
+And running randomly
+
+01:18:26.000 --> 01:18:28.000
+Everything is making sense
+
+01:18:28.000 --> 01:18:30.000
+And you can see
+
+01:18:30.000 --> 01:18:32.000
+All the information
+
+01:18:32.000 --> 01:18:34.000
+In one shot
+
+01:18:34.000 --> 01:18:36.000
+Let's move forward
+
+01:18:36.000 --> 01:18:38.000
+This is done
+
+01:18:38.000 --> 01:18:40.000
+P95 input cost
+
+01:18:40.000 --> 01:18:42.000
+And this one
+
+01:18:42.000 --> 01:18:44.000
+You can make
+
+01:18:44.000 --> 01:18:46.000
+When you understand
+
+01:18:46.000 --> 01:18:48.000
+Or I will make one
+
+01:18:48.000 --> 01:18:50.000
+I will show you the input
+
+01:18:50.000 --> 01:18:52.000
+And you can make the output
+
+01:18:56.000 --> 01:18:58.000
+Just a second guys
+
+01:19:06.000 --> 01:19:08.000
+We will go to add widget
+
+01:19:08.000 --> 01:19:10.000
+We will go to custom
+
+01:19:10.000 --> 01:19:12.000
+We have to go here
+
+01:19:12.000 --> 01:19:14.000
+On latency
+
+01:19:14.000 --> 01:19:16.000
+We don't need average
+
+01:19:16.000 --> 01:19:18.000
+We need P95
+
+01:19:18.000 --> 01:19:20.000
+And you can see here
+
+01:19:20.000 --> 01:19:22.000
+According to session
+
+01:19:22.000 --> 01:19:24.000
+But we are seeing total
+
+01:19:24.000 --> 01:19:26.000
+Past one day
+
+01:19:26.000 --> 01:19:28.000
+We will save the
+
+01:19:28.000 --> 01:19:30.000
+Widget
+
+01:19:30.000 --> 01:19:32.000
+This is simple
+
+01:19:32.000 --> 01:19:34.000
+And here you can see
+
+01:19:34.000 --> 01:19:36.000
+P95 latencies
+
+01:19:36.000 --> 01:19:38.000
+And how the width time is changing
+
+01:19:38.000 --> 01:19:40.000
+You can see that too
+
+01:19:40.000 --> 01:19:42.000
+I will drag it here
+
+01:19:42.000 --> 01:19:44.000
+And this is it
+
+01:19:44.000 --> 01:19:46.000
+So this was easy
+
+01:19:46.000 --> 01:19:48.000
+We have done this
+
+01:19:48.000 --> 01:19:50.000
+P95 input cost
+
+01:19:50.000 --> 01:19:52.000
+Not latency
+
+01:19:54.000 --> 01:19:56.000
+I will fix it
+
+01:19:56.000 --> 01:19:58.000
+In metric
+
+01:19:58.000 --> 01:20:00.000
+Input cost
+
+01:20:00.000 --> 01:20:02.000
+Here it is
+
+01:20:04.000 --> 01:20:06.000
+Your cost is changing
+
+01:20:06.000 --> 01:20:08.000
+With time
+
+01:20:08.000 --> 01:20:10.000
+And what is time
+
+01:20:10.000 --> 01:20:12.000
+This is your P95 cost
+
+01:20:12.000 --> 01:20:14.000
+I saved the cost but it is showing
+
+01:20:14.000 --> 01:20:16.000
+Latency
+
+01:20:16.000 --> 01:20:18.000
+P95
+
+01:20:18.000 --> 01:20:20.000
+Cost
+
+01:20:20.000 --> 01:20:22.000
+P95
+
+01:20:22.000 --> 01:20:24.000
+Cost
+
+01:20:28.000 --> 01:20:30.000
+Past
+
+01:20:30.000 --> 01:20:32.000
+Let's do one day and save
+
+01:20:32.000 --> 01:20:34.000
+This is done
+
+01:20:34.000 --> 01:20:36.000
+You can do the output
+
+01:20:36.000 --> 01:20:38.000
+Same procedure
+
+01:20:38.000 --> 01:20:40.000
+Top 5 slowest components
+
+01:20:40.000 --> 01:20:42.000
+This graph, can someone tell me
+
+01:20:42.000 --> 01:20:44.000
+How to make it
+
+01:20:44.000 --> 01:20:46.000
+Top 5 slowest components
+
+01:20:46.000 --> 01:20:48.000
+I would be happy if someone can tell me
+
+01:20:48.000 --> 01:20:50.000
+Here is the dashboard
+
+01:20:50.000 --> 01:20:52.000
+You tell me
+
+01:20:52.000 --> 01:20:54.000
+Top 5 slowest components
+
+01:20:54.000 --> 01:20:56.000
+I want to see
+
+01:20:56.000 --> 01:20:58.000
+In my application
+
+01:20:58.000 --> 01:21:00.000
+Which are the 5 slowest components
+
+01:21:00.000 --> 01:21:02.000
+Top 2
+
+01:21:02.000 --> 01:21:04.000
+2 such components that are very slow
+
+01:21:04.000 --> 01:21:06.000
+How will you know
+
+01:21:06.000 --> 01:21:08.000
+Guys
+
+01:21:16.000 --> 01:21:18.000
+Tell me
+
+01:21:18.000 --> 01:21:20.000
+Anyone
+
+01:21:28.000 --> 01:21:30.000
+Will someone tell me
+
+01:21:30.000 --> 01:21:32.000
+Top 2 slowest
+
+01:21:32.000 --> 01:21:34.000
+Components
+
+01:21:34.000 --> 01:21:36.000
+If you are
+
+01:21:36.000 --> 01:21:38.000
+On your screen
+
+01:21:38.000 --> 01:21:40.000
+Look and tell me
+
+01:21:46.000 --> 01:21:48.000
+Is it already available in component
+
+01:21:48.000 --> 01:21:50.000
+Yes
+
+01:21:50.000 --> 01:21:52.000
+But you have to make a different dashboard
+
+01:21:52.000 --> 01:21:54.000
+This is component wise latency
+
+01:21:54.000 --> 01:21:56.000
+Here you can see all the components
+
+01:21:56.000 --> 01:21:58.000
+But if you have to tell in one go
+
+01:21:58.000 --> 01:22:00.000
+Which are the top 2 components
+
+01:22:00.000 --> 01:22:02.000
+How will you plot it
+
+01:22:02.000 --> 01:22:04.000
+Simply what you have to do
+
+01:22:04.000 --> 01:22:06.000
+You have done this
+
+01:22:06.000 --> 01:22:08.000
+Copy or clone it
+
+01:22:08.000 --> 01:22:10.000
+We have copied it
+
+01:22:10.000 --> 01:22:12.000
+And we have pasted it here
+
+01:22:12.000 --> 01:22:14.000
+It came
+
+01:22:14.000 --> 01:22:16.000
+We will go to this and edit
+
+01:22:16.000 --> 01:22:18.000
+We have added all these things
+
+01:22:18.000 --> 01:22:20.000
+What we have to do here
+
+01:22:20.000 --> 01:22:22.000
+If we want to do top 2, we will set the limit to 2
+
+01:22:22.000 --> 01:22:24.000
+And here
+
+01:22:24.000 --> 01:22:26.000
+Component wise latency
+
+01:22:26.000 --> 01:22:28.000
+We will tell
+
+01:22:28.000 --> 01:22:30.000
+Top
+
+01:22:30.000 --> 01:22:32.000
+It is very troublesome if it is auto fill
+
+01:22:32.000 --> 01:22:34.000
+Top
+
+01:22:34.000 --> 01:22:36.000
+2
+
+01:22:36.000 --> 01:22:38.000
+Slowest
+
+01:22:38.000 --> 01:22:40.000
+Components
+
+01:22:40.000 --> 01:22:42.000
+Let's remove the description for now
+
+01:22:42.000 --> 01:22:44.000
+You add
+
+01:22:46.000 --> 01:22:48.000
+Ok, it is not moving
+
+01:22:48.000 --> 01:22:50.000
+If you have to keep something, then he has kept it here
+
+01:22:50.000 --> 01:22:52.000
+Whatever it is, let's save
+
+01:22:52.000 --> 01:22:54.000
+Let's do past one day
+
+01:22:54.000 --> 01:22:56.000
+And save
+
+01:22:56.000 --> 01:22:58.000
+So my
+
+01:22:58.000 --> 01:23:00.000
+My retrieval step and generation step
+
+01:23:00.000 --> 01:23:02.000
+This is one of the slowest
+
+01:23:02.000 --> 01:23:04.000
+Components of my pipeline
+
+01:23:04.000 --> 01:23:06.000
+Clear
+
+01:23:06.000 --> 01:23:08.000
+It was easy
+
+01:23:08.000 --> 01:23:10.000
+We have done this too
+
+01:23:10.000 --> 01:23:12.000
+Average latency per session
+
+01:23:12.000 --> 01:23:14.000
+You can also plot this
+
+01:23:14.000 --> 01:23:16.000
+I hope you understood this
+
+01:23:16.000 --> 01:23:18.000
+How to do observation
+
+01:23:18.000 --> 01:23:20.000
+Clear
+
+01:23:20.000 --> 01:23:22.000
+Guys
+
+01:23:22.000 --> 01:23:24.000
+Yes
+
+01:23:24.000 --> 01:23:26.000
+It was intuitive, easy
+
+01:23:26.000 --> 01:23:28.000
+You can also explore with other graph types
+
+01:23:28.000 --> 01:23:30.000
+You can also see a pie chart
+
+01:23:30.000 --> 01:23:32.000
+You can see that too
+
+01:23:32.000 --> 01:23:34.000
+Different chart types come
+
+01:23:34.000 --> 01:23:36.000
+Most of your tables
+
+01:23:36.000 --> 01:23:38.000
+Bar graphs and
+
+01:23:38.000 --> 01:23:40.000
+Line graphs are used
+
+01:23:40.000 --> 01:23:42.000
+You can also see histogram
+
+01:23:42.000 --> 01:23:44.000
+If you have any
+
+01:23:44.000 --> 01:23:46.000
+Data distribution
+
+01:23:46.000 --> 01:23:48.000
+If you want to plot it, then through histogram
+
+01:23:48.000 --> 01:23:50.000
+But the problem is that we have very little data
+
+01:23:50.000 --> 01:23:52.000
+So we can't see histogram
+
+01:23:52.000 --> 01:23:54.000
+We can make histogram for latency
+
+01:23:54.000 --> 01:23:56.000
+I will show you
+
+01:23:56.000 --> 01:23:58.000
+If you want to see
+
+01:23:58.000 --> 01:24:00.000
+Distribution, latency
+
+01:24:00.000 --> 01:24:02.000
+You will go to custom chart
+
+01:24:02.000 --> 01:24:04.000
+And here you will select
+
+01:24:04.000 --> 01:24:06.000
+Latency
+
+01:24:06.000 --> 01:24:08.000
+After latency
+
+01:24:08.000 --> 01:24:10.000
+You will select histogram
+
+01:24:10.000 --> 01:24:12.000
+See
+
+01:24:12.000 --> 01:24:14.000
+You can see histogram
+
+01:24:14.000 --> 01:24:16.000
+Bucket size here I think
+
+01:24:16.000 --> 01:24:18.000
+It is being set automatically
+
+01:24:18.000 --> 01:24:20.000
+If you do past one day
+
+01:24:20.000 --> 01:24:22.000
+You can just tell the number of bins
+
+01:24:22.000 --> 01:24:24.000
+You can tell the number of bins, your bucket is automatically being calculated
+
+01:24:24.000 --> 01:24:26.000
+So we will do number of bins
+
+01:24:26.000 --> 01:24:28.000
+Let's say 5
+
+01:24:28.000 --> 01:24:30.000
+And save
+
+01:24:30.000 --> 01:24:32.000
+See
+
+01:24:32.000 --> 01:24:34.000
+So almost
+
+01:24:34.000 --> 01:24:36.000
+Your latency is
+
+01:24:36.000 --> 01:24:38.000
+Landing in this bucket, but some of you
+
+01:24:38.000 --> 01:24:40.000
+Very slow
+
+01:24:40.000 --> 01:24:42.000
+You can see the responses
+
+01:24:42.000 --> 01:24:44.000
+So this is your histogram
+
+01:24:44.000 --> 01:24:46.000
+So this is your histogram
+
+01:24:46.000 --> 01:24:48.000
+You can do it for
+
+01:24:48.000 --> 01:24:50.000
+Component
+
+01:24:50.000 --> 01:24:52.000
+So you have one option available
+
+01:24:52.000 --> 01:24:54.000
+I have shown you
+
+01:24:54.000 --> 01:24:56.000
+You can play around with this
+
+01:24:56.000 --> 01:24:58.000
+Now let's discuss
+
+01:24:58.000 --> 01:25:00.000
+How do you set alerting here
+
+01:25:00.000 --> 01:25:02.000
+We have learnt to do observation
+
+01:25:02.000 --> 01:25:04.000
+But alerting is also important
+
+01:25:04.000 --> 01:25:06.000
+What will alerting tell you
+
+01:25:06.000 --> 01:25:08.000
+If any of your metric
+
+01:25:08.000 --> 01:25:10.000
+Breaches the threshold
+
+01:25:10.000 --> 01:25:12.000
+Then you will get
+
+01:25:12.000 --> 01:25:14.000
+An alert
+
+01:25:14.000 --> 01:25:16.000
+You will get a notification
+
+01:25:16.000 --> 01:25:18.000
+Alerting is simply notification
+
+01:25:18.000 --> 01:25:20.000
+So what you will do is
+
+01:25:20.000 --> 01:25:22.000
+Go to the alert section
+
+01:25:22.000 --> 01:25:24.000
+Now remember guys
+
+01:25:24.000 --> 01:25:26.000
+Your hobby
+
+01:25:26.000 --> 01:25:28.000
+Tier
+
+01:25:28.000 --> 01:25:30.000
+You get one alert to set
+
+01:25:30.000 --> 01:25:32.000
+So here although we will not set any alert
+
+01:25:32.000 --> 01:25:34.000
+Because we don't have traffic
+
+01:25:34.000 --> 01:25:36.000
+So that we can see the alert
+
+01:25:36.000 --> 01:25:38.000
+How to set that I will tell you
+
+01:25:38.000 --> 01:25:40.000
+I will give you the why
+
+01:25:40.000 --> 01:25:42.000
+And how
+
+01:25:42.000 --> 01:25:44.000
+You set this thing by yourself
+
+01:25:44.000 --> 01:25:46.000
+So here
+
+01:25:46.000 --> 01:25:48.000
+You can send alerts to these three platforms
+
+01:25:48.000 --> 01:25:50.000
+Either you can
+
+01:25:50.000 --> 01:25:52.000
+Send it to slack
+
+01:25:52.000 --> 01:25:54.000
+If you want to send it to slack
+
+01:25:54.000 --> 01:25:56.000
+You will get the option of slack
+
+01:25:56.000 --> 01:25:58.000
+You simply
+
+01:25:58.000 --> 01:26:00.000
+Integrate with slack
+
+01:26:00.000 --> 01:26:02.000
+And select slack channel
+
+01:26:02.000 --> 01:26:04.000
+You will get an alert
+
+01:26:04.000 --> 01:26:06.000
+I will show you
+
+01:26:06.000 --> 01:26:08.000
+Here
+
+01:26:08.000 --> 01:26:10.000
+How to set your alerts
+
+01:26:10.000 --> 01:26:12.000
+Through webbooks or get up actions
+
+01:26:12.000 --> 01:26:14.000
+So you have to
+
+01:26:14.000 --> 01:26:16.000
+Click on create alert
+
+01:26:16.000 --> 01:26:18.000
+You will get
+
+01:26:18.000 --> 01:26:20.000
+A chart
+
+01:26:20.000 --> 01:26:22.000
+Alert configuration will come here
+
+01:26:22.000 --> 01:26:24.000
+Now you have to
+
+01:26:24.000 --> 01:26:26.000
+Set an alert
+
+01:26:26.000 --> 01:26:28.000
+That your latency
+
+01:26:28.000 --> 01:26:30.000
+That should not be
+
+01:26:30.000 --> 01:26:32.000
+Greater than
+
+01:26:32.000 --> 01:26:34.000
+2 minutes
+
+01:26:34.000 --> 01:26:36.000
+Or 1 minute
+
+01:26:36.000 --> 01:26:38.000
+P95 latency should not be more than 1 minute
+
+01:26:38.000 --> 01:26:40.000
+So you will go to measure
+
+01:26:40.000 --> 01:26:42.000
+You will select latency
+
+01:26:42.000 --> 01:26:44.000
+Which aggregation you want to use
+
+01:26:44.000 --> 01:26:46.000
+P95
+
+01:26:46.000 --> 01:26:48.000
+So you will get a graph
+
+01:26:48.000 --> 01:26:50.000
+After that you will tell the threshold
+
+01:26:50.000 --> 01:26:52.000
+In alert conditions
+
+01:26:52.000 --> 01:26:54.000
+You have different operators
+
+01:26:54.000 --> 01:26:56.000
+Above or equal to
+
+01:26:56.000 --> 01:26:58.000
+Basically greater than or equal to
+
+01:26:58.000 --> 01:27:00.000
+Less than or equal to
+
+01:27:00.000 --> 01:27:02.000
+Equal to or not equal to
+
+01:27:02.000 --> 01:27:04.000
+These are operators
+
+01:27:04.000 --> 01:27:06.000
+After that you have to set your threshold value
+
+01:27:06.000 --> 01:27:08.000
+Here you will see
+
+01:27:08.000 --> 01:27:10.000
+Two threshold values
+
+01:27:10.000 --> 01:27:12.000
+One is alert
+
+01:27:12.000 --> 01:27:14.000
+I will explain the difference between these two
+
+01:27:14.000 --> 01:27:16.000
+Warning is basically
+
+01:27:16.000 --> 01:27:18.000
+You don't have alert
+
+01:27:18.000 --> 01:27:20.000
+But you will get warning label
+
+01:27:20.000 --> 01:27:22.000
+On your dashboard
+
+01:27:22.000 --> 01:27:24.000
+Warning is
+
+01:27:24.000 --> 01:27:26.000
+It is possible that
+
+01:27:26.000 --> 01:27:28.000
+This threshold will be breached
+
+01:27:28.000 --> 01:27:30.000
+This metric will breach the threshold
+
+01:27:30.000 --> 01:27:32.000
+So warning will tell you that
+
+01:27:32.000 --> 01:27:34.000
+Like I have set the threshold
+
+01:27:34.000 --> 01:27:36.000
+For warning 1.8
+
+01:27:36.000 --> 01:27:38.000
+So here
+
+01:27:38.000 --> 01:27:40.000
+Yellow mark is there
+
+01:27:40.000 --> 01:27:42.000
+If I set it to 1
+
+01:27:44.000 --> 01:27:46.000
+It is telling that
+
+01:27:46.000 --> 01:27:48.000
+Alert is needed
+
+01:27:48.000 --> 01:27:50.000
+Let's set it to 1
+
+01:27:50.000 --> 01:27:52.000
+Now what is 1
+
+01:27:52.000 --> 01:27:54.000
+Red is set
+
+01:27:54.000 --> 01:27:56.000
+It is showing red color
+
+01:27:56.000 --> 01:27:58.000
+And red is set as alert
+
+01:27:58.000 --> 01:28:00.000
+And
+
+01:28:00.000 --> 01:28:02.000
+For this we will set
+
+01:28:02.000 --> 01:28:04.000
+Let's say 0.8
+
+01:28:04.000 --> 01:28:06.000
+So here
+
+01:28:06.000 --> 01:28:08.000
+We have set this yellow thing
+
+01:28:08.000 --> 01:28:10.000
+Basically warning
+
+01:28:10.000 --> 01:28:12.000
+What does it tell you
+
+01:28:12.000 --> 01:28:14.000
+Warning is that
+
+01:28:14.000 --> 01:28:16.000
+As soon as the latency goes above 0.8
+
+01:28:16.000 --> 01:28:18.000
+It will get warning tag
+
+01:28:18.000 --> 01:28:20.000
+But no alert will be raised
+
+01:28:20.000 --> 01:28:22.000
+And as soon as it goes above 1
+
+01:28:22.000 --> 01:28:24.000
+An alert will be raised
+
+01:28:24.000 --> 01:28:26.000
+But you never raise alerts
+
+01:28:26.000 --> 01:28:28.000
+In a jiffy
+
+01:28:28.000 --> 01:28:30.000
+It's not like your traces are coming
+
+01:28:30.000 --> 01:28:32.000
+And your latency P95
+
+01:28:32.000 --> 01:28:34.000
+Went above 1 second
+
+01:28:34.000 --> 01:28:36.000
+So you sent an alert
+
+01:28:36.000 --> 01:28:38.000
+You monitor the alert
+
+01:28:38.000 --> 01:28:40.000
+Until some time
+
+01:28:40.000 --> 01:28:42.000
+There is a warm up period
+
+01:28:42.000 --> 01:28:44.000
+You wait in that warm up period
+
+01:28:44.000 --> 01:28:46.000
+What is the latency
+
+01:28:46.000 --> 01:28:48.000
+It is above 1 minute
+
+01:28:48.000 --> 01:28:50.000
+If it is there then send notification
+
+01:28:50.000 --> 01:28:52.000
+It is possible that
+
+01:28:52.000 --> 01:28:54.000
+In a certain use case
+
+01:28:54.000 --> 01:28:56.000
+Your API is down
+
+01:28:56.000 --> 01:28:58.000
+Cat GPT
+
+01:28:58.000 --> 01:29:00.000
+Your open AI model
+
+01:29:00.000 --> 01:29:02.000
+So you are re-try
+
+01:29:02.000 --> 01:29:04.000
+Re-try on the backend
+
+01:29:04.000 --> 01:29:06.000
+And your latency is increasing
+
+01:29:06.000 --> 01:29:08.000
+But in 5 minutes
+
+01:29:08.000 --> 01:29:10.000
+That API came again
+
+01:29:10.000 --> 01:29:12.000
+So in that case you won't raise an alert
+
+01:29:12.000 --> 01:29:14.000
+You will wait
+
+01:29:14.000 --> 01:29:16.000
+So this is your warm up time or waiting time
+
+01:29:16.000 --> 01:29:18.000
+You can select options on this
+
+01:29:18.000 --> 01:29:20.000
+OK
+
+01:29:20.000 --> 01:29:22.000
+After that you tell
+
+01:29:22.000 --> 01:29:24.000
+Where you want to send your notification
+
+01:29:24.000 --> 01:29:26.000
+So you will click on automation
+
+01:29:26.000 --> 01:29:28.000
+Either you can send it to
+
+01:29:28.000 --> 01:29:30.000
+Webbook, Slack or Github Dispatch
+
+01:29:30.000 --> 01:29:32.000
+Let me tell you what is
+
+01:29:32.000 --> 01:29:34.000
+In Webbook
+
+01:29:34.000 --> 01:29:36.000
+Basically you send
+
+01:29:36.000 --> 01:29:38.000
+Post request on a URL
+
+01:29:38.000 --> 01:29:40.000
+So in Webbook
+
+01:29:40.000 --> 01:29:42.000
+You have a listener
+
+01:29:42.000 --> 01:29:44.000
+Which is basically a machine
+
+01:29:44.000 --> 01:29:46.000
+Where your server is running
+
+01:29:46.000 --> 01:29:48.000
+And on that endpoint
+
+01:29:48.000 --> 01:29:50.000
+It listens for a post request
+
+01:29:50.000 --> 01:29:52.000
+As soon as you send a request
+
+01:29:52.000 --> 01:29:54.000
+The code written in that endpoint
+
+01:29:54.000 --> 01:29:56.000
+It gets triggered
+
+01:29:56.000 --> 01:29:58.000
+Let's say you have written a code
+
+01:29:58.000 --> 01:30:00.000
+That on your screen
+
+01:30:00.000 --> 01:30:02.000
+A big alert will be printed
+
+01:30:02.000 --> 01:30:04.000
+And the bells will start to ring
+
+01:30:04.000 --> 01:30:06.000
+So as soon as you send
+
+01:30:06.000 --> 01:30:08.000
+Your alert on that Webbook endpoint
+
+01:30:08.000 --> 01:30:10.000
+A big alert will be written
+
+01:30:10.000 --> 01:30:12.000
+On your screen
+
+01:30:12.000 --> 01:30:14.000
+Like in movies
+
+01:30:14.000 --> 01:30:16.000
+OK
+
+01:30:16.000 --> 01:30:18.000
+So this is your Webbook
+
+01:30:18.000 --> 01:30:20.000
+And the second is
+
+01:30:20.000 --> 01:30:22.000
+You will go to automation
+
+01:30:22.000 --> 01:30:24.000
+Github Dispatch
+
+01:30:24.000 --> 01:30:26.000
+Which is again very similar to Webbook
+
+01:30:26.000 --> 01:30:28.000
+But in this you tell
+
+01:30:28.000 --> 01:30:30.000
+That your action is saved there
+
+01:30:30.000 --> 01:30:32.000
+We saw Workflow Dispatch
+
+01:30:32.000 --> 01:30:34.000
+In Github actions
+
+01:30:34.000 --> 01:30:36.000
+You have a prebuilt action on Github
+
+01:30:36.000 --> 01:30:38.000
+So you will send a post request
+
+01:30:38.000 --> 01:30:40.000
+On Github
+
+01:30:40.000 --> 01:30:42.000
+And trigger an action from there
+
+01:30:42.000 --> 01:30:44.000
+In the action, your code can be
+
+01:30:44.000 --> 01:30:46.000
+That you have to do something to raise an alert
+
+01:30:46.000 --> 01:30:48.000
+That thing Github will do
+
+01:30:48.000 --> 01:30:50.000
+For you at the end
+
+01:30:50.000 --> 01:30:52.000
+I hope you will understand this
+
+01:30:52.000 --> 01:30:54.000
+So you will understand Webbook is basically
+
+01:30:54.000 --> 01:30:56.000
+Your self hosting
+
+01:30:56.000 --> 01:30:58.000
+Or you have to do it on Github actions
+
+01:30:58.000 --> 01:31:00.000
+So you can use this Github thing
+
+01:31:00.000 --> 01:31:02.000
+OK
+
+01:31:02.000 --> 01:31:04.000
+Again because we are not working with
+
+01:31:04.000 --> 01:31:06.000
+That scale here
+
+01:31:06.000 --> 01:31:08.000
+But I will tell you the method
+
+01:31:08.000 --> 01:31:10.000
+It is super simple and you have to know more about alerts
+
+01:31:10.000 --> 01:31:12.000
+So simply what you do here
+
+01:31:12.000 --> 01:31:14.000
+Langfuse
+
+01:31:14.000 --> 01:31:16.000
+Alerts
+
+01:31:16.000 --> 01:31:18.000
+Type this alert page
+
+01:31:18.000 --> 01:31:20.000
+And you can see here
+
+01:31:20.000 --> 01:31:22.000
+So this is available in all tiers
+
+01:31:22.000 --> 01:31:24.000
+I told you one but there are two
+
+01:31:24.000 --> 01:31:26.000
+In free tier you can set two alerts
+
+01:31:26.000 --> 01:31:28.000
+OK
+
+01:31:28.000 --> 01:31:30.000
+Creating an alert is very simple
+
+01:31:30.000 --> 01:31:32.000
+You tell the data source first
+
+01:31:32.000 --> 01:31:34.000
+You tell the metric on which you have to raise an alert
+
+01:31:34.000 --> 01:31:36.000
+And after that you set the threshold
+
+01:31:36.000 --> 01:31:38.000
+We have seen this
+
+01:31:38.000 --> 01:31:40.000
+OK
+
+01:31:40.000 --> 01:31:42.000
+Alert threshold is required
+
+01:31:42.000 --> 01:31:44.000
+Warning threshold is your option
+
+01:31:44.000 --> 01:31:46.000
+OK
+
+01:31:46.000 --> 01:31:48.000
+Now I will tell you the difference between both
+
+01:31:48.000 --> 01:31:50.000
+Here your alert states are written
+
+01:31:50.000 --> 01:31:52.000
+OK means
+
+01:31:52.000 --> 01:31:54.000
+It is within bounds
+
+01:31:54.000 --> 01:31:56.000
+Means your metric has not reached
+
+01:31:56.000 --> 01:31:58.000
+Warning or alert limit
+
+01:31:58.000 --> 01:32:00.000
+Warning is that warning has crossed
+
+01:32:00.000 --> 01:32:02.000
+Alert is that alert threshold has crossed
+
+01:32:02.000 --> 01:32:04.000
+Now when notification is fired
+
+01:32:04.000 --> 01:32:06.000
+When you have a notification
+
+01:32:06.000 --> 01:32:08.000
+On Webbook or Github action
+
+01:32:08.000 --> 01:32:10.000
+It goes when
+
+01:32:10.000 --> 01:32:12.000
+From OK
+
+01:32:12.000 --> 01:32:14.000
+It is on warning and then
+
+01:32:14.000 --> 01:32:16.000
+It goes to alert
+
+01:32:16.000 --> 01:32:18.000
+Then there will be a warning threshold
+
+01:32:18.000 --> 01:32:20.000
+And as soon as it goes to alert
+
+01:32:20.000 --> 01:32:22.000
+After 5 minutes
+
+01:32:22.000 --> 01:32:24.000
+That notification will reach you
+
+01:32:24.000 --> 01:32:26.000
+After that a recovery notification
+
+01:32:26.000 --> 01:32:28.000
+Also goes to you
+
+01:32:28.000 --> 01:32:30.000
+When your metric comes back from warning or alert
+
+01:32:30.000 --> 01:32:32.000
+On OK
+
+01:32:32.000 --> 01:32:34.000
+Means everything is under control
+
+01:32:34.000 --> 01:32:36.000
+Things are fine
+
+01:32:36.000 --> 01:32:38.000
+So a recovery notification also goes
+
+01:32:38.000 --> 01:32:40.000
+And if you are not able to fetch data
+
+01:32:40.000 --> 01:32:42.000
+From your traces, then a notification of no data also goes
+
+01:32:42.000 --> 01:32:44.000
+And how does the notification look like
+
+01:32:44.000 --> 01:32:46.000
+Because we are sending a post request
+
+01:32:46.000 --> 01:32:48.000
+It is written here
+
+01:32:48.000 --> 01:32:50.000
+You can send a post request from Webbook
+
+01:32:50.000 --> 01:32:52.000
+With JSON payload
+
+01:32:52.000 --> 01:32:54.000
+And with Github actions
+
+01:32:54.000 --> 01:32:56.000
+You can trigger a manual workflow
+
+01:32:56.000 --> 01:32:58.000
+Which will trigger your alert
+
+01:32:58.000 --> 01:33:00.000
+OK
+
+01:33:00.000 --> 01:33:02.000
+Now the JSON payload
+
+01:33:02.000 --> 01:33:04.000
+Goes to you in this way
+
+01:33:04.000 --> 01:33:06.000
+So when the post request goes
+
+01:33:06.000 --> 01:33:08.000
+Or Github dispatch goes
+
+01:33:08.000 --> 01:33:10.000
+It will send you an alert in this way
+
+01:33:10.000 --> 01:33:12.000
+This is the complete information
+
+01:33:12.000 --> 01:33:14.000
+So this point is also clear
+
+01:33:14.000 --> 01:33:16.000
+Is this clear guys
+
+01:33:16.000 --> 01:33:18.000
+Everything is clear to you
+
+01:33:18.000 --> 01:33:20.000
+Again we are not setting alerts
+
+01:33:20.000 --> 01:33:22.000
+Because we don't have the
+
+01:33:22.000 --> 01:33:24.000
+Data
+
+01:33:24.000 --> 01:33:26.000
+To set the alerts
+
+01:33:26.000 --> 01:33:28.000
+We don't have the scale to set the alerts
+
+01:33:28.000 --> 01:33:30.000
+You can do this, very simple
+
+01:33:30.000 --> 01:33:32.000
+I have shown you the method
+
+01:33:34.000 --> 01:33:36.000
+Clear guys
+
+01:33:36.000 --> 01:33:38.000
+The easiest way is to send alerts on Slack
+
+01:33:38.000 --> 01:33:40.000
+Integrate with Slack
+
+01:33:40.000 --> 01:33:42.000
+And send alerts on Slack
+
+01:33:44.000 --> 01:33:46.000
+Let's go back to the dashboard
+
+01:33:46.000 --> 01:33:48.000
+And let's open our custom dashboard
+
+01:33:48.000 --> 01:33:50.000
+This is it guys
+
+01:33:50.000 --> 01:33:52.000
+This is all we had to do today
+
+01:33:52.000 --> 01:33:54.000
+Is it clear
+
+01:33:54.000 --> 01:33:56.000
+Is everything clear
+
+01:34:00.000 --> 01:34:02.000
+Now I will turn on the camera
+
+01:34:02.000 --> 01:34:04.000
+And ready to take your questions
+
+01:34:10.000 --> 01:34:12.000
+Apart from 3
+
+01:34:12.000 --> 01:34:14.000
+Is it possible to integrate
+
+01:34:14.000 --> 01:34:16.000
+To mobile or any other device
+
+01:34:16.000 --> 01:34:18.000
+No, but Jitender sir
+
+01:34:18.000 --> 01:34:20.000
+You can do that only
+
+01:34:20.000 --> 01:34:22.000
+You can send through webbook
+
+01:34:22.000 --> 01:34:24.000
+Like if you have read NA10
+
+01:34:24.000 --> 01:34:26.000
+So there are webbooks in NA10
+
+01:34:26.000 --> 01:34:28.000
+And in many other integrations
+
+01:34:28.000 --> 01:34:30.000
+There is a feature of webbooks
+
+01:34:30.000 --> 01:34:32.000
+Webbook is nothing
+
+01:34:32.000 --> 01:34:34.000
+But a server which is constantly
+
+01:34:34.000 --> 01:34:36.000
+Listening at that end point
+
+01:34:36.000 --> 01:34:38.000
+That no one is making a sound
+
+01:34:38.000 --> 01:34:40.000
+And the sound that comes
+
+01:34:40.000 --> 01:34:42.000
+Captures the data in that sound
+
+01:34:42.000 --> 01:34:44.000
+Basically it is sitting
+
+01:34:44.000 --> 01:34:46.000
+Because when will the alert come
+
+01:34:46.000 --> 01:34:48.000
+And when the alert comes, it triggers some action
+
+01:34:48.000 --> 01:34:50.000
+Now you can customize that action
+
+01:34:50.000 --> 01:34:52.000
+And write
+
+01:34:52.000 --> 01:34:54.000
+Maybe you have integrated NA10
+
+01:34:54.000 --> 01:34:56.000
+Or ZPR
+
+01:34:56.000 --> 01:34:58.000
+So your NA10
+
+01:34:58.000 --> 01:35:00.000
+Workflow will run
+
+01:35:00.000 --> 01:35:02.000
+And it will send an alert message on your WhatsApp
+
+01:35:04.000 --> 01:35:06.000
+It will read the data from this JSON
+
+01:35:06.000 --> 01:35:08.000
+You will pass the JSON
+
+01:35:08.000 --> 01:35:10.000
+And read the alert from it
+
+01:35:10.000 --> 01:35:12.000
+And you will identify
+
+01:35:12.000 --> 01:35:14.000
+Which component is faulty
+
+01:35:14.000 --> 01:35:16.000
+And you can send that alert message on your WhatsApp
+
+01:35:18.000 --> 01:35:20.000
+So everything is possible
+
+01:35:20.000 --> 01:35:22.000
+You just have to customize a little
+
+01:35:24.000 --> 01:35:26.000
+No, here
+
+01:35:26.000 --> 01:35:28.000
+On the LangFuse
+
+01:35:28.000 --> 01:35:30.000
+You have only 2-3 options
+
+01:35:30.000 --> 01:35:32.000
+Slack, Webbook and GitHub
+
+01:35:32.000 --> 01:35:34.000
+How you want to do it through Webbook
+
+01:35:34.000 --> 01:35:36.000
+That's up to you
+
+01:35:44.000 --> 01:35:46.000
+How was today's class
+
+01:35:46.000 --> 01:35:48.000
+It was very practical
+
+01:35:48.000 --> 01:35:50.000
+There was no theory
+
+01:35:50.000 --> 01:35:52.000
+But you understood the observation
+
+01:35:56.000 --> 01:35:58.000
+If you understood today's observation
+
+01:35:58.000 --> 01:36:00.000
+Class
+
+01:36:00.000 --> 01:36:02.000
+Then the Grafana class will be very easy
+
+01:36:02.000 --> 01:36:04.000
+Because you will get a piece of cake
+
+01:36:06.000 --> 01:36:08.000
+Because the same concepts will come
+
+01:36:08.000 --> 01:36:10.000
+We will build a dashboard
+
+01:36:10.000 --> 01:36:12.000
+We will aggregate the metrics
+
+01:36:12.000 --> 01:36:14.000
+And display it
+
+01:36:16.000 --> 01:36:18.000
+And set the alert
+
+01:36:18.000 --> 01:36:20.000
+Everything is very similar
+
+01:36:20.000 --> 01:36:22.000
+There will be a new tool
+
+01:36:22.000 --> 01:36:24.000
+And its UI will be different
+
+01:36:24.000 --> 01:36:26.000
+But the process will be the same
+
+01:36:32.000 --> 01:36:34.000
+Now what we will do in the next class
+
+01:36:34.000 --> 01:36:36.000
+I told you
+
+01:36:36.000 --> 01:36:38.000
+We will run our online evals
+
+01:36:40.000 --> 01:36:42.000
+3 are our rack tried metrics
+
+01:36:42.000 --> 01:36:44.000
+And one is our custom metric
+
+01:36:44.000 --> 01:36:46.000
+I think the simple answer metric
+
+01:36:46.000 --> 01:36:48.000
+We can run that reference list
+
+01:36:48.000 --> 01:36:50.000
+That is also reference free
+
+01:36:52.000 --> 01:36:54.000
+So we will run 4 metrics
+
+01:36:54.000 --> 01:36:56.000
+Through a cron job
+
+01:36:56.000 --> 01:36:58.000
+That cron job will run on AWS
+
+01:36:58.000 --> 01:37:00.000
+Not your local system
+
+01:37:00.000 --> 01:37:02.000
+Your code is over
+
+01:37:04.000 --> 01:37:06.000
+So the GitHub repository you have
+
+01:37:06.000 --> 01:37:08.000
+That is the final version
+
+01:37:08.000 --> 01:37:10.000
+Of the project
+
+01:37:10.000 --> 01:37:12.000
+We will not change anything in the code
+
+01:37:12.000 --> 01:37:14.000
+Whatever our implementation will be
+
+01:37:14.000 --> 01:37:16.000
+That will be through AWS
+
+01:37:20.000 --> 01:37:22.000
+You will not change anything in the code
+
+01:37:30.000 --> 01:37:32.000
+Any doubts?
+
+01:37:32.000 --> 01:37:34.000
+Yes, we are done today
+
+01:37:34.000 --> 01:37:36.000
+That's all
+
+01:37:36.000 --> 01:37:38.000
+Because you can start the evals
+
+01:37:38.000 --> 01:37:40.000
+We have only 20 minutes left
+
+01:37:40.000 --> 01:37:42.000
+That's all for today
+
+01:37:44.000 --> 01:37:46.000
+Good night
+
+01:37:46.000 --> 01:37:48.000
+If you don't have any questions, write clear
+
+01:37:48.000 --> 01:37:50.000
+Then we can close off the session
+
+01:37:50.000 --> 01:37:52.000
+If you have any questions
+
+01:37:52.000 --> 01:37:54.000
+You can ask me
+
+01:37:54.000 --> 01:37:56.000
+If you have any feedback, you can give me
+
+01:37:56.000 --> 01:37:58.000
+If you want to know the plan for the future
+
+01:37:58.000 --> 01:38:00.000
+Live sessions will be
+
+01:38:00.000 --> 01:38:02.000
+In September
+
+01:38:02.000 --> 01:38:04.000
+The project in October
+
+01:38:04.000 --> 01:38:06.000
+The agent one
+
+01:38:06.000 --> 01:38:08.000
+I will give you that in recorded form
+
+01:38:08.000 --> 01:38:10.000
+In lectures
+
+01:38:10.000 --> 01:38:12.000
+Okay, bye
+
+01:38:12.000 --> 01:38:14.000
+Thank you
+
+01:38:26.000 --> 01:38:28.000
+If you don't have any questions, write clear
+
+01:38:30.000 --> 01:38:32.000
+I think today the questions
+
+01:38:32.000 --> 01:38:34.000
+Would be less because today it was very practical
+
+01:38:34.000 --> 01:38:36.000
+And also easy
+
+01:38:36.000 --> 01:38:45.000
+and guys do practice you will like it and learn a new framework
+
+01:38:45.000 --> 01:38:49.000
+a new tool you will learn Langsmith is better than Langsmith you can see
+
+01:38:49.000 --> 01:38:53.000
+here the information you are getting now sir was calculating that day
+
+01:38:53.000 --> 01:38:57.000
+I think he was showing the average latency in P95 P90
+
+01:38:57.000 --> 01:39:00.000
+but you can see here you are getting all the options
+
+01:39:00.000 --> 01:39:04.000
+you can judge its power with that only
+
+01:39:04.000 --> 01:39:06.000
+how much better than Langsmith
+
+01:39:18.000 --> 01:39:21.000
+I think that's it guys no questions
+
+01:39:21.000 --> 01:39:23.000
+I am closing off the session
+
+01:39:23.000 --> 01:39:25.000
+bye guys we will meet on Monday
+
+01:39:25.000 --> 01:39:27.000
+ok
+
+01:39:27.000 --> 01:39:31.000
+I am signing off good night guys
+
+01:39:34.000 --> 01:39:36.000
+add one note pdf if possible
+
+01:39:36.000 --> 01:39:40.000
+I have asked Hadik sir for context engineering
+
+01:39:40.000 --> 01:39:42.000
+once you check your dashboard
+
+01:39:42.000 --> 01:39:47.000
+I had told him yesterday to add one note
+
+01:39:47.000 --> 01:39:49.000
+I will ask him again tomorrow
+
+01:39:49.000 --> 01:39:53.000
+and I will update one note of LLM Ops
+
+01:39:53.000 --> 01:39:55.000
+so you will get that too
+
+01:39:56.000 --> 01:39:57.000
+fine
+
+01:39:57.000 --> 01:39:59.000
+see you guys on Monday
+
+01:39:59.000 --> 01:40:01.000
+bye
+
