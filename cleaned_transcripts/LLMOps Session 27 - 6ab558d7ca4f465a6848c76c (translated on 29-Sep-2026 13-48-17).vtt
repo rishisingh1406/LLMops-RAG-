@@ -1,0 +1,3213 @@
+.
+Good evening guys, how are you all?
+Can anybody drop a message in the group that class has started
+Let's start in 5 minutes
+Let other people join in and then we'll start
+A quick check, am I audible, visible?
+You can see the screen share
+Thank you
+Thank you
+Let's wait a little, till then you can ask me questions
+Let's wait a little, people are joining in
+Any questions?
+Guys, you are all trying the implement in the class, right?
+Whatever we are implementing, you are able to run it on your system
+You are able to replicate the whole process
+Tell me guys
+No Akash, in real production, when you use production grade vector databases
+You don't have to change the whole database
+What you do is you make your database in different collections or groups
+Obviously, if you have changed your parameters
+After changing the parameters, you will have to do chunking again
+Because you have changed the chunking parameters
+Your embedding vectors will change
+So you have to do the process again
+But it's not like you delete it and do it
+Like if your database is in production setup
+Like pine cone or millvus
+So those are your hosted databases
+So you connect them through API and push your changes there
+But this work is done in experimentation
+Once you go to production, you don't change the database until you get the next version of the application
+Okay, no problem if you have two or three lectures behind
+If you are able to replicate whatever you have read so far, that's good
+If there are no issues in performing it, then it is okay
+Your progress is whatever
+Let's wait for two more minutes and then start
+I just want everybody to be in so that we can start together
+Because it has been a wonderful journey with you guys
+I will discuss with you where we started from and what was our outlook
+And now we have reached the stage of our project
+And actually we have covered a lot
+Whatever we decided in the beginning that we will do all these things
+We have almost covered all those things
+We are actually at the very last step of our RAC project
+Okay, no problem, just run whatever you are learning here once
+It will increase your confidence
+And don't worry if you get bugs
+Bugs keep coming in our life class
+We are doing our best
+So we have figured out at last
+So no problem, bugs are normal
+If bugs are not coming in the operations, then they are abnormal
+Start it, right click and start
+Okay, let's start
+So guys, first of all, I would like to discuss with you that thanks for sticking around
+You have followed this course with so much intensity
+And I know that the course is very tough to follow
+But you have persevered here and I am very happy that you have followed your progress in the LLME VALS lecture
+And if you get similar concepts anywhere, then you can give answers
+I can see the result of that
+So I am pretty happy about it
+So let me take you to our first module where we discussed what all things we are going to build in this project
+So we discussed the layering and what all tools will be there in each layer
+So let's revisit this because we have almost completed it
+So we have made our application
+We have done everything through Lang Graph to orchestrate it
+We have built our graph
+After that we learned prompt management on LangFuse
+How you can change the versions in between
+Then we built the entire experiment tracking pipeline on MLflow
+And we are successfully able to track our experiments
+After that we learned the whole evaluation scenario
+How you can run your evals in RackApp
+We have used built-in evals which is provided by DPVAL
+And we have also made some custom metrics through GEVAL
+Then we touched the concept of observability
+Although we have touched it in post production
+But you can see that we are able to lock all our traces in post production
+And not only we are able to lock, we are able to build graphs through it
+We are also able to do observability
+And we are also able to run online evals on it
+Then we implemented guardrails on our application
+We implemented some guardrails with built-in models
+And some custom guardrails
+Then we served our application using fast API
+And we also created a streamlined frontend
+After that we studied the concept of docker
+And we also studied the concept of CI
+What we are doing in CI is testing our application
+And in CD, we are packaging our completely tested application
+And taking it to AWS
+After that we have completed our deployment on AWS
+So we have completed this part as well
+The deployment part
+And after that we have done LLM monitoring
+Which is again our tracing
+Which we did through LIMEFUSE
+And one more thing that we have to do
+That is our infrastructure tracking or observability
+For that we have two tools
+The first is Prometheus which we are going to study in today's lecture
+And the second is our Grafana
+Which we will cover in the next lecture
+So in our entire operations journey
+All the phases and stages in operations
+We have successfully crossed every stage
+And now we have reached our end level
+We have reached our boss level
+And we will eventually complete this
+And our entire end-to-end pipeline of Ops will be completed
+And I am pretty happy about it
+That we were able to do this together
+We have studied many new concepts together
+We have shared a very good interaction time together
+As a mentor and as students
+We have formed a very deep bonding between us
+And if you are able to answer all this
+Then this is a very proud moment for me
+So I am very happy with my students
+With my learners
+I hope you liked this entire course
+So let's do one thing
+Let's take a small recap
+Around our previous lecture
+And then we start today's lecture
+So two or three lectures earlier
+We had defined a goal here
+We had defined a goal that we are going to do our post deployment
+And in post deployment
+We understood that we have to observe two things here
+The first was our application
+We spent three lectures to observe this application
+We enabled tracing in the first lecture
+We learned observability in the second lecture
+On LangFuse
+And in the third lecture
+How do you evaluate each trace
+We learned this too
+Now it's time for our infrastructure observability
+So from today we will monitor our infrastructure
+Which is our EC2 machines
+Which is our compute
+Is this our compute hardware
+On AWS
+We will monitor this
+And for this we use two tools
+And these tools are industry leaders
+You will see these tools in many places
+It is written on Prometheus website
+That after Kubernetes
+Prometheus is the most downloaded software in production setups
+So it is that much popular
+Prometheus is used everywhere
+So the first tool we are going to read today
+Which we will read today is Prometheus
+And the second tool is Grafana
+And if you ever hear the name of Prometheus and Grafana
+You will hear their names together
+This is Karan Arjun
+You will not hear them separately
+They are together
+Why are they together?
+I will tell you
+What is the work of Prometheus
+The work of Prometheus is that
+All the metrics on your compute hardware
+All the information
+How much is your CPU usage
+How much is your network usage
+How much RAM is being used
+Is it free
+What are your temperatures
+The data which you want to monitor at your system level
+The work of monitoring and logging
+Is done by Prometheus
+Meaning that the work of bringing that data to one place
+Is done by Prometheus
+But the Prometheus data
+I will show you how the data looks like
+It is very vague
+It has the name of the metric
+The names of the metrics are very complex
+And there are many numbers
+So by looking at them in one instance
+You will not understand
+That I am the shape of these numbers
+If you will be confused by the numbers
+You will be confused
+So to solve that confusion
+You need a dashboard
+Like we cannot manually see every trace
+So what did we do
+We made a dashboard for LangFuse
+We had all the details on that dashboard
+I will show you our dashboard again
+If I go to my LangFuse homepage
+Then I can see my dashboard
+Now all the details are coming in one instance
+On my face
+And I can go here and see
+How my application is behaving
+And I want the same thing for my infrastructure
+I don't want to look at the numbers
+I want to look at a proper visualization
+So your Grafana does the work of visualizing
+And whatever Grafana has to visualize
+Where does it bring its data
+It brings the data from Prometheus
+So actually these two are sibling applications
+By Karan and Arjun
+If you want to give your results to the user
+That means you have to output it in front of the user
+You will use Grafana to output
+And where you have to fetch the data from Grafana
+It will fetch the data from Prometheus
+I hope you understood this thing
+So today we will start our infrastructure monitoring
+Is this point clear
+Is the journey so far clear to you
+If it is clear then right click and move ahead
+And if you have any questions then you can ask me
+Clear
+Great
+Let's move ahead
+Now let's do one thing
+Let's create our online eval instance again
+The thing is that we were creating an instance in the last class
+And we were getting some errors
+And our commands were not working properly
+So I thought let's do one thing
+Let's recreate it again
+So that you can go through the commands again
+So here I have already made an instance
+Online eval instance
+I will terminate this instance
+I will delete this one
+Ok
+This is shutting down
+And here we go to launch instance
+And let's create an instance
+So you have to write here online eval instance
+We are using the same name
+OAS will be 1,2
+Let's go down
+Our instance type will be T3 micro
+It will work on this
+No problem
+Ok
+After that you have to attach a network
+So I think I have already made a security group
+And it is launch wizard 1
+I think this is the one
+Ok let's select this
+And what you have to do in this
+Add a role
+Why do you have to add a role
+Because this online eval instance
+Will read our files from S3
+And will read our secrets
+So for that we made a role
+In the previous session
+We will attach that role here
+In the previous class the problem was
+Actually there was no issue in the commands
+The commands were fine
+The problem was that the aws cli
+That we installed
+There is a command to remove it
+We didn't run that command
+So what was happening
+Our aws cli installation file
+It was taking up a lot of space
+It was taking up around 6.5 GB space
+Out of 8 GB
+And we didn't have free space
+So our virtual environment
+Was getting difficult to be made
+So I have found a solution for that
+The solution is that instead of using
+Normal python
+Our instance is running
+Let's connect it once
+So the solution is that instead of using
+Normal python
+We will do the installation through
+UB
+Ok
+So let's go to our VS code
+Just a second
+One minute guys
+Ok not on VS code
+I have actually opened the steps here
+On the GitHub
+These are the same steps
+Which you see in VS code
+Ok
+So what you have to do is
+Simply copy paste these commands
+So you know this command
+What it will do
+It will install your jq
+For parsing your json unzip
+So that you can unzip aws cli
+And cron
+You will setup your whole thing
+Through cron
+Ok
+So what we will do is
+Run this
+It will take some time
+I think
+It will take 2-4 seconds more
+And it is done
+After that what you will do is
+Install your aws cli
+And install it here
+Why do you need this
+You need this to connect with your s3
+To connect with secrets manager
+Done
+We have done this
+After that what you will do is
+You will check once
+That your role which you have attached
+Is it bringing information or not
+So yes
+You are bringing information here
+So the role you have attached
+Is able to connect with your s3
+Now you will make here
+You will make directories
+We have made this directory
+Ok
+Opt campus x rag
+I will show you actually
+If I do cd here
+In opt
+And ls
+So you can see here
+This campus x rag
+Is visible
+Ok
+Now what we will do is
+We will go to our s3
+And download our two files
+Which are
+Our python file
+Which will run our eval script
+And our requirements
+See it has been downloaded
+Both have come
+After that what you will do is
+After that this is the step
+Of your UV install
+Ok
+So now what we will do is
+On our instance
+We will install UV
+First we were installing python
+Then we were installing venv
+Instead of that
+We will straight away
+Install UV
+See
+UV has been installed
+It is super quick
+After that what we will do is
+We will read the requirements file
+Which we have put
+And from inside it
+We will install our packages
+So through this command
+You can simply
+Install your packages
+Ok
+Ok
+Just a second
+What is it saying
+No virtual environment
+System python installation found
+Just a second
+Ok
+First I have to install this command
+My mistake
+What will this command do
+This command will first
+Install my python
+And create my virtual environment
+First you will create a virtual environment
+And in that
+Packages will be installed
+You will do this
+Ok
+See your python is 3.1.2
+It is the exact same version
+Which we are using on our system
+Ok
+And here I have a virtual environment
+Also created and activated
+Now we will install our packages here
+See
+Your packages are being installed
+Just like in UV
+They are happening
+They are happening
+Let's wait a little bit
+These commands are basically
+To verify
+Our installation is complete or not
+It will tell us
+Whether python is installed properly or not
+And the command below
+Will tell us
+Which packages are installed here
+So let's wait
+Let it complete
+See
+It is done
+It is exactly a UV interface
+Now we will check through this command
+Whether python is installed or not
+Yes it is telling us
+Python version
+This one is installed
+Then we will check
+Whether our libraries are installed or not
+See
+Our DP file
+This version
+Langfuse
+And our .env
+They are installed
+What will we do next
+We will bring our secrets here
+And paste it in a .env file
+It will tell us
+Done
+What will we do after that
+We will make our script here
+Which will run our python file
+In every 15 minutes
+It is done
+Run eval.sh
+And here we are setting our cron job
+And that's it guys
+Everything is done
+How will we know
+Whether the cron job is set or not
+You run this command
+And
+See
+Here
+You have set it for every 15 minutes
+So what will happen in every 15 minutes
+Your online evaluation pipeline will run
+And
+It will push scores on your langfuse
+So what will we do to push scores
+Here
+We go to our
+Load balancer
+Ok
+And here we copy our DNS
+Now the setup is such that
+I have added my auto scaling group through proper code deploy
+Load balancer target group
+Whatever we did
+You can see it properly here
+See these four instances
+This is my online eval instance
+You can ignore this
+Monitoring instance
+Ok
+And these two instances
+Without name
+This one and this one
+This is coming from your auto scaling group
+See this is T3 media
+Your application is running on these two
+Ok
+Let's check once
+Is it running or not
+I am lying
+It is possible that I am lying
+So it is better to test
+This is HTTPS
+Let's call it HTP
+Let's wait for two minutes
+Continue to site
+Streamlit is written
+So it means something is happening
+Let's do this again
+And
+Let's go to port 8000
+What is running on port 8000
+My backend
+Yes
+I can access it
+Yes
+Application and backend is working
+And now what I will do here
+I will ask a question
+Let's ask the same question
+What is the
+Difference
+Between online
+Versus
+Offline evals
+Now if you go here
+You will see a trace
+I work on it
+Instead of past 1D
+I will do 1R
+Let's go back to our front end
+And you will get the response soon
+And one more thing
+I am experimenting
+Yesterday we conducted a very good session
+So I am
+Figuring out how we can use Jeff
+In our application
+So maybe I will experiment with Jeff
+And it is possible that next time
+When we meet on Monday
+So I will bring a little bit of Jeff in guardrails
+And make this pipeline a little faster
+So it will be just an experimentation
+I am not promising you that
+It will work so well or not
+But if it works well
+And we get benefits here
+Of our speed
+So I will include Jeff here
+In our application
+I will update my application to version 2
+So I am getting the answer
+Let's ask one more question
+What are
+LLM benchmarks
+LLM
+Benchmarks
+Benchmarks
+Let's wait a little
+Let's go to tracing
+So I have one trace
+And here
+Around 12 seconds
+Retrieval, we have fastened the retrieval
+And it takes 30 seconds in response
+From which maximum time
+Our guardrails
+It is taking 4-5 seconds
+2 seconds
+6 and around 4 seconds
+So we can save 10 seconds
+More
+Means in 18-17 seconds
+We will get our response
+And you will see perceived response
+Because 7-8 seconds from that
+Are in your generation
+So around 7-8 seconds
+Your first call will start coming
+So here
+Responses are coming
+And we are able to capture the traces
+But now you will see
+No evaluation results are visible
+Why not visible
+Because the prong job we have set
+Will trigger after next 15 minutes
+But what you can do
+You can start the prong job manually
+So I will show you
+If you see here
+You will see an online eval and folder
+Let's go to cd
+And if you see here
+You will see a log file
+Now the log file is not visible
+Because this job is not running
+So let's trigger it
+Let's trigger it
+Manually using this command
+We are simply running
+Our script
+I have run
+My deep eval script
+I have run it
+Let's wait for 2 minutes
+Now our terminal will be free
+As soon as our evaluation is complete
+Our terminal will be free
+Time is not free
+That means the evaluation is going on in the background
+If I show you in LS
+So here you will see
+This is the JSON file
+This is our time
+Calculating the timestamps
+And what is in the prong log
+Here you can see my logs from the prong job
+If you want to see the logs
+You will run this command
+This one
+You will see last 20 lines of the logs
+So let's paste it
+And see
+Here some requests have gone
+Basically here my model has
+Request gone and here the evaluation has happened
+And you can give
+This run is complete
+How much fetch is here? 2
+How much skip? 0
+How much score? 2 and how much fail? 0
+So this means scoring is done
+Now let's go again on the linefuse
+And if I open any trace
+See, I can see the scores here
+But go to the scores tab
+These are the scores along with the reason
+See
+Contextual relevancy 0.96, faithfulness 90
+And answer relevancy is 100
+Same with my
+Other
+Trace
+I think I had opened this one before
+This one
+85%
+100%
+So yes, I am able to track here
+And I am able to observe my metrics here
+Is this point clear guys?
+Clear
+Now we have done nothing new
+Now we have only our old setup
+Which we have built since so many days
+We have only retested it and re-explored it
+Clear
+Now let's do one thing
+Let's put some more chats here
+What I will do is
+I will open the notes
+Here are some questions
+I will reuse them
+Ok
+Let's put them here and leave
+Simply, after some time
+It will be evaluated automatically
+It will also be confirmed that
+Our cron job is working
+So you can see clearly guys
+Whatever setup we have built
+Everything is working
+I am not saying anything in the air
+Response has come
+Let's go and bring one more
+Let's take this question
+Now guys
+I am not reading the question
+So don't judge
+This question is not valid
+Whatever it is, it is not valid
+Simply I am creating dummy traces
+It has come
+Let's ask one more question
+Let's ask this one
+So 3 traces have been done here
+Let's do one thing
+I will trigger guardrail in the new session
+So we will have 4 traces
+Which we have to evaluate
+And only 3 of them
+Will be evaluated
+Ok, guardrails have been triggered here
+That's great
+So we have 2
+Our questions
+We get proper responses there
+So this output guardrail will be triggered
+If we go and see
+Two tracing
+This is the same question in which our output guardrail is triggered
+Yes, here
+So we should get scores of 2
+And the top one
+We should not get any score of this
+Let's move ahead
+It will run automatically after 15 minutes
+Let's move forward
+I will open up my
+OneNote
+Just a second guys
+OneNote is visible guys
+Let's move ahead
+I have understood the setup
+Although we have not done anything new
+We have only
+Explored our previous setup
+What we have been doing
+Deployment, post deployment
+All those things are working here
+In tandem
+Right, clear
+If all things are clear
+Let's move towards Prometheus
+Yes
+Now let's discuss about
+Prometheus
+So Prometheus
+If I tell you in simple words
+Prometheus is a tool
+Ok, what is Prometheus?
+It is a tool
+And why is this tool used in the industry?
+For monitoring
+And observability
+Now you have heard these terms many times
+So I will not
+Focus on them again
+Monitoring and observability
+Prometheus
+Is basically a tool
+Through which you can monitor
+Your application, your infrastructure
+Or anything
+You can observe
+Why is Prometheus used in the industry?
+Because it is a
+Standardized tool
+Ok
+So this tool is
+So standardized
+That it works with everything
+Your applications
+Your application is written in Java, JavaScript
+Python, Go
+In any language
+You have Prometheus support
+If you want to monitor any type of infrastructure
+Whether it is your Kubernetes pods
+Or your AWS services
+Or your EC2 instances
+Or on Azure, or on GCP
+Or even your databases
+Or your Windows system
+Or your Mac system
+For all these things, tracking, monitoring
+and observability are available
+So this is basically a do it all tool
+From the perspective of monitoring and observability
+Now how does Prometheus
+Do all these things?
+How did it become so standardized?
+What is the magic behind it?
+So there is no magic
+The magic is that Prometheus
+Do all these things locally
+Ok
+Prometheus has
+One of the biggest things
+Its database
+So Prometheus is basically
+A service, a tool
+Wrapped around a database
+And this database
+It is a very special kind of database
+It is called your time series database
+And the way it works is very simple
+What does Prometheus do?
+Let's say, we are tracking here
+Our EC2 instance's RAM usage
+Right, in our T3 medium
+I think there is 4GB of RAM
+So we want to check
+How many GB of RAM
+Is being consumed from these 4GB
+And how much is free
+If we know about the consumption
+And the total
+Then we can calculate how much is free
+We will get free from total-consume
+So basically, around RAM
+All the information we need
+All the Prometheus is giving us
+Now how will all these things happen?
+See, your metric
+Let's say RAM usage
+Is a metric
+It has a current value
+Ok, if you
+At this time
+At 8.36 pm
+You want to check how much RAM usage is there
+On your EC2 instance
+Then you will get 3.2 GB of RAM
+That at 8.36 pm
+On all the seconds
+On that time
+You are consuming 3.2 GB of RAM
+But this 3.2 GB
+Number
+It is not that informative
+It has no benefit
+Whenever you do observability
+What do you do?
+You observe things in a particular time window
+You can see in Langfuse
+You are tracing or you are building a graph
+So here you are showing a time window
+Past one hour, past one day
+This is a time window
+So everything in the world of monitoring
+Or in the world of observability
+There is a time window
+So standalone numbers have no benefit
+So Prometheus
+Developers thought
+Here a simple database
+Which will simply lock the numbers
+Or will store in its database
+It has no benefit
+What we have to do? We have to make a time series
+We have to make a specific database
+And they came up with a database called
+TSDB
+What does TSDB do here?
+This is a very simple database
+It stores your data
+Where your indexes are
+Your row id
+That is your timestamp
+And further is your value
+Of the metric
+Like here
+Value is 3.2 GB
+After that next timestamp will come
+Let's say this is T1
+Then T2
+Value will be on T2
+Let's say 2.8 GB
+Then T3
+It will be on that
+Let's say 3 GB
+So you can see that with time
+Your RAM usage is fluctuating
+And this is useful
+On this you can run
+Your mathematical operations
+You can run comparisons
+You can run aggregations
+I hope you are understanding this
+Prometheus is basically
+A service wrapped around a time series database
+That's it
+Now let's talk about
+Why Prometheus is so generalized
+How it gets integrated so easily everywhere
+Prometheus has
+Some core primitives
+Which help it to get integrated everywhere
+First of all
+Prometheus
+Adds two services
+To add metrics
+To add metrics
+First service is
+Client libraries
+What are client libraries
+These are basically
+Prometheus SDKs
+Means if you
+In python application
+Like our python application
+If you want to add some tracking
+To add some metrics
+You will use python SDK
+If you have Java code
+You will use Java SDK
+If you have C++ code
+You will use C++ SDK
+Whatever your language is
+Prometheus gives you client libraries
+Through which you can
+Add your metrics
+Into your application
+And second
+Prometheus
+Gives you some exporters
+What are exporters
+Exporters are basically
+Your pre-built packages
+Which are made by the community
+Or third party
+Which already has a code
+Written in it
+How to fetch your metrics
+How to expose your metrics
+And through that
+You can monitor
+Your infrastructure
+So what are client libraries
+Prometheus is not only
+If you want to enable Prometheus
+In your application
+You can use client libraries
+And client libraries are available for every language
+Whereas some pre-built packages
+Which are available
+Which are well known
+Your infrastructure
+Or your applications
+Around them
+You get pre-built packages
+Simply install them
+With your application
+If you have a post-credits database
+Then you get exporters
+For databases
+Simply attach that exporter
+With your database
+And you can visualize your metrics
+This point is clear
+It is a very important point
+Is it clear?
+Now let's do one thing
+Let's go to Prometheus documentation
+We will not explore much documentation
+Because this is not a Prometheus
+Specific class
+We will read Prometheus on a surface level
+As much as we need to monitor
+Our application or infrastructure
+Is required
+So let's write
+Prometheus
+Prometheus tool
+As I wrote
+Prometheus tool, DevOps came
+And you can see
+Prometheus is an open source system monitoring
+And alerting tool kit
+Designed to collect and process
+Numeric time series data
+This is its power
+You can see here
+That the data model
+That is a dimensional data model
+Where data is stored as
+Time series identified by
+Metric name and key value labels
+Paired called as labels
+We will see all this
+Don't worry about it
+Let's go to home page
+Here is Prometheus page
+Open source metrics and monitoring
+For your system and services
+System means your application
+And services means our AWS infrastructure
+Monitor your application systems and services
+With leading open source monitoring solution
+Now here are some good things
+Written about Prometheus
+You can explore
+If I show you more things
+You can see
+How many get up stars it has
+It is widely used
+It is a very famous tool
+If you ever work in DevOps, ML
+Ops, LLM Ops
+Then you will definitely get a pala
+With Prometheus
+Now let's explore
+This
+Here is a get started
+How to use Prometheus
+So what you have to do
+You have to install Prometheus
+And inside Prometheus
+There is a configuration file
+Which is called Prometheus.yml
+Simply you have to go inside
+Prometheus.yml
+And define your targets
+Target is what?
+Target is that instance
+Which you are targeting
+To collect the metrics
+Prometheus
+Scrape the metrics from the target
+Through HTTP endpoints
+So the endpoints you are focusing on
+Are your targets
+And what you have to do
+You have to set your targets in Prometheus.yml
+How all this happens
+We will see
+So it is get started
+It is very good
+If you are interested
+You can read about it
+Now if I show you the overview
+So here is something
+Let's see the features
+What are the features?
+Multi-dimensional data model with time series data
+Key value pairs
+Now since it is a database
+So if you want to fetch
+Data from the database
+What will you do?
+You will write queries on the database
+Like if you have a SQL database
+You write SQL queries
+Similarly if you want to query
+In the Prometheus database
+So here you have a query language
+Which is called PromQL
+Through which you write
+Your queries
+Now you must be thinking
+When we worked with SQL data
+So how we write SQL queries
+We learned
+So do we have to learn PromQL?
+The answer is yes and no
+You should know some basics
+Rest you have ChartGPT, Cloud
+With the help of that
+You can generate PromQL queries
+This is not a skill
+If you don't know
+Then there will be a problem
+You can simply generate queries
+Now
+It is written here
+Time series collection happens via pull model over HTTP
+There are some more things shown here
+Targets are discovered via service discovery
+Or static configuration
+And you get dashboarding here
+Now the metrics
+Here is the metrics
+Metrics are basically numerical measurements
+In layperson terms
+The term time series refers to
+A recording of changes over time
+What users want to measure
+And the data differs from application to application
+So basically
+Your Prometheus
+Is recording time series metrics
+Here
+There are some components
+You can see them
+This is the main Prometheus server
+Client libraries
+For instrumentation application code
+You have to put Prometheus in the application
+You will use the client library
+Special purpose exporters
+Which are pre-built for some services
+And you can set alerts here
+And this is in its architectural diagram
+If you find Prometheus explanation a bit rushed
+Don't worry about it
+We have covered Prometheus and Grafana in detail
+In our DSMB2
+Amalops series
+In detail
+So if you want to read in depth
+About all the things
+Then you can see those lectures
+We are covering it here
+Because we have already covered it
+So we are not going to cover it
+We have covered all the things
+So we are covering it in overview mode
+Is this point clear?
+It is clear
+You don't have to worry
+It is super easy
+You just understand
+Yes, it is clear
+You just understand that Prometheus
+Is not a fancy thing
+It is basically a time series database
+And in this
+If you want to query the database
+The query language is
+PromQL
+This is the syntax of PromQL
+I will show you how it is written in today's session
+But you don't have to take too much load
+If you don't understand
+In the next session
+When we will do dashboarding
+Through Grafana
+We are going to write some specific PromQL queries
+So if you understand that
+Then your work will go on
+Ok
+Is it clear?
+Is it clear in the chat?
+If you have any questions, you can ask me
+When the tool is pulling metrics
+Push gateway is also there
+Many times
+In some instances
+You push your metrics
+So for that, push gateway is used
+Again, we have already covered the details
+In the Prometheus lectures
+I have explained the whole architecture there
+Some small applications
+Or short running applications
+Your metrics don't come there
+Because what you have to do for pulling
+Pull is on a particular frequency
+Ok
+So let's say
+I have set the frequency
+1 minute
+But my application is like this
+It stops working in 10 seconds
+So what I will do with that application
+As soon as it will work, I will send a request
+And it will push its metrics
+And it will push through the gateway
+And it will come to me
+So instead of pulling there, I specifically push there
+You can understand it like this
+If you have run a short running command
+Or a service on AWS lambda
+You need its metrics
+So you bring it through the push gateway
+Is this point clear?
+Ok
+Now let's discuss
+The results that come to you
+How do they look?
+So you know how the results look
+You have here
+The name of the metric
+And its value here
+And when you have
+Results
+In a single row
+In the Prometheus language
+It is called instance vector
+Ok
+But many times
+Because it is a time series database
+So you can have results in the range
+Which means
+You want to see how the RAM usage lasted for 5 minutes
+So what happens inside it
+You have here
+Time stamp
+Here metric name
+And its value
+And let's say
+You are here
+Scraping the results
+Pulling it
+It is happening every 10 seconds
+So you have the value
+T2 after 10 seconds
+Again its time stamp metric name and value
+So you have multiple values
+Let's say you have set the range
+Of 100 seconds
+So you have 10 values
+This is called
+Range vector
+Range vector is basically when you have
+Multiple values
+So a matrix is a range vector
+A single row is an instance vector
+Clear?
+Let's move ahead
+We are discussing the terminologies
+We are not discussing anything
+High end
+So what we have to do
+We are already monitoring the application
+In LangFuse
+So we don't have to monitor the application
+From our Prometheus
+Just a second
+What we have to monitor
+Our infrastructure
+Now the good thing is
+That for infrastructure
+Already we have
+Exporters available
+You think about it
+Your infrastructure
+It is built on Linux
+It is running on Linux
+On Ubuntu EC2 machine
+So if you were given this task
+That inside Ubuntu
+You have to see your CPU usage
+Ram usage
+And write code for it
+So it would have been hectic
+As a developer
+I would have to focus on OS
+On kernel
+Which is not my forte
+So here I already
+Through the community
+I get built in exporters
+Which track my machine
+And expose the matrix
+So exporters basically
+Collect your matrix
+And at some particular
+Endpoint
+Expose your matrix
+Listen carefully
+And generally
+What happens at the end point
+Your IP is done
+If I want to run it locally
+Your exporter
+Is running at port 9100
+If I am not wrong
+And at the end point
+Of the slash matrix
+You get all the matrix of your system
+Now how do you get these matrix
+So let's see
+These matrix are plain matrix
+You can understand them
+Like this
+That they are matrix
+I will show you
+How they look
+They look confusing
+You can't understand them by reading
+Take any instance of ours
+Take this one
+So inside this
+I copy its public IP
+And I will paste it here
+So
+You will say that
+I can't understand by reading this matrix
+If I go to port 9100
+So in this instance
+I should get my exporter
+Let's continue
+See what is written
+It is writing node exporter
+What is this exporter doing
+Basically it is projecting
+All the matrix of my EC2 instance
+It is projecting at the end point
+So I will go
+At the end point of the matrix
+See, this is how you get the matrix
+Now here you have to figure out
+Which matrix you want
+There are so many matrix
+Many of them are useless
+So what we have to do
+Here we
+According to our needs
+We fetch the matrix and its value
+But if you have some idea
+If you have some idea
+You can easily see things
+Like here
+Node CPU seconds total
+This is CPU uptime
+You have different modes
+Mode idle
+Iow weight
+It was waiting for Iow
+This is some other state
+This is some other state
+So you can easily see
+Things related to CPU
+If I show you disk
+If I show you disk
+You can see all these things
+So there are many matrix
+Now how to figure out
+I will tell you
+What you do here
+Go to node exporter github page
+Here
+So what is node exporter
+It exposes your OS matrix
+You have such a
+Windows exporter
+So what you can do here
+You can go and understand
+What are your matrix
+You can see
+File system, CPU
+You can see all these things
+And these are default matrix
+One thing is that you go and read it
+And mess up your mind
+One thing you can do here
+You can pick up this readme
+To cloud chat gpt
+And you can pick up all these matrix
+To cloud chat gpt
+You can ask me
+I want to track RAM on my system
+I want to track CPU
+I want to track network
+What you do here
+Select the matrix and tell me
+Which matrix is useful for me
+And you can also write promql queries
+That I want to track average CPU utilization
+For this particular time period
+So its promql query will come
+I want to calculate available RAM
+Or free RAM
+I want to calculate network speed
+I want to calculate network usage
+I want to calculate all the requests
+Each and everything
+You can get from cloud chat gpt
+And give it
+So this is a smart way to do it
+If you go and read it manually
+You will literally mess up your mind
+Because for that you need to have
+Knowledge here
+What are all these matrix and what do they mean
+Obviously these are your linux kernel
+Specific matrix
+This is our area
+This is not our domain
+So we will not mess up our mind
+We will use smart approach
+Is this point clear?
+Is it clear guys?
+How you have to work
+And you can understand yourself
+Why you need graphana
+Because you can figure it out
+By looking at it
+If I have Prometheus
+What will I figure out in it
+I will go mad
+Is it clear?
+Why Prometheus and graphana
+Work together
+Yes, now you can clearly see
+That the data you can see
+These are single numbers
+Now this is not time series data
+This is basically
+Data of this particular instance
+When I hit this matrix
+Endpoint, then this is the data of that time
+You have single values
+You have single values
+Now look at this CPU idle
+This is 8675
+I will run it again
+So if I go to CPU idle
+Value has changed
+Now this current time
+Which is 8.56
+This is 8.56 data
+So what Prometheus does
+Prometheus is very smart
+What will Prometheus do
+We have told him that
+My EC2 instances
+Matrix is exposed at this end point
+What you do
+I will set a time
+You go to this matrix end point
+In every 15 seconds
+And bring the matrix by scraping
+Ok
+This is your whole HTML
+This matrix
+Now what are you doing with the data
+Scraping
+You do the same in scrape
+You take the information in a particular end point
+And dump it
+So what Prometheus will do
+Will go in every 15 seconds
+And will bring information
+For every one metric
+And as soon as he brings the information
+With time stamp
+Will save the metric in the database
+So CPU idle is your metric
+First he
+Picked the value at 8.56
+Then picked at 8.57
+Then 8.58 and so on
+And here he will take the values
+And save it in his time series database
+Ok
+Now in Prometheus
+You have only 4 types of metrics
+Means you
+See here so many metrics
+You are confused
+Because you don't know
+What kind of metrics are there
+If you see here
+Something is written help
+These comments actually
+What is help? It tells you what this metric does
+This metric is a small description
+Ok
+Type tells you
+What is the type of your metric
+Now what do you see here
+This metric type is counter
+This upper metric
+Node cooling device max state
+What is its counter? Gauge
+As it is you will see here
+If I show you some more metrics
+See all these counters
+If I can show you
+These are all gauge types
+These are all gauge types
+There is a histogram
+I can't see it here
+And there is a summary
+If I can show you
+Now all gauge and counters are visible
+Because they are more common
+Histogram and summary are basically
+Advanced type
+Now I can't see it
+Of course it will be in this
+I can't understand it by seeing it
+So I will tell you once
+What are the four types of metrics
+Which you will see
+In prometheus
+Very simple
+And two of these types
+Are the most common
+Because they are simple types
+So the first simple type is counter
+What does counter mean?
+Counter is used for counting
+What is the speciality of counter?
+Counter only goes up monotonically
+If the counter value is 1
+Then next time
+Its value can be 2
+It can't be 0
+It always shows upward trend
+Counter is 1, then 2, then 3
+Then 4, then 5
+It will increase one by one
+It is not like 4 will be 400
+It will increase from 4 to 400 one by one
+So counter is used for counting
+And we attach counter type metrics
+With those metrics
+Which we know will only increase
+Like number of downloads
+If we want to calculate
+The number of downloads of an application
+Then we can do counter check
+That the number of times
+Your download request is coming
+You increase the counter by 1
+Because the number of downloads
+Can never decrease
+Second is your
+Gauge
+Another thing about counter
+Of course counter only increases
+But you can reset it if you want
+If you want to start counting again
+Then simply reset the counter
+Then counter value is 0
+But it can never be negative
+And it can't be decreasing
+What is gauge?
+You must have seen
+Your speedometer
+If you have done physics experiment
+Then amp meter, volt meter
+They were gauges
+It looks like this
+You have a needle
+And you have values
+This is called gauge
+So in gauge, needle can increase
+On the side of increasing
+And on the side of decreasing
+So gauge metrics are those
+Where your values can increase or decrease
+Like the best example is
+Latency
+Latency can increase or decrease
+So they come in our gauge type
+So what happens in gauge?
+You do comparisons
+Current value, next value
+Now next value
+Downward trend is showing, upward trend is showing
+Ok
+Third is
+Your special type of metrics
+Your histogram
+I can understand from the name
+What does histogram do?
+Histogram basically divides
+Your distribution
+In buckets
+What does dividing in buckets mean?
+Will someone tell me?
+If you have read stats
+If I am dividing a distribution in buckets
+Then how am I
+Modifying that distribution?
+Will someone tell me?
+What is distribution?
+Distribution is a continuous distribution
+Ok
+Your continuous distribution
+Probability distribution
+But when I make its histogram
+In buckets, then what happens?
+What happens?
+Someone tell me
+I hope I have put the question correctly
+Clustering happens
+Yes, discrete happens
+Saurabh said the right word
+Discrete happens
+Divide in categories
+So in histogram metric
+If we
+Any distribution
+Our distribution is time series distribution
+If in time series distribution
+We have to divide it in categories
+Like latency
+We have to divide latency in buckets
+Latency should be 0 to 5 seconds
+5 to 10 seconds
+In this bucket
+10 to 15 should be in this
+And how much is its distribution
+We want to see
+So how do you see distribution?
+You get values le
+Where ever you get le value
+Less than equal to
+It is signifying a bucket
+And in your histogram
+You get two more things
+Every bucket gets a sum
+What is sum telling?
+That in that bucket
+If you add them
+You will get this sum
+And one is your count
+Count tells you how many values you have in that bucket
+Ok, so this is your histogram
+Fourth is your special type
+Advanced type
+That is your summary type metric
+Now summary is also similar to histogram
+But summary
+What does it do?
+If your histogram
+Is showing you your distribution
+So the summarized version of that distribution
+Show you the summary
+Summary basically
+Your data is broken in quantize
+Instead of buckets
+Ok
+Like you have 5 point summary
+So what is 5 point summary?
+What do you make through 5 point summary?
+That is it
+What is your Q1 value?
+What is Q2 value?
+What is Q3 value?
+Ok, this is your 5 point summary
+What is min? What is max?
+I hope you understood this
+So what does summary tell you?
+If histogram is dividing in buckets
+Then summary is dividing in quantize
+And there are two attributes in summary
+Sum tells you
+That in every given range
+Like if there are values up to 25 percentile
+Then what is the total value of those values?
+I want to find sum of Q1 values
+I want to find sum of Q2 values
+I want to find sum of median values
+So that is sum
+And count
+Normally it is your count
+Is it clear now?
+These 4 metrics are clear
+These metrics will be visible to you somewhere
+It just needs to be an idea
+Maybe you will never
+Because you are not making metrics here
+You are just tracking them
+So that you don't have to use them from the perspective of making them
+But they will definitely be visible to you
+So it is good to have an idea
+So that you know
+How you are aggregating them
+Clear?
+If you have a metric, let's say it is summary type
+Then you can easily make a Vox plot with it
+Because you have all the values there
+It is a continuous distribution
+If it is a histogram
+Then you can make a continuous distribution
+You can make a histogram
+What is in the gauge?
+You can make a meter type
+Is it clear?
+Is it confusing?
+If it is, then you can tell me
+If it is not, then let's do one thing
+Let's summarize the whole discussion
+And move ahead
+This is all we have to discuss in Prometheus
+Don't do more than this
+Tell me guys
+I am looking at the chat
+Are you understanding the things we discussed so far?
+What did you guys discuss?
+If someone has a question, then you can ask
+Is it confusing?
+Tell me yes or no
+If it is a little too much, then it will be fine
+If it is not too much
+I summarize all the discussion
+Not confusion
+Let's summarize everything
+So this is summary
+What we have to do
+Let's define the goal
+The goal is that we have to track
+Our EC2 instances
+We have to track our metrics
+We have to track our metrics
+Now who will give us the metrics?
+This metrics will give us
+A special package
+Which is called Node Exporter
+This Node Exporter library
+Is a pre-built library by Prometheus
+If we install this Node Exporter
+On any EC2 machine
+Then our EC2 machine
+On the end point of our metrics
+On port 9100
+It will expose all the metrics
+Node exporter will expose all the metrics
+Node exporter works simply
+It exposes your metrics
+Now the whole story does not get solved
+By exposing the metrics
+We have to pull these metrics
+In Prometheus
+What we will do in Prometheus
+We will set it on a different EC2 instance
+Because it is possible that your EC2 instance
+Crashes, then your tracking will also crash
+Means if you are tracking your system
+Then you will not install it on the same system
+And track it
+Let's say I am tracking my system
+Through my task manager
+What is the benefit of that?
+If my system gets over-heated and shut down
+Then task manager will also get shut down
+So how will the over-heating get detected?
+That will happen through some other system
+So we will make a special instance
+For this monitoring
+This instance will track our application instances
+On which we have installed
+Node exporter
+And on top of that
+It will fetch all the metrics
+And save them in its database
+And if we want to query that database
+Then we can write
+Prometheus queries
+And fetch the results from the database
+If we learn to fetch the results
+Then we can build a dashboard
+With those results
+And for that we use Grafame
+So today's task is
+What we will do first
+First of all we will install
+On our EC2 machine
+Node exporter
+As soon as we install this load exporter
+On all EC2 instances
+Automatically
+It will start exposing
+Our metrics at the end point of our metrics
+Okay
+After that we will make our
+New instance which will be our monitoring instance
+Where only our Prometheus
+And calcografana will be there
+This monitoring instance will be
+24x7
+And it will track our application instances
+For that we will need
+Prometheus
+In Prometheus
+We will set these end points
+Which are the end points of our EC2 machine
+Okay
+And as soon as we set them
+Our Prometheus setup
+Will automatically track these metrics
+And will start locking
+In our time series database
+The whole setup is cleared
+What we are going to do
+Is the complete setup clear
+There are 3 steps of setup
+First of all we have to set
+Node exporter on our EC2 instance
+Then we have to make a new instance
+On which we have to install Prometheus
+And thirdly you have to integrate both
+You have to tell Prometheus
+Where the metrics are exposed and how to track them
+That's it
+And the tracking you have to tell
+You don't tell it in UI
+There is a Prometheus.yml file
+It has a config file
+In which you go and
+Add the config here
+Clear
+Move forward
+It's easy guys
+When you see the whole setup
+It is easy
+Move forward
+Okay
+If you have any question
+You can ask
+Let's check
+That our traces
+That we made
+Is our cron job working or not
+So these are our 3 traces
+Yes, see
+Here we can see our scores
+See
+Yes, our cron job is working
+And our online evals are working
+Here also we can see the scores
+We can see the scores
+If I talk about this
+It shouldn't have any scoring
+Because it got a guardrail trigger
+And here there is no score
+So yes, we are successfully
+Doing online evals
+Now let's understand
+How we will install this node exporter
+On our EC2 machine
+Now to understand this
+You have to understand the whole setup
+Now what is setup
+Here we have
+Auto scaling group
+On that auto scaling group
+Automatically
+EC2 instances get launched
+If the traffic increases
+Then more get launched
+And if the traffic decreases
+Then down scaling happens
+Means our extra EC2 instances get closed
+Now whenever
+You have to set a target in Prometheus
+Then you set a target
+Through the URL
+Because how does Prometheus work
+If you see the documentation
+It is written
+Prometheus works through HTTP
+If I show you here pull metrics
+So pull metrics
+Here HTTP is not written
+Look here, HTTP server
+It pulls all these metrics
+Through HTTP
+If I show you somewhere, it will also write the exact line
+Look, time series collection
+Happens via pull model over HTTP
+If it is HTTP, what will you have to give
+You have to give a URL
+But the problem is
+Here the EC2 instances
+That are getting created
+We are not creating them manually
+They can be extra or
+Can be closed
+We don't have control over them
+So here one thing I understood
+That this URL
+Our EC2 instances IP address
+Is not static
+We only know
+That what is static
+The IP address exporter
+Is exposing its metrics
+On any IP address port 9100
+On its metrics
+We only know this
+Port number and final input
+What is the address behind it
+We don't know
+That is completely dynamic
+So what we have to do here
+First of all, we have to take some kind of
+Mechanism
+Where automatically
+Whenever any of our machines
+Is launched, automatically
+Node exporter should be installed
+We will not do this manually
+Everything should be done automatically
+What will you do to do it automatically
+We have already read this thing
+If someone will answer this
+I will be pretty happy
+If you have read it
+On EC2 machines
+Automatically anything there
+What do you do
+User data
+Where do you get it Angush
+Your answer is absolutely correct
+Where do you get it
+What is called launch
+Launch template
+Yes, I got the right answer
+What we will do here
+We will modify our launch template
+And simply add commands
+Inside it
+Whenever you want to launch a new EC2 instance
+You have to launch your node exporter
+Along with it
+And what you have to do
+You have made your node exporter
+Here
+You have installed it
+And it is also exposing the matrix here
+But you have to enable this port
+So you have to do one more thing
+That your security group
+Not for your load balancer
+Load balancer is internet facing
+User facing
+User does not have to do this matrix address
+You have to do it, this application is for developers
+So what you will do
+On your instance security group
+You will add the port 9100
+So you will enable this port
+So that you can fetch this matrix
+Clear
+So we are going to do these two changes
+Now I will not show you these changes
+Because my machines are already running
+And I have applied changes on them
+I will show you the steps
+How to do this
+What you have to do
+If I go back to the instances
+Just a second
+Here are my instances
+I will close it with x.app
+So these are my instances
+Here is my launch template
+Launch template
+Here is the launch template
+What you have to do
+What is your already existing launch template
+You have to modify it
+Modify template
+Go inside this
+So you have the launch template page
+You have to specify a new version
+Version 2
+And below
+Where you will go
+You have to attach role
+You can see here
+What is this code
+This is code for deploying agent
+We have already done this
+After that
+You have to add extra code in the user data
+This is code
+To basically add our
+Node exporter
+This is all code
+Where you will get this code
+I will show you this code
+I have already pushed this in our repository
+These are the promethe installation steps
+This is the txt file
+Look script for installing
+Node exporter on EC2 instances
+Simply you have to take this whole script
+Copy it
+And add it in the user data
+Don't delete the old one
+Keep in mind that your code deploy agent
+Won't work
+So your code deploy service won't work
+Just add everything in a new line
+That's it
+And automatically
+Your new instances
+Which will be launched
+Your node exporter will be installed
+Current instances will be stopped
+New will be launched with the modified
+Launch template
+Now I will explain you what this code is basically
+It is a very simple code
+What is the first thing in this code
+Now I will show you the version of node exporter
+So this is the latest version
+If I show you in downloads
+So look
+Here you will select the operating system
+Your Linux
+Done
+Now you will go down
+So node exporter
+Here is exporter for machine matrix
+What is the latest version showing
+1.12.1
+We are installing the same version here
+1.12.1
+So what are we doing
+First of all
+We are bringing our node exporter
+From the get up
+So from the get up
+We are downloading our node exporter
+We will get a tar file
+Basically a zip file
+We will unzip it
+After unzipping
+What we will do
+We will add our user
+We will change permissions
+We will change the permissions
+This is a simple bash code
+After that what you will do
+For your node exporter
+You will write a service
+Basically a script
+Basically like your other services
+Like your docker
+So like docker
+Your node exporter will run on your system
+You can remove it if you want
+The main reason to make this service is
+If your system crashes
+Then automatically node exporter
+Will restart every time
+Like docker
+After that what you are doing
+You are reloading your services
+And you are enabling your node exporter
+And if you want to check
+That is this service running or not
+Then what you do
+If you copy this command
+And you will go to any launch instance
+Let's say this instance
+This is my auto scaling group instance
+We will connect it to terminal
+You simply have to write
+Systemctl
+Instead of start
+You have to write status
+That my node exporter
+Is running or not
+Status is running
+So automatically on your auto scaling group
+Whenever a new instance is created
+Then automatically node exporter
+Will start there
+And what we have to do second change
+We have to change in our security group
+So I will take you to security groups
+So this is our instance security group
+CampusXRAG instance security group
+If I show you
+Then see all these things were already there
+We had stream rate on 8501
+This was back end
+SSH for terminal connection
+And HTTP
+I have added custom TCP here which is 9100
+On which my node exporter is running
+So now I
+From outside also
+I can connect my node exporter
+And I can communicate with it
+Is this point clear?
+Is this setup clear?
+One thing we have done here
+The step number one that is installing our node exporter
+To our EC2 machine
+What will be the benefit from this
+The benefit from this is that above any machine
+Now your metrics
+Are exposed to that machine
+And I will go to port 9100
+And I will do
+Slash metrics
+Slash metrics
+Slash metrics
+Slash metrics
+So your metrics are exposed
+Is this setup clear?
+Was this setup simple?
+Simple easy setup
+Nothing difficult
+Simply copy paste the commands
+Clear
+So here we have
+Installed our node exporter
+Now on our auto scaling group
+Scale up or scale down
+It doesn't matter to us
+Whatever machine will be made on it
+Our node exporter is installed
+Now let's come to the second step
+Where we have to do
+We have to launch a new EC2 instance
+And this instance
+Specifically this will be
+For our infrastructure monitoring
+On this instance we will
+Install our Prometheus
+And on this we will
+Install our Grafana
+In the next lecture
+So now I will show you
+How to install Prometheus
+So what will you do first
+First of all
+I have already made an instance
+Where Prometheus is running
+And it is monitoring instance
+I will do this delete
+I am doing delete
+So that confusion doesn't come
+Online eval
+This is running, it will keep running
+And now let's go to launch instance
+And make a new instance
+Called as
+Monitoring
+Instance
+Ok
+Here we are selecting
+OS 1.2
+It is running below, T3 micro is fine
+We have selected the key pair
+Here you will come to network settings
+Now what you have to do in network settings
+Here you have to keep outbound
+In network settings
+But you have to keep inbound
+Why you have to keep inbound
+Because your Prometheus
+Is running on port
+So you have to set port 9090 in your
+Security group
+So here I have already made
+Monitoring security group
+I will show you now
+We will keep all the disks
+And now what you have to do
+You have to add an instance profile
+I have already made that
+Prometheus EC2 SD rule
+We will select this
+And click on launch instance
+Now I will explain why
+You have to attach roles here
+Don't worry
+If I show you security group
+And I show you the
+Monitoring security group
+Here simply
+I have done Http SSH
+That you have to do
+And custom TCP I have set port 9090
+Just so that I can access
+My dashboard
+From my browser
+That's it
+Is it clear
+Our instance is done
+Let's open it
+And connect it
+And go to its terminal
+I will close extra tabs
+Now what you have to do
+You have to go here
+Next you have to attach a policy
+Here we are not talking about policy
+Now we will go to step 3
+Step 3
+Very simple step
+This is also like the step above
+This step is like this
+What are you doing
+You are going to Prometheus website
+And downloading Prometheus
+From its github page
+And then unzip it
+And then launch it
+Here you have to launch Prometheus service
+And where will you get config
+From Prometheus.yml
+I will show you this step by step
+I have copied it
+And
+Sorry for that
+I have pasted it here
+So what will happen with this
+It will download and come
+What size is coming
+Size, size, size
+It is not visible
+Whichever it is
+This was the package of 102mb
+What version we have
+3.1.4
+If I go to download
+What is the latest version of Prometheus
+This is latest
+This is pre-release
+It is 3.14
+We have downloaded it
+So we are working with the latest version
+Next what you have to do
+You have downloaded it
+And then unzip it
+So we will unzip it
+Paste the command
+Unzipped
+Now I will show you
+What is this
+This is my zip file in red color
+And in blue this is my unzipped folder
+I have extracted it
+And after that I got the folder
+Prometheus
+Let's go
+Let's see what is inside
+I can see license and notice
+This is my application
+In green you can see Prometheus
+This is my application
+You get another application which is promtool
+This is used to verify
+Promql queries
+This is not used
+This is our main application
+Prometheus and this is my yaml file
+What I told you
+If you want to set a target
+You set it in your yaml file
+Let's read it
+What is written in this yaml file
+I will clear the terminal
+Because it is very dirty
+Let's read it
+Prometheus.
+See
+This yaml file looks like this
+This is your global configuration
+What is here
+Scrape interval
+What is this
+Your matrix is exposed
+It will bring those matrix in every 15 seconds
+What is default
+If you don't set any time
+Then default will come in 15 seconds
+And it will come in 1 minute
+But we have set 15 seconds
+We haven't done it
+Actually the config file you get
+Some things are prefilled
+Evaluation interval
+This is to set alerts
+We will not use this
+Alert manager again you understand
+To set alerts
+These are your alerting rules
+We will not use this
+But I have studied alerting in detail
+In mlops
+If you want to understand alerting
+Then you can read from there
+We are not covering it in llmops
+What you have to do
+You have to set your targets in this configuration
+The purpose of this configuration
+Is to set your target
+You tell the address
+See it is written
+A scrape configuration
+Containing exactly 1 and 0.2 scrape
+Here it is Prometheus itself
+Prometheus
+Exposes his matrix
+And also scrapes them
+First of all
+Let's see a job name
+See it is written
+The job name is added as a label
+To any time series scraped
+From the config
+So all your targets
+You give them a job name
+So one job name is Prometheus itself
+Because Prometheus fetches his matrix
+The default endpoint of the matrix
+Is
+Scheme defaults to HTTP
+Through HTTP
+This is all working
+In the job name you tell
+Static config
+Such a configuration
+Or address that has never changed
+You tell your target
+Localhost 1990
+On this system Prometheus is running
+If I go to its localhost 1990
+And hit slash matrix
+Here I should see Prometheus specific
+Labels sorry matrix
+And after that
+I attach a label here Prometheus
+Which I can see in my Prometheus dashboard
+Simple, this is all you have to do
+So I actually show you
+Here I show you
+Which matrix of Prometheus is exposed here
+They are saying
+We will not believe them
+Because we are stubborn
+We will check everything ourselves
+They are saying go to port 1990
+And you will get something
+Why did not you get anything here
+Because it is on slash matrix
+Let's go
+Let's see
+Why is this not happening
+Just a second
+I did this
+Why is not showing the whole url
+It is HTTP port 1990
+Why is not showing the whole url
+It is HTTP port 1990
+Ok
+My bad
+We are not showing it because we have not started Prometheus
+Ok
+Let's start Prometheus once
+You start Prometheus with this command
+My bad
+Simply you are telling
+Prometheus
+You have to run it and read config file
+You put the amber send at the end
+So that the whole process runs in the background
+Look
+Prometheus has started
+Your port is running on localhost
+And it has read your yaml file
+Look
+Configuration file
+Prometheus.yaml
+Now let's go and show you Prometheus
+Look
+Prometheus is written
+It is a little boring but it looks like this
+If you go to status and target health
+You can see your targets
+Now we have only one target
+Prometheus
+So Gabbar
+Is monitoring himself
+Observing
+If you go to the slash matrix endpoint
+You will see his metrics
+It will take a long time
+You will not see it directly from here
+If I am here
+One minute
+Just a second guys
+We will copy it again
+Here we will paste
+We will go to port 1990
+And we will write slash
+Matrix
+And see
+These are your Prometheus metrics
+Here you are getting histogram
+Look
+And this is its bucket size
+Look
+Bucket is also written
+This is histogram and you will get summary
+Some or the other
+So you can go and see this again
+So Prometheus
+Tracks his metrics
+If you want to see any metric information
+Like let's say
+I want to see this metric information
+Its value is
+So I will simply copy this metric
+I will go back to Prometheus
+I will go to query section
+And paste this metric
+What value is coming
+Its value has changed
+It is coming to 1979
+Confirm it
+And it has increased to 203
+Which means it is increasing
+But you can fetch its value
+Is this point clear
+So what we have done successfully
+On instance
+Prometheus has been installed
+And run
+Clear
+So far
+The concept is clear
+Prometheus is working and tracking
+Everything is working fine
+Now let's go towards our last step
+Last step is
+Tracking targets
+What are our targets
+EC2 machines
+On auto scaling group
+Now on auto scaling group
+EC2 machines have a big problem
+What is the problem
+Which we have already discussed
+That any machine starts
+And any machine stops
+So by defining such url
+By defining IP addresses
+You can't define your endpoints
+Here your static configs
+Won't work
+Because your machines
+On auto scaling group
+Those are dynamic
+Not static
+It won't stop
+It can stop
+What you have to do
+Is to take a dynamic approach
+So Prometheus
+Also knew this problem
+So along with static configs
+They give another thing
+Which is service discovery
+What is service discovery
+It is basically a configuration
+Which you attach
+In your yaml file
+And what it automatically does
+It tracks all your EC2 instances
+In your auto scaling group
+Using this service discovery
+And everything is dynamic
+Because
+The tracking that is happening here
+You don't do it through actual urls
+You do it through
+Tags
+So what you do is
+In your auto scaling group
+You attach a tag
+On all your machines
+And because there is a tag on those machines
+So now
+You discover those
+On those machines
+And you start tracking them
+Now you will see
+This whole thing in the documentation
+I will show you
+If you go to the docs
+You should know
+A little bit of documentation
+If I show you the first steps
+So
+Here
+I think it is not working
+See these are the commands
+Which we have copied and pasted
+And here is your yaml file
+Prometheus configuration
+Again the same thing is showing you
+Here it is explained
+What is scrape configs
+It can scrape and monitor its own health
+So these are all things
+Now let's go here
+Data, metrics
+You can see all these things
+All the details are here
+Now let's go to jobs and instances
+So what is job?
+Job is basically your one target
+And what are instances?
+Individual machines
+So you have to tell job and instance
+Now
+We said that all these things are in static configs
+What we have to do here
+Is to make a service discovery
+What will you do for that
+See here
+If you go into configuration
+You will see here
+See
+Read carefully
+Prometheus is configured via command line flags
+And a configuration file
+While command line flags configure
+Immutable system parameters which do not change
+Configuration file
+Configuration file defines everything related to scraping jobs and instances
+Means a particular target
+And its respective machines
+You tell in the configuration
+Ok
+What is the configuration file written
+Here it is written that you can add all these things
+And everything goes here in the yaml format
+Now
+This is one
+You have a configuration file
+And in it all the attributes
+All the fields are here
+You have to focus
+If you go into scrape config
+What do you do in scrape config
+You can tell static configs
+See it is written
+In targets also
+Statically configured via static configs parameter
+And dynamically discovered
+What is our use case?
+Our use case is not static, it is dynamically discovered
+So how will it be dynamically discovered
+Using one of the supported service
+Discovery mechanisms
+Ok
+Where will you get discovery mechanisms
+Here you will not get anything
+But you see here
+Outscale SD config
+What does SD mean? Service Discovery
+Nomad SD config
+AWS SD config
+Ok
+And if you go down to E
+List of EC2
+Service Discovery Configuration
+So this is EC2 SD config
+In many applications
+You will get service discovery
+AWS is also here
+GCP is also here
+If I show you
+Kubernetes is also available
+Here GCP is also here
+I have seen
+Now
+It is not visible
+Maybe
+This GCE is for that
+Ok
+And alert manager is also visible
+Many things are visible here
+Many configurations are there
+What do we have to focus on?
+We have to focus on our EC2 service config
+I will click this
+What is written here? EC2 service
+Discovery config
+Allow retrieving scape target from
+AWS EC2 instances
+Private IP address is used by default
+But may be changed to public IP
+Via relabeling
+Ok, all these things are written here
+One thing is written here
+This policy has to be attached here
+EC2 describe instance
+What will this policy do?
+This policy will simply
+Describe your EC2 machines
+Describe means
+What is their IP address
+What is their metadata
+So you have to attach this policy
+With your Prometheus
+Now where is your Prometheus going?
+Prometheus is running on an EC2 machine
+So how will you attach the policy?
+You will attach through a role
+And you will get all this metadata
+Exposed to your EC2 machines
+Ok
+Look, you can get all this data
+Exposed to your EC2 machines
+Ok
+And you can change all these attributes
+Again, these commands
+I have written here
+You don't have to worry about documentation
+I am just telling you
+You can dynamically track everything
+Through service discovery config
+And how does it track?
+You can see here
+Where your EC2 machines
+Describe themselves
+What are their metadata fields
+What is their name
+What is their IP address
+They describe themselves
+Availability zone
+Owner ID, Platform
+State, Type
+You get all these things
+And if you see here
+You get the information of Tag
+And with this information
+You can track everything
+Now you will think
+Sir, everything is done
+How will we attach tags?
+The way to attach tags is very simple
+If you go here
+And go to your auto scaling group
+You will remember
+When they were making auto scaling group
+There was an option to attach tags
+So if I select this and go to edit
+Then look
+If you look below
+There is a tags option
+What is the key?
+Application name
+And value is campusXRAG
+So you can keep any key value
+Just remember that the tag you are setting
+Will be set on each EC2 instance
+So you have to maintain that
+In your service discovery
+There should not be any problem in this name
+So I am not updating it
+Because I have already attached tags
+And if you want to see
+In the instances
+If tags are coming or not
+You can see in the application
+This is the tag with application name
+It is being attached
+Rest are all automatic tags
+This is my custom tag
+And same tag is also on the other machine
+Now what I have to do
+Next I have to go to IAM
+And here I have to create
+EC2 described instance policy
+Now I can't directly
+Go to the roles and select the policy
+Because there is no pre-built policy for this
+So what I have to do
+First I have to go to policies
+And here in create policy
+I have to create a new policy
+So what I will do simply
+I will click on JSON
+After JSON I have written this policy
+Here is the policy
+I will copy it exactly
+This is the policy
+EC2 described instance
+And I will paste it
+And I will give it a policy name
+And I will create my policy
+I have already created this policy
+Let me show you
+The policy name is
+Prometheus EC2 SD policy
+I have already created this
+Customer manager
+It has one permission policy
+What is it? EC2
+If I click on describe instance
+It is done
+And then simply you have to create a role
+To create a role
+You will go to create role
+AWS service, here you will select EC2
+Because you have to create a role for EC2
+And simply you will search your policy
+If I write Prometheus
+This is my policy
+I will attach it
+I will give a name to the role
+And I will attach this role to whom?
+I will attach it
+To my EC2 instance
+Which is used for monitoring
+So that they can read
+The metadata
+Is it clear?
+Is all this discussion clear?
+What we have to do?
+As you have done till now
+You create your policies and roles
+And then you attach them
+So that machines can interact
+With other services
+So the service here is basically
+Fetching metadata of other EC2 machines
+Is it clear?
+I know
+You might feel a bit cumbersome
+But it is very logical
+Step by step you have to go
+I have given you all these commands
+Step by step you have to copy paste
+So if I have to check
+That my policies are working or not
+Let me see if I have pasted that command
+If not, I will update it
+Because all the installation commands are here
+So I haven't pasted that
+But I will share that command with you
+You can check that
+What you get by being printed
+When you call describe instances
+Now what you have to do at last?
+You have to do update in your Prometheus
+So for that
+What you have to do first
+Our Prometheus is already running
+As you have seen
+So first I have to close Prometheus
+So this command to close
+Process kill Prometheus
+So I close it
+How will you know if it is closed or not?
+If I
+Hit the end point of Prometheus
+Again, it won't work
+Now what I have to do
+Now I have to go here
+And my yaml file
+So this is the yaml file
+I go again
+Inside Prometheus
+This yaml file
+You have to modify it and add your target
+So I will beat it here
+I will beat it here
+Just to see
+What are the things
+Already here
+So now only my Prometheus is getting
+Tracked here
+So what I will do is
+I will go to nano here
+Nano means I can basically make changes
+Here an editor will open
+Opened
+Now what I can do is
+I can make changes through keyboard
+See cursor is moving
+So what I have to do is
+Simply
+Copy this whole thing
+See what is written here
+What is the job name?
+And what type is this?
+This is EC2 SD config type
+I have to tell some things
+Which region is this?
+Here my EC2 instances are running
+Where my metrics are exposed
+Which port is this?
+This is not Prometheus, this is for my node exporter
+That you have to go to this port
+And you have to scrape this
+Every 15 seconds
+Refresh interval is here
+60 seconds
+This refresh interval is different from scrape interval
+Refresh interval means
+You have to check every 60 minutes
+That no new EC2 instance has come
+And here filters
+What I am doing through filters
+I am filtering my tag
+Tag should be application name
+And value should be campusX ragger
+So target those EC2 machines
+Tag is applied on them
+And target those EC2 machines
+Whose state is currently running
+Closed EC2 machines, terminate
+Stopped, restarted, don't focus on them
+So I have told my config
+And this below
+Relabel config
+Simply what is doing is
+My metadata details are fetched
+Basically renaming their labels
+That's it
+Source label looks like this
+I have renamed it instance name
+Instead of renaming, I will see instance name
+And value of it
+In prometheus, I will show you
+Then your instance ID
+Will be shown on instance label
+And IP will be shown on address label
+Is this point clear?
+This is simply for relabeling
+If you remove it, you will see tags like this
+Just for relabeling
+You can remove it
+This much piece of code is important
+Job name, where you set your target
+What is the target?
+Not static config
+Prometheus was static
+If I can show you
+Prometheus is static
+This is not static, this is dynamic
+How will it fetch?
+Through service discovery
+And its full deed
+Let's do this, copy it
+I will copy it from here
+So that I can keep the indentation correct
+You have to keep in mind indentation
+Ok
+I will paste it
+Ok, now this is my second job name
+Everything seems ok
+Indentation is also correct
+I will do here
+Control O, enter
+Control X
+Let's read our file again
+That changes have come
+Or not
+Prometheus.yagra
+Changes are reflected
+Here
+Ok, now simply
+I have to run my application
+Its command
+Here
+No command is coming
+Let's get the command
+This command
+Paste and I will run my Prometheus
+It worked
+Port is running on 1990
+And it has read my yaml file
+Again
+Look, configuration file
+Now what I have to do simply
+Copy
+Run here
+And where will I get
+Port?
+On 1990
+Prometheus is coming
+Target health check
+I will go to status
+Target health and see
+Now here
+Earlier I had only one target
+Prometheus which was tracking itself
+Now my EC2 instances are also getting tracked
+Here is my campusX rack app node exporter
+And these are my two
+Endpoints
+This is their instance id
+You can verify it
+And job name is coming here
+And other labels are also here
+Which we have not relabeled
+Ok, last scrape was done
+Now you can see the state
+If you want you can query anything
+Again, query thing
+We will do in next class
+Guys, that's all for today
+What we have done in today's session
+I will summarize it again
+First of all
+On each EC2 instance
+We have installed node exporter
+Which was exposing our metrics
+After that we have made our new instance
+Specifically for monitoring
+We have installed Prometheus
+And
+After that
+We have specified our targets
+Through a service discovery
+I know those who are studying Prometheus for the first time
+They might feel a little rushed
+But
+The thing is
+I have already made you study in the analogs
+If you want to study in detail
+You can go there and study
+So that's all for today
+And what we will do in next lecture
+Whatever metrics we are tracking
+We will learn to query them
+Out of this, only the metrics of work
+And on those metrics
+We will build our dashboard
+And we will build our dashboard
+If I can show you
+Actually I will show you a query
+So this is my
+That instance
+Let me see my other instance
+T3 medium
+This one
+Here my metrics are exposed
+I will copy its IP address
+And paste
+And we will do port 9100
+Here I will get my node exporter
+And slash metrics
+If I want to bring any metric from here
+Just randomly
+I am pulling a metric
+Let's take a counter
+Node disk writes merge total
+Whatever it is
+I just want to show you
+How to query
+Look
+If I execute this
+I can see current value
+Did anyone tell me
+Why I can see 2 values here
+12.45
+And 12.86
+Why 2 values
+For the same metric
+Yes
+There are 2 instances
+If there are 4
+You can filter them through instance ID
+Now if I want to see
+For a given range
+For a given range
+These are instance vectors
+If I want to see for a range
+I will use square brackets
+And I will write in square brackets
+Like I wrote 10
+Here units will come
+10 days, 10 hours, minutes, milliseconds, seconds
+Weeks, year
+Let's say I want to see last 10 minutes
+I will execute
+So these are my range vectors
+First machine
+This detail and second machine
+Now you can see
+What is this
+These are my values
+And after adding the rate
+This is the timestamp
+This is the unix time
+And these are my values
+And you can clearly see
+How the values are changing
+Now you can
+Do aggregate operation
+Let's say I want to calculate
+What was my last 10 minutes average
+So what I will do here is
+I will write average by
+Average
+Average over time
+And I will
+Add this
+In a parenthesis
+And I will click on execute
+And see I have average values
+So just like this
+You write queries and here
+Calculate things
+Again promql
+You don't need to take too much load
+As we use it
+You will get it
+Is it clear
+You can run all operations
+Is it clear
+So I have shown you things practically
+Through hands on approach
+I have done one thing here
+I hope you can replicate these things
+Easily on your system
+So that's it
+If you have any questions then I am here
+You can ask me
+How will the node exporter work in
+Load balancer
+In load balancer we don't want
+Node exporter to work
+We just want to track our ec2 instances
+Means you want to track the network
+Of load balancer
+So for that you have to use this sdconfig
+You have to use
+Where is the
+Prometheus documentation
+Here it is
+Not even this
+Prometheus
+The aws one
+You can do it in that
+Prometheus box
+Prometheus server
+Configuration
+Here you will see aws sdconfig
+You can add things in this
+You can add details of ec2
+Light sale, ecs
+Here are many services
+Elastic cache
+Rds
+These are the specific EC2
+For other services
+This is it
+Clear
+You have to go through the documentation
+All the things are here
+And I think if you are monitoring through cloud watch
+Then there will be some way to pull the metrics
+From there
+I haven't explored it
+But you can do it
+There will be some way out
+Any other questions
+How was today's session
+Was it good
+Or boring
+Thanks
+Thanks
+I am also happy
+Thank you
+I am remembering my MLops lectures
+Actually I myself
+I forgot Prometheus
+I have revisited my MLops lectures
+And actually
+I was pretty amazed
+I shouldn't praise myself
+But after reading it I felt that I have studied
+Prometheus well
+Because I myself went with blank slate
+To study Prometheus
+I was actually acting as a student
+And after seeing my lectures I felt
+I have explained it well
+Yes, alert manager, retraining
+Everything is there
+I know
+If you want to study in detail
+There are 5-6 lectures
+Of Prometheus
+You can read it there
+Again it was out of scope for this particular series
+Because we have already done
+A lot of things
+And if we want to monitor our infrastructure
+Then Prometheus will work
+In overview mode
+We were tracking our application
+In Prometheus
+We used client libraries
+Which is SDK
+If you have no doubts, you can go
+I will be here for 2 minutes
+And then I will sign off
+So our
+Live classes
+Series guys
+It's coming to
+End
+I don't know if it's a good end or a bad end
+I am feeling a little bad that
+We met in the live class
+But
+I am feeling good thinking about this
+That what we decided earlier
+We have achieved it
+Within a limited time frame
+We have not stretched it much
+And I think I was able to provide you
+The depth that was necessary
+Monday will be our last lecture
+So we will do one thing
+We will have some fun on the last lecture
+You won't
+Study any other session going forward
+No I will teach
+But going forward
+There is no plan for a live lecture
+Maybe in AI pulse
+But not in LLM ops
+What are you covering
+Teaching wise other course
+Next
+There is a plan to cover from my side
+AWS bedrock
+Along with bedrock guardrails
+I have not finalized the curriculum
+That I will do after LLM ops
+First I will finish LLM ops
+After that I will move to bedrock
+So I am not going yet
+Next month we will build a project
+Although it will not be recorded
+But the full flow will be implemented
+For our agentic application
+Around 10 hours content
+Again we won't go into depth
+Prometheus already comes to us
+To set up
+When will AI system design come
+For that you have to ask from below
+Because they are getting the course done
+Next month is not coming
+Next month I think
+Multi agent systems are coming
+After that
+Including runtime and memory
+For AWS side if possible
+Rahul now project
+I will see
+If possible then we will do
+Because strictly whatever flow we had
+We have to make an agentic project
+Means this is my plan so far
+I will try Jeff in this
+Till Monday
+Our next class is on Monday
+It can be applied in guardrails
+And get good results
+So I will update this in the application
+And we will discuss it on Monday
+Not in LLM ops
+Not in portal
+If there is any specific location
+These are handwritten notes
+I haven't updated this for a long time
+I thought you don't need them
+If you want I will update
+Tomorrow I will update them
+You will get these notes in the morning
+Proper notes we haven't made yet
+So if you are working on advanced track course
+You will get advanced track notes
+In another 2 weeks
+And as soon as they are done
+We will move to LLM ops
+See the problem with notes is
+Making notes is one thing
+You have to review the notes
+So I manually
+Means I review notes page by page
+And not only the notes
+But also its diagrams
+So till my end
+For my course
+Till I don't get go ahead
+Till the review part is not complete
+It won't be launched
+And it takes time to review
+Time means I review very carefully
+So that's why I can't
+Agree on quality
+So it will take some time
+But you will get good notes
+The rest of the notes
+Design workflow we have finalized
+So that's a good news for you
+So I have created many transcripts
+For advanced track
+If you want I can make you available
+Transcripts
+If you want
+And if you can wait
+Then wait for notes
+And that too only for the insider group
+Transcript is also for insider group
+If you want proper notes
+Then wait for notes
+As soon as advanced track comes
+Then Allen mouse will also come
+Our notes creation pipeline
+Has become very fast
+So first for a course
+Let's say advanced track
+Which is 40-45 hours
+It took us 2 months to
+Channel out notes
+Now we are able to do the same thing in 2 weeks
+So it's 1-4th
+Thanks Akash
+You will get notes
+Context engineering notes have also been finalized
+I think you will get those too
+Till this weekend
+There are many courses
+In pipeline so you will get them slowly
+For every course
+Bandwidth will be given
+We are also creating notes parallelly
+So multiple courses
+Are running at the same time
+Again the thing is
+There is a review problem and our team is small
+So
+Wait a little
+You will get better things
+This is a promise
+Advanced track will be available in your dashboard
+In the next 15 days
+Signing off
+See you
+In our last live session
+For the LLMops series
+It will be on Monday
+I will try to include Jev in it
+And we will wrap it up
+With Grafana
+And we will also have some fun
+I will leave it on Monday
+In a serious tone
+Bye

@@ -1,0 +1,5609 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+Any questions guys?
+
+00:00:08.000 --> 00:00:26.000
+It is difficult to tell you how many classes will be there
+
+00:00:26.000 --> 00:00:32.000
+But we will touch more on practical side
+
+00:00:32.000 --> 00:00:42.000
+My target is to complete our rag LMAO by next month
+
+00:00:42.000 --> 00:00:52.000
+I will tell you how many classes will be there
+
+00:00:52.000 --> 00:01:02.000
+We will cover everything in detail
+
+00:01:02.000 --> 00:01:12.000
+I have pushed sumit last time
+
+00:01:12.000 --> 00:01:18.000
+Let me see
+
+00:01:18.000 --> 00:01:24.000
+It is showing modified
+
+00:01:24.000 --> 00:01:32.000
+We have not completed the changes yet
+
+00:01:32.000 --> 00:01:42.000
+You are watching it side by side
+
+00:01:42.000 --> 00:01:48.000
+Great
+
+00:01:48.000 --> 00:01:52.000
+Questions guys
+
+00:01:52.000 --> 00:02:02.000
+Let's start in 2 minutes
+
+00:02:02.000 --> 00:02:12.000
+Any questions, feedback, details?
+
+00:02:12.000 --> 00:02:22.000
+Our flow will be organic
+
+00:02:22.000 --> 00:02:32.000
+We will cover everything step by step
+
+00:02:32.000 --> 00:02:42.000
+You will not feel any changes
+
+00:02:42.000 --> 00:02:52.000
+I don't understand why we included this step
+
+00:02:52.000 --> 00:03:02.000
+I will read it myself
+
+00:03:02.000 --> 00:03:12.000
+Share the resources you have checked out with me
+
+00:03:12.000 --> 00:03:22.000
+I will read it and guide you to better resources
+
+00:03:22.000 --> 00:03:32.000
+You are getting these notes
+
+00:03:32.000 --> 00:03:38.000
+It will be a book
+
+00:03:38.000 --> 00:03:44.000
+LLM is more practical
+
+00:03:44.000 --> 00:03:52.000
+It will help you more than implementation
+
+00:03:52.000 --> 00:04:02.000
+I will have to make a workflow for code
+
+00:04:02.000 --> 00:04:12.000
+We will do that at the end of this playlist
+
+00:04:12.000 --> 00:04:22.000
+Let's start
+
+00:04:22.000 --> 00:04:32.000
+Let's start
+
+00:04:32.000 --> 00:04:42.000
+Let's recap our journey
+
+00:04:42.000 --> 00:04:52.000
+Let me show you one important part of our journey
+
+00:04:52.000 --> 00:05:02.000
+We have built our application
+
+00:05:02.000 --> 00:05:12.000
+We have built our application
+
+00:05:12.000 --> 00:05:22.000
+We have not tested anything
+
+00:05:22.000 --> 00:05:32.000
+We have done an evaluation
+
+00:05:32.000 --> 00:05:38.000
+The data set you will evaluate on
+
+00:05:38.000 --> 00:05:44.000
+It has to be created only from your context
+
+00:05:44.000 --> 00:05:52.000
+Because it is grounded
+
+00:05:52.000 --> 00:05:58.000
+We will make our data set from our context
+
+00:05:58.000 --> 00:06:04.000
+From our knowledge base
+
+00:06:04.000 --> 00:06:12.000
+We will make our test data set on that
+
+00:06:12.000 --> 00:06:20.000
+We will add two more pieces of information
+
+00:06:20.000 --> 00:06:28.000
+That is our component's outputs
+
+00:06:28.000 --> 00:06:36.000
+We are working with our retriever
+
+00:06:36.000 --> 00:06:42.000
+We will add these outputs in our data set
+
+00:06:42.000 --> 00:06:50.000
+You will run your application
+
+00:06:50.000 --> 00:06:58.000
+You will send every golden data set to your application
+
+00:06:58.000 --> 00:07:04.000
+You will have a test data set
+
+00:07:04.000 --> 00:07:10.000
+We call it our evaluation data set
+
+00:07:10.000 --> 00:07:16.000
+We are persisting on every step
+
+00:07:16.000 --> 00:07:22.000
+We have written about five built-in metrics
+
+00:07:22.000 --> 00:07:28.000
+Three metrics were retriever components
+
+00:07:28.000 --> 00:07:34.000
+We have also discussed about custom metrics
+
+00:07:34.000 --> 00:07:40.000
+How to make custom metrics
+
+00:07:40.000 --> 00:07:46.000
+We have discussed about this in detail
+
+00:07:46.000 --> 00:07:52.000
+We have run our metrics on our application
+
+00:07:52.000 --> 00:07:58.000
+When we run these metrics on our application
+
+00:07:58.000 --> 00:08:04.000
+We get our aggregate metrics
+
+00:08:04.000 --> 00:08:10.000
+This is our report card
+
+00:08:10.000 --> 00:08:16.000
+We will come back to our exam analogy
+
+00:08:16.000 --> 00:08:22.000
+You are a student and you have your report card
+
+00:08:22.000 --> 00:08:28.000
+I will ask you what is your next logical step
+
+00:08:28.000 --> 00:08:34.000
+What do you see in the report card and what is the logical step
+
+00:08:34.000 --> 00:08:40.000
+What is the next step
+
+00:08:40.000 --> 00:08:46.000
+What is the next logical step
+
+00:08:46.000 --> 00:08:52.000
+Pritika is right
+
+00:08:52.000 --> 00:08:58.000
+The biggest step in our mind is
+
+00:08:58.000 --> 00:09:04.000
+We will study this report card
+
+00:09:04.000 --> 00:09:10.000
+We will see where the shortcoming is
+
+00:09:10.000 --> 00:09:16.000
+The average score is around 90%
+
+00:09:16.000 --> 00:09:22.000
+We are not taking it too much into consideration
+
+00:09:22.000 --> 00:09:28.000
+The average score is around 94
+
+00:09:28.000 --> 00:09:34.000
+Although I did not get 100% score
+
+00:09:34.000 --> 00:09:40.000
+But my contextual precision is working well
+
+00:09:40.000 --> 00:09:46.000
+This means that the built-in retriever is working well
+
+00:09:46.000 --> 00:09:52.000
+The built-in retriever is working well
+
+00:09:52.000 --> 00:09:58.000
+I don't need to fix the re-ranker
+
+00:09:58.000 --> 00:10:04.000
+The answer is also 90%
+
+00:10:04.000 --> 00:10:10.000
+My LLM is giving me the right answer
+
+00:10:10.000 --> 00:10:16.000
+The system prompt is also giving me the right answer
+
+00:10:16.000 --> 00:10:22.000
+Faithfulness is 97% with 100% pass rate
+
+00:10:22.000 --> 00:10:28.000
+The response I am getting from my application is grounded in my context
+
+00:10:28.000 --> 00:10:34.000
+Now let's talk about contextual relevancy
+
+00:10:34.000 --> 00:10:40.000
+I have a metric on which I need to focus
+
+00:10:40.000 --> 00:10:46.000
+I have low score as compared to other metrics
+
+00:10:46.000 --> 00:10:52.000
+Although the pass rate is 79%
+
+00:10:52.000 --> 00:10:58.000
+If your pass rate is good, it is around 80%
+
+00:10:58.000 --> 00:11:04.000
+The average score is 65%
+
+00:11:04.000 --> 00:11:10.000
+This means that your contextual relevancy is not working well
+
+00:11:10.000 --> 00:11:16.000
+Because it is passing over maximum questions
+
+00:11:16.000 --> 00:11:22.000
+But the scores you are getting are not very high
+
+00:11:22.000 --> 00:11:30.000
+Although you are able to pass over 80% or 79%
+
+00:11:30.000 --> 00:11:36.000
+But the individual scores you are getting are very low
+
+00:11:36.000 --> 00:11:42.000
+Let me show you the criteria
+
+00:11:42.000 --> 00:11:48.000
+If you go inside your reports, you will see the evaluation results
+
+00:11:48.000 --> 00:11:52.000
+We have stored all the results in this
+
+00:11:52.000 --> 00:11:58.000
+You will also get individual scores
+
+00:11:58.000 --> 00:12:04.000
+There is a lot of information here
+
+00:12:04.000 --> 00:12:10.000
+You will see the score of your individual metrics
+
+00:12:10.000 --> 00:12:16.000
+This is the attribute of the metrics score
+
+00:12:16.000 --> 00:12:20.000
+You will also see the score of the test case
+
+00:12:20.000 --> 00:12:26.000
+You will see the number of questions you passed and failed
+
+00:12:26.000 --> 00:12:32.000
+Contextual relevancy is performing well on some questions
+
+00:12:32.000 --> 00:12:38.000
+Whereas on some questions, your threshold is not crossing
+
+00:12:38.000 --> 00:12:44.000
+You will see the scores here
+
+00:12:44.000 --> 00:12:50.000
+There are not very good scores
+
+00:12:50.000 --> 00:12:56.000
+You will see that there is a lot of variance in contextual relevancy
+
+00:12:56.000 --> 00:13:02.000
+Whenever you have a score with a lot of variation
+
+00:13:02.000 --> 00:13:06.000
+You have to tune this parameter
+
+00:13:06.000 --> 00:13:10.000
+In some cases, contextual relevancy is showing that
+
+00:13:10.000 --> 00:13:14.000
+Your signal to noise ratio has increased
+
+00:13:14.000 --> 00:13:18.000
+Your chunks have more noise
+
+00:13:18.000 --> 00:13:22.000
+The way to reduce noise is to increase chunk size
+
+00:13:22.000 --> 00:13:26.000
+Maybe top K, chunk overlap
+
+00:13:26.000 --> 00:13:34.000
+In some cases, you will tweak your embedding model
+
+00:13:34.000 --> 00:13:38.000
+But you have to keep in mind that
+
+00:13:38.000 --> 00:13:42.000
+When you are doing these tweaks, you have to make sure that
+
+00:13:42.000 --> 00:13:46.000
+The other scores that you have are high, they should not decrease
+
+00:13:46.000 --> 00:13:50.000
+It is not like you go and tweak this particular metric and the other scores start decreasing
+
+00:13:50.000 --> 00:13:54.000
+We can see that because the variance is high
+
+00:13:54.000 --> 00:13:58.000
+It is performing well on some questions
+
+00:13:58.000 --> 00:14:02.000
+We have to tweak it very slowly
+
+00:14:02.000 --> 00:14:06.000
+We don't want to make abrupt changes
+
+00:14:06.000 --> 00:14:10.000
+We are talking about answer correctness
+
+00:14:10.000 --> 00:14:14.000
+Here the score is 70% and the pass rate is also around it
+
+00:14:14.000 --> 00:14:18.000
+We can see that on average, your scores are like this
+
+00:14:18.000 --> 00:14:22.000
+If I show you the answer correctness
+
+00:14:22.000 --> 00:14:26.000
+You will see consistent scores
+
+00:14:26.000 --> 00:14:30.000
+Variation is very less
+
+00:14:30.000 --> 00:14:34.000
+You will see 0.4, 0.9, 0.7, 0.8
+
+00:14:34.000 --> 00:14:38.000
+But you will not see a lot of dip
+
+00:14:38.000 --> 00:14:42.000
+You will not see scores like this
+
+00:14:42.000 --> 00:14:46.000
+The score is very close
+
+00:14:46.000 --> 00:14:50.000
+If we had kept the threshold at 0.4 or 0.3, this metric would have been cleared
+
+00:14:50.000 --> 00:14:54.000
+If I talk about the final metric
+
+00:14:54.000 --> 00:14:58.000
+That is simple explanation
+
+00:14:58.000 --> 00:15:02.000
+It is working well
+
+00:15:02.000 --> 00:15:06.000
+Our LLM is giving us a simple explanation
+
+00:15:06.000 --> 00:15:10.000
+I understood this after seeing this report card
+
+00:15:10.000 --> 00:15:14.000
+We have to focus on the first metric
+
+00:15:14.000 --> 00:15:18.000
+The first metric is contextual relevancy
+
+00:15:18.000 --> 00:15:22.000
+Whenever I talk about metrics, I should know
+
+00:15:22.000 --> 00:15:26.000
+What are my targets
+
+00:15:26.000 --> 00:15:30.000
+I have to fix the signal to noise ratio
+
+00:15:30.000 --> 00:15:34.000
+You know to fix chunk size, chunk overlap
+
+00:15:34.000 --> 00:15:38.000
+You have to fix those things
+
+00:15:38.000 --> 00:15:42.000
+You are taking your expected output
+
+00:15:42.000 --> 00:15:46.000
+Which is your grounded reference
+
+00:15:46.000 --> 00:15:50.000
+And you are comparing it with your actual response
+
+00:15:50.000 --> 00:15:54.000
+The more similarity you have with your expected output
+
+00:15:54.000 --> 00:15:58.000
+The more your answer correctness will increase
+
+00:15:58.000 --> 00:16:02.000
+You have to make sure these things are built
+
+00:16:02.000 --> 00:16:06.000
+This is our report card
+
+00:16:06.000 --> 00:16:10.000
+After that we shifted gears
+
+00:16:10.000 --> 00:16:14.000
+And we discussed about prompt management
+
+00:16:14.000 --> 00:16:18.000
+We have evaluated our application
+
+00:16:18.000 --> 00:16:22.000
+We have the report card
+
+00:16:22.000 --> 00:16:26.000
+After that we learned how to define system prompt
+
+00:16:26.000 --> 00:16:30.000
+What is system prompt?
+
+00:16:30.000 --> 00:16:34.000
+System prompt is a very important piece of text
+
+00:16:34.000 --> 00:16:38.000
+It defines the application
+
+00:16:38.000 --> 00:16:42.000
+This is the soul of your application
+
+00:16:42.000 --> 00:16:46.000
+We have seen how you can store this system prompt
+
+00:16:46.000 --> 00:16:50.000
+How you can create different versions of it
+
+00:16:50.000 --> 00:16:54.000
+And how you can mark the versions through labels
+
+00:16:54.000 --> 00:16:58.000
+And load the proper version
+
+00:16:58.000 --> 00:17:02.000
+We have discussed this
+
+00:17:02.000 --> 00:17:06.000
+The reason for prompt management was
+
+00:17:06.000 --> 00:17:10.000
+If you hard code your prompt
+
+00:17:10.000 --> 00:17:14.000
+Then you have to change the system prompt
+
+00:17:14.000 --> 00:17:18.000
+When your application is in production
+
+00:17:18.000 --> 00:17:22.000
+Then you have to redeploy the whole application
+
+00:17:22.000 --> 00:17:26.000
+You have to trigger the deployment pipeline again
+
+00:17:26.000 --> 00:17:30.000
+What is the way to avoid that
+
+00:17:30.000 --> 00:17:34.000
+You should not hard code your system prompt
+
+00:17:34.000 --> 00:17:38.000
+What piece of information you are attaching to your code
+
+00:17:38.000 --> 00:17:42.000
+Which prompt you have to load
+
+00:17:42.000 --> 00:17:46.000
+And what should be its respective label
+
+00:17:46.000 --> 00:17:50.000
+And your lang fuse will automatically go to your server
+
+00:17:50.000 --> 00:17:54.000
+Where you have a prompt in a database
+
+00:17:54.000 --> 00:17:58.000
+It will bring your prompt through an API call
+
+00:17:58.000 --> 00:18:02.000
+And this prompt will be dynamically injected into your code
+
+00:18:02.000 --> 00:18:06.000
+The simple thing of prompt management is
+
+00:18:06.000 --> 00:18:10.000
+You can make your code flexible
+
+00:18:10.000 --> 00:18:14.000
+So that you don't have to redeploy with every prompt change
+
+00:18:14.000 --> 00:18:18.000
+And you can maintain the versions properly
+
+00:18:18.000 --> 00:18:22.000
+You can switch between the versions
+
+00:18:22.000 --> 00:18:26.000
+And which prompt is used during the development time
+
+00:18:26.000 --> 00:18:30.000
+Which prompt is used during production time
+
+00:18:30.000 --> 00:18:34.000
+Which is your baseline prompt
+
+00:18:34.000 --> 00:18:38.000
+So far our journey is clear
+
+00:18:50.000 --> 00:18:54.000
+Let's discuss further
+
+00:18:54.000 --> 00:18:58.000
+There is one important concept left
+
+00:18:58.000 --> 00:19:02.000
+Which is versions and labels
+
+00:19:02.000 --> 00:19:06.000
+This is the core concept
+
+00:19:06.000 --> 00:19:10.000
+This is the core concept
+
+00:19:10.000 --> 00:19:14.000
+Which makes the lang fuse
+
+00:19:14.000 --> 00:19:18.000
+You use the lang fuse prompt management part
+
+00:19:18.000 --> 00:19:22.000
+Because it has the capability of versions and labels
+
+00:19:22.000 --> 00:19:26.000
+Now when we were doing versioning
+
+00:19:26.000 --> 00:19:30.000
+What was the biggest problem
+
+00:19:30.000 --> 00:19:34.000
+My developer doesn't remember the version numbers
+
+00:19:34.000 --> 00:19:38.000
+Which was the first version
+
+00:19:38.000 --> 00:19:42.000
+Which was in production
+
+00:19:42.000 --> 00:19:46.000
+What update I have made
+
+00:19:46.000 --> 00:19:50.000
+What changes have been made
+
+00:19:50.000 --> 00:19:54.000
+I want my developer not to remember
+
+00:19:54.000 --> 00:19:58.000
+My developer should work with labels
+
+00:19:58.000 --> 00:20:02.000
+And define through labels
+
+00:20:02.000 --> 00:20:06.000
+Which prompt to use in every stage of development
+
+00:20:06.000 --> 00:20:10.000
+Simply shift the labels and version your prompt
+
+00:20:10.000 --> 00:20:14.000
+And manage it
+
+00:20:14.000 --> 00:20:18.000
+So in the lang fuse, whenever you
+
+00:20:18.000 --> 00:20:22.000
+Use your system prompt
+
+00:20:22.000 --> 00:20:26.000
+And for now let's say this is your version A
+
+00:20:26.000 --> 00:20:30.000
+You simply changed something in this prompt
+
+00:20:30.000 --> 00:20:34.000
+Your teammate did it
+
+00:20:34.000 --> 00:20:38.000
+So your lang fuse
+
+00:20:38.000 --> 00:20:42.000
+Will save this prompt in the name of version B
+
+00:20:42.000 --> 00:20:46.000
+Will persist
+
+00:20:46.000 --> 00:20:50.000
+In your database
+
+00:20:50.000 --> 00:20:54.000
+Now the thing is as soon as you get version B or version 2
+
+00:20:54.000 --> 00:20:58.000
+If you change something else
+
+00:20:58.000 --> 00:21:02.000
+If you add a comma or full stop
+
+00:21:02.000 --> 00:21:06.000
+This will automatically become version C
+
+00:21:06.000 --> 00:21:10.000
+So the thing is you don't have to track these versions individually
+
+00:21:10.000 --> 00:21:14.000
+So what you did is you took a prompt
+
+00:21:14.000 --> 00:21:18.000
+And you are making changes in it
+
+00:21:18.000 --> 00:21:22.000
+You did change 1, 2, 3
+
+00:21:22.000 --> 00:21:26.000
+So your prompt management system is tracking two things
+
+00:21:26.000 --> 00:21:30.000
+First thing is what changed
+
+00:21:30.000 --> 00:21:34.000
+What changed in your prompt
+
+00:21:34.000 --> 00:21:38.000
+And second thing is who changed it
+
+00:21:38.000 --> 00:21:42.000
+So if you work in collaboration
+
+00:21:42.000 --> 00:21:46.000
+Or team
+
+00:21:46.000 --> 00:21:50.000
+Because generally you build these projects in team
+
+00:21:50.000 --> 00:21:54.000
+So it's tracking what changed in your prompt
+
+00:21:54.000 --> 00:21:58.000
+Which we did comparison last time
+
+00:21:58.000 --> 00:22:02.000
+What words and sentences changed
+
+00:22:02.000 --> 00:22:06.000
+And second thing is clearly written who committed this change
+
+00:22:06.000 --> 00:22:10.000
+So these two things
+
+00:22:10.000 --> 00:22:14.000
+So the site prompt versioning tracks properly
+
+00:22:14.000 --> 00:22:18.000
+I hope this thing is clear to you
+
+00:22:18.000 --> 00:22:22.000
+Now the philosophy of lang fuse developers
+
+00:22:22.000 --> 00:22:26.000
+Is that if you want to save the prompt
+
+00:22:26.000 --> 00:22:30.000
+Or load the prompt
+
+00:22:30.000 --> 00:22:34.000
+You have to attach some tags or labels with your prompt
+
+00:22:34.000 --> 00:22:38.000
+You can call them tags or labels
+
+00:22:38.000 --> 00:22:42.000
+And simply by moving these labels
+
+00:22:42.000 --> 00:22:46.000
+You can change the prompt you are ingesting
+
+00:22:46.000 --> 00:22:50.000
+I will explain you with an example
+
+00:22:50.000 --> 00:22:54.000
+Let's say you have three versions of prompt management system
+
+00:22:54.000 --> 00:22:58.000
+V1, V2, V3
+
+00:22:58.000 --> 00:23:02.000
+Obviously this V1 was generated earlier
+
+00:23:02.000 --> 00:23:06.000
+You made some changes in V1 and it became V2 automatically
+
+00:23:06.000 --> 00:23:10.000
+And you gave a label to this V1
+
+00:23:10.000 --> 00:23:14.000
+That is your development or staging
+
+00:23:14.000 --> 00:23:18.000
+Let's give it staging
+
+00:23:18.000 --> 00:23:22.000
+You gave a label to V1
+
+00:23:22.000 --> 00:23:26.000
+Now the ingest side of code
+
+00:23:26.000 --> 00:23:30.000
+What will you write on the ingest side of code
+
+00:23:30.000 --> 00:23:34.000
+You will simply write that you load the system prompt
+
+00:23:34.000 --> 00:23:38.000
+And label staging is attached on it
+
+00:23:38.000 --> 00:23:42.000
+You will not tell the version number
+
+00:23:42.000 --> 00:23:46.000
+You will simply tell lang fuse to give me the prompt
+
+00:23:46.000 --> 00:23:50.000
+Which is my staging prompt
+
+00:23:50.000 --> 00:23:54.000
+So if I want my V2 to be the staging prompt
+
+00:23:54.000 --> 00:23:58.000
+Will I change it in the load code
+
+00:23:58.000 --> 00:24:02.000
+Or will I change it in the save code
+
+00:24:02.000 --> 00:24:06.000
+I will not change it in the load code
+
+00:24:06.000 --> 00:24:10.000
+I will change it in the update code
+
+00:24:10.000 --> 00:24:14.000
+I have to tell two things in the update code
+
+00:24:14.000 --> 00:24:18.000
+First I have to tell which version I have to update
+
+00:24:18.000 --> 00:24:22.000
+And second I have to tell which label I have to shift
+
+00:24:22.000 --> 00:24:26.000
+So I will pass two things in the update prompt
+
+00:24:26.000 --> 00:24:30.000
+Remember that the prompt is never changed
+
+00:24:30.000 --> 00:24:34.000
+So you are tracking the text change through save
+
+00:24:34.000 --> 00:24:38.000
+This is a key difference in lang fuse
+
+00:24:38.000 --> 00:24:42.000
+Update does not mean that you are changing the prompt text
+
+00:24:42.000 --> 00:24:46.000
+Text is automatically getting logged
+
+00:24:46.000 --> 00:24:50.000
+You are tracking the labels
+
+00:24:50.000 --> 00:24:54.000
+Which version or particular tag or label is attached
+
+00:24:54.000 --> 00:24:58.000
+You said that you want to load V2
+
+00:24:58.000 --> 00:25:02.000
+You told the version number in the update code
+
+00:25:02.000 --> 00:25:06.000
+And the label name that I have to attach the label with V2 as staging
+
+00:25:06.000 --> 00:25:10.000
+Now what will lang fuse do
+
+00:25:10.000 --> 00:25:14.000
+As soon as you will allot a similar label to a new version
+
+00:25:14.000 --> 00:25:18.000
+Your label will get updated
+
+00:25:18.000 --> 00:25:22.000
+Now lang fuse will know that there are two labels available
+
+00:25:22.000 --> 00:25:26.000
+So it will automatically remove the label from the previous version
+
+00:25:26.000 --> 00:25:30.000
+So what you have done here is you have updated only the version
+
+00:25:30.000 --> 00:25:34.000
+But you have not changed any of the load code
+
+00:25:34.000 --> 00:25:38.000
+Neither your application has been redeployed nor has your code level changed
+
+00:25:38.000 --> 00:25:42.000
+But internally your application has changed
+
+00:25:42.000 --> 00:25:46.000
+Now your application is working with this particular system prompt
+
+00:25:46.000 --> 00:25:50.000
+Automatically you have changed your system prompt in a single second
+
+00:25:50.000 --> 00:25:54.000
+I think this V3 is better than my V2
+
+00:25:54.000 --> 00:25:58.000
+So what I will do is I will simply remove this label
+
+00:25:58.000 --> 00:26:02.000
+And attach it to V3
+
+00:26:02.000 --> 00:26:06.000
+Now my V3 will get staging
+
+00:26:06.000 --> 00:26:10.000
+So it will remove this particular label from V2
+
+00:26:10.000 --> 00:26:14.000
+Now you must be thinking that we are not maintaining the versions
+
+00:26:14.000 --> 00:26:18.000
+But we are shifting the labels forward
+
+00:26:18.000 --> 00:26:22.000
+It would be better if we use the new version prompt
+
+00:26:22.000 --> 00:26:26.000
+Why do we need to play this label game
+
+00:26:26.000 --> 00:26:30.000
+So the reason for this is
+
+00:26:30.000 --> 00:26:34.000
+Your system prompts are generally prepared by prompt engineers
+
+00:26:34.000 --> 00:26:38.000
+And they are different from your application developers
+
+00:26:38.000 --> 00:26:42.000
+So what we have done is we have given prompt update and versioning work to prompt engineers
+
+00:26:42.000 --> 00:26:46.000
+Whereas the application side
+
+00:26:46.000 --> 00:26:50.000
+Where we are integrating the code to ingest the prompt
+
+00:26:50.000 --> 00:26:54.000
+Is in our control
+
+00:26:54.000 --> 00:26:58.000
+So prompt engineer is doing the versioning automatically
+
+00:26:58.000 --> 00:27:02.000
+And the particular prompt that we have to load and ingest
+
+00:27:02.000 --> 00:27:06.000
+We are simply adding a tag on it
+
+00:27:06.000 --> 00:27:10.000
+With which tag we are loading our prompts
+
+00:27:10.000 --> 00:27:14.000
+We are just doing the label shifting
+
+00:27:14.000 --> 00:27:18.000
+So we are not doing anything here, we are doing label shifting
+
+00:27:18.000 --> 00:27:22.000
+Tomorrow it may be possible that my prompt engineer
+
+00:27:22.000 --> 00:27:26.000
+Has extensively tested and V3 is performing very well
+
+00:27:26.000 --> 00:27:30.000
+So I have loaded this particular thing in my application
+
+00:27:30.000 --> 00:27:34.000
+And my application is using V3
+
+00:27:34.000 --> 00:27:38.000
+But in the future it may be possible that my application doesn't give good results
+
+00:27:38.000 --> 00:27:42.000
+It may be possible that I had written in the prompt that give me simple explanation
+
+00:27:42.000 --> 00:27:46.000
+But due to some reason my application is not giving a simple explanation
+
+00:27:46.000 --> 00:27:50.000
+So it may be possible that my application is not giving a simple explanation
+
+00:27:50.000 --> 00:27:54.000
+It may be possible that some wordings or order of text has changed
+
+00:27:54.000 --> 00:27:58.000
+So what I want is I want to roll back to my V2
+
+00:27:58.000 --> 00:28:02.000
+Because what was V2?
+
+00:28:02.000 --> 00:28:06.000
+V2 was tested and it was giving me very good results
+
+00:28:06.000 --> 00:28:10.000
+So what I will do is I will change the code in my application
+
+00:28:10.000 --> 00:28:14.000
+Again the answer is a big no, I will simply catch this label and attach it again with V2
+
+00:28:14.000 --> 00:28:18.000
+Again I will do label shifting
+
+00:28:18.000 --> 00:28:22.000
+And I will attach staging with V2
+
+00:28:22.000 --> 00:28:26.000
+As soon as staging is attached with V2, the label of staging will be removed
+
+00:28:26.000 --> 00:28:30.000
+And automatically my application will start using V2 version
+
+00:28:30.000 --> 00:28:34.000
+So there are 2 key technical terms
+
+00:28:34.000 --> 00:28:38.000
+First is your promotion
+
+00:28:38.000 --> 00:28:42.000
+You can call it version promotion or prompt promotion
+
+00:28:42.000 --> 00:28:46.000
+What happens in version promotion is that you shift your label
+
+00:28:46.000 --> 00:28:50.000
+On the next version
+
+00:28:50.000 --> 00:28:54.000
+A good example of this is your latest label
+
+00:28:54.000 --> 00:28:58.000
+Latest label is a default label
+
+00:28:58.000 --> 00:29:02.000
+This is a default label and Langfuse uses it internally
+
+00:29:02.000 --> 00:29:06.000
+I have shown you in the last class as well, we didn't use latest
+
+00:29:06.000 --> 00:29:10.000
+We didn't attach it with our prompt but with our latest prompt
+
+00:29:10.000 --> 00:29:14.000
+So this label was attached
+
+00:29:14.000 --> 00:29:18.000
+Latest is attached with the newest version of the prompt
+
+00:29:18.000 --> 00:29:22.000
+So if I have V1, V2, V3, then with V3, the latest will be attached
+
+00:29:22.000 --> 00:29:26.000
+Tomorrow I will make some changes in my prompt, it will be V4
+
+00:29:26.000 --> 00:29:30.000
+So with this V4, the latest will be attached automatically
+
+00:29:30.000 --> 00:29:34.000
+I don't need to shift it, so this is called promotion
+
+00:29:34.000 --> 00:29:38.000
+What happens in promotion is that you shift the labels in the next version
+
+00:29:38.000 --> 00:29:42.000
+Automatically, you are promoting the versions
+
+00:29:42.000 --> 00:29:46.000
+And one is your rollback
+
+00:29:46.000 --> 00:29:50.000
+Rollback means that you are going back one or two steps
+
+00:29:50.000 --> 00:29:54.000
+You are using an old version again
+
+00:29:54.000 --> 00:29:58.000
+Like sometimes we update an app or OS
+
+00:29:58.000 --> 00:30:02.000
+So there are some glitches or errors
+
+00:30:02.000 --> 00:30:06.000
+Or we update drivers, drivers have a lot of them
+
+00:30:06.000 --> 00:30:10.000
+So we go back to the previous version
+
+00:30:10.000 --> 00:30:14.000
+So if you have tested your application in V3 or V4
+
+00:30:14.000 --> 00:30:18.000
+That your application is misbehaving or not performing as well as in V2
+
+00:30:18.000 --> 00:30:22.000
+So simply what you will do is the label you are using
+
+00:30:22.000 --> 00:30:26.000
+You will not use latest because latest will always be attached with V4
+
+00:30:26.000 --> 00:30:30.000
+You will use some other label which will be a custom label
+
+00:30:30.000 --> 00:30:34.000
+And you shift that custom label on V2
+
+00:30:34.000 --> 00:30:38.000
+I want to tell you one more thing
+
+00:30:38.000 --> 00:30:42.000
+If you don't provide any label in LangFuse
+
+00:30:42.000 --> 00:30:46.000
+Then the default label is production
+
+00:30:46.000 --> 00:30:50.000
+So LangFuse also has a production label
+
+00:30:50.000 --> 00:30:54.000
+We saw this in the last session, so production is the default
+
+00:30:54.000 --> 00:30:58.000
+Now don't be confused, latest and production are different
+
+00:30:58.000 --> 00:31:02.000
+Latest is default for the newest version
+
+00:31:02.000 --> 00:31:06.000
+For the newest version
+
+00:31:06.000 --> 00:31:10.000
+You will get latest on every newest version
+
+00:31:10.000 --> 00:31:14.000
+Production is default while you are loading your prompts
+
+00:31:14.000 --> 00:31:18.000
+So when you are loading your prompts and you don't provide any label
+
+00:31:18.000 --> 00:31:22.000
+Then the default value of the label is production
+
+00:31:22.000 --> 00:31:26.000
+But you take the work of shifting this production
+
+00:31:26.000 --> 00:31:30.000
+It's not like if there is a new version, it will automatically become production
+
+00:31:30.000 --> 00:31:34.000
+Your production version is different
+
+00:31:34.000 --> 00:31:38.000
+If you want to make V4 production, then you have to run the update code
+
+00:31:38.000 --> 00:31:42.000
+And make V4 production
+
+00:31:42.000 --> 00:31:46.000
+I hope this thing is clear to you
+
+00:31:52.000 --> 00:31:56.000
+I will show you how to do this in MLflow
+
+00:31:56.000 --> 00:32:00.000
+Don't worry, we will also lock our prompts in MLflow
+
+00:32:00.000 --> 00:32:04.000
+This thing is clear
+
+00:32:08.000 --> 00:32:12.000
+So don't be confused
+
+00:32:12.000 --> 00:32:16.000
+What is the default on the latest version in LangFuse?
+
+00:32:16.000 --> 00:32:20.000
+That is your latest label
+
+00:32:20.000 --> 00:32:24.000
+Whereas when you are loading, the default is
+
+00:32:24.000 --> 00:32:28.000
+Production, if you don't provide any label
+
+00:32:28.000 --> 00:32:32.000
+And it is provided
+
+00:32:32.000 --> 00:32:36.000
+By LangFuse that you can attach multiple labels
+
+00:32:36.000 --> 00:32:40.000
+With a particular version
+
+00:32:40.000 --> 00:32:44.000
+Means you can have production on one version
+
+00:32:44.000 --> 00:32:48.000
+For example, V1 production, production label
+
+00:32:48.000 --> 00:32:52.000
+It can be latest
+
+00:32:52.000 --> 00:32:56.000
+If you are a champion and label it
+
+00:32:56.000 --> 00:33:00.000
+You can apply different labels and multiple labels
+
+00:33:00.000 --> 00:33:04.000
+But when you have to load
+
+00:33:04.000 --> 00:33:08.000
+You only provide a single label
+
+00:33:08.000 --> 00:33:12.000
+You can attach multiple tags with any version
+
+00:33:12.000 --> 00:33:16.000
+But you have to tell a single label
+
+00:33:16.000 --> 00:33:20.000
+During the load ingest
+
+00:33:20.000 --> 00:33:24.000
+I will show you the whole thing in code
+
+00:33:24.000 --> 00:33:28.000
+Whatever we saved last time
+
+00:33:28.000 --> 00:33:32.000
+I have removed it
+
+00:33:32.000 --> 00:33:36.000
+Now we will do our system prompt version
+
+00:33:36.000 --> 00:33:40.000
+If I can go back to the code
+
+00:33:40.000 --> 00:33:44.000
+Here is our system prompt
+
+00:33:44.000 --> 00:33:48.000
+This is our system prompt
+
+00:33:48.000 --> 00:33:52.000
+Let's fix this config
+
+00:33:52.000 --> 00:33:56.000
+Let's keep it as 3
+
+00:33:56.000 --> 00:34:00.000
+This is our system prompt
+
+00:34:00.000 --> 00:34:04.000
+Let's discard these changes
+
+00:34:08.000 --> 00:34:12.000
+We have discarded the changes
+
+00:34:12.000 --> 00:34:16.000
+We are back to our original prompt
+
+00:34:16.000 --> 00:34:20.000
+Here I created a client
+
+00:34:20.000 --> 00:34:24.000
+Here I created a prompt
+
+00:34:24.000 --> 00:34:28.000
+I am versioning my prompt
+
+00:34:28.000 --> 00:34:32.000
+Here I gave the name of my prompt
+
+00:34:32.000 --> 00:34:36.000
+Here I attached a label which is baseline
+
+00:34:36.000 --> 00:34:40.000
+Instead of baseline, we will work with two labels
+
+00:34:40.000 --> 00:34:44.000
+Because we are developing
+
+00:34:44.000 --> 00:34:48.000
+We will not set production
+
+00:34:48.000 --> 00:34:52.000
+We will set production with the same prompt
+
+00:34:52.000 --> 00:34:56.000
+This is a unique label
+
+00:34:56.000 --> 00:35:00.000
+You will remember in the last class
+
+00:35:00.000 --> 00:35:04.000
+When we set production, you could see a blinking green light
+
+00:35:04.000 --> 00:35:08.000
+Because it is a very important label
+
+00:35:08.000 --> 00:35:12.000
+You cannot attach production with every version
+
+00:35:12.000 --> 00:35:16.000
+We will attach two labels with our baseline prompt
+
+00:35:16.000 --> 00:35:20.000
+First is that this is the baseline
+
+00:35:20.000 --> 00:35:24.000
+We are starting our versioning from here
+
+00:35:24.000 --> 00:35:28.000
+Second is staging
+
+00:35:28.000 --> 00:35:32.000
+Staging will be our current best prompt while developing
+
+00:35:32.000 --> 00:35:36.000
+We don't have a new version, we are just starting with prompt to versioning
+
+00:35:36.000 --> 00:35:40.000
+This is our staging and baseline
+
+00:35:40.000 --> 00:35:44.000
+Now we will run this file
+
+00:35:44.000 --> 00:35:48.000
+I will open the terminal
+
+00:35:48.000 --> 00:35:52.000
+Once the environment is loaded
+
+00:35:52.000 --> 00:35:56.000
+We will write UV run
+
+00:35:56.000 --> 00:36:00.000
+Our file is in source, app is system prompt versioning.py
+
+00:36:00.000 --> 00:36:04.000
+Run
+
+00:36:04.000 --> 00:36:08.000
+This is our prompt, version 1
+
+00:36:08.000 --> 00:36:12.000
+As you can see, we have three labels attached
+
+00:36:12.000 --> 00:36:16.000
+Although I passed two labels, baseline and staging
+
+00:36:16.000 --> 00:36:20.000
+But automatically latest is also attached
+
+00:36:20.000 --> 00:36:24.000
+Why? Because this is my latest version for now
+
+00:36:24.000 --> 00:36:28.000
+This is my prompt
+
+00:36:28.000 --> 00:36:32.000
+I have attached three labels or tags
+
+00:36:32.000 --> 00:36:36.000
+Now I will improve my prompt
+
+00:36:36.000 --> 00:36:40.000
+First we will see if we are able to load this particular version
+
+00:36:40.000 --> 00:36:44.000
+Here we are writing the load code
+
+00:36:44.000 --> 00:36:50.000
+Now the label will be staging instead of latest
+
+00:36:50.000 --> 00:36:56.000
+The best version in our development will always come with staging label
+
+00:36:56.000 --> 00:37:00.000
+Once we have included this load code in our app
+
+00:37:00.000 --> 00:37:04.000
+We don't need to change it again and again
+
+00:37:04.000 --> 00:37:08.000
+You can see that in get prompt function
+
+00:37:08.000 --> 00:37:12.000
+When you pass the labels, it only asks for a single label
+
+00:37:12.000 --> 00:37:16.000
+You can't pass multiple labels
+
+00:37:16.000 --> 00:37:20.000
+Whereas while creating the versions, you can pass multiple labels
+
+00:37:20.000 --> 00:37:26.000
+Let's test if our prompt is loading properly or not
+
+00:37:26.000 --> 00:37:30.000
+I will write UV run
+
+00:37:30.000 --> 00:37:34.000
+We will go to source app
+
+00:37:34.000 --> 00:37:38.000
+And in that load system prompt.py
+
+00:37:38.000 --> 00:37:42.000
+We are able to load our configuration properly
+
+00:37:42.000 --> 00:37:46.000
+And we are able to read our labels
+
+00:37:46.000 --> 00:37:50.000
+Let's copy this code
+
+00:37:50.000 --> 00:37:54.000
+Let's copy this code and take it to our main application
+
+00:37:54.000 --> 00:37:58.000
+Because we have to add system prompt here
+
+00:37:58.000 --> 00:38:02.000
+Let's save this code
+
+00:38:02.000 --> 00:38:06.000
+Let's make some changes
+
+00:38:06.000 --> 00:38:10.000
+We are creating a client of our line fuse
+
+00:38:10.000 --> 00:38:14.000
+The name of our prompt is type text and the label is staging
+
+00:38:14.000 --> 00:38:18.000
+We will automatically ingest the staging prompt in our application
+
+00:38:18.000 --> 00:38:22.000
+Now I will tell you where you will ingest
+
+00:38:22.000 --> 00:38:26.000
+This is your system prompt
+
+00:38:26.000 --> 00:38:30.000
+This is basically of type text prompt client
+
+00:38:30.000 --> 00:38:34.000
+You have many attributes in this
+
+00:38:34.000 --> 00:38:38.000
+You can't use this directly
+
+00:38:38.000 --> 00:38:42.000
+You will go to the documentation below
+
+00:38:42.000 --> 00:38:46.000
+You will remove this whole thing because you are ingesting it through line fuse
+
+00:38:46.000 --> 00:38:50.000
+You will simply write system prompt and use prompt attribute
+
+00:38:50.000 --> 00:38:54.000
+Which will give you your string prompt
+
+00:38:54.000 --> 00:38:58.000
+So you have integrated prompt versioning in your application
+
+00:38:58.000 --> 00:39:02.000
+With only this much piece of code
+
+00:39:02.000 --> 00:39:06.000
+Now we will create a new file
+
+00:39:06.000 --> 00:39:10.000
+And we will name this file
+
+00:39:10.000 --> 00:39:14.000
+update
+
+00:39:14.000 --> 00:39:18.000
+system prompt.py
+
+00:39:18.000 --> 00:39:22.000
+What will be our simple task in this particular file
+
+00:39:22.000 --> 00:39:26.000
+We will update our versions
+
+00:39:26.000 --> 00:39:30.000
+We will shift their labels
+
+00:39:30.000 --> 00:39:34.000
+That's all we need to do
+
+00:39:34.000 --> 00:39:38.000
+I will import from line fuse
+
+00:39:38.000 --> 00:39:42.000
+Get client and
+
+00:39:42.000 --> 00:39:46.000
+I will load my
+
+00:39:46.000 --> 00:39:50.000
+API keys here which are line fuse specific
+
+00:39:50.000 --> 00:39:54.000
+load the API keys
+
+00:39:54.000 --> 00:39:58.000
+simply by using load.env
+
+00:39:58.000 --> 00:40:02.000
+And here my task will be
+
+00:40:02.000 --> 00:40:06.000
+shifting the labels
+
+00:40:06.000 --> 00:40:10.000
+in development
+
+00:40:10.000 --> 00:40:14.000
+I will put staging label on the best prompt in development
+
+00:40:14.000 --> 00:40:18.000
+Here you can write your code
+
+00:40:18.000 --> 00:40:22.000
+First of all you will create a client object
+
+00:40:22.000 --> 00:40:26.000
+line fuse get client
+
+00:40:26.000 --> 00:40:30.000
+Then you will use line fuse dot
+
+00:40:30.000 --> 00:40:34.000
+update prompt and here you have to provide two things
+
+00:40:34.000 --> 00:40:38.000
+Name is to be provided
+
+00:40:38.000 --> 00:40:42.000
+I will copy the name from here
+
+00:40:42.000 --> 00:40:46.000
+copy
+
+00:40:46.000 --> 00:40:50.000
+paste
+
+00:40:50.000 --> 00:40:54.000
+I will add none
+
+00:40:54.000 --> 00:40:58.000
+and I will add label
+
+00:40:58.000 --> 00:41:02.000
+which label we will shift
+
+00:41:02.000 --> 00:41:06.000
+always staging because our baseline will always be
+
+00:41:06.000 --> 00:41:10.000
+with version 0 or version 1
+
+00:41:10.000 --> 00:41:14.000
+Now let's update our system prompt
+
+00:41:14.000 --> 00:41:18.000
+Here we can add some things
+
+00:41:18.000 --> 00:41:22.000
+like we can add here
+
+00:41:22.000 --> 00:41:26.000
+always try to answer
+
+00:41:26.000 --> 00:41:30.000
+in simple language
+
+00:41:30.000 --> 00:41:34.000
+make sure your
+
+00:41:34.000 --> 00:41:38.000
+answer sticks to the
+
+00:41:38.000 --> 00:41:42.000
+input and the available
+
+00:41:42.000 --> 00:41:46.000
+context
+
+00:41:46.000 --> 00:41:50.000
+and
+
+00:41:50.000 --> 00:41:54.000
+try to make your
+
+00:41:54.000 --> 00:41:58.000
+answers correct
+
+00:41:58.000 --> 00:42:02.000
+and rest we don't need to add anything
+
+00:42:02.000 --> 00:42:06.000
+we have changed a little here
+
+00:42:06.000 --> 00:42:10.000
+Now we will create version 2
+
+00:42:10.000 --> 00:42:14.000
+simply run this file
+
+00:42:14.000 --> 00:42:18.000
+This is our system prompt versioning file
+
+00:42:18.000 --> 00:42:22.000
+we have to run
+
+00:42:22.000 --> 00:42:26.000
+I have done one thing wrong here
+
+00:42:26.000 --> 00:42:30.000
+I have pushed the staging one
+
+00:42:30.000 --> 00:42:34.000
+and the baseline
+
+00:42:34.000 --> 00:42:38.000
+delete version
+
+00:42:38.000 --> 00:42:42.000
+and again
+
+00:42:42.000 --> 00:42:46.000
+because my version has shifted from there
+
+00:42:46.000 --> 00:42:50.000
+so what we can do is we can simply
+
+00:42:50.000 --> 00:42:54.000
+cut this part
+
+00:42:54.000 --> 00:42:58.000
+and we have to remove this too
+
+00:42:58.000 --> 00:43:02.000
+because you can shift the version again
+
+00:43:02.000 --> 00:43:06.000
+I have not done blunder and if this happens to you then you can simply update
+
+00:43:06.000 --> 00:43:10.000
+the version but I want to show you
+
+00:43:10.000 --> 00:43:14.000
+a proper flow
+
+00:43:14.000 --> 00:43:18.000
+so version 1 is done
+
+00:43:18.000 --> 00:43:22.000
+now I have updated my prompt
+
+00:43:22.000 --> 00:43:26.000
+so my prompt is updated
+
+00:43:26.000 --> 00:43:30.000
+and I am creating version 2
+
+00:43:30.000 --> 00:43:34.000
+there is no baseline nor staging
+
+00:43:34.000 --> 00:43:38.000
+I am passing an empty list
+
+00:43:38.000 --> 00:43:42.000
+you can remove the label here
+
+00:43:42.000 --> 00:43:46.000
+we will update the staging label
+
+00:43:46.000 --> 00:43:50.000
+when we will test this particular version
+
+00:43:50.000 --> 00:43:54.000
+so what we can do is
+
+00:43:54.000 --> 00:43:58.000
+we will attach the label and for now we will do staging
+
+00:43:58.000 --> 00:44:02.000
+so that we can load it properly in our application
+
+00:44:02.000 --> 00:44:06.000
+and we will run it
+
+00:44:06.000 --> 00:44:10.000
+what happened?
+
+00:44:10.000 --> 00:44:14.000
+oh it is omma
+
+00:44:14.000 --> 00:44:18.000
+we have run it
+
+00:44:18.000 --> 00:44:22.000
+this is number 2, latest and staging
+
+00:44:22.000 --> 00:44:26.000
+so if I refresh it
+
+00:44:26.000 --> 00:44:30.000
+so there are two versions here
+
+00:44:30.000 --> 00:44:34.000
+and version 2 is latest and staging
+
+00:44:34.000 --> 00:44:38.000
+if we compare then I have added this text
+
+00:44:38.000 --> 00:44:42.000
+there is no change in the configuration
+
+00:44:42.000 --> 00:44:46.000
+I have not changed anything in the application
+
+00:44:46.000 --> 00:44:50.000
+now we have our application and we are importing the latest prompt
+
+00:44:50.000 --> 00:44:54.000
+let's run the evaluations again
+
+00:44:54.000 --> 00:44:58.000
+and see if there is any change in the evaluations
+
+00:44:58.000 --> 00:45:02.000
+so the flow of this particular thing is
+
+00:45:02.000 --> 00:45:06.000
+you create a new version and evaluate it
+
+00:45:06.000 --> 00:45:10.000
+if it gives good results in the evaluation
+
+00:45:10.000 --> 00:45:14.000
+then you use it or you roll back to your previous version
+
+00:45:14.000 --> 00:45:18.000
+and you keep on improving it
+
+00:45:18.000 --> 00:45:22.000
+and finally you use the best version
+
+00:45:22.000 --> 00:45:26.000
+so you make changes, you version your prompt
+
+00:45:26.000 --> 00:45:30.000
+and then you evaluate it and then
+
+00:45:30.000 --> 00:45:34.000
+you decide on the evaluation results whether you want to keep on this particular version or roll back
+
+00:45:34.000 --> 00:45:38.000
+so we already have the code for evaluation
+
+00:45:38.000 --> 00:45:42.000
+inside the evals, so let's run it
+
+00:45:42.000 --> 00:45:46.000
+automatically our data set will load and our evaluations will run
+
+00:45:46.000 --> 00:45:50.000
+so we will go to uvrun, source, application
+
+00:45:50.000 --> 00:45:54.000
+in evals
+
+00:45:54.000 --> 00:45:58.000
+and then we will go to eval, and evaluate
+
+00:45:58.000 --> 00:46:02.000
+ragapp.py
+
+00:46:02.000 --> 00:46:06.000
+so here my evaluations are running
+
+00:46:06.000 --> 00:46:10.000
+let's run it and see what results we have
+
+00:46:10.000 --> 00:46:14.000
+is the flow clear guys?
+
+00:46:14.000 --> 00:46:18.000
+let's take questions till then
+
+00:46:18.000 --> 00:46:22.000
+let's say we have 30 prompts for given date there can be multiple combinations
+
+00:46:22.000 --> 00:46:26.000
+can we produce what version for which specific date the code was
+
+00:46:26.000 --> 00:46:30.000
+live? amarjeet i didn't understand your question
+
+00:46:30.000 --> 00:46:34.000
+from 30 different prompts i understood that for a given date
+
+00:46:34.000 --> 00:46:38.000
+there can be multiple combinations, so you are saying that you will change in multiple prompts
+
+00:46:38.000 --> 00:46:42.000
+in a single date, so they will be logged in different names
+
+00:46:42.000 --> 00:46:46.000
+now you can see only one prompt
+
+00:46:46.000 --> 00:46:50.000
+because we have only one version of the prompt, if you have 30 then
+
+00:46:50.000 --> 00:46:54.000
+you will have a list of 30 prompts and everything will be properly shown
+
+00:46:54.000 --> 00:46:58.000
+everything is being tracked here, when the latest version was created
+
+00:46:58.000 --> 00:47:02.000
+you can see it here, and if you are working with a team
+
+00:47:02.000 --> 00:47:06.000
+then if there are multiple users, then you can see the user name here
+
+00:47:06.000 --> 00:47:10.000
+so everything is being tracked properly
+
+00:47:10.000 --> 00:47:14.000
+the flow will be the same whether it is 1 prompt or 30 prompts
+
+00:47:20.000 --> 00:47:24.000
+after class, now keep your question in mind
+
+00:47:24.000 --> 00:47:28.000
+after class i will give you time
+
+00:47:34.000 --> 00:47:38.000
+any other question?
+
+00:47:40.000 --> 00:47:44.000
+any other question?
+
+00:47:44.000 --> 00:47:48.000
+do you understand what we are doing here? here we are
+
+00:47:48.000 --> 00:47:52.000
+creating changes, versions, and shifting the labels
+
+00:47:52.000 --> 00:47:56.000
+but in our original code, where we are loading the prompt
+
+00:47:56.000 --> 00:48:00.000
+we are not changing anything, we are loading the prompt
+
+00:48:00.000 --> 00:48:04.000
+according to the label we have set
+
+00:48:04.000 --> 00:48:08.000
+so according to the code, according to the code of your application
+
+00:48:08.000 --> 00:48:12.000
+there will be no changes, although you are coding this in this particular project
+
+00:48:12.000 --> 00:48:16.000
+but you can understand it like this, your teammate is creating these versions
+
+00:48:16.000 --> 00:48:20.000
+on his own system
+
+00:48:20.000 --> 00:48:24.000
+it will not be related to the code of your application
+
+00:48:36.000 --> 00:48:40.000
+let's wait a little more
+
+00:48:40.000 --> 00:48:44.000
+we have 7 metrics, so it will take some time
+
+00:48:46.000 --> 00:48:50.000
+yes
+
+00:48:50.000 --> 00:48:54.000
+yes, we have not talked about tracking
+
+00:48:54.000 --> 00:48:58.000
+we will discuss that problem when we read MLflow
+
+00:48:58.000 --> 00:49:02.000
+and this is a big problem, what are we doing so far?
+
+00:49:02.000 --> 00:49:06.000
+we are doing the versioning and evaluation, but we are not comparing
+
+00:49:06.000 --> 00:49:10.000
+or storing these evaluations, we are simply
+
+00:49:10.000 --> 00:49:14.000
+storing them in these files, it is possible that tomorrow
+
+00:49:14.000 --> 00:49:18.000
+we can delete them, then the problem will come
+
+00:49:18.000 --> 00:49:22.000
+and I can't even share this particular folder with my teammates
+
+00:49:22.000 --> 00:49:26.000
+and there is no proper way to view this particular JSON
+
+00:49:26.000 --> 00:49:30.000
+I have to manually go here and do the comparison
+
+00:49:30.000 --> 00:49:34.000
+so it is very cumbersome
+
+00:49:34.000 --> 00:49:38.000
+is this thing clear?
+
+00:49:38.000 --> 00:49:42.000
+what happened?
+
+00:49:42.000 --> 00:49:46.000
+hmmm, what happened?
+
+00:49:46.000 --> 00:49:50.000
+guys, is my video lagging?
+
+00:49:50.000 --> 00:49:54.000
+hmm, why did I make an error?
+
+00:49:54.000 --> 00:49:58.000
+VS code is stuck
+
+00:49:58.000 --> 00:50:02.000
+what happened to this?
+
+00:50:02.000 --> 00:50:06.000
+what happened to this?
+
+00:50:06.000 --> 00:50:10.000
+if I reopen it, the evaluation will be closed
+
+00:50:14.000 --> 00:50:18.000
+if this happens again, because the terminal is also minimized and then reopened
+
+00:50:18.000 --> 00:50:22.000
+hmm, is it closed on its own?
+
+00:50:22.000 --> 00:50:26.000
+or is it minimized?
+
+00:50:26.000 --> 00:50:30.000
+it is closed
+
+00:50:30.000 --> 00:50:34.000
+I think there is a huge update in the background
+
+00:50:34.000 --> 00:50:38.000
+because this never happens
+
+00:50:38.000 --> 00:50:42.000
+the code is safe
+
+00:50:42.000 --> 00:50:46.000
+the code is safe, but here
+
+00:50:46.000 --> 00:50:50.000
+my evaluation stopped, keyboard interrupt
+
+00:50:50.000 --> 00:50:54.000
+it's back, I have to run it again
+
+00:50:54.000 --> 00:50:58.000
+let's do one thing
+
+00:50:58.000 --> 00:51:02.000
+let's read about a very important concept
+
+00:51:02.000 --> 00:51:06.000
+and that concept is caching
+
+00:51:06.000 --> 00:51:10.000
+and prompt versioning is a very important concept
+
+00:51:10.000 --> 00:51:14.000
+let's discuss this once
+
+00:51:14.000 --> 00:51:18.000
+so what we did, the system prompt
+
+00:51:18.000 --> 00:51:22.000
+was available in our application
+
+00:51:22.000 --> 00:51:26.000
+our flow was
+
+00:51:26.000 --> 00:51:30.000
+that we had hardcoded our system prompt
+
+00:51:30.000 --> 00:51:34.000
+now we have introduced a new thing
+
+00:51:34.000 --> 00:51:38.000
+that is prompt management
+
+00:51:38.000 --> 00:51:42.000
+and we are doing prompt management on
+
+00:51:42.000 --> 00:51:46.000
+glanfuse servers, which are deployed in the US
+
+00:51:46.000 --> 00:51:50.000
+now what we are doing, through API calls
+
+00:51:50.000 --> 00:51:54.000
+we are sending our system prompt
+
+00:51:54.000 --> 00:51:58.000
+on these servers
+
+00:51:58.000 --> 00:52:02.000
+here, suppose this is the database of glanfuse
+
+00:52:02.000 --> 00:52:06.000
+we are sending it on this database, so we are doing the create operation
+
+00:52:06.000 --> 00:52:10.000
+through API calls and read operation
+
+00:52:10.000 --> 00:52:14.000
+through API calls
+
+00:52:14.000 --> 00:52:18.000
+now it may be that your added latency
+
+00:52:18.000 --> 00:52:22.000
+this can be a reason
+
+00:52:22.000 --> 00:52:26.000
+it may be that your server is down
+
+00:52:26.000 --> 00:52:30.000
+so your system prompt cannot be properly loaded
+
+00:52:30.000 --> 00:52:34.000
+and if the server is up
+
+00:52:34.000 --> 00:52:38.000
+then you can see that the API calls will have some added latency
+
+00:52:38.000 --> 00:52:42.000
+now what is your application
+
+00:52:42.000 --> 00:52:46.000
+it's a rag application
+
+00:52:46.000 --> 00:52:50.000
+so whenever a user sends a query
+
+00:52:50.000 --> 00:52:54.000
+then along with that query
+
+00:52:54.000 --> 00:52:58.000
+you augment your system prompt
+
+00:52:58.000 --> 00:53:02.000
+and send it
+
+00:53:02.000 --> 00:53:06.000
+basically what you are doing, you are calling API calls
+
+00:53:06.000 --> 00:53:10.000
+on every user's query, here again and again
+
+00:53:10.000 --> 00:53:14.000
+on the server of glanfuse
+
+00:53:14.000 --> 00:53:18.000
+if you get 100 queries in a second
+
+00:53:18.000 --> 00:53:22.000
+then you are calling 100 API calls in every second
+
+00:53:22.000 --> 00:53:26.000
+just to do what? just to fetch your system prompt
+
+00:53:30.000 --> 00:53:34.000
+and if I make sure that these API calls are
+
+00:53:34.000 --> 00:53:38.000
+latency free, means there is zero latency in it
+
+00:53:38.000 --> 00:53:42.000
+then you can basically send one piece of information
+
+00:53:42.000 --> 00:53:46.000
+to the data which is static
+
+00:53:46.000 --> 00:53:50.000
+your system prompt is not updated frequently
+
+00:53:50.000 --> 00:53:54.000
+so you are pulling the same thing through API calls
+
+00:53:54.000 --> 00:53:58.000
+so you can understand that this whole architecture
+
+00:53:58.000 --> 00:54:02.000
+means that you are reading API calls through saved API calls
+
+00:54:02.000 --> 00:54:06.000
+this is cumbersome process
+
+00:54:06.000 --> 00:54:10.000
+what we need here is a two layered system
+
+00:54:10.000 --> 00:54:14.000
+in this two layered system
+
+00:54:14.000 --> 00:54:18.000
+what we want is a local setup
+
+00:54:18.000 --> 00:54:22.000
+you can call it local storage
+
+00:54:22.000 --> 00:54:26.000
+it will be on my system where the application is running
+
+00:54:26.000 --> 00:54:30.000
+it can be my laptop or any EC2 instance
+
+00:54:30.000 --> 00:54:34.000
+whatever it is, there is a particular environment where my application is running
+
+00:54:34.000 --> 00:54:38.000
+there I have a local database
+
+00:54:38.000 --> 00:54:42.000
+where I have saved my system prompt
+
+00:54:42.000 --> 00:54:46.000
+and when my application needs this prompt
+
+00:54:46.000 --> 00:54:50.000
+then it can fetch my system prompt from this particular area
+
+00:54:50.000 --> 00:54:54.000
+because this is my on premises
+
+00:54:54.000 --> 00:54:58.000
+my system is locally available
+
+00:54:58.000 --> 00:55:02.000
+so I don't have any added latency here, simply I have to read this whole thing
+
+00:55:02.000 --> 00:55:06.000
+but if I want to create a SQL based database
+
+00:55:06.000 --> 00:55:10.000
+I can use SQL based database
+
+00:55:10.000 --> 00:55:14.000
+so again you will query in SQL based database
+
+00:55:14.000 --> 00:55:18.000
+your engine will pass the query and retrieve the data
+
+00:55:18.000 --> 00:55:22.000
+again there is a little bit of latency
+
+00:55:22.000 --> 00:55:26.000
+if I use a database which is in my RAM
+
+00:55:26.000 --> 00:55:30.000
+then I can do these transactions very quickly
+
+00:55:30.000 --> 00:55:34.000
+so instead of using SQL based database
+
+00:55:34.000 --> 00:55:38.000
+we use Redis database
+
+00:55:38.000 --> 00:55:42.000
+and this Redis database basically acts as a cache
+
+00:55:42.000 --> 00:55:46.000
+acts as a temporary storage where as soon as the application starts
+
+00:55:46.000 --> 00:55:50.000
+then system prompt is placed in your cache
+
+00:55:50.000 --> 00:55:54.000
+so the time you are invoking your graph
+
+00:55:54.000 --> 00:55:58.000
+instead of calling API and pulling your system prompt
+
+00:55:58.000 --> 00:56:02.000
+your system prompt is being pulled from your local cache
+
+00:56:02.000 --> 00:56:06.000
+but the problem is if you store everything locally
+
+00:56:06.000 --> 00:56:10.000
+then the langfuse can't do proper versioning
+
+00:56:10.000 --> 00:56:14.000
+you have to call API also
+
+00:56:14.000 --> 00:56:18.000
+it's not like you will store everything locally
+
+00:56:18.000 --> 00:56:22.000
+because we already do it locally, we have to persist our prompt
+
+00:56:22.000 --> 00:56:26.000
+so for that you have to call API also
+
+00:56:26.000 --> 00:56:30.000
+so here there is an API layer
+
+00:56:30.000 --> 00:56:34.000
+your particular application also calls API
+
+00:56:34.000 --> 00:56:38.000
+and it frequently checks your langfuse database
+
+00:56:38.000 --> 00:56:42.000
+on your servers
+
+00:56:42.000 --> 00:56:46.000
+that is there any system prompt available
+
+00:56:46.000 --> 00:56:50.000
+which is an updated version
+
+00:56:50.000 --> 00:56:54.000
+it may be that your local cache has version v2
+
+00:56:54.000 --> 00:56:58.000
+but what you have done is you have updated the database
+
+00:56:58.000 --> 00:57:02.000
+so if you don't check the frequency intervals
+
+00:57:02.000 --> 00:57:06.000
+then the problem is your application
+
+00:57:06.000 --> 00:57:10.000
+which is deployed will only use v2
+
+00:57:10.000 --> 00:57:14.000
+but you want to make sure that it automatically switches on v3
+
+00:57:14.000 --> 00:57:18.000
+so here basically what happens is
+
+00:57:18.000 --> 00:57:22.000
+you set the value of time to live parameter
+
+00:57:22.000 --> 00:57:26.000
+it is in seconds so you can set its value
+
+00:57:26.000 --> 00:57:30.000
+so here you set time to live as 60 seconds
+
+00:57:30.000 --> 00:57:34.000
+so these API calls
+
+00:57:34.000 --> 00:57:38.000
+where your langfuse database is checking
+
+00:57:38.000 --> 00:57:42.000
+if there is an updated version
+
+00:57:42.000 --> 00:57:46.000
+it happens after every 60 seconds
+
+00:57:46.000 --> 00:57:50.000
+so basically you call API on 0th second
+
+00:57:50.000 --> 00:57:54.000
+let's say v2 was in your database
+
+00:57:54.000 --> 00:57:58.000
+you read v2 and this was the latest version
+
+00:57:58.000 --> 00:58:02.000
+which you had to pull and you have to pull it to your local cache
+
+00:58:02.000 --> 00:58:06.000
+you have stored it in your ram and now your application
+
+00:58:06.000 --> 00:58:10.000
+is using this system prompt directly from your ram
+
+00:58:10.000 --> 00:58:14.000
+and you have also set a time to live tag
+
+00:58:14.000 --> 00:58:18.000
+with this cache that how long this cache will be valid
+
+00:58:18.000 --> 00:58:22.000
+as soon as your 60 seconds expire
+
+00:58:22.000 --> 00:58:26.000
+so next API call is to your langfuse database
+
+00:58:26.000 --> 00:58:30.000
+and from there you have to pull the prompt
+
+00:58:30.000 --> 00:58:34.000
+which you want to pull
+
+00:58:34.000 --> 00:58:38.000
+now it may be v2 and you have updated it
+
+00:58:38.000 --> 00:58:42.000
+if it is v3 then it will automatically pull v3
+
+00:58:42.000 --> 00:58:46.000
+again v3 will be valid till 1 minute
+
+00:58:46.000 --> 00:58:50.000
+and as soon as 1 minute ends then the particular change
+
+00:58:50.000 --> 00:58:54.000
+will start
+
+00:58:54.000 --> 00:58:58.000
+now there is a thing in this that
+
+00:58:58.000 --> 00:59:02.000
+you may have 100 queries in 1 second
+
+00:59:02.000 --> 00:59:06.000
+but the API call latency is 5 seconds
+
+00:59:06.000 --> 00:59:10.000
+so as soon as your 60 seconds expire for your v2
+
+00:59:10.000 --> 00:59:14.000
+will you wait for 5 seconds to pull your new version
+
+00:59:14.000 --> 00:59:18.000
+the answer is no
+
+00:59:18.000 --> 00:59:22.000
+because it will persist your v2 for a little while
+
+00:59:22.000 --> 00:59:26.000
+although its cache validity was 60 seconds
+
+00:59:26.000 --> 00:59:30.000
+but it waits till the next version comes
+
+00:59:30.000 --> 00:59:34.000
+it does not show error to its application
+
+00:59:34.000 --> 00:59:38.000
+that I am waiting for the next version to come till then you wait
+
+00:59:38.000 --> 00:59:42.000
+till then you do not process the user queries
+
+00:59:42.000 --> 00:59:46.000
+till the new version does not come, your old cache is valid
+
+00:59:46.000 --> 00:59:50.000
+so it will take 1 hour to get the new version
+
+00:59:50.000 --> 00:59:54.000
+because your server was down for 1 hour
+
+00:59:54.000 --> 00:59:58.000
+so will your application be down for 1 hour?
+
+00:59:58.000 --> 01:00:02.000
+in that case your application will use your old version
+
+01:00:02.000 --> 01:00:06.000
+from your local storage and as soon as it reconnects
+
+01:00:06.000 --> 01:00:10.000
+with the server, the new version will pull it
+
+01:00:10.000 --> 01:00:14.000
+so your old version is valid till the time
+
+01:00:14.000 --> 01:00:18.000
+the new version comes and replaces it
+
+01:00:18.000 --> 01:00:22.000
+I hope this point is clear to you
+
+01:00:22.000 --> 01:00:26.000
+is this point clear?
+
+01:00:26.000 --> 01:00:30.000
+it is redis
+
+01:00:30.000 --> 01:00:34.000
+I will explain everything through this diagram
+
+01:00:34.000 --> 01:00:38.000
+it is clear
+
+01:00:38.000 --> 01:00:42.000
+so it is a very important concept, I will show you
+
+01:00:42.000 --> 01:00:46.000
+and if you go to the features
+
+01:00:46.000 --> 01:00:50.000
+you will get the concept of caching
+
+01:00:50.000 --> 01:00:54.000
+let's read it once from the documentation
+
+01:00:54.000 --> 01:00:58.000
+it is clearly written here, langfuse prompts are cached client side
+
+01:00:58.000 --> 01:01:02.000
+there is no latency impact after the first use
+
+01:01:02.000 --> 01:01:06.000
+why does latency impact after the first use?
+
+01:01:06.000 --> 01:01:10.000
+it is written here that after the first use
+
+01:01:10.000 --> 01:01:14.000
+there is no impact, but why does it impact in the first use?
+
+01:01:14.000 --> 01:01:18.000
+because now there is no version available in your cache
+
+01:01:18.000 --> 01:01:22.000
+so when you first load your system prompt
+
+01:01:22.000 --> 01:01:26.000
+you load it through an API call, now there will be a latency in the API call
+
+01:01:26.000 --> 01:01:30.000
+so you have to bear that time, but after that
+
+01:01:30.000 --> 01:01:34.000
+the version comes and stores in your cache
+
+01:01:34.000 --> 01:01:38.000
+so there is no latency impact after the first use and no availability risk
+
+01:01:38.000 --> 01:01:42.000
+so even if your langfuse server is down
+
+01:01:42.000 --> 01:01:46.000
+you will have your old cache available
+
+01:01:46.000 --> 01:01:50.000
+you can prefetch prompts on startup to populate the cache and provide a fallback prompt
+
+01:01:50.000 --> 01:01:54.000
+you can do this too
+
+01:01:54.000 --> 01:01:58.000
+so as soon as your application starts, what will it do?
+
+01:01:58.000 --> 01:02:02.000
+first of all, it will use get prompt on langfuse sdk
+
+01:02:02.000 --> 01:02:06.000
+and fetch the prompt
+
+01:02:06.000 --> 01:02:10.000
+and it will cache the prompt
+
+01:02:10.000 --> 01:02:14.000
+and until your cache is valid, it will use this prompt
+
+01:02:14.000 --> 01:02:18.000
+and as soon as it is invalid
+
+01:02:18.000 --> 01:02:22.000
+it will call an API and bring the latest version
+
+01:02:22.000 --> 01:02:26.000
+or the label that is interested
+
+01:02:26.000 --> 01:02:30.000
+back to your local cache
+
+01:02:36.000 --> 01:02:40.000
+so here it is written
+
+01:02:40.000 --> 01:02:44.000
+when the cache TTL has expired
+
+01:02:44.000 --> 01:02:48.000
+let's say we have taken an example of 1 minute
+
+01:02:48.000 --> 01:02:52.000
+stale prompts are served immediately while it revalidates in the background
+
+01:02:52.000 --> 01:02:56.000
+so it is not like when your cache is invalidated
+
+01:02:56.000 --> 01:03:00.000
+you stop serving that particular prompt
+
+01:03:00.000 --> 01:03:04.000
+you keep serving until the new prompt comes in your cache
+
+01:03:04.000 --> 01:03:08.000
+and it automatically refreshes in the background
+
+01:03:08.000 --> 01:03:12.000
+so your application is picking prompts from your local cache
+
+01:03:12.000 --> 01:03:16.000
+and it is checking in the background
+
+01:03:16.000 --> 01:03:20.000
+whether a new version has come on your langfuse API
+
+01:03:20.000 --> 01:03:24.000
+if it comes, it will pull it again
+
+01:03:24.000 --> 01:03:28.000
+and your cache will be updated
+
+01:03:28.000 --> 01:03:32.000
+sometimes cache may miss
+
+01:03:32.000 --> 01:03:36.000
+or the server may be down
+
+01:03:36.000 --> 01:03:40.000
+so in that case you keep serving your old cache
+
+01:03:40.000 --> 01:03:44.000
+when no cache prompt exists
+
+01:03:44.000 --> 01:03:48.000
+like in the first application startup, you will bring it from the API
+
+01:03:48.000 --> 01:03:52.000
+and the API caches prompts in a redis cache to ensure low latency
+
+01:03:52.000 --> 01:03:56.000
+so on your server side
+
+01:03:56.000 --> 01:04:00.000
+I can tell you, on your server side
+
+01:04:00.000 --> 01:04:04.000
+you are verging in 2 layers
+
+01:04:04.000 --> 01:04:08.000
+the first layer is your cache layer
+
+01:04:08.000 --> 01:04:12.000
+and this is the main layer which serves you
+
+01:04:12.000 --> 01:04:16.000
+again this is the redis layer
+
+01:04:16.000 --> 01:04:20.000
+so you have redis in your local and also in your API end
+
+01:04:20.000 --> 01:04:24.000
+and the second layer is your persistent storage
+
+01:04:24.000 --> 01:04:28.000
+which is your post vest database
+
+01:04:28.000 --> 01:04:32.000
+so here you persist your system prompts
+
+01:04:32.000 --> 01:04:36.000
+from here your langfuse side
+
+01:04:36.000 --> 01:04:40.000
+comes in your cache
+
+01:04:40.000 --> 01:04:44.000
+from there you call API and it comes in your system cache
+
+01:04:44.000 --> 01:04:48.000
+and your application
+
+01:04:48.000 --> 01:04:52.000
+never directly pulls prompts from langfuse
+
+01:04:52.000 --> 01:04:56.000
+your application always pulls from system cache
+
+01:04:56.000 --> 01:05:00.000
+so your entire cache is your flow
+
+01:05:00.000 --> 01:05:04.000
+here you can customize the caching duration
+
+01:05:04.000 --> 01:05:08.000
+the caching duration is configurable if you wish to reduce network overload
+
+01:05:08.000 --> 01:05:12.000
+of the langfuse client, default is 60 seconds
+
+01:05:12.000 --> 01:05:16.000
+after the TTL expires, when it expires
+
+01:05:16.000 --> 01:05:20.000
+the SDKs will refresh the prompt in the background and update the cache
+
+01:05:20.000 --> 01:05:24.000
+refetching is done asynchronously and does not block the application
+
+01:05:24.000 --> 01:05:28.000
+and until your new prompt is not in the cache
+
+01:05:28.000 --> 01:05:32.000
+it will be the same old server
+
+01:05:32.000 --> 01:05:36.000
+here you have another option to disable caching
+
+01:05:36.000 --> 01:05:40.000
+you can set TTL to zero and this is done during development
+
+01:05:40.000 --> 01:05:44.000
+so that you don't wait for the new version
+
+01:05:44.000 --> 01:05:48.000
+and all these things are mentioned here
+
+01:05:48.000 --> 01:05:52.000
+you have to see these diagrams properly
+
+01:05:52.000 --> 01:05:56.000
+here you have some timeout error
+
+01:06:02.000 --> 01:06:06.000
+it stopped while running
+
+01:06:06.000 --> 01:06:10.000
+let's run it again
+
+01:06:10.000 --> 01:06:14.000
+first I wanted to show you the results
+
+01:06:14.000 --> 01:06:18.000
+let's clear the terminal
+
+01:06:18.000 --> 01:06:22.000
+let's clear it and run it again
+
+01:06:22.000 --> 01:06:26.000
+in live code this happens
+
+01:06:26.000 --> 01:06:30.000
+I hope you understand
+
+01:06:30.000 --> 01:06:34.000
+where do you want to pull from?
+
+01:06:34.000 --> 01:06:38.000
+you don't want to pull, this is the updated code
+
+01:06:38.000 --> 01:06:42.000
+you are saying get pull
+
+01:06:48.000 --> 01:06:52.000
+I think it is not working
+
+01:06:52.000 --> 01:06:56.000
+let's try again
+
+01:06:56.000 --> 01:07:00.000
+any questions guys?
+
+01:07:00.000 --> 01:07:04.000
+yes, at that time we will call API and get it
+
+01:07:04.000 --> 01:07:08.000
+let's try again
+
+01:07:08.000 --> 01:07:12.000
+now it is running
+
+01:07:12.000 --> 01:07:16.000
+let's stick to the screen
+
+01:07:16.000 --> 01:07:20.000
+if there is any error then we will know
+
+01:07:20.000 --> 01:07:24.000
+here
+
+01:07:38.000 --> 01:07:42.000
+some test cases are being calculated
+
+01:07:42.000 --> 01:07:46.000
+some are being completed
+
+01:07:46.000 --> 01:07:50.000
+let's wait
+
+01:07:50.000 --> 01:07:54.000
+timeout error is not there again
+
+01:07:54.000 --> 01:07:58.000
+because I haven't changed anything
+
+01:07:58.000 --> 01:08:02.000
+like insect config
+
+01:08:02.000 --> 01:08:06.000
+any questions guys?
+
+01:08:06.000 --> 01:08:10.000
+prompt management
+
+01:08:10.000 --> 01:08:14.000
+how to do it through line fuse
+
+01:08:14.000 --> 01:08:18.000
+I have taught you an added concept like caching
+
+01:08:18.000 --> 01:08:22.000
+if you find it difficult then you can leave it
+
+01:08:22.000 --> 01:08:26.000
+you should know the technical details
+
+01:08:26.000 --> 01:08:30.000
+you are not spoiling anything through prompt versioning
+
+01:08:30.000 --> 01:08:34.000
+some error is coming
+
+01:08:34.000 --> 01:08:38.000
+some error is coming
+
+01:08:38.000 --> 01:08:42.000
+I don't know why
+
+01:08:42.000 --> 01:08:46.000
+timeout error
+
+01:08:46.000 --> 01:08:50.000
+let's run this code
+
+01:08:50.000 --> 01:08:54.000
+after class
+
+01:08:54.000 --> 01:08:58.000
+maybe API is down or there is some issue
+
+01:08:58.000 --> 01:09:02.000
+let's not take time here
+
+01:09:02.000 --> 01:09:06.000
+I will share the details with you
+
+01:09:06.000 --> 01:09:10.000
+this was the prompt versioning part
+
+01:09:10.000 --> 01:09:14.000
+let's move ahead and discuss about experiment tracking
+
+01:09:14.000 --> 01:09:18.000
+so
+
+01:09:18.000 --> 01:09:22.000
+is this part clear?
+
+01:09:22.000 --> 01:09:26.000
+yes, I will check the code
+
+01:09:26.000 --> 01:09:30.000
+there is no error in the code
+
+01:09:30.000 --> 01:09:34.000
+maybe there is some API error
+
+01:09:34.000 --> 01:09:38.000
+or maybe my
+
+01:09:38.000 --> 01:09:42.000
+recharge is over
+
+01:09:42.000 --> 01:09:46.000
+I will check that
+
+01:09:46.000 --> 01:09:50.000
+let's move ahead
+
+01:09:50.000 --> 01:09:54.000
+we have read the evaluation and prompt management
+
+01:09:54.000 --> 01:09:58.000
+we have read the evaluation and prompt management
+
+01:09:58.000 --> 01:10:02.000
+whenever we are changing the system prompt
+
+01:10:02.000 --> 01:10:06.000
+we are doing the evaluation
+
+01:10:06.000 --> 01:10:10.000
+basically
+
+01:10:10.000 --> 01:10:14.000
+we are testing every change on our given matrix
+
+01:10:14.000 --> 01:10:18.000
+we are testing it again and again
+
+01:10:18.000 --> 01:10:22.000
+why are we testing it? because we want our best version of system prompt
+
+01:10:22.000 --> 01:10:26.000
+if I tell you that
+
+01:10:26.000 --> 01:10:30.000
+this is basically a hyperparameter
+
+01:10:30.000 --> 01:10:34.000
+you will think that it is also acting like a hyperparameter
+
+01:10:34.000 --> 01:10:38.000
+we are basically tuning hyperparameter
+
+01:10:38.000 --> 01:10:42.000
+but we are tuning only our system prompt
+
+01:10:42.000 --> 01:10:46.000
+if you see your rag application
+
+01:10:46.000 --> 01:10:50.000
+there are multiple parameters
+
+01:10:50.000 --> 01:10:54.000
+which can be tweaked
+
+01:10:54.000 --> 01:10:58.000
+if we go to our rag application
+
+01:10:58.000 --> 01:11:02.000
+there are multiple parameters
+
+01:11:02.000 --> 01:11:06.000
+we have a parameter
+
+01:11:06.000 --> 01:11:10.000
+which is the embedding model
+
+01:11:10.000 --> 01:11:14.000
+what is the output dimensionality
+
+01:11:14.000 --> 01:11:18.000
+how are we splitting our chunks
+
+01:11:18.000 --> 01:11:22.000
+if I show you my vector database
+
+01:11:22.000 --> 01:11:26.000
+this can be a parameter
+
+01:11:26.000 --> 01:11:30.000
+this can also be a parameter
+
+01:11:30.000 --> 01:11:34.000
+if I show you the retriever
+
+01:11:34.000 --> 01:11:38.000
+search type is parameter
+
+01:11:38.000 --> 01:11:42.000
+what is the value of k in search keyword arguments
+
+01:11:42.000 --> 01:11:46.000
+and my system prompt
+
+01:11:46.000 --> 01:11:50.000
+is also acting like a parameter
+
+01:11:50.000 --> 01:11:54.000
+because we are updating it
+
+01:11:54.000 --> 01:11:58.000
+and it is affecting our evaluation
+
+01:11:58.000 --> 01:12:02.000
+so what are we doing till now?
+
+01:12:02.000 --> 01:12:06.000
+we are not persisting on any changes
+
+01:12:06.000 --> 01:12:10.000
+we are not tracking changes and results
+
+01:12:10.000 --> 01:12:14.000
+anywhere
+
+01:12:14.000 --> 01:12:18.000
+what did we do? we made a system prompt
+
+01:12:18.000 --> 01:12:22.000
+our initial prompt
+
+01:12:22.000 --> 01:12:26.000
+we said it is a baseline
+
+01:12:26.000 --> 01:12:30.000
+I changed the system prompt by live coding
+
+01:12:30.000 --> 01:12:34.000
+this was my v2
+
+01:12:34.000 --> 01:12:38.000
+I evaluated it again
+
+01:12:38.000 --> 01:12:42.000
+so what am I doing here?
+
+01:12:42.000 --> 01:12:46.000
+I am changing my parameters and running the evaluation
+
+01:12:46.000 --> 01:12:50.000
+I am not tracking the changes
+
+01:12:50.000 --> 01:12:54.000
+which are affecting my evaluation
+
+01:12:54.000 --> 01:12:58.000
+I am saving my results in reports folder
+
+01:12:58.000 --> 01:13:02.000
+but this is not a proper way to track
+
+01:13:02.000 --> 01:13:06.000
+what I have to do here is
+
+01:13:06.000 --> 01:13:10.000
+I have to track every change
+
+01:13:10.000 --> 01:13:14.000
+and the effect from it
+
+01:13:14.000 --> 01:13:18.000
+I have to properly track
+
+01:13:18.000 --> 01:13:22.000
+and record this
+
+01:13:22.000 --> 01:13:26.000
+this is called experiment tracking
+
+01:13:26.000 --> 01:13:30.000
+it sounds like
+
+01:13:30.000 --> 01:13:34.000
+experiment means you are doing something different
+
+01:13:34.000 --> 01:13:38.000
+experiment is basically
+
+01:13:38.000 --> 01:13:42.000
+you are doing your hyperparameters
+
+01:13:42.000 --> 01:13:46.000
+in simple words, your application configuration
+
+01:13:46.000 --> 01:13:50.000
+which are your tuning knobs of your application
+
+01:13:50.000 --> 01:13:54.000
+you are tweaking them
+
+01:13:54.000 --> 01:13:58.000
+you are tweaking them, you are tuning them
+
+01:13:58.000 --> 01:14:02.000
+and because of that tweaking and tuning
+
+01:14:02.000 --> 01:14:06.000
+you are tracking the changes in your scores
+
+01:14:06.000 --> 01:14:10.000
+so that is our experiment tracking
+
+01:14:10.000 --> 01:14:14.000
+or experimentation
+
+01:14:14.000 --> 01:14:18.000
+so during development, this is true for machine learning
+
+01:14:18.000 --> 01:14:22.000
+and for LLM based applications
+
+01:14:22.000 --> 01:14:26.000
+when you start building your application
+
+01:14:26.000 --> 01:14:30.000
+you never have the best values of hyperparameters
+
+01:14:30.000 --> 01:14:34.000
+available
+
+01:14:34.000 --> 01:14:38.000
+so what you have to do is
+
+01:14:38.000 --> 01:14:42.000
+you have to tweak these hyperparameter values
+
+01:14:42.000 --> 01:14:46.000
+and run your application again and again
+
+01:14:46.000 --> 01:14:50.000
+why do you run it? so that you get updated scores
+
+01:14:50.000 --> 01:14:54.000
+so in this pipeline
+
+01:14:54.000 --> 01:14:58.000
+you run a loop
+
+01:14:58.000 --> 01:15:02.000
+where your step 1 is
+
+01:15:02.000 --> 01:15:06.000
+application tuning
+
+01:15:06.000 --> 01:15:10.000
+and step 2 is your scoring or evaluation
+
+01:15:10.000 --> 01:15:14.000
+you keep moving between these
+
+01:15:14.000 --> 01:15:18.000
+you change a particular aspect of your application
+
+01:15:18.000 --> 01:15:22.000
+you record it, basically you are recording
+
+01:15:22.000 --> 01:15:26.000
+your configuration, then you run the score
+
+01:15:26.000 --> 01:15:30.000
+and you record this score too
+
+01:15:30.000 --> 01:15:34.000
+and you make sure that this score and this configuration
+
+01:15:34.000 --> 01:15:38.000
+are always together
+
+01:15:38.000 --> 01:15:42.000
+they should be tracked together
+
+01:15:42.000 --> 01:15:46.000
+not individually
+
+01:15:46.000 --> 01:15:50.000
+we are doing individual tracking
+
+01:15:50.000 --> 01:15:54.000
+not like this, we are doing tracking but individually
+
+01:15:54.000 --> 01:15:58.000
+let me show you inside the code
+
+01:15:58.000 --> 01:16:02.000
+where are we changing the parameters
+
+01:16:02.000 --> 01:16:06.000
+whereas we are saving the results
+
+01:16:06.000 --> 01:16:10.000
+in JSON files
+
+01:16:10.000 --> 01:16:14.000
+but is there any relationship between this JSON file and our code?
+
+01:16:14.000 --> 01:16:18.000
+the answer is no, you can say that we are pushing code changes
+
+01:16:18.000 --> 01:16:22.000
+and these files on git but one scenario
+
+01:16:22.000 --> 01:16:26.000
+is that for the same piece of code
+
+01:16:26.000 --> 01:16:30.000
+I didn't change anything in the code, I just changed system prompt
+
+01:16:30.000 --> 01:16:34.000
+I went to the dashboard and changed my system prompt
+
+01:16:34.000 --> 01:16:38.000
+so there was no change in the code level
+
+01:16:38.000 --> 01:16:42.000
+but when I run my scores again
+
+01:16:42.000 --> 01:16:46.000
+I see that my scores have changed
+
+01:16:46.000 --> 01:16:50.000
+so for the same piece of code I am doing 2 evaluations
+
+01:16:50.000 --> 01:16:54.000
+I am doing multiple evaluations
+
+01:16:54.000 --> 01:16:58.000
+so there is no proper tracking
+
+01:16:58.000 --> 01:17:02.000
+so I am changing the configuration and what is the result
+
+01:17:02.000 --> 01:17:06.000
+so to track these things and to track them together
+
+01:17:06.000 --> 01:17:10.000
+I do experiment tracking
+
+01:17:10.000 --> 01:17:14.000
+I hope you understood this thing
+
+01:17:14.000 --> 01:17:18.000
+so we discussed what is experimentation
+
+01:17:18.000 --> 01:17:22.000
+you made a baseline application which is version 1
+
+01:17:22.000 --> 01:17:26.000
+now you are doing an evaluation
+
+01:17:26.000 --> 01:17:30.000
+so our application is not performing well
+
+01:17:30.000 --> 01:17:34.000
+now we will tweak our application
+
+01:17:34.000 --> 01:17:38.000
+and to do better we will change our configuration one by one
+
+01:17:38.000 --> 01:17:42.000
+and we will track the effect of those configurations
+
+01:17:42.000 --> 01:17:46.000
+on our scores
+
+01:17:46.000 --> 01:17:50.000
+and we will compile these two together and record them
+
+01:17:50.000 --> 01:17:54.000
+that is our experiment tracking
+
+01:17:54.000 --> 01:17:58.000
+so what is experimentation and what is experiment tracking
+
+01:17:58.000 --> 01:18:02.000
+you understood this, it is a very important concept
+
+01:18:06.000 --> 01:18:10.000
+so we discussed why we have to do experiment tracking
+
+01:18:10.000 --> 01:18:14.000
+why we have to do experiment tracking
+
+01:18:14.000 --> 01:18:18.000
+because we are making changes in our configuration of the application
+
+01:18:18.000 --> 01:18:22.000
+what is the configuration? our hyper parameters
+
+01:18:22.000 --> 01:18:26.000
+so we are making changes in the configuration
+
+01:18:26.000 --> 01:18:30.000
+and the effect of that is that our scores are also changing
+
+01:18:30.000 --> 01:18:34.000
+so we have to track them together
+
+01:18:34.000 --> 01:18:38.000
+now you have two mechanisms
+
+01:18:38.000 --> 01:18:42.000
+to do this particular thing
+
+01:18:42.000 --> 01:18:46.000
+there are two common mechanisms which you use
+
+01:18:46.000 --> 01:18:50.000
+the first one is logging
+
+01:18:50.000 --> 01:18:54.000
+what is logging?
+
+01:18:54.000 --> 01:18:58.000
+you have heard about logging, there is a module in python
+
+01:18:58.000 --> 01:19:02.000
+logging is basically what?
+
+01:19:02.000 --> 01:19:06.000
+what you are doing here in your application
+
+01:19:06.000 --> 01:19:10.000
+whatever are the configuration related changes
+
+01:19:10.000 --> 01:19:14.000
+and whatever changes are there in your scores
+
+01:19:14.000 --> 01:19:18.000
+you are logging them
+
+01:19:18.000 --> 01:19:22.000
+inside log files
+
+01:19:22.000 --> 01:19:26.000
+logging means keeping records
+
+01:19:26.000 --> 01:19:30.000
+you are maintaining records
+
+01:19:30.000 --> 01:19:34.000
+now what happens in logging?
+
+01:19:34.000 --> 01:19:38.000
+first you have to make a logger in python
+
+01:19:38.000 --> 01:19:42.000
+logger is basically that object which handles logging
+
+01:19:42.000 --> 01:19:46.000
+after that you have to define with logger
+
+01:19:46.000 --> 01:19:50.000
+you have to decide where to save this log
+
+01:19:50.000 --> 01:19:54.000
+do you have to print it in console or save it in file
+
+01:19:54.000 --> 01:19:58.000
+let's say we have said that you have to save any logs in a log file
+
+01:19:58.000 --> 01:20:02.000
+after that we have to do
+
+01:20:02.000 --> 01:20:06.000
+we have to attach a formatter
+
+01:20:06.000 --> 01:20:10.000
+that in which format will my log be saved
+
+01:20:10.000 --> 01:20:14.000
+and here you have to write a lot of custom code
+
+01:20:14.000 --> 01:20:18.000
+custom code means you have to introduce
+
+01:20:18.000 --> 01:20:22.000
+the logging code in every step
+
+01:20:22.000 --> 01:20:26.000
+if we are making a brag application
+
+01:20:26.000 --> 01:20:30.000
+then we have to individually log every parameter
+
+01:20:30.000 --> 01:20:34.000
+using this custom code
+
+01:20:34.000 --> 01:20:38.000
+we will log every parameter
+
+01:20:38.000 --> 01:20:42.000
+in proper sentences
+
+01:20:42.000 --> 01:20:46.000
+we have to write every statement in detail
+
+01:20:46.000 --> 01:20:50.000
+logging works well when you are developing software
+
+01:20:50.000 --> 01:20:54.000
+then whatever is printed in your console
+
+01:20:54.000 --> 01:20:58.000
+you can easily log it in log file
+
+01:20:58.000 --> 01:21:02.000
+in our case we are logging numbers
+
+01:21:02.000 --> 01:21:06.000
+most of the hyper parameters
+
+01:21:06.000 --> 01:21:10.000
+are numbers
+
+01:21:10.000 --> 01:21:14.000
+chunk overlap is number
+
+01:21:14.000 --> 01:21:18.000
+and what are your scores
+
+01:21:18.000 --> 01:21:22.000
+whenever you store these numbers in your log file
+
+01:21:22.000 --> 01:21:26.000
+then your readability decreases
+
+01:21:26.000 --> 01:21:30.000
+you have to read every log in detail
+
+01:21:30.000 --> 01:21:34.000
+how your application is behaving
+
+01:21:34.000 --> 01:21:38.000
+logging is super easy
+
+01:21:38.000 --> 01:21:42.000
+you can track everything
+
+01:21:42.000 --> 01:21:46.000
+you can track every line
+
+01:21:46.000 --> 01:21:50.000
+but the problem is
+
+01:21:50.000 --> 01:21:54.000
+you have to add a lot of custom code
+
+01:21:54.000 --> 01:21:58.000
+repeatable code and how you have to log
+
+01:21:58.000 --> 01:22:02.000
+you have to define the format properly
+
+01:22:02.000 --> 01:22:06.000
+and here you have some frameworks
+
+01:22:06.000 --> 01:22:10.000
+which automate logging
+
+01:22:10.000 --> 01:22:14.000
+you don't have to add a lot of code
+
+01:22:14.000 --> 01:22:18.000
+you add a few pieces of code
+
+01:22:18.000 --> 01:22:22.000
+and all the logging is done automatically
+
+01:22:22.000 --> 01:22:26.000
+and here is your MLflow
+
+01:22:26.000 --> 01:22:30.000
+it is an advanced framework
+
+01:22:30.000 --> 01:22:34.000
+but when MLflow was first used
+
+01:22:34.000 --> 01:22:38.000
+it was used for experiment tracking
+
+01:22:38.000 --> 01:22:42.000
+it was used for experimentation tracking
+
+01:22:42.000 --> 01:22:46.000
+first
+
+01:22:46.000 --> 01:22:50.000
+let me tell you some features of this framework
+
+01:22:50.000 --> 01:22:54.000
+first, the code you write
+
+01:22:54.000 --> 01:22:58.000
+to track your experiments is very minimal
+
+01:22:58.000 --> 01:23:02.000
+and you can automate this code
+
+01:23:02.000 --> 01:23:06.000
+what does automate mean?
+
+01:23:06.000 --> 01:23:10.000
+you have to provide inputs through a script
+
+01:23:10.000 --> 01:23:14.000
+like you have saved your parameters in a particular file
+
+01:23:14.000 --> 01:23:18.000
+you have to change your parameters there only
+
+01:23:18.000 --> 01:23:22.000
+and automatically your change parameters
+
+01:23:22.000 --> 01:23:26.000
+MLflow will pick them
+
+01:23:26.000 --> 01:23:30.000
+second benefit is that you can't compare
+
+01:23:30.000 --> 01:23:34.000
+you can't compare through tables, graphs
+
+01:23:34.000 --> 01:23:38.000
+charts, graphs
+
+01:23:38.000 --> 01:23:42.000
+so proper comparisons are available
+
+01:23:42.000 --> 01:23:46.000
+and the third thing is
+
+01:23:46.000 --> 01:23:50.000
+that this whole thing which you are logging through MLflow
+
+01:23:50.000 --> 01:23:54.000
+can be easily shared with your teammates
+
+01:23:54.000 --> 01:23:58.000
+what is the problem with logging?
+
+01:23:58.000 --> 01:24:02.000
+you are saving everything in log files
+
+01:24:02.000 --> 01:24:06.000
+so if you want to share your configuration details
+
+01:24:06.000 --> 01:24:10.000
+and related results with your teammates
+
+01:24:10.000 --> 01:24:14.000
+then you have to share these log files with your teammates
+
+01:24:14.000 --> 01:24:18.000
+and they have to go line by line
+
+01:24:18.000 --> 01:24:22.000
+and see what changes were made to which line
+
+01:24:22.000 --> 01:24:26.000
+they have to see all that in detail
+
+01:24:26.000 --> 01:24:30.000
+and the good thing is that you have a centralized location
+
+01:24:30.000 --> 01:24:34.000
+you have a centralized dashboard
+
+01:24:34.000 --> 01:24:38.000
+and on this dashboard, you and your teammates
+
+01:24:38.000 --> 01:24:42.000
+can log your experiments
+
+01:24:42.000 --> 01:24:46.000
+and you can compare each experiment with each other
+
+01:24:46.000 --> 01:24:50.000
+and you can also extract the best experiment
+
+01:24:50.000 --> 01:24:54.000
+which will be the best experiment?
+
+01:24:54.000 --> 01:24:58.000
+so you will have the best scores
+
+01:24:58.000 --> 01:25:02.000
+for a certain set of configuration
+
+01:25:02.000 --> 01:25:06.000
+now this is highly practical
+
+01:25:06.000 --> 01:25:10.000
+you will understand this only if you see it in the code
+
+01:25:10.000 --> 01:25:14.000
+so we will see it in the code
+
+01:25:14.000 --> 01:25:18.000
+there are some more primitives of MLflow
+
+01:25:18.000 --> 01:25:22.000
+let's discuss about them because you will see them in the dashboard
+
+01:25:22.000 --> 01:25:26.000
+MLflow is your tracking server
+
+01:25:26.000 --> 01:25:30.000
+now MLflow is
+
+01:25:30.000 --> 01:25:34.000
+logging all these experiments
+
+01:25:34.000 --> 01:25:38.000
+so it has a backend
+
+01:25:38.000 --> 01:25:42.000
+in the backend, there is a database
+
+01:25:42.000 --> 01:25:46.000
+which tracks all your logs and save them
+
+01:25:46.000 --> 01:25:50.000
+and you have a frontend
+
+01:25:50.000 --> 01:25:54.000
+and you have a dashboard which you can see on the screen
+
+01:25:54.000 --> 01:25:58.000
+MLflow provides you
+
+01:25:58.000 --> 01:26:02.000
+a tracking server
+
+01:26:02.000 --> 01:26:06.000
+you can run this server remotely
+
+01:26:06.000 --> 01:26:10.000
+or you can run it on your local server
+
+01:26:10.000 --> 01:26:14.000
+so the server we will work with today
+
+01:26:14.000 --> 01:26:18.000
+will be a local server
+
+01:26:18.000 --> 01:26:22.000
+so if I start a local server
+
+01:26:22.000 --> 01:26:26.000
+you will have a database in the backend
+
+01:26:26.000 --> 01:26:30.000
+and in this database, MLflow will capture all the details
+
+01:26:30.000 --> 01:26:34.000
+and I can interact with this particular local server
+
+01:26:34.000 --> 01:26:38.000
+through a dashboard, so I have a proper frontend
+
+01:26:38.000 --> 01:26:42.000
+and a backend
+
+01:26:42.000 --> 01:26:46.000
+so this is my tracking server
+
+01:26:46.000 --> 01:26:50.000
+and you save and record them
+
+01:26:50.000 --> 01:26:54.000
+second is your experiment
+
+01:26:54.000 --> 01:26:58.000
+so what is experiment?
+
+01:26:58.000 --> 01:27:02.000
+experiment is your project
+
+01:27:02.000 --> 01:27:06.000
+so far we have discussed about experimentation
+
+01:27:06.000 --> 01:27:10.000
+that you tweaked a configuration
+
+01:27:10.000 --> 01:27:14.000
+so actually it is the same experiment
+
+01:27:14.000 --> 01:27:18.000
+in MLflow language, your project is your experiment
+
+01:27:18.000 --> 01:27:22.000
+so it is a high level hierarchy
+
+01:27:22.000 --> 01:27:26.000
+so in MLflow language, your project is your experiment
+
+01:27:26.000 --> 01:27:30.000
+third is your runs
+
+01:27:30.000 --> 01:27:34.000
+runs are basically your individual updates
+
+01:27:34.000 --> 01:27:38.000
+or you can say individual
+
+01:27:38.000 --> 01:27:42.000
+your tweaks
+
+01:27:42.000 --> 01:27:46.000
+so experimentation is your runs
+
+01:27:46.000 --> 01:27:50.000
+so let's say you have set chunk size to 300
+
+01:27:50.000 --> 01:27:54.000
+so you have one run
+
+01:27:54.000 --> 01:27:58.000
+on which you have your configuration and chunk size
+
+01:27:58.000 --> 01:28:02.000
+and you have updated your chunk size to 330
+
+01:28:02.000 --> 01:28:06.000
+so you will run the evaluation again with that configuration
+
+01:28:06.000 --> 01:28:10.000
+and when you will track your configuration and results
+
+01:28:10.000 --> 01:28:14.000
+and save it, it will be your second run
+
+01:28:14.000 --> 01:28:18.000
+fourth is your parameters
+
+01:28:18.000 --> 01:28:22.000
+or it is also called params
+
+01:28:22.000 --> 01:28:26.000
+these are your individual configurations
+
+01:28:26.000 --> 01:28:30.000
+fifth is your metrics
+
+01:28:30.000 --> 01:28:34.000
+these are your scores or metrics
+
+01:28:34.000 --> 01:28:38.000
+evaluation results
+
+01:28:38.000 --> 01:28:42.000
+and artifacts
+
+01:28:42.000 --> 01:28:46.000
+artifacts are basically a very open ended thing
+
+01:28:46.000 --> 01:28:50.000
+you can save a lot of things in artifacts
+
+01:28:50.000 --> 01:28:54.000
+you can store your data sets
+
+01:28:54.000 --> 01:28:58.000
+like your evaluation data set
+
+01:28:58.000 --> 01:29:02.000
+your golden data set
+
+01:29:02.000 --> 01:29:06.000
+so it will be saved on your MLflow servers
+
+01:29:06.000 --> 01:29:10.000
+and you can pull it from this particular dashboard
+
+01:29:10.000 --> 01:29:14.000
+you can save your code files
+
+01:29:14.000 --> 01:29:18.000
+code files can also be artifacts
+
+01:29:18.000 --> 01:29:22.000
+you can save some images
+
+01:29:22.000 --> 01:29:26.000
+you can save some images
+
+01:29:26.000 --> 01:29:30.000
+you can save some parameter files
+
+01:29:30.000 --> 01:29:34.000
+or some extra files
+
+01:29:34.000 --> 01:29:38.000
+you can save configuration related files
+
+01:29:38.000 --> 01:29:42.000
+like we can list all our parameters
+
+01:29:42.000 --> 01:29:46.000
+in a yaml file and we can save this yaml file
+
+01:29:46.000 --> 01:29:50.000
+in our artifacts
+
+01:29:50.000 --> 01:29:54.000
+so you can save any file in your artifacts
+
+01:29:54.000 --> 01:29:58.000
+in your project directory
+
+01:29:58.000 --> 01:30:02.000
+you can also save the requirements file
+
+01:30:02.000 --> 01:30:06.000
+so it is clear
+
+01:30:06.000 --> 01:30:10.000
+again this is highly practical
+
+01:30:10.000 --> 01:30:14.000
+we will do it and you will understand
+
+01:30:14.000 --> 01:30:18.000
+theory is not very important here
+
+01:30:18.000 --> 01:30:22.000
+now I will tell you the advantages
+
+01:30:22.000 --> 01:30:26.000
+of using MLflow
+
+01:30:26.000 --> 01:30:30.000
+the first advantage is that you can see a proper dashboard
+
+01:30:30.000 --> 01:30:34.000
+if you use a logging module
+
+01:30:34.000 --> 01:30:38.000
+you can see log files
+
+01:30:38.000 --> 01:30:42.000
+you have to read individual logs
+
+01:30:42.000 --> 01:30:46.000
+you can see everything in detail
+
+01:30:46.000 --> 01:30:50.000
+in a dashboard
+
+01:30:50.000 --> 01:30:54.000
+second advantage is that it is shareable
+
+01:30:54.000 --> 01:30:58.000
+if you are working on a remote tracking server
+
+01:30:58.000 --> 01:31:02.000
+you will have a URL
+
+01:31:02.000 --> 01:31:06.000
+you can give it to your teammates
+
+01:31:06.000 --> 01:31:10.000
+and they can use it to visualize the experiments
+
+01:31:10.000 --> 01:31:14.000
+or they can push their own experiments
+
+01:31:14.000 --> 01:31:18.000
+this is also possible
+
+01:31:18.000 --> 01:31:22.000
+third benefit is that you can see your configuration
+
+01:31:22.000 --> 01:31:26.000
+and results together
+
+01:31:26.000 --> 01:31:30.000
+you can compare and see together
+
+01:31:30.000 --> 01:31:34.000
+you can see your configuration
+
+01:31:34.000 --> 01:31:38.000
+and related results
+
+01:31:38.000 --> 01:31:42.000
+our problem was that the configuration was somewhere else
+
+01:31:42.000 --> 01:31:46.000
+now you can see both together
+
+01:31:46.000 --> 01:31:50.000
+fourth is that you can easily run comparisons
+
+01:31:50.000 --> 01:31:54.000
+you can select multiple runs
+
+01:31:54.000 --> 01:31:58.000
+and you can make comparisons
+
+01:31:58.000 --> 01:32:02.000
+you can see these comparisons
+
+01:32:02.000 --> 01:32:06.000
+through both tables
+
+01:32:06.000 --> 01:32:10.000
+you can compare in tabular form
+
+01:32:10.000 --> 01:32:14.000
+and in visualizations
+
+01:32:14.000 --> 01:32:18.000
+is it clear?
+
+01:32:18.000 --> 01:32:22.000
+again there is no much theory here
+
+01:32:22.000 --> 01:32:26.000
+yes, we should
+
+01:32:26.000 --> 01:32:30.000
+we will create a params.yml file
+
+01:32:30.000 --> 01:32:34.000
+and store our configuration in it
+
+01:32:34.000 --> 01:32:38.000
+we will update in that file
+
+01:32:38.000 --> 01:32:42.000
+and the same parameters will load in our main application
+
+01:32:42.000 --> 01:32:46.000
+you never change parameters in your application
+
+01:32:46.000 --> 01:32:50.000
+you have a centralized file
+
+01:32:50.000 --> 01:32:54.000
+you change all your configuration details
+
+01:32:54.000 --> 01:32:58.000
+is it clear?
+
+01:33:02.000 --> 01:33:06.000
+is the whole thing clear?
+
+01:33:06.000 --> 01:33:10.000
+let's go to the practical part
+
+01:33:10.000 --> 01:33:14.000
+I will switch off the camera so that you can see everything clearly
+
+01:33:14.000 --> 01:33:18.000
+and we will close the extra file
+
+01:33:18.000 --> 01:33:22.000
+let's close it
+
+01:33:22.000 --> 01:33:26.000
+first thing we have to do
+
+01:33:26.000 --> 01:33:30.000
+let's open a new terminal
+
+01:33:30.000 --> 01:33:34.000
+let's close this one
+
+01:33:34.000 --> 01:33:38.000
+and we will install mlflow
+
+01:33:38.000 --> 01:33:42.000
+so simply we will write uv add
+
+01:33:42.000 --> 01:33:46.000
+mlflow
+
+01:33:46.000 --> 01:33:50.000
+now what is the first thing
+
+01:33:50.000 --> 01:33:54.000
+we have to start our tracking server
+
+01:33:54.000 --> 01:33:58.000
+because we are tracking our configuration and results
+
+01:33:58.000 --> 01:34:02.000
+so you need a tracking server
+
+01:34:02.000 --> 01:34:06.000
+and we will work with a remote server
+
+01:34:06.000 --> 01:34:10.000
+so you have two types of remote servers in mlflow
+
+01:34:10.000 --> 01:34:14.000
+one is the one that runs on your local system
+
+01:34:14.000 --> 01:34:18.000
+and the other one is the one that runs on your local host
+
+01:34:18.000 --> 01:34:22.000
+so the database creation and the dashboard that you are able to visualize
+
+01:34:22.000 --> 01:34:26.000
+is happening from your local system
+
+01:34:26.000 --> 01:34:30.000
+whereas some remote servers that are on the cloud
+
+01:34:30.000 --> 01:34:34.000
+when you run it on the cloud instance
+
+01:34:34.000 --> 01:34:38.000
+then your database is created there and all the tracking is done there
+
+01:34:38.000 --> 01:34:42.000
+and you can visualize your dashboard through that particular address
+
+01:34:42.000 --> 01:34:46.000
+so the difference between the two is that you are running it on your laptop
+
+01:34:46.000 --> 01:34:50.000
+and it is running on the cloud instance
+
+01:34:50.000 --> 01:34:54.000
+so for that you have to use the command uvxmlflow server
+
+01:34:54.000 --> 01:34:58.000
+let me check
+
+01:34:58.000 --> 01:35:02.000
+mlflow start server
+
+01:35:02.000 --> 01:35:06.000
+yes this is the command
+
+01:35:06.000 --> 01:35:10.000
+so let's run it
+
+01:35:10.000 --> 01:35:14.000
+let me go back to the board
+
+01:35:14.000 --> 01:35:18.000
+uvxmlflow server
+
+01:35:18.000 --> 01:35:22.000
+so basically you can add tools
+
+01:35:22.000 --> 01:35:26.000
+because we are using uv so we can use this command
+
+01:35:26.000 --> 01:35:30.000
+and you can see that a server will start
+
+01:35:30.000 --> 01:35:34.000
+see it has started
+
+01:35:34.000 --> 01:35:38.000
+automatically
+
+01:35:38.000 --> 01:35:42.000
+so if I show you here
+
+01:35:42.000 --> 01:35:46.000
+so on this particular address
+
+01:35:46.000 --> 01:35:50.000
+it is running through uvcon and on this address
+
+01:35:50.000 --> 01:35:54.000
+it is running on your localhost 5000
+
+01:35:54.000 --> 01:35:58.000
+let's open it
+
+01:35:58.000 --> 01:36:02.000
+let's copy it
+
+01:36:02.000 --> 01:36:06.000
+and go to our chrome and paste
+
+01:36:06.000 --> 01:36:10.000
+and let's run this
+
+01:36:10.000 --> 01:36:14.000
+so this server is running on my local system
+
+01:36:14.000 --> 01:36:18.000
+and if I show you here
+
+01:36:18.000 --> 01:36:22.000
+then you can see that here
+
+01:36:22.000 --> 01:36:26.000
+mlflow.db has created a SQLite database
+
+01:36:26.000 --> 01:36:30.000
+and mlflow creates a backend
+
+01:36:30.000 --> 01:36:34.000
+so whatever you will log will be saved in this database
+
+01:36:34.000 --> 01:36:38.000
+and the UI will be shown here
+
+01:36:38.000 --> 01:36:42.000
+on this particular link
+
+01:36:42.000 --> 01:36:46.000
+now let's do one thing before we explore this
+
+01:36:46.000 --> 01:36:50.000
+let's explore the documentation of mlflow
+
+01:36:50.000 --> 01:36:54.000
+so
+
+01:36:54.000 --> 01:36:58.000
+let's open the mlflow documentation
+
+01:36:58.000 --> 01:37:02.000
+mlflow has made many changes
+
+01:37:02.000 --> 01:37:06.000
+and has integrated llmops to a large extent
+
+01:37:06.000 --> 01:37:10.000
+so it is written here
+
+01:37:10.000 --> 01:37:14.000
+you can build ai products
+
+01:37:14.000 --> 01:37:18.000
+because building ai products is all about iteration
+
+01:37:18.000 --> 01:37:22.000
+so their core philosophy is still experimentation
+
+01:37:22.000 --> 01:37:26.000
+mlflow lets you move 10x faster by
+
+01:37:26.000 --> 01:37:30.000
+simplifying how you debug, evaluate and monitor your
+
+01:37:30.000 --> 01:37:34.000
+llm applications, agents and models
+
+01:37:34.000 --> 01:37:38.000
+so earlier you could only track your data science life cycle
+
+01:37:38.000 --> 01:37:42.000
+your machine learning models or deep learning models
+
+01:37:42.000 --> 01:37:46.000
+but now you have the capability to track llm based applications
+
+01:37:46.000 --> 01:37:50.000
+and agentic applications
+
+01:37:50.000 --> 01:37:54.000
+so you have added these things here
+
+01:37:54.000 --> 01:37:58.000
+you have two sub modules available
+
+01:37:58.000 --> 01:38:02.000
+one is focusing on llm and agents and the other is
+
+01:38:02.000 --> 01:38:06.000
+focusing on model training
+
+01:38:06.000 --> 01:38:10.000
+so this model training part is basically machine learning
+
+01:38:10.000 --> 01:38:14.000
+but we will use this machine learning feature
+
+01:38:14.000 --> 01:38:18.000
+because this is the core feature
+
+01:38:18.000 --> 01:38:22.000
+so this is the core feature of mlflow
+
+01:38:22.000 --> 01:38:26.000
+and the llm and agents
+
+01:38:26.000 --> 01:38:30.000
+are newly added features
+
+01:38:30.000 --> 01:38:34.000
+so you can see the feature add-ons have observability
+
+01:38:34.000 --> 01:38:38.000
+so you can use the lang fuse
+
+01:38:38.000 --> 01:38:42.000
+and the lang smith also works the same
+
+01:38:42.000 --> 01:38:46.000
+it also evaluates and you can see built in metrics
+
+01:38:46.000 --> 01:38:50.000
+so you can define your custom metrics
+
+01:38:50.000 --> 01:38:54.000
+if I show you the code
+
+01:38:54.000 --> 01:38:58.000
+you will see that the code is very similar to the one in deep eval
+
+01:38:58.000 --> 01:39:02.000
+so I want to explain you that through this code
+
+01:39:02.000 --> 01:39:06.000
+so don't focus on tools
+
+01:39:06.000 --> 01:39:10.000
+focus on concepts, focus on the flow
+
+01:39:10.000 --> 01:39:14.000
+so the flow is the same
+
+01:39:14.000 --> 01:39:18.000
+so you have made a test data with input, actual output and expected output
+
+01:39:18.000 --> 01:39:22.000
+and then you have evaluated
+
+01:39:22.000 --> 01:39:26.000
+so you can see that the evaluate api
+
+01:39:26.000 --> 01:39:30.000
+is very similar to deep eval
+
+01:39:30.000 --> 01:39:34.000
+you have defined your test data and metrics
+
+01:39:34.000 --> 01:39:38.000
+so your evaluation is done
+
+01:39:38.000 --> 01:39:42.000
+now this prompt versioning and optimization
+
+01:39:42.000 --> 01:39:46.000
+so we have done the same with the lang fuse
+
+01:39:46.000 --> 01:39:50.000
+with full lineage tracking
+
+01:39:50.000 --> 01:39:54.000
+so you can see that the flow is the same
+
+01:39:54.000 --> 01:39:58.000
+version 6, 7, 8 and some labels or tags
+
+01:39:58.000 --> 01:40:02.000
+are attached
+
+01:40:02.000 --> 01:40:06.000
+you can optimize prompt with state of the art algorithms to improve performance
+
+01:40:06.000 --> 01:40:10.000
+if you see the code, then you can see the register prompt
+
+01:40:10.000 --> 01:40:14.000
+prompt, actual prompt, where you have variables
+
+01:40:14.000 --> 01:40:18.000
+again double cut libres, these were also in the lang fuse
+
+01:40:18.000 --> 01:40:22.000
+and a commit message, and you simply have to load prompt in your code
+
+01:40:22.000 --> 01:40:26.000
+where you have to give the name of your prompt along with the label
+
+01:40:26.000 --> 01:40:30.000
+exactly same, nothing is different
+
+01:40:30.000 --> 01:40:34.000
+so basically the reason to discuss this whole thing is
+
+01:40:34.000 --> 01:40:38.000
+that don't stick to the tools, the tools are yours, the concepts are yours
+
+01:40:38.000 --> 01:40:42.000
+you can easily migrate to any tool
+
+01:40:42.000 --> 01:40:46.000
+nothing is difficult, is it clear guys?
+
+01:40:46.000 --> 01:40:50.000
+did you build some confidence by seeing this code?
+
+01:40:50.000 --> 01:40:54.000
+we are working with a different tool today, but the code is very similar
+
+01:40:54.000 --> 01:40:58.000
+because we have discussed the concepts well
+
+01:40:58.000 --> 01:41:02.000
+if you read the concepts, then you will never have any problem in migrating to a new tool
+
+01:41:02.000 --> 01:41:06.000
+trust me
+
+01:41:06.000 --> 01:41:10.000
+we use experiment tracking
+
+01:41:10.000 --> 01:41:14.000
+if I show you here, then you get all these features
+
+01:41:14.000 --> 01:41:18.000
+if you go to components, then there is proper documentation
+
+01:41:18.000 --> 01:41:22.000
+if you go to get started, then you can see here
+
+01:41:22.000 --> 01:41:26.000
+you are setting your tracking url and then tracking
+
+01:41:26.000 --> 01:41:30.000
+exactly same, if I show you docs
+
+01:41:30.000 --> 01:41:34.000
+then these are some things
+
+01:41:34.000 --> 01:41:38.000
+you get these on the LLMs and agents side
+
+01:41:38.000 --> 01:41:42.000
+and these are your classical machine learning
+
+01:41:42.000 --> 01:41:46.000
+we are going to use MLflow tracking today
+
+01:41:46.000 --> 01:41:50.000
+so it's not like you use this tracking only in machine learning
+
+01:41:50.000 --> 01:41:54.000
+this is the oldest feature of MLflow, so it is kept in machine learning
+
+01:41:54.000 --> 01:41:58.000
+but you can easily use it in your LLM based applications
+
+01:41:58.000 --> 01:42:02.000
+so let's go towards the code part
+
+01:42:02.000 --> 01:42:06.000
+before going to the code, let me show you this UI
+
+01:42:06.000 --> 01:42:10.000
+so what you have to do here
+
+01:42:10.000 --> 01:42:14.000
+is go to the model training part
+
+01:42:14.000 --> 01:42:18.000
+because this genie part is not of our use
+
+01:42:18.000 --> 01:42:22.000
+because these experiments are basically your tracing
+
+01:42:22.000 --> 01:42:26.000
+this is not your experiment tracking that we are going to do
+
+01:42:26.000 --> 01:42:30.000
+this is your tracing that we are going to do through LangFuse
+
+01:42:30.000 --> 01:42:34.000
+this is basically your prompt version
+
+01:42:34.000 --> 01:42:38.000
+so we will go to the model training part
+
+01:42:38.000 --> 01:42:42.000
+and here you will go to the experiment section
+
+01:42:42.000 --> 01:42:46.000
+now what you do here is register your trained model
+
+01:42:46.000 --> 01:42:50.000
+in machine learning you have trained models, in LLM based application
+
+01:42:50.000 --> 01:42:54.000
+you are already using an existing model and building your application
+
+01:42:54.000 --> 01:42:58.000
+so here we will not use this model registry feature
+
+01:42:58.000 --> 01:43:02.000
+because it will be on the experiments tab
+
+01:43:02.000 --> 01:43:06.000
+so let's write the code
+
+01:43:06.000 --> 01:43:10.000
+so let's make a file
+
+01:43:10.000 --> 01:43:14.000
+and experiment tracking
+
+01:43:14.000 --> 01:43:18.000
+let's make a file called basics
+
+01:43:18.000 --> 01:43:22.000
+and write the code for our experiment tracking
+
+01:43:22.000 --> 01:43:26.000
+so first we will import MLflow
+
+01:43:26.000 --> 01:43:30.000
+MLflow
+
+01:43:30.000 --> 01:43:34.000
+and for now we don't have to import anything else
+
+01:43:34.000 --> 01:43:38.000
+now we will replicate the same flow
+
+01:43:38.000 --> 01:43:42.000
+that I have discussed with you
+
+01:43:42.000 --> 01:43:46.000
+so first thing I have to do is
+
+01:43:46.000 --> 01:43:50.000
+tell you where you have to do this particular tracking
+
+01:43:50.000 --> 01:43:54.000
+you have to set the tracking server
+
+01:43:54.000 --> 01:43:58.000
+so your tracking server is already running
+
+01:43:58.000 --> 01:44:02.000
+and it is already live
+
+01:44:02.000 --> 01:44:06.000
+so you have to simply add this to your code
+
+01:44:06.000 --> 01:44:10.000
+that you have to track this particular server
+
+01:44:10.000 --> 01:44:14.000
+so for that you will do MLflow.
+
+01:44:14.000 --> 01:44:18.000
+here there is a function set tracking ura
+
+01:44:18.000 --> 01:44:22.000
+so you have to set this
+
+01:44:22.000 --> 01:44:26.000
+and you have to tell the path
+
+01:44:26.000 --> 01:44:30.000
+so what is your path? it is
+
+01:44:30.000 --> 01:44:34.000
+HTTP and it is running on localhost
+
+01:44:34.000 --> 01:44:38.000
+and what is the port? port 5000
+
+01:44:38.000 --> 01:44:42.000
+if you don't want to write K then you can copy and paste this
+
+01:44:42.000 --> 01:44:46.000
+from here
+
+01:44:46.000 --> 01:44:50.000
+both are same
+
+01:44:50.000 --> 01:44:54.000
+next you have to set the
+
+01:44:54.000 --> 01:44:58.000
+experiment name
+
+01:44:58.000 --> 01:45:02.000
+so you have to tell the name of your project
+
+01:45:02.000 --> 01:45:06.000
+so now you will see one experiment that is your default experiment
+
+01:45:06.000 --> 01:45:10.000
+and in that default experiment you will get individual runs
+
+01:45:10.000 --> 01:45:14.000
+runs are basically your individual tweaks
+
+01:45:14.000 --> 01:45:18.000
+or configurations
+
+01:45:18.000 --> 01:45:22.000
+so here you are getting experiment id that is 0
+
+01:45:22.000 --> 01:45:26.000
+so your default experiment is always 0
+
+01:45:26.000 --> 01:45:30.000
+so if you don't define any experiment
+
+01:45:30.000 --> 01:45:34.000
+then your tracking will be in your default experiment
+
+01:45:34.000 --> 01:45:38.000
+but what we are doing here is defining an experiment
+
+01:45:38.000 --> 01:45:42.000
+so here I will say MLflow.
+
+01:45:42.000 --> 01:45:46.000
+I will simply do set experiment and here we will give the name of the experiment
+
+01:45:46.000 --> 01:45:50.000
+so what is the name of our experiment?
+
+01:45:50.000 --> 01:45:54.000
+it is called RackApp
+
+01:45:54.000 --> 01:45:58.000
+so let's do campusX RackApp
+
+01:45:58.000 --> 01:46:02.000
+so now I will run this particular code
+
+01:46:02.000 --> 01:46:06.000
+so let's run step by step
+
+01:46:06.000 --> 01:46:10.000
+so I will do
+
+01:46:10.000 --> 01:46:14.000
+uvrun and file name is
+
+01:46:14.000 --> 01:46:18.000
+experiment tracking basics
+
+01:46:22.000 --> 01:46:26.000
+let's wait a little bit
+
+01:46:26.000 --> 01:46:30.000
+it will take some time to connect for the first time
+
+01:46:30.000 --> 01:46:34.000
+some error has come
+
+01:46:34.000 --> 01:46:38.000
+get experiment
+
+01:46:38.000 --> 01:46:42.000
+API 403 error has come
+
+01:46:42.000 --> 01:46:46.000
+why this happened?
+
+01:46:46.000 --> 01:46:50.000
+let's go to home
+
+01:46:50.000 --> 01:46:54.000
+and copy this path
+
+01:46:54.000 --> 01:46:58.000
+maybe because of localhost error
+
+01:46:58.000 --> 01:47:02.000
+maybe there is some issue in this window system
+
+01:47:02.000 --> 01:47:06.000
+so we fixed it
+
+01:47:06.000 --> 01:47:10.000
+let's do rerun again
+
+01:47:10.000 --> 01:47:14.000
+now it is working
+
+01:47:14.000 --> 01:47:18.000
+creating a new experiment has come
+
+01:47:18.000 --> 01:47:22.000
+it checked that there is no existing experiment
+
+01:47:22.000 --> 01:47:26.000
+so it created a new experiment
+
+01:47:26.000 --> 01:47:30.000
+let's go towards model training
+
+01:47:30.000 --> 01:47:34.000
+and here the experiments tab is gone
+
+01:47:34.000 --> 01:47:38.000
+let's open it
+
+01:47:38.000 --> 01:47:42.000
+so you can see the new experiment
+
+01:47:42.000 --> 01:47:46.000
+and I am not logging anything
+
+01:47:46.000 --> 01:47:50.000
+let's start logging some things
+
+01:47:50.000 --> 01:47:54.000
+so first of all I have to start a new run
+
+01:47:54.000 --> 01:47:58.000
+so to start a run, you do
+
+01:47:58.000 --> 01:48:02.000
+run and whatever you are logging
+
+01:48:02.000 --> 01:48:06.000
+you can call it run is basically your version
+
+01:48:06.000 --> 01:48:10.000
+so you have to log in that run
+
+01:48:10.000 --> 01:48:14.000
+so for that you open a context manager
+
+01:48:14.000 --> 01:48:18.000
+with mlflow.startrun
+
+01:48:18.000 --> 01:48:22.000
+you want to start a new run
+
+01:48:22.000 --> 01:48:26.000
+and here you will get a run name
+
+01:48:26.000 --> 01:48:30.000
+so we will name it testrun
+
+01:48:30.000 --> 01:48:34.000
+and you can add some tags
+
+01:48:34.000 --> 01:48:38.000
+or add description
+
+01:48:38.000 --> 01:48:42.000
+so we are not adding anything
+
+01:48:42.000 --> 01:48:46.000
+we are writing run start as run
+
+01:48:46.000 --> 01:48:50.000
+and here we will do logging
+
+01:48:50.000 --> 01:48:54.000
+so let's do one thing
+
+01:48:54.000 --> 01:48:58.000
+first of all we will
+
+01:48:58.000 --> 01:49:02.000
+log our parameters, our configuration
+
+01:49:02.000 --> 01:49:06.000
+so to log our parameters, you have to write
+
+01:49:06.000 --> 01:49:10.000
+mlflow.log, so here you get the option to log different things
+
+01:49:10.000 --> 01:49:14.000
+you can log an artifact, a dictionary
+
+01:49:14.000 --> 01:49:18.000
+you can log a matplotlib
+
+01:49:18.000 --> 01:49:22.000
+or a plotlib figure, you can log a png image
+
+01:49:22.000 --> 01:49:26.000
+you can log a metric
+
+01:49:26.000 --> 01:49:30.000
+or a list of metrics
+
+01:49:30.000 --> 01:49:34.000
+you can also log parameters
+
+01:49:34.000 --> 01:49:38.000
+you can log one parameter or multiple parameters
+
+01:49:38.000 --> 01:49:42.000
+so we will log one parameter
+
+01:49:42.000 --> 01:49:46.000
+so I will simply write log param
+
+01:49:46.000 --> 01:49:50.000
+and here I have to give the parameter name and value
+
+01:49:50.000 --> 01:49:54.000
+so let's say parameter name is
+
+01:49:54.000 --> 01:49:58.000
+chunk size and here I have to give a value
+
+01:49:58.000 --> 01:50:02.000
+so here it is 300
+
+01:50:02.000 --> 01:50:06.000
+so what will you do if you want to log the next parameter
+
+01:50:06.000 --> 01:50:10.000
+you will go to the next line and write again
+
+01:50:10.000 --> 01:50:14.000
+log param, now I will give my second parameter
+
+01:50:14.000 --> 01:50:18.000
+chunk overlap
+
+01:50:18.000 --> 01:50:22.000
+and what is its value, its value is 30
+
+01:50:22.000 --> 01:50:26.000
+let's say I want to log one more parameter
+
+01:50:26.000 --> 01:50:30.000
+param and here I want to log
+
+01:50:30.000 --> 01:50:34.000
+output dimensions of my
+
+01:50:34.000 --> 01:50:38.000
+embedder output dimensions and its value
+
+01:50:38.000 --> 01:50:42.000
+is 1024
+
+01:50:42.000 --> 01:50:46.000
+so here I have added some configuration related parameters
+
+01:50:46.000 --> 01:50:50.000
+now I have to log my metrics
+
+01:50:50.000 --> 01:50:54.000
+so you can log metrics together or individually
+
+01:50:54.000 --> 01:50:58.000
+now I will show you individually
+
+01:50:58.000 --> 01:51:02.000
+so these are my parameters
+
+01:51:02.000 --> 01:51:06.000
+now I am logging my metrics
+
+01:51:06.000 --> 01:51:10.000
+the code will be the same, you will write mlflow.log metric
+
+01:51:10.000 --> 01:51:14.000
+because you want to log one metric
+
+01:51:14.000 --> 01:51:18.000
+and we will keep the metric name as recall
+
+01:51:18.000 --> 01:51:22.000
+and we will give it a value of 0.89
+
+01:51:22.000 --> 01:51:26.000
+mlflow.log metric
+
+01:51:26.000 --> 01:51:30.000
+metric is my faithfulness
+
+01:51:30.000 --> 01:51:34.000
+and its value is 0.91
+
+01:51:34.000 --> 01:51:38.000
+then mlflow.log metric
+
+01:51:38.000 --> 01:51:42.000
+and metric is my
+
+01:51:42.000 --> 01:51:46.000
+answer, correctness which is my custom metric
+
+01:51:46.000 --> 01:51:50.000
+and its value is 0.7
+
+01:51:50.000 --> 01:51:54.000
+so here I have also logged my metrics
+
+01:51:54.000 --> 01:51:58.000
+now let's say I want to log some artifacts
+
+01:51:58.000 --> 01:52:02.000
+let's say I want to log my code
+
+01:52:02.000 --> 01:52:06.000
+my application code ragworkflow
+
+01:52:06.000 --> 01:52:10.000
+so I will log artifacts
+
+01:52:10.000 --> 01:52:14.000
+now I have to define a path for this
+
+01:52:14.000 --> 01:52:18.000
+so I will import pathlib
+
+01:52:18.000 --> 01:52:22.000
+first we will define our root directory
+
+01:52:22.000 --> 01:52:26.000
+which is my project directory
+
+01:52:26.000 --> 01:52:30.000
+for that I will use path
+
+01:52:30.000 --> 01:52:34.000
+I will use the file variable
+
+01:52:34.000 --> 01:52:38.000
+and we will convert it to absolute
+
+01:52:38.000 --> 01:52:42.000
+and if we write .parent then we will have our root directory
+
+01:52:42.000 --> 01:52:46.000
+then I have to define the path of my code file
+
+01:52:46.000 --> 01:52:50.000
+so what I will do is
+
+01:52:50.000 --> 01:52:54.000
+I will use the log artifact
+
+01:52:54.000 --> 01:52:58.000
+what you have to do in artifact is just tell your path
+
+01:52:58.000 --> 01:53:02.000
+so your local path is done
+
+01:53:02.000 --> 01:53:06.000
+we will define it from root directory
+
+01:53:06.000 --> 01:53:10.000
+from root directory we have to go to my source
+
+01:53:10.000 --> 01:53:14.000
+so source is done
+
+01:53:14.000 --> 01:53:18.000
+from that we have to go to app
+
+01:53:18.000 --> 01:53:22.000
+and in app the file name is ragworkflow.py
+
+01:53:22.000 --> 01:53:28.000
+it will be ragworkflow.py
+
+01:53:28.000 --> 01:53:32.000
+and you can also tell output directory
+
+01:53:32.000 --> 01:53:36.000
+that you have to save this file in your artifacts root
+
+01:53:36.000 --> 01:53:40.000
+or any directory so you can also tell artifact path
+
+01:53:40.000 --> 01:53:44.000
+so this is a directory
+
+01:53:44.000 --> 01:53:48.000
+so let's say directory is code
+
+01:53:48.000 --> 01:53:52.000
+so I have to save all my code in the code directory
+
+01:53:52.000 --> 01:53:56.000
+you can also log your data set
+
+01:53:56.000 --> 01:54:00.000
+in this you will use mlflow.logartifact
+
+01:54:00.000 --> 01:54:04.000
+again you have to tell path
+
+01:54:04.000 --> 01:54:08.000
+so path is done, you will define using your root directory
+
+01:54:08.000 --> 01:54:12.000
+after root directory you will go to data
+
+01:54:12.000 --> 01:54:16.000
+let's say we are going inside goldens
+
+01:54:16.000 --> 01:54:20.000
+sorry it is evaluation, inside that there is goldens
+
+01:54:20.000 --> 01:54:24.000
+evaluations, inside that there is
+
+01:54:24.000 --> 01:54:28.000
+goldens and inside that there is
+
+01:54:28.000 --> 01:54:32.000
+golden dataset.json
+
+01:54:32.000 --> 01:54:36.000
+so here we have
+
+01:54:36.000 --> 01:54:40.000
+defined path
+
+01:54:40.000 --> 01:54:44.000
+let's check
+
+01:54:44.000 --> 01:54:48.000
+golden dataset final
+
+01:54:48.000 --> 01:54:52.000
+so here we have
+
+01:54:52.000 --> 01:54:56.000
+locked some things, now what we have to do is simply run this file
+
+01:54:56.000 --> 01:55:00.000
+and by running it all our things will automatically
+
+01:55:00.000 --> 01:55:04.000
+be locked
+
+01:55:04.000 --> 01:55:08.000
+what happened
+
+01:55:12.000 --> 01:55:16.000
+no such file directory, some error has come
+
+01:55:16.000 --> 01:55:20.000
+there is no evaluation
+
+01:55:20.000 --> 01:55:24.000
+so if your logging fails then your failure
+
+01:55:24.000 --> 01:55:28.000
+is also recorded here, see this test run is recorded
+
+01:55:28.000 --> 01:55:32.000
+and you can see cross on it, why because it failed
+
+01:55:32.000 --> 01:55:36.000
+so your metrics are properly logged
+
+01:55:36.000 --> 01:55:40.000
+your parameters are properly logged
+
+01:55:40.000 --> 01:55:44.000
+if you go to model metrics you will see some graphs
+
+01:55:44.000 --> 01:55:48.000
+you can download them
+
+01:55:48.000 --> 01:55:52.000
+and if you want you can see in artifacts
+
+01:55:52.000 --> 01:55:56.000
+my code is properly logged, which is all my application
+
+01:55:56.000 --> 01:56:00.000
+code, you can see clearly here, where is the error
+
+01:56:00.000 --> 01:56:04.000
+this is my last line, which is this particular line
+
+01:56:04.000 --> 01:56:08.000
+so it is not properly recorded here, let's rerun it again
+
+01:56:08.000 --> 01:56:12.000
+see it is saved, what is written
+
+01:56:12.000 --> 01:56:16.000
+in your experiment number 1, which is your id number 1
+
+01:56:16.000 --> 01:56:20.000
+it is saved there in the name of this run id
+
+01:56:20.000 --> 01:56:24.000
+so let me explain it to you once
+
+01:56:24.000 --> 01:56:28.000
+this is your mlflow dashboard of your particular experiment which is your project
+
+01:56:28.000 --> 01:56:32.000
+so in that you can see all the times you save this configuration
+
+01:56:32.000 --> 01:56:36.000
+here you can see the name of your configuration
+
+01:56:36.000 --> 01:56:40.000
+now you might think that the name is same
+
+01:56:40.000 --> 01:56:44.000
+so there will be no issue, basically mlflow
+
+01:56:44.000 --> 01:56:48.000
+works on the basis of run id not on the basis of run name
+
+01:56:48.000 --> 01:56:52.000
+this run name is for you to see, internally
+
+01:56:52.000 --> 01:56:56.000
+mlflow means run id
+
+01:56:56.000 --> 01:57:00.000
+so you can see it here, what is experiment id
+
+01:57:00.000 --> 01:57:04.000
+this is our custom experiment, it has id 1 because default is 0
+
+01:57:04.000 --> 01:57:08.000
+and automatically mlflow creates a unique run id
+
+01:57:08.000 --> 01:57:12.000
+how much time it took for this whole logging
+
+01:57:12.000 --> 01:57:16.000
+what was its source file, it is properly shown here
+
+01:57:16.000 --> 01:57:20.000
+here you have your branch
+
+01:57:20.000 --> 01:57:24.000
+which branch is this file available in and this is your commit hash
+
+01:57:24.000 --> 01:57:28.000
+so you can see everything here
+
+01:57:28.000 --> 01:57:32.000
+we are not logging anything here
+
+01:57:32.000 --> 01:57:36.000
+what we are logging is our metric which is recall
+
+01:57:36.000 --> 01:57:40.000
+faithfulness, answer correctness
+
+01:57:40.000 --> 01:57:44.000
+and your configuration parameters
+
+01:57:44.000 --> 01:57:48.000
+you can see individual metrics in the model metrics
+
+01:57:48.000 --> 01:57:52.000
+you can zoom in and zoom out as well
+
+01:57:52.000 --> 01:57:56.000
+next, you can go to artifacts
+
+01:57:56.000 --> 01:58:00.000
+and see your code files
+
+01:58:00.000 --> 01:58:04.000
+your code is saved in artifacts
+
+01:58:04.000 --> 01:58:08.000
+all the code is available here and your evaluation dataset
+
+01:58:08.000 --> 01:58:12.000
+golden dataset is also saved here
+
+01:58:12.000 --> 01:58:16.000
+now what is the benefit of saving them here, if your teammate
+
+01:58:16.000 --> 01:58:20.000
+wants to save this particular code version and this particular
+
+01:58:20.000 --> 01:58:24.000
+golden dataset, he can import it in his code
+
+01:58:24.000 --> 01:58:28.000
+using mlflow, you can load these things
+
+01:58:28.000 --> 01:58:32.000
+through load artifacts, is it clear now
+
+01:58:32.000 --> 01:58:36.000
+is the code clear, was it easy
+
+01:58:36.000 --> 01:58:40.000
+nothing difficult
+
+01:58:40.000 --> 01:58:44.000
+great, interesting
+
+01:58:44.000 --> 01:58:48.000
+nothing difficult in the code
+
+01:58:48.000 --> 01:58:52.000
+now what we have to do
+
+01:58:52.000 --> 01:58:56.000
+we have to build a proper pipeline
+
+01:58:56.000 --> 01:59:00.000
+I will tell you what we have to do in that
+
+01:59:00.000 --> 01:59:04.000
+and we will do that in the next class, but let's discuss
+
+01:59:04.000 --> 01:59:08.000
+what we are going to do in the next class, so first of all
+
+01:59:08.000 --> 01:59:12.000
+what we will do, now our problem is that
+
+01:59:12.000 --> 01:59:16.000
+our code, the code of the main application
+
+01:59:16.000 --> 01:59:20.000
+we have to hard code these configurations
+
+01:59:20.000 --> 01:59:24.000
+we will remove these configurations and make a separate
+
+01:59:24.000 --> 01:59:28.000
+file and save all the configurations
+
+01:59:28.000 --> 01:59:32.000
+that we want to track here
+
+01:59:32.000 --> 01:59:36.000
+the benefit of that is that you will have a single file
+
+01:59:36.000 --> 01:59:40.000
+in which you can change your parameters, basically you have
+
+01:59:40.000 --> 01:59:44.000
+a panel and you have a lot of knobs
+
+01:59:44.000 --> 01:59:48.000
+let's say you are a DJ, DJ's mixer panel
+
+01:59:48.000 --> 01:59:52.000
+you have a mixer panel and you can go on it
+
+01:59:52.000 --> 01:59:56.000
+and change things by pressing buttons
+
+01:59:56.000 --> 02:00:00.000
+so you will have a single source and in that
+
+02:00:00.000 --> 02:00:04.000
+you can change your configuration and
+
+02:00:04.000 --> 02:00:08.000
+we will load those configurations in this file
+
+02:00:08.000 --> 02:00:12.000
+so this will be step number one, secondly what we will do
+
+02:00:12.000 --> 02:00:16.000
+is that we will track our actual evaluations and
+
+02:00:16.000 --> 02:00:20.000
+our configurations properly, now what we are doing here
+
+02:00:20.000 --> 02:00:24.000
+I have filled these things with my heart, but because we have
+
+02:00:24.000 --> 02:00:28.000
+proper evaluation results, which we are storing in these particular JSON files
+
+02:00:28.000 --> 02:00:32.000
+I have already shown you
+
+02:00:32.000 --> 02:00:36.000
+so if you go to the end, then you will get aggregate results
+
+02:00:36.000 --> 02:00:40.000
+here are all your results
+
+02:00:40.000 --> 02:00:44.000
+in this matrix score attribute, so we are storing
+
+02:00:44.000 --> 02:00:48.000
+these in every evaluation run, so we will interlink
+
+02:00:48.000 --> 02:00:52.000
+our individual configuration and this particular matrix
+
+02:00:52.000 --> 02:00:56.000
+and we will see this in this dashboard
+
+02:00:56.000 --> 02:01:00.000
+next we will see how you can change your
+
+02:01:00.000 --> 02:01:04.000
+configurations and run evaluations and experimentation again and again
+
+02:01:04.000 --> 02:01:08.000
+and compare those results, now because we have
+
+02:01:08.000 --> 02:01:12.000
+only one result here, so comparison is not possible, but still I will show you
+
+02:01:12.000 --> 02:01:16.000
+how you can do comparison, it is very simple, simply you
+
+02:01:16.000 --> 02:01:20.000
+select your different runs and click on compare and you will see
+
+02:01:20.000 --> 02:01:24.000
+comparisons, now you can't see it because
+
+02:01:24.000 --> 02:01:28.000
+you have the same results, but you can compare
+
+02:01:28.000 --> 02:01:32.000
+things easily and you can select your best run
+
+02:01:32.000 --> 02:01:36.000
+this is very much possible
+
+02:01:36.000 --> 02:01:40.000
+so comparisons are possible through the dashboard
+
+02:01:40.000 --> 02:01:44.000
+and last we will save our system prompt
+
+02:01:44.000 --> 02:01:48.000
+which we are versioning, its version number
+
+02:01:48.000 --> 02:01:52.000
+its actual prompt text and its labels
+
+02:01:52.000 --> 02:01:56.000
+we will add them in our configuration and save them in MLflow
+
+02:01:56.000 --> 02:02:00.000
+so that we know that in this particular configuration
+
+02:02:00.000 --> 02:02:04.000
+because our system prompt is also a hyper parameter, so what is its actual value
+
+02:02:04.000 --> 02:02:08.000
+what is its actual version number and what is its current label
+
+02:02:08.000 --> 02:02:12.000
+we will record all those things
+
+02:02:12.000 --> 02:02:16.000
+is it clear guys?
+
+02:02:16.000 --> 02:02:20.000
+next lecture's
+
+02:02:20.000 --> 02:02:24.000
+flow is clear, next lecture will be completely practical
+
+02:02:24.000 --> 02:02:28.000
+nothing theoretical will happen and we will code
+
+02:02:28.000 --> 02:02:32.000
+and debug all the things and implement them in next lecture
+
+02:02:32.000 --> 02:02:36.000
+I hope you are interested
+
+02:02:36.000 --> 02:02:40.000
+we will run multiple iterations, once our pipeline is built
+
+02:02:40.000 --> 02:02:44.000
+then what we have to do is we have to run any iteration
+
+02:02:44.000 --> 02:02:48.000
+we will go to our configuration file and change the parameters
+
+02:02:48.000 --> 02:02:52.000
+we will not change randomly, we will see how many results we can improve
+
+02:02:52.000 --> 02:02:56.000
+on that basis we will change our configuration and
+
+02:02:56.000 --> 02:03:00.000
+we will track every run inside MLflow
+
+02:03:02.000 --> 02:03:06.000
+is it clear?
+
+02:03:14.000 --> 02:03:18.000
+so this is it for today guys
+
+02:03:18.000 --> 02:03:22.000
+I wanted to do a couple of things more but it would be better to do them in next class
+
+02:03:22.000 --> 02:03:26.000
+because they will be left in the middle
+
+02:03:26.000 --> 02:03:30.000
+so we will integrate them in the next class
+
+02:03:30.000 --> 02:03:34.000
+if you have any doubts then you can ask me
+
+02:03:34.000 --> 02:03:38.000
+I am 10 minutes and after that we will meet on Thursday
+
+02:03:38.000 --> 02:03:42.000
+tool call tracing, memory management will be covered in subsequent classes
+
+02:03:42.000 --> 02:03:46.000
+no, tool call tracing will be covered on agents
+
+02:03:46.000 --> 02:03:50.000
+so in agents you will get memory and tool call
+
+02:03:50.000 --> 02:03:54.000
+we will cover this in our project segment
+
+02:04:00.000 --> 02:04:04.000
+I am telling you the same thing when you will read the tracing
+
+02:04:04.000 --> 02:04:08.000
+in LangFuse, we will read the tracing in such a way that
+
+02:04:08.000 --> 02:04:12.000
+you can do similar tracing through MLflow, LangFuse
+
+02:04:12.000 --> 02:04:16.000
+or LangSmith or any other tracing framework
+
+02:04:16.000 --> 02:04:20.000
+you can easily do tracing through that, you will never face any problem
+
+02:04:24.000 --> 02:04:28.000
+guys how was today's session?
+
+02:04:28.000 --> 02:04:32.000
+how was the clarity of concepts?
+
+02:04:32.000 --> 02:04:36.000
+was it confusing? today it was more practical
+
+02:04:36.000 --> 02:04:40.000
+there is no theory in MLflow
+
+02:04:40.000 --> 02:04:44.000
+yes, one minute
+
+02:04:44.000 --> 02:04:48.000
+you can raise your hand, I will unmute you
+
+02:04:52.000 --> 02:04:56.000
+Amanjeet
+
+02:04:56.000 --> 02:05:00.000
+can you please raise your hand
+
+02:05:06.000 --> 02:05:10.000
+Amanjeet am I audible?
+
+02:05:10.000 --> 02:05:14.000
+just a second
+
+02:05:14.000 --> 02:05:18.000
+yes you can ask your question
+
+02:05:18.000 --> 02:05:22.000
+yes so the question was for the tracing only earlier, I was not sure that you are going to cover the MLflow
+
+02:05:22.000 --> 02:05:26.000
+so those conditions were
+
+02:05:26.000 --> 02:05:30.000
+like 30 prompts, that means at different stages of the agent
+
+02:05:30.000 --> 02:05:34.000
+we can have different prompts, so if you are working with them
+
+02:05:34.000 --> 02:05:38.000
+so let's say we are working at the tag
+
+02:05:38.000 --> 02:05:42.000
+but the tag may get updated, let's say today
+
+02:05:42.000 --> 02:05:46.000
+particular system prompt or particular agent prompt is version 4 and version 5
+
+02:05:46.000 --> 02:05:50.000
+are a combination here, now I am just accessing them via
+
+02:05:50.000 --> 02:05:54.000
+the tag only, let's say it is production or something
+
+02:05:54.000 --> 02:05:58.000
+but later it might change, correct?
+
+02:05:58.000 --> 02:06:02.000
+yes, but I want to
+
+02:06:02.000 --> 02:06:06.000
+reproduce the experiment, so for that I think we cannot go with the tag
+
+02:06:06.000 --> 02:06:10.000
+we should go with the version number
+
+02:06:10.000 --> 02:06:14.000
+the thinking behind going with the tags is that you will hard code version number
+
+02:06:14.000 --> 02:06:18.000
+you are currently on version 4
+
+02:06:18.000 --> 02:06:22.000
+so you will mention version 4 specifically in your code
+
+02:06:22.000 --> 02:06:26.000
+tomorrow you have to use version 5 and version 6
+
+02:06:26.000 --> 02:06:30.000
+so you will have to change the integer value in the code
+
+02:06:30.000 --> 02:06:34.000
+so as soon as you change the integer value, you will have to redeploy
+
+02:06:34.000 --> 02:06:38.000
+the entire code because your changes will get pushed on the getup
+
+02:06:38.000 --> 02:06:42.000
+your CI CD pipeline will be re-executed
+
+02:06:42.000 --> 02:06:46.000
+and again a redeployment will get triggered, just with a single change of version number
+
+02:06:46.000 --> 02:06:50.000
+no sir, I am not saying that, I am saying that I will keep the entire artifact on MLflow
+
+02:06:50.000 --> 02:06:54.000
+and I will upgrade MLflow
+
+02:06:54.000 --> 02:06:58.000
+in production, by changing it there
+
+02:06:58.000 --> 02:07:02.000
+you don't use MLflow in production, MLflow is
+
+02:07:02.000 --> 02:07:06.000
+used in development only, experimentation is in your development
+
+02:07:06.000 --> 02:07:10.000
+you never experiment on production
+
+02:07:10.000 --> 02:07:14.000
+production is your final version of the application
+
+02:07:14.000 --> 02:07:18.000
+so we can fetch MLflow's artifact in production
+
+02:07:18.000 --> 02:07:22.000
+yes we can, absolutely
+
+02:07:22.000 --> 02:07:26.000
+so that is the point, let's say I have version 3 and version 4
+
+02:07:26.000 --> 02:07:30.000
+saved in my configuration
+
+02:07:30.000 --> 02:07:34.000
+and I have to deploy that particular thing
+
+02:07:34.000 --> 02:07:38.000
+so I will directly update my artifact with MLflow
+
+02:07:38.000 --> 02:07:42.000
+for production, so without using the tags
+
+02:07:42.000 --> 02:07:46.000
+our prompt will be taken from the langfuse
+
+02:07:46.000 --> 02:07:50.000
+you can do that but if you have a
+
+02:07:50.000 --> 02:07:54.000
+simple way to do this, which is properly
+
+02:07:54.000 --> 02:07:58.000
+organized through labels, the reason for that is
+
+02:07:58.000 --> 02:08:02.000
+that they have given you a simple access to keep shifting your labels
+
+02:08:02.000 --> 02:08:06.000
+and you don't have to change the code of your application
+
+02:08:06.000 --> 02:08:10.000
+all those things we are logging here, but the ones we are currently
+
+02:08:10.000 --> 02:08:14.000
+logging are for logging purposes, we are not importing
+
+02:08:14.000 --> 02:08:18.000
+anywhere, the ones we are doing our prompt version
+
+02:08:18.000 --> 02:08:22.000
+in langfuse are for import purposes
+
+02:08:22.000 --> 02:08:26.000
+I hope you understand this, the logging we will do
+
+02:08:26.000 --> 02:08:30.000
+of the configuration of the parameters is simply
+
+02:08:30.000 --> 02:08:34.000
+that we are tuning the hyperparameter here, we are comparing
+
+02:08:34.000 --> 02:08:38.000
+each of the configuration with each of the evaluations
+
+02:08:38.000 --> 02:08:42.000
+and selecting the best configuration, which we will finally
+
+02:08:42.000 --> 02:08:46.000
+take to production, I think you can do that
+
+02:08:46.000 --> 02:08:50.000
+maybe you have seen mlops, if you are coming from the background of mlops
+
+02:08:50.000 --> 02:08:54.000
+then there is a concept of model registry and artifacts
+
+02:08:54.000 --> 02:08:58.000
+maybe you are importing these concepts from there, those things are possible
+
+02:08:58.000 --> 02:09:02.000
+but why do you have to do that if you have a simple way available
+
+02:09:02.000 --> 02:09:08.000
+Any more questions guys?
+
+02:09:08.000 --> 02:09:12.000
+If you want to ask questions verbally then you can ask
+
+02:09:12.000 --> 02:09:16.000
+that too
+
+02:09:22.000 --> 02:09:26.000
+How was today's session? If you can rate out of 5
+
+02:09:32.000 --> 02:09:36.000
+5 out of 5, that's good
+
+02:09:36.000 --> 02:09:40.000
+Concepts are clear, if you found the caching concept a little confusing
+
+02:09:40.000 --> 02:09:44.000
+then you can read the documentation, again that was for your understanding
+
+02:09:44.000 --> 02:09:48.000
+perspective that you get a little more insider's view
+
+02:09:48.000 --> 02:09:52.000
+if you don't remember what is caching
+
+02:09:52.000 --> 02:09:58.000
+then it's not that important, you should understand the main versioning concept
+
+02:09:58.000 --> 02:10:02.000
+Great, if you don't have any questions
+
+02:10:02.000 --> 02:10:06.000
+you can leave, I have 2 more minutes
+
+02:10:06.000 --> 02:10:10.000
+and then we will conclude the session
+
+02:10:10.000 --> 02:10:14.000
+I will share this code with you tomorrow
+
+02:10:14.000 --> 02:10:18.000
+I will run the evaluation again and share this code with you
+
+02:10:18.000 --> 02:10:22.000
+with fresh results
+
+02:10:22.000 --> 02:10:26.000
+I will turn on the camera
+
+02:10:28.000 --> 02:10:36.000
+If you don't have any questions then write it clear
+
+02:10:36.000 --> 02:10:40.000
+then we can conclude
+
+02:10:48.000 --> 02:10:52.000
+Co-pilot Studio doesn't have any plan yet
+
+02:10:52.000 --> 02:10:56.000
+I am thinking about doing a master class on
+
+02:10:56.000 --> 02:11:00.000
+harness engineering, I am interested in teaching
+
+02:11:00.000 --> 02:11:04.000
+I am also studying about it
+
+02:11:04.000 --> 02:11:08.000
+If I get a plan then I will definitely cover it
+
+02:11:08.000 --> 02:11:12.000
+how you build your custom harnesses
+
+02:11:12.000 --> 02:11:16.000
+I think that will be after LLMops, currently I am completely focused on this course
+
+02:11:20.000 --> 02:11:24.000
+MLflow is a very extensive library
+
+02:11:24.000 --> 02:11:28.000
+it has many features and many things have been added
+
+02:11:28.000 --> 02:11:32.000
+you can explore it if you want, we haven't deep dived in it
+
+02:11:32.000 --> 02:11:36.000
+because there is no requirement for experimentation
+
+02:11:36.000 --> 02:11:40.000
+code is more important than your concepts
+
+02:11:40.000 --> 02:11:44.000
+there is nothing there, everything is visible visually
+
+02:11:48.000 --> 02:11:52.000
+you will have a pine cone session
+
+02:11:52.000 --> 02:11:56.000
+it is updated in your calendar
+
+02:11:56.000 --> 02:12:00.000
+it is on Friday
+
+02:12:00.000 --> 02:12:04.000
+you will read the complete architecture of pine cone
+
+02:12:04.000 --> 02:12:08.000
+I will teach you how it is designed
+
+02:12:08.000 --> 02:12:12.000
+how you perform crud operations with your vector database
+
+02:12:12.000 --> 02:12:16.000
+how your embeddings are created
+
+02:12:16.000 --> 02:12:20.000
+how they are retrieved
+
+02:12:20.000 --> 02:12:24.000
+there are many good algorithms
+
+02:12:24.000 --> 02:12:28.000
+working internally
+
+02:12:28.000 --> 02:12:32.000
+they give you fast retrieval
+
+02:12:32.000 --> 02:12:36.000
+you don't have to do anything, you just have to create an account
+
+02:12:36.000 --> 02:12:40.000
+you will get an API key and you can interact with pine cone
+
+02:12:40.000 --> 02:12:44.000
+another good thing is that its line chain integration is available
+
+02:12:44.000 --> 02:12:48.000
+so you can simply
+
+02:12:48.000 --> 02:12:52.000
+change 2-3 lines of code and integrate pine cone
+
+02:12:56.000 --> 02:13:00.000
+it will be a very good session
+
+02:13:00.000 --> 02:13:04.000
+you will read very good algorithms
+
+02:13:04.000 --> 02:13:08.000
+you will feel how amazing it is
+
+02:13:08.000 --> 02:13:12.000
+just because they need less latency and fast retrieval
+
+02:13:12.000 --> 02:13:16.000
+they have implemented many things
+
+02:13:18.000 --> 02:13:22.000
+I am very much interested to teach pine cone
+
+02:13:26.000 --> 02:13:30.000
+if possible I will show you how to do concurrency
+
+02:13:30.000 --> 02:13:34.000
+practically
+
+02:13:38.000 --> 02:13:42.000
+signing off now, see you on Thursday
+
+02:13:42.000 --> 02:13:46.000
+bye guys
+

@@ -1,0 +1,1756 @@
+Let's make sure.
+So yet.
+Any questions, guys.
+How was your journey in LLM Ops so far?
+Do you find the whole journey logical?
+Are you able to connect things with each other?
+The concepts, the implementation
+Great
+Just drop in a message in the group
+Do anything
+Any questions?
+How much is subscription?
+Here you don't get subscription on AWS
+You get a monthly bill
+You will get a bill according to your usage
+But there are many services available in free tier
+For example, ECR is available in free tier
+And EC2 is available
+Because we are using T3 medium in EC2
+That is the issue
+You will have to pay for it
+But I will tell you how to turn off the instances safely
+We will discuss it in today's session
+Any other question?
+Let's wait for 2 more minutes and then we will start
+People are still joining in
+We will wait for a little more
+I will clear your confusion
+We have class today and on Wednesday
+After 2 days we have class again
+This week there is a swap between me and NITI sir
+Going forward, our regular classes are going to be on Monday and Thursday
+And LLME Wells on Wednesday and Saturday
+Any more questions?
+I have implemented the entire journey
+I have implemented the entire course
+I will show you the demo
+I have already run the demo
+I will show you the outputs
+I don't know why our CI pipelines fail in class
+But I have passed all the parameters I tested
+And I have deployed it with code
+Let's start
+Write clear in the chat
+And then we will start
+Guys, I suppose you might feel down because I am not well
+I am still recovering
+But you won't feel like this in class
+Write clear and then we will start
+Guys, can you hear me?
+Let's start
+Let's discuss our entire deployment cycle
+When we have built our application
+And built the EPS around it
+We have made two pipelines in deployment
+The first was our CI pipeline
+And the second was our CD pipeline
+This CI pipeline was for our testing purposes
+We were testing our new version of the application
+And we were doing two types of testing
+One was the CD gate and the other was the promotion gate
+You know this
+Then we trigger our CD pipeline
+CD pipeline does two things
+First, we package our new version of the application into a docker image
+And as soon as it becomes a docker image
+Both for my front end and back end
+We push it to the ECR
+We push it to the ECR or our container registry
+And store it there
+ECR is a registry on our AWS
+Next step we did in the CD
+As soon as our images are pushed to the ECR
+We triggered a new deployment
+And in this deployment
+We are basically deploying our auto scaling group
+Auto scaling group
+You know it is used to scale up or down your EC2 instances
+We are deploying our new version on this auto scaling group
+Using a service called as code deploy
+So what will happen
+As soon as I get a new version
+And I will push my params.yml file to github
+First, my CI pipeline will be triggered
+As soon as these two testing gates are passed
+I will move to the CD
+With the latest tag I will trigger a deployment
+Now what will happen in deployment
+Launch template
+It is a template to create my instances
+Like what OS should be on my instance
+What hardware should be there
+Should my instance be pre-installed
+So what I did
+I told my desired capacity on my auto scaling group
+And according to that
+My EC2 instances were automatically launched
+So whatever information was in the template
+My EC2 instances were launched
+And I also installed an agent on it
+The work of this code deploy agent is very simple
+It continuously talks to my code deploy service
+And it monitors whether a new deployment has come or not
+As soon as a new deployment comes
+It will come from my CD
+As soon as a new deployment comes
+It will be activated to push the new deployment
+And to work with this, some files are required
+The first file is called appspec.yml
+This is the application specification file
+Used by code deploy to know which files
+To copy on my EC2 instances
+And the entire deployment pipeline
+Which script to run on each of its events
+We saw this in the previous class
+If I show you again, you will see here
+This file is simply telling the code deploy
+To copy this particular compose file on my EC2 instance
+And then run these scripts in the deployment pipeline
+And what I did in these scripts
+I automated the manual deployment
+So what was the first step
+Before installing my application to EC2
+I needed AWS CLI to interact with my other AWS services
+Through code and docker
+So I installed these on my new EC2 instance
+Then the second step was my application
+Installation or deployment
+First I pulled the images from my ECR
+Along with that, I stored my API keys on my secrets manager
+And finally using the compose file
+I run my images
+And started my containers
+And in the last phase
+As soon as I
+I don't know why it starts misbehaving
+As soon as I completed my deployment
+Then I got validation
+I wanted to check if the deployment was done properly
+So in validation, I am doing a health check
+I am simply checking
+If my LLM and my retriever
+Are they functioning correctly or not
+If yes, I will give a go ahead to my deployment pipeline
+Otherwise I will stop the deployment here
+And roll back to a previous working version
+I hope you remember all these things
+Is everything clear
+Because this was a very major step in our deployment
+Yes, is this clear to everyone
+No one has any doubt here
+Till this step
+We will wait for 2 minutes here
+If you have any doubt, you can ask me
+Guys, if you have any doubt, ask the doubt
+Else write clear in the chat
+I have only got one yes, tell the rest
+Clear
+So with this step
+We have completed our deployment part
+Now I will show you the same deployment
+I did today morning trigger
+I will show you how it works
+I simply changed to params.yml and updated params.yml
+I pushed my updated params.yml to github
+What happened with that
+My CI pipeline was triggered
+I have run this today
+These 4 steps are passed
+And all these experiments
+Were logged on my MLflow
+Guys, you can see my screen
+I hope it is visible
+So you can see clearly
+That I have run a new experiment
+This is my new iteration
+So all this is logged on
+I am logging my parameters, metrics and artifacts
+Here is the code, data set, results, system prompt
+I am able to log everything
+As soon as my regression test and promotion test pass
+I will promote my tags
+So this was the challenger, now this is my champion run
+And the previous champion
+This is in archive state
+Now we will push this run on our production setup
+And this is the deployment of the new version
+We will trigger the CI pipeline
+We will trigger the CI pipeline
+There will be 2 tasks in the CI pipeline
+First, our images will be built using docker
+And will be pushed to our ECR
+We have pushed our API image to ECR and front end image to ECR
+Now you can go to your ECR
+This is your ECR
+This is your 2 repositories, front end and back end
+This is our latest version
+That has been pushed to ECR
+This is the version with which we worked in previous class
+So I can clearly see my new version
+And this is the front end version
+And this is the latest version
+Although we haven't changed the front end, but we are building both together
+So we have done these things
+Next step is as soon as ECR is completed, we will trigger a new code
+Deployment
+First we will bundle all our files
+And will push them on S3
+I will show you my S3 also
+So all the things are done step by step
+This is my campusX rack code deploy
+You will see a zip file in this
+This is the old one that you had run in previous class
+This is called your latest revision
+This is my latest revision that will be deployed through code deploy
+So as soon as I pushed my revision
+Here I triggered my new deployment with AWS create deployment
+And where will I see deployment
+I will see deployment on my code deploy console
+Actually you can match this deployment ID
+I have made these 2 instances today
+This deployment ID is made because of auto scaling
+Which is D3AJFQ
+So if I show you this same deployment ID, you will see it here also
+D3AJFQ
+So automatically on code deploy
+I have a new deployment trigger
+If I can show you the view events
+My traffic was blocked on the instance
+Who will do that? My ALB application load balancer
+Block any traffic that is coming on my instance
+Divert it to the other instances that are running on v1
+Traffic stopped and my installation scripts were run
+Where AWS CLI, Docker, image and secrets are being pulled
+All that worked here
+So my traffic was deleted by the validate service script
+After that I allowed my traffic on this particular instance
+And what is this instance running now? This instance is running my version 2
+We can also test it if I write here
+EC2 and if I go to my load balancers
+I click here and I get the DNS
+Let's copy it once, let's go here
+Paste and let's run it
+So on port 80, which is my target group? My front end target group
+So if I go to this address, I will be able to access
+My front end
+HTTP
+Let's do it again
+Let's wait, it came, continue to site
+And we are able to open our
+Application
+Is this point clear to everyone? This whole flow is clear
+You should know this flow, so when you have a successful deployment
+With a new version, you will see this whole flow
+And you will see how we have interlinked
+GitHub actions, code deploy, AWS services
+And it is properly running in our flow
+Without any issues, is this point clear guys?
+Is this whole setup clear to you?
+I am looking at the chat, you tell me
+Yes, fine
+So let's discuss what we have to do next
+We have completed our deployment part, now what's next?
+Do we have to come here and wait? The answer is no
+We have to do the post deployment step
+Post deployment
+What does post deployment mean? Whatever steps you do after deployment
+Those are your post deployment steps
+For any LLM based application, you do two key things in post deployment
+First, you monitor your
+Application
+And secondly
+You monitor your
+Infrastructure
+What comes in the application? Our rag application comes in the application
+If any user
+Gives input query
+Then how does that query go through our application
+What things are there in every step? What input is received in every step?
+What output comes out of that step? To monitor all this
+Is called monitoring your application and this comes under your
+Tracing and observability
+So the monitoring of the application side
+You cover it under tracing and observability
+Why is it necessary to monitor when you have deployed your new version
+Now you will also see that your new version is working as intended
+Is there any problem in it? Is there any latency issue?
+Is there any cost related issue? So you see all that through tracing and
+Observability, through this you monitor your application
+And next is you monitor your infrastructure
+Your application is not running in the air
+It is running on an infrastructure, on your cloud infrastructure
+So you have EC2 instances
+On your infrastructure, on your compute infrastructure
+You have to monitor how much CPU usage is coming on your instances
+How much RAM usage is coming, how much free RAM is there
+How much disk usage is there, like when you run your application on your system
+When you run software on your system, you open task manager and see
+How much CPU clock speed is there, how much CPU is being utilized
+How much RAM is available to you, how much disk space is available
+All those things are monitoring your infrastructure
+So in post deployment step, we will understand these two key processes
+In today's session, we will start monitoring
+Your application, and going forward
+We will cover monitoring and infrastructure
+So let me tell you what is the plan of action
+We have in total 5 lectures in this month
+In which we have to complete this post deployment thing
+So in today's lecture, we will understand what tracing is
+And how tracing is performed through a tool called as LangFuse
+I hope you have worked with LangSmith in the past
+So like LangSmith works, LangFuse works
+But it is much better than LangSmith, I will tell you how
+So in today's lecture, we will cover the tracing part
+How you set the tracing in your application, how LangFuse
+Traces and tracks your application and how you interact with the trace in its UI
+So we will see all these things today
+In the next lecture on Wednesday, we will see
+How you observe
+Tracing and observation are two different things
+Tracing and observability, what you do in observability or observation
+Whatever traces are coming, you visualize them
+Through a dashboard
+So how you make a dashboard, what are the metrics that you visualize
+How you set alerts that comes under observation
+And finally in the third lecture
+We will create an online eval setup
+You must have seen this online eval setup
+In LLM eval, we will do the same setup
+On LangFuse, but we don't have any
+Proper evaluation suite because we have
+Evaluated the five built-in metrics with two of our custom metrics
+So our evaluation will be through
+The rack triad
+But as we do in the rack triad, you can do the same thing with other metrics
+I will explain the flow, you can include other metrics
+But the thing to keep in mind is that all your online eval metrics
+Every metric should be a reference free metric
+There should not be any grounded response
+You can use the metrics that work on your input, output and retrieved context
+You can use them in your online eval
+Going forward, what we will do in the fourth lecture
+We will move to the monitor your infrastructure
+This part will be completed, then we will go to monitor your infrastructure
+In that, we will cover in the fourth lecture
+A tool called Prometheus
+You might be scared of the name because you have not worked with Prometheus before
+This tool might seem difficult, I will tell you the purpose of this tool
+The purpose of Prometheus is using a
+PromQL language, which is a query language
+It does the fetching of all the CPU usage, RAM usage
+Metrics on your infrastructure
+So what we will do is for this whole monitoring setup
+We will make another EC2 instance
+This EC2 instance will be solely for the purpose of monitoring
+It will always be 24x7 on and it will monitor our auto scaling group
+On that group, what is our CPU usage
+What is the RAM usage, what is the network usage
+We will track everything through Prometheus
+What is the work of Prometheus, simply pull the usage metrics from our infrastructure
+As soon as we pull the metrics from Prometheus
+The metrics are in the form of PromQL
+PromQL is not user friendly
+You will get the value of the metrics like JSON
+You have the value of multiple metrics, you can't track it
+You can't make sense of it, so to make sense, we will
+Visualize it again, but this visualization
+This is the second step visualization
+We will use a dedicated tool for this, that is called Grafana
+Grafana is basically a dashboarding tool
+It is easily integrated with Prometheus
+Whatever metrics your Prometheus fetch, Grafana can visualize it through custom dashboards
+We will see how you make a custom dashboard in Grafana
+And how you visualize all the infrastructure
+And with this guys, after these 5 lectures
+We will complete our post deployment step
+And we will successfully cover the complete LLMops pipeline for our Rack applications
+Is this point clear?
+Clear?
+Yes
+Any questions? If it is clear, then right click, let's move forward
+If clear, then right click
+If clear, then right click
+What happened guys?
+Why is your energy so low today?
+Let's interact a little guys, I will also get motivation
+Ok
+Just a second
+So in today's lecture, we will complete this tracing part
+Now you have to keep in mind that this tracing is not in our development setting
+This is our development setting or
+Staging setting, here we are not tracing
+We are not doing this, all this tracing will be on our EC2 instance
+This EC2 instance is running on my front end, back end
+Through this, I will trace my queries and outputs
+Actual, as my users interact with this application
+So my every user's request and related output will be traced on the landfuse
+Is this point clear?
+So let's go and discuss about tracing and observability
+So I have already told you the difference between tracing and observability
+Let me tell you what we do in tracing
+What tracing is all about, tracing means
+You trace your input in tracing
+Through your application
+Through your entire application, that on every step
+or on every stage of your application, what are the modifications in your input
+What are the modifications in a rag application
+What are the modifications guys
+Our rag application is a very simple rag application
+We are not talking about guardrails, our rag application has 3 steps
+First step is retrieval, second is augmentation
+Third step is generation, where my response is generated
+Now in retrieval step, how will my tracing or trace look like
+Here in my input, the query of the user will go
+And what will I get in output?
+My retrieved chunks
+So if I am able to track this properly, in my retrieval step
+My input query is going through my EC2 instance
+In the next step, I will track if I am getting my retrieved chunks
+What will I track in augmentation step?
+I will track if my retrieved chunks and query are going as input in augmentation step
+And am I getting my augmented prompt in output?
+And finally, what will I track in generation step?
+Is this prompt going to my LLM input or output?
+And am I getting my response in output?
+So you saw here, we not only
+Tracked our query and response
+We also tracked all the intermediate steps
+And tracked them properly
+What is going in and out of each step
+And how is the input working in the next step
+And you will see that the tracing of Langfuse is very detailed
+Every step is shown in detail
+And you can easily identify the problems in your steps
+So we will see the culprit behind the latency in the rag application
+You will also know who is the main culprit
+I hope this point is clear to you
+And what is observability?
+It is actually your next step from tracing
+So to do observability, you need tracing
+So whatever things you are logging in tracing, it is basically logging your input to output journey
+Whatever logs you are creating, you visualize them
+Through a dashboard
+Through different graphs, that is called observability
+And when you visualize, you use some aggregate
+Metrics
+You perform some aggregation steps, like if you want to see the latency of your application
+So you can see the P95 latency for latency
+You can see the P95 latency, P90 latency, P50 latency
+Average, min, max, you will not track the latency of every trace
+Inside observability, you will track it with some aggregate metric
+So this is the difference between tracing and observability
+In tracing, you log each of your input and output
+With all the intermediate steps and observability
+You use those traces to do visualization
+And you build dashboards
+Now we will understand how you do tracing
+Through LangFuse
+Now let me tell you why we selected LangFuse
+Why we didn't select LangSmith, because you might have used LangSmith before
+Then you might be wondering why we didn't use LangSmith, because we already know how to work with it
+Although LangSmith is a very good tool
+But the biggest downside of LangSmith is
+That your LangChain framework works only with it
+So LangSmith will work with LangChain, LangGraph, DeepAgents
+The entire ecosystem of your LangChain
+In that only, LangSmith works
+Whereas LangFuse
+Which has more options than LangSmith and very much similar
+The working is very similar to LangSmith
+You can say tool agnostic or framework agnostic
+It works with any framework
+And not only this, it also works with your agents
+Agents in the sense with your harnesses like Claude code
+You can literally integrate LangFuse with your Claude code
+And whatever development you are doing in Claude code
+You can do it in LangFuse, your codex
+Cursor and maybe in CoPilot
+So you can see how much power LangFuse has
+You might have never heard that you have integrated LangSmith with Claude code
+With codex, with cursor, but you can do LangFuse
+And it is super simple, I hope you are able to understand the power of LangFuse
+Is this thing clear guys?
+Do you think our approach to use LangFuse
+In this particular course is a good approach
+Now you know the difference
+I am looking at the chat, you guys tell me, or we should have worked with LangSmith
+LangFuse
+Yes, it's multi platform, I will show you in the documentation
+How you can integrate in your Claude code codex
+Super easy, you will not see it, you can do it from your end
+Let's discuss further
+So what we will do here, we will integrate in our code
+In our application, we will integrate
+LangFuse and the best thing about LangFuse
+That your LangChain and LangGraph
+And LangGraph integration also comes
+Our application has LangChain components and LangGraph
+Our whole orchestration is there, the whole code is there, the whole graph is there
+So for that also integration comes to you and the code is super easy
+Now I will tell you that if you go into LangFuse UI
+How to see a trace, for that what I will do is
+I will log in
+The dashboard
+You must have seen this dashboard before, this is my application
+You simply have to go to the documentation of LangFuse
+And here you have to go to the launch app, if you have not signed up before
+Then here you will see the sign in option, you can simply sign up with your google account
+And you can go into this application, so we will go
+To this project, this is our project and you must have seen this prompt section
+Now here I have made a small change
+I told you that whatever is your production prompt, you put a production label on it
+So this is a small change I have made
+Which is my version number 3 of the prompt, I have put a production label on it
+And you can see that it is blinking in green, now I told you this
+That you only switch the labels on the prompt
+You don't have to change anything in the code, automatically your code
+And this production label will pick it
+Simply you have to tell which label to pick, tomorrow
+Another system prompt comes here, which is better than this one, so if I put a production label on it
+Then automatically it will be pulled into the application
+This is the power of prompt version, so we have made a small change here
+If you go to the observability section, then here
+You will see this tracing tab
+First of all, you have to go to filters
+And you will see true and false, you have to close this false
+So that your clutter will be clear
+So these are my actual traces
+On which I have to focus, so I have already run these traces
+When I was testing this application, so I will show you how to show a trace on the length fuse
+So let's do one thing
+I will collapse this trace here
+So the first thing you will see here if I expand it
+The first thing you will see is your complete graph
+Your complete workflow and length fuse
+Will trace this entire flow, this is our flow
+In the application, our user's query is going from here
+First of all, input is going to guardrail, after that validation is going on, then retrieval is going on
+Then the response is going on
+Then the response is going on
+As response is getting passed through guardrail
+If you see something else here, what is here
+Here I have asked an input, can you tell me why we use
+Reference-free metrics during online evals, this was my question and see what I got
+Because online evals run in production on live user traffic
+There is no golden data set or correct answer to compare against
+This is your reference-free metric, so reference-free metric work without a reference answer
+They rely on human judgment rubrics instead, so let us monitor
+The deployed system behavior and detect problem when real user interact with it
+So here I am getting my output, so this is my input
+Which is getting locked, this is my output which is getting locked
+And if you look closely to the metadata, so here it is telling
+That the integration of Langfuse means at the back end your application is written in
+So clearly it can detect that my application is written in Lang graph which is
+Proof, if you see the version here, this is Langfuse version
+Which is installed on my system, if I show you, it is 4.14.1
+I can actually show you everything, if I go here
+In pipe project.toml and if I search for Langfuse, see
+This version is installed on my system, it can also be properly locked
+So here it is showing
+And if I see the scope name, here Langfuse SDK is showing
+Guys, are you experiencing any lag?
+No lag guys, ok, maybe something will happen on my side
+Here you can see the environment, production environment
+And the language of the SDK is Python
+Basically the code of Langfuse is in Python
+Now I will show you what tracing actually is, so I will expand this whole trace
+I have expanded the chat response, what was the chat response capturing
+Only my input and output, below that I am getting my
+Rack graph, now I will expand the rack graph
+So see what I am getting in the rack graph, input guardrail, retrieval guardrail
+Augmentation, generation and output guardrail
+These are the steps that are shown in the graph below, I can see them in the trace
+Now let's expand some step
+Let me tell you one more thing, the time shown in seconds
+58.3 seconds, this is the overall latency
+Of my trace, this whole application from input to output
+It takes around 1 minute, and
+How much money is being spent in it, this much amount of dollars
+Whatever model I am using, it is automatically calculated
+And you can see
+How much time is being spent in which step, that is also individually told to me
+How much time is being spent in input guardrail, retrieval
+It takes the most time, around 41 seconds, retrieval, guardrail
+Augmentation, generation, how much time is being spent in every step
+If someone is using LLM in that step
+Then how much money is being spent there, now I will show you the retrieval step
+I opened this, so in the retrieval step
+What is going on, contextual compression retriever
+You can see how much detail it captures, and guys I will show you the code
+Will you say, can I trace the whole application by writing such a simple code
+The answer is yes, you can do it
+Let's expand this, what is happening in contextual compression retriever
+See these are all the steps, what are these 3 steps
+One is vector store retriever, now what is this vector store retriever
+Will someone tell me, my contextual compression which is the complete pipeline
+Where I am doing my contextual compression, from that what is the vector store retrieval step
+I am looking at the chat, I would be super happy if someone could answer me
+What is this vector store retriever step
+I am looking at the chat
+I am looking at the chat
+Child chunks, what are child chunks Saurabh
+Can you elaborate
+Here parent child is not happening, contextual compression is happening
+What do we do in contextual compression, we take our context
+And we eliminate the noise, and we do this through an LLM
+Now you tell me, what is this vector store retriever
+This vector store retriever is basically my original chunks before the compression
+So you can see that in the entire retriever, in which I am taking 41 seconds
+From that, the vector store in contextual compression
+How long is it taking to retrieve the original vector store
+Steps, only 1.3 seconds
+This means my chroma db is working correctly
+If I simply put my base retriever
+Which is my chroma db retriever
+Then I take 1.3 seconds
+So it is working fine, where is the problem coming from
+In the subsequent steps, now you can see 3 runnable sequences
+This is taking around 10 seconds, this is taking 7 seconds, and this last one is taking a lot of time
+It is taking around 23 seconds, I don't know why
+So what are these runnable sequences, what did my vector store retriever retrieve
+My vector store retriever retrieved these 3 chunks
+I have set the value of k, so here I have 3 chunks
+Here you can see the rest of the information, what is my vector store provider
+What is my embedded model, I am tracking all the things here
+Each and everything
+So my retriever gave me these 3 chunks, these can be noisy chunks
+These are the noisy chunks, now what I will do is
+I will take this chunk and give it to my LLM
+And I will tell LLM to remove the noise from this
+And this is what is happening in the runnable sequence, these 3 are because my k value is 3
+If I set k value to 5, then you will see 5 runnable sequences
+What is the runnable sequence, it is the chain, the chain which we make in the blank chain
+Now let's see the chain, you have to expand the chain
+So the first part is prompt template, what is going to the prompt template input
+This question is going, this context is going
+And what is coming back, my prompt template is coming back to me
+After that
+What I am doing is, I am giving this prompt to my model
+So here it is clearly written that I did not take much time to make the prompt template
+It was quick, but I took time in generation
+I took almost 10 seconds
+And here you can see this figure
+347 prompt 845 completion, what is this
+These are the number of input and output tokens, how many input tokens are there
+347, how many output tokens are there, 845
+Here you can see this thing, and the most
+In which tokens are being used, in the reasoning, your model
+The model is doing the reasoning internally and that's why it is using around 600 tokens
+Which model are we using, for this whole thing
+GPT-5 mini model, how much is the expense in this one step
+One chunk is spent in compressing
+The cost of input is told separately, the cost of output is told separately
+The cost of reasoning is also told separately, now how is this model working
+If it is a model, it needs a system prompt, this is my system prompt
+This is my system prompt, I did not write this system prompt, who wrote this system prompt
+This is written by the developers of Lang chain who made this contextual compression
+They said, given the following question and context, extract
+Any part of the context as is that is relevant to answer
+The question if none of the context is relevant return no output
+After that I passed my question, user question
+And context, is this my complete context, the answer is no
+This is my only one chunk, there are three chunks in one, one of them is this
+This question and this chunk, with the system prompt, I gave to whom
+To my model, and what did I tell the model to compress and
+Provide me a compressed version of the context and here
+Inside the output, sorry for that, it got closed
+This was not the one, sorry sorry
+Just a second, this was the one, so what do I see in the output
+What do I see in the output, I see my
+Final compressed chunk
+And after that there is a parser basically
+Whatever chunk I have, I pass it on to my retriever
+Same thing is happening with this chunk
+And same thing is happening with this chunk, now in this chunk
+You can see that it is taking 23 seconds, so you can go and check
+Why this chunk is taking 23 seconds, so 23 seconds
+Because my model took 23 seconds to basically
+Compress this particular context, now in this
+You can go and see why so many tokens are taking, because
+Reasoning is more, around 1700 tokens you have spent on reasoning
+What does this mean, it means that to compress this chunk
+My model had to think a lot, if you had to think a lot
+If you had to think a lot, it took more time, so this compression step
+Time is more, so you can easily relate things
+I hope you understood this thing
+So I just wanted to show you a demo, how your trace works
+I hope you understood this whole thing, so now in step by step
+You can expand every step and figure out the journey of output from input
+Is this point clear
+Is this clear guys, did you understand this thing by watching this demo
+How our application is working
+Yes, clear, ok, now let's discuss
+What things you can see on the screen, what things
+You have to focus on, we have seen that in tracing you can see some kind of view
+And you can see your individual traces here
+Now where do you have to focus, so let's expand this trace
+Let's collapse everything
+Let's turn on the annotation
+And let's start
+Fine, you can see this color too
+The first thing you have to focus on is your graph
+You can understand this as your application graph or your whole trace
+Your top to bottom is executed
+These are individual steps in your trace
+Now you will get to hear two terminologies, one will be trace
+And the other will be your span
+So you have to understand the difference between these two
+So this whole chat response that you can see, that I have expanded
+The one at the top of the hierarchy, this grandfather
+This is basically your trace
+Trace is simply your complete execution of your application
+Means input you gave
+And you got your output
+So the whole journey of input to output
+That is your complete trace, this is called
+One trace in line fuse, ok, so what you do here
+Whenever a user sends an input and gets an output, you store it in a trace
+Let's say I am chatting with my streamlit application
+I sent 4 queries, so how many traces will I get in output
+I will get 4 traces in line fuse
+Because I got 4 outputs for 4 questions
+One thing is span, what is span?
+You can understand span as the
+Sub component of your trace, I will show you
+Just a second, if I show you
+So this is your chat response, this is your complete trace
+If you see inside this
+If you highlight it here
+I don't know why it is not showing here
+But this is your complete span
+It is not showing here
+This is your complete span
+Inside that you have more child spans
+This is a complete span
+Span is basically a working unit inside a trace
+Working unit inside a trace
+Which you can calculate the duration, means your trace is
+The outer unit which is running from end to end
+You can calculate different stages which you can see in the graph
+So every node of the graph is a separate span
+I hope this point is clear to you
+Every span has an input and output, but it is different from the input and output of your trace
+Trace's input and output is the input and output of your application
+Which is visible to your user, span's input and output
+This point is defined on that stage
+Like what will be the input of generation span
+It will get prompt with your context and query of your user
+And what will be the output which will produce the response
+But it is different from my trace input and output
+I hope this point is clear to you, this difference is important to you between a trace and a span
+Is this point clear guys?
+Trace is the overall thing
+Span is the components of the trace
+Is this point clear?
+Let's discuss further
+A working unit is a span
+And another definition of span is the duration of which can be calculated
+You can calculate the duration of the input and output of that stage
+You can calculate the duration
+For each of your stages
+Now every span has multiple stages
+Now the thing is
+The arrangement is in the form of a tree
+You can see it in the form of tree structure or hierarchy
+In the outer hierarchy, there is a trace
+And in the trace, there are individual spans
+And the order you can see between the parent span
+And the child span
+This is the parent span
+The internal components of this are
+These are your child span
+And the child span can have multiple children
+One or more than one
+Now these spans like input, retrieval, and documentation
+In your indentation, in the same hierarchy
+Input, guardrail and retrieve are both the children of RAC graph
+They are called siblings
+Like you are the child of your parent
+And your siblings are your siblings
+Their parents are the same but they are two different beings
+Two different identities
+Similarly, the same indentation is called sibling span
+I am just telling you the terminologies
+You should know
+Similarly, your child span is parents
+These are their child spans
+Input, guardrail, parent, validate input and guardrail router
+Are two siblings of the input guardrail
+These are the child and these are the siblings
+This terminology is clear between sibling, parent and child
+Is this point clear guys?
+Yes, okay
+Let's discuss the important concepts of tracing
+We have discussed some concepts in the demo
+Like we have discussed about parent span
+We have discussed about child span
+We have discussed about sibling span
+And we have discussed about trace versus span
+Now let's discuss
+How to implement this whole thing inside LangFuse
+For that, I will take you to the documentation of LangFuse
+We will read some documentation
+It will be visually clear
+It is not a theory
+First of all, I would like to show you some key details
+Observability and application tracing
+Observability and application tracing
+You have to apply observability and tracing
+What is tracing?
+Simply tracing is capturing the structured logs of every request
+That capture the exact prompt and model response, token usage, latency
+And how do you see a trace?
+Now let's talk about how to implement tracing
+How to implement tracing
+First of all, you have to login to the LangFuse UI
+You will get your API keys as soon as you login
+These are the same API keys that we used during prompt originating
+So if you are in your application at this stage
+You don't need to add any extra thing
+After that, the code is given here
+You have to integrate LangFuse into your code
+You have Python version and LangChain version
+We are working in LangChain, so we will work with the LangChain version
+You have to install LangChain and set environment keys
+After that, you have to use a callback handler
+Now basically, what happens in LangChain LangGraph
+The thing is that when your entire graph is run
+You can attach callbacks along with the run of the graph
+You can see the LangGraph playlist
+You will know about callbacks
+When your graph is run, you can run some extra functionality
+What you have to do is to simply run the callback of your LangChain
+You can run the callback of your LangChain
+You can run the callback of your LangChain
+You have to import the callback and make an object
+The next step is
+You have to pass it into your application
+You have to pass it into your configuration
+You have to invoke your graph
+You have to simply pass the callback into the config
+As a list, that's it
+Your tracing will automatically start
+Whatever execution is happening internally in LangGraph
+It will trace everything properly and you will see it
+But there is a catch
+Along with the steps of LangGraph, this callback works with your LangGraph
+All the steps of LangGraph, retrieval, generation, augmentation
+It works very well for them
+Now we have used another framework
+That is our guardrails ai
+Guardrails is not your LangChain framework
+It is a separate open source package
+So in guardrails ai, you have to lock your guardrails
+You have to lock those steps as well
+For that, you have to write some python code
+If our application had only the code of LangGraph
+Then we would have been able to use that much code
+We would have had to make a callback handler and put it in the config
+But now we have to work extra hard
+We have to write some custom code
+I will tell you how to write custom code
+Now let's discuss about other things
+Not only you can create your logs
+Listen carefully
+Not only you can create your logs, you can also pass on some additional information with your logs
+This additional information is called your attributes
+Now you can pass a lot of additional information in these attributes
+You can also pass on your session ID
+For example, you can pass on the environment information
+You can also pass on parameters
+You can pass on metadata
+You can pass on your prompt version
+You can pass on some tags
+You can also pass on your session ID
+You can also pass on your ready
+These are some things that you can pass on your logs
+Let me show you where you can see them
+Let's go to our dashboard
+It's highly practical so I am showing you everything step by step
+For example, let's open this trace
+You can see the session in black
+I have passed this session in my code
+We are basically creating individual sessions
+I will create another session in my frontend
+I want my logs to be tracked separately
+Whatever session I am talking about, in the chat
+I want my logs to be logged in one place
+I want to filter it out easily
+I am tracking different sessions through session ID
+Let me show you what I did when I was demoing this
+If you go to the sessions tab
+I created two sessions
+If I open this
+I generated two responses
+The first one is this one
+I can see the whole log
+If I go down
+Just a second
+You can see the whole thing
+Everything is visual
+If I go down to the other input
+It's the same
+It's the same
+This is my second one
+What is the difference between online vs offline evals
+I can see the input and output
+I have run my two traces
+I can see the log
+Total traces is 2
+I can see the aggregate metrics
+Let's say 10 questions were asked
+The total cost of those 10 questions is n2nlog
+The second session was this one
+Can you tell me the current weather of Delhi
+This was an off topic
+I got my guardrail trigger
+I got this output
+I can track this properly
+The advantage of sessions is that you can track the sessions
+You can track them separately
+The way to pass this is very simple
+I will show you the documentation
+Many interactions with LLM applications span multiple traces
+Sessions in Langfuse allow you to group traces together
+To see a simple session replay
+You can see the whole session replay
+You have to pass a session id
+You pass your attributes
+You can see the method
+You can pass your session id
+You can also pass other things
+Like your environment
+You can also pass its value
+You can also pass tags
+This is an extra piece of information
+This is metadata
+You have to pass metadata
+I am showing you the same method
+Is this point clear?
+Don't worry about the amount of information
+These are all optional
+I haven't shown you the exact code
+I have discussed many things
+These are all optional
+I will show you the tracing
+Environment, production, session id
+These are all optional
+You can filter it tomorrow
+We have only production
+If you have more environment
+You can filter it
+You use these attributes for filtering
+Clear?
+Let's go
+Let's take some questions
+Is that means every time user runs the query
+That will be traced in that
+We can software version if doing A-B testing
+Yes we can
+Your LangFuse tracks version and releases
+Sir also LangFuse is open source
+Then why do LangSmith even exist
+LangSmith exists because LangFuse is made on your LangSmith
+So Pioneer is LangSmith
+But LangFuse has a limitation
+You didn't have so many frameworks
+LangChain was a pioneer framework
+Everyone had their own SDKs
+OpenAI had its own SDKs
+LangChain was a universal framework
+You could use different components and models
+Then came LangSmith
+But it couldn't work with other integrations
+Then LangFuse developed
+We have to write extra glue code
+If you have LangGraph application
+You can add environment variables
+But you have to work extra
+So that's it
+Any other questions?
+Clear?
+Now the moment of truth
+I will explain how you do these things in code
+You must be thinking that we have talked a lot
+How to do this in code
+First of all, we will understand
+How you can trace LangFuse in your current application
+LangFuse gives you 3 methods
+for implementation
+You will use these 2 methods widely
+LangFuse also says that
+You can use the methods I will teach you
+As per your convenience
+LangFuse has given you the third method as an option
+But they also said that you can use it rarely
+Because it is a legacy code
+But if you feel the need, you can use the third method
+You have to use the first 2 methods
+I will teach you but you will use only the first 2
+The first method is that you can implement LangFuse
+Using a context manager
+We are not going into the code now
+What does context manager mean?
+You know that you can start a new context in Python
+Like we start a run of MLflow
+You will start a run of LangFuse
+Using width, you will start a context of LangFuse
+You will give it an alias
+As let's say you gave it parent
+Then you will write the code of the parent span
+Listen carefully guys
+You will write the code of the parent span
+Then let's say you want to run a child span
+You will not close this parent span
+You will put another with statement in it
+With again you will use LangFuse context
+You can write it as child as well as C1
+And you will write the code to lock it
+You started another context manager
+With LangFuse context
+It means starting a new context
+And you wrote the code to lock it
+Now someone will tell me that
+What do these C1 and C2 look like to my parent span?
+If someone knows by looking at the indentation
+I am looking at the chat
+What do C1 and C2 look like to the parent span?
+I am not talking about C1 and C2 between each other
+What is this in the parent-child relationship?
+C1 and C2 are siblings, Hardik is right
+Simply if you want to make a parent-child relationship
+Then you have to nest
+The nesting of context
+You have to nest it using indentation
+You have to take care of indentation
+And through that you can nest
+If you want to send additional information in any context
+Like metadata, environment label, tags
+For that you will send attributes
+LangFuse says
+Attributes will always be sent in the first line
+For that particular context or span
+It suggests that if you send attributes in the last line
+Then maybe due to some bug
+Maybe due to some error, these things may get logged
+And the attributes may not be logged because they are written in the last line
+But if you send your attributes in the top line
+Then they will definitely get logged
+Because after that the rest of the code will get logged
+So it is advisable to send attributes in the starting line
+Where are the attributes? Additional information to your context
+Always remember that the parent context
+Attributes of the parent context
+Attributes
+Child spans
+Child span inherits the attributes of the parent context
+Let's say you see
+Your surname is there
+How do you inherit the surname? You inherit it from your parent
+That is an identifier, a tag
+In your parent's name
+The attribute you put on the child
+It will automatically get to your C1
+Whereas if I have given a different attribute to C1
+Then it will not get to my C2
+The child span attributes that it carries
+It does not pass to the parent or sibling
+It stays in the context of that
+How will we make the child of that child?
+With Langfuse, context
+We will give it an alias, let's say C11
+This is the first child of C1
+Now it will get all the attributes of C1
+So if you want an attribute in your span
+Always retained across the trace
+Then you give it to your parent or parent trace
+Which is also called root trace
+You gave it to it, it will continue throughout the trace
+Like if you go here
+I gave the session ID at the top, if I collapse it
+Now I will go to any child of this
+Even if I go to this, it will give me the session ID
+Same with the environment tag
+But here are some attributes
+Which I have given only to the child
+Like which prompt version I am using
+I have passed it here
+But as soon as I went here, into generation
+The prompt came and it says drag app system prompt
+And version 3 is getting tracked
+It is getting tracked in my prompt management
+Now you can see how both are integrated in Langfuse
+But where is this attribute from?
+This is the attribute of my child
+And because it is of the child, it is not passing in siblings
+All these are siblings, it is not passing in siblings
+Is this point clear?
+And one more thing, wherever you use models
+You see this currency symbol, basically cost involved
+And there you get input output tokens
+You will not get currency symbol anywhere
+And you will not get input output tokens because no model is used there
+You will only get duration, how much time it took, latency
+Is this point clear?
+I have some doubt
+If we can trace most of the things here, will it be possible to send alerts also?
+There is a problem, yes
+We will study that in observability, which is our next lecture
+Where we will build our dashboard, we will set alerts there
+You can set alerts and send them
+Back to these services
+Today we are preparing ground for our tracing
+How you can trace your application
+Is this point clear?
+Very important concept to understand, and you will not make mistakes in code
+If you understand this attribute concept
+So what is the first method?
+You will use the with keyword of python
+After that you will write the code of blank fuse
+And then you will give your context to the parent or child
+You will pass your attributes on the first line and then you will lock the rest
+I will show you how it happens in the code
+Good thing about context manager is that whenever you start a context
+Your context remains active until it is running
+And as soon as you come out of that context
+It automatically closes, for example, your child context
+Has started, all the code is logged
+And then as soon as you start C2, because both are on the same indentation
+C1 automatically closes
+Then you wrote the code of C2, C2 automatically closes
+And as soon as you come out of both the child, let's say you start a new parent
+And then you start a new parent
+So this parent's context is also closed
+So through context manager you can easily start and close your context
+You don't have to execute our functions manually
+You don't have to give start or close commands
+Next method is to use a decorator
+Like you have seen traceable decorator in Lanksmith
+There is also a decorator called as observe
+You simply put this observe decorator on your functions
+And you can trace your functions
+When do you use observe?
+You use observe when you have simple functions
+In which your custom logic is running
+You use observe to trace custom logic
+Or you can use a guardrail or something like that
+Better is to use a context manager
+Now one question is coming to your mind
+Because we are using decorator, how do we tell parent child?
+The function on which you put decorator
+Let's say function is f1, it decides its logic
+Like you are calling f2 in f1 code
+So what is this?
+You are calling f2 in f1, so what is f1?
+F1 is parent, f2 is child
+So you are calling f3 in f2, so it is its child
+And you called f2 in f1 and f3
+These are two siblings
+So you will see in this way
+And at what level they are calling
+Through this langfuse automatically manages parent child hierarchy
+And what is final?
+You manually turn on the context
+In the final method you create an object of context
+You start it manually and close it manually
+Again langfuse does not advise you to use this method
+Better is if you want to do this
+Then use this method through with statement
+This is the most appropriate way
+Now I will show you the documentation
+Here implementation is there and I will show you the three methods
+What is written here?
+You can use native integration for lang chain, lang graph
+We have guardrails for which integration is not available
+So we have to do manual instrumentation
+There are three methods for that, context manager, wrapper, which is your decorator
+And manual observation
+You see how you start context manager
+You use this method, langfuse.startAsCurrentObservation
+This starts your context
+And you create observation while ensuring the active open telemetry context
+And how do you start it?
+With statement, it is written
+Any child observation created inside the with block inherit the parent automatically
+So here you can see this is your parent
+So you will write code like this with langfuse.startAsCurrentObservation
+You will type it and we will discuss it later
+After that you will pass your attributes
+You pass attributes with with statement
+And you use this method, propagate attributes
+You pass user ID, session ID and this is your child
+It is nested
+Now you can see clearly that when you are giving these attributes to your parent
+Then it will automatically inherit your child
+So you have indentation here
+Inside that you have written your child run and this is your child's run
+Clear? If you want to use decorator
+Then you can use the observe function
+You can observe like this and use it
+If you want to capture parent child, I don't think there is an example here
+But you can do it that way which I have told you
+And if you want to do it manually, then you should not do it manually
+I will show you where it is written
+You have to manually end your context
+You can't see any with statement here
+So it is better not to use this method than to use the previous method
+If you want to nest decorator, then you simply
+Call the second nested function in the primary function
+And then your child will be made
+You have seen how to make a child in context
+Is this point clear? It is clear
+No need to worry
+Everything is clear
+Every step is clear, implementation methods are clear
+Yes
+Now before going to the code, I will give you
+A flavour of attributes
+What kind of attributes are there, what can you save
+These are optional, you can save if you want, if you don't want, then it's not like that
+I will tell you what attributes are there
+So if you go to the features, these are some attributes
+You can add these
+So here I have opened the environment
+There are 2-3 ways you can pass the environment
+Staging environment, prod, development
+Basically, the environment tag is applied on your traces
+The user who is interacting with this deployed application
+What will be the environment of his traces? Production
+When I am testing my application on the local system
+What will be the environment of that? Staging
+So I can easily segregate traces between 2 different environments
+What traces are coming from my production setup
+And when I was testing my application, what traces are going from staging or development stage
+Simply use for filtering, you can set tags here
+Keep in mind that the tags you set are immutable in nature
+Once you have set a tag with a trace, that tag is yours
+The simple way to set a tag is
+You have to pass your list of tags in the propagate attributes
+That's it, super simple
+Metadata, again you have to use the propagate attributes
+And you have to use the metadata key and pass your metadata in the dictionary
+Again simple
+It is written here
+When you use the attribute propagation, all your observations of the trace
+Which are on the parent level, it is applied on all
+And
+Sampling is also a concept, we will see it later
+And I have told you that you can pass through session ID
+So the code is the same, you can pass different things through different parameters
+That's it, I have explained it to you that if you look at the code
+You will not be bothered that what we are discussing
+Actually
+There is a page where it is said that which attributes are available
+Let me see if I can get that page
+Adding attributes, so these are some attributes
+Which you can pass, environment tags, user ID, metadata
+Data, releases and version, so someone was asking
+Release and version, you can pass from here
+Release is basically the version of your application
+In the language of LangFuse, and version is individual component
+So like I have here
+I will open the annotation
+I had deployed v1 earlier
+So this is v2, this is my new release
+So this will go to the release section
+And what is version?
+Version is for my individual component
+Like I was using GPT 5 mini before generation
+Now I am using GPT 6
+So this change of model
+This is explained very well through a diagram
+LLM application releases
+And your versions are on any internal span
+Again you can use this, completely optional
+I just told you that if you want to use it, you can use it
+Is everything clear guys? Now it's time to move to the code
+Is the whole process clear?
+Code part is also clear
+Is it easy? Nothing difficult
+Now I will show you
+What changes you have to make in your code files
+And I have already pushed this latest code to GitHub
+So you can simply pull, ok, first of all I have done here
+I have passed an environment variable
+What is its name? Langfuse Tracing Environment
+And what value have I set? Production
+Now where did I get this idea? I got this idea that I had to set my environment tag
+So I went to the documentation
+What is written here? If you go down
+Managing environments, ok, so what is recommended in configure environments?
+You can configure environment by setting
+Langfuse Tracing Environment and its value
+Or by using the environment parameter while initializing the client
+So I said no, what will we do here? We will use the recommended way
+You can pass environment information in your client
+You can also pass in the propagate attribute, but we selected the first way
+There are 3 ways, we took the first way
+So this is a small change I made in my Docker Compose and that's it
+Then we come to chat.py, this is my
+API endpoint where I basically receive
+My chat request, ok, what did I do here?
+I imported from Langfuse, I imported client and propagate attributes
+And Langfuse.langchain
+Here I have my integration, I imported my callback handler
+I made a client of Langfuse, like you make in prompt
+Get Client, simple, I made it the same way and in Langfuse handler
+I added my callback handler, you don't have to add anything in it
+Simply you have to make an object of it
+What did I do after doing this? I came to the chat endpoint
+This was my chat endpoint, ok, I started my tracing in it
+Why am I starting tracing here? Because
+I am invoking my graph here, which is my
+Python file, this one, rag work for with guardrails
+I am not invoking my graph here, where do I have to pass this callback handler?
+Where I am invoking my graph, so what I did
+With Langfuse.startAsCurrentObservation, here I made my context
+I gave it a type, what type I gave?
+Span, gave a name, chat response
+And told you what you will get in the input
+You will get the query from my request in the input
+So where did I save these three things?
+What is this chat response? This is the same chat response
+Which I passed here, in the name chat response
+What type I have set it as? Span, so what you can do in Langfuse
+All your spans, you can see here
+There are different options, here span is written, but here you will not see span
+Here you will not see span, here you will see chain
+Here you will see guardrails, different logos
+Here you can see magnifying glass, searching logo
+If I call it retriever, how can I set this name?
+You can set this name using this thing, observation type
+Langfuse supports different observation type
+To provide more context to your span, what kind of span is this
+You can tell the type here, what is span?
+Which tells your span, you label span
+If you are generating generation through LLM
+Then you give it type generation
+This automatically uses your AAModel, prompts, token usage
+Costs, it automatically starts tracking
+So this token usage, cost, prompt, all this is tracked in your span
+And its logo is something like this
+If you are an agent, then you will tell the agent type
+When we make a project, then our agent type will be there
+If a tool call is happening, then you will give it tool, chain is your runnable sequence
+Like if prompt goes to LLM, then your parser
+That is a chain, retriever is understood by name
+Where any retrieval is happening from the vector store database
+You will give it a tag, evaluator, wherever evaluation is happening
+You will give it an evaluator tag, its sign is like this
+Where embeddings are being created, you will give it embedding
+We are not creating embeddings here because we have already prepared our vector store
+We are only doing retrieval in our application
+So you won't be able to see the embedding sign anywhere, and finally it is a guardrail
+Whereever there is a guardrail, set it there
+How to set it? Simply you tell your type in as type
+And the importance of telling it right
+Is that
+Then your component will be logged properly
+Means whatever information is required in the retriever to log it
+You log it in the retrieval span, so make sure
+That whatever you are doing here, do it carefully
+This is our outer span or our application span
+So we called it span type and gave it root span alias
+After that what we are doing is passing our attributes
+What is session ID?
+Which session is it working on? This session ID is
+Getting at the end point of our chat, and who is giving this session ID?
+This session ID is giving my frontend, this app.py
+This session ID is giving my end point
+And how it is giving? Through the API client
+You can see here, this stream chat is sending a request
+So first we were sending our input query in the data
+Whatever we are typing here, we were sending it
+But what are you doing? You are sending this session ID from your frontend
+Why are you sending us from the frontend? Because this session ID is created in our streamlit
+I hope you know this point
+So streamlit session ID is sending to this chat end point
+Which is getting received here, and after getting received it is getting logged
+From here we are able to see and maintain individual sessions
+And we gave it a trace name as chat response
+After that what we are doing is invoking our graph
+After invoking we are sending our input and in config callback
+We are sending the callback handler
+We have also given you a run name, which is RackGraph
+So where will you see the run name? You will see it here
+This is your run name, and this particular graph is your RackGraph
+The root one is chat response
+It is a simple code, you have to tell it step by step
+If there is an exception raise, you will also log it
+In this session you will get an error message
+You will write root span which is your alias for the root type
+You can use dot update to tell what value to set in output
+We simply passed our input here
+We will give input, it will be invoked, after that we will get output
+From our final state, so whatever is coming in the final state
+You can pass it through the update method
+We are sending the output and response text
+The response text can be our result or error
+Both are ok, we can pass it depending on the situation
+That's it guys, you have to do this much change in chat.py
+You have to do one change in your rag workflow with guardrails file
+Because the root we have set here
+Will track all this, only for our lang graph code
+It will not track the lang chain code or guardrails code
+So we have to add our custom code
+I have made a client object of langfuse and imported it
+Again same thing, after that if you come down
+These are the nodes of my graph, this is the state
+And these are the nodes, now you will see that these are my lang graph nodes
+Retrieve, I have not added anything here
+How is this logging handled? From my chat end point
+Automatically, I have made it once, sent the callback handler
+That's it, my work is done, but I have to track
+These guardrails nodes too, for that I have to add my custom code
+So I have started context for guardrails
+What type is added? guardrails, because it is guardrails
+Then what is added in the name? validate input
+What will it get in the input? My query, because it is an input guardrail
+After that whatever output is coming, I am updating it
+To my span, whether it is
+My output is coming correctly or whatever is coming, I am updating it
+And that's it, same thing you will do here
+For the other, you are putting results in output
+You are putting warnings in level, if there is an error
+So warning for the refrain, warning for the other
+And the same thing you are doing for the retrieval
+Same code, you see this code, super simple easy code
+And same thing you are doing with your output guardrail
+And this is it guys, through this you can easily
+Track your inputs in your application
+And what will you do with this updated code?
+You will push to your new deployment, it will act as a new version
+And now all the applications on your EC2 instances
+Tracing enabled in all of them
+Is this point clear? Code is clear
+I know it may seem a little difficult if you are seeing it for the first time
+But if you read it, it is super simple, simply you have to pass on things
+That's it, if you know how to set context, how to set child context
+So let's do that, you will understand the rest
+Is it clear?
+Great
+Now I will show you
+How this whole thing works in code, let's delete these traces
+Delete
+Where is the option?
+Is it here?
+I can't see the delete option
+Yes it is coming down, sorry, here it is, delete traces
+I have deleted it, traces are deleted
+It will take some time to delete, let's refresh
+You can see it now, but it will automatically be deleted
+And I go to the sessions section, and see this is also deleted
+So there are no obsessions, no traces
+We are doing it from scratch, now let's go to our application
+And ask some questions, so first question
+What is the difference
+Between online and
+Offline emails
+My user asked a question, a new session was created
+Where will the session ID go? It will go to my linefuse
+I will show you, if you go here to tracing
+You can't see anything here
+But if you go to the sessions tab, you will see a session
+Let's wait a little, it is working
+And guys
+The documentation I showed you, go through it
+You will like it, it is a well written documentation
+You will also know about other concepts about tracing
+We have read it very quickly, but you can read it
+You will know how to set it, and your fear
+How to connect these things, that fear will be lessened
+And one more thing, I told you
+You can also do your cloud code, codex
+So if you go to integration
+And go to developer tools, see how many integrations are there
+If you go to frameworks, you will get agno, autogen
+True AI, you won't get this in langsmith, you will get
+Deep agents, there are a lot, there is ragas
+There is a lot of integrations
+You will see small agents
+If you go to model providers, you will get their SDKs
+There is also your cohair
+You will see a lot of data bricks, you will see rock
+And I think you will also see open router
+I can't see it, but here
+There are a lot of integrations, you will go to no code tools
+You can see langflow, NA10
+So things are available here
+And if you go to developer tools, see codex
+Cursor, getup copilot, you will also see open code
+Which is shown by Rupinder
+VS code, pi agent, cloud code, if you use cloud code
+So how do you do tracing, basically whatever functionality you are doing with cloud code
+Simply you have to install this plugin and set your API
+And that's it, super simple
+Here you have to create these hooks
+All things are given here, simply you have to do these
+5-7 steps and you will start tracing here
+So this is the power of using an open source tool
+Here we have our whole input
+Now let's see how our trace looks
+If we go to sessions, see our session is created
+Where are we getting this session id, we are getting it from our frontend
+Whatever name of this particular session is, which we are saving in sessions.json
+From there we are getting this id, which we are saving in volume
+And this is renamed, so here we can see its actual rename
+But here we can see the id
+Now if we go here, we can see our trace
+Total Trace is 1 and this is our trace number 1
+We can see the whole trace from top to bottom
+Now let's do one thing
+In this session, let's ask another question
+What is the definition of a trace?
+What is the difference between
+experimentation
+and
+experimentation and let's ask what is the difference between
+mlops vs lmops
+Let's ask this
+It will take some time
+If you want to see it
+If you go to tracing
+You can go and you can actually see
+If I collapse it, collapse all, you can actually see
+It took a lot of time to generate
+It took 2 minutes and 37 seconds, I don't know why, maybe in class
+It takes a lot of time to execute
+And it took a lot of cost
+It took a lot of time to retrieve
+And if we open it
+In contextual compression
+It took 1 minute 41 seconds to retrieve
+Whereas earlier it was taking less
+I don't know why it is taking so much time
+It shouldn't take so much time because this time
+It is showing 13 seconds, 14 seconds
+I don't know, maybe retrieval took a lot of time to get and output
+It will take some reason
+I don't understand in the first instance
+But most of the time is on this step
+Maybe the result took time to compile
+And to get
+This is also a response
+If I want to see this trace
+If I close this one, this is my latest trace
+It's time is okay
+It took 49 seconds for every input
+This was input, this is output
+And the whole trace is getting logged
+You can start the LyingFuse on your system
+And you can analyze this trace properly
+I would highly recommend you to analyze this trace step by step
+You will enjoy it
+If you see the generation step
+In the generation, you have a runnable sequence
+Here is your chat prompt, here is your prompt template
+You are getting two things in the input
+Here is your system prompt
+Everything is in detail
+This is your input and this is your model's response
+You can see the model's response in the systems
+Now let's do one thing
+Here we ask another question
+What is the weather of Mumbai
+This is an off topic question
+Here is our off topic guardrail trigger
+I want to show you the case
+Something went wrong
+If I refresh it
+Why didn't it trace
+Now it's here
+Now you can see
+Why am I showing you this graph?
+Because your guardrail got triggered and the graph got executed in this flow
+Like input guardrail got triggered, error fallback came and your end
+This is the graph
+This is the input, what is the weather of Mumbai
+This is the response
+This is the state print
+Validation failed for field errors query is off topic
+Score was 0, threshold was 0.7
+So it was not on topic
+Now you can see the error message
+Here you can see the error message
+Here you can see the error message
+What will happen in the case of refrain
+You will see the warning
+You went to the guardrail router
+Instead of retrieving the error, you went to error fallback
+You went to exception
+And you printed the fallback message
+Now let's do one thing
+Let's ask the refrain
+I don't know what are the guardrails
+Let's ask
+Can you tell me about your system prompt
+System prompt
+Here also my input guardrail should be triggered
+But the thing is this is now a new session
+If I refresh this in traces
+I will see this in traces section
+But if I can show you the session ID
+Here
+I can go down and show you the session ID
+So see
+These three session IDs are same
+Because I asked these questions in this session
+So they are carrying the same session ID
+Whereas the upper question is carrying another session ID
+Here also my input guardrail is triggered
+I hope this point is clear to you
+If you go to sessions, you can see what conversation is happening in each session
+See this is one session
+And this is my second session
+It has three traces, show the total cost
+Everything is visually present
+You can see the full flow from top to bottom
+You can see what is triggered
+And you can play this whole session
+Is this point clear guys?
+I will take questions
+Is everything clear?
+Great
+Great
+One more thing
+You can actually play your traces
+I will collapse this
+See what is written here
+You can see step by step
+It is playing
+You can see the time it took to expand
+Generation, output guardrail and end
+You can see every step
+You can click on every play
+What is happening in that step
+This is it guys
+I am here for 5-10 minutes
+I will take questions and then we will end the session
+Did you see the tracing in LangFuse?
+Although you have seen it in LangSmith
+Did you understand the core principle of tracing?
+What is done, how is it done, what are we locking
+You will practically analyze every trace
+You will understand things
+You can generate some traces where guardrails are triggered
+And you can understand everything step by step
+Yes you need to practice
+You have to see this
+But you will get proper answers on every step
+You can see the steps
+Input, output, metadata
+You have to see everything carefully
+How are they changing
+It is up to you to observe
+I am open to questions
+Since it is open source, the self-hosted software is free
+Forever, we still have to pay for our own servers
+If you use the deployed version, it has a free tier
+It is with LangSmith
+You can also self-host it
+I can show you
+LangFuse self-hosted
+But for that you have to install your machine
+Self-hosted LangFuse
+You have already read the Docker
+You can do it through it
+You have to create an instance
+Maybe on AWS, maybe on Hostinger
+I haven't done it yet
+You are getting a lot of things
+If I show you the overview of LangFuse
+It is basically an end-to-end platform
+You get prompt management, observability, evaluation suite
+Trace monitor, dataset, experimentation
+You get a lot of things
+We didn't just read LangFuse
+We read different platforms
+It is not necessary that the company you work for is dependent on LangFuse
+Good if you have tried
+Thanks for sharing the inputs
+You can self-host but you need a good machine
+Which is not required from the perspective of learning
+If it is required in the company
+You can self-host it
+They will pay for the machine
+Any other questions?
+How was today's session? Was the concept clear?
+Yes
+Yes
+Yes
+Tracing concept is clear
+In the next class, we will collect some traces
+We will learn the observability concept
+How do you create a dashboard for your application
+You can set alerts on it
+We will learn how to create charts
+Anything else?
+My goal is always to clear concepts
+If concepts are clear, then it is good
+I have shared the code with you
+You can also go and see
+One more thing
+If our instance is running
+You will lose money
+How to close it without destroying your deployments
+It is actually a good to know
+You have to go to the auto scaling group
+You have to go to the auto scaling group
+You have to go to it
+Select it
+Click on edit
+I have set desired to 1
+You have to set it to 2
+Auto scaling group will automatically
+update it
+You don't have to close your target group
+You have to delete something else
+Your instance will automatically close in a while
+This is how you can save money
+You can see the images in the free tier
+These machines are not covered
+We are closing it for now
+When everything is done
+You can clear the entire infrastructure
+Delete the ECR
+Close the code deployments
+Please add the annotated one
+I don't know what annotated
+I will annotate it on the screen
+Do you want to annotate for this course
+Or for that course
+You can add annotated
+You can add annotated
+You can add annotated
+I will tell Ajay sir
+He will add it in resources
+You will get it on your dashboard tomorrow
+Any other thing
+Any feedback for me
+How was today's session
+Thank you
+Thank you
+Thank you
+Thank you
+Thank you
+Thank you
+I will give you the project in the recorded form
+You have understood the concept
+Now you have to apply it on the agents
+In 5-6 sessions
+Our entire agent project will be completed
+That's it for today
+I will see you on Wednesday
+We will cover the observability concept
+Bye guys, good night

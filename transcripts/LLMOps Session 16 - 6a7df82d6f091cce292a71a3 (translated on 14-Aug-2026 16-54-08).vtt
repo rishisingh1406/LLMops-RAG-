@@ -1,0 +1,9476 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:15.800
+Okay, so until other people join, let's have some questions.
+
+00:00:15.800 --> 00:00:19.300
+So I have a question from Tushar.
+
+00:00:19.300 --> 00:00:26.700
+Could you please explain once in short why we calculate SD for historical and noise?
+
+00:00:26.700 --> 00:00:27.900
+What was the exact need?
+
+00:00:27.900 --> 00:00:30.200
+I am a bit confused on this part.
+
+00:00:31.200 --> 00:00:38.700
+So Tushar, we discussed that the problem is that we had to set a threshold.
+
+00:00:38.700 --> 00:00:39.900
+You will remember.
+
+00:00:39.900 --> 00:00:41.900
+What are we doing in regression testing?
+
+00:00:41.900 --> 00:00:48.200
+We are testing that our current version is not very useless from the past.
+
+00:00:48.200 --> 00:00:51.200
+It should be in a particular ballpark.
+
+00:00:51.200 --> 00:00:53.000
+The value of its metric.
+
+00:00:53.000 --> 00:00:55.500
+So that's what we test in regression testing.
+
+00:00:55.600 --> 00:01:04.300
+So the criteria to set the window, how much range we will consider it to be okay and how much less.
+
+00:01:04.300 --> 00:01:06.800
+So we discussed two or three ways.
+
+00:01:06.800 --> 00:01:09.800
+One way is to put a hard value there.
+
+00:01:09.800 --> 00:01:13.300
+That it will be below 10% so I will not accept it.
+
+00:01:13.300 --> 00:01:15.800
+But what was the problem in our case?
+
+00:01:15.800 --> 00:01:21.800
+The problem was that some metrics were performing well in our 95-99 range.
+
+00:01:22.100 --> 00:01:26.100
+Whereas some metrics are not performing well.
+
+00:01:26.100 --> 00:01:32.100
+So it is logical that in the next iteration, when we run a new iteration,
+
+00:01:32.100 --> 00:01:38.100
+we will tweak the same parameter which will fix that particular metric which is performing badly.
+
+00:01:38.100 --> 00:01:44.100
+If our faithfulness is performing well, giving a score of 99% or giving a precision of 95,
+
+00:01:44.100 --> 00:01:48.100
+then there will be no benefit in re-ranking or improving the system prompt.
+
+00:01:48.100 --> 00:01:51.100
+Our contextual relevancy was lessening.
+
+00:01:51.100 --> 00:01:52.399
+So where will the benefit be?
+
+00:01:52.399 --> 00:01:55.399
+That we have to reduce our noise in the context.
+
+00:01:55.399 --> 00:02:02.399
+So what we did there, we captured the variation through standard deviation.
+
+00:02:02.399 --> 00:02:05.399
+So we had two types of runs here.
+
+00:02:05.399 --> 00:02:11.400
+One was our noise run where our configuration was the same and we ran multiple runs.
+
+00:02:11.400 --> 00:02:16.400
+We ran it because there is inherently some variation in LLM as a judge.
+
+00:02:16.400 --> 00:02:19.400
+So we captured it there in the noise runs.
+
+00:02:19.700 --> 00:02:21.700
+And what were the historical runs?
+
+00:02:21.700 --> 00:02:24.700
+Where we were changing our actual configuration.
+
+00:02:24.700 --> 00:02:29.700
+So we are changing the configuration for contextual relevancy and the other metric which is lessening.
+
+00:02:29.700 --> 00:02:31.700
+And we are capturing its range.
+
+00:02:31.700 --> 00:02:39.700
+If we change our configuration, then how much difference it makes in our metrics?
+
+00:02:39.700 --> 00:02:44.700
+So we calculated the limit and then implemented it in our formula.
+
+00:02:44.700 --> 00:02:47.700
+So this was the whole flow.
+
+00:02:48.000 --> 00:02:50.000
+I hope now your doubt is cleared.
+
+00:02:52.000 --> 00:02:54.000
+Getting more questions.
+
+00:02:54.000 --> 00:02:57.000
+Cloud services such as Azure, Amazon also provide evaluation.
+
+00:02:57.000 --> 00:03:02.000
+Yes, Hari, there is a lot of benefit in this.
+
+00:03:02.000 --> 00:03:09.000
+The first benefit is that the evaluations of Azure and Amazon basically take you to vendor locking.
+
+00:03:09.000 --> 00:03:17.000
+If you have deployed your entire application and Amazon and you are evaluating there through their given evaluations.
+
+00:03:17.300 --> 00:03:19.300
+Then there is a vendor lock-in.
+
+00:03:19.300 --> 00:03:21.300
+You have to pay them.
+
+00:03:21.300 --> 00:03:25.300
+Again, you don't have a choice there as to what kind of LLM you want to use.
+
+00:03:25.300 --> 00:03:28.300
+Here you have a choice of DPVAL.
+
+00:03:28.300 --> 00:03:32.300
+Which model you want to use here, how powerful model you want to use.
+
+00:03:32.300 --> 00:03:35.300
+And even you can use open source models here.
+
+00:03:35.300 --> 00:03:38.300
+So this customization gives you DPVAL.
+
+00:03:38.300 --> 00:03:40.300
+You will not get it there.
+
+00:03:40.300 --> 00:03:45.300
+There will be some knobs to tweak but those are limited.
+
+00:03:45.300 --> 00:03:48.300
+Or you can go inside the code and do proper customization.
+
+00:03:48.300 --> 00:03:55.300
+The second major advantage of DPVAL is that you can easily create custom evals.
+
+00:03:55.300 --> 00:03:59.300
+Custom metrics, custom evals are very difficult to create.
+
+00:03:59.300 --> 00:04:04.300
+Whereas in DPVAL you have seen how easily you can create custom evals.
+
+00:04:04.300 --> 00:04:15.300
+So it was any other metric like recall or position instead we are still going to use.
+
+00:04:15.300 --> 00:04:18.300
+Yes, we are calculating for every metric.
+
+00:04:18.300 --> 00:04:21.300
+I can actually show you in the code as well.
+
+00:04:21.300 --> 00:04:28.300
+This threshold is for all the metrics, whether it is a bad or good metric.
+
+00:04:28.300 --> 00:04:32.300
+But you will see that the variation of the bad metric will be more.
+
+00:04:32.300 --> 00:04:35.300
+Because its value is going up and down.
+
+00:04:35.300 --> 00:04:40.300
+If you see here, contextual relevancy, it is 0.07.
+
+00:04:40.300 --> 00:04:46.300
+Whereas the metric that is performing well like faithfulness, it is less.
+
+00:04:46.300 --> 00:04:48.300
+Recall is less.
+
+00:04:48.300 --> 00:04:54.300
+And if you see for the same configuration, faithfulness is less.
+
+00:04:54.300 --> 00:04:56.300
+Whereas the rest is not coming.
+
+00:04:56.300 --> 00:04:58.300
+So we took a logical step here.
+
+00:04:58.300 --> 00:05:03.300
+It is better to include calculated values than to code hard values.
+
+00:05:06.300 --> 00:05:09.300
+That's why we calculated standard deviation.
+
+00:05:09.300 --> 00:05:10.300
+That's it.
+
+00:05:12.300 --> 00:05:14.300
+If you want, you can work with hard values too.
+
+00:05:14.300 --> 00:05:16.300
+It means you are not being stopped.
+
+00:05:16.300 --> 00:05:22.300
+As I said, in regression testing or any kind of test, the criteria is yours.
+
+00:05:22.300 --> 00:05:25.300
+There are no fixed criteria.
+
+00:05:25.300 --> 00:05:27.300
+That you have to do testing in this way.
+
+00:05:29.300 --> 00:05:34.300
+Open source models, could you please direct us to the resources?
+
+00:05:34.300 --> 00:05:36.300
+Yes, I will direct it, Harry.
+
+00:05:36.300 --> 00:05:40.300
+We will not use it because again, then we will have to do the integration for it.
+
+00:05:40.300 --> 00:05:45.300
+But I will direct you towards the resource.
+
+00:05:45.300 --> 00:05:48.300
+You simply go to the DeepEval.
+
+00:05:50.300 --> 00:05:52.300
+Can you see my screen share, Harry?
+
+00:05:53.300 --> 00:05:55.300
+Can you see the DeepEval page?
+
+00:05:58.300 --> 00:06:00.300
+Right, ok and clear.
+
+00:06:00.300 --> 00:06:01.300
+Ok, you can see it.
+
+00:06:01.300 --> 00:06:03.300
+You have to go to docs.
+
+00:06:03.300 --> 00:06:06.300
+They have changed something here.
+
+00:06:06.300 --> 00:06:11.300
+You have to go to docs and you have to go here.
+
+00:06:11.300 --> 00:06:15.300
+If you want to set custom in metric, let me see.
+
+00:06:16.300 --> 00:06:19.300
+I have to see where it actually happens.
+
+00:06:19.300 --> 00:06:24.300
+You can do it there.
+
+00:06:24.300 --> 00:06:25.300
+See, here it is.
+
+00:06:25.300 --> 00:06:26.300
+It is a model.
+
+00:06:27.300 --> 00:06:30.300
+OpenAI GPT is supported here.
+
+00:06:30.300 --> 00:06:32.300
+Or any custom LLM.
+
+00:06:32.300 --> 00:06:37.300
+For that, you have to convert it to DeepEval base LLM class.
+
+00:06:37.300 --> 00:06:39.300
+Its code is given here.
+
+00:06:39.300 --> 00:06:43.300
+If you do this, then introduction to LLM evaluation metrics has come.
+
+00:06:43.300 --> 00:06:44.300
+Here it is.
+
+00:06:44.300 --> 00:06:46.300
+And if you go down,
+
+00:06:49.300 --> 00:06:52.300
+Here it is.
+
+00:06:52.300 --> 00:06:54.300
+Configure your LLM judges.
+
+00:06:54.300 --> 00:06:57.300
+Here you will see the entire setting of Ullama.
+
+00:06:57.300 --> 00:06:59.300
+See, you can see it here.
+
+00:06:59.300 --> 00:07:01.300
+You can set it from here.
+
+00:07:01.300 --> 00:07:03.300
+It has a code too.
+
+00:07:03.300 --> 00:07:05.300
+Custom metrics.
+
+00:07:06.300 --> 00:07:07.300
+I can't see it now.
+
+00:07:07.300 --> 00:07:09.300
+But I will share it with you.
+
+00:07:09.300 --> 00:07:14.300
+Here there is a code to set a custom LLM.
+
+00:07:17.300 --> 00:07:19.300
+Or maybe through this one.
+
+00:07:23.300 --> 00:07:24.300
+Here,
+
+00:07:31.300 --> 00:07:33.300
+Yes, it is here.
+
+00:07:33.300 --> 00:07:36.300
+What do you have to do for custom LLM?
+
+00:07:36.300 --> 00:07:39.300
+Here you have to inherit DeepEval base LLM.
+
+00:07:39.300 --> 00:07:42.300
+And here you have to make your entire class.
+
+00:07:42.300 --> 00:07:45.300
+So here you have the code.
+
+00:07:45.300 --> 00:07:48.300
+I think Gemini is also given.
+
+00:07:48.300 --> 00:07:50.300
+Mistral is also given.
+
+00:07:50.300 --> 00:07:51.300
+So there are some examples.
+
+00:07:51.300 --> 00:07:52.300
+Now go and check it.
+
+00:07:52.300 --> 00:07:55.300
+And implement it once.
+
+00:07:55.300 --> 00:07:57.300
+So there is a way.
+
+00:07:57.300 --> 00:08:01.300
+But again, you have to write a lot of custom code here.
+
+00:08:01.300 --> 00:08:04.300
+I hope this point is clear to you.
+
+00:08:04.300 --> 00:08:05.300
+It is easy.
+
+00:08:05.300 --> 00:08:07.300
+There is nothing special here.
+
+00:08:07.300 --> 00:08:09.300
+You can include it.
+
+00:08:09.300 --> 00:08:12.300
+Here is the quantization config.
+
+00:08:12.300 --> 00:08:14.300
+The details of the model.
+
+00:08:14.300 --> 00:08:16.300
+Load model is a function.
+
+00:08:16.300 --> 00:08:17.300
+You have to override it.
+
+00:08:17.300 --> 00:08:19.300
+Which will return your model.
+
+00:08:19.300 --> 00:08:22.300
+In generate, you will call your model.
+
+00:08:22.300 --> 00:08:24.300
+And this is a pipeline.
+
+00:08:24.300 --> 00:08:27.300
+Which DeepEval uses internally.
+
+00:08:27.300 --> 00:08:29.300
+So go and read it.
+
+00:08:29.300 --> 00:08:32.299
+I will share this link with you.
+
+00:08:36.299 --> 00:08:39.299
+And if you have any problem, you can discuss with me.
+
+00:08:41.299 --> 00:08:43.299
+The examples are given here.
+
+00:08:43.299 --> 00:08:45.300
+You can go and actually copy paste the code.
+
+00:08:45.300 --> 00:08:49.300
+And by doing tweaks, you can create the code.
+
+00:08:49.300 --> 00:08:52.300
+The rest of the integration is also given here.
+
+00:08:52.300 --> 00:08:55.300
+Maybe this is the direct integration of Olaama.
+
+00:08:55.300 --> 00:08:58.300
+Whatever is given here.
+
+00:09:01.300 --> 00:09:02.300
+Just a second.
+
+00:09:02.300 --> 00:09:04.300
+Here it is.
+
+00:09:04.300 --> 00:09:07.300
+So you can see how to do it.
+
+00:09:07.300 --> 00:09:08.300
+Okay.
+
+00:09:09.300 --> 00:09:11.300
+Any more questions?
+
+00:09:15.300 --> 00:09:16.300
+There are all the methods.
+
+00:09:16.300 --> 00:09:19.300
+I will guide you to the resources.
+
+00:09:19.300 --> 00:09:21.300
+Every step is important.
+
+00:09:21.300 --> 00:09:24.300
+I will guide you to the resources.
+
+00:09:24.300 --> 00:09:26.300
+Everything is available.
+
+00:09:26.300 --> 00:09:27.300
+Don't worry.
+
+00:09:27.300 --> 00:09:30.300
+Questions, questions?
+
+00:09:33.300 --> 00:09:35.300
+No, you can ask it right now.
+
+00:09:35.300 --> 00:09:37.300
+No issues.
+
+00:09:37.300 --> 00:09:40.300
+Any more questions?
+
+00:09:49.300 --> 00:09:51.300
+Any more questions guys?
+
+00:09:58.300 --> 00:10:00.300
+Yesterday, Sir also asked you.
+
+00:10:00.300 --> 00:10:02.300
+I also want to ask you.
+
+00:10:02.300 --> 00:10:04.300
+The regular sessions we are having.
+
+00:10:04.300 --> 00:10:08.300
+Is this actually creating some kind of burnout in you guys?
+
+00:10:08.300 --> 00:10:11.300
+Because the attendance is less today.
+
+00:10:13.300 --> 00:10:15.300
+Is this happening?
+
+00:10:17.300 --> 00:10:19.300
+Are you feeling a little burnout?
+
+00:10:29.300 --> 00:10:30.300
+Okay.
+
+00:10:30.300 --> 00:10:35.300
+Is it due to the length of the sessions or due to the frequency of the sessions?
+
+00:10:35.300 --> 00:10:40.300
+Are there daily sessions because of this or are there long sessions because of this?
+
+00:10:40.300 --> 00:10:42.300
+Or both?
+
+00:10:43.300 --> 00:10:45.300
+Frequency.
+
+00:10:46.300 --> 00:10:47.300
+Okay.
+
+00:10:47.300 --> 00:10:53.300
+So what do you think is the optimum number of sessions in a week?
+
+00:10:54.300 --> 00:10:55.300
+Give me a window.
+
+00:10:55.300 --> 00:10:57.300
+Not the exact number.
+
+00:10:57.300 --> 00:10:59.300
+Minimum and maximum.
+
+00:11:00.300 --> 00:11:01.300
+Okay.
+
+00:11:06.300 --> 00:11:07.300
+Okay.
+
+00:11:07.300 --> 00:11:09.300
+Everyone is telling about frequency.
+
+00:11:09.300 --> 00:11:11.300
+So frequency is bothering you.
+
+00:11:11.300 --> 00:11:13.300
+Feedback taken.
+
+00:11:15.300 --> 00:11:17.300
+Give me a window.
+
+00:11:17.300 --> 00:11:19.300
+Maybe the length.
+
+00:11:19.300 --> 00:11:21.300
+We can't do anything for the length.
+
+00:11:21.300 --> 00:11:23.300
+We have a lot to cover.
+
+00:11:23.300 --> 00:11:29.300
+If I don't cover the depth, then you will say that Sir, I have covered it from top to bottom.
+
+00:11:29.300 --> 00:11:34.300
+It takes a little time and the operations course is a little time consuming.
+
+00:11:37.300 --> 00:11:41.300
+You will never get a chance to relax in LLM Ops.
+
+00:11:52.300 --> 00:11:54.300
+Some questions are coming.
+
+00:11:54.300 --> 00:11:56.300
+Sometime office work.
+
+00:11:56.300 --> 00:11:58.300
+4 to 5 days max.
+
+00:11:58.300 --> 00:11:59.300
+Okay.
+
+00:11:59.300 --> 00:12:02.300
+So you don't have time to revise.
+
+00:12:02.300 --> 00:12:09.300
+Maybe to watch the recordings because you are already taking sessions of 6 days every 2 hours.
+
+00:12:11.300 --> 00:12:15.300
+We can also plan some doubt clearance sessions.
+
+00:12:16.300 --> 00:12:21.300
+Like if LLM Ops is too much and you need time to revise.
+
+00:12:21.300 --> 00:12:24.300
+So we can take a doubt session in between.
+
+00:12:24.300 --> 00:12:30.300
+Or we can take a small session and take a doubt session for the rest of the 1 hour.
+
+00:12:30.300 --> 00:12:32.300
+Everything is possible.
+
+00:12:32.300 --> 00:12:34.300
+I will discuss that with Sir.
+
+00:12:34.300 --> 00:12:36.300
+Let's do one thing.
+
+00:12:36.300 --> 00:12:38.300
+I have seen your question.
+
+00:12:38.300 --> 00:12:40.300
+We will take this after the session.
+
+00:12:40.300 --> 00:12:42.300
+Let's start the session.
+
+00:12:43.300 --> 00:12:45.300
+Write clear in the chat and then we will start.
+
+00:12:49.300 --> 00:12:51.300
+Today's session is going to be very interesting.
+
+00:12:52.300 --> 00:12:54.300
+It is a highly practical session.
+
+00:13:04.300 --> 00:13:06.300
+Write clear and then we will start.
+
+00:13:14.300 --> 00:13:16.300
+I will take your questions after some time.
+
+00:13:16.300 --> 00:13:18.300
+Let's start.
+
+00:13:19.300 --> 00:13:24.300
+So guys you already know that we discussed about guardrails in the last session.
+
+00:13:24.300 --> 00:13:26.300
+And we discussed that guardrails are what?
+
+00:13:26.300 --> 00:13:34.300
+Guardrails are basically your certain rules or certain boundaries.
+
+00:13:35.300 --> 00:13:38.300
+Which you apply on your LLM based application.
+
+00:13:38.300 --> 00:13:39.300
+Why?
+
+00:13:39.300 --> 00:13:42.300
+Why is this boundary or need to set these rules?
+
+00:13:42.300 --> 00:13:47.300
+This is because the core of your LLM based applications,
+
+00:13:47.300 --> 00:13:50.300
+the central component is your LLM.
+
+00:13:50.300 --> 00:13:57.300
+And the LLM are your generalists.
+
+00:13:57.300 --> 00:14:02.300
+Generalists means they give a general type output on every task.
+
+00:14:02.300 --> 00:14:05.300
+Means they are of Harfan Mala type, all rounder type.
+
+00:14:05.300 --> 00:14:07.300
+So they can do a lot of work.
+
+00:14:07.300 --> 00:14:14.300
+But your application is never of a generalist type.
+
+00:14:14.300 --> 00:14:17.300
+It is of a specific type.
+
+00:14:17.300 --> 00:14:21.300
+Your application has a specific use case.
+
+00:14:21.300 --> 00:14:23.300
+It has specific users.
+
+00:14:23.300 --> 00:14:26.300
+There is a whole way to work with it.
+
+00:14:26.300 --> 00:14:33.300
+So what you are doing is you are running your application by a journalist which is your LLM.
+
+00:14:33.300 --> 00:14:36.300
+So this journalist can go in any direction.
+
+00:14:36.300 --> 00:14:38.300
+It has no limit.
+
+00:14:38.300 --> 00:14:40.300
+We have not set any limit here.
+
+00:14:40.300 --> 00:14:46.300
+So the criteria to set the limit is set through our guardrails.
+
+00:14:48.300 --> 00:14:51.300
+In simple words, what are guardrails?
+
+00:14:51.300 --> 00:14:56.300
+Guardrails are a little bit of our control on this LLM.
+
+00:14:56.300 --> 00:14:59.300
+We are controlling it a little bit.
+
+00:14:59.300 --> 00:15:07.300
+And basically we are putting it according to our application.
+
+00:15:07.300 --> 00:15:09.300
+I hope you understood this point.
+
+00:15:09.300 --> 00:15:13.300
+After that we discussed what are input guardrails and output guardrails.
+
+00:15:13.300 --> 00:15:18.300
+And there we discussed another point.
+
+00:15:18.300 --> 00:15:25.300
+That is how your guardrails should be invisible.
+
+00:15:26.300 --> 00:15:27.300
+To whom?
+
+00:15:27.300 --> 00:15:29.300
+To a normal user.
+
+00:15:29.300 --> 00:15:32.300
+Whereas your guardrails should be opaque.
+
+00:15:32.300 --> 00:15:34.300
+To whom?
+
+00:15:34.300 --> 00:15:36.300
+To an attacker.
+
+00:15:36.300 --> 00:15:45.300
+Input and output guardrails are those which are user facing.
+
+00:15:45.300 --> 00:15:47.300
+So they are different guardrails.
+
+00:15:47.300 --> 00:15:50.300
+You have to deal with human inputs.
+
+00:15:50.300 --> 00:15:54.300
+Whereas your output guardrails are your LLM facing.
+
+00:15:54.300 --> 00:15:59.300
+So you have to cater to the generated response of LLM.
+
+00:15:59.300 --> 00:16:07.300
+After that we discussed that generally there are 3 modes to implement your guardrails.
+
+00:16:07.300 --> 00:16:10.300
+You can implement your guardrails in 3 ways.
+
+00:16:10.300 --> 00:16:15.300
+The first method was the rule based approach.
+
+00:16:16.300 --> 00:16:22.300
+In this rule based approach, you generally write a python code.
+
+00:16:22.300 --> 00:16:25.300
+Which is basically a python function.
+
+00:16:25.300 --> 00:16:28.300
+If you want to understand it simply, it is a function.
+
+00:16:28.300 --> 00:16:34.300
+The logic written in the code will be implemented according to that logic.
+
+00:16:34.300 --> 00:16:39.300
+The second method was the classifier based or machine learning based approach.
+
+00:16:39.300 --> 00:16:43.300
+And the third method was the LLM based approach.
+
+00:16:44.300 --> 00:16:52.300
+We also studied that if you use a rule based approach, then your cost is minimal.
+
+00:16:52.300 --> 00:16:59.300
+Because you have to make this python function only once and you can use it again and again.
+
+00:16:59.300 --> 00:17:01.300
+What was machine learning based?
+
+00:17:01.300 --> 00:17:05.300
+Here your cost was of intermediate level.
+
+00:17:05.300 --> 00:17:09.300
+You think a small cost is to maintain the model, to train the model.
+
+00:17:09.300 --> 00:17:13.300
+You need a data set for a certain use case.
+
+00:17:13.300 --> 00:17:16.300
+For which use case you are training this model.
+
+00:17:16.300 --> 00:17:20.300
+Here your whole data science and machine learning life cycle is being used.
+
+00:17:20.300 --> 00:17:27.300
+But once you have this model, then the cost of running it, its inference cost is very low.
+
+00:17:27.300 --> 00:17:31.300
+Generally in machine learning, the inference cost is low.
+
+00:17:31.300 --> 00:17:33.300
+And the size of your model is also small.
+
+00:17:33.300 --> 00:17:35.300
+You can easily maintain it.
+
+00:17:35.300 --> 00:17:39.300
+Now let's come to the last type that is your LLM based guardrails.
+
+00:17:39.300 --> 00:17:45.300
+The biggest feature of LLM based guardrails is that these are highly accurate.
+
+00:17:45.300 --> 00:17:48.300
+Because you are using LLMs here.
+
+00:17:48.300 --> 00:17:50.300
+But what is the biggest downside of this?
+
+00:17:50.300 --> 00:17:52.300
+The biggest downside is its cost.
+
+00:17:52.300 --> 00:17:55.300
+And also latency.
+
+00:17:55.300 --> 00:17:56.300
+Why?
+
+00:17:56.300 --> 00:17:59.300
+Because you are not hosting LLMs here.
+
+00:17:59.300 --> 00:18:00.300
+You have not developed.
+
+00:18:00.300 --> 00:18:03.300
+You are using LLMs through an API call.
+
+00:18:03.300 --> 00:18:07.300
+So for every API call you are doing, you have to pay a cost.
+
+00:18:07.300 --> 00:18:12.300
+And because you implement guardrails in both input and output.
+
+00:18:12.300 --> 00:18:16.300
+So as soon as any query or input comes in your rag application.
+
+00:18:16.300 --> 00:18:18.300
+Your guardrail will be triggered.
+
+00:18:18.300 --> 00:18:21.300
+Your LLM will generate any response.
+
+00:18:21.300 --> 00:18:23.300
+Your guardrail will be triggered.
+
+00:18:23.300 --> 00:18:28.300
+So for a simple rag application where you are just taking input and output.
+
+00:18:28.300 --> 00:18:31.300
+Your two time guardrails are also being triggered there.
+
+00:18:31.300 --> 00:18:38.300
+So you are doing minimum two API calls with every cycle of your application.
+
+00:18:38.300 --> 00:18:44.300
+And you know that LLM has latency if you integrate it anywhere.
+
+00:18:44.300 --> 00:18:48.300
+So we have discussed all these approaches.
+
+00:18:48.300 --> 00:18:51.300
+Now there is a rule of thumb.
+
+00:18:51.300 --> 00:18:56.300
+And always remember this whenever you are in any application.
+
+00:18:56.300 --> 00:18:58.300
+I am not talking about rag application.
+
+00:18:58.300 --> 00:19:01.300
+Whenever you are going to implement guardrails in any application.
+
+00:19:01.300 --> 00:19:03.300
+Always remember this rule of thumb.
+
+00:19:03.300 --> 00:19:08.300
+Whenever you are going to apply guardrails.
+
+00:19:08.300 --> 00:19:10.300
+You have to apply it very carefully.
+
+00:19:10.300 --> 00:19:14.300
+Carefully means you have to apply it very carefully.
+
+00:19:14.300 --> 00:19:17.300
+At most for a certain application.
+
+00:19:17.300 --> 00:19:22.300
+You have to apply 4 to 5 guardrails only.
+
+00:19:22.300 --> 00:19:28.300
+So here you have to select the optimum guardrails for your application.
+
+00:19:28.300 --> 00:19:30.300
+You have to be highly selective.
+
+00:19:30.300 --> 00:19:33.300
+Which guardrails you have to apply.
+
+00:19:33.300 --> 00:19:35.300
+I hope you are understanding the problem.
+
+00:19:35.300 --> 00:19:38.300
+As you keep increasing your guardrails.
+
+00:19:38.300 --> 00:19:41.300
+Your latency will increase.
+
+00:19:41.300 --> 00:19:44.300
+Your overhead will increase.
+
+00:19:45.300 --> 00:19:49.300
+So you have to build the guardrails layer.
+
+00:19:49.300 --> 00:19:51.300
+Whether it is input or output.
+
+00:19:51.300 --> 00:19:53.300
+You have to build it very carefully.
+
+00:19:53.300 --> 00:19:58.300
+You don't have to fill too much guardrails.
+
+00:19:58.300 --> 00:20:00.300
+That I apply guardrails for this thing.
+
+00:20:00.300 --> 00:20:02.300
+I apply guardrails for this thing.
+
+00:20:02.300 --> 00:20:05.300
+No, you have to understand your application carefully.
+
+00:20:05.300 --> 00:20:07.300
+And apply guardrails on it.
+
+00:20:07.300 --> 00:20:09.300
+So what are we going to do today?
+
+00:20:09.300 --> 00:20:11.300
+I will explain the flow of today's lecture.
+
+00:20:11.300 --> 00:20:16.300
+In today's lecture we will understand how to implement guardrails.
+
+00:20:16.300 --> 00:20:19.300
+So the entire implementation of guardrails.
+
+00:20:19.300 --> 00:20:22.300
+We are going to understand that in today's lecture.
+
+00:20:22.300 --> 00:20:24.300
+And what will we do with this implementation?
+
+00:20:24.300 --> 00:20:30.300
+We will do this implementation through guardrails ai.
+
+00:20:30.300 --> 00:20:32.300
+This is an open source framework.
+
+00:20:32.300 --> 00:20:35.300
+Which helps you to implement guardrails.
+
+00:20:35.300 --> 00:20:38.300
+So how do you implement guardrails in guardrails ai?
+
+00:20:38.300 --> 00:20:40.300
+You will understand this.
+
+00:20:40.300 --> 00:20:43.300
+In the next lecture, which is again a very important lecture.
+
+00:20:43.300 --> 00:20:51.300
+In that lecture, we will apply guardrails on our current rag application.
+
+00:20:51.300 --> 00:20:58.300
+Means we will prepare the entire pipeline of guardrails.
+
+00:20:58.300 --> 00:21:03.300
+And we will also understand that for our application.
+
+00:21:03.300 --> 00:21:06.300
+This is rag app, but also a campus chatbot.
+
+00:21:06.300 --> 00:21:14.300
+So for this application, we will select the most appropriate guardrails.
+
+00:21:14.300 --> 00:21:18.300
+I hope you understood this thing.
+
+00:21:18.300 --> 00:21:21.300
+So in today's lecture, we will understand how to apply guardrails.
+
+00:21:21.300 --> 00:21:27.300
+And in the next lecture, we will implement some selective guardrails on our application.
+
+00:21:27.300 --> 00:21:29.300
+Is it clear guys?
+
+00:21:29.300 --> 00:21:31.300
+The flow of both the lectures.
+
+00:21:31.300 --> 00:21:33.300
+Is it clear?
+
+00:21:36.300 --> 00:21:44.300
+Let's start today's lecture.
+
+00:21:44.300 --> 00:21:48.300
+Any questions?
+
+00:21:48.300 --> 00:21:50.300
+Great.
+
+00:21:50.300 --> 00:21:52.300
+Let's start.
+
+00:21:52.300 --> 00:21:58.300
+Now because we are applying guardrails here, they are applying for their rag application.
+
+00:21:58.300 --> 00:22:02.300
+So let's understand once that in the rag application.
+
+00:22:02.300 --> 00:22:06.300
+In which places you apply guardrails.
+
+00:22:06.300 --> 00:22:08.300
+We have discussed that these are rules and boundaries.
+
+00:22:08.300 --> 00:22:10.300
+But you have to set boundaries.
+
+00:22:10.300 --> 00:22:12.300
+That is also an important factor.
+
+00:22:12.300 --> 00:22:14.300
+So let's discuss that once.
+
+00:22:18.300 --> 00:22:21.300
+Guys, are you hearing any noise from the background?
+
+00:22:26.300 --> 00:22:28.300
+Is there any noise in the background?
+
+00:22:28.300 --> 00:22:30.300
+Is there any noise coming from the background?
+
+00:22:30.300 --> 00:22:32.300
+Okay.
+
+00:22:32.300 --> 00:22:34.300
+Zoom's noise cancellation is working.
+
+00:22:34.300 --> 00:22:42.300
+So what we will do is we will apply guardrails on our rag application in the next class.
+
+00:22:42.300 --> 00:22:46.300
+But today we understand that when you apply guardrails on any rag application.
+
+00:22:46.300 --> 00:22:50.300
+So where do you apply guardrails and what kind of guardrails do you apply?
+
+00:22:50.300 --> 00:22:52.300
+Let's apply guardrails.
+
+00:22:52.300 --> 00:22:58.300
+In your rag application, there are three types of inputs.
+
+00:22:58.300 --> 00:23:00.300
+Okay.
+
+00:23:00.300 --> 00:23:02.300
+There are three types of inputs.
+
+00:23:02.300 --> 00:23:04.300
+Don't get confused.
+
+00:23:04.300 --> 00:23:06.300
+These three types of inputs are not for your application.
+
+00:23:06.300 --> 00:23:08.300
+These are for your guardrails.
+
+00:23:10.300 --> 00:23:14.300
+So let me explain to you what is the flow of guardrails.
+
+00:23:14.300 --> 00:23:16.300
+So the layer of guardrails.
+
+00:23:16.300 --> 00:23:20.300
+Now you can consider this particular box as the layer of guardrails.
+
+00:23:22.300 --> 00:23:24.300
+So the layer of guardrails is very simple.
+
+00:23:24.300 --> 00:23:26.300
+You send any input inside it.
+
+00:23:28.300 --> 00:23:30.300
+Okay.
+
+00:23:30.300 --> 00:23:32.300
+This layer of guardrails does two things.
+
+00:23:32.300 --> 00:23:36.300
+The first thing it does is validation.
+
+00:23:38.300 --> 00:23:40.300
+And inside validation, it simply checks.
+
+00:23:40.300 --> 00:23:42.300
+It is simply a check.
+
+00:23:42.300 --> 00:23:44.300
+Check of what?
+
+00:23:44.300 --> 00:23:46.300
+Check of what?
+
+00:23:46.300 --> 00:23:48.300
+That whether your validation is passing or not.
+
+00:23:48.300 --> 00:23:50.300
+That whether your guardrail is passing or not.
+
+00:23:50.300 --> 00:23:52.300
+So on validation, you get only two results.
+
+00:23:52.300 --> 00:23:54.300
+Either it is a pass or a fail.
+
+00:23:54.300 --> 00:23:56.300
+Like you do a test.
+
+00:23:56.300 --> 00:23:58.300
+In the test, either you are a pass or a fail.
+
+00:23:58.300 --> 00:24:00.300
+What is the second?
+
+00:24:00.300 --> 00:24:04.300
+In some cases, guardrails provide you with a fix.
+
+00:24:06.300 --> 00:24:08.300
+Means if your validation was failing.
+
+00:24:08.300 --> 00:24:12.300
+In that case, guardrails automatically fix that particular thing.
+
+00:24:12.300 --> 00:24:14.300
+And then re-validate.
+
+00:24:18.300 --> 00:24:20.300
+That what fix they have applied.
+
+00:24:20.300 --> 00:24:22.300
+Now is it passing the validation or not.
+
+00:24:22.300 --> 00:24:26.300
+And this fix is applied until the whole thing is validated.
+
+00:24:26.300 --> 00:24:28.300
+Although there is a limit here.
+
+00:24:28.300 --> 00:24:32.300
+But you implement guardrails in this particular flow.
+
+00:24:32.300 --> 00:24:34.300
+So there are two tasks of guardrails.
+
+00:24:34.300 --> 00:24:36.300
+First is to check.
+
+00:24:36.300 --> 00:24:38.300
+First is to check whether it is a pass or a fail.
+
+00:24:38.300 --> 00:24:40.300
+If it is a pass, then there is no need to fix it.
+
+00:24:40.300 --> 00:24:42.300
+Because it is already a pass.
+
+00:24:42.300 --> 00:24:46.300
+If it is a fail, then in some cases, it is tried to fix.
+
+00:24:46.300 --> 00:24:50.300
+And there is a limit to try.
+
+00:24:50.300 --> 00:24:54.300
+Even then, if your particular input to your guardrail is not passing.
+
+00:24:54.300 --> 00:25:00.300
+Then the final result you give to your user is your fail result.
+
+00:25:00.300 --> 00:25:04.300
+You do not let this particular input go ahead.
+
+00:25:04.300 --> 00:25:06.300
+So guardrails act as a filter.
+
+00:25:10.300 --> 00:25:16.300
+Now we have to apply this filter or this boundary in three places in our rag application.
+
+00:25:16.300 --> 00:25:20.300
+First of all, our input is the first.
+
+00:25:20.300 --> 00:25:24.300
+This input is our user input.
+
+00:25:24.300 --> 00:25:30.300
+If we get user input, then we will apply some input guardrails here.
+
+00:25:34.300 --> 00:25:44.300
+Now if our user input crosses these guardrails, then it will go ahead.
+
+00:25:44.300 --> 00:25:46.300
+Where will it go?
+
+00:25:46.300 --> 00:25:48.300
+It will go to the retriever.
+
+00:25:48.300 --> 00:25:50.300
+But this exact input will not go.
+
+00:25:50.300 --> 00:25:58.300
+Our validated user input will go.
+
+00:25:58.300 --> 00:26:02.300
+And who will get this validated user input or user query?
+
+00:26:02.300 --> 00:26:06.300
+This user query will be given to my retriever.
+
+00:26:10.300 --> 00:26:12.300
+Now what will the retriever do?
+
+00:26:12.300 --> 00:26:14.300
+Retriever will output retrieved chunks.
+
+00:26:14.300 --> 00:26:20.300
+Now these chunks will act as an input to my retriever guardrails.
+
+00:26:20.300 --> 00:26:26.300
+There will be another layer called as retriever guardrails.
+
+00:26:26.300 --> 00:26:30.300
+And in that retriever guardrails, you will send chunks.
+
+00:26:30.300 --> 00:26:34.300
+If the chunks are correct, then the guardrails will easily cross the filter.
+
+00:26:34.300 --> 00:26:42.300
+And you will get your validated chunks or validated context.
+
+00:26:42.300 --> 00:26:48.300
+These validated chunks plus your validated user input.
+
+00:26:48.300 --> 00:26:52.300
+This piece of information and this piece of information.
+
+00:26:52.300 --> 00:26:54.300
+You will send these two in the augmentation step.
+
+00:26:54.300 --> 00:26:56.300
+And who will you send?
+
+00:26:56.300 --> 00:27:00.300
+You will send this to your LLM or your generator.
+
+00:27:00.300 --> 00:27:02.300
+What will the generator do here?
+
+00:27:02.300 --> 00:27:04.300
+It will generate a response.
+
+00:27:04.300 --> 00:27:06.300
+Now where will this response go?
+
+00:27:06.300 --> 00:27:10.300
+Again it will go into the guardrail there.
+
+00:27:10.300 --> 00:27:14.300
+This will be your generator guardrail.
+
+00:27:14.300 --> 00:27:22.300
+This will validate and here you will get your validated response.
+
+00:27:22.300 --> 00:27:24.300
+Validated response.
+
+00:27:24.300 --> 00:27:30.300
+For 2 minutes, you should see this particular flow and understand it.
+
+00:27:30.300 --> 00:27:34.300
+Because we will use this flow in the future.
+
+00:27:34.300 --> 00:27:36.300
+It is very important.
+
+00:27:36.300 --> 00:27:38.300
+What did you do?
+
+00:27:38.300 --> 00:27:40.300
+You took the input and passed it through the guardrail.
+
+00:27:40.300 --> 00:27:42.300
+And what did you get in the output?
+
+00:27:42.300 --> 00:27:44.300
+Validated output.
+
+00:27:44.300 --> 00:27:46.300
+This is happening in every step.
+
+00:27:46.300 --> 00:27:48.300
+This is happening in every guardrail.
+
+00:27:48.300 --> 00:27:50.300
+Input is going and you are getting validated output in the output.
+
+00:27:50.300 --> 00:27:56.300
+Now I will tell you what is happening in every guardrail.
+
+00:27:56.300 --> 00:27:58.300
+There are two steps.
+
+00:27:58.300 --> 00:28:00.300
+The first step is our check.
+
+00:28:00.300 --> 00:28:04.300
+Is this particular input worth passing or not?
+
+00:28:04.300 --> 00:28:08.300
+If it is worth passing, we are passing it easily.
+
+00:28:08.300 --> 00:28:10.300
+If it is not worth passing, it is failing.
+
+00:28:10.300 --> 00:28:12.300
+What are we doing?
+
+00:28:12.300 --> 00:28:14.300
+We are trying to fix it.
+
+00:28:14.300 --> 00:28:16.300
+Can we fix it in any way?
+
+00:28:16.300 --> 00:28:22.300
+If we can, we will give the right response as an output.
+
+00:28:22.300 --> 00:28:26.300
+If we can't, we will stop this particular input.
+
+00:28:26.300 --> 00:28:32.300
+In that case, if our check fails and it is not right,
+
+00:28:32.300 --> 00:28:36.300
+then you will not see any output in any guardrail.
+
+00:28:36.300 --> 00:28:44.300
+Your validated output field will be completely blank.
+
+00:28:46.300 --> 00:28:52.300
+I discussed this because you are going to see this in the code.
+
+00:28:52.300 --> 00:28:54.300
+It is important to make a mental map.
+
+00:28:54.300 --> 00:28:56.300
+What will we see in the code?
+
+00:28:56.300 --> 00:28:58.300
+Is this flow clear?
+
+00:28:58.300 --> 00:29:04.300
+Now let's discuss what kind of guardrails you use in our rag app.
+
+00:29:04.300 --> 00:29:06.300
+Guardrails are very logical.
+
+00:29:06.300 --> 00:29:08.300
+Nothing fancy here.
+
+00:29:08.300 --> 00:29:14.300
+Now as we discussed, the first guardrail you get is input guardrail.
+
+00:29:14.300 --> 00:29:18.300
+You can also call it user query guardrail.
+
+00:29:18.300 --> 00:29:20.300
+Who is getting the input?
+
+00:29:20.300 --> 00:29:22.300
+It is getting input from your user query.
+
+00:29:22.300 --> 00:29:24.300
+That is its input.
+
+00:29:24.300 --> 00:29:28.300
+And this validated query is returning it to the output.
+
+00:29:28.300 --> 00:29:34.300
+Now I ask you that what kind of query can the user write here?
+
+00:29:34.300 --> 00:29:38.300
+What kind of guardrails do I need to implement here?
+
+00:29:38.300 --> 00:29:42.300
+For the user, for a given rag app.
+
+00:29:42.300 --> 00:29:46.300
+Suppose our campusX is the chatbot.
+
+00:29:46.300 --> 00:29:50.300
+So which queries of the user do I have to block?
+
+00:29:50.300 --> 00:29:52.300
+I don't want to block normal user queries.
+
+00:29:52.300 --> 00:29:56.300
+I want to block the query of attacker or malicious user.
+
+00:29:56.300 --> 00:29:58.300
+Which is giving wrong input.
+
+00:29:58.300 --> 00:30:00.300
+What kind of inputs can be here?
+
+00:30:00.300 --> 00:30:02.300
+Can anyone tell me?
+
+00:30:02.300 --> 00:30:04.300
+Prompt injection.
+
+00:30:04.300 --> 00:30:06.300
+Simplify it a little.
+
+00:30:06.300 --> 00:30:08.300
+I know you have read the concept of guardrails.
+
+00:30:08.300 --> 00:30:14.300
+We are not going into the terminology of prompt injection jailbreaking.
+
+00:30:14.300 --> 00:30:16.300
+Simply tell me.
+
+00:30:16.300 --> 00:30:18.300
+User can ask questions about other courses.
+
+00:30:18.300 --> 00:30:20.300
+Yes, Shruti is absolutely right.
+
+00:30:20.300 --> 00:30:24.300
+The user can talk about some off topic here.
+
+00:30:24.300 --> 00:30:28.300
+Off topic is a very important guardrail.
+
+00:30:28.300 --> 00:30:30.300
+Yes, if the system does not give the instruction here,
+
+00:30:30.300 --> 00:30:32.300
+If the environment variable does not give it,
+
+00:30:32.300 --> 00:30:36.300
+Then we cannot do jailbreak here.
+
+00:30:36.300 --> 00:30:40.300
+Our LLM cannot break here.
+
+00:30:40.300 --> 00:30:42.300
+What else can happen?
+
+00:30:44.300 --> 00:30:46.300
+What else can happen?
+
+00:30:46.300 --> 00:30:48.300
+Our user can also abuse.
+
+00:30:48.300 --> 00:30:50.300
+It is possible, right?
+
+00:30:50.300 --> 00:30:52.300
+Abuse.
+
+00:30:52.300 --> 00:30:54.300
+PIA can give data.
+
+00:30:54.300 --> 00:30:56.300
+Yes, if a particular user is not able to enroll,
+
+00:30:56.300 --> 00:30:58.300
+Then he is telling his name, email id.
+
+00:30:58.300 --> 00:31:00.300
+Sir, get me enrolled.
+
+00:31:00.300 --> 00:31:02.300
+But what is this?
+
+00:31:02.300 --> 00:31:04.300
+This is a doubt solving chatbot.
+
+00:31:04.300 --> 00:31:06.300
+Will this type of query work here?
+
+00:31:06.300 --> 00:31:08.300
+The answer is no.
+
+00:31:08.300 --> 00:31:10.300
+It will break our system.
+
+00:31:10.300 --> 00:31:12.300
+Obviously, our Parag chatbot will say this only.
+
+00:31:12.300 --> 00:31:14.300
+I don't know.
+
+00:31:14.300 --> 00:31:18.300
+Because there is no such document in its context.
+
+00:31:18.300 --> 00:31:20.300
+So yes, PIA data is there.
+
+00:31:20.300 --> 00:31:22.300
+Can anyone else tell me?
+
+00:31:22.300 --> 00:31:24.300
+What can happen?
+
+00:31:24.300 --> 00:31:26.300
+Out of context, things can be asked.
+
+00:31:26.300 --> 00:31:28.300
+It is off topic.
+
+00:31:28.300 --> 00:31:30.300
+Something can happen.
+
+00:31:30.300 --> 00:31:32.300
+Toxic input can also come.
+
+00:31:34.300 --> 00:31:36.300
+Biased input can also come.
+
+00:31:38.300 --> 00:31:42.300
+It is possible that we ask about a competitor.
+
+00:31:44.300 --> 00:31:46.300
+It is possible, right?
+
+00:31:46.300 --> 00:31:50.300
+So we have to put guardrails against all these things.
+
+00:31:50.300 --> 00:31:52.300
+Now let's talk about the retriever.
+
+00:31:52.300 --> 00:31:54.300
+Let's not discuss the retriever.
+
+00:31:54.300 --> 00:31:56.300
+Because when we build retriever in our application,
+
+00:31:56.300 --> 00:31:58.300
+you will understand it better.
+
+00:31:58.300 --> 00:32:00.300
+Now let's talk about the output.
+
+00:32:00.300 --> 00:32:02.300
+We also put guardrails for retriever.
+
+00:32:02.300 --> 00:32:04.300
+But again, we are not discussing this now.
+
+00:32:04.300 --> 00:32:06.300
+Because before this, we have to read two concepts
+
+00:32:06.300 --> 00:32:08.300
+like jail breaking and prompt injection.
+
+00:32:08.300 --> 00:32:10.300
+Let's not discuss this now.
+
+00:32:10.300 --> 00:32:12.300
+Let's talk about the generator.
+
+00:32:12.300 --> 00:32:14.300
+In the case of generator,
+
+00:32:14.300 --> 00:32:16.300
+again I am looking at the chat.
+
+00:32:16.300 --> 00:32:18.300
+What kind of guardrails will you have to put here?
+
+00:32:18.300 --> 00:32:20.300
+In the case of generator,
+
+00:32:20.300 --> 00:32:22.300
+again I am looking at the chat.
+
+00:32:22.300 --> 00:32:24.300
+What kind of guardrails will you have to put here?
+
+00:32:24.300 --> 00:32:26.300
+Again, I am looking at the chat.
+
+00:32:26.300 --> 00:32:28.300
+What kind of guardrails will you have to put here?
+
+00:32:28.300 --> 00:32:30.300
+This generator is an LLM.
+
+00:32:30.300 --> 00:32:32.300
+And it is already aligned.
+
+00:32:32.300 --> 00:32:36.300
+It has already been aligned by OpenAI.
+
+00:32:38.300 --> 00:32:40.300
+We are using the model of OpenAI.
+
+00:32:40.300 --> 00:32:42.300
+It is properly aligned.
+
+00:32:42.300 --> 00:32:44.300
+So it will not give an abusive model.
+
+00:32:44.300 --> 00:32:46.300
+Yes, it can hallucinate.
+
+00:32:46.300 --> 00:32:48.300
+Very good Tushar.
+
+00:32:48.300 --> 00:32:50.300
+It can hallucinate.
+
+00:32:50.300 --> 00:32:52.300
+What else can happen?
+
+00:32:58.300 --> 00:33:00.300
+We can check the length of the output here.
+
+00:33:00.300 --> 00:33:02.300
+We can check the length of the output here.
+
+00:33:02.300 --> 00:33:04.300
+Let's say I have told my rag chatbot in my system prompt
+
+00:33:04.300 --> 00:33:06.300
+Let's say I have told my rag chatbot in my system prompt
+
+00:33:06.300 --> 00:33:08.300
+that you have to write small answers here.
+
+00:33:08.300 --> 00:33:10.300
+that you have to write small answers here.
+
+00:33:10.300 --> 00:33:12.300
+One paragraph answer.
+
+00:33:12.300 --> 00:33:14.300
+But if it starts writing the whole novel,
+
+00:33:14.300 --> 00:33:16.300
+in the output,
+
+00:33:16.300 --> 00:33:18.300
+we can check the output length here.
+
+00:33:18.300 --> 00:33:20.300
+What other checks can we put here?
+
+00:33:24.300 --> 00:33:26.300
+We can put it on style.
+
+00:33:26.300 --> 00:33:28.300
+Okay.
+
+00:33:28.300 --> 00:33:30.300
+Anything else?
+
+00:33:32.300 --> 00:33:34.300
+We can also put it on PII data.
+
+00:33:34.300 --> 00:33:36.300
+Maybe we have
+
+00:33:36.300 --> 00:33:38.300
+accidentally shared our chat here.
+
+00:33:38.300 --> 00:33:40.300
+accidentally shared our chat here.
+
+00:33:40.300 --> 00:33:42.300
+The chat that we are doing in Zoom is available in our transcript.
+
+00:33:42.300 --> 00:33:44.300
+The chat that we are doing in Zoom is available in our transcript.
+
+00:33:44.300 --> 00:33:46.300
+So your names are coming there.
+
+00:33:46.300 --> 00:33:48.300
+Yes.
+
+00:33:48.300 --> 00:33:50.300
+So there are many things here.
+
+00:33:50.300 --> 00:33:52.300
+We can put many guardrails here.
+
+00:33:54.300 --> 00:33:56.300
+So you can clearly see here
+
+00:33:56.300 --> 00:33:58.300
+that our input guardrails
+
+00:33:58.300 --> 00:34:00.300
+and output guardrails
+
+00:34:00.300 --> 00:34:02.300
+are not getting anything
+
+00:34:02.300 --> 00:34:04.300
+except one or two guardrails.
+
+00:34:04.300 --> 00:34:06.300
+So you have to think like this
+
+00:34:06.300 --> 00:34:08.300
+for every application.
+
+00:34:08.300 --> 00:34:10.300
+I will show you now.
+
+00:34:10.300 --> 00:34:12.300
+You have a big pool of guardrails available.
+
+00:34:12.300 --> 00:34:14.300
+Already built-in guardrails are available.
+
+00:34:14.300 --> 00:34:16.300
+You have to be selective here.
+
+00:34:16.300 --> 00:34:18.300
+And try to
+
+00:34:18.300 --> 00:34:20.300
+not have more than
+
+00:34:20.300 --> 00:34:22.300
+5 or 6 guardrails for your application.
+
+00:34:22.300 --> 00:34:24.300
+Because they have
+
+00:34:24.300 --> 00:34:26.300
+a lot of overhead.
+
+00:34:26.300 --> 00:34:28.300
+Your latency will increase a lot.
+
+00:34:28.300 --> 00:34:30.300
+Because what are you doing here at every step?
+
+00:34:30.300 --> 00:34:32.300
+You are adding an extra layer
+
+00:34:32.300 --> 00:34:34.300
+at every step.
+
+00:34:34.300 --> 00:34:36.300
+So for our rag app,
+
+00:34:36.300 --> 00:34:38.300
+we are adding 3 layers here.
+
+00:34:38.300 --> 00:34:40.300
+So 3 checks are being done here.
+
+00:34:40.300 --> 00:34:42.300
+And if by mistake
+
+00:34:42.300 --> 00:34:44.300
+we are using LLM guardrail
+
+00:34:44.300 --> 00:34:46.300
+in any of these layers,
+
+00:34:46.300 --> 00:34:48.300
+then latency will increase a lot.
+
+00:34:48.300 --> 00:34:50.300
+There are many overheads
+
+00:34:50.300 --> 00:34:52.300
+in ML too.
+
+00:34:52.300 --> 00:34:54.300
+Storage overheads.
+
+00:34:54.300 --> 00:34:56.300
+If you are running ML model locally
+
+00:34:56.300 --> 00:34:58.300
+on your system,
+
+00:34:58.300 --> 00:35:00.300
+it is taking your compute,
+
+00:35:00.300 --> 00:35:02.300
+your storage.
+
+00:35:02.300 --> 00:35:04.300
+So you have to see many factors here.
+
+00:35:04.300 --> 00:35:06.300
+Is it clear?
+
+00:35:06.300 --> 00:35:08.300
+Is this idea clear?
+
+00:35:12.300 --> 00:35:14.300
+Again, keep this idea in mind.
+
+00:35:14.300 --> 00:35:16.300
+We will implement this idea
+
+00:35:16.300 --> 00:35:18.300
+in the next session
+
+00:35:18.300 --> 00:35:20.300
+with full scratch.
+
+00:35:24.300 --> 00:35:26.300
+Let's move ahead guys.
+
+00:35:32.300 --> 00:35:34.300
+Ok, let's move ahead.
+
+00:35:36.300 --> 00:35:38.300
+Now let's come to the implementation part.
+
+00:35:38.300 --> 00:35:40.300
+That is our guardrails AI.
+
+00:35:40.300 --> 00:35:42.300
+Now you must be having a question
+
+00:35:42.300 --> 00:35:44.300
+in your mind
+
+00:35:44.300 --> 00:35:46.300
+when we started the topic of guardrails.
+
+00:35:46.300 --> 00:35:48.300
+Or when I taught module number 1.
+
+00:35:48.300 --> 00:35:50.300
+So there I discussed
+
+00:35:50.300 --> 00:35:52.300
+that to implement guardrails,
+
+00:35:52.300 --> 00:35:54.300
+we will use guardrails AI.
+
+00:35:54.300 --> 00:35:56.300
+So a logical question
+
+00:35:56.300 --> 00:35:58.300
+must have come that why are we using this?
+
+00:35:58.300 --> 00:36:00.300
+Can't we use any other framework?
+
+00:36:00.300 --> 00:36:02.300
+So I will tell you
+
+00:36:02.300 --> 00:36:04.300
+what are the benefits of
+
+00:36:04.300 --> 00:36:06.300
+using guardrails AI.
+
+00:36:06.300 --> 00:36:08.300
+The first benefit of using guardrails AI
+
+00:36:08.300 --> 00:36:10.300
+is that it gives you
+
+00:36:10.300 --> 00:36:12.300
+three types of guardrails.
+
+00:36:16.300 --> 00:36:18.300
+Built-in.
+
+00:36:18.300 --> 00:36:20.300
+Meaning, your rule guardrails are available.
+
+00:36:20.300 --> 00:36:22.300
+ML guardrails are available.
+
+00:36:22.300 --> 00:36:24.300
+And LLM guardrails are also available.
+
+00:36:24.300 --> 00:36:26.300
+The second benefit is
+
+00:36:26.300 --> 00:36:28.300
+that guardrails AI
+
+00:36:28.300 --> 00:36:30.300
+through their hub,
+
+00:36:30.300 --> 00:36:32.300
+through their
+
+00:36:32.300 --> 00:36:34.300
+repository,
+
+00:36:34.300 --> 00:36:36.300
+through their guardrails hub,
+
+00:36:36.300 --> 00:36:40.300
+gives you 70 built-in guardrails.
+
+00:36:42.300 --> 00:36:44.300
+And in most of the use cases,
+
+00:36:44.300 --> 00:36:46.300
+these 70 built-in guardrails
+
+00:36:46.300 --> 00:36:48.300
+do all your work.
+
+00:36:48.300 --> 00:36:50.300
+You don't need to make
+
+00:36:50.300 --> 00:36:52.300
+your own guardrails.
+
+00:36:52.300 --> 00:36:54.300
+But if you want to make
+
+00:36:54.300 --> 00:36:56.300
+a custom guardrail,
+
+00:36:56.300 --> 00:36:58.300
+custom guardrails feature is also available.
+
+00:36:58.300 --> 00:37:00.300
+Custom guardrails
+
+00:37:00.300 --> 00:37:02.300
+can also be implemented.
+
+00:37:02.300 --> 00:37:04.300
+Like we made custom eval,
+
+00:37:04.300 --> 00:37:06.300
+custom guardrails can also be implemented.
+
+00:37:06.300 --> 00:37:08.300
+The fourth benefit is
+
+00:37:08.300 --> 00:37:10.300
+that guardrails are constantly
+
+00:37:10.300 --> 00:37:12.300
+updated.
+
+00:37:12.300 --> 00:37:14.300
+Constantly updated.
+
+00:37:14.300 --> 00:37:16.300
+I will show you. Although not all of them are updated.
+
+00:37:16.300 --> 00:37:18.300
+But the most frequently used guardrails
+
+00:37:18.300 --> 00:37:20.300
+are updated.
+
+00:37:20.300 --> 00:37:22.300
+New things are added to them.
+
+00:37:22.300 --> 00:37:24.300
+Like if there is a guardrail of toxicity,
+
+00:37:24.300 --> 00:37:26.300
+then maybe
+
+00:37:26.300 --> 00:37:28.300
+a new slang or a new
+
+00:37:28.300 --> 00:37:30.300
+toxic word is added.
+
+00:37:30.300 --> 00:37:32.300
+You will get updates on that.
+
+00:37:32.300 --> 00:37:34.300
+And finally,
+
+00:37:34.300 --> 00:37:36.300
+the best thing
+
+00:37:36.300 --> 00:37:38.300
+that I like about guardrails
+
+00:37:38.300 --> 00:37:40.300
+is that the biggest problem of LLM Ops
+
+00:37:40.300 --> 00:37:42.300
+is that you have to work with multiple tools.
+
+00:37:42.300 --> 00:37:44.300
+You have to
+
+00:37:44.300 --> 00:37:46.300
+orchestrate, combine,
+
+00:37:46.300 --> 00:37:48.300
+integrate everything.
+
+00:37:48.300 --> 00:37:50.300
+You have to write so many codes.
+
+00:37:50.300 --> 00:37:52.300
+You are already very tensed.
+
+00:37:52.300 --> 00:37:54.300
+If you get a tool
+
+00:37:54.300 --> 00:37:56.300
+where you have to write very less code,
+
+00:37:56.300 --> 00:37:58.300
+make very few changes in your application
+
+00:37:58.300 --> 00:38:00.300
+and get ready as a guardrail,
+
+00:38:00.300 --> 00:38:02.300
+then you will get a lot of problems.
+
+00:38:02.300 --> 00:38:04.300
+So that's why we chose guardrails AI.
+
+00:38:04.300 --> 00:38:06.300
+The code of guardrails AI
+
+00:38:06.300 --> 00:38:08.300
+is super simple.
+
+00:38:08.300 --> 00:38:10.300
+I won't say simple, it is super duper simple.
+
+00:38:10.300 --> 00:38:12.300
+And
+
+00:38:12.300 --> 00:38:14.300
+once you have
+
+00:38:14.300 --> 00:38:16.300
+learned to implement
+
+00:38:16.300 --> 00:38:18.300
+any one guardrail here,
+
+00:38:18.300 --> 00:38:20.300
+then its code
+
+00:38:20.300 --> 00:38:22.300
+is so unified
+
+00:38:22.300 --> 00:38:24.300
+that you can easily implement
+
+00:38:24.300 --> 00:38:26.300
+the rest of the guardrails here.
+
+00:38:26.300 --> 00:38:28.300
+So what do you say guys?
+
+00:38:28.300 --> 00:38:30.300
+We should work with guardrails AI
+
+00:38:30.300 --> 00:38:32.300
+and find some other way out
+
+00:38:32.300 --> 00:38:34.300
+to implement guardrails.
+
+00:38:34.300 --> 00:38:36.300
+Do you agree
+
+00:38:36.300 --> 00:38:38.300
+that guardrails AI is good?
+
+00:38:44.300 --> 00:38:46.300
+OK
+
+00:38:46.300 --> 00:38:48.300
+and another positive point of this is
+
+00:38:48.300 --> 00:38:50.300
+that this hub is community
+
+00:38:50.300 --> 00:38:52.300
+powered. So you too
+
+00:38:52.300 --> 00:38:54.300
+can make a guardrail and register
+
+00:38:54.300 --> 00:38:56.300
+on this hub tomorrow. This is also
+
+00:38:56.300 --> 00:38:58.300
+possible. If you have any use case
+
+00:38:58.300 --> 00:39:00.300
+you made a guardrail there
+
+00:39:00.300 --> 00:39:02.300
+and pushed it
+
+00:39:02.300 --> 00:39:04.300
+and other people are using your guardrail.
+
+00:39:04.300 --> 00:39:06.300
+Yes, it is open source.
+
+00:39:06.300 --> 00:39:08.300
+I said community driven.
+
+00:39:12.300 --> 00:39:14.300
+It's clear. You won't
+
+00:39:14.300 --> 00:39:16.300
+have to spend anything. Where will you spend?
+
+00:39:16.300 --> 00:39:18.300
+You will only spend on this LLM
+
+00:39:18.300 --> 00:39:20.300
+guardrails because there
+
+00:39:20.300 --> 00:39:22.300
+you will obviously have to bear the cost of the API.
+
+00:39:26.300 --> 00:39:28.300
+Great.
+
+00:39:28.300 --> 00:39:30.300
+Now the makers of guardrails AI
+
+00:39:30.300 --> 00:39:32.300
+have divided
+
+00:39:32.300 --> 00:39:34.300
+the guardrails into two
+
+00:39:34.300 --> 00:39:36.300
+broad categories.
+
+00:39:36.300 --> 00:39:38.300
+What are those two broad categories?
+
+00:39:38.300 --> 00:39:40.300
+I will tell you. One is
+
+00:39:40.300 --> 00:39:42.300
+string based guardrails.
+
+00:39:46.300 --> 00:39:48.300
+And we are going to use
+
+00:39:48.300 --> 00:39:50.300
+these string based guardrails
+
+00:39:50.300 --> 00:39:52.300
+in our RAC application.
+
+00:39:52.300 --> 00:39:54.300
+What are string based guardrails?
+
+00:39:54.300 --> 00:39:56.300
+The input is a string.
+
+00:39:56.300 --> 00:39:58.300
+So our
+
+00:39:58.300 --> 00:40:00.300
+if I take you back
+
+00:40:00.300 --> 00:40:02.300
+on the flow diagram.
+
+00:40:02.300 --> 00:40:04.300
+The user input will come in
+
+00:40:04.300 --> 00:40:06.300
+string format.
+
+00:40:06.300 --> 00:40:08.300
+The chunks we will get from
+
+00:40:08.300 --> 00:40:10.300
+the retriever, what are these chunks?
+
+00:40:10.300 --> 00:40:12.300
+Textual chunks. Again a string
+
+00:40:12.300 --> 00:40:14.300
+and the LLM response
+
+00:40:14.300 --> 00:40:16.300
+will come in which format?
+
+00:40:16.300 --> 00:40:18.300
+This will also come in string format.
+
+00:40:18.300 --> 00:40:20.300
+So we are going to use string based
+
+00:40:20.300 --> 00:40:22.300
+guardrails. Whereas
+
+00:40:22.300 --> 00:40:24.300
+here some guardrails are
+
+00:40:24.300 --> 00:40:26.300
+structured guardrails.
+
+00:40:26.300 --> 00:40:28.300
+Now there is no need to worry.
+
+00:40:28.300 --> 00:40:30.300
+It's a fancy term.
+
+00:40:30.300 --> 00:40:32.300
+Basically these structured guardrails
+
+00:40:32.300 --> 00:40:34.300
+are on your structured output.
+
+00:40:34.300 --> 00:40:36.300
+You must have worked with
+
+00:40:36.300 --> 00:40:38.300
+structured output.
+
+00:40:38.300 --> 00:40:40.300
+You make a pyrdantic schema
+
+00:40:40.300 --> 00:40:42.300
+and there you generate
+
+00:40:42.300 --> 00:40:44.300
+structured output.
+
+00:40:44.300 --> 00:40:46.300
+Now through the same pyrdantic schema
+
+00:40:46.300 --> 00:40:48.300
+through which you generate structured output
+
+00:40:48.300 --> 00:40:50.300
+you can also give your guardrail.
+
+00:40:50.300 --> 00:40:52.300
+So this pyrdantic schema
+
+00:40:52.300 --> 00:40:54.300
+you can give to your guardrails.
+
+00:40:54.300 --> 00:40:56.300
+Now your guardrail will make sure
+
+00:40:56.300 --> 00:40:58.300
+that the LLM that is generating
+
+00:40:58.300 --> 00:41:00.300
+structured output, is it doing
+
+00:41:00.300 --> 00:41:02.300
+according to your schema or not?
+
+00:41:02.300 --> 00:41:04.300
+So these are the two broad categories
+
+00:41:04.300 --> 00:41:06.300
+string based and structured guardrails.
+
+00:41:06.300 --> 00:41:08.300
+We are going to use
+
+00:41:08.300 --> 00:41:10.300
+string based guardrails
+
+00:41:10.300 --> 00:41:12.300
+for this particular application.
+
+00:41:12.300 --> 00:41:14.300
+If you want you can read about
+
+00:41:14.300 --> 00:41:16.300
+structured guardrails in the documentation
+
+00:41:16.300 --> 00:41:18.300
+and understand its implementation.
+
+00:41:18.300 --> 00:41:20.300
+Because code is super simple.
+
+00:41:20.300 --> 00:41:22.300
+Clear?
+
+00:41:22.300 --> 00:41:24.300
+Is guardrails AI
+
+00:41:24.300 --> 00:41:26.300
+clear? Why are we using it?
+
+00:41:26.300 --> 00:41:28.300
+Thought process is clear in your mind?
+
+00:41:34.300 --> 00:41:36.300
+Ok, great. Let's move ahead.
+
+00:41:40.300 --> 00:41:42.300
+Let's move ahead.
+
+00:41:42.300 --> 00:41:44.300
+String output parsers
+
+00:41:44.300 --> 00:41:46.300
+similar to string based.
+
+00:41:46.300 --> 00:41:48.300
+No, that is a parser.
+
+00:41:48.300 --> 00:41:50.300
+Don't mix
+
+00:41:50.300 --> 00:41:52.300
+the line chain and
+
+00:41:52.300 --> 00:41:54.300
+guardrail AI.
+
+00:41:54.300 --> 00:41:56.300
+Ok, here your
+
+00:41:56.300 --> 00:41:58.300
+string output is coming
+
+00:41:58.300 --> 00:42:00.300
+you are basically passing it through a layer.
+
+00:42:00.300 --> 00:42:02.300
+Don't mix it now.
+
+00:42:02.300 --> 00:42:04.300
+If I can read
+
+00:42:04.300 --> 00:42:06.300
+your name. Is it
+
+00:42:06.300 --> 00:42:08.300
+Kaloal or Kaloay?
+
+00:42:08.300 --> 00:42:10.300
+I think it is Kaloal.
+
+00:42:10.300 --> 00:42:12.300
+Chatterjee, right?
+
+00:42:12.300 --> 00:42:14.300
+Yes,
+
+00:42:14.300 --> 00:42:16.300
+I read Kajol
+
+00:42:16.300 --> 00:42:18.300
+for a while.
+
+00:42:18.300 --> 00:42:20.300
+Ok,
+
+00:42:20.300 --> 00:42:22.300
+let's discuss
+
+00:42:22.300 --> 00:42:24.300
+about guardrails AI.
+
+00:42:24.300 --> 00:42:26.300
+Ok, in guardrails AI
+
+00:42:26.300 --> 00:42:28.300
+the main
+
+00:42:28.300 --> 00:42:30.300
+component, main
+
+00:42:30.300 --> 00:42:32.300
+superhero is called
+
+00:42:32.300 --> 00:42:34.300
+the guard component.
+
+00:42:34.300 --> 00:42:36.300
+This is your main guard.
+
+00:42:36.300 --> 00:42:38.300
+Ok, you have to put
+
+00:42:38.300 --> 00:42:40.300
+boundaries, guardrails.
+
+00:42:40.300 --> 00:42:42.300
+To control
+
+00:42:42.300 --> 00:42:44.300
+that boundary,
+
+00:42:44.300 --> 00:42:46.300
+you need a guard
+
+00:42:46.300 --> 00:42:48.300
+to prevent any
+
+00:42:48.300 --> 00:42:50.300
+wrong thing from crossing your boundary.
+
+00:42:50.300 --> 00:42:52.300
+For that, guardrails AI
+
+00:42:52.300 --> 00:42:54.300
+gives you guard component.
+
+00:42:54.300 --> 00:42:56.300
+Now, what does this guard component
+
+00:42:56.300 --> 00:42:58.300
+do? I will tell you.
+
+00:42:58.300 --> 00:43:00.300
+It has two types.
+
+00:43:00.300 --> 00:43:02.300
+If you want, you can use
+
+00:43:02.300 --> 00:43:04.300
+guard component as it is.
+
+00:43:04.300 --> 00:43:06.300
+As it is means you can use it in vanilla form.
+
+00:43:06.300 --> 00:43:08.300
+You can call it
+
+00:43:08.300 --> 00:43:10.300
+as vanilla. Whereas, you can
+
+00:43:10.300 --> 00:43:12.300
+call LLM calls
+
+00:43:12.300 --> 00:43:14.300
+through guard.
+
+00:43:14.300 --> 00:43:16.300
+Now, I will tell you the difference
+
+00:43:16.300 --> 00:43:18.300
+between these two.
+
+00:43:18.300 --> 00:43:20.300
+The main component is
+
+00:43:20.300 --> 00:43:22.300
+guard component. So, in guardrails AI
+
+00:43:22.300 --> 00:43:24.300
+whenever you want to work, you should have
+
+00:43:24.300 --> 00:43:26.300
+a guard. Ok?
+
+00:43:26.300 --> 00:43:28.300
+What is vanilla?
+
+00:43:28.300 --> 00:43:30.300
+We are working with the default configurations.
+
+00:43:30.300 --> 00:43:32.300
+Ok, we will not focus on this now.
+
+00:43:32.300 --> 00:43:34.300
+Actually, we will use this.
+
+00:43:34.300 --> 00:43:36.300
+But I will tell you this one as well.
+
+00:43:36.300 --> 00:43:38.300
+What you do in this?
+
+00:43:38.300 --> 00:43:40.300
+In this, you
+
+00:43:40.300 --> 00:43:42.300
+in guard component
+
+00:43:42.300 --> 00:43:44.300
+you make LLM
+
+00:43:44.300 --> 00:43:46.300
+powered guard.
+
+00:43:46.300 --> 00:43:48.300
+In our case,
+
+00:43:48.300 --> 00:43:50.300
+in our case,
+
+00:43:50.300 --> 00:43:52.300
+our rag application
+
+00:43:52.300 --> 00:43:54.300
+is already made.
+
+00:43:54.300 --> 00:43:56.300
+Ok?
+
+00:43:56.300 --> 00:43:58.300
+We have already made all the components
+
+00:43:58.300 --> 00:44:00.300
+our generator, retriever, everything is already made.
+
+00:44:00.300 --> 00:44:02.300
+And in this application,
+
+00:44:02.300 --> 00:44:04.300
+LLM
+
+00:44:04.300 --> 00:44:06.300
+is already integrated.
+
+00:44:06.300 --> 00:44:08.300
+In our case, our output
+
+00:44:08.300 --> 00:44:10.300
+is already available.
+
+00:44:10.300 --> 00:44:12.300
+So, what we will do? We will use this vanilla
+
+00:44:12.300 --> 00:44:14.300
+one. Ok?
+
+00:44:14.300 --> 00:44:16.300
+What it does? It takes string in input.
+
+00:44:16.300 --> 00:44:18.300
+Whereas, this
+
+00:44:18.300 --> 00:44:20.300
+second guard, where you can
+
+00:44:20.300 --> 00:44:22.300
+make LLM calls
+
+00:44:22.300 --> 00:44:24.300
+this is used for your
+
+00:44:24.300 --> 00:44:26.300
+chatbots.
+
+00:44:26.300 --> 00:44:28.300
+Means, you have
+
+00:44:28.300 --> 00:44:30.300
+a simple chatbot, a central
+
+00:44:30.300 --> 00:44:32.300
+LLM. Ok?
+
+00:44:32.300 --> 00:44:34.300
+And it is getting an input
+
+00:44:34.300 --> 00:44:36.300
+and it is returning an output.
+
+00:44:36.300 --> 00:44:38.300
+Now, you
+
+00:44:38.300 --> 00:44:40.300
+in this LLM
+
+00:44:40.300 --> 00:44:42.300
+what you did?
+
+00:44:42.300 --> 00:44:44.300
+You made a guard component.
+
+00:44:46.300 --> 00:44:48.300
+And that guard
+
+00:44:48.300 --> 00:44:50.300
+is integrated with this LLM.
+
+00:44:50.300 --> 00:44:52.300
+That's it. Now, what will happen?
+
+00:44:52.300 --> 00:44:54.300
+Whenever an input will come
+
+00:44:54.300 --> 00:44:56.300
+then it will go through this guard.
+
+00:44:56.300 --> 00:44:58.300
+Guard rails are implemented here.
+
+00:44:58.300 --> 00:45:00.300
+Guard rails will be installed.
+
+00:45:00.300 --> 00:45:02.300
+So, that validated input
+
+00:45:02.300 --> 00:45:04.300
+will go to your LLM automatically.
+
+00:45:04.300 --> 00:45:06.300
+And your LLM
+
+00:45:06.300 --> 00:45:08.300
+which will generate the output
+
+00:45:08.300 --> 00:45:10.300
+will also be validated and
+
+00:45:10.300 --> 00:45:12.300
+will come out of this guard.
+
+00:45:12.300 --> 00:45:14.300
+So, basically, what you did?
+
+00:45:14.300 --> 00:45:16.300
+You covered this LLM here.
+
+00:45:16.300 --> 00:45:18.300
+We don't need to do this. Why?
+
+00:45:18.300 --> 00:45:20.300
+Because we already have our application
+
+00:45:20.300 --> 00:45:22.300
+available. So, what we will do?
+
+00:45:22.300 --> 00:45:24.300
+We will simply make our guard
+
+00:45:24.300 --> 00:45:26.300
+component here.
+
+00:45:26.300 --> 00:45:28.300
+And with that, we will attach our guard rails.
+
+00:45:30.300 --> 00:45:32.300
+And with that,
+
+00:45:32.300 --> 00:45:34.300
+we will have our guard rails
+
+00:45:34.300 --> 00:45:36.300
+layer.
+
+00:45:36.300 --> 00:45:38.300
+We don't need LLM here.
+
+00:45:38.300 --> 00:45:40.300
+Okay.
+
+00:45:40.300 --> 00:45:42.300
+Now, how does your guard component
+
+00:45:42.300 --> 00:45:44.300
+work? We understood.
+
+00:45:44.300 --> 00:45:46.300
+Now, let's discuss what is the output
+
+00:45:46.300 --> 00:45:48.300
+of your guard component.
+
+00:45:50.300 --> 00:45:52.300
+So, any guard component
+
+00:45:52.300 --> 00:45:54.300
+will validate
+
+00:45:54.300 --> 00:45:56.300
+through two methods.
+
+00:45:56.300 --> 00:45:58.300
+You will see the documentation also.
+
+00:45:58.300 --> 00:46:00.300
+And you will see two methods.
+
+00:46:00.300 --> 00:46:02.300
+First method is parse method.
+
+00:46:02.300 --> 00:46:04.300
+And second method is
+
+00:46:04.300 --> 00:46:06.300
+validate method.
+
+00:46:06.300 --> 00:46:08.300
+Okay. Here I have written
+
+00:46:08.300 --> 00:46:10.300
+validate versus parse.
+
+00:46:10.300 --> 00:46:12.300
+Which method we will use? We will use
+
+00:46:12.300 --> 00:46:14.300
+validate. Okay.
+
+00:46:14.300 --> 00:46:16.300
+We will validate through here.
+
+00:46:16.300 --> 00:46:18.300
+We will do validation.
+
+00:46:18.300 --> 00:46:20.300
+Validate again is
+
+00:46:20.300 --> 00:46:22.300
+the simple method.
+
+00:46:22.300 --> 00:46:24.300
+What is parse method?
+
+00:46:24.300 --> 00:46:26.300
+Parse method is generally used by you
+
+00:46:26.300 --> 00:46:28.300
+where you work with
+
+00:46:28.300 --> 00:46:30.300
+structured output.
+
+00:46:32.300 --> 00:46:34.300
+So, parse is not
+
+00:46:34.300 --> 00:46:36.300
+a unique thing.
+
+00:46:36.300 --> 00:46:38.300
+Inside parse, actually
+
+00:46:38.300 --> 00:46:40.300
+two operations are happening.
+
+00:46:40.300 --> 00:46:42.300
+First is parsing.
+
+00:46:42.300 --> 00:46:44.300
+Second is validation.
+
+00:46:44.300 --> 00:46:46.300
+For which, again, you are
+
+00:46:46.300 --> 00:46:48.300
+using this validate.
+
+00:46:48.300 --> 00:46:50.300
+So, parse method is basically
+
+00:46:50.300 --> 00:46:52.300
+doing two steps. Parsing
+
+00:46:52.300 --> 00:46:54.300
+and validation. Now, parsing
+
+00:46:54.300 --> 00:46:56.300
+is important because
+
+00:46:56.300 --> 00:46:58.300
+the response of your LLM
+
+00:46:58.300 --> 00:47:00.300
+is structured output.
+
+00:47:00.300 --> 00:47:02.300
+How is it? It is string
+
+00:47:02.300 --> 00:47:04.300
+form.
+
+00:47:04.300 --> 00:47:06.300
+And what we have to do is
+
+00:47:06.300 --> 00:47:08.300
+extract the JSON from it.
+
+00:47:10.300 --> 00:47:12.300
+So, this extraction work
+
+00:47:12.300 --> 00:47:14.300
+for which we use
+
+00:47:14.300 --> 00:47:16.300
+structured output parser
+
+00:47:16.300 --> 00:47:18.300
+is this.
+
+00:47:18.300 --> 00:47:20.300
+This parsing
+
+00:47:20.300 --> 00:47:22.300
+is our structured output parser.
+
+00:47:22.300 --> 00:47:24.300
+So, we parsed
+
+00:47:24.300 --> 00:47:26.300
+the string response from LLM
+
+00:47:26.300 --> 00:47:28.300
+which contains our structured output.
+
+00:47:28.300 --> 00:47:30.300
+We extracted it
+
+00:47:30.300 --> 00:47:32.300
+and validated it.
+
+00:47:32.300 --> 00:47:34.300
+Whereas, because we have
+
+00:47:34.300 --> 00:47:36.300
+simply string input
+
+00:47:36.300 --> 00:47:38.300
+we will use validate here.
+
+00:47:38.300 --> 00:47:40.300
+Is it clear?
+
+00:47:40.300 --> 00:47:42.300
+Is this difference clear guys?
+
+00:47:42.300 --> 00:47:44.300
+There are some technical details
+
+00:47:44.300 --> 00:47:46.300
+that I am sharing with you because
+
+00:47:46.300 --> 00:47:48.300
+you will see the code and documentation.
+
+00:47:48.300 --> 00:47:50.300
+You won't be confused.
+
+00:47:52.300 --> 00:47:54.300
+Is it clear?
+
+00:47:54.300 --> 00:47:56.300
+I will tell you once again.
+
+00:47:56.300 --> 00:47:58.300
+Is validation clear?
+
+00:48:00.300 --> 00:48:02.300
+There is tension in parsing.
+
+00:48:02.300 --> 00:48:04.300
+Validation is clear.
+
+00:48:04.300 --> 00:48:06.300
+You have to validate any string
+
+00:48:06.300 --> 00:48:08.300
+and drop it in validate method
+
+00:48:08.300 --> 00:48:10.300
+and it will be validated.
+
+00:48:10.300 --> 00:48:12.300
+Is this clear to everyone?
+
+00:48:12.300 --> 00:48:14.300
+Validate is clear.
+
+00:48:18.300 --> 00:48:20.300
+What is in parse?
+
+00:48:20.300 --> 00:48:22.300
+It is basically a combined form
+
+00:48:22.300 --> 00:48:24.300
+of parsing and validation.
+
+00:48:24.300 --> 00:48:26.300
+This validation step
+
+00:48:26.300 --> 00:48:28.300
+is done through the validate method.
+
+00:48:28.300 --> 00:48:30.300
+But it is done automatically.
+
+00:48:30.300 --> 00:48:32.300
+First, parsing is done then validation.
+
+00:48:32.300 --> 00:48:34.300
+Now, where is parsing used?
+
+00:48:34.300 --> 00:48:36.300
+Parsing is used only
+
+00:48:36.300 --> 00:48:38.300
+when you have
+
+00:48:38.300 --> 00:48:40.300
+a structured output.
+
+00:48:42.300 --> 00:48:44.300
+LLM's response
+
+00:48:44.300 --> 00:48:46.300
+is always text
+
+00:48:46.300 --> 00:48:48.300
+even for structured output.
+
+00:48:48.300 --> 00:48:50.300
+It is a JSON.
+
+00:48:50.300 --> 00:48:52.300
+The work of extracting JSON
+
+00:48:52.300 --> 00:48:54.300
+from it is parsing.
+
+00:48:54.300 --> 00:48:56.300
+First, you parsed
+
+00:48:56.300 --> 00:48:58.300
+and from the output of
+
+00:48:58.300 --> 00:49:00.300
+LLM, you extracted your JSON.
+
+00:49:02.300 --> 00:49:04.300
+You validated that JSON
+
+00:49:04.300 --> 00:49:06.300
+through the given
+
+00:49:06.300 --> 00:49:08.300
+patented schema.
+
+00:49:08.300 --> 00:49:10.300
+It will be done in validation.
+
+00:49:10.300 --> 00:49:12.300
+Parsing is basically
+
+00:49:12.300 --> 00:49:14.300
+a preprocessing step.
+
+00:49:14.300 --> 00:49:16.300
+That's it.
+
+00:49:16.300 --> 00:49:18.300
+But it is not like you can't use
+
+00:49:18.300 --> 00:49:20.300
+parse with your string
+
+00:49:20.300 --> 00:49:22.300
+inputs.
+
+00:49:22.300 --> 00:49:24.300
+You can use it.
+
+00:49:24.300 --> 00:49:26.300
+It is not like you will get an error.
+
+00:49:26.300 --> 00:49:28.300
+But you have validate available
+
+00:49:28.300 --> 00:49:30.300
+and generally it is used.
+
+00:49:30.300 --> 00:49:32.300
+It is recommended that you use validate.
+
+00:49:32.300 --> 00:49:34.300
+You will see validate in the code
+
+00:49:34.300 --> 00:49:36.300
+and parse in some places.
+
+00:49:36.300 --> 00:49:38.300
+I taught you this so that you don't get confused.
+
+00:49:38.300 --> 00:49:40.300
+If you want to use
+
+00:49:40.300 --> 00:49:42.300
+structured outputs tomorrow,
+
+00:49:42.300 --> 00:49:44.300
+then your parse will work.
+
+00:49:44.300 --> 00:49:46.300
+It is clear?
+
+00:49:46.300 --> 00:49:48.300
+Now it is clear?
+
+00:49:50.300 --> 00:49:52.300
+Is the doubt clear?
+
+00:49:52.300 --> 00:49:54.300
+Anyone have any doubt?
+
+00:49:54.300 --> 00:49:56.300
+So far?
+
+00:50:00.300 --> 00:50:02.300
+Anyone have any doubt?
+
+00:50:08.300 --> 00:50:10.300
+In guardrail.ai
+
+00:50:10.300 --> 00:50:12.300
+you can implement
+
+00:50:12.300 --> 00:50:14.300
+guardrails.
+
+00:50:14.300 --> 00:50:16.300
+The process is simple.
+
+00:50:16.300 --> 00:50:18.300
+First you will make the guard.
+
+00:50:18.300 --> 00:50:20.300
+This is your step number one.
+
+00:50:20.300 --> 00:50:22.300
+You will make the guard.
+
+00:50:22.300 --> 00:50:24.300
+After that you will provide
+
+00:50:24.300 --> 00:50:26.300
+some rules to this guard.
+
+00:50:26.300 --> 00:50:28.300
+Which are your guardrails.
+
+00:50:28.300 --> 00:50:30.300
+But guardrails
+
+00:50:30.300 --> 00:50:32.300
+in ai are called validators.
+
+00:50:34.300 --> 00:50:36.300
+Every different rule
+
+00:50:36.300 --> 00:50:38.300
+is your validator.
+
+00:50:38.300 --> 00:50:40.300
+Like the rule to check toxicity
+
+00:50:40.300 --> 00:50:42.300
+validator.
+
+00:50:42.300 --> 00:50:44.300
+The rule to check PIA is a PII validator.
+
+00:50:44.300 --> 00:50:46.300
+As soon as you
+
+00:50:46.300 --> 00:50:48.300
+have set the guard
+
+00:50:48.300 --> 00:50:50.300
+and explained the rules
+
+00:50:50.300 --> 00:50:52.300
+then whatever input you have
+
+00:50:52.300 --> 00:50:54.300
+you have to pass it through the validate
+
+00:50:54.300 --> 00:50:56.300
+function.
+
+00:50:56.300 --> 00:50:58.300
+This validate function will automatically handle everything.
+
+00:50:58.300 --> 00:51:00.300
+You just have to give your string
+
+00:51:00.300 --> 00:51:02.300
+and rest is done.
+
+00:51:02.300 --> 00:51:04.300
+Whenever you make
+
+00:51:04.300 --> 00:51:06.300
+a guardrail in guardrail.ai
+
+00:51:06.300 --> 00:51:08.300
+you need only these three things.
+
+00:51:08.300 --> 00:51:10.300
+Guard, rules and validate.
+
+00:51:10.300 --> 00:51:12.300
+This is the only thing
+
+00:51:12.300 --> 00:51:14.300
+which will handle the code.
+
+00:51:14.300 --> 00:51:16.300
+I hope this point is clear to you.
+
+00:51:16.300 --> 00:51:18.300
+You might be thinking
+
+00:51:18.300 --> 00:51:20.300
+that this is a three step process.
+
+00:51:20.300 --> 00:51:22.300
+We don't have to pass much from that.
+
+00:51:22.300 --> 00:51:24.300
+It is super simple.
+
+00:51:24.300 --> 00:51:26.300
+Now let's talk about validator.
+
+00:51:30.300 --> 00:51:32.300
+Move ahead guys.
+
+00:51:32.300 --> 00:51:34.300
+Everything seems simple.
+
+00:51:34.300 --> 00:51:36.300
+Everything is slowly breaking down.
+
+00:51:36.300 --> 00:51:38.300
+Is it looking tough?
+
+00:51:50.300 --> 00:51:52.300
+Great.
+
+00:51:54.300 --> 00:51:56.300
+Tell the rest of the people.
+
+00:51:56.300 --> 00:51:58.300
+Is everything clear?
+
+00:51:58.300 --> 00:52:00.300
+Yes.
+
+00:52:04.300 --> 00:52:06.300
+Fine.
+
+00:52:06.300 --> 00:52:08.300
+Now let's discuss about validator.
+
+00:52:08.300 --> 00:52:10.300
+I told you about validator.
+
+00:52:10.300 --> 00:52:12.300
+Validator is my guardrails
+
+00:52:12.300 --> 00:52:14.300
+or my rules.
+
+00:52:14.300 --> 00:52:16.300
+In your guardrails.ai
+
+00:52:16.300 --> 00:52:18.300
+you have 70 built-in validators.
+
+00:52:18.300 --> 00:52:20.300
+I told you that
+
+00:52:20.300 --> 00:52:22.300
+you have 70 built-in guardrails.
+
+00:52:22.300 --> 00:52:24.300
+That means you have 70 built-in validators.
+
+00:52:24.300 --> 00:52:26.300
+Validators are available.
+
+00:52:26.300 --> 00:52:28.300
+What is validator?
+
+00:52:28.300 --> 00:52:30.300
+Validator is a rule.
+
+00:52:32.300 --> 00:52:34.300
+Now what is this rule doing?
+
+00:52:34.300 --> 00:52:36.300
+Suppose this is your guardrail.
+
+00:52:38.300 --> 00:52:40.300
+Guardrail
+
+00:52:40.300 --> 00:52:42.300
+which is made of guard object.
+
+00:52:42.300 --> 00:52:44.300
+I told you that validator
+
+00:52:44.300 --> 00:52:46.300
+has two functions.
+
+00:52:46.300 --> 00:52:48.300
+First, it will check and second,
+
+00:52:48.300 --> 00:52:50.300
+it will fix.
+
+00:52:50.300 --> 00:52:52.300
+So whenever a validator
+
+00:52:52.300 --> 00:52:54.300
+checks,
+
+00:52:54.300 --> 00:52:56.300
+it gives two types of output.
+
+00:52:56.300 --> 00:52:58.300
+Either it is a pass
+
+00:52:58.300 --> 00:53:00.300
+or either it is a fail.
+
+00:53:00.300 --> 00:53:02.300
+And the output of validator
+
+00:53:02.300 --> 00:53:04.300
+is divided into
+
+00:53:04.300 --> 00:53:06.300
+these two categories.
+
+00:53:06.300 --> 00:53:08.300
+First is your pass result.
+
+00:53:08.300 --> 00:53:10.300
+You get this
+
+00:53:10.300 --> 00:53:12.300
+when you have success here.
+
+00:53:12.300 --> 00:53:14.300
+Your validation is passed here.
+
+00:53:14.300 --> 00:53:16.300
+So the output you will get here
+
+00:53:16.300 --> 00:53:18.300
+is a pass result object.
+
+00:53:18.300 --> 00:53:20.300
+And inside it
+
+00:53:20.300 --> 00:53:22.300
+you get an outcome field
+
+00:53:22.300 --> 00:53:24.300
+which has a value
+
+00:53:24.300 --> 00:53:26.300
+written as pass.
+
+00:53:26.300 --> 00:53:28.300
+We are not going to use value override
+
+00:53:28.300 --> 00:53:30.300
+so you can skip it.
+
+00:53:30.300 --> 00:53:32.300
+And the second is your fail.
+
+00:53:34.300 --> 00:53:36.300
+Now you can see that
+
+00:53:36.300 --> 00:53:38.300
+there is a difference
+
+00:53:38.300 --> 00:53:40.300
+between fail and pass attributes.
+
+00:53:40.300 --> 00:53:42.300
+Here you get only one
+
+00:53:42.300 --> 00:53:44.300
+or you can say this is a dead attribute.
+
+00:53:44.300 --> 00:53:46.300
+I will not call it two.
+
+00:53:46.300 --> 00:53:48.300
+So this is optional.
+
+00:53:48.300 --> 00:53:50.300
+So you can say that it is a pass.
+
+00:53:50.300 --> 00:53:52.300
+Whereas in fail you get multiple
+
+00:53:52.300 --> 00:53:54.300
+attributes. Why?
+
+00:53:54.300 --> 00:53:56.300
+Because I told you
+
+00:53:56.300 --> 00:53:58.300
+that your guard rail
+
+00:53:58.300 --> 00:54:00.300
+is invisible for pass result.
+
+00:54:00.300 --> 00:54:02.300
+It does not work on pass.
+
+00:54:02.300 --> 00:54:04.300
+Pass means that
+
+00:54:04.300 --> 00:54:06.300
+send exactly what came in input to output.
+
+00:54:06.300 --> 00:54:08.300
+You don't have to work hard on it.
+
+00:54:08.300 --> 00:54:10.300
+Who do you have to work hard on?
+
+00:54:10.300 --> 00:54:12.300
+You have to work hard on your fail result.
+
+00:54:12.300 --> 00:54:14.300
+In fail result, you have to tell the outcome
+
+00:54:14.300 --> 00:54:16.300
+that your validation failed.
+
+00:54:16.300 --> 00:54:18.300
+You have to tell error message.
+
+00:54:18.300 --> 00:54:20.300
+You have to tell the reason
+
+00:54:20.300 --> 00:54:22.300
+why it failed.
+
+00:54:22.300 --> 00:54:24.300
+You have to tell that
+
+00:54:24.300 --> 00:54:26.300
+if you fail
+
+00:54:26.300 --> 00:54:28.300
+then try to fix it.
+
+00:54:28.300 --> 00:54:30.300
+I mean try to fix it.
+
+00:54:30.300 --> 00:54:32.300
+So you have to try to fix it
+
+00:54:32.300 --> 00:54:34.300
+and send auto corrected value.
+
+00:54:34.300 --> 00:54:36.300
+And here
+
+00:54:36.300 --> 00:54:38.300
+you have to tell through error span.
+
+00:54:38.300 --> 00:54:40.300
+What is error span?
+
+00:54:40.300 --> 00:54:42.300
+Through error span, you can actually
+
+00:54:42.300 --> 00:54:44.300
+go inside characters and check.
+
+00:54:44.300 --> 00:54:46.300
+So what happens there?
+
+00:54:46.300 --> 00:54:48.300
+In error span, you get
+
+00:54:48.300 --> 00:54:50.300
+character index.
+
+00:54:50.300 --> 00:54:52.300
+Like they told you
+
+00:54:52.300 --> 00:54:54.300
+that from 97 to
+
+00:54:54.300 --> 00:54:56.300
+108
+
+00:54:56.300 --> 00:54:58.300
+there is some problem.
+
+00:54:58.300 --> 00:55:00.300
+And further they told you
+
+00:55:00.300 --> 00:55:02.300
+that it is a PII detected.
+
+00:55:02.300 --> 00:55:04.300
+So you know
+
+00:55:04.300 --> 00:55:06.300
+that in your input
+
+00:55:06.300 --> 00:55:08.300
+from 97 to 108
+
+00:55:08.300 --> 00:55:10.300
+there was something
+
+00:55:10.300 --> 00:55:12.300
+PII and this
+
+00:55:12.300 --> 00:55:14.300
+PII is detected. Again you will understand
+
+00:55:14.300 --> 00:55:16.300
+it better in code.
+
+00:55:16.300 --> 00:55:18.300
+But you can understand clearly
+
+00:55:18.300 --> 00:55:20.300
+that this is the philosophy of
+
+00:55:20.300 --> 00:55:22.300
+Guardrails AI.
+
+00:55:22.300 --> 00:55:24.300
+If something is passing, let it pass.
+
+00:55:24.300 --> 00:55:26.300
+You don't have to touch it.
+
+00:55:26.300 --> 00:55:28.300
+You have to take action on it
+
+00:55:28.300 --> 00:55:30.300
+which is failing.
+
+00:55:30.300 --> 00:55:32.300
+Is it clear guys?
+
+00:55:32.300 --> 00:55:34.300
+And here you have
+
+00:55:34.300 --> 00:55:36.300
+multiple types of responses.
+
+00:55:36.300 --> 00:55:38.300
+On fail
+
+00:55:38.300 --> 00:55:40.300
+you have multiple responses.
+
+00:55:42.300 --> 00:55:44.300
+And we are going to
+
+00:55:44.300 --> 00:55:46.300
+discuss them here.
+
+00:55:46.300 --> 00:55:48.300
+Again it will be a small discussion.
+
+00:55:48.300 --> 00:55:50.300
+But in the code
+
+00:55:50.300 --> 00:55:52.300
+I will show you by implementing it exactly.
+
+00:55:52.300 --> 00:55:54.300
+Let's move forward.
+
+00:56:02.300 --> 00:56:04.300
+Let's move forward guys.
+
+00:56:04.300 --> 00:56:06.300
+I know you are feeling
+
+00:56:06.300 --> 00:56:08.300
+a little weird after seeing this.
+
+00:56:08.300 --> 00:56:10.300
+But now you just
+
+00:56:10.300 --> 00:56:12.300
+understand it in overview mode.
+
+00:56:14.300 --> 00:56:16.300
+These are all the things.
+
+00:56:16.300 --> 00:56:18.300
+Fail result, pass result, I am going to show you
+
+00:56:18.300 --> 00:56:20.300
+all these things on the screen in the code.
+
+00:56:20.300 --> 00:56:22.300
+So I am telling you first
+
+00:56:22.300 --> 00:56:24.300
+so that you don't get surprised.
+
+00:56:24.300 --> 00:56:26.300
+Is it clear?
+
+00:56:32.300 --> 00:56:34.300
+Great.
+
+00:56:36.300 --> 00:56:38.300
+Great.
+
+00:56:40.300 --> 00:56:42.300
+One thing
+
+00:56:42.300 --> 00:56:44.300
+I didn't discuss
+
+00:56:44.300 --> 00:56:46.300
+was this particular thing.
+
+00:56:46.300 --> 00:56:48.300
+This is
+
+00:56:48.300 --> 00:56:50.300
+your guard's validation output.
+
+00:56:50.300 --> 00:56:52.300
+I am not discussing it
+
+00:56:52.300 --> 00:56:54.300
+because you will get confused.
+
+00:56:54.300 --> 00:56:56.300
+But assume that your guard
+
+00:56:56.300 --> 00:56:58.300
+gives you this type of
+
+00:56:58.300 --> 00:57:00.300
+output. Now don't get confused
+
+00:57:00.300 --> 00:57:02.300
+that guard and validator
+
+00:57:02.300 --> 00:57:04.300
+are giving you two different outputs.
+
+00:57:04.300 --> 00:57:06.300
+This is your single validation
+
+00:57:06.300 --> 00:57:08.300
+output. What did I tell you? Your single rule.
+
+00:57:08.300 --> 00:57:10.300
+So in single rule you will get this type of output.
+
+00:57:12.300 --> 00:57:14.300
+And guard will give you
+
+00:57:14.300 --> 00:57:16.300
+list of outputs.
+
+00:57:16.300 --> 00:57:18.300
+So in guard you have multiple
+
+00:57:18.300 --> 00:57:20.300
+validators, multiple rules
+
+00:57:20.300 --> 00:57:22.300
+and you validate them together.
+
+00:57:22.300 --> 00:57:24.300
+So here you will get
+
+00:57:24.300 --> 00:57:26.300
+aggregate result
+
+00:57:26.300 --> 00:57:28.300
+through this particular object
+
+00:57:28.300 --> 00:57:30.300
+and individual results
+
+00:57:30.300 --> 00:57:32.300
+will be here. Again,
+
+00:57:32.300 --> 00:57:34.300
+we will see all these things in the code.
+
+00:57:34.300 --> 00:57:36.300
+Now let's discuss about the on-fail actions.
+
+00:57:36.300 --> 00:57:38.300
+What did I say? If your result
+
+00:57:38.300 --> 00:57:40.300
+fails in the validator
+
+00:57:40.300 --> 00:57:42.300
+then the validator tries to fix
+
+00:57:42.300 --> 00:57:44.300
+things. Now what
+
+00:57:44.300 --> 00:57:46.300
+does the validator have to do
+
+00:57:46.300 --> 00:57:48.300
+to fix or to on-fail?
+
+00:57:48.300 --> 00:57:50.300
+For that multiple actions are available
+
+00:57:50.300 --> 00:57:52.300
+in guardel's AI. And this is
+
+00:57:52.300 --> 00:57:54.300
+a very important concept of guardel's AI.
+
+00:57:54.300 --> 00:57:56.300
+It is called your on-fail
+
+00:57:56.300 --> 00:57:58.300
+actions. On-fail
+
+00:57:58.300 --> 00:58:00.300
+actions.
+
+00:58:00.300 --> 00:58:02.300
+What do you have to do to fail?
+
+00:58:02.300 --> 00:58:04.300
+So there are a couple
+
+00:58:04.300 --> 00:58:06.300
+of things that you can do when you fail.
+
+00:58:06.300 --> 00:58:08.300
+The first thing
+
+00:58:08.300 --> 00:58:10.300
+is called
+
+00:58:10.300 --> 00:58:12.300
+NOOP
+
+00:58:12.300 --> 00:58:14.300
+and basically
+
+00:58:14.300 --> 00:58:16.300
+it is pronounced as no operation.
+
+00:58:16.300 --> 00:58:18.300
+It is not noop.
+
+00:58:18.300 --> 00:58:20.300
+Don't pronounce it as noop.
+
+00:58:20.300 --> 00:58:22.300
+It is no operation.
+
+00:58:22.300 --> 00:58:24.300
+In no operation, what you do is
+
+00:58:24.300 --> 00:58:26.300
+if your particular input
+
+00:58:26.300 --> 00:58:28.300
+fails, let's say
+
+00:58:28.300 --> 00:58:30.300
+you have written
+
+00:58:30.300 --> 00:58:32.300
+abuse in the input.
+
+00:58:32.300 --> 00:58:34.300
+Let's take the example of PII
+
+00:58:34.300 --> 00:58:36.300
+that my
+
+00:58:36.300 --> 00:58:38.300
+email
+
+00:58:38.300 --> 00:58:40.300
+id is
+
+00:58:40.300 --> 00:58:42.300
+abcadrgmail.com
+
+00:58:42.300 --> 00:58:44.300
+You had
+
+00:58:44.300 --> 00:58:46.300
+given some input
+
+00:58:46.300 --> 00:58:48.300
+like this. Before this, you had
+
+00:58:48.300 --> 00:58:50.300
+some prompt. Now what you have to do
+
+00:58:50.300 --> 00:58:52.300
+here is PII
+
+00:58:52.300 --> 00:58:54.300
+detected. It is your personal
+
+00:58:54.300 --> 00:58:56.300
+information. You have to
+
+00:58:56.300 --> 00:58:58.300
+remove this particular thing
+
+00:58:58.300 --> 00:59:00.300
+or apply a fix
+
+00:59:00.300 --> 00:59:02.300
+So as soon as
+
+00:59:02.300 --> 00:59:04.300
+this particular input
+
+00:59:04.300 --> 00:59:06.300
+goes through PII detector
+
+00:59:06.300 --> 00:59:08.300
+then what will be the output of validation
+
+00:59:08.300 --> 00:59:10.300
+here?
+
+00:59:10.300 --> 00:59:12.300
+The validation output is
+
+00:59:12.300 --> 00:59:14.300
+PII detected.
+
+00:59:14.300 --> 00:59:16.300
+Now after PII detected
+
+00:59:16.300 --> 00:59:18.300
+there are multiple actions
+
+00:59:18.300 --> 00:59:20.300
+that you can take in guardrails ai.
+
+00:59:20.300 --> 00:59:22.300
+The first action is
+
+00:59:22.300 --> 00:59:24.300
+no operation. No operation means
+
+00:59:24.300 --> 00:59:26.300
+no action.
+
+00:59:26.300 --> 00:59:28.300
+You simply
+
+00:59:28.300 --> 00:59:30.300
+do here
+
+00:59:30.300 --> 00:59:32.300
+put no operation and
+
+00:59:32.300 --> 00:59:34.300
+whatever input you have
+
+00:59:34.300 --> 00:59:36.300
+failed, there will be no
+
+00:59:36.300 --> 00:59:38.300
+action on it. As it
+
+00:59:38.300 --> 00:59:40.300
+goes to input
+
+00:59:40.300 --> 00:59:42.300
+it comes out in output.
+
+00:59:44.300 --> 00:59:46.300
+Now when I read this
+
+00:59:46.300 --> 00:59:48.300
+thing for the first time, no operations,
+
+00:59:48.300 --> 00:59:50.300
+I thought what was the benefit of
+
+00:59:50.300 --> 00:59:52.300
+applying guardrails. When I didn't have to do
+
+00:59:52.300 --> 00:59:54.300
+anything to fail, then what is the benefit?
+
+00:59:54.300 --> 00:59:56.300
+When I
+
+00:59:56.300 --> 00:59:58.300
+read it in detail,
+
+00:59:58.300 --> 01:00:00.300
+then I understood what is the benefit.
+
+01:00:00.300 --> 01:00:02.300
+Although your value
+
+01:00:02.300 --> 01:00:04.300
+is unchanged, but
+
+01:00:04.300 --> 01:00:06.300
+your failure is logged here.
+
+01:00:06.300 --> 01:00:08.300
+What you can do is
+
+01:00:08.300 --> 01:00:10.300
+you can log this thing somewhere.
+
+01:00:10.300 --> 01:00:12.300
+This validation
+
+01:00:12.300 --> 01:00:14.300
+is not lost, it is
+
+01:00:14.300 --> 01:00:16.300
+stored somewhere.
+
+01:00:16.300 --> 01:00:18.300
+Basically guardrails ai
+
+01:00:18.300 --> 01:00:20.300
+maintains your history of all the
+
+01:00:20.300 --> 01:00:22.300
+validations. So it goes
+
+01:00:22.300 --> 01:00:24.300
+into history and gets logged.
+
+01:00:24.300 --> 01:00:26.300
+Can anyone tell me what is the benefit of this?
+
+01:00:26.300 --> 01:00:28.300
+You can think a little and tell me.
+
+01:00:28.300 --> 01:00:30.300
+In no operations,
+
+01:00:30.300 --> 01:00:32.300
+we are not doing anything,
+
+01:00:32.300 --> 01:00:34.300
+we are not doing any treatment.
+
+01:00:34.300 --> 01:00:36.300
+What is the benefit of this? Simply
+
+01:00:36.300 --> 01:00:38.300
+log. What is the
+
+01:00:38.300 --> 01:00:40.300
+benefit?
+
+01:00:48.300 --> 01:00:50.300
+To detect malpractices. But your
+
+01:00:50.300 --> 01:00:52.300
+malpractice has passed.
+
+01:00:52.300 --> 01:00:54.300
+You have logged it.
+
+01:00:54.300 --> 01:00:56.300
+You checked it on Sunday. What is the benefit of that?
+
+01:01:00.300 --> 01:01:02.300
+What is the benefit
+
+01:01:02.300 --> 01:01:04.300
+of this operation?
+
+01:01:08.300 --> 01:01:10.300
+You can add it in the
+
+01:01:10.300 --> 01:01:12.300
+feedback loop for eval.
+
+01:01:12.300 --> 01:01:14.300
+No, you are thinking too much in depth.
+
+01:01:14.300 --> 01:01:16.300
+Something is
+
+01:01:16.300 --> 01:01:18.300
+just getting recorded.
+
+01:01:18.300 --> 01:01:20.300
+You think
+
+01:01:20.300 --> 01:01:22.300
+that you have made a security
+
+01:01:22.300 --> 01:01:24.300
+system.
+
+01:01:24.300 --> 01:01:26.300
+Let's say there is an X-ray
+
+01:01:26.300 --> 01:01:28.300
+machine.
+
+01:01:28.300 --> 01:01:30.300
+You put a bag in it.
+
+01:01:30.300 --> 01:01:32.300
+There was a gun in it.
+
+01:01:32.300 --> 01:01:34.300
+So even if there is a gun,
+
+01:01:34.300 --> 01:01:36.300
+it is passing.
+
+01:01:36.300 --> 01:01:38.300
+And even if there is no, it is passing.
+
+01:01:38.300 --> 01:01:40.300
+It should be there, but even if there is a gun,
+
+01:01:40.300 --> 01:01:42.300
+it is passing. What is the benefit of that?
+
+01:01:42.300 --> 01:01:44.300
+What is the benefit?
+
+01:01:48.300 --> 01:01:50.300
+What is the benefit?
+
+01:01:54.300 --> 01:01:56.300
+You are not stopping that bag.
+
+01:01:56.300 --> 01:01:58.300
+You are letting it pass. What is the benefit?
+
+01:02:02.300 --> 01:02:04.300
+Don't you think that you have found out
+
+01:02:04.300 --> 01:02:06.300
+who has a gun? Yes, Shruti
+
+01:02:06.300 --> 01:02:08.300
+is absolutely right.
+
+01:02:08.300 --> 01:02:10.300
+Here we use no operations during testing.
+
+01:02:10.300 --> 01:02:12.300
+You want to check
+
+01:02:12.300 --> 01:02:14.300
+whether your validation is working
+
+01:02:14.300 --> 01:02:16.300
+or not.
+
+01:02:16.300 --> 01:02:18.300
+Fail or pass is what it is telling.
+
+01:02:18.300 --> 01:02:20.300
+It is not saying that I let it pass.
+
+01:02:20.300 --> 01:02:22.300
+It is not telling that it is fail or pass.
+
+01:02:22.300 --> 01:02:24.300
+These are on-fail actions.
+
+01:02:24.300 --> 01:02:26.300
+On-fail is to be told that it has failed.
+
+01:02:26.300 --> 01:02:28.300
+So when we have to
+
+01:02:28.300 --> 01:02:30.300
+test an order, what kind of input
+
+01:02:30.300 --> 01:02:32.300
+it is failing at, what kind of input
+
+01:02:32.300 --> 01:02:34.300
+it is passing at,
+
+01:02:34.300 --> 01:02:36.300
+then for testing purposes,
+
+01:02:36.300 --> 01:02:38.300
+we put no operation here.
+
+01:02:38.300 --> 01:02:40.300
+If it fails, then pass it to the one
+
+01:02:40.300 --> 01:02:42.300
+who has failed. Don't take any action on it.
+
+01:02:42.300 --> 01:02:44.300
+Is this clear?
+
+01:02:48.300 --> 01:02:50.300
+No operations. Clear?
+
+01:02:54.300 --> 01:02:56.300
+Let's move ahead.
+
+01:02:56.300 --> 01:02:58.300
+You might be confused because
+
+01:02:58.300 --> 01:03:00.300
+it is there actually. Let's move ahead.
+
+01:03:00.300 --> 01:03:02.300
+Let's discuss the second type
+
+01:03:02.300 --> 01:03:04.300
+where actually something is happening.
+
+01:03:04.300 --> 01:03:06.300
+That is raising an exception.
+
+01:03:06.300 --> 01:03:08.300
+What is an exception?
+
+01:03:08.300 --> 01:03:10.300
+We raise an exception in Python.
+
+01:03:10.300 --> 01:03:12.300
+What is an exception? It is an error.
+
+01:03:12.300 --> 01:03:14.300
+Error message. Whenever we
+
+01:03:14.300 --> 01:03:16.300
+raise an error message in Python,
+
+01:03:16.300 --> 01:03:18.300
+what happens to our application after that?
+
+01:03:18.300 --> 01:03:20.300
+What happens to our script?
+
+01:03:20.300 --> 01:03:22.300
+I am looking at the chat.
+
+01:03:22.300 --> 01:03:24.300
+We get a lot of code errors.
+
+01:03:24.300 --> 01:03:26.300
+We raise an exception. What happens?
+
+01:03:30.300 --> 01:03:32.300
+What happens after the exception is raised?
+
+01:03:32.300 --> 01:03:34.300
+Guys, we get an exception
+
+01:03:34.300 --> 01:03:36.300
+We get an error message.
+
+01:03:36.300 --> 01:03:38.300
+I didn't handle it.
+
+01:03:38.300 --> 01:03:40.300
+If you get an error,
+
+01:03:40.300 --> 01:03:42.300
+you didn't handle it.
+
+01:03:42.300 --> 01:03:44.300
+The exception is raised.
+
+01:03:44.300 --> 01:03:46.300
+What happens?
+
+01:03:46.300 --> 01:03:48.300
+It crashes. Tushar was right.
+
+01:03:48.300 --> 01:03:50.300
+Your application crashes.
+
+01:03:50.300 --> 01:03:52.300
+Whatever flow is there, it stops there.
+
+01:03:52.300 --> 01:03:54.300
+What is an exception?
+
+01:03:54.300 --> 01:03:56.300
+Raise is a validation error.
+
+01:03:56.300 --> 01:03:58.300
+It is a hard stop.
+
+01:04:00.300 --> 01:04:02.300
+In some cases,
+
+01:04:02.300 --> 01:04:04.300
+if your input is not validated,
+
+01:04:04.300 --> 01:04:06.300
+failed,
+
+01:04:06.300 --> 01:04:08.300
+what will you do there?
+
+01:04:08.300 --> 01:04:10.300
+You will completely crash your application.
+
+01:04:12.300 --> 01:04:14.300
+Now someone can tell me
+
+01:04:14.300 --> 01:04:16.300
+by thinking that
+
+01:04:16.300 --> 01:04:18.300
+where will you use this scenario?
+
+01:04:18.300 --> 01:04:20.300
+Your rag application is running in the production.
+
+01:04:20.300 --> 01:04:22.300
+And everything is going well.
+
+01:04:22.300 --> 01:04:24.300
+You don't want to crash it.
+
+01:04:24.300 --> 01:04:26.300
+But there will be some cases
+
+01:04:26.300 --> 01:04:28.300
+where you will want
+
+01:04:28.300 --> 01:04:30.300
+that it would have been better if it crashed.
+
+01:04:32.300 --> 01:04:34.300
+Self-destruct
+
+01:04:34.300 --> 01:04:36.300
+is what you want to do.
+
+01:04:36.300 --> 01:04:38.300
+Why would you want to do it?
+
+01:04:40.300 --> 01:04:42.300
+Can someone tell me
+
+01:04:42.300 --> 01:04:44.300
+what kind of validation
+
+01:04:44.300 --> 01:04:46.300
+would you like to crash
+
+01:04:46.300 --> 01:04:48.300
+on your application?
+
+01:04:48.300 --> 01:04:50.300
+Maybe I will rephrase
+
+01:04:50.300 --> 01:04:52.300
+what kind of threat
+
+01:04:52.300 --> 01:04:54.300
+would you like
+
+01:04:54.300 --> 01:04:56.300
+your application to crash?
+
+01:04:56.300 --> 01:04:58.300
+Something else should happen there.
+
+01:04:58.300 --> 01:05:00.300
+Safety.
+
+01:05:00.300 --> 01:05:02.300
+Yes, there is safety.
+
+01:05:02.300 --> 01:05:04.300
+When the model is revealing some
+
+01:05:04.300 --> 01:05:06.300
+confidential information.
+
+01:05:06.300 --> 01:05:08.300
+No, you don't want to crash
+
+01:05:08.300 --> 01:05:10.300
+your application on that.
+
+01:05:10.300 --> 01:05:12.300
+Maybe you want to fix it.
+
+01:05:12.300 --> 01:05:14.300
+You don't want to crash.
+
+01:05:16.300 --> 01:05:18.300
+For crash,
+
+01:05:18.300 --> 01:05:20.300
+DEF CON 1 should happen.
+
+01:05:20.300 --> 01:05:22.300
+Red Alert.
+
+01:05:26.300 --> 01:05:28.300
+Can anyone tell me?
+
+01:05:30.300 --> 01:05:32.300
+Jailbreak.
+
+01:05:32.300 --> 01:05:34.300
+You are right.
+
+01:05:34.300 --> 01:05:36.300
+Virus attack.
+
+01:05:36.300 --> 01:05:38.300
+An attack which is a malicious attack
+
+01:05:38.300 --> 01:05:40.300
+where the attacker
+
+01:05:40.300 --> 01:05:42.300
+will break your application
+
+01:05:42.300 --> 01:05:44.300
+in any way.
+
+01:05:44.300 --> 01:05:46.300
+I will break it and go inside it.
+
+01:05:46.300 --> 01:05:48.300
+There is a hack.
+
+01:05:48.300 --> 01:05:50.300
+In that case, you will want
+
+01:05:50.300 --> 01:05:52.300
+that if this hack is detected
+
+01:05:52.300 --> 01:05:54.300
+then what will you do?
+
+01:05:54.300 --> 01:05:56.300
+My application should be closed at that time.
+
+01:05:56.300 --> 01:05:58.300
+So that my attacker
+
+01:05:58.300 --> 01:06:00.300
+cannot infiltrate
+
+01:06:00.300 --> 01:06:02.300
+any important information
+
+01:06:02.300 --> 01:06:04.300
+in the database, knowledge base.
+
+01:06:04.300 --> 01:06:06.300
+So I will close my application there.
+
+01:06:06.300 --> 01:06:08.300
+Is it clear?
+
+01:06:10.300 --> 01:06:12.300
+You must have seen in Hollywood movies
+
+01:06:12.300 --> 01:06:14.300
+that they try to hack in the server
+
+01:06:14.300 --> 01:06:16.300
+and they pull the main power cord.
+
+01:06:16.300 --> 01:06:18.300
+Now I have closed the network.
+
+01:06:22.300 --> 01:06:24.300
+It is like that.
+
+01:06:24.300 --> 01:06:26.300
+Where will you use exception?
+
+01:06:26.300 --> 01:06:28.300
+The attacker is trying to break
+
+01:06:28.300 --> 01:06:30.300
+into your application.
+
+01:06:30.300 --> 01:06:32.300
+What is the next type?
+
+01:06:32.300 --> 01:06:34.300
+Fix.
+
+01:06:34.300 --> 01:06:36.300
+In Fix, your validator
+
+01:06:36.300 --> 01:06:38.300
+tries to fix
+
+01:06:38.300 --> 01:06:40.300
+any problem
+
+01:06:40.300 --> 01:06:42.300
+in any way.
+
+01:06:44.300 --> 01:06:46.300
+Let's say that you have
+
+01:06:46.300 --> 01:06:48.300
+implemented PII.
+
+01:06:48.300 --> 01:06:50.300
+What will be the fix
+
+01:06:50.300 --> 01:06:52.300
+of implementing PII?
+
+01:06:52.300 --> 01:06:54.300
+My input was like this.
+
+01:06:54.300 --> 01:06:56.300
+What will be the fix of this?
+
+01:06:56.300 --> 01:06:58.300
+The fix will be that
+
+01:06:58.300 --> 01:07:00.300
+I remove it.
+
+01:07:00.300 --> 01:07:02.300
+But by removing it,
+
+01:07:02.300 --> 01:07:04.300
+the information will be removed.
+
+01:07:04.300 --> 01:07:06.300
+How will this sentence look like?
+
+01:07:06.300 --> 01:07:08.300
+My email id is full stop.
+
+01:07:08.300 --> 01:07:10.300
+It will look stupid.
+
+01:07:10.300 --> 01:07:12.300
+If I send this to my LLM,
+
+01:07:12.300 --> 01:07:14.300
+it will also look stupid.
+
+01:07:14.300 --> 01:07:16.300
+It is an incomplete sentence.
+
+01:07:16.300 --> 01:07:18.300
+Maybe my LLM will ask what is your email id?
+
+01:07:18.300 --> 01:07:20.300
+Or you gave me an incomplete prompt.
+
+01:07:20.300 --> 01:07:22.300
+Please complete it.
+
+01:07:22.300 --> 01:07:24.300
+Let's say I put a fix
+
+01:07:24.300 --> 01:07:26.300
+here.
+
+01:07:26.300 --> 01:07:28.300
+My email id is
+
+01:07:28.300 --> 01:07:30.300
+a placeholder
+
+01:07:30.300 --> 01:07:32.300
+email id
+
+01:07:32.300 --> 01:07:34.300
+This is more logical.
+
+01:07:34.300 --> 01:07:36.300
+This is a fix.
+
+01:07:36.300 --> 01:07:38.300
+Let's say I have
+
+01:07:38.300 --> 01:07:40.300
+written some abuse.
+
+01:07:40.300 --> 01:07:42.300
+Why
+
+01:07:42.300 --> 01:07:44.300
+are you not
+
+01:07:44.300 --> 01:07:46.300
+answering
+
+01:07:46.300 --> 01:07:48.300
+forward
+
+01:07:48.300 --> 01:07:50.300
+dash dash
+
+01:07:50.300 --> 01:07:52.300
+If I remove this dash dash completely,
+
+01:07:52.300 --> 01:07:54.300
+then this particular
+
+01:07:54.300 --> 01:07:56.300
+thing
+
+01:07:56.300 --> 01:07:58.300
+can be fixed.
+
+01:07:58.300 --> 01:08:00.300
+Fix is different.
+
+01:08:00.300 --> 01:08:02.300
+Different validators
+
+01:08:02.300 --> 01:08:04.300
+put a fix in different ways.
+
+01:08:04.300 --> 01:08:06.300
+But after putting a fix,
+
+01:08:06.300 --> 01:08:08.300
+your validation is passed.
+
+01:08:10.300 --> 01:08:12.300
+What did I tell you?
+
+01:08:12.300 --> 01:08:14.300
+After putting a fix,
+
+01:08:14.300 --> 01:08:16.300
+it is revalidated.
+
+01:08:16.300 --> 01:08:18.300
+What is in revalidation?
+
+01:08:18.300 --> 01:08:20.300
+This fixed input
+
+01:08:20.300 --> 01:08:22.300
+will be found in
+
+01:08:22.300 --> 01:08:24.300
+my guardrail layer.
+
+01:08:24.300 --> 01:08:26.300
+If this thing goes to the input,
+
+01:08:26.300 --> 01:08:28.300
+then it will pass.
+
+01:08:28.300 --> 01:08:30.300
+When is the use of fix?
+
+01:08:30.300 --> 01:08:32.300
+Fix is not used
+
+01:08:32.300 --> 01:08:34.300
+only to fix.
+
+01:08:34.300 --> 01:08:36.300
+Fix is used so that your fixed value
+
+01:08:36.300 --> 01:08:38.300
+can also be passed in your application.
+
+01:08:38.300 --> 01:08:40.300
+Replaces the value with
+
+01:08:40.300 --> 01:08:42.300
+validators fixed value.
+
+01:08:42.300 --> 01:08:44.300
+It doesn't stop there. It passes on to it.
+
+01:08:44.300 --> 01:08:46.300
+The validated output is
+
+01:08:46.300 --> 01:08:48.300
+fixed value.
+
+01:08:48.300 --> 01:08:50.300
+Next is the filter.
+
+01:08:50.300 --> 01:08:52.300
+We are not going to use this filter
+
+01:08:52.300 --> 01:08:54.300
+because it is for structured output.
+
+01:08:54.300 --> 01:08:56.300
+Filter is basically your JSON.
+
+01:08:56.300 --> 01:08:58.300
+It has name,
+
+01:08:58.300 --> 01:09:00.300
+age,
+
+01:09:00.300 --> 01:09:02.300
+location.
+
+01:09:02.300 --> 01:09:04.300
+But your schema
+
+01:09:04.300 --> 01:09:06.300
+didn't have location.
+
+01:09:06.300 --> 01:09:08.300
+It had city.
+
+01:09:08.300 --> 01:09:10.300
+You have fixed the filter.
+
+01:09:10.300 --> 01:09:12.300
+Because your schema
+
+01:09:12.300 --> 01:09:14.300
+didn't have location, it had city.
+
+01:09:14.300 --> 01:09:16.300
+So the location will be removed from your JSON.
+
+01:09:16.300 --> 01:09:18.300
+And the rest of the filtered JSON
+
+01:09:18.300 --> 01:09:20.300
+with your name
+
+01:09:20.300 --> 01:09:22.300
+and your age
+
+01:09:22.300 --> 01:09:24.300
+which follows your schema
+
+01:09:24.300 --> 01:09:26.300
+you will pass it in output.
+
+01:09:26.300 --> 01:09:28.300
+It is written
+
+01:09:28.300 --> 01:09:30.300
+Drops the failing field,
+
+01:09:30.300 --> 01:09:32.300
+structured data context mainly.
+
+01:09:32.300 --> 01:09:34.300
+Next comes
+
+01:09:34.300 --> 01:09:36.300
+your reframe.
+
+01:09:36.300 --> 01:09:38.300
+We have discussed fix here.
+
+01:09:38.300 --> 01:09:40.300
+Now let's talk about
+
+01:09:40.300 --> 01:09:42.300
+reframe.
+
+01:09:42.300 --> 01:09:44.300
+What is the meaning of reframe in English?
+
+01:09:48.300 --> 01:09:50.300
+What is the meaning of reframe?
+
+01:09:52.300 --> 01:09:54.300
+To refrain from something.
+
+01:09:54.300 --> 01:09:56.300
+What does it mean?
+
+01:09:56.300 --> 01:09:58.300
+To not allow.
+
+01:09:58.300 --> 01:10:00.300
+Refrain is to stop.
+
+01:10:00.300 --> 01:10:02.300
+So here
+
+01:10:02.300 --> 01:10:04.300
+you don't use
+
+01:10:04.300 --> 01:10:06.300
+any fix in reframe.
+
+01:10:06.300 --> 01:10:08.300
+You don't raise any exception.
+
+01:10:08.300 --> 01:10:10.300
+You simply
+
+01:10:10.300 --> 01:10:12.300
+output none.
+
+01:10:14.300 --> 01:10:16.300
+What is none in Python?
+
+01:10:16.300 --> 01:10:18.300
+None is something
+
+01:10:18.300 --> 01:10:20.300
+that is
+
+01:10:20.300 --> 01:10:22.300
+signifying emptiness.
+
+01:10:22.300 --> 01:10:24.300
+Your
+
+01:10:24.300 --> 01:10:26.300
+emptiness is signified.
+
+01:10:26.300 --> 01:10:28.300
+Or
+
+01:10:28.300 --> 01:10:30.300
+the false is signified.
+
+01:10:30.300 --> 01:10:32.300
+Clear?
+
+01:10:32.300 --> 01:10:34.300
+So what do you do in reframe?
+
+01:10:34.300 --> 01:10:36.300
+You don't try to put any fix.
+
+01:10:36.300 --> 01:10:38.300
+You simply output none.
+
+01:10:38.300 --> 01:10:40.300
+Or empty
+
+01:10:40.300 --> 01:10:42.300
+instead of an unsafe value.
+
+01:10:42.300 --> 01:10:44.300
+Now can someone tell me
+
+01:10:44.300 --> 01:10:46.300
+what is the benefit of using reframe?
+
+01:10:46.300 --> 01:10:48.300
+I input none.
+
+01:10:48.300 --> 01:10:50.300
+Now it is not stop.
+
+01:10:50.300 --> 01:10:52.300
+Stop is your exception.
+
+01:10:52.300 --> 01:10:54.300
+You gave none here.
+
+01:10:54.300 --> 01:10:56.300
+Exception
+
+01:10:56.300 --> 01:10:58.300
+and reframe are different.
+
+01:10:58.300 --> 01:11:00.300
+In reframe your output is none.
+
+01:11:00.300 --> 01:11:02.300
+But
+
+01:11:02.300 --> 01:11:04.300
+your application doesn't crash
+
+01:11:04.300 --> 01:11:06.300
+by getting none.
+
+01:11:06.300 --> 01:11:08.300
+It is
+
+01:11:08.300 --> 01:11:10.300
+false.
+
+01:11:10.300 --> 01:11:12.300
+It is your false.
+
+01:11:12.300 --> 01:11:14.300
+Zero.
+
+01:11:18.300 --> 01:11:20.300
+What is the benefit of none?
+
+01:11:20.300 --> 01:11:22.300
+Can someone tell me?
+
+01:11:24.300 --> 01:11:26.300
+Let's say my input
+
+01:11:26.300 --> 01:11:28.300
+is my email id
+
+01:11:28.300 --> 01:11:30.300
+where my email id is written.
+
+01:11:30.300 --> 01:11:32.300
+And I have
+
+01:11:32.300 --> 01:11:34.300
+put a reframe action.
+
+01:11:34.300 --> 01:11:36.300
+So what will be the output in reframe?
+
+01:11:36.300 --> 01:11:38.300
+If it fails,
+
+01:11:38.300 --> 01:11:40.300
+then output none will come.
+
+01:11:40.300 --> 01:11:42.300
+Now what is the benefit of this none?
+
+01:11:42.300 --> 01:11:44.300
+What should I do with this none?
+
+01:11:46.300 --> 01:11:48.300
+Can someone tell me?
+
+01:11:48.300 --> 01:11:50.300
+Where can we benefit from none?
+
+01:11:50.300 --> 01:11:52.300
+Don't you think we can use it
+
+01:11:52.300 --> 01:11:54.300
+in if else?
+
+01:11:54.300 --> 01:11:56.300
+If none comes
+
+01:11:56.300 --> 01:11:58.300
+then display this message.
+
+01:11:58.300 --> 01:12:00.300
+Or our input should be
+
+01:12:00.300 --> 01:12:02.300
+this. Else if none
+
+01:12:02.300 --> 01:12:04.300
+comes, then what can we do?
+
+01:12:04.300 --> 01:12:06.300
+We can give a fallback message.
+
+01:12:12.300 --> 01:12:14.300
+Is it clear?
+
+01:12:16.300 --> 01:12:18.300
+Again if you are confused
+
+01:12:18.300 --> 01:12:20.300
+I will show these things in the code
+
+01:12:20.300 --> 01:12:22.300
+then maybe you will understand better.
+
+01:12:22.300 --> 01:12:24.300
+Let's move ahead.
+
+01:12:24.300 --> 01:12:26.300
+This is our re-ask.
+
+01:12:26.300 --> 01:12:28.300
+What can you do here?
+
+01:12:28.300 --> 01:12:30.300
+You can apply one more thing.
+
+01:12:30.300 --> 01:12:32.300
+That is your re-ask.
+
+01:12:32.300 --> 01:12:34.300
+What you do in re-ask
+
+01:12:34.300 --> 01:12:36.300
+is you hold
+
+01:12:36.300 --> 01:12:38.300
+your failed input
+
+01:12:38.300 --> 01:12:40.300
+and
+
+01:12:40.300 --> 01:12:42.300
+the reason for its failure
+
+01:12:42.300 --> 01:12:44.300
+and you hold
+
+01:12:44.300 --> 01:12:46.300
+it and you give
+
+01:12:46.300 --> 01:12:48.300
+these two to an LLM
+
+01:12:48.300 --> 01:12:50.300
+and you give
+
+01:12:50.300 --> 01:12:52.300
+a proper structured prompt
+
+01:12:52.300 --> 01:12:54.300
+to the LLM.
+
+01:12:54.300 --> 01:12:56.300
+Meaning it is a very structured
+
+01:12:56.300 --> 01:12:58.300
+and detailed prompt.
+
+01:12:58.300 --> 01:13:00.300
+It is generated by an LLM.
+
+01:13:00.300 --> 01:13:02.300
+You tell it that my input failed
+
+01:13:02.300 --> 01:13:04.300
+and this was the reason for its failure.
+
+01:13:04.300 --> 01:13:06.300
+And you tell LLM
+
+01:13:06.300 --> 01:13:08.300
+please help me today
+
+01:13:08.300 --> 01:13:10.300
+I am stuck.
+
+01:13:10.300 --> 01:13:12.300
+Fix this particular input somehow.
+
+01:13:12.300 --> 01:13:14.300
+Give me a fixed output.
+
+01:13:14.300 --> 01:13:16.300
+What you do in re-ask
+
+01:13:16.300 --> 01:13:18.300
+sends the failure back to LLM
+
+01:13:18.300 --> 01:13:20.300
+with auto-generated
+
+01:13:20.300 --> 01:13:22.300
+guidance to regenerate.
+
+01:13:22.300 --> 01:13:24.300
+You fix the fixed with LLM.
+
+01:13:24.300 --> 01:13:26.300
+Like some cases
+
+01:13:26.300 --> 01:13:28.300
+where you can't fix
+
+01:13:28.300 --> 01:13:30.300
+the delete or masking
+
+01:13:30.300 --> 01:13:32.300
+this fix
+
+01:13:32.300 --> 01:13:34.300
+this fix
+
+01:13:34.300 --> 01:13:36.300
+is fine to fix it small
+
+01:13:36.300 --> 01:13:38.300
+like you removed the one with the foul word
+
+01:13:38.300 --> 01:13:40.300
+or you covered the PIA information
+
+01:13:40.300 --> 01:13:42.300
+or removed it.
+
+01:13:42.300 --> 01:13:44.300
+It is fine to fix it small.
+
+01:13:44.300 --> 01:13:46.300
+But sometimes you have a major fix
+
+01:13:46.300 --> 01:13:48.300
+where you need an LLM
+
+01:13:48.300 --> 01:13:50.300
+which will modify your input or output.
+
+01:13:50.300 --> 01:13:52.300
+There you use re-ask.
+
+01:13:52.300 --> 01:13:54.300
+You use re-ask.
+
+01:13:54.300 --> 01:13:56.300
+You tell LLM
+
+01:13:56.300 --> 01:13:58.300
+this was my input failed
+
+01:13:58.300 --> 01:14:00.300
+and this was the reason for its failure.
+
+01:14:00.300 --> 01:14:02.300
+And you give it
+
+01:14:02.300 --> 01:14:04.300
+in a proper prompt
+
+01:14:04.300 --> 01:14:06.300
+and tell it to me
+
+01:14:06.300 --> 01:14:08.300
+a fixed version of it.
+
+01:14:08.300 --> 01:14:10.300
+Remove the problems
+
+01:14:10.300 --> 01:14:12.300
+and give me a proper thing.
+
+01:14:12.300 --> 01:14:14.300
+Now someone can tell me
+
+01:14:14.300 --> 01:14:16.300
+that if I implement
+
+01:14:16.300 --> 01:14:18.300
+this re-ask in my guardails
+
+01:14:18.300 --> 01:14:20.300
+and I implement it very regularly
+
+01:14:20.300 --> 01:14:22.300
+then what can be the problem?
+
+01:14:22.300 --> 01:14:24.300
+What is the problem in this re-ask?
+
+01:14:26.300 --> 01:14:28.300
+It must seem very simple to you.
+
+01:14:30.300 --> 01:14:32.300
+What is the problem in this?
+
+01:14:32.300 --> 01:14:34.300
+Re-ask is not a good
+
+01:14:34.300 --> 01:14:36.300
+on-fail mechanism. Why?
+
+01:14:38.300 --> 01:14:40.300
+It should not be used
+
+01:14:40.300 --> 01:14:42.300
+very regularly.
+
+01:14:42.300 --> 01:14:44.300
+It should be used
+
+01:14:44.300 --> 01:14:46.300
+judicially. Why?
+
+01:14:46.300 --> 01:14:48.300
+Not bias.
+
+01:14:48.300 --> 01:14:50.300
+Think from the mind-set of operations.
+
+01:14:50.300 --> 01:14:52.300
+What is bias?
+
+01:14:52.300 --> 01:14:54.300
+If I tell LLM
+
+01:14:54.300 --> 01:14:56.300
+that its grammar is bad
+
+01:14:56.300 --> 01:14:58.300
+and if it gives me a proper grammar
+
+01:14:58.300 --> 01:15:00.300
+then where is the bias?
+
+01:15:04.300 --> 01:15:06.300
+Cost, Latency
+
+01:15:06.300 --> 01:15:08.300
+I am calling LLM
+
+01:15:08.300 --> 01:15:10.300
+so I am calling LLM for
+
+01:15:10.300 --> 01:15:12.300
+guardrails and evaluation.
+
+01:15:12.300 --> 01:15:14.300
+My application is LLM based.
+
+01:15:14.300 --> 01:15:16.300
+And in one re-ask
+
+01:15:16.300 --> 01:15:18.300
+I implemented it again.
+
+01:15:20.300 --> 01:15:22.300
+Because there is a problem in re-ask.
+
+01:15:22.300 --> 01:15:24.300
+The problem is that we are telling LLM
+
+01:15:24.300 --> 01:15:26.300
+that it will give a good output
+
+01:15:26.300 --> 01:15:28.300
+in the first time.
+
+01:15:28.300 --> 01:15:30.300
+Maybe the output in the first time
+
+01:15:30.300 --> 01:15:32.300
+failed our validation.
+
+01:15:32.300 --> 01:15:34.300
+Our input was like
+
+01:15:34.300 --> 01:15:36.300
+that it had written abuses secretly.
+
+01:15:36.300 --> 01:15:38.300
+So we said to remove the abuses from it.
+
+01:15:38.300 --> 01:15:40.300
+We had put a beep in the abuses.
+
+01:15:40.300 --> 01:15:42.300
+So it removed something and
+
+01:15:42.300 --> 01:15:44.300
+something remained.
+
+01:15:44.300 --> 01:15:46.300
+So we had put a beep in the abuses.
+
+01:15:46.300 --> 01:15:48.300
+So some beeps were put and some abuses were left.
+
+01:15:48.300 --> 01:15:50.300
+Then validation failed again.
+
+01:15:50.300 --> 01:15:52.300
+Then we told LLM again
+
+01:15:52.300 --> 01:15:54.300
+that abuses are still left in these places.
+
+01:15:54.300 --> 01:15:56.300
+Then we tried to fix it in LLM.
+
+01:15:56.300 --> 01:15:58.300
+So you can see that
+
+01:15:58.300 --> 01:16:00.300
+I have to do multiple tries in re-ask.
+
+01:16:00.300 --> 01:16:02.300
+Again it is
+
+01:16:02.300 --> 01:16:04.300
+adding to my latency.
+
+01:16:06.300 --> 01:16:08.300
+So I will use it very less.
+
+01:16:08.300 --> 01:16:10.300
+I will use it in those special cases
+
+01:16:10.300 --> 01:16:12.300
+where re-ask version is very important.
+
+01:16:12.300 --> 01:16:14.300
+Meaning that
+
+01:16:14.300 --> 01:16:16.300
+I need a fixed version
+
+01:16:16.300 --> 01:16:18.300
+for my application.
+
+01:16:18.300 --> 01:16:20.300
+I can't send my user
+
+01:16:20.300 --> 01:16:22.300
+with any other output.
+
+01:16:22.300 --> 01:16:24.300
+We use re-ask there.
+
+01:16:24.300 --> 01:16:26.300
+What is our chatbot?
+
+01:16:26.300 --> 01:16:28.300
+Will you send abuses in doubt?
+
+01:16:28.300 --> 01:16:30.300
+We will not tell.
+
+01:16:30.300 --> 01:16:32.300
+It is our swag. We don't tell.
+
+01:16:32.300 --> 01:16:34.300
+So we will not use it.
+
+01:16:34.300 --> 01:16:36.300
+Again it will add latency.
+
+01:16:36.300 --> 01:16:38.300
+It will add to token cost and latency.
+
+01:16:38.300 --> 01:16:40.300
+Next it has a problem
+
+01:16:40.300 --> 01:16:42.300
+that is your fixed re-ask.
+
+01:16:42.300 --> 01:16:44.300
+Fixed re-ask is
+
+01:16:44.300 --> 01:16:46.300
+that you are understanding
+
+01:16:46.300 --> 01:16:48.300
+that you will put a static fix
+
+01:16:48.300 --> 01:16:50.300
+like PII is detected.
+
+01:16:50.300 --> 01:16:52.300
+First you try to mask it.
+
+01:16:52.300 --> 01:16:54.300
+If it doesn't happen
+
+01:16:54.300 --> 01:16:56.300
+then you re-ask.
+
+01:16:56.300 --> 01:16:58.300
+And re-ask will continue
+
+01:16:58.300 --> 01:17:00.300
+until it is fixed.
+
+01:17:00.300 --> 01:17:02.300
+So in fixed re-ask
+
+01:17:02.300 --> 01:17:04.300
+you put fix first
+
+01:17:04.300 --> 01:17:06.300
+and then you go with fixed version.
+
+01:17:06.300 --> 01:17:08.300
+If it doesn't happen then you re-ask.
+
+01:17:08.300 --> 01:17:10.300
+And final is your custom
+
+01:17:10.300 --> 01:17:12.300
+where you define a custom function
+
+01:17:12.300 --> 01:17:14.300
+that if onFail
+
+01:17:14.300 --> 01:17:16.300
+then you trigger this function
+
+01:17:16.300 --> 01:17:18.300
+and implement the logic in this function.
+
+01:17:18.300 --> 01:17:20.300
+Is it clear guys?
+
+01:17:20.300 --> 01:17:22.300
+Are the onFail
+
+01:17:22.300 --> 01:17:24.300
+mechanisms clear?
+
+01:17:24.300 --> 01:17:26.300
+Sorry for that.
+
+01:17:26.300 --> 01:17:28.300
+Just a sec.
+
+01:17:28.300 --> 01:17:30.300
+Is it clear?
+
+01:17:32.300 --> 01:17:34.300
+Yes.
+
+01:17:34.300 --> 01:17:36.300
+It was super simple.
+
+01:17:36.300 --> 01:17:38.300
+No difficulty.
+
+01:17:42.300 --> 01:17:44.300
+Now let's go
+
+01:17:44.300 --> 01:17:46.300
+towards the code part
+
+01:17:46.300 --> 01:17:48.300
+and implement our guardrails.
+
+01:17:48.300 --> 01:17:50.300
+I will guide you through
+
+01:17:50.300 --> 01:17:52.300
+the whole process.
+
+01:17:52.300 --> 01:17:54.300
+Just give me one sec.
+
+01:17:56.300 --> 01:17:58.300
+Conceptually we have to discuss
+
+01:17:58.300 --> 01:18:00.300
+these things in guardrails AI.
+
+01:18:00.300 --> 01:18:02.300
+I will show you all these things.
+
+01:18:02.300 --> 01:18:04.300
+Code is very simple.
+
+01:18:04.300 --> 01:18:06.300
+We will do live code.
+
+01:18:06.300 --> 01:18:08.300
+No issues.
+
+01:18:08.300 --> 01:18:10.300
+It is a 3-4 line code.
+
+01:18:14.300 --> 01:18:16.300
+VS code, can you see guys?
+
+01:18:16.300 --> 01:18:18.300
+I will open a fresh terminal.
+
+01:18:22.300 --> 01:18:24.300
+Is VS code visible?
+
+01:18:28.300 --> 01:18:30.300
+I will drink water.
+
+01:18:30.300 --> 01:18:32.300
+If you have any doubts
+
+01:18:32.300 --> 01:18:34.300
+you can ask me.
+
+01:18:34.300 --> 01:18:36.300
+Then let's go towards the code part.
+
+01:18:48.300 --> 01:18:50.300
+Shall we start?
+
+01:18:52.300 --> 01:18:54.300
+Before starting the code
+
+01:18:54.300 --> 01:18:56.300
+I will show you
+
+01:18:56.300 --> 01:18:58.300
+the documentation of this code.
+
+01:18:58.300 --> 01:19:00.300
+I will show you the documentation.
+
+01:19:00.300 --> 01:19:02.300
+We will see a little.
+
+01:19:02.300 --> 01:19:04.300
+You should have an idea.
+
+01:19:04.300 --> 01:19:06.300
+It is your guardrails AI.
+
+01:19:10.300 --> 01:19:12.300
+This is the guardrails AI page.
+
+01:19:12.300 --> 01:19:14.300
+It looks like this.
+
+01:19:14.300 --> 01:19:16.300
+Here you will get two options.
+
+01:19:16.300 --> 01:19:18.300
+You will get guardrails hub
+
+01:19:18.300 --> 01:19:20.300
+and one resources.
+
+01:19:20.300 --> 01:19:22.300
+Let's go to the documentation.
+
+01:19:22.300 --> 01:19:24.300
+Here you will get guardrails
+
+01:19:24.300 --> 01:19:26.300
+with guardrails without guardrails.
+
+01:19:26.300 --> 01:19:28.300
+This is your guardrails hub.
+
+01:19:28.300 --> 01:19:30.300
+This is basically your marketplace.
+
+01:19:32.300 --> 01:19:34.300
+This is community driven.
+
+01:19:34.300 --> 01:19:36.300
+Here you get all your guardrails.
+
+01:19:36.300 --> 01:19:38.300
+Now let's talk about the code.
+
+01:19:38.300 --> 01:19:40.300
+Here you have two options.
+
+01:19:40.300 --> 01:19:42.300
+You have guardrails server.
+
+01:19:42.300 --> 01:19:44.300
+You can run guardrails remotely.
+
+01:19:44.300 --> 01:19:46.300
+We have to go here in application.
+
+01:19:46.300 --> 01:19:48.300
+Because we have to embed
+
+01:19:48.300 --> 01:19:50.300
+guardrails in our application.
+
+01:19:50.300 --> 01:19:52.300
+What is the first thing you have to do?
+
+01:19:52.300 --> 01:19:54.300
+The first thing you have to do is
+
+01:19:54.300 --> 01:19:56.300
+install guardrails AI.
+
+01:19:56.300 --> 01:19:58.300
+PIP install is written here.
+
+01:19:58.300 --> 01:20:00.300
+We also do it.
+
+01:20:00.300 --> 01:20:02.300
+Where will we go?
+
+01:20:02.300 --> 01:20:04.300
+We will go to our requirements.txt.
+
+01:20:04.300 --> 01:20:06.300
+We will add a line here.
+
+01:20:06.300 --> 01:20:08.300
+We will write guardrails AI here.
+
+01:20:12.300 --> 01:20:14.300
+You know the command.
+
+01:20:14.300 --> 01:20:16.300
+We will add uv-requirements.txt.
+
+01:20:20.300 --> 01:20:22.300
+This is our guardrails AI
+
+01:20:22.300 --> 01:20:24.300
+The installation of guardrails AI has started.
+
+01:20:26.300 --> 01:20:28.300
+Go to the pyproject.
+
+01:20:28.300 --> 01:20:30.300
+The guardrails AI is installed here.
+
+01:20:32.300 --> 01:20:34.300
+Let's go back to the documentation.
+
+01:20:36.300 --> 01:20:38.300
+After that, what you have to do is
+
+01:20:38.300 --> 01:20:40.300
+configure your CLI.
+
+01:20:40.300 --> 01:20:42.300
+Why do you have to configure CLI?
+
+01:20:42.300 --> 01:20:44.300
+Because you have to add an API here.
+
+01:20:46.300 --> 01:20:48.300
+Now I will tell you where you will get the API.
+
+01:20:48.300 --> 01:20:50.300
+What you have to do is
+
+01:20:50.300 --> 01:20:52.300
+I will share the screen again.
+
+01:20:54.300 --> 01:20:56.300
+Actually, you can see the boundaries of the room.
+
+01:20:56.300 --> 01:20:58.300
+So you are not able to see the tabs.
+
+01:21:00.300 --> 01:21:02.300
+My full screen is being shared.
+
+01:21:04.300 --> 01:21:06.300
+Is my full screen visible?
+
+01:21:06.300 --> 01:21:08.300
+Give me a thumbs up.
+
+01:21:08.300 --> 01:21:10.300
+Tell me where you want to go.
+
+01:21:20.300 --> 01:21:22.300
+What we have to do is
+
+01:21:22.300 --> 01:21:24.300
+We have to go to this page.
+
+01:21:24.300 --> 01:21:26.300
+We have to go inside guardrails hub.
+
+01:21:28.300 --> 01:21:30.300
+Sign in to get started.
+
+01:21:30.300 --> 01:21:32.300
+You can see clearly here.
+
+01:21:32.300 --> 01:21:34.300
+This is what guardrails hub looks like.
+
+01:21:34.300 --> 01:21:36.300
+Here are the use cases.
+
+01:21:36.300 --> 01:21:38.300
+You can select chatbot.
+
+01:21:38.300 --> 01:21:40.300
+You will get the guardrails for chatbot.
+
+01:21:42.300 --> 01:21:44.300
+You can go to customer support.
+
+01:21:46.300 --> 01:21:48.300
+Structure data.
+
+01:21:48.300 --> 01:21:50.300
+We have chosen rack.
+
+01:21:50.300 --> 01:21:52.300
+You can also use other guardrails.
+
+01:21:52.300 --> 01:21:54.300
+You can't use only rack.
+
+01:21:56.300 --> 01:21:58.300
+Now here it has changed.
+
+01:21:58.300 --> 01:22:00.300
+Earlier there were 70.
+
+01:22:00.300 --> 01:22:02.300
+Now I think they have made 65 guardrails.
+
+01:22:02.300 --> 01:22:04.300
+They have removed some.
+
+01:22:04.300 --> 01:22:06.300
+There is code generation, summarization, text to SQL.
+
+01:22:06.300 --> 01:22:08.300
+So there are different use cases.
+
+01:22:08.300 --> 01:22:10.300
+There are also risk categories.
+
+01:22:10.300 --> 01:22:12.300
+Which risk category do you want to use?
+
+01:22:12.300 --> 01:22:14.300
+Like jailbreak.
+
+01:22:14.300 --> 01:22:16.300
+These are some guardrails for jailbreak.
+
+01:22:18.300 --> 01:22:20.300
+You want to use for code exploits.
+
+01:22:20.300 --> 01:22:22.300
+So here it is.
+
+01:22:22.300 --> 01:22:24.300
+You want to use for brand risk or formatting.
+
+01:22:24.300 --> 01:22:26.300
+So here it is.
+
+01:22:26.300 --> 01:22:28.300
+Then infrastructure.
+
+01:22:28.300 --> 01:22:30.300
+These are your categories.
+
+01:22:30.300 --> 01:22:32.300
+The types that we discussed.
+
+01:22:32.300 --> 01:22:38.300
+Now these guardrails are implemented by ML model.
+
+01:22:38.300 --> 01:22:40.300
+Now what do you see in input?
+
+01:22:40.300 --> 01:22:42.300
+String, string, string.
+
+01:22:42.300 --> 01:22:46.300
+So all the guardrails apart from structured output.
+
+01:22:46.300 --> 01:22:50.300
+Generally they take string in input.
+
+01:22:50.300 --> 01:22:52.300
+If you go to structure data.
+
+01:22:52.300 --> 01:22:54.300
+You will get something here.
+
+01:22:54.300 --> 01:22:56.300
+Which will take some other value.
+
+01:22:56.300 --> 01:22:58.300
+But generally everyone takes string.
+
+01:22:58.300 --> 01:23:00.300
+When you pass in LLM.
+
+01:23:00.300 --> 01:23:02.300
+Even when you pass, it is also string output.
+
+01:23:02.300 --> 01:23:04.300
+So you will get string to see.
+
+01:23:04.300 --> 01:23:06.300
+So first your ML based.
+
+01:23:06.300 --> 01:23:08.300
+Then your LLM based.
+
+01:23:08.300 --> 01:23:10.300
+Here you will use LLM as a judge.
+
+01:23:10.300 --> 01:23:12.300
+So in total you have 9 guardrails.
+
+01:23:12.300 --> 01:23:14.300
+Here you use LLM internally.
+
+01:23:14.300 --> 01:23:16.300
+So here you will get API key.
+
+01:23:16.300 --> 01:23:18.300
+This is your rule based.
+
+01:23:18.300 --> 01:23:20.300
+And the rest are your NA.
+
+01:23:20.300 --> 01:23:22.300
+Now you are confused.
+
+01:23:22.300 --> 01:23:24.300
+Because we had read only 3.
+
+01:23:24.300 --> 01:23:26.300
+NA was not read.
+
+01:23:26.300 --> 01:23:28.300
+So what is the difference between NA and rule?
+
+01:23:28.300 --> 01:23:32.300
+Actually internally NA and rule are doing the same work.
+
+01:23:32.300 --> 01:23:34.300
+It is rule based.
+
+01:23:34.300 --> 01:23:36.300
+But here there are 2 different categories.
+
+01:23:36.300 --> 01:23:38.300
+For rule, there is a single guardrail.
+
+01:23:38.300 --> 01:23:40.300
+Which is put in rule.
+
+01:23:40.300 --> 01:23:44.300
+Rest, the rule actually is put in NA.
+
+01:23:44.300 --> 01:23:48.300
+So these validations are not used in any model.
+
+01:23:48.300 --> 01:23:50.300
+Look, contain string.
+
+01:23:50.300 --> 01:23:52.300
+Here it is easy to check.
+
+01:23:52.300 --> 01:23:56.300
+Has URL, lowercase, reading level.
+
+01:23:56.300 --> 01:24:00.300
+All these you can do easily through your Python functions.
+
+01:24:00.300 --> 01:24:02.300
+Ok.
+
+01:24:02.300 --> 01:24:04.300
+I hope you understood this whole thing.
+
+01:24:04.300 --> 01:24:06.300
+Clear guys?
+
+01:24:06.300 --> 01:24:08.300
+How does guardrail work?
+
+01:24:08.300 --> 01:24:10.300
+Now what we have to do is sign in.
+
+01:24:10.300 --> 01:24:12.300
+I will sign in with GitHub.
+
+01:24:12.300 --> 01:24:16.300
+I hope this sign in will be done.
+
+01:24:22.300 --> 01:24:24.300
+Done.
+
+01:24:24.300 --> 01:24:28.300
+Now you have to go to API keys section.
+
+01:24:28.300 --> 01:24:30.300
+Ok.
+
+01:24:30.300 --> 01:24:34.300
+Now you have to click on create API key.
+
+01:24:34.300 --> 01:24:36.300
+Set duration.
+
+01:24:36.300 --> 01:24:38.300
+I set one day.
+
+01:24:38.300 --> 01:24:40.300
+Here you have to set name.
+
+01:24:40.300 --> 01:24:42.300
+Let's keep name for now.
+
+01:24:42.300 --> 01:24:44.300
+Test.
+
+01:24:44.300 --> 01:24:46.300
+Saved.
+
+01:24:46.300 --> 01:24:48.300
+This is my API key.
+
+01:24:48.300 --> 01:24:50.300
+I will go back.
+
+01:24:50.300 --> 01:24:52.300
+Now you have to run a command here.
+
+01:24:52.300 --> 01:24:56.300
+Guardrails.
+
+01:24:56.300 --> 01:24:58.300
+Configure.
+
+01:24:58.300 --> 01:25:00.300
+As soon as you run this.
+
+01:25:00.300 --> 01:25:02.300
+It will come to you.
+
+01:25:02.300 --> 01:25:04.300
+Enable anonymous matrix reporting.
+
+01:25:04.300 --> 01:25:06.300
+You can do it or not.
+
+01:25:06.300 --> 01:25:08.300
+We say yes.
+
+01:25:08.300 --> 01:25:10.300
+There is no harm in doing it.
+
+01:25:10.300 --> 01:25:12.300
+Wish to use remote inferencing.
+
+01:25:12.300 --> 01:25:16.300
+No, we want to download the model on our system and use it.
+
+01:25:16.300 --> 01:25:18.300
+I will select no.
+
+01:25:18.300 --> 01:25:20.300
+Then it says, drop API key.
+
+01:25:20.300 --> 01:25:22.300
+Here is my API key.
+
+01:25:22.300 --> 01:25:24.300
+I have done drop in.
+
+01:25:24.300 --> 01:25:26.300
+Press enter.
+
+01:25:26.300 --> 01:25:28.300
+Login is successful.
+
+01:25:28.300 --> 01:25:30.300
+Now you are ready to work with guardrails.
+
+01:25:30.300 --> 01:25:32.300
+That's all you have to do.
+
+01:25:32.300 --> 01:25:34.300
+After that.
+
+01:25:34.300 --> 01:25:36.300
+Let's get back to the documentation.
+
+01:25:36.300 --> 01:25:38.300
+After that.
+
+01:25:38.300 --> 01:25:40.300
+What you have to do here.
+
+01:25:40.300 --> 01:25:42.300
+Install your validator.
+
+01:25:42.300 --> 01:25:44.300
+What is validator?
+
+01:25:44.300 --> 01:25:46.300
+Your separate rules or guardrails.
+
+01:25:46.300 --> 01:25:48.300
+In order to perform any validation on LLM output with guardrails.
+
+01:25:48.300 --> 01:25:50.300
+You need to install appropriate validator.
+
+01:25:50.300 --> 01:25:52.300
+What is the method of installing validator?
+
+01:25:52.300 --> 01:25:54.300
+That's it.
+
+01:25:54.300 --> 01:25:56.300
+After that.
+
+01:25:56.300 --> 01:25:58.300
+How to use it.
+
+01:25:58.300 --> 01:26:00.300
+You have installed everything.
+
+01:26:00.300 --> 01:26:02.300
+You just have to write this much code.
+
+01:26:02.300 --> 01:26:04.300
+And you can apply your guardrails.
+
+01:26:04.300 --> 01:26:06.300
+What we discussed.
+
+01:26:06.300 --> 01:26:08.300
+First your guard object.
+
+01:26:08.300 --> 01:26:10.300
+You added your validator.
+
+01:26:10.300 --> 01:26:12.300
+Which is your rule.
+
+01:26:12.300 --> 01:26:14.300
+You can add multiple rules.
+
+01:26:14.300 --> 01:26:16.300
+And after that.
+
+01:26:16.300 --> 01:26:18.300
+You have to use validate.
+
+01:26:18.300 --> 01:26:20.300
+Again here you have parts.
+
+01:26:20.300 --> 01:26:22.300
+But you have to use validate.
+
+01:26:22.300 --> 01:26:24.300
+In these three steps.
+
+01:26:24.300 --> 01:26:26.300
+You will get all the validation.
+
+01:26:26.300 --> 01:26:28.300
+What you have to do to install multiple.
+
+01:26:28.300 --> 01:26:30.300
+You have to simply pass multiple validators.
+
+01:26:30.300 --> 01:26:32.300
+And that is it.
+
+01:26:32.300 --> 01:26:34.300
+Super simple.
+
+01:26:34.300 --> 01:26:36.300
+It's simple guys.
+
+01:26:36.300 --> 01:26:38.300
+Isn't the code simple?
+
+01:26:38.300 --> 01:26:40.300
+No problem.
+
+01:26:40.300 --> 01:26:42.300
+Let's do one thing.
+
+01:26:42.300 --> 01:26:44.300
+Let's work with a validator.
+
+01:26:44.300 --> 01:26:46.300
+Let's do it.
+
+01:26:46.300 --> 01:26:50.300
+Let me get back to the guardrails hub page.
+
+01:26:50.300 --> 01:26:52.300
+It's out.
+
+01:26:52.300 --> 01:26:54.300
+Let me go back.
+
+01:26:54.300 --> 01:26:56.300
+Okay.
+
+01:26:56.300 --> 01:27:00.300
+Let's work with PII.
+
+01:27:00.300 --> 01:27:02.300
+I will write PII.
+
+01:27:02.300 --> 01:27:04.300
+As soon as I write.
+
+01:27:04.300 --> 01:27:06.300
+Three guardrails will come.
+
+01:27:06.300 --> 01:27:08.300
+Now you have to select.
+
+01:27:08.300 --> 01:27:10.300
+Which one to use.
+
+01:27:10.300 --> 01:27:12.300
+All are ML based.
+
+01:27:12.300 --> 01:27:14.300
+Now here.
+
+01:27:14.300 --> 01:27:16.300
+The documentation of these guardrails.
+
+01:27:16.300 --> 01:27:18.300
+Is good.
+
+01:27:18.300 --> 01:27:20.300
+You have to click here.
+
+01:27:20.300 --> 01:27:22.300
+You will get overview.
+
+01:27:22.300 --> 01:27:24.300
+Who developed.
+
+01:27:24.300 --> 01:27:26.300
+Date of development.
+
+01:27:26.300 --> 01:27:28.300
+What is the format.
+
+01:27:28.300 --> 01:27:30.300
+Blog license.
+
+01:27:30.300 --> 01:27:32.300
+Everything is available.
+
+01:27:32.300 --> 01:27:34.300
+How to run.
+
+01:27:34.300 --> 01:27:36.300
+How to import.
+
+01:27:36.300 --> 01:27:38.300
+All the code is here.
+
+01:27:38.300 --> 01:27:40.300
+You have to do.
+
+01:27:40.300 --> 01:27:42.300
+Again you have to implement.
+
+01:27:42.300 --> 01:27:44.300
+Selective guardrails.
+
+01:27:44.300 --> 01:27:46.300
+Go read the description.
+
+01:27:46.300 --> 01:27:48.300
+As soon as you read the description.
+
+01:27:48.300 --> 01:27:50.300
+You will understand.
+
+01:27:50.300 --> 01:27:52.300
+Which dependencies are needed.
+
+01:27:52.300 --> 01:27:54.300
+This is community driven.
+
+01:27:54.300 --> 01:27:56.300
+Models are dependent.
+
+01:27:56.300 --> 01:27:58.300
+They will be downloaded automatically.
+
+01:27:58.300 --> 01:28:00.300
+Installation steps are here.
+
+01:28:00.300 --> 01:28:02.300
+Code to use is also given.
+
+01:28:02.300 --> 01:28:04.300
+And.
+
+01:28:04.300 --> 01:28:06.300
+Along with it.
+
+01:28:06.300 --> 01:28:08.300
+What to send input parameters.
+
+01:28:08.300 --> 01:28:10.300
+Everything is given.
+
+01:28:10.300 --> 01:28:12.300
+Here itself.
+
+01:28:12.300 --> 01:28:14.300
+You need to go anywhere.
+
+01:28:14.300 --> 01:28:16.300
+All the information is given.
+
+01:28:16.300 --> 01:28:18.300
+And the code part is.
+
+01:28:18.300 --> 01:28:20.300
+Same.
+
+01:28:20.300 --> 01:28:22.300
+You have to change the rules.
+
+01:28:22.300 --> 01:28:24.300
+You have to put some input parameters.
+
+01:28:24.300 --> 01:28:26.300
+And you are ready to go.
+
+01:28:26.300 --> 01:28:28.300
+Let's use this particular guardrail.
+
+01:28:28.300 --> 01:28:30.300
+Let's read the description.
+
+01:28:30.300 --> 01:28:32.300
+This file editor is designed to detect.
+
+01:28:32.300 --> 01:28:34.300
+Anonymize.
+
+01:28:34.300 --> 01:28:36.300
+It masks your PII.
+
+01:28:36.300 --> 01:28:38.300
+Generated text using state of the art method.
+
+01:28:38.300 --> 01:28:40.300
+Currently a combination of multiple models.
+
+01:28:40.300 --> 01:28:42.300
+It gives your highest performing results.
+
+01:28:42.300 --> 01:28:44.300
+Supports various types of entity types.
+
+01:28:44.300 --> 01:28:46.300
+Entity is.
+
+01:28:46.300 --> 01:28:48.300
+What are your PII.
+
+01:28:48.300 --> 01:28:50.300
+Categories.
+
+01:28:50.300 --> 01:28:52.300
+Or types can be detected.
+
+01:28:52.300 --> 01:28:54.300
+Key features are given here.
+
+01:28:54.300 --> 01:28:56.300
+You read it.
+
+01:28:56.300 --> 01:28:58.300
+You have to use this validator.
+
+01:28:58.300 --> 01:29:00.300
+What you have to do.
+
+01:29:00.300 --> 01:29:02.300
+You have to install this.
+
+01:29:02.300 --> 01:29:04.300
+In your environment.
+
+01:29:04.300 --> 01:29:06.300
+Now you don't have to.
+
+01:29:06.300 --> 01:29:08.300
+It will be automatically installed.
+
+01:29:08.300 --> 01:29:10.300
+These are its dependencies.
+
+01:29:10.300 --> 01:29:12.300
+You have to install this package.
+
+01:29:12.300 --> 01:29:14.300
+pip install guardrails ai guardrails pii
+
+01:29:14.300 --> 01:29:16.300
+We will only copy this much.
+
+01:29:16.300 --> 01:29:18.300
+Because.
+
+01:29:18.300 --> 01:29:20.300
+We are smart.
+
+01:29:20.300 --> 01:29:22.300
+We are using UV.
+
+01:29:22.300 --> 01:29:24.300
+Let's clear it.
+
+01:29:24.300 --> 01:29:26.300
+We will write UV add.
+
+01:29:26.300 --> 01:29:28.300
+And paste it.
+
+01:29:28.300 --> 01:29:30.300
+Done.
+
+01:29:30.300 --> 01:29:32.300
+And see my guardrails ai pii is installed.
+
+01:29:34.300 --> 01:29:36.300
+Download is being downloaded.
+
+01:29:36.300 --> 01:29:38.300
+Here is the pi torch base.
+
+01:29:38.300 --> 01:29:40.300
+And we have downloaded it.
+
+01:29:40.300 --> 01:29:42.300
+Any error has come?
+
+01:29:48.300 --> 01:29:50.300
+What is the error?
+
+01:29:50.300 --> 01:29:52.300
+Sentence was included.
+
+01:29:52.300 --> 01:29:54.300
+Is it a warning or an error?
+
+01:29:54.300 --> 01:29:56.300
+I think it is a warning.
+
+01:29:56.300 --> 01:29:58.300
+Because.
+
+01:29:58.300 --> 01:30:00.300
+No. Error is.
+
+01:30:00.300 --> 01:30:02.300
+It is not installed here.
+
+01:30:02.300 --> 01:30:04.300
+Let's try again.
+
+01:30:08.300 --> 01:30:10.300
+It was working on my windows system.
+
+01:30:10.300 --> 01:30:12.300
+Is it an error of mac?
+
+01:30:14.300 --> 01:30:16.300
+There is an issue of package.
+
+01:30:16.300 --> 01:30:18.300
+No problem.
+
+01:30:18.300 --> 01:30:20.300
+This is an issue of mac.
+
+01:30:20.300 --> 01:30:22.300
+So I will fix it.
+
+01:30:22.300 --> 01:30:24.300
+This particular guardrail was working on my windows system.
+
+01:30:24.300 --> 01:30:26.300
+When I was testing this code.
+
+01:30:26.300 --> 01:30:28.300
+It is working.
+
+01:30:28.300 --> 01:30:30.300
+There will be some issue of environment.
+
+01:30:30.300 --> 01:30:32.300
+I will fix it.
+
+01:30:32.300 --> 01:30:34.300
+No problem.
+
+01:30:34.300 --> 01:30:36.300
+We can use this one.
+
+01:30:36.300 --> 01:30:38.300
+Bias check.
+
+01:30:38.300 --> 01:30:40.300
+What it does.
+
+01:30:40.300 --> 01:30:42.300
+It is a bias check format validator.
+
+01:30:42.300 --> 01:30:44.300
+It ensures textual outputs do not contain.
+
+01:30:44.300 --> 01:30:46.300
+Bias language towards.
+
+01:30:46.300 --> 01:30:48.300
+Demography, race, gender, sex, religion and ethnicity.
+
+01:30:48.300 --> 01:30:50.300
+Let's test it.
+
+01:30:50.300 --> 01:30:52.300
+It is also ML based.
+
+01:30:52.300 --> 01:30:54.300
+For this.
+
+01:30:54.300 --> 01:30:56.300
+Some inputs are required.
+
+01:30:56.300 --> 01:30:58.300
+What we will do.
+
+01:30:58.300 --> 01:31:00.300
+We will copy.
+
+01:31:00.300 --> 01:31:02.300
+We will go back to our code.
+
+01:31:04.300 --> 01:31:06.300
+We will clear.
+
+01:31:06.300 --> 01:31:08.300
+And we will simply write.
+
+01:31:08.300 --> 01:31:10.300
+UV run.
+
+01:31:10.300 --> 01:31:12.300
+And we will paste this particular.
+
+01:31:16.300 --> 01:31:18.300
+Oh sorry. I have done UV run.
+
+01:31:18.300 --> 01:31:20.300
+My bad.
+
+01:31:20.300 --> 01:31:22.300
+I said. Is this also giving an error?
+
+01:31:22.300 --> 01:31:24.300
+This is tensor flow based.
+
+01:31:24.300 --> 01:31:26.300
+This is also tensor flow based.
+
+01:31:26.300 --> 01:31:28.300
+There will be error of pytorch.
+
+01:31:28.300 --> 01:31:30.300
+I will figure it out.
+
+01:31:30.300 --> 01:31:32.300
+It looks like tensor flow.
+
+01:31:32.300 --> 01:31:34.300
+But I think in this case it is getting installed.
+
+01:31:34.300 --> 01:31:36.300
+Yes. It is done.
+
+01:31:36.300 --> 01:31:38.300
+This is done.
+
+01:31:38.300 --> 01:31:40.300
+What you have to do after that.
+
+01:31:40.300 --> 01:31:42.300
+After that you have to download your model.
+
+01:31:42.300 --> 01:31:44.300
+Because you are running locally.
+
+01:31:44.300 --> 01:31:46.300
+To download you have to run this particular module.
+
+01:31:48.300 --> 01:31:50.300
+Again we are using UV.
+
+01:31:50.300 --> 01:31:52.300
+So our command will be little different.
+
+01:31:54.300 --> 01:31:56.300
+We will not write python-m here.
+
+01:31:56.300 --> 01:31:58.300
+We will write UV.
+
+01:31:58.300 --> 01:32:00.300
+Run.
+
+01:32:00.300 --> 01:32:02.300
+And after that name of our file.
+
+01:32:02.300 --> 01:32:04.300
+We will run this as a module.
+
+01:32:04.300 --> 01:32:06.300
+We will run this as a module.
+
+01:32:22.300 --> 01:32:24.300
+What happened? Verification window opened.
+
+01:32:24.300 --> 01:32:26.300
+Then where did it go?
+
+01:32:26.300 --> 01:32:28.300
+I think it will take some time.
+
+01:32:28.300 --> 01:32:30.300
+It will start now.
+
+01:32:30.300 --> 01:32:32.300
+Stupid verification opened.
+
+01:32:34.300 --> 01:32:36.300
+I did it in windows.
+
+01:32:36.300 --> 01:32:38.300
+Everything gets downloaded.
+
+01:32:38.300 --> 01:32:40.300
+No problem.
+
+01:32:40.300 --> 01:32:42.300
+It is very injured in mac.
+
+01:32:42.300 --> 01:32:44.300
+There will be verification.
+
+01:32:44.300 --> 01:32:46.300
+Sometimes something will happen.
+
+01:32:48.300 --> 01:32:50.300
+It was working flawlessly on my desktop.
+
+01:32:50.300 --> 01:32:52.300
+No issue.
+
+01:32:52.300 --> 01:32:54.300
+No problem.
+
+01:32:54.300 --> 01:32:56.300
+Let it be.
+
+01:32:56.300 --> 01:32:58.300
+It is downloading the model.
+
+01:32:58.300 --> 01:33:00.300
+It is downloading the model.
+
+01:33:00.300 --> 01:33:02.300
+It is downloading the model.
+
+01:33:02.300 --> 01:33:04.300
+It is 268 MB model.
+
+01:33:08.300 --> 01:33:10.300
+It will run locally from your system.
+
+01:33:10.300 --> 01:33:12.300
+Done.
+
+01:33:12.300 --> 01:33:14.300
+Done.
+
+01:33:14.300 --> 01:33:16.300
+I think everything is good.
+
+01:33:16.300 --> 01:33:18.300
+Now our guardrail is here.
+
+01:33:18.300 --> 01:33:20.300
+Now our guardrail is here.
+
+01:33:20.300 --> 01:33:22.300
+Next step is to use it.
+
+01:33:22.300 --> 01:33:24.300
+Next step is to use it.
+
+01:33:24.300 --> 01:33:26.300
+We will see the code to use it.
+
+01:33:26.300 --> 01:33:28.300
+And here in input.
+
+01:33:28.300 --> 01:33:30.300
+Simply we have to pass a threshold value.
+
+01:33:30.300 --> 01:33:32.300
+We have to pass a threshold value.
+
+01:33:32.300 --> 01:33:34.300
+That's it.
+
+01:33:34.300 --> 01:33:36.300
+And onfill.
+
+01:33:36.300 --> 01:33:38.300
+We will read that now.
+
+01:33:38.300 --> 01:33:40.300
+Let's go here.
+
+01:33:40.300 --> 01:33:42.300
+Let's go to notebooks.
+
+01:33:42.300 --> 01:33:44.300
+And we will test this guardrail.
+
+01:33:44.300 --> 01:33:46.300
+Let's make a file here.
+
+01:33:46.300 --> 01:33:48.300
+The file name is
+
+01:33:48.300 --> 01:33:50.300
+Biascheck.ipynb
+
+01:33:50.300 --> 01:33:52.300
+Guys focus on this code.
+
+01:33:52.300 --> 01:33:54.300
+Because this exact code
+
+01:33:54.300 --> 01:33:56.300
+We will use it again and again.
+
+01:33:56.300 --> 01:33:58.300
+And it is a very simple code.
+
+01:33:58.300 --> 01:34:00.300
+It is a small code.
+
+01:34:00.300 --> 01:34:02.300
+It is a cute code.
+
+01:34:02.300 --> 01:34:04.300
+You will like it.
+
+01:34:04.300 --> 01:34:06.300
+You will say that it was fun.
+
+01:34:06.300 --> 01:34:08.300
+The code was so easy.
+
+01:34:08.300 --> 01:34:10.300
+What you have to do here is
+
+01:34:10.300 --> 01:34:12.300
+First of all you have to import your guard object.
+
+01:34:12.300 --> 01:34:14.300
+Where will you get it from?
+
+01:34:14.300 --> 01:34:16.300
+You will write from guardrails.
+
+01:34:16.300 --> 01:34:18.300
+You will import your guard.
+
+01:34:18.300 --> 01:34:20.300
+You have done.
+
+01:34:20.300 --> 01:34:22.300
+Now what you have to do is
+
+01:34:22.300 --> 01:34:24.300
+You have to import your validator.
+
+01:34:24.300 --> 01:34:26.300
+You will import from guardrails.ai
+
+01:34:26.300 --> 01:34:28.300
+If you will put a dot
+
+01:34:28.300 --> 01:34:30.300
+You will get a module here.
+
+01:34:30.300 --> 01:34:32.300
+All the validators you will add
+
+01:34:32.300 --> 01:34:34.300
+Their modules will come here.
+
+01:34:34.300 --> 01:34:36.300
+If PII also works then dot PII also comes here.
+
+01:34:36.300 --> 01:34:38.300
+We will do dot biascheck here.
+
+01:34:38.300 --> 01:34:40.300
+We will import this class.
+
+01:34:40.300 --> 01:34:42.300
+The name of this class is
+
+01:34:42.300 --> 01:34:44.300
+Let me see the name
+
+01:34:44.300 --> 01:34:46.300
+import
+
+01:34:46.300 --> 01:34:48.300
+Biascheck is the name of this class.
+
+01:34:48.300 --> 01:34:50.300
+That's it.
+
+01:34:50.300 --> 01:34:52.300
+Again this code is also given here.
+
+01:34:52.300 --> 01:34:54.300
+Ok.
+
+01:34:54.300 --> 01:34:56.300
+After that what you have to do is
+
+01:34:56.300 --> 01:34:58.300
+After that you have to make
+
+01:34:58.300 --> 01:35:00.300
+a card object here.
+
+01:35:00.300 --> 01:35:02.300
+Make the card object.
+
+01:35:02.300 --> 01:35:04.300
+For that
+
+01:35:04.300 --> 01:35:06.300
+You will write guard.
+
+01:35:06.300 --> 01:35:08.300
+It is a convention.
+
+01:35:08.300 --> 01:35:10.300
+You write guard and card.
+
+01:35:10.300 --> 01:35:12.300
+Now you don't have to give any input
+
+01:35:12.300 --> 01:35:14.300
+inside the guard.
+
+01:35:14.300 --> 01:35:16.300
+We will make our vanilla guard.
+
+01:35:16.300 --> 01:35:18.300
+If you want to integrate LLM
+
+01:35:18.300 --> 01:35:20.300
+You can give LLM inputs here.
+
+01:35:20.300 --> 01:35:22.300
+Like which LLM you are using.
+
+01:35:22.300 --> 01:35:24.300
+Its API
+
+01:35:24.300 --> 01:35:26.300
+Max length
+
+01:35:26.300 --> 01:35:28.300
+You can give all this.
+
+01:35:28.300 --> 01:35:30.300
+We don't have to do anything like this.
+
+01:35:30.300 --> 01:35:32.300
+After that what you have to do is
+
+01:35:32.300 --> 01:35:34.300
+Use here.
+
+01:35:34.300 --> 01:35:36.300
+What you do in use is
+
+01:35:36.300 --> 01:35:38.300
+You add your validators.
+
+01:35:38.300 --> 01:35:40.300
+Our validator is biascheck
+
+01:35:40.300 --> 01:35:42.300
+In biascheck
+
+01:35:42.300 --> 01:35:44.300
+We have to pass two things.
+
+01:35:44.300 --> 01:35:46.300
+Our threshold and our onfib.
+
+01:35:46.300 --> 01:35:48.300
+So we will keep the threshold
+
+01:35:48.300 --> 01:35:50.300
+Let's keep it 0.6
+
+01:35:50.300 --> 01:35:52.300
+If you want to know
+
+01:35:52.300 --> 01:35:54.300
+What is the threshold?
+
+01:35:54.300 --> 01:35:56.300
+Higher is more likely to allow bias.
+
+01:35:56.300 --> 01:35:58.300
+Means the higher the threshold
+
+01:35:58.300 --> 01:36:00.300
+If we will make it 1
+
+01:36:00.300 --> 01:36:02.300
+It will pass everything.
+
+01:36:02.300 --> 01:36:04.300
+It will pass any bias message.
+
+01:36:04.300 --> 01:36:06.300
+So the more strict you want to make
+
+01:36:06.300 --> 01:36:08.300
+The less the threshold.
+
+01:36:08.300 --> 01:36:10.300
+So we have made the threshold 0.6.
+
+01:36:10.300 --> 01:36:12.300
+And we have to define the second thing
+
+01:36:12.300 --> 01:36:14.300
+If this validation fails
+
+01:36:14.300 --> 01:36:16.300
+What to do?
+
+01:36:16.300 --> 01:36:18.300
+We select no operation.
+
+01:36:18.300 --> 01:36:20.300
+And we have made our card.
+
+01:36:20.300 --> 01:36:22.300
+See
+
+01:36:22.300 --> 01:36:24.300
+Model world is loaded
+
+01:36:24.300 --> 01:36:26.300
+And our card is made.
+
+01:36:26.300 --> 01:36:28.300
+We have added one validation in it.
+
+01:36:28.300 --> 01:36:30.300
+Now what we have to do next?
+
+01:36:30.300 --> 01:36:32.300
+Now we have to validate here.
+
+01:36:32.300 --> 01:36:34.300
+So what we will do?
+
+01:36:34.300 --> 01:36:36.300
+Here in outcome
+
+01:36:36.300 --> 01:36:38.300
+We will simply
+
+01:36:38.300 --> 01:36:40.300
+Call the card.
+
+01:36:40.300 --> 01:36:42.300
+And here there is a method called as validate.
+
+01:36:42.300 --> 01:36:44.300
+Both are here.
+
+01:36:44.300 --> 01:36:46.300
+And there are parts too.
+
+01:36:46.300 --> 01:36:48.300
+Which one you want to use?
+
+01:36:48.300 --> 01:36:50.300
+What to give in input?
+
+01:36:50.300 --> 01:36:52.300
+Input you have to give an LLM output
+
+01:36:52.300 --> 01:36:54.300
+Which is your string.
+
+01:36:54.300 --> 01:36:56.300
+Here you have to give a string input.
+
+01:36:56.300 --> 01:36:58.300
+Now what input should be written here?
+
+01:36:58.300 --> 01:37:00.300
+You tell me.
+
+01:37:00.300 --> 01:37:02.300
+One input which is already biased
+
+01:37:02.300 --> 01:37:04.300
+But works.
+
+01:37:04.300 --> 01:37:06.300
+I have tested it. Should I write it?
+
+01:37:06.300 --> 01:37:08.300
+Please don't be offended.
+
+01:37:14.300 --> 01:37:16.300
+Boys
+
+01:37:18.300 --> 01:37:20.300
+Name, age, male. This is not PII
+
+01:37:20.300 --> 01:37:22.300
+This is bias
+
+01:37:24.300 --> 01:37:26.300
+Boys are
+
+01:37:26.300 --> 01:37:28.300
+Better
+
+01:37:28.300 --> 01:37:30.300
+Drivers than girls
+
+01:37:30.300 --> 01:37:32.300
+Sorry please.
+
+01:37:32.300 --> 01:37:34.300
+Don't be offended. This is working.
+
+01:37:34.300 --> 01:37:36.300
+So I am showing you this example.
+
+01:37:36.300 --> 01:37:38.300
+If there is a better example, tell me.
+
+01:37:38.300 --> 01:37:40.300
+Again I don't want to hurt anyone's feeling.
+
+01:37:40.300 --> 01:37:42.300
+Just this example
+
+01:37:42.300 --> 01:37:44.300
+I will run it once.
+
+01:37:46.300 --> 01:37:48.300
+Run.
+
+01:37:48.300 --> 01:37:50.300
+This is my run.
+
+01:37:50.300 --> 01:37:52.300
+Now let's see what I have in the outcome.
+
+01:37:52.300 --> 01:37:54.300
+So I will close this terminal.
+
+01:37:54.300 --> 01:37:56.300
+Now it's
+
+01:37:56.300 --> 01:37:58.300
+No work.
+
+01:37:58.300 --> 01:38:00.300
+And let's see what we have in the outcome.
+
+01:38:00.300 --> 01:38:02.300
+See.
+
+01:38:02.300 --> 01:38:04.300
+What is in the outcome?
+
+01:38:04.300 --> 01:38:06.300
+This is our validation outcome object.
+
+01:38:06.300 --> 01:38:08.300
+This is the same object which I didn't show you in the notes.
+
+01:38:08.300 --> 01:38:10.300
+So that you don't get confused.
+
+01:38:10.300 --> 01:38:12.300
+This is my guard output.
+
+01:38:12.300 --> 01:38:14.300
+So as soon as I
+
+01:38:14.300 --> 01:38:16.300
+Validate call on guard
+
+01:38:16.300 --> 01:38:18.300
+I got this validation
+
+01:38:18.300 --> 01:38:20.300
+Outcome.
+
+01:38:20.300 --> 01:38:22.300
+Now there are some attributes in this.
+
+01:38:22.300 --> 01:38:24.300
+First is a call id.
+
+01:38:24.300 --> 01:38:26.300
+There is a unique id.
+
+01:38:26.300 --> 01:38:28.300
+That how many times my validation has been done.
+
+01:38:28.300 --> 01:38:30.300
+Then there is my raw LLM
+
+01:38:30.300 --> 01:38:32.300
+Output. This raw LLM
+
+01:38:32.300 --> 01:38:34.300
+Output is my original
+
+01:38:34.300 --> 01:38:36.300
+Input. Which I have
+
+01:38:36.300 --> 01:38:38.300
+Gave to my validator.
+
+01:38:38.300 --> 01:38:40.300
+This is my input.
+
+01:38:40.300 --> 01:38:42.300
+Then there is
+
+01:38:42.300 --> 01:38:44.300
+Validated output.
+
+01:38:44.300 --> 01:38:46.300
+If I have fixed it,
+
+01:38:46.300 --> 01:38:48.300
+I will get clean output.
+
+01:38:48.300 --> 01:38:50.300
+Final output after validation.
+
+01:38:50.300 --> 01:38:52.300
+Remember the flowchart guys.
+
+01:38:52.300 --> 01:38:54.300
+This is validated input.
+
+01:38:54.300 --> 01:38:56.300
+So I will get this
+
+01:38:56.300 --> 01:38:58.300
+only when I have fixed it.
+
+01:38:58.300 --> 01:39:00.300
+Or if I have passed it.
+
+01:39:00.300 --> 01:39:02.300
+If it fails, I won't get anything.
+
+01:39:02.300 --> 01:39:04.300
+So
+
+01:39:04.300 --> 01:39:06.300
+Let me go back.
+
+01:39:06.300 --> 01:39:08.300
+Did validation pass?
+
+01:39:08.300 --> 01:39:10.300
+Did it pass overall?
+
+01:39:10.300 --> 01:39:12.300
+For one validator or multiple validators?
+
+01:39:12.300 --> 01:39:14.300
+In multiple validators,
+
+01:39:14.300 --> 01:39:16.300
+Everyone has to pass.
+
+01:39:16.300 --> 01:39:18.300
+Otherwise it fails.
+
+01:39:18.300 --> 01:39:20.300
+If one also fails, it is considered as a fail.
+
+01:39:20.300 --> 01:39:22.300
+If validation raises an error
+
+01:39:22.300 --> 01:39:24.300
+If we do exception
+
+01:39:24.300 --> 01:39:26.300
+Then error value will come here.
+
+01:39:26.300 --> 01:39:28.300
+And re-ask. We are not using re-ask.
+
+01:39:28.300 --> 01:39:30.300
+OK
+
+01:39:30.300 --> 01:39:32.300
+So let's see what all things came here.
+
+01:39:32.300 --> 01:39:34.300
+This is call id. This is my unique id.
+
+01:39:34.300 --> 01:39:36.300
+Raw LLM output.
+
+01:39:36.300 --> 01:39:38.300
+This is my input.
+
+01:39:38.300 --> 01:39:40.300
+What was the input?
+
+01:39:40.300 --> 01:39:42.300
+Boys are better drivers than girls.
+
+01:39:42.300 --> 01:39:44.300
+Then came my validation summary.
+
+01:39:44.300 --> 01:39:46.300
+In validation summary,
+
+01:39:46.300 --> 01:39:48.300
+My validator bias check
+
+01:39:48.300 --> 01:39:50.300
+Failed.
+
+01:39:50.300 --> 01:39:52.300
+OK
+
+01:39:52.300 --> 01:39:54.300
+The reason for failure is
+
+01:39:54.300 --> 01:39:56.300
+The original response contains
+
+01:39:56.300 --> 01:39:58.300
+potentially biased message.
+
+01:39:58.300 --> 01:40:00.300
+And what is bias message?
+
+01:40:00.300 --> 01:40:02.300
+It is also told.
+
+01:40:02.300 --> 01:40:04.300
+And I have also been given its score.
+
+01:40:04.300 --> 01:40:06.300
+Clear?
+
+01:40:06.300 --> 01:40:08.300
+And here is validated output.
+
+01:40:08.300 --> 01:40:10.300
+What is validated output?
+
+01:40:10.300 --> 01:40:12.300
+Boys are better drivers than girls.
+
+01:40:12.300 --> 01:40:14.300
+But come on.
+
+01:40:14.300 --> 01:40:16.300
+What did I say? If validation
+
+01:40:16.300 --> 01:40:18.300
+fails and I have not fixed it,
+
+01:40:18.300 --> 01:40:20.300
+then I will not get validated output.
+
+01:40:20.300 --> 01:40:22.300
+Why did I get validated output here?
+
+01:40:22.300 --> 01:40:24.300
+Can anyone tell me?
+
+01:40:24.300 --> 01:40:26.300
+If you are following the lecture
+
+01:40:26.300 --> 01:40:28.300
+religiously, then you will have
+
+01:40:28.300 --> 01:40:30.300
+its answer. Validated output
+
+01:40:30.300 --> 01:40:32.300
+should be fixed after passing my guardrail.
+
+01:40:32.300 --> 01:40:34.300
+It should be the correct output
+
+01:40:34.300 --> 01:40:36.300
+which I can send in my workflow.
+
+01:40:36.300 --> 01:40:38.300
+But here
+
+01:40:38.300 --> 01:40:40.300
+even after failing, I am getting the same thing.
+
+01:40:40.300 --> 01:40:42.300
+Can I send this thing to my
+
+01:40:42.300 --> 01:40:44.300
+retriever? This is biased input.
+
+01:40:44.300 --> 01:40:46.300
+I have put guardrail
+
+01:40:46.300 --> 01:40:48.300
+so that biased input
+
+01:40:48.300 --> 01:40:50.300
+gets filtered out.
+
+01:40:50.300 --> 01:40:52.300
+But I am failing here.
+
+01:40:52.300 --> 01:40:54.300
+Can anyone tell me?
+
+01:40:54.300 --> 01:40:56.300
+Why am I getting this here?
+
+01:41:00.300 --> 01:41:06.300
+Guys
+
+01:41:10.300 --> 01:41:12.300
+Only testing first case.
+
+01:41:12.300 --> 01:41:14.300
+Yes, Tushar was right.
+
+01:41:14.300 --> 01:41:16.300
+Here we are doing no operation.
+
+01:41:16.300 --> 01:41:18.300
+No operation means
+
+01:41:18.300 --> 01:41:20.300
+send whatever is coming.
+
+01:41:20.300 --> 01:41:22.300
+Just tell me your result.
+
+01:41:22.300 --> 01:41:24.300
+What is the result?
+
+01:41:24.300 --> 01:41:26.300
+Here is fail.
+
+01:41:26.300 --> 01:41:28.300
+Validation status is fail.
+
+01:41:28.300 --> 01:41:30.300
+I can see that here.
+
+01:41:30.300 --> 01:41:32.300
+Validation pass is false.
+
+01:41:32.300 --> 01:41:34.300
+I can see that here.
+
+01:41:34.300 --> 01:41:36.300
+But I am getting exact result here.
+
+01:41:36.300 --> 01:41:38.300
+Now if you want to get this fail
+
+01:41:38.300 --> 01:41:40.300
+then how will you get it?
+
+01:41:40.300 --> 01:41:42.300
+Again, it is simple python code.
+
+01:41:42.300 --> 01:41:44.300
+This is your validation outcome object
+
+01:41:44.300 --> 01:41:46.300
+which is saved in this variable.
+
+01:41:46.300 --> 01:41:48.300
+First of all, you have to go to this variable
+
+01:41:48.300 --> 01:41:50.300
+validation summaries.
+
+01:41:50.300 --> 01:41:52.300
+You will go to this attribute.
+
+01:41:52.300 --> 01:41:54.300
+Validation summaries.
+
+01:41:54.300 --> 01:41:56.300
+It is here.
+
+01:41:56.300 --> 01:41:58.300
+You will go to this.
+
+01:41:58.300 --> 01:42:00.300
+It is a list.
+
+01:42:00.300 --> 01:42:02.300
+It is a stack.
+
+01:42:02.300 --> 01:42:04.300
+You will go to that.
+
+01:42:04.300 --> 01:42:06.300
+Into last.
+
+01:42:06.300 --> 01:42:08.300
+You can also do list indexing here.
+
+01:42:08.300 --> 01:42:10.300
+Let's say zero.
+
+01:42:10.300 --> 01:42:12.300
+This is validation summary.
+
+01:42:12.300 --> 01:42:14.300
+After that you have to go inside
+
+01:42:14.300 --> 01:42:16.300
+validation status.
+
+01:42:16.300 --> 01:42:18.300
+You will get your pass fail from here.
+
+01:42:20.300 --> 01:42:22.300
+Okay.
+
+01:42:22.300 --> 01:42:24.300
+Is it clear?
+
+01:42:24.300 --> 01:42:26.300
+Now let's do one thing here.
+
+01:42:26.300 --> 01:42:28.300
+This is no operation.
+
+01:42:28.300 --> 01:42:30.300
+Now let's see here
+
+01:42:30.300 --> 01:42:32.300
+if I write exception
+
+01:42:32.300 --> 01:42:34.300
+instead of this, what would have happened?
+
+01:42:38.300 --> 01:42:40.300
+I made my card object again.
+
+01:42:40.300 --> 01:42:42.300
+Again,
+
+01:42:42.300 --> 01:42:44.300
+same, I validated it.
+
+01:42:44.300 --> 01:42:46.300
+Now what happened guys?
+
+01:42:48.300 --> 01:42:50.300
+As soon as I ran the code, I got nothing in the output.
+
+01:42:50.300 --> 01:42:52.300
+What was raised?
+
+01:42:52.300 --> 01:42:54.300
+My validation error.
+
+01:42:54.300 --> 01:42:56.300
+This is what I said.
+
+01:42:56.300 --> 01:42:58.300
+If my validation fails,
+
+01:42:58.300 --> 01:43:00.300
+then the application crashes there.
+
+01:43:00.300 --> 01:43:02.300
+See, it crashed.
+
+01:43:02.300 --> 01:43:04.300
+Now I will run this, obviously error will come.
+
+01:43:06.300 --> 01:43:08.300
+Okay, this is running.
+
+01:43:08.300 --> 01:43:10.300
+The value saved in the previous variable is being printed.
+
+01:43:10.300 --> 01:43:12.300
+But now see,
+
+01:43:12.300 --> 01:43:14.300
+my error is coming here.
+
+01:43:14.300 --> 01:43:16.300
+Validation failed with field with errors.
+
+01:43:16.300 --> 01:43:18.300
+Original response contains potentially
+
+01:43:18.300 --> 01:43:20.300
+bias messages.
+
+01:43:20.300 --> 01:43:22.300
+In this case, what will you do?
+
+01:43:22.300 --> 01:43:24.300
+In this case, you can crash your application
+
+01:43:24.300 --> 01:43:26.300
+if you want.
+
+01:43:26.300 --> 01:43:28.300
+Or if you are a smart programmer,
+
+01:43:28.300 --> 01:43:30.300
+then you can put a try except block here.
+
+01:43:30.300 --> 01:43:32.300
+You tried it.
+
+01:43:32.300 --> 01:43:34.300
+You got an exception.
+
+01:43:36.300 --> 01:43:38.300
+Except.
+
+01:43:38.300 --> 01:43:40.300
+Exception as E.
+
+01:43:40.300 --> 01:43:42.300
+If you want,
+
+01:43:42.300 --> 01:43:44.300
+you can capture this particular exception here.
+
+01:43:44.300 --> 01:43:46.300
+Validation error.
+
+01:43:46.300 --> 01:43:48.300
+But we are capturing all the exceptions here.
+
+01:43:48.300 --> 01:43:50.300
+We are doing some printing here.
+
+01:43:50.300 --> 01:43:52.300
+We are printing
+
+01:43:52.300 --> 01:43:54.300
+bias,
+
+01:43:54.300 --> 01:43:56.300
+exception,
+
+01:43:56.300 --> 01:43:58.300
+failed.
+
+01:43:58.300 --> 01:44:00.300
+And our message, exception,
+
+01:44:00.300 --> 01:44:02.300
+we are printing it here.
+
+01:44:02.300 --> 01:44:04.300
+Let's run.
+
+01:44:04.300 --> 01:44:06.300
+We are able to capture our exception here.
+
+01:44:08.300 --> 01:44:10.300
+It is getting cleared guys.
+
+01:44:10.300 --> 01:44:12.300
+What happens inside exception?
+
+01:44:12.300 --> 01:44:14.300
+OnFail is getting cleared.
+
+01:44:14.300 --> 01:44:16.300
+We have discussed two.
+
+01:44:16.300 --> 01:44:18.300
+Let me show you the notes.
+
+01:44:18.300 --> 01:44:20.300
+Just a second.
+
+01:44:20.300 --> 01:44:22.300
+OnFail
+
+01:44:22.300 --> 01:44:24.300
+we have discussed.
+
+01:44:24.300 --> 01:44:26.300
+I will choose some other color.
+
+01:44:26.300 --> 01:44:28.300
+We have discussed
+
+01:44:28.300 --> 01:44:30.300
+this and this.
+
+01:44:30.300 --> 01:44:32.300
+It is getting cleared.
+
+01:44:32.300 --> 01:44:34.300
+Now let's discuss
+
+01:44:34.300 --> 01:44:36.300
+reframe.
+
+01:44:36.300 --> 01:44:38.300
+After that,
+
+01:44:38.300 --> 01:44:40.300
+I will show you fix.
+
+01:44:40.300 --> 01:44:42.300
+Let's go.
+
+01:44:42.300 --> 01:44:44.300
+What you have to do
+
+01:44:44.300 --> 01:44:46.300
+is simply go to onFail
+
+01:44:46.300 --> 01:44:48.300
+and do reframe.
+
+01:44:48.300 --> 01:44:50.300
+Does anyone remember what happens
+
+01:44:50.300 --> 01:44:52.300
+inside reframe?
+
+01:44:52.300 --> 01:44:54.300
+What happens inside reframe guys?
+
+01:44:54.300 --> 01:44:56.300
+We have discussed.
+
+01:44:58.300 --> 01:45:00.300
+If else. No, what happens in output?
+
+01:45:00.300 --> 01:45:02.300
+In output,
+
+01:45:02.300 --> 01:45:04.300
+a none object comes out.
+
+01:45:04.300 --> 01:45:06.300
+None comes out. Let's run it.
+
+01:45:06.300 --> 01:45:08.300
+Let's see.
+
+01:45:08.300 --> 01:45:10.300
+I lied, I was telling the truth.
+
+01:45:10.300 --> 01:45:12.300
+It will come in front of you.
+
+01:45:12.300 --> 01:45:14.300
+Validated.
+
+01:45:14.300 --> 01:45:16.300
+Obviously, it failed because we have not
+
+01:45:16.300 --> 01:45:18.300
+changed our input.
+
+01:45:18.300 --> 01:45:20.300
+Now let's see.
+
+01:45:20.300 --> 01:45:22.300
+Outcome.
+
+01:45:22.300 --> 01:45:24.300
+What is coming inside output?
+
+01:45:24.300 --> 01:45:26.300
+All these things are same.
+
+01:45:26.300 --> 01:45:28.300
+Validated is failing.
+
+01:45:28.300 --> 01:45:30.300
+What is coming in validated output?
+
+01:45:30.300 --> 01:45:32.300
+On the other side. This was my input.
+
+01:45:32.300 --> 01:45:34.300
+This was my input.
+
+01:45:34.300 --> 01:45:36.300
+What is coming on the other side of guardrail?
+
+01:45:36.300 --> 01:45:38.300
+What is coming on the output side?
+
+01:45:38.300 --> 01:45:40.300
+None.
+
+01:45:40.300 --> 01:45:42.300
+Now what I can do is
+
+01:45:42.300 --> 01:45:44.300
+I can put a fallback mechanism here.
+
+01:45:44.300 --> 01:45:46.300
+How?
+
+01:45:46.300 --> 01:45:48.300
+By doing if else. What I have to do simply?
+
+01:45:50.300 --> 01:45:52.300
+If
+
+01:45:52.300 --> 01:45:54.300
+Outcome.
+
+01:45:54.300 --> 01:45:56.300
+Validated output
+
+01:45:56.300 --> 01:45:58.300
+is
+
+01:45:58.300 --> 01:46:00.300
+None. So here I will give
+
+01:46:00.300 --> 01:46:02.300
+my fallback mechanism.
+
+01:46:02.300 --> 01:46:04.300
+I will print a message here.
+
+01:46:06.300 --> 01:46:08.300
+I can print
+
+01:46:08.300 --> 01:46:10.300
+I can
+
+01:46:10.300 --> 01:46:12.300
+Please
+
+01:46:12.300 --> 01:46:14.300
+Sorry
+
+01:46:14.300 --> 01:46:16.300
+Please avoid
+
+01:46:18.300 --> 01:46:20.300
+Biased
+
+01:46:20.300 --> 01:46:22.300
+Inputs
+
+01:46:22.300 --> 01:46:24.300
+It is printed.
+
+01:46:24.300 --> 01:46:26.300
+What else can you do?
+
+01:46:26.300 --> 01:46:28.300
+You can simply print here
+
+01:46:28.300 --> 01:46:30.300
+Outcome.
+
+01:46:30.300 --> 01:46:32.300
+Validated output.
+
+01:46:34.300 --> 01:46:36.300
+This else statement will be printed.
+
+01:46:36.300 --> 01:46:38.300
+This statement will be printed.
+
+01:46:38.300 --> 01:46:40.300
+When you will pass.
+
+01:46:40.300 --> 01:46:42.300
+Like
+
+01:46:42.300 --> 01:46:44.300
+Boys
+
+01:46:44.300 --> 01:46:46.300
+and girls
+
+01:46:46.300 --> 01:46:48.300
+drive
+
+01:46:48.300 --> 01:46:50.300
+in same.
+
+01:46:50.300 --> 01:46:52.300
+This will obviously pass.
+
+01:46:54.300 --> 01:46:56.300
+When passing, you don't need to
+
+01:46:56.300 --> 01:46:58.300
+disturb validation. I will show you
+
+01:46:58.300 --> 01:47:00.300
+its outcome. Till now we were seeing
+
+01:47:00.300 --> 01:47:02.300
+fail. Now see its outcome.
+
+01:47:02.300 --> 01:47:04.300
+How small it is.
+
+01:47:04.300 --> 01:47:06.300
+You just told that
+
+01:47:06.300 --> 01:47:08.300
+this was your input.
+
+01:47:08.300 --> 01:47:10.300
+This is your output. Exactly same.
+
+01:47:10.300 --> 01:47:12.300
+And validation passed here.
+
+01:47:12.300 --> 01:47:14.300
+That's it.
+
+01:47:14.300 --> 01:47:16.300
+No validator, outcome, summary
+
+01:47:16.300 --> 01:47:18.300
+or any other score.
+
+01:47:18.300 --> 01:47:20.300
+Nothing.
+
+01:47:20.300 --> 01:47:22.300
+Is it clear guys?
+
+01:47:22.300 --> 01:47:24.300
+Let me see if it returns.
+
+01:47:24.300 --> 01:47:26.300
+I don't have to type.
+
+01:47:26.300 --> 01:47:28.300
+It was done.
+
+01:47:28.300 --> 01:47:30.300
+My bad.
+
+01:47:30.300 --> 01:47:32.300
+It's done.
+
+01:47:32.300 --> 01:47:34.300
+No problem.
+
+01:47:34.300 --> 01:47:36.300
+It didn't redo.
+
+01:47:38.300 --> 01:47:40.300
+Outcome was
+
+01:47:40.300 --> 01:47:42.300
+Validated.
+
+01:47:52.300 --> 01:47:54.300
+Sorry guys.
+
+01:47:54.300 --> 01:47:56.300
+I am writing so many times. You guys
+
+01:47:56.300 --> 01:47:58.300
+must be getting offended. But don't hit me.
+
+01:47:58.300 --> 01:48:00.300
+Is it clear?
+
+01:48:00.300 --> 01:48:02.300
+How do you feel about
+
+01:48:02.300 --> 01:48:04.300
+Guardrails.ai code?
+
+01:48:04.300 --> 01:48:06.300
+You have to do this for all guardrails.
+
+01:48:06.300 --> 01:48:08.300
+How is the code part?
+
+01:48:08.300 --> 01:48:10.300
+It's fun.
+
+01:48:10.300 --> 01:48:12.300
+It's so simple. You guys can also try.
+
+01:48:12.300 --> 01:48:14.300
+After today's class.
+
+01:48:14.300 --> 01:48:16.300
+You can actually
+
+01:48:16.300 --> 01:48:18.300
+try with different guardrails on your own.
+
+01:48:22.300 --> 01:48:24.300
+Now let's see another type.
+
+01:48:24.300 --> 01:48:26.300
+Refrane.
+
+01:48:26.300 --> 01:48:28.300
+This we have done.
+
+01:48:28.300 --> 01:48:30.300
+We can't use filter.
+
+01:48:30.300 --> 01:48:32.300
+Because there is no structured output.
+
+01:48:32.300 --> 01:48:34.300
+We are not using re-ask.
+
+01:48:34.300 --> 01:48:36.300
+Because for re-ask
+
+01:48:36.300 --> 01:48:38.300
+There is no optimum criteria.
+
+01:48:38.300 --> 01:48:40.300
+We are not using custom.
+
+01:48:40.300 --> 01:48:42.300
+Last one is fixed.
+
+01:48:42.300 --> 01:48:44.300
+Let's see if it will be fixed.
+
+01:48:44.300 --> 01:48:46.300
+In TIA it is fixed.
+
+01:48:46.300 --> 01:48:48.300
+Basically it masks.
+
+01:48:48.300 --> 01:48:50.300
+Let's see if it is fixed.
+
+01:48:50.300 --> 01:48:52.300
+Let's add one more line.
+
+01:48:52.300 --> 01:48:54.300
+Boys drive better than girls.
+
+01:48:58.300 --> 01:49:00.300
+What should I write?
+
+01:49:00.300 --> 01:49:02.300
+Tell me something.
+
+01:49:02.300 --> 01:49:04.300
+Which is non-biased.
+
+01:49:08.300 --> 01:49:10.300
+We should
+
+01:49:10.300 --> 01:49:12.300
+not
+
+01:49:16.300 --> 01:49:18.300
+target any
+
+01:49:18.300 --> 01:49:20.300
+specific gender.
+
+01:49:22.300 --> 01:49:24.300
+Driving
+
+01:49:24.300 --> 01:49:26.300
+is a
+
+01:49:26.300 --> 01:49:28.300
+skill.
+
+01:49:28.300 --> 01:49:30.300
+And anybody
+
+01:49:30.300 --> 01:49:32.300
+can
+
+01:49:36.300 --> 01:49:38.300
+acquire
+
+01:49:38.300 --> 01:49:40.300
+it.
+
+01:49:42.300 --> 01:49:44.300
+I have written this.
+
+01:49:44.300 --> 01:49:46.300
+Now this is my new one.
+
+01:49:46.300 --> 01:49:48.300
+Let's go up and here
+
+01:49:48.300 --> 01:49:50.300
+change this from refrain to
+
+01:49:50.300 --> 01:49:52.300
+fix.
+
+01:49:52.300 --> 01:49:54.300
+Re-run.
+
+01:49:54.300 --> 01:49:56.300
+Here
+
+01:49:56.300 --> 01:49:58.300
+we have re-run the outcome.
+
+01:49:58.300 --> 01:50:00.300
+Here is our outcome.
+
+01:50:00.300 --> 01:50:02.300
+Now look at this carefully.
+
+01:50:04.300 --> 01:50:06.300
+It is fixed. Great.
+
+01:50:08.300 --> 01:50:10.300
+Where is fixed?
+
+01:50:14.300 --> 01:50:16.300
+In validated output
+
+01:50:16.300 --> 01:50:18.300
+why boys drive better than girls?
+
+01:50:20.300 --> 01:50:22.300
+It is not
+
+01:50:22.300 --> 01:50:24.300
+a fix actually.
+
+01:50:24.300 --> 01:50:26.300
+It removed the useful thing.
+
+01:50:28.300 --> 01:50:30.300
+How did we do the previous one?
+
+01:50:30.300 --> 01:50:32.300
+We ran this.
+
+01:50:32.300 --> 01:50:34.300
+Outcome.
+
+01:50:34.300 --> 01:50:36.300
+Printed the outcome.
+
+01:50:44.300 --> 01:50:46.300
+I don't know
+
+01:50:46.300 --> 01:50:48.300
+what it means.
+
+01:50:48.300 --> 01:50:50.300
+It removed the useful thing.
+
+01:50:50.300 --> 01:50:52.300
+It removed the not useful thing.
+
+01:50:52.300 --> 01:50:54.300
+It is a little stupid.
+
+01:50:54.300 --> 01:50:56.300
+It is fixed.
+
+01:50:56.300 --> 01:50:58.300
+Original input was so big.
+
+01:51:00.300 --> 01:51:02.300
+It removed this
+
+01:51:02.300 --> 01:51:04.300
+and removed everything.
+
+01:51:04.300 --> 01:51:06.300
+It was a little stupid fix.
+
+01:51:06.300 --> 01:51:08.300
+Can you tell me a better sentence?
+
+01:51:10.300 --> 01:51:12.300
+Something better.
+
+01:51:12.300 --> 01:51:14.300
+Can anybody give me an example?
+
+01:51:14.300 --> 01:51:16.300
+Yes.
+
+01:51:16.300 --> 01:51:18.300
+Shruti was right.
+
+01:51:18.300 --> 01:51:20.300
+Actually it is a very funny thing.
+
+01:51:20.300 --> 01:51:22.300
+I was checking its bias.
+
+01:51:22.300 --> 01:51:24.300
+Wherever you are
+
+01:51:24.300 --> 01:51:26.300
+putting men down, it is passing.
+
+01:51:26.300 --> 01:51:28.300
+And you have to test this.
+
+01:51:28.300 --> 01:51:30.300
+I have written bad things
+
+01:51:30.300 --> 01:51:32.300
+for men.
+
+01:51:32.300 --> 01:51:34.300
+And it is passing everything.
+
+01:51:34.300 --> 01:51:36.300
+So this is its shortcoming.
+
+01:51:36.300 --> 01:51:38.300
+It is biased in itself.
+
+01:51:38.300 --> 01:51:40.300
+Towards the other gender.
+
+01:51:40.300 --> 01:51:42.300
+So let's write something else.
+
+01:51:42.300 --> 01:51:44.300
+Let's see.
+
+01:51:44.300 --> 01:51:46.300
+Maybe something related to a
+
+01:51:46.300 --> 01:51:48.300
+country or a country.
+
+01:51:54.300 --> 01:51:56.300
+Indians are
+
+01:51:56.300 --> 01:51:58.300
+good people.
+
+01:52:00.300 --> 01:52:02.300
+But they are
+
+01:52:06.300 --> 01:52:08.300
+What?
+
+01:52:08.300 --> 01:52:10.300
+I can't say but their food sucks.
+
+01:52:10.300 --> 01:52:12.300
+Actually Indian food is good.
+
+01:52:12.300 --> 01:52:14.300
+Considered good elsewhere.
+
+01:52:16.300 --> 01:52:18.300
+But their curry sucks.
+
+01:52:18.300 --> 01:52:20.300
+Let me write it.
+
+01:52:20.300 --> 01:52:22.300
+You must be feeling bad.
+
+01:52:22.300 --> 01:52:24.300
+I just want to check
+
+01:52:24.300 --> 01:52:26.300
+if it is fixed or not.
+
+01:52:28.300 --> 01:52:30.300
+Validated output.
+
+01:52:30.300 --> 01:52:32.300
+It is not able to catch it.
+
+01:52:34.300 --> 01:52:36.300
+PIA is not working.
+
+01:52:36.300 --> 01:52:38.300
+PIA is not working.
+
+01:52:38.300 --> 01:52:40.300
+I could have shown you better fix.
+
+01:52:42.300 --> 01:52:44.300
+Write something in chat
+
+01:52:44.300 --> 01:52:46.300
+and tell me.
+
+01:52:50.300 --> 01:52:52.300
+Let's take it from Google.
+
+01:52:54.300 --> 01:52:56.300
+I am testing
+
+01:53:00.300 --> 01:53:02.300
+I am checking
+
+01:53:02.300 --> 01:53:04.300
+Godrail
+
+01:53:04.300 --> 01:53:06.300
+for my
+
+01:53:06.300 --> 01:53:08.300
+rag app.
+
+01:53:08.300 --> 01:53:10.300
+Can you
+
+01:53:10.300 --> 01:53:12.300
+give me a sample
+
+01:53:12.300 --> 01:53:14.300
+input
+
+01:53:14.300 --> 01:53:16.300
+with some
+
+01:53:16.300 --> 01:53:18.300
+part
+
+01:53:18.300 --> 01:53:20.300
+having
+
+01:53:20.300 --> 01:53:22.300
+bias
+
+01:53:22.300 --> 01:53:24.300
+notation
+
+01:53:24.300 --> 01:53:26.300
+errors
+
+01:53:26.300 --> 01:53:28.300
+the rest
+
+01:53:28.300 --> 01:53:30.300
+is unbiased.
+
+01:53:30.300 --> 01:53:32.300
+Let's see.
+
+01:53:34.300 --> 01:53:36.300
+I found something.
+
+01:53:36.300 --> 01:53:38.300
+Here is a sample
+
+01:53:38.300 --> 01:53:40.300
+input designed to test.
+
+01:53:40.300 --> 01:53:42.300
+Context
+
+01:53:42.300 --> 01:53:44.300
+user query
+
+01:53:50.300 --> 01:53:52.300
+Let's take this.
+
+01:53:56.300 --> 01:53:58.300
+Why don't know
+
+01:53:58.300 --> 01:54:00.300
+why I have been given this.
+
+01:54:00.300 --> 01:54:02.300
+Whatever it is.
+
+01:54:02.300 --> 01:54:04.300
+What we can do is
+
+01:54:04.300 --> 01:54:06.300
+paste it.
+
+01:54:10.300 --> 01:54:12.300
+Copy it.
+
+01:54:12.300 --> 01:54:14.300
+Let me copy it again.
+
+01:54:14.300 --> 01:54:16.300
+Copy
+
+01:54:16.300 --> 01:54:18.300
+and paste.
+
+01:54:18.300 --> 01:54:20.300
+Done.
+
+01:54:20.300 --> 01:54:22.300
+Let's run it.
+
+01:54:22.300 --> 01:54:24.300
+I haven't read
+
+01:54:24.300 --> 01:54:26.300
+the message.
+
+01:54:26.300 --> 01:54:28.300
+Let's see.
+
+01:54:28.300 --> 01:54:30.300
+Let's read it.
+
+01:54:30.300 --> 01:54:32.300
+The input is
+
+01:54:32.300 --> 01:54:34.300
+The engineering team completed the system migration
+
+01:54:34.300 --> 01:54:36.300
+while girls in marketing usually
+
+01:54:36.300 --> 01:54:38.300
+struggle to understand basic technical
+
+01:54:38.300 --> 01:54:40.300
+deployments. The project documentation was
+
+01:54:40.300 --> 01:54:42.300
+written so clearly.
+
+01:54:42.300 --> 01:54:44.300
+Male engineers possess an inherent natural capability
+
+01:54:44.300 --> 01:54:46.300
+for algorithmic thinking.
+
+01:54:46.300 --> 01:54:48.300
+Very biased types.
+
+01:54:48.300 --> 01:54:50.300
+Let's see if it is fixed or not.
+
+01:54:52.300 --> 01:54:54.300
+Validated output.
+
+01:54:54.300 --> 01:54:56.300
+Usually
+
+01:54:56.300 --> 01:54:58.300
+struggle. It is not able to do.
+
+01:54:58.300 --> 01:55:00.300
+Fixed output.
+
+01:55:00.300 --> 01:55:02.300
+Again we can try
+
+01:55:02.300 --> 01:55:04.300
+with some other guardrail.
+
+01:55:04.300 --> 01:55:06.300
+But it is already time.
+
+01:55:06.300 --> 01:55:08.300
+Let me show you in the next session.
+
+01:55:08.300 --> 01:55:10.300
+Fixed output.
+
+01:55:10.300 --> 01:55:12.300
+It should be.
+
+01:55:12.300 --> 01:55:14.300
+It works well in PII.
+
+01:55:14.300 --> 01:55:16.300
+Again, can you understand the problem?
+
+01:55:16.300 --> 01:55:18.300
+Why it is not able to do?
+
+01:55:18.300 --> 01:55:20.300
+It is not able to do.
+
+01:55:20.300 --> 01:55:22.300
+Everyone can see it.
+
+01:55:22.300 --> 01:55:24.300
+Can you give any reason for it?
+
+01:55:24.300 --> 01:55:26.300
+Why this particular
+
+01:55:26.300 --> 01:55:28.300
+guardrail is performing so bad?
+
+01:55:30.300 --> 01:55:32.300
+There are some important questions
+
+01:55:32.300 --> 01:55:34.300
+that I want to discuss with you.
+
+01:55:34.300 --> 01:55:36.300
+Session is over.
+
+01:55:36.300 --> 01:55:38.300
+That's all.
+
+01:55:42.300 --> 01:55:44.300
+Again I wanted to show you two guardrails.
+
+01:55:44.300 --> 01:55:46.300
+Bias and PII.
+
+01:55:46.300 --> 01:55:48.300
+In PII,
+
+01:55:48.300 --> 01:55:50.300
+masking is fun.
+
+01:55:50.300 --> 01:55:52.300
+But we were not able to do that.
+
+01:55:52.300 --> 01:55:54.300
+If I show you the PII
+
+01:55:54.300 --> 01:55:56.300
+implementation,
+
+01:55:56.300 --> 01:55:58.300
+it is good.
+
+01:55:58.300 --> 01:56:00.300
+And it works well.
+
+01:56:00.300 --> 01:56:02.300
+It is not open anywhere.
+
+01:56:02.300 --> 01:56:04.300
+PII.
+
+01:56:04.300 --> 01:56:06.300
+See.
+
+01:56:06.300 --> 01:56:08.300
+It masks a lot of things.
+
+01:56:08.300 --> 01:56:10.300
+See.
+
+01:56:10.300 --> 01:56:12.300
+Supported entities.
+
+01:56:12.300 --> 01:56:14.300
+Credit card, crypto, date, time,
+
+01:56:14.300 --> 01:56:16.300
+email address.
+
+01:56:16.300 --> 01:56:18.300
+Social security number, person, phone number,
+
+01:56:18.300 --> 01:56:20.300
+medical license, URL.
+
+01:56:20.300 --> 01:56:22.300
+USK details.
+
+01:56:22.300 --> 01:56:24.300
+ITs, Italy.
+
+01:56:24.300 --> 01:56:26.300
+And Australia.
+
+01:56:26.300 --> 01:56:28.300
+Indian PAN.
+
+01:56:28.300 --> 01:56:30.300
+Indian Aadhar.
+
+01:56:30.300 --> 01:56:32.300
+Vehicle registration, voter ID card number.
+
+01:56:32.300 --> 01:56:34.300
+Passport number.
+
+01:56:34.300 --> 01:56:36.300
+It works on this.
+
+01:56:36.300 --> 01:56:38.300
+I am not getting any good results
+
+01:56:38.300 --> 01:56:40.300
+in this.
+
+01:56:40.300 --> 01:56:42.300
+But I am getting in US.
+
+01:56:42.300 --> 01:56:44.300
+Not in Indian.
+
+01:56:44.300 --> 01:56:46.300
+But this email, credit card number.
+
+01:56:46.300 --> 01:56:48.300
+IP address, location.
+
+01:56:48.300 --> 01:56:50.300
+I was doing good.
+
+01:56:52.300 --> 01:56:54.300
+Can you tell me the problem
+
+01:56:54.300 --> 01:56:56.300
+of all these guardrails?
+
+01:56:56.300 --> 01:56:58.300
+Why are they not performing so well?
+
+01:57:06.300 --> 01:57:08.300
+Guys.
+
+01:57:08.300 --> 01:57:10.300
+Anyone?
+
+01:57:16.300 --> 01:57:18.300
+Guys, am I audible?
+
+01:57:18.300 --> 01:57:20.300
+Yes. Shruti was right.
+
+01:57:20.300 --> 01:57:22.300
+They are ML based.
+
+01:57:24.300 --> 01:57:26.300
+What is the problem in ML based?
+
+01:57:26.300 --> 01:57:28.300
+Why is ML based so problematic?
+
+01:57:30.300 --> 01:57:32.300
+The intricacies of language
+
+01:57:32.300 --> 01:57:34.300
+these are not
+
+01:57:34.300 --> 01:57:36.300
+understood by machine learning models.
+
+01:57:36.300 --> 01:57:38.300
+Or deep learning models like
+
+01:57:38.300 --> 01:57:40.300
+Pytorch and tensorflow.
+
+01:57:40.300 --> 01:57:42.300
+They can't understand so well.
+
+01:57:42.300 --> 01:57:44.300
+For that we need LLMs.
+
+01:57:46.300 --> 01:57:48.300
+If we put LLM
+
+01:57:48.300 --> 01:57:50.300
+for machine learning implementation
+
+01:57:50.300 --> 01:57:52.300
+then it would perform better.
+
+01:57:52.300 --> 01:57:54.300
+But what is the problem there?
+
+01:57:56.300 --> 01:57:58.300
+Or if we put LLM in bias check
+
+01:57:58.300 --> 01:58:00.300
+then it would perform better.
+
+01:58:00.300 --> 01:58:02.300
+But what is the problem there?
+
+01:58:02.300 --> 01:58:04.300
+The problem of cost.
+
+01:58:04.300 --> 01:58:06.300
+The problem of latency.
+
+01:58:06.300 --> 01:58:08.300
+So that is it.
+
+01:58:08.300 --> 01:58:10.300
+When you are in operations,
+
+01:58:10.300 --> 01:58:12.300
+you have to consider this trade off.
+
+01:58:12.300 --> 01:58:14.300
+Is there a better option than this?
+
+01:58:14.300 --> 01:58:16.300
+I can simply instruct LLM
+
+01:58:16.300 --> 01:58:18.300
+through system prompt.
+
+01:58:18.300 --> 01:58:20.300
+To act as a guardrail.
+
+01:58:22.300 --> 01:58:24.300
+But the problem is
+
+01:58:24.300 --> 01:58:26.300
+that we have to
+
+01:58:26.300 --> 01:58:28.300
+look for middle ground.
+
+01:58:28.300 --> 01:58:30.300
+We can't put all LLM based guardrails.
+
+01:58:30.300 --> 01:58:32.300
+Again we have to
+
+01:58:32.300 --> 01:58:34.300
+factor in cost, factor in latency.
+
+01:58:34.300 --> 01:58:36.300
+We have to factor in
+
+01:58:36.300 --> 01:58:38.300
+the priority of which guardrail.
+
+01:58:38.300 --> 01:58:40.300
+Now PII guardrail
+
+01:58:40.300 --> 01:58:42.300
+for a campus x chatbot
+
+01:58:42.300 --> 01:58:44.300
+is not that much priority.
+
+01:58:44.300 --> 01:58:46.300
+Who is interacting with our chatbot?
+
+01:58:46.300 --> 01:58:48.300
+Our students.
+
+01:58:48.300 --> 01:58:50.300
+Your phone numbers,
+
+01:58:50.300 --> 01:58:52.300
+your
+
+01:58:52.300 --> 01:58:54.300
+email id
+
+01:58:54.300 --> 01:58:56.300
+are all the same.
+
+01:59:02.300 --> 01:59:04.300
+Because you are not
+
+01:59:04.300 --> 01:59:06.300
+sending your email id
+
+01:59:06.300 --> 01:59:08.300
+to LLM directly.
+
+01:59:08.300 --> 01:59:10.300
+You are sending it to retriever.
+
+01:59:10.300 --> 01:59:12.300
+Now your phone number,
+
+01:59:12.300 --> 01:59:14.300
+is retrieved and
+
+01:59:14.300 --> 01:59:16.300
+it looks similar.
+
+01:59:16.300 --> 01:59:18.300
+But if it goes,
+
+01:59:18.300 --> 01:59:20.300
+that chunk,
+
+01:59:20.300 --> 01:59:22.300
+and the input guardrail
+
+01:59:22.300 --> 01:59:24.300
+that you have to put,
+
+01:59:24.300 --> 01:59:26.300
+this is fine for masking.
+
+01:59:26.300 --> 01:59:28.300
+This PII thing does it.
+
+01:59:28.300 --> 01:59:30.300
+As for bias,
+
+01:59:30.300 --> 01:59:32.300
+for bias maybe
+
+01:59:32.300 --> 01:59:34.300
+there might be an LLM
+
+01:59:34.300 --> 01:59:36.300
+solution.
+
+01:59:36.300 --> 01:59:38.300
+So for that
+
+01:59:38.300 --> 01:59:40.300
+we have to implement custom guardrail.
+
+01:59:42.300 --> 01:59:44.300
+No other way.
+
+01:59:48.300 --> 01:59:50.300
+Is this thing clear?
+
+01:59:52.300 --> 01:59:54.300
+So let's do one thing in the next class.
+
+01:59:54.300 --> 01:59:56.300
+I will make a custom guardrail
+
+01:59:56.300 --> 01:59:58.300
+for bias, for you.
+
+01:59:58.300 --> 02:00:00.300
+LLM based.
+
+02:00:00.300 --> 02:00:02.300
+It is very simple to make custom guardrail.
+
+02:00:02.300 --> 02:00:04.300
+Super easy.
+
+02:00:06.300 --> 02:00:08.300
+Although I can show it to you.
+
+02:00:08.300 --> 02:00:10.300
+Guardrails,
+
+02:00:10.300 --> 02:00:12.300
+AI,
+
+02:00:12.300 --> 02:00:14.300
+custom validator.
+
+02:00:14.300 --> 02:00:16.300
+See.
+
+02:00:16.300 --> 02:00:18.300
+What you have to do
+
+02:00:18.300 --> 02:00:20.300
+here is,
+
+02:00:20.300 --> 02:00:22.300
+register validator
+
+02:00:22.300 --> 02:00:24.300
+and decorator.
+
+02:00:24.300 --> 02:00:26.300
+Name and data type is to be shown.
+
+02:00:26.300 --> 02:00:28.300
+And simply define it in a function.
+
+02:00:30.300 --> 02:00:32.300
+That's it. Your validator is ready.
+
+02:00:32.300 --> 02:00:34.300
+You can do it as a function or as a class build.
+
+02:00:34.300 --> 02:00:36.300
+You can do it as a class build.
+
+02:00:38.300 --> 02:00:40.300
+Is this clear?
+
+02:00:40.300 --> 02:00:42.300
+So we will see this thing in the next class.
+
+02:00:44.300 --> 02:00:46.300
+Model, LLM,
+
+02:00:46.300 --> 02:00:48.300
+you can integrate everything.
+
+02:00:50.300 --> 02:00:52.300
+The whole code is given to you.
+
+02:00:52.300 --> 02:00:54.300
+Everything is given.
+
+02:00:56.300 --> 02:00:58.300
+Let's make a custom validator.
+
+02:00:58.300 --> 02:01:00.300
+LLM one. For bias check.
+
+02:01:00.300 --> 02:01:02.300
+How was it guys?
+
+02:01:02.300 --> 02:01:04.300
+Was it helpful?
+
+02:01:06.300 --> 02:01:08.300
+Confidence was built a little.
+
+02:01:16.300 --> 02:01:18.300
+Great.
+
+02:01:18.300 --> 02:01:20.300
+Clarity of concepts out of 5
+
+02:01:20.300 --> 02:01:22.300
+if you want to rate.
+
+02:01:22.300 --> 02:01:24.300
+After today's session on guardrails
+
+02:01:26.300 --> 02:01:28.300
+5. Okay.
+
+02:01:30.300 --> 02:01:32.300
+Great.
+
+02:01:34.300 --> 02:01:36.300
+I will be back in 5 minutes guys.
+
+02:01:36.300 --> 02:01:38.300
+For your questions and then we will close off the session.
+
+02:01:38.300 --> 02:01:40.300
+That's it for today.
+
+02:01:44.300 --> 02:01:46.300
+So for next session we will build some custom
+
+02:01:46.300 --> 02:01:48.300
+guardrails.
+
+02:01:48.300 --> 02:01:50.300
+I will come with
+
+02:01:50.300 --> 02:01:52.300
+pre-selected guardrails which we will put in our rack application.
+
+02:01:52.300 --> 02:01:54.300
+I am looking for
+
+02:01:54.300 --> 02:01:56.300
+2 for input,
+
+02:01:56.300 --> 02:01:58.300
+1 for retriever
+
+02:01:58.300 --> 02:02:00.300
+and 2 for output.
+
+02:02:00.300 --> 02:02:02.300
+So in total we will put 5 guardrails.
+
+02:02:04.300 --> 02:02:06.300
+So there will be mixed variety.
+
+02:02:06.300 --> 02:02:08.300
+Some will be rule based, some will be ML based
+
+02:02:08.300 --> 02:02:10.300
+and some will be LLM based.
+
+02:02:12.300 --> 02:02:14.300
+You must be having a question
+
+02:02:14.300 --> 02:02:16.300
+in your mind.
+
+02:02:16.300 --> 02:02:18.300
+There are so many guardrails on one.
+
+02:02:18.300 --> 02:02:20.300
+We have tested 2 here.
+
+02:02:20.300 --> 02:02:22.300
+One didn't work and the other one didn't work.
+
+02:02:22.300 --> 02:02:24.300
+Again this hub
+
+02:02:24.300 --> 02:02:26.300
+maintains the community.
+
+02:02:26.300 --> 02:02:28.300
+So this particular
+
+02:02:28.300 --> 02:02:30.300
+guardrail didn't work.
+
+02:02:30.300 --> 02:02:32.300
+Which is
+
+02:02:32.300 --> 02:02:34.300
+bias check.
+
+02:02:34.300 --> 02:02:36.300
+You can abuse the author
+
+02:02:36.300 --> 02:02:38.300
+who made this.
+
+02:02:38.300 --> 02:02:40.300
+There is no fault in giving
+
+02:02:40.300 --> 02:02:42.300
+guardrails in this.
+
+02:02:42.300 --> 02:02:44.300
+You can also make it tomorrow and post it here.
+
+02:02:48.300 --> 02:02:50.300
+Is the whole process
+
+02:02:50.300 --> 02:02:52.300
+clear guys?
+
+02:02:56.300 --> 02:02:58.300
+If you have any questions, you can ask me.
+
+02:03:00.300 --> 02:03:02.300
+One question was from Tushar.
+
+02:03:02.300 --> 02:03:04.300
+Tushar can you
+
+02:03:04.300 --> 02:03:06.300
+paste that question again in the chat?
+
+02:03:06.300 --> 02:03:08.300
+Was it from Harry
+
+02:03:08.300 --> 02:03:10.300
+or Tushar?
+
+02:03:10.300 --> 02:03:12.300
+At the start of the class.
+
+02:03:14.300 --> 02:03:16.300
+One more thing guys.
+
+02:03:16.300 --> 02:03:18.300
+Before going.
+
+02:03:20.300 --> 02:03:22.300
+This particular
+
+02:03:22.300 --> 02:03:24.300
+test I have improved.
+
+02:03:24.300 --> 02:03:26.300
+No one even reminded me
+
+02:03:26.300 --> 02:03:28.300
+what happened to this.
+
+02:03:28.300 --> 02:03:30.300
+Test promotion.
+
+02:03:30.300 --> 02:03:32.300
+What we were doing was
+
+02:03:32.300 --> 02:03:34.300
+strict testing.
+
+02:03:34.300 --> 02:03:36.300
+I changed the logic of this.
+
+02:03:36.300 --> 02:03:38.300
+Again I pushed this code on the GitHub.
+
+02:03:38.300 --> 02:03:40.300
+You can see the code.
+
+02:03:40.300 --> 02:03:42.300
+I will explain the logic.
+
+02:03:42.300 --> 02:03:44.300
+The logic is very simple.
+
+02:03:44.300 --> 02:03:46.300
+What we are doing here.
+
+02:03:46.300 --> 02:03:48.300
+We are basically
+
+02:03:48.300 --> 02:03:50.300
+bringing our noise threshold here.
+
+02:03:50.300 --> 02:03:52.300
+So this is the whole code.
+
+02:03:52.300 --> 02:03:54.300
+The stage and all.
+
+02:03:54.300 --> 02:03:56.300
+We have added
+
+02:03:56.300 --> 02:03:58.300
+some things here.
+
+02:04:00.300 --> 02:04:02.300
+But why can't I see
+
+02:04:02.300 --> 02:04:04.300
+the latest code here?
+
+02:04:04.300 --> 02:04:06.300
+Let me see.
+
+02:04:06.300 --> 02:04:08.300
+I haven't
+
+02:04:08.300 --> 02:04:10.300
+pulled the code.
+
+02:04:10.300 --> 02:04:12.300
+What I will do is.
+
+02:04:16.300 --> 02:04:18.300
+Let me show you once.
+
+02:04:18.300 --> 02:04:20.300
+I will stash this particular thing.
+
+02:04:22.300 --> 02:04:24.300
+Otherwise it will issue.
+
+02:04:26.300 --> 02:04:28.300
+And I will pull
+
+02:04:28.300 --> 02:04:30.300
+the latest code.
+
+02:04:30.300 --> 02:04:32.300
+Get pull.
+
+02:04:34.300 --> 02:04:36.300
+Now we have
+
+02:04:36.300 --> 02:04:38.300
+our new file.
+
+02:04:38.300 --> 02:04:40.300
+What has changed in this guys?
+
+02:04:40.300 --> 02:04:42.300
+Here we are loading our thresholds.
+
+02:04:42.300 --> 02:04:44.300
+Here I have
+
+02:04:44.300 --> 02:04:46.300
+set the multiplier and
+
+02:04:46.300 --> 02:04:48.300
+set a minimum matrix to pass.
+
+02:04:48.300 --> 02:04:50.300
+The thresholds
+
+02:04:50.300 --> 02:04:52.300
+we are using here are noise thresholds.
+
+02:04:52.300 --> 02:04:54.300
+Why are we not using historical?
+
+02:04:54.300 --> 02:04:56.300
+Because it has a lot of variations.
+
+02:04:56.300 --> 02:04:58.300
+I was actually chatting with chat
+
+02:04:58.300 --> 02:05:00.300
+about which one to use.
+
+02:05:00.300 --> 02:05:02.300
+He suggested me to use
+
+02:05:02.300 --> 02:05:04.300
+noise.
+
+02:05:04.300 --> 02:05:06.300
+What we want here is
+
+02:05:06.300 --> 02:05:08.300
+if one or two matrix
+
+02:05:08.300 --> 02:05:10.300
+are a little behind
+
+02:05:10.300 --> 02:05:12.300
+our old version.
+
+02:05:12.300 --> 02:05:14.300
+Then you promote it.
+
+02:05:14.300 --> 02:05:16.300
+If the rest is ahead.
+
+02:05:16.300 --> 02:05:18.300
+So the variation should be very less.
+
+02:05:18.300 --> 02:05:20.300
+We have selected the noise one.
+
+02:05:20.300 --> 02:05:22.300
+Simply what we are testing here
+
+02:05:22.300 --> 02:05:24.300
+is the load code.
+
+02:05:24.300 --> 02:05:26.300
+You read exactly the same
+
+02:05:26.300 --> 02:05:28.300
+functions that we have already used.
+
+02:05:28.300 --> 02:05:30.300
+The testing code here
+
+02:05:30.300 --> 02:05:32.300
+is something like this.
+
+02:05:32.300 --> 02:05:34.300
+First of all we are calculating the difference.
+
+02:05:34.300 --> 02:05:36.300
+In the latest run and
+
+02:05:36.300 --> 02:05:38.300
+stage value.
+
+02:05:38.300 --> 02:05:40.300
+Then we
+
+02:05:40.300 --> 02:05:42.300
+are counting here
+
+02:05:42.300 --> 02:05:44.300
+that our particular
+
+02:05:44.300 --> 02:05:46.300
+matrix is
+
+02:05:46.300 --> 02:05:48.300
+better than the previous run or not.
+
+02:05:48.300 --> 02:05:50.300
+If it is better
+
+02:05:50.300 --> 02:05:52.300
+then we are
+
+02:05:52.300 --> 02:05:54.300
+increasing the count of better and equal.
+
+02:05:54.300 --> 02:05:56.300
+And if it is not
+
+02:05:56.300 --> 02:05:58.300
+then we are checking
+
+02:05:58.300 --> 02:06:00.300
+that the difference is
+
+02:06:00.300 --> 02:06:02.300
+equal to our tolerance level.
+
+02:06:02.300 --> 02:06:04.300
+Means is it greater than tolerance or not.
+
+02:06:04.300 --> 02:06:06.300
+If it is
+
+02:06:06.300 --> 02:06:08.300
+then we are adding it here.
+
+02:06:08.300 --> 02:06:10.300
+If it is not
+
+02:06:10.300 --> 02:06:12.300
+then we are failing our test here.
+
+02:06:12.300 --> 02:06:14.300
+So basically what is happening here.
+
+02:06:14.300 --> 02:06:16.300
+I will explain it to you.
+
+02:06:16.300 --> 02:06:18.300
+Maybe you don't understand it better than I speak.
+
+02:06:18.300 --> 02:06:20.300
+If I can turn on the
+
+02:06:20.300 --> 02:06:22.300
+annotation. Give me 2 minutes guys.
+
+02:06:22.300 --> 02:06:24.300
+I will explain it to you.
+
+02:06:24.300 --> 02:06:26.300
+Yes.
+
+02:06:26.300 --> 02:06:28.300
+So basically what we have done here is
+
+02:06:28.300 --> 02:06:30.300
+we have placed the criteria
+
+02:06:30.300 --> 02:06:32.300
+of 5 minimum matrix.
+
+02:06:32.300 --> 02:06:34.300
+And what is the criteria
+
+02:06:34.300 --> 02:06:36.300
+of 5 minimum.
+
+02:06:36.300 --> 02:06:38.300
+For the next stage.
+
+02:06:38.300 --> 02:06:40.300
+Let's say next stage is B.
+
+02:06:40.300 --> 02:06:42.300
+Current best is A.
+
+02:06:42.300 --> 02:06:44.300
+And B is to be made the best.
+
+02:06:44.300 --> 02:06:46.300
+So for that 5 matrix should be like this.
+
+02:06:46.300 --> 02:06:48.300
+5 of them
+
+02:06:48.300 --> 02:06:50.300
+who are
+
+02:06:50.300 --> 02:06:52.300
+performing better than my current.
+
+02:06:52.300 --> 02:06:54.300
+Means
+
+02:06:54.300 --> 02:06:56.300
+their matrix is above the current.
+
+02:06:56.300 --> 02:06:58.300
+If my faithfulness A
+
+02:06:58.300 --> 02:07:00.300
+was 0.97
+
+02:07:00.300 --> 02:07:02.300
+then here it should be 0.97 or above that.
+
+02:07:02.300 --> 02:07:04.300
+If my contextual
+
+02:07:04.300 --> 02:07:06.300
+relevancy was 0.8
+
+02:07:06.300 --> 02:07:08.300
+then here it should be 0.81.
+
+02:07:08.300 --> 02:07:10.300
+It will not be less.
+
+02:07:10.300 --> 02:07:12.300
+So if my
+
+02:07:12.300 --> 02:07:14.300
+from 7
+
+02:07:14.300 --> 02:07:16.300
+to 5
+
+02:07:16.300 --> 02:07:18.300
+if it will be less then
+
+02:07:18.300 --> 02:07:20.300
+I will simply fail this test.
+
+02:07:20.300 --> 02:07:22.300
+That 5 matrix should be
+
+02:07:22.300 --> 02:07:24.300
+improving.
+
+02:07:24.300 --> 02:07:26.300
+Now the remaining thing is of 2 matrix.
+
+02:07:26.300 --> 02:07:28.300
+In 2 matrix I am saying
+
+02:07:28.300 --> 02:07:30.300
+that ok. I will allow little wiggle room.
+
+02:07:30.300 --> 02:07:32.300
+How much wiggle room I will allow?
+
+02:07:32.300 --> 02:07:34.300
+My
+
+02:07:34.300 --> 02:07:36.300
+noise multiplier multiplied by
+
+02:07:36.300 --> 02:07:38.300
+my noise threshold.
+
+02:07:38.300 --> 02:07:40.300
+2 into standard deviation
+
+02:07:40.300 --> 02:07:42.300
+of noise.
+
+02:07:42.300 --> 02:07:44.300
+That much wiggle room I will manage.
+
+02:07:44.300 --> 02:07:46.300
+Not more than that.
+
+02:07:46.300 --> 02:07:48.300
+And this is the code.
+
+02:07:48.300 --> 02:07:50.300
+I hope this thing is clear to you.
+
+02:07:50.300 --> 02:07:52.300
+Again read this code.
+
+02:07:58.300 --> 02:08:00.300
+Fine fine fine fine.
+
+02:08:00.300 --> 02:08:02.300
+You can store this question.
+
+02:08:02.300 --> 02:08:04.300
+Again this is also easy.
+
+02:08:04.300 --> 02:08:06.300
+By we subtracted.
+
+02:08:06.300 --> 02:08:08.300
+If you have 1 minute then I will explain.
+
+02:08:08.300 --> 02:08:10.300
+I will hardly take 1 minute.
+
+02:08:14.300 --> 02:08:16.300
+Ok. So basically we
+
+02:08:16.300 --> 02:08:18.300
+subtracted this way.
+
+02:08:18.300 --> 02:08:20.300
+This threshold value
+
+02:08:20.300 --> 02:08:22.300
+what is this? These are my
+
+02:08:22.300 --> 02:08:24.300
+dynamic nature.
+
+02:08:24.300 --> 02:08:26.300
+Now here we are capturing 2 types of
+
+02:08:26.300 --> 02:08:28.300
+dynamic nature. In noise
+
+02:08:28.300 --> 02:08:30.300
+we are capturing that our LLM
+
+02:08:30.300 --> 02:08:32.300
+as a judge
+
+02:08:32.300 --> 02:08:34.300
+in that
+
+02:08:34.300 --> 02:08:36.300
+how much variation is there in configuration.
+
+02:08:36.300 --> 02:08:38.300
+And second we are judging here
+
+02:08:38.300 --> 02:08:40.300
+that the configuration we are changing
+
+02:08:40.300 --> 02:08:42.300
+between each run.
+
+02:08:42.300 --> 02:08:44.300
+How much variation is there in that.
+
+02:08:44.300 --> 02:08:46.300
+So what we did is added these 2 variations.
+
+02:08:46.300 --> 02:08:48.300
+Which is seen in your formula
+
+02:08:48.300 --> 02:08:50.300
+historical plus noise.
+
+02:08:50.300 --> 02:08:52.300
+And what is this? This is our wiggle room.
+
+02:08:52.300 --> 02:08:54.300
+Wiggle room means
+
+02:08:54.300 --> 02:08:56.300
+that our current best
+
+02:08:56.300 --> 02:08:58.300
+this is my current best
+
+02:08:58.300 --> 02:09:00.300
+minus my wiggle room.
+
+02:09:00.300 --> 02:09:02.300
+My wiggle room.
+
+02:09:02.300 --> 02:09:04.300
+I can tolerate this much for my next
+
+02:09:04.300 --> 02:09:06.300
+that if
+
+02:09:06.300 --> 02:09:08.300
+from my current best
+
+02:09:08.300 --> 02:09:10.300
+new one will be so less
+
+02:09:10.300 --> 02:09:12.300
+then also I will say that it is ok.
+
+02:09:12.300 --> 02:09:14.300
+It didn't regress. But if it
+
+02:09:14.300 --> 02:09:16.300
+fell down from this also. If it got
+
+02:09:16.300 --> 02:09:18.300
+lower than this then I will say that it is regressed.
+
+02:09:18.300 --> 02:09:20.300
+Because what we are testing in regression
+
+02:09:20.300 --> 02:09:22.300
+that it should not be lower.
+
+02:09:22.300 --> 02:09:24.300
+So there is a limit of lower also.
+
+02:09:24.300 --> 02:09:26.300
+You see like this that you gave
+
+02:09:26.300 --> 02:09:28.300
+attempt number 1.
+
+02:09:28.300 --> 02:09:30.300
+In that your
+
+02:09:30.300 --> 02:09:32.300
+batch came let's say 89 months.
+
+02:09:32.300 --> 02:09:34.300
+Now you gave
+
+02:09:34.300 --> 02:09:36.300
+attempt number 2.
+
+02:09:36.300 --> 02:09:38.300
+In attempt number 2 you are saying
+
+02:09:38.300 --> 02:09:40.300
+that if it falls below 85 then I will not tolerate.
+
+02:09:40.300 --> 02:09:42.300
+If it will come above 85
+
+02:09:42.300 --> 02:09:44.300
+then only I will believe that my attempt is successful.
+
+02:09:44.300 --> 02:09:46.300
+So that is
+
+02:09:46.300 --> 02:09:48.300
+the whole thing.
+
+02:09:48.300 --> 02:09:50.300
+Ok. So what we did is
+
+02:09:50.300 --> 02:09:52.300
+89 minus and here
+
+02:09:52.300 --> 02:09:54.300
+whatever we added that value came to us
+
+02:09:54.300 --> 02:09:56.300
+4. From there
+
+02:09:56.300 --> 02:09:58.300
+85 came.
+
+02:09:58.300 --> 02:10:00.300
+I hope now you understood the thing.
+
+02:10:00.300 --> 02:10:02.300
+From this example
+
+02:10:02.300 --> 02:10:04.300
+I think you understood it.
+
+02:10:04.300 --> 02:10:06.300
+Clear?
+
+02:10:06.300 --> 02:10:08.300
+Any more questions guys?
+
+02:10:08.300 --> 02:10:10.300
+Yes we are
+
+02:10:10.300 --> 02:10:12.300
+calculating the wiggle. Calculating
+
+02:10:12.300 --> 02:10:14.300
+the variation.
+
+02:10:14.300 --> 02:10:16.300
+Because for every one of our thresholds
+
+02:10:16.300 --> 02:10:18.300
+this wiggle was different.
+
+02:10:18.300 --> 02:10:20.300
+Every one of our thresholds was behaving differently.
+
+02:10:20.300 --> 02:10:22.300
+On improvement
+
+02:10:22.300 --> 02:10:24.300
+and also on this
+
+02:10:24.300 --> 02:10:26.300
+particular LLMSR judge thing.
+
+02:10:26.300 --> 02:10:28.300
+So we did not choose any hard threshold.
+
+02:10:28.300 --> 02:10:30.300
+We could also do
+
+02:10:30.300 --> 02:10:32.300
+that 10 is a hard threshold.
+
+02:10:32.300 --> 02:10:34.300
+This means that
+
+02:10:34.300 --> 02:10:36.300
+in current attempt 89 came.
+
+02:10:36.300 --> 02:10:38.300
+In next attempt above 79
+
+02:10:38.300 --> 02:10:40.300
+for any
+
+02:10:40.300 --> 02:10:42.300
+subject I will accept it as ok.
+
+02:10:42.300 --> 02:10:44.300
+We did a subject wise calculation.
+
+02:10:44.300 --> 02:10:46.300
+So this is basically my
+
+02:10:46.300 --> 02:10:48.300
+subject wise calculation.
+
+02:10:48.300 --> 02:10:50.300
+For every subject the room of tolerance
+
+02:10:50.300 --> 02:10:52.300
+is different.
+
+02:10:52.300 --> 02:10:54.300
+I hope this point is clear.
+
+02:11:00.300 --> 02:11:02.300
+Any more questions guys?
+
+02:11:02.300 --> 02:11:04.300
+Any question?
+
+02:11:06.300 --> 02:11:08.300
+Or is
+
+02:11:08.300 --> 02:11:10.300
+everything clear?
+
+02:11:12.300 --> 02:11:14.300
+Again this code is with you
+
+02:11:14.300 --> 02:11:16.300
+latest. You can check this one.
+
+02:11:22.300 --> 02:11:24.300
+Close today's session guys.
+
+02:11:24.300 --> 02:11:26.300
+Write clear in the chat
+
+02:11:26.300 --> 02:11:28.300
+if everyone is clear.
+
+02:11:28.300 --> 02:11:30.300
+Ok
+
+02:11:30.300 --> 02:11:32.300
+Fine guys.
+
+02:11:32.300 --> 02:11:34.300
+Ok
+
+02:11:34.300 --> 02:11:36.300
+Good night guys.
+
+02:11:52.300 --> 02:11:54.300
+Thank you
+

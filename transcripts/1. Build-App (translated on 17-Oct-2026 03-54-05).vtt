@@ -1,0 +1,3152 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.540
+Hi everyone, I hope you guys are doing great
+
+00:00:02.540 --> 00:00:07.400
+So guys we have completed our RAC project on LLMops
+
+00:00:07.400 --> 00:00:12.760
+and with this video we are going to start our agentic project which is our project number 2
+
+00:00:12.760 --> 00:00:17.640
+and on this particular application, our agentic application
+
+00:00:17.640 --> 00:00:22.980
+we are going to implement our LLMops lifecycle end to end
+
+00:00:22.980 --> 00:00:26.040
+so let's do one thing, our RAC project journey
+
+00:00:26.040 --> 00:00:32.800
+let's summarize it because we are going to implement that exact journey in our agentic project
+
+00:00:32.800 --> 00:00:39.440
+so you might remember that we had made a RAC chatbot in our previous project
+
+00:00:39.440 --> 00:00:41.879
+that was our campusX chatbot
+
+00:00:41.879 --> 00:00:47.840
+and this chatbot used to give us question answers on our transcripts
+
+00:00:47.840 --> 00:00:51.720
+so we had implemented some key steps in this
+
+00:00:51.720 --> 00:00:54.920
+the first step was that we had built our application
+
+00:00:54.920 --> 00:00:57.960
+we built the application
+
+00:00:57.960 --> 00:01:03.880
+then we had run offline evals on our application
+
+00:01:03.880 --> 00:01:07.460
+basically we had done our evaluation through deep eval
+
+00:01:07.460 --> 00:01:15.560
+then we had done prompt versioning and prompt management through our langfuse
+
+00:01:15.560 --> 00:01:20.400
+next we had made our experiment tracking pipeline
+
+00:01:21.400 --> 00:01:25.400
+as soon as our experiment tracking pipeline was completed
+
+00:01:25.400 --> 00:01:29.400
+we had set a guardrail around our application using guardrails AI
+
+00:01:29.400 --> 00:01:36.400
+then we had read regression testing and concepts like promotion testing
+
+00:01:36.400 --> 00:01:39.400
+and we built it in a CI pipeline
+
+00:01:39.400 --> 00:01:44.400
+through which we were able to test our application on GitHub actions
+
+00:01:44.400 --> 00:01:47.400
+then we read about dockers
+
+00:01:47.400 --> 00:01:57.400
+then we applied CD which was used to properly package our application
+
+00:01:57.400 --> 00:02:01.400
+and this application was pushed to ECR
+
+00:02:01.400 --> 00:02:07.400
+then we went towards AWS and completed our deployment
+
+00:02:09.400 --> 00:02:12.400
+in this deployment we saw auto scaling groups
+
+00:02:12.400 --> 00:02:15.400
+in this deployment we saw load balancers
+
+00:02:15.400 --> 00:02:18.400
+then we deployed through code
+
+00:02:18.400 --> 00:02:22.400
+we also did automatic deployments
+
+00:02:22.400 --> 00:02:29.400
+then we implemented tracing and observability on our application
+
+00:02:31.400 --> 00:02:37.400
+then we did online evals on the traces we were generating
+
+00:02:39.400 --> 00:02:42.400
+and finally what we did here
+
+00:02:42.400 --> 00:02:48.400
+we applied observability and tracing on our application
+
+00:02:48.400 --> 00:02:52.400
+and we set up monitoring on our infrastructure
+
+00:02:52.400 --> 00:02:57.400
+and we did this monitoring through Prometheus
+
+00:02:57.400 --> 00:03:01.400
+and visualisation through Grafana
+
+00:03:01.400 --> 00:03:05.400
+so this was our complete journey on our rag application
+
+00:03:05.400 --> 00:03:08.400
+now in project number 2 what we will do is
+
+00:03:08.400 --> 00:03:11.400
+we will build an agentic application
+
+00:03:11.400 --> 00:03:17.400
+and on this agentic application we will apply this same journey
+
+00:03:17.400 --> 00:03:20.400
+we will follow these steps one by one
+
+00:03:20.400 --> 00:03:25.400
+and on this agentic application we will build the complete LLM ops lifecycle
+
+00:03:25.400 --> 00:03:29.400
+so I hope you understood the plan of attack for this particular project
+
+00:03:29.400 --> 00:03:33.400
+exactly the same flow will be there as we did in our rag project
+
+00:03:33.400 --> 00:03:38.400
+the difference this time is that we are working with a completely different set of applications
+
+00:03:38.400 --> 00:03:41.400
+that is our agentic application
+
+00:03:41.400 --> 00:03:45.400
+it has its own separate set of challenges which we will fix
+
+00:03:45.400 --> 00:03:48.400
+and I will share the challenges with you
+
+00:03:48.400 --> 00:03:54.400
+and in a step by step manner we will complete the LLM ops lifecycle
+
+00:03:54.400 --> 00:03:59.400
+so let's start with step number 1 that is building our application
+
+00:03:59.400 --> 00:04:03.400
+and I will show you which application we are going to work with
+
+00:04:03.400 --> 00:04:06.400
+and how is its architecture
+
+00:04:06.400 --> 00:04:11.400
+so the agentic application we are going to work with
+
+00:04:11.400 --> 00:04:18.399
+this application is basically my hiring assistant
+
+00:04:18.399 --> 00:04:27.400
+this hiring assistant is basically an AI agent
+
+00:04:27.400 --> 00:04:35.400
+AI agent as you know is your LLM that are bounded to some tools
+
+00:04:35.400 --> 00:04:40.400
+basically the action that that LLM can take is called AI agent
+
+00:04:40.400 --> 00:04:44.400
+and we are building a hiring assistant agent here
+
+00:04:44.400 --> 00:04:48.400
+now what this hiring assistant agent will do for us I will tell you
+
+00:04:48.400 --> 00:04:53.400
+we will have a job description here
+
+00:04:53.400 --> 00:04:57.400
+and some set of resumes
+
+00:04:57.400 --> 00:05:01.400
+so I already have this job description and resumes
+
+00:05:01.400 --> 00:05:03.400
+I will show you now
+
+00:05:03.400 --> 00:05:08.400
+and what your agent will do is you can interact with your agent through chat
+
+00:05:08.400 --> 00:05:12.400
+like I told my agent to read this job description
+
+00:05:12.400 --> 00:05:16.400
+read all these resumes and sort
+
+00:05:16.400 --> 00:05:20.400
+which resumes got shortlisted and which ones got rejected
+
+00:05:20.400 --> 00:05:24.400
+so what my hiring assistant will do in my workspace
+
+00:05:24.400 --> 00:05:28.400
+there are separate categories and folders
+
+00:05:28.400 --> 00:05:31.400
+like one category is shortlisted
+
+00:05:31.400 --> 00:05:35.400
+and the other is rejected
+
+00:05:35.400 --> 00:05:39.400
+so automatically my agent will read this job description
+
+00:05:39.400 --> 00:05:42.400
+will understand the job and requirements
+
+00:05:42.400 --> 00:05:46.400
+and then will read all the resumes one by one
+
+00:05:46.400 --> 00:05:50.400
+and then automatically will figure out
+
+00:05:50.400 --> 00:05:54.400
+which resumes got shortlisted and rejected for this particular job
+
+00:05:54.400 --> 00:05:59.400
+and automatically will move them in respective folders
+
+00:05:59.400 --> 00:06:03.400
+so like I have pasted a job description
+
+00:06:03.400 --> 00:06:08.400
+and I tell my hiring assistant to shortlist the resumes for me
+
+00:06:08.400 --> 00:06:12.400
+so automatically he will shortlist my resumes and show me
+
+00:06:12.400 --> 00:06:15.400
+which resumes got shortlisted
+
+00:06:15.400 --> 00:06:19.400
+one more thing my hiring agent can do here
+
+00:06:19.400 --> 00:06:23.400
+that is he can prepare draft emails
+
+00:06:23.400 --> 00:06:27.400
+he will not send the emails
+
+00:06:27.400 --> 00:06:31.400
+because we have kept our agentic application simple
+
+00:06:31.400 --> 00:06:36.400
+because we are going to focus on our LLM office lifecycle
+
+00:06:36.400 --> 00:06:40.400
+agentic application is not built on focusing on the application
+
+00:06:40.400 --> 00:06:43.400
+so I have used simple set of tools
+
+00:06:43.400 --> 00:06:47.400
+so agentic application can do a lot of things
+
+00:06:47.400 --> 00:06:51.400
+you can send email and add a tool
+
+00:06:51.400 --> 00:06:55.400
+which you can send through your email provider
+
+00:06:55.400 --> 00:06:59.400
+so this you can do but we have not implemented it yet
+
+00:06:59.400 --> 00:07:03.400
+our agent can only prepare draft emails
+
+00:07:03.400 --> 00:07:07.400
+so for those who are shortlisted, prepare a draft email
+
+00:07:07.400 --> 00:07:11.400
+so that I can send them and tell them that they have been selected for interview
+
+00:07:11.400 --> 00:07:15.400
+so this also my hiring assistant can do
+
+00:07:15.400 --> 00:07:19.400
+and not only my hiring assistant shortlists and rejects the resumes
+
+00:07:19.400 --> 00:07:23.400
+here my hiring assistant also provides the resume scores
+
+00:07:23.400 --> 00:07:27.400
+based on the job description
+
+00:07:27.400 --> 00:07:31.400
+you must have seen that your resumes based on the skills you have
+
+00:07:31.400 --> 00:07:35.400
+you get an ATS score
+
+00:07:35.400 --> 00:07:39.400
+so we have given a similar type of scoring mechanism to our hiring assistant
+
+00:07:39.400 --> 00:07:43.400
+so he can read the resume and give them scores
+
+00:07:43.400 --> 00:07:47.400
+and this whole record of which resumes have been selected
+
+00:07:47.400 --> 00:07:51.400
+which resumes have been rejected, what are the scores on each resume
+
+00:07:51.400 --> 00:07:55.400
+this is stored in a tracker file
+
+00:07:55.400 --> 00:07:59.400
+and this tracker file is basically a CSV file
+
+00:07:59.400 --> 00:08:03.400
+and we can see this CSV file on our front end
+
+00:08:03.400 --> 00:08:07.400
+so this hiring assistant, if I tell you, he does 3-4 things
+
+00:08:07.400 --> 00:08:11.400
+first is based on the job description
+
+00:08:11.400 --> 00:08:15.400
+it can categorize
+
+00:08:15.400 --> 00:08:19.400
+my resumes
+
+00:08:19.400 --> 00:08:23.400
+second, he can write draft emails
+
+00:08:23.400 --> 00:08:27.400
+he can not send the emails but he can write
+
+00:08:27.400 --> 00:08:31.400
+for selected candidates and rejected candidates
+
+00:08:31.400 --> 00:08:35.400
+whatever we say in the chat, he will do it for us
+
+00:08:35.400 --> 00:08:39.400
+and he can also give the resume scores based on the JD
+
+00:08:39.400 --> 00:08:43.400
+and along with that
+
+00:08:43.400 --> 00:08:47.400
+he will maintain a log and tracker file
+
+00:08:47.400 --> 00:08:51.400
+in the tracker file, all the information will be there
+
+00:08:51.400 --> 00:08:55.400
+which resumes have been selected, which ones have been rejected, how many scores have been received
+
+00:08:55.400 --> 00:08:59.400
+all this will be saved in a tracker file which is a CSV file
+
+00:08:59.400 --> 00:09:03.400
+and we can also ask questions around resumes
+
+00:09:03.400 --> 00:09:07.400
+for example, if I ask a specific question
+
+00:09:07.400 --> 00:09:11.400
+for the resume of Aditi
+
+00:09:11.400 --> 00:09:15.400
+which skills match my job description
+
+00:09:15.400 --> 00:09:19.400
+or which skills are not required in my job description
+
+00:09:19.400 --> 00:09:23.400
+so all these questions, which are personalized
+
+00:09:23.400 --> 00:09:27.400
+question answering type questions, I can ask my agent
+
+00:09:27.400 --> 00:09:31.400
+so I can question answer my agent around resumes
+
+00:09:31.400 --> 00:09:35.400
+I can also ask
+
+00:09:35.400 --> 00:09:39.400
+how many female candidates are there, how many male candidates
+
+00:09:39.400 --> 00:09:43.400
+among the candidates who have applied
+
+00:09:43.400 --> 00:09:47.400
+shortlist those candidates who have more experience than 5 years
+
+00:09:47.400 --> 00:09:51.400
+so I can ask such question answering type questions
+
+00:09:51.400 --> 00:09:55.400
+where I am getting tasks done from my agent
+
+00:09:55.400 --> 00:09:59.400
+and I have made sure that this hiring assistant is mine
+
+00:09:59.400 --> 00:10:03.400
+it is a single turn agent
+
+00:10:03.400 --> 00:10:07.400
+single turn agent means
+
+00:10:07.400 --> 00:10:11.400
+that I am not maintaining any memory in this agent
+
+00:10:11.400 --> 00:10:15.400
+there is no memory and the reason for this
+
+00:10:15.400 --> 00:10:19.400
+is that till now we work with single turn applications
+
+00:10:19.400 --> 00:10:23.400
+for multi turn applications, the evaluation criteria is different
+
+00:10:23.400 --> 00:10:27.400
+and now we are not in a state that
+
+00:10:27.400 --> 00:10:31.400
+we should read all the metrics of multi turn evaluation
+
+00:10:31.400 --> 00:10:35.400
+because that will stretch out your project
+
+00:10:35.400 --> 00:10:39.400
+now my focus is that we should read the complete life cycle of LLM Ops
+
+00:10:39.400 --> 00:10:43.400
+not that we get stuck in an evaluation module
+
+00:10:43.400 --> 00:10:47.400
+so that is why we work with single turn agent
+
+00:10:47.400 --> 00:10:51.400
+single turn agent means that you will give it your task one by one
+
+00:10:51.400 --> 00:10:55.400
+and it will keep doing this task one by one
+
+00:10:55.400 --> 00:10:59.400
+so now I am ready, around this agent
+
+00:10:59.400 --> 00:11:03.400
+back end and front end
+
+00:11:03.400 --> 00:11:07.400
+both are ready
+
+00:11:07.400 --> 00:11:11.400
+both are in ready state
+
+00:11:11.400 --> 00:11:15.400
+let me tell you about the file structure
+
+00:11:15.400 --> 00:11:19.400
+in back end, I have an agent.py file
+
+00:11:19.400 --> 00:11:23.400
+in which I have written my agent related code
+
+00:11:23.400 --> 00:11:27.400
+and I have written my face.py
+
+00:11:27.400 --> 00:11:31.400
+this file is very simple, it prepares
+
+00:11:31.400 --> 00:11:35.400
+my demo.jd and demo.resume
+
+00:11:35.400 --> 00:11:39.400
+whenever I call this file, it will
+
+00:11:39.400 --> 00:11:43.400
+make my demo.jd and demo.resume
+
+00:11:43.400 --> 00:11:47.400
+now I will show you how it looks
+
+00:11:47.400 --> 00:11:51.400
+now I am keeping my
+
+00:11:51.400 --> 00:11:55.400
+tools
+
+00:11:55.400 --> 00:11:59.400
+so I have a python file tools.py
+
+00:11:59.400 --> 00:12:03.400
+where all my tools are there and I will attach
+
+00:12:03.400 --> 00:12:07.400
+these tools with my agent so that my agent can do the task
+
+00:12:07.400 --> 00:12:11.400
+now if you don't have an idea about tools
+
+00:12:11.400 --> 00:12:15.400
+then I will give you a quick refresher, tools are basically
+
+00:12:15.400 --> 00:12:19.400
+python functions
+
+00:12:19.400 --> 00:12:23.400
+these are python functions with which we add
+
+00:12:23.400 --> 00:12:27.400
+a detailed description
+
+00:12:27.400 --> 00:12:31.400
+and we bind
+
+00:12:31.400 --> 00:12:35.400
+these functions with our LLMs
+
+00:12:35.400 --> 00:12:39.400
+so that our LLM can use it
+
+00:12:39.400 --> 00:12:43.400
+and this is the entire agent architecture
+
+00:12:43.400 --> 00:12:47.400
+LLM for the components
+
+00:12:47.400 --> 00:12:51.400
+and LLM for building the agent
+
+00:12:51.400 --> 00:12:55.400
+so again we are going to build this project with the same set of frameworks
+
+00:12:55.400 --> 00:12:59.400
+I hope you have understood this whole thing
+
+00:12:59.400 --> 00:13:03.400
+now I will discuss about our agent architecture
+
+00:13:03.400 --> 00:13:07.400
+for agent architecture
+
+00:13:07.400 --> 00:13:11.400
+for the agent architecture
+
+00:13:11.400 --> 00:13:15.400
+there are many types of architectures in your agent system
+
+00:13:15.400 --> 00:13:19.400
+one type is plan and execute
+
+00:13:19.400 --> 00:13:23.400
+architecture
+
+00:13:23.400 --> 00:13:27.400
+so we have selected plan and execute architecture for our agent
+
+00:13:27.400 --> 00:13:31.400
+the simple reason for this is that the evaluations
+
+00:13:31.400 --> 00:13:35.400
+we are going to do on our agent, many of them
+
+00:13:35.400 --> 00:13:39.400
+are related to your planning
+
+00:13:39.400 --> 00:13:43.400
+so these metrics work on the agents
+
+00:13:43.400 --> 00:13:47.400
+who execute the task with a plan
+
+00:13:47.400 --> 00:13:51.400
+who have a planning phase
+
+00:13:51.400 --> 00:13:55.400
+so since we are going to implement these metrics on our application
+
+00:13:55.400 --> 00:13:59.400
+we will work with the agent architecture where we will first make a plan
+
+00:13:59.400 --> 00:14:03.400
+and then execute that plan
+
+00:14:03.400 --> 00:14:07.400
+so how will the entire flow be?
+
+00:14:07.400 --> 00:14:11.400
+so here I have pasted the plan
+
+00:14:11.400 --> 00:14:15.400
+so first of all, your start node
+
+00:14:15.400 --> 00:14:19.400
+will be your task
+
+00:14:19.400 --> 00:14:23.400
+let's say you have given any task
+
+00:14:23.400 --> 00:14:27.400
+shortlist, resumes based on the JD, this is your task
+
+00:14:27.400 --> 00:14:31.400
+first of all this task will go to the planner mode
+
+00:14:31.400 --> 00:14:35.400
+now in planner mode there is a LLM
+
+00:14:35.400 --> 00:14:39.400
+this LLM will take the task
+
+00:14:39.400 --> 00:14:43.400
+and make a detailed plan
+
+00:14:43.400 --> 00:14:47.400
+what does it mean?
+
+00:14:47.400 --> 00:14:51.400
+LLM will understand the task and its intent
+
+00:14:51.400 --> 00:14:55.400
+and LLM also has an idea of the tools
+
+00:14:55.400 --> 00:14:59.400
+that is, what resources are available
+
+00:14:59.400 --> 00:15:03.400
+to do this task, this is also the knowledge of LLM
+
+00:15:03.400 --> 00:15:07.400
+so take the task from one side and the tools from the other side
+
+00:15:07.400 --> 00:15:11.400
+and understand which tools can you use to execute this task
+
+00:15:11.400 --> 00:15:15.400
+and which tools can you use to reach the final output
+
+00:15:15.400 --> 00:15:19.400
+and around that this LLM, this planner node LLM
+
+00:15:19.400 --> 00:15:23.400
+will make a detailed plan
+
+00:15:23.400 --> 00:15:27.400
+and this plan will also be made according to my steps
+
+00:15:27.400 --> 00:15:31.400
+means in this plan we will have a list of steps
+
+00:15:31.400 --> 00:15:35.400
+like you will have bulleted steps
+
+00:15:35.400 --> 00:15:39.400
+like step 1, step 2, step 3, according to the bullet points
+
+00:15:39.400 --> 00:15:43.400
+and for this planning node I am using
+
+00:15:43.400 --> 00:15:47.400
+a structured output LLM
+
+00:15:47.400 --> 00:15:51.400
+which basically will take my task
+
+00:15:51.400 --> 00:15:55.400
+and the tools and the plan that it will generate
+
+00:15:55.400 --> 00:15:59.400
+it will be a series or a list of steps
+
+00:15:59.400 --> 00:16:03.400
+so in the form of 1,2 it will give me steps in the list
+
+00:16:03.400 --> 00:16:07.400
+let's say I told my agent that what you do is
+
+00:16:07.400 --> 00:16:11.400
+you score the resumes and
+
+00:16:11.400 --> 00:16:15.400
+get me the top scoring
+
+00:16:15.400 --> 00:16:19.400
+resumes, so how will the detailed plan be done?
+
+00:16:19.400 --> 00:16:23.400
+this task will be given to my LLM, my LLM already knows
+
+00:16:23.400 --> 00:16:27.400
+which tools are available, so the plan will be something like this
+
+00:16:27.400 --> 00:16:31.400
+so the plan will be read the JD
+
+00:16:31.400 --> 00:16:35.400
+after reading JD, read all the resumes
+
+00:16:35.400 --> 00:16:39.400
+read all the resumes one by one
+
+00:16:39.400 --> 00:16:43.400
+after that you will score the resumes
+
+00:16:43.400 --> 00:16:47.400
+after scoring
+
+00:16:47.400 --> 00:16:51.400
+what will you do next? you will save the scores
+
+00:16:51.400 --> 00:16:55.400
+in the tracker file
+
+00:16:55.400 --> 00:16:59.400
+I am giving an example plan, it will not be executed like this
+
+00:16:59.400 --> 00:17:03.400
+just I am giving you an example, the scores are saved in the tracker file
+
+00:17:03.400 --> 00:17:07.400
+fifth will come to
+
+00:17:07.400 --> 00:17:11.400
+read the tracker
+
+00:17:11.400 --> 00:17:15.400
+and as soon as the agent reads the tracker
+
+00:17:15.400 --> 00:17:19.400
+then he will get all the scores information and what can he do?
+
+00:17:19.400 --> 00:17:23.400
+automatically he can give you a response
+
+00:17:23.400 --> 00:17:27.400
+and respond back, now to give this response
+
+00:17:27.400 --> 00:17:31.400
+no tool call is required, I hope you understood the whole flow
+
+00:17:31.400 --> 00:17:35.400
+as soon as the task and tools details will go to your LLM
+
+00:17:35.400 --> 00:17:39.400
+it will give you a detailed plan
+
+00:17:39.400 --> 00:17:43.400
+so the work of the planning node is to generate your
+
+00:17:43.400 --> 00:17:47.400
+detailed plan, I am reiterating it again and again
+
+00:17:47.400 --> 00:17:51.400
+so that you understand the whole procedure
+
+00:17:51.400 --> 00:17:55.400
+and the whole series of steps
+
+00:17:55.400 --> 00:17:59.400
+after that all the detailed plan or list of steps will go to your executor node
+
+00:17:59.400 --> 00:18:03.400
+executor node
+
+00:18:03.400 --> 00:18:07.400
+has a sub agent
+
+00:18:07.400 --> 00:18:11.400
+and this sub agent is basically
+
+00:18:11.400 --> 00:18:15.400
+a react style agent, means it is a
+
+00:18:15.400 --> 00:18:19.400
+response plus action style agent
+
+00:18:19.400 --> 00:18:23.400
+and that agent's graph is this
+
+00:18:23.400 --> 00:18:27.400
+now in this executor node you will run a for loop
+
+00:18:27.400 --> 00:18:31.400
+and one by one
+
+00:18:31.400 --> 00:18:35.400
+you will send this react style agent to your task steps
+
+00:18:35.400 --> 00:18:39.400
+I hope this point is clear to you
+
+00:18:43.400 --> 00:18:47.400
+so let's say my planner has made this particular 6 steps plan
+
+00:18:47.400 --> 00:18:51.400
+so I will go to this executor node and run a for loop
+
+00:18:51.400 --> 00:18:55.400
+and the first step is read the JD
+
+00:18:55.400 --> 00:18:59.400
+I will give this react agent, so this read the JD step will come here
+
+00:18:59.400 --> 00:19:03.400
+this is my LLM, model node
+
+00:19:03.400 --> 00:19:07.400
+this is an LLM, it is an agent actually
+
+00:19:07.400 --> 00:19:11.400
+and I have attached some tools with it, now what will it do
+
+00:19:11.400 --> 00:19:15.400
+it will go to its tools, its toolkit
+
+00:19:15.400 --> 00:19:19.400
+and it will check if I want to read JD
+
+00:19:19.400 --> 00:19:23.400
+if I have any tool available to read any file
+
+00:19:23.400 --> 00:19:27.400
+so it will know that yes, I have added a tool here
+
+00:19:27.400 --> 00:19:31.400
+called read file, which is used to read any file
+
+00:19:31.400 --> 00:19:35.400
+and return my agent
+
+00:19:35.400 --> 00:19:39.400
+so it will call this read file tool, I will tell it
+
+00:19:39.400 --> 00:19:43.400
+which file to read, I will give it proper arguments
+
+00:19:43.400 --> 00:19:47.400
+it will return the content of that file
+
+00:19:47.400 --> 00:19:51.400
+and the content of that file will go back to my model
+
+00:19:51.400 --> 00:19:55.400
+so LLM will call the read file tool
+
+00:19:55.400 --> 00:19:59.400
+and return the content back to LLM
+
+00:19:59.400 --> 00:20:03.400
+so my JD content will come to my LLM, so it will understand
+
+00:20:03.400 --> 00:20:07.400
+that yes, this step is complete
+
+00:20:07.400 --> 00:20:11.400
+then this react agent will start again
+
+00:20:11.400 --> 00:20:15.400
+so here I will send this step and this task
+
+00:20:15.400 --> 00:20:19.400
+it will go back to the model, model will call my read
+
+00:20:19.400 --> 00:20:23.400
+tool again and read my resumes one by one
+
+00:20:23.400 --> 00:20:27.400
+and its content will return to my LLM
+
+00:20:27.400 --> 00:20:31.400
+so the output of every step will be through this end node
+
+00:20:31.400 --> 00:20:35.400
+and it will be permanently saved, so it is not like
+
+00:20:35.400 --> 00:20:39.400
+I am not saving the result of every step
+
+00:20:39.400 --> 00:20:43.400
+I am saving the result of every step
+
+00:20:43.400 --> 00:20:47.400
+so till the tool call happens, it will be in a loop internally
+
+00:20:47.400 --> 00:20:51.400
+for each task, like read all the resume task
+
+00:20:51.400 --> 00:20:55.400
+let's say I have 10 resumes, so how many times will the read file tool call
+
+00:20:55.400 --> 00:20:59.400
+it will call 10 times, so this loop will run 10 times
+
+00:20:59.400 --> 00:21:03.400
+and as soon as it runs 10 times, all resumes will be read
+
+00:21:03.400 --> 00:21:07.400
+so it will go to the end and all the resume data or content
+
+00:21:07.400 --> 00:21:11.400
+will be saved, then score the resumes
+
+00:21:11.400 --> 00:21:15.400
+again for scoring, here it is 10 resumes, so it will run 10 times
+
+00:21:15.400 --> 00:21:19.400
+so again it will run 10 times in the loop, then all the scores will be saved
+
+00:21:19.400 --> 00:21:23.400
+so by doing this one by one, I will give every one of my sub tasks
+
+00:21:23.400 --> 00:21:27.400
+every one of my detailed plan sub task
+
+00:21:27.400 --> 00:21:31.400
+to my react agent and it will run this execution in the loop
+
+00:21:31.400 --> 00:21:35.400
+this loop that you see in the main agent
+
+00:21:35.400 --> 00:21:39.400
+this loop is showing that
+
+00:21:39.400 --> 00:21:43.400
+you are running a for loop and you are executing this detailed plan
+
+00:21:43.400 --> 00:21:47.400
+in step by step manner, I hope you understood this point
+
+00:21:47.400 --> 00:21:51.400
+I will summarize it again, I know it is very confusing
+
+00:21:51.400 --> 00:21:55.400
+planner is taking your main task and decomposing it
+
+00:21:55.400 --> 00:21:59.400
+into list of steps, this is the work of planner
+
+00:21:59.400 --> 00:22:03.400
+and it is giving you every step in a structured output
+
+00:22:03.400 --> 00:22:07.400
+it is giving you a list of steps, simple
+
+00:22:07.400 --> 00:22:11.400
+then your whole list of steps plan is going to executor
+
+00:22:11.400 --> 00:22:15.400
+executor is running a for loop, for every list of steps
+
+00:22:15.400 --> 00:22:19.400
+it is running this loop once, one iteration
+
+00:22:19.400 --> 00:22:23.400
+and in that iteration, in step by step manner, your react agent
+
+00:22:23.400 --> 00:22:27.400
+is going to execute those steps, let's say
+
+00:22:27.400 --> 00:22:31.400
+the first step went to your model, the model figured out
+
+00:22:31.400 --> 00:22:35.400
+that I have to call tool to complete this step
+
+00:22:35.400 --> 00:22:39.400
+now this tool call operation is also in loop
+
+00:22:39.400 --> 00:22:43.400
+because you may have to call 3 tools for a particular step
+
+00:22:43.400 --> 00:22:47.400
+so the first tool call will go to the model, the second will be
+
+00:22:47.400 --> 00:22:51.400
+the output will go to the model, so the tool call will be 3 times
+
+00:22:51.400 --> 00:22:55.400
+the information required for the step will come to the model
+
+00:22:55.400 --> 00:22:59.400
+and it will save the context
+
+00:22:59.400 --> 00:23:03.400
+which is the result of a particular step
+
+00:23:03.400 --> 00:23:07.400
+so the result will be saved here, let's say
+
+00:23:07.400 --> 00:23:11.400
+I have 6 steps to execute in my plan
+
+00:23:11.400 --> 00:23:15.400
+so executor will run 6 times in the loop
+
+00:23:15.400 --> 00:23:19.400
+and for 6 steps, all the results will be saved
+
+00:23:19.400 --> 00:23:23.400
+one by one, and as soon as my
+
+00:23:23.400 --> 00:23:27.400
+for loop is finished, I will go out of this loop
+
+00:23:27.400 --> 00:23:31.400
+and then go to this node, now where will I go
+
+00:23:31.400 --> 00:23:35.400
+in this node, all the results of each of the steps
+
+00:23:35.400 --> 00:23:39.400
+will go in this node
+
+00:23:39.400 --> 00:23:43.400
+and the name of this node is
+
+00:23:43.400 --> 00:23:47.400
+responder, this responder node will take
+
+00:23:47.400 --> 00:23:51.400
+the result of each step and will prepare a final response
+
+00:23:51.400 --> 00:23:55.400
+basically, the summary of the actions
+
+00:23:55.400 --> 00:23:59.400
+which were done internally, will prepare a summary
+
+00:23:59.400 --> 00:24:03.400
+of the task, whether it was achieved or not
+
+00:24:03.400 --> 00:24:07.400
+how it was achieved, let's say
+
+00:24:07.400 --> 00:24:11.400
+I said score and return top 3
+
+00:24:11.400 --> 00:24:15.400
+or whatever my question was, so here
+
+00:24:15.400 --> 00:24:19.400
+top 3 will return the name of the candidate, that his name is this
+
+00:24:19.400 --> 00:24:23.400
+and his individual scores are these, so I will get a response like this
+
+00:24:23.400 --> 00:24:27.400
+and this responder node, again we are using an LLM node
+
+00:24:27.400 --> 00:24:31.400
+it will get all my steps and results in input
+
+00:24:31.400 --> 00:24:35.400
+and it will generate a final report or summary
+
+00:24:35.400 --> 00:24:39.400
+and this summary will be of 2-3 lines and I will get my final response
+
+00:24:39.400 --> 00:24:43.400
+and as soon as I get the response, my graph will end
+
+00:24:43.400 --> 00:24:47.400
+I hope you understood this whole thing
+
+00:24:47.400 --> 00:24:51.400
+again, I know this is a little difficult
+
+00:24:51.400 --> 00:24:55.400
+but you will understand it better by seeing the code
+
+00:24:55.400 --> 00:24:59.400
+I want to summarize for the last time, that the main agent you have is a plan and execute
+
+00:24:59.400 --> 00:25:03.400
+in which the execute step is an agent
+
+00:25:03.400 --> 00:25:07.400
+that is a react agent, in the planning stage, you are
+
+00:25:07.400 --> 00:25:11.400
+generating a plan in the list of steps
+
+00:25:11.400 --> 00:25:15.400
+from that, you are giving every step to the react agent, the react agent is working on that step
+
+00:25:15.400 --> 00:25:19.400
+and saving the output related to the step
+
+00:25:19.400 --> 00:25:23.400
+every step and its output, you are finally
+
+00:25:23.400 --> 00:25:27.400
+sending it to a response node, which is an LLM
+
+00:25:27.400 --> 00:25:31.400
+it is taking all the steps and outputs, compiling them and a final result
+
+00:25:31.400 --> 00:25:35.400
+is returning my user in the form of text
+
+00:25:35.400 --> 00:25:39.400
+so the task of my user
+
+00:25:39.400 --> 00:25:43.400
+that is asking in chat, that is the input to my agent
+
+00:25:43.400 --> 00:25:47.400
+and the response node is returning the final output
+
+00:25:47.400 --> 00:25:51.400
+that is the output to my agent
+
+00:25:51.400 --> 00:25:55.400
+and the steps and planning that are happening in between are the intermediate nodes of this graph
+
+00:25:55.400 --> 00:25:59.400
+this one
+
+00:25:59.400 --> 00:26:03.400
+I hope you understood this thing, if you understood this whole architecture
+
+00:26:03.400 --> 00:26:07.400
+then let me show you a very good demo of this architecture
+
+00:26:07.400 --> 00:26:11.400
+we have already built the front end, I will show you how the demo agent works
+
+00:26:11.400 --> 00:26:15.400
+and after that I will explain its code to you
+
+00:26:15.400 --> 00:26:19.400
+so let's move to the demo part
+
+00:26:19.400 --> 00:26:23.400
+so before moving to the code part, I will show you a demo of my application
+
+00:26:23.400 --> 00:26:27.400
+again, we will work with this application throughout the course
+
+00:26:27.400 --> 00:26:31.400
+so we will explore its features further
+
+00:26:31.400 --> 00:26:35.400
+as the use case will come, we will explore this application more and more
+
+00:26:35.400 --> 00:26:39.400
+now I will explain to you what are the things that you see in the UI
+
+00:26:39.400 --> 00:26:43.400
+so here you will see
+
+00:26:43.400 --> 00:26:47.400
+so here you will see the name of our application
+
+00:26:47.400 --> 00:26:51.400
+it is an hiring assistant and on the left hand side, this sidebar
+
+00:26:51.400 --> 00:26:55.400
+here you can interact with your application through agent
+
+00:26:55.400 --> 00:26:59.400
+this is our agent
+
+00:26:59.400 --> 00:27:03.400
+here you can give it any query
+
+00:27:03.400 --> 00:27:07.400
+and your agent will start working on that particular query
+
+00:27:07.400 --> 00:27:11.400
+so here in total we have 15 resumes
+
+00:27:11.400 --> 00:27:15.400
+here you can see the resumes to screen are 15
+
+00:27:15.400 --> 00:27:19.400
+how many were shortlisted, how many were rejected, how many were email draft
+
+00:27:19.400 --> 00:27:23.400
+this is its number, basically it is a matrix
+
+00:27:23.400 --> 00:27:27.400
+and below you can see the job description
+
+00:27:27.400 --> 00:27:31.400
+now job description is the role of a junior ML engineer
+
+00:27:31.400 --> 00:27:35.400
+these are the must haves, if these must haves are in any resume
+
+00:27:35.400 --> 00:27:39.400
+then only that resume will be shortlisted like python, sql, hands on experience with ML framework
+
+00:27:39.400 --> 00:27:43.400
+get at least 2 years of experience
+
+00:27:43.400 --> 00:27:47.400
+then we have nice to haves, if these are in your resume
+
+00:27:47.400 --> 00:27:51.400
+then you will get some points against it and how you have to score
+
+00:27:51.400 --> 00:27:55.400
+the rules are also given, again I will share this code with you
+
+00:27:55.400 --> 00:27:59.400
+you can read all these things in the code
+
+00:27:59.400 --> 00:28:03.400
+then we have resumes, here you have 15 sample resumes
+
+00:28:03.400 --> 00:28:07.400
+of different candidates, like if you want to view any resume
+
+00:28:07.400 --> 00:28:11.400
+then simply click here and view the resumes
+
+00:28:11.400 --> 00:28:15.400
+here is your candidate's name, email id, experience
+
+00:28:15.400 --> 00:28:19.400
+skills, education, projects
+
+00:28:19.400 --> 00:28:23.400
+and summary, and this you can do for any other resume as well
+
+00:28:23.400 --> 00:28:27.400
+here we have added a duplicate resume
+
+00:28:27.400 --> 00:28:31.400
+just we want to check how our agent handles duplicate resumes
+
+00:28:31.400 --> 00:28:35.400
+so we have added 2 resumes of Rohan Mehta
+
+00:28:35.400 --> 00:28:39.400
+here we have added, after that
+
+00:28:39.400 --> 00:28:43.400
+if your agent drafts an email
+
+00:28:43.400 --> 00:28:47.400
+then you will see draft emails, you can go and read them in UI
+
+00:28:47.400 --> 00:28:51.400
+and this candidate tracker
+
+00:28:51.400 --> 00:28:55.400
+this is basically our CSV file, which you can visualize
+
+00:28:55.400 --> 00:28:59.400
+and this is your agent, who is shortlisting things
+
+00:28:59.400 --> 00:29:03.400
+or adding things, so it will be added in the tracker file
+
+00:29:03.400 --> 00:29:07.400
+and you will see all the details here, so let's do one thing
+
+00:29:07.400 --> 00:29:11.400
+this is a blank UI, you invoke your agent
+
+00:29:11.400 --> 00:29:15.400
+and give a task, and see how it changes things in this UI
+
+00:29:15.400 --> 00:29:19.400
+so let's give one task
+
+00:29:19.400 --> 00:29:23.400
+can you shortlist
+
+00:29:23.400 --> 00:29:27.400
+candidates
+
+00:29:27.400 --> 00:29:31.400
+sorry for the typo, can be dates
+
+00:29:31.400 --> 00:29:35.400
+which have AWS
+
+00:29:35.400 --> 00:29:39.400
+skill
+
+00:29:39.400 --> 00:29:43.400
+and add them to tracker
+
+00:29:43.400 --> 00:29:47.400
+so I am saying that candidates who have AWS skill
+
+00:29:47.400 --> 00:29:51.400
+shortlist them and after shortlisting them, add them in tracker
+
+00:29:51.400 --> 00:29:55.400
+once
+
+00:29:55.400 --> 00:29:59.400
+they are added
+
+00:29:59.400 --> 00:30:03.400
+so this is the code
+
+00:30:03.400 --> 00:30:07.400
+tracker move their resumes
+
+00:30:07.400 --> 00:30:11.400
+to shortlisted
+
+00:30:11.400 --> 00:30:15.400
+directory, so if I show you the code
+
+00:30:15.400 --> 00:30:19.400
+so here in this workspace folder, these are the directories
+
+00:30:19.400 --> 00:30:23.400
+these are the resumes, where all my resumes are, and I have made these additional
+
+00:30:23.400 --> 00:30:27.400
+rejected and shortlisted, where you can move your resumes
+
+00:30:27.400 --> 00:30:31.400
+so we have added a feature, so that we can clearly
+
+00:30:31.400 --> 00:30:35.400
+go to the directories and see which resumes are rejected
+
+00:30:35.400 --> 00:30:39.400
+and which are selected
+
+00:30:39.400 --> 00:30:43.400
+so as soon as information is updated in your tracker
+
+00:30:43.400 --> 00:30:47.400
+you can add the resumes of shortlisted candidates
+
+00:30:47.400 --> 00:30:51.400
+in the directory
+
+00:30:51.400 --> 00:30:55.400
+so let's do one thing
+
+00:30:55.400 --> 00:30:59.400
+we used to define here move
+
+00:30:59.400 --> 00:31:03.400
+shortlisted candidates
+
+00:31:03.400 --> 00:31:07.400
+with scores
+
+00:31:07.400 --> 00:31:11.400
+greater than
+
+00:31:11.400 --> 00:31:15.400
+70, here we do one thing, 75
+
+00:31:15.400 --> 00:31:19.400
+to shortlisted
+
+00:31:19.400 --> 00:31:23.400
+directory
+
+00:31:25.400 --> 00:31:31.400
+once
+
+00:31:31.400 --> 00:31:35.400
+this is done
+
+00:31:35.400 --> 00:31:39.400
+draft email responses
+
+00:31:39.400 --> 00:31:43.400
+for candidates in the
+
+00:31:43.400 --> 00:31:47.400
+shortlisted directory
+
+00:31:47.400 --> 00:31:51.400
+inviting them
+
+00:31:51.400 --> 00:31:55.400
+then for interview
+
+00:31:55.400 --> 00:31:59.400
+so this is a very complex task
+
+00:31:59.400 --> 00:32:03.400
+and let's see how my agent performs
+
+00:32:03.400 --> 00:32:07.400
+let's see, again this is version 1 of my application, it is possible that
+
+00:32:07.400 --> 00:32:11.400
+my agent doesn't perform well on this task, but it will work
+
+00:32:11.400 --> 00:32:15.400
+because we haven't come out to build a perfect application
+
+00:32:15.400 --> 00:32:19.400
+we will build it when we will do the evaluation
+
+00:32:19.400 --> 00:32:23.400
+and tweak the system prompt
+
+00:32:23.400 --> 00:32:27.400
+now we want to see how my agent is behaving
+
+00:32:27.400 --> 00:32:31.400
+in this baseline application
+
+00:32:31.400 --> 00:32:35.400
+so the first task is
+
+00:32:35.400 --> 00:32:39.400
+that he will shortlist candidates on the basis of AWS skill
+
+00:32:39.400 --> 00:32:43.400
+and add them in the tracker, then the
+
+00:32:43.400 --> 00:32:47.400
+shortlisted resumes in the tracker, whose score is greater than 75
+
+00:32:47.400 --> 00:32:51.400
+he will put it in the shortlisted directory
+
+00:32:51.400 --> 00:32:55.400
+and on the basis of the resumes in the shortlisted directory, he will prepare the draft emails
+
+00:32:55.400 --> 00:32:59.400
+now this agent will take some time to run
+
+00:32:59.400 --> 00:33:03.400
+so let's pause the video here and as soon as this task is completed, I will show you the results
+
+00:33:07.400 --> 00:33:11.400
+so here my agent has a response
+
+00:33:11.400 --> 00:33:15.400
+he said that I have shortlisted and added 10 candidates to the tracker
+
+00:33:15.400 --> 00:33:19.400
+so let's go down and see the tracker
+
+00:33:19.400 --> 00:33:23.400
+so clearly after seeing the tracker, it is clear that
+
+00:33:23.400 --> 00:33:27.400
+I can see 10 rows here, so 10 rows have been added
+
+00:33:27.400 --> 00:33:31.400
+and out of them, these top 4 have been shortlisted
+
+00:33:31.400 --> 00:33:35.400
+I have sorted them based on the scores and these are the 4 candidates
+
+00:33:35.400 --> 00:33:39.400
+who are Aditya Sharma, Ananya Rao, Dev and Rohan Mehta
+
+00:33:39.400 --> 00:33:43.400
+after that he said that I moved one resume
+
+00:33:43.400 --> 00:33:47.400
+to the shortlisted directory, he said that I have moved only one resume
+
+00:33:47.400 --> 00:33:51.400
+to the shortlisted directory, if I see the shortlisted directory
+
+00:33:51.400 --> 00:33:55.400
+then I can see only Aditya Sharma's resume
+
+00:33:55.400 --> 00:33:59.400
+I told him that whoever's score is above 75, he has to put them in the shortlisted
+
+00:33:59.400 --> 00:34:03.400
+so these scores
+
+00:34:03.400 --> 00:34:07.400
+if I show you, then in this Aditya Sharma's resume
+
+00:34:07.400 --> 00:34:11.400
+Rohan Mehta's resume should also be added and
+
+00:34:11.400 --> 00:34:15.400
+Dev Malhotra's resume should also be added, so he missed out
+
+00:34:15.400 --> 00:34:19.400
+and after that what did he do?
+
+00:34:19.400 --> 00:34:23.400
+he said that Rohan Mehta met the score but
+
+00:34:23.400 --> 00:34:27.400
+was not moved into the step, Dev Malhotra and Rohan Mehta
+
+00:34:27.400 --> 00:34:31.400
+so for some reason he couldn't put these 2 resumes in the shortlisted directory
+
+00:34:31.400 --> 00:34:35.400
+and Ananya Rao didn't move because his score was 75
+
+00:34:35.400 --> 00:34:39.400
+so he was not qualifying, so this is fine
+
+00:34:39.400 --> 00:34:43.400
+I then drafted interview invitation emails for the shortlisted candidates
+
+00:34:43.400 --> 00:34:47.400
+in the directory who had email address Aditya and Rohan
+
+00:34:47.400 --> 00:34:51.400
+he didn't shortlist Rohan but
+
+00:34:51.400 --> 00:34:55.400
+he made a mail for Rohan, so here I can see
+
+00:34:55.400 --> 00:34:59.400
+2 draft mails, one for Aditya, this is the draft email
+
+00:34:59.400 --> 00:35:03.400
+and one for Rohan
+
+00:35:03.400 --> 00:35:07.400
+so my agent is doing some work right and some work wrong
+
+00:35:07.400 --> 00:35:11.400
+so he is doing some work, see here it is written that 1 file was moved
+
+00:35:11.400 --> 00:35:15.400
+2 were added into the draft
+
+00:35:15.400 --> 00:35:19.400
+and 10 tracker rows were added into the tracker
+
+00:35:19.400 --> 00:35:23.400
+so 2 emails were made, 1 file was moved into shortlisted
+
+00:35:23.400 --> 00:35:27.400
+and 10 rows were added into the tracker
+
+00:35:27.400 --> 00:35:31.400
+and which resume was shortlisted and moved is this one
+
+00:35:31.400 --> 00:35:35.400
+so clearly some things are happening here but some things are not happening properly
+
+00:35:35.400 --> 00:35:39.400
+so in this case, I can see the details of the changes
+
+00:35:39.400 --> 00:35:43.400
+so now what you can do is
+
+00:35:43.400 --> 00:35:47.400
+you can expand this plan and explore the whole plan
+
+00:35:47.400 --> 00:35:51.400
+I told you that your planner stage makes the plan
+
+00:35:51.400 --> 00:35:55.400
+in series of steps, so these are the steps
+
+00:35:55.400 --> 00:35:59.400
+this is the 1st step, this is the 2nd step, this is the output
+
+00:35:59.400 --> 00:36:03.400
+so this is the whole plan, again you can run this query
+
+00:36:03.400 --> 00:36:07.400
+and read the plan, but after seeing this, I can understand that
+
+00:36:07.400 --> 00:36:11.400
+this plan is not working as intended, there is some problem
+
+00:36:11.400 --> 00:36:15.400
+now there can be any problem, it can be in the executor node
+
+00:36:15.400 --> 00:36:19.400
+or in the planner, but clearly here
+
+00:36:19.400 --> 00:36:23.400
+one thing is clear that my application is not working as intended
+
+00:36:23.400 --> 00:36:27.400
+so let's do one thing, let's break down this task because it was very complex
+
+00:36:27.400 --> 00:36:31.400
+many things were happening back to back
+
+00:36:31.400 --> 00:36:35.400
+so let's break this task in parts and give simple tasks to our agent
+
+00:36:35.400 --> 00:36:41.400
+let's do tasks one by one and see how it performs in that case
+
+00:37:01.400 --> 00:37:05.400
+so here we are explicitly telling our task
+
+00:37:05.400 --> 00:37:09.400
+and we are decomposing the task one by one
+
+00:37:09.400 --> 00:37:13.400
+so that our agent can perform better
+
+00:37:13.400 --> 00:37:17.400
+again don't worry if it is performing poorly
+
+00:37:17.400 --> 00:37:21.400
+this is intended behavior, we haven't tweaked our application
+
+00:37:21.400 --> 00:37:25.400
+we will tweak it later, but now
+
+00:37:25.400 --> 00:37:29.400
+we will add the name to the task
+
+00:37:29.400 --> 00:37:33.400
+so we will tweak it later and improve it
+
+00:37:39.400 --> 00:37:43.400
+let's wait and see what is the output
+
+00:37:59.400 --> 00:38:03.400
+now
+
+00:38:17.400 --> 00:38:21.400
+it has shortlisted 6 candidates
+
+00:38:21.400 --> 00:38:25.400
+but added 9 tracker rows
+
+00:38:25.400 --> 00:38:29.400
+so I can see the 9 tracker rows
+
+00:38:29.400 --> 00:38:33.400
+here are the candidates, but it said that
+
+00:38:33.400 --> 00:38:37.400
+6 were shortlisted, I don't know how it got this figure
+
+00:38:37.400 --> 00:38:41.400
+I shortlisted and added 6 candidates
+
+00:38:41.400 --> 00:38:45.400
+with AWS skill in their resumes
+
+00:38:45.400 --> 00:38:49.400
+added but only Aditi, Ananya and Rohan were shortlisted
+
+00:38:49.400 --> 00:38:53.400
+rejected, so it says that the rest were rejected
+
+00:38:53.400 --> 00:38:57.400
+so whatever information is available to the agent
+
+00:38:57.400 --> 00:39:01.400
+he has added it here, again read it
+
+00:39:01.400 --> 00:39:05.400
+so for now he has only updated the tracking
+
+00:39:05.400 --> 00:39:09.400
+and he has updated the 9 rows
+
+00:39:09.400 --> 00:39:13.400
+if I can see here
+
+00:39:13.400 --> 00:39:17.400
+AWS nice to have, I can see it
+
+00:39:17.400 --> 00:39:21.400
+here is AWS nice to have, here is AWS
+
+00:39:21.400 --> 00:39:25.400
+9 resumes are available
+
+00:39:25.400 --> 00:39:29.400
+if I randomly go and see some resumes
+
+00:39:29.400 --> 00:39:33.400
+AWS, yes here I can see
+
+00:39:33.400 --> 00:39:37.400
+Arjun Verma, here is Arjun Verma
+
+00:39:37.400 --> 00:39:41.400
+Mira Joshi, AWS is there
+
+00:39:41.400 --> 00:39:45.400
+Ananya Dev
+
+00:39:45.400 --> 00:39:49.400
+Ananya is different, Dev is different
+
+00:39:49.400 --> 00:39:53.400
+Arjun's AWS is there, Dev's AWS is there
+
+00:39:53.400 --> 00:39:57.400
+Vikram Singh
+
+00:39:57.400 --> 00:40:01.400
+Vikram Singh also has AWS skill, so yes this is what my agent is able to do
+
+00:40:01.400 --> 00:40:05.400
+now what was the next task, the next task was that
+
+00:40:05.400 --> 00:40:09.400
+whoever's ATS score was 90
+
+00:40:09.400 --> 00:40:13.400
+or 80, whatever it was, let's do 80 here
+
+00:40:13.400 --> 00:40:17.400
+so these 3 resumes will move to the shortlisted
+
+00:40:17.400 --> 00:40:21.400
+so
+
+00:40:21.400 --> 00:40:25.400
+read the tracker and
+
+00:40:25.400 --> 00:40:29.400
+add or move instead of add
+
+00:40:29.400 --> 00:40:33.400
+move resumes to
+
+00:40:33.400 --> 00:40:37.400
+shortlisted
+
+00:40:37.400 --> 00:40:41.400
+with ATS score
+
+00:40:41.400 --> 00:40:45.400
+greater than 80
+
+00:40:45.400 --> 00:40:49.400
+greater than 80
+
+00:40:53.400 --> 00:40:55.400
+let's see
+
+00:40:55.400 --> 00:40:59.400
+how my agent performs for this particular task
+
+00:40:59.400 --> 00:41:03.400
+so
+
+00:41:13.400 --> 00:41:17.400
+so whatever changes are there for this particular task
+
+00:41:17.400 --> 00:41:21.400
+will be updated here, so I can track through this
+
+00:41:21.400 --> 00:41:25.400
+and my resumes will also have tags, I will show you
+
+00:41:29.400 --> 00:41:33.400
+so whatever actions your agent is doing here
+
+00:41:33.400 --> 00:41:37.400
+you will see changes in the UI
+
+00:41:37.400 --> 00:41:41.400
+I have moved 3 resumes to shortlisted
+
+00:41:41.400 --> 00:41:45.400
+Aditi's, Rohan's and Dev's, so this task is done
+
+00:41:45.400 --> 00:41:49.400
+I moved the other 6 resumes to rejected because their tracker decisions or ATS score
+
+00:41:49.400 --> 00:41:53.400
+were not 80, no file moves failed and all the resumes had an email
+
+00:41:53.400 --> 00:41:57.400
+in the tracker and in the files added, so he has done some work
+
+00:41:57.400 --> 00:42:01.400
+so we have done extra here, what is extra?
+
+00:42:01.400 --> 00:42:05.400
+he has added 3 to shortlisted and 6 to rejected, although I did not say rejected
+
+00:42:05.400 --> 00:42:09.400
+but my agent is smart enough that if 3 are shortlisted then I have to move the rest
+
+00:42:09.400 --> 00:42:13.400
+to rejected, so 9 files have moved here, these are their details
+
+00:42:13.400 --> 00:42:17.400
+which folders they have moved to and you can see in front of resumes
+
+00:42:17.400 --> 00:42:21.400
+which are shortlisted and which are rejected, ok
+
+00:42:21.400 --> 00:42:25.400
+and the same is updated here, in shortlisted you have 3 resumes
+
+00:42:25.400 --> 00:42:29.400
+and in rejected
+
+00:42:29.400 --> 00:42:33.400
+you have the other resumes, ok, and which are these?
+
+00:42:33.400 --> 00:42:37.400
+these are the ones which do not have AWS, if you open any of them here then you will not see AWS in the skill
+
+00:42:37.400 --> 00:42:41.400
+you can see
+
+00:42:41.400 --> 00:42:45.400
+so my agent is performing well if we are giving task by breaking down
+
+00:42:45.400 --> 00:42:49.400
+so let's do one thing, let's give it final task
+
+00:42:49.400 --> 00:42:53.400
+read the
+
+00:42:53.400 --> 00:42:57.400
+resumes in the
+
+00:43:01.400 --> 00:43:05.400
+shortlisted directory and
+
+00:43:05.400 --> 00:43:09.400
+shortlisted
+
+00:43:09.400 --> 00:43:13.400
+directory and
+
+00:43:13.400 --> 00:43:17.400
+generate
+
+00:43:17.400 --> 00:43:21.400
+draft emails for
+
+00:43:21.400 --> 00:43:25.400
+interview invite
+
+00:43:25.400 --> 00:43:29.400
+generate
+
+00:43:29.400 --> 00:43:33.400
+let's run it
+
+00:43:33.400 --> 00:43:37.400
+once
+
+00:43:41.400 --> 00:43:45.400
+now I have here
+
+00:43:45.400 --> 00:43:49.400
+for my 3 resumes, 3 draft emails should be there
+
+00:43:49.400 --> 00:43:53.400
+so yes
+
+00:43:53.400 --> 00:43:57.400
+so yes
+
+00:43:57.400 --> 00:44:01.400
+here draft emails are made, 3 added
+
+00:44:01.400 --> 00:44:05.400
+what are these 3 added? that my draft emails are added
+
+00:44:05.400 --> 00:44:09.400
+in drafts I can see these 3 text files, this is for Adeti Sharma
+
+00:44:09.400 --> 00:44:13.400
+resumes stood out, strong match
+
+00:44:13.400 --> 00:44:17.400
+for the role, your reply with your availability for an interview
+
+00:44:17.400 --> 00:44:21.400
+written for Dev Malhotra
+
+00:44:21.400 --> 00:44:25.400
+again email id, name is correct, everything is properly
+
+00:44:25.400 --> 00:44:29.400
+managed, now let's do one more task
+
+00:44:29.400 --> 00:44:33.400
+here we will write
+
+00:44:33.400 --> 00:44:37.400
+for the rejected candidates
+
+00:44:37.400 --> 00:44:41.400
+draft an email
+
+00:44:41.400 --> 00:44:45.400
+saying they were
+
+00:44:45.400 --> 00:44:49.400
+not selected and
+
+00:44:49.400 --> 00:44:53.400
+specify
+
+00:44:53.400 --> 00:44:57.400
+reasons as well
+
+00:44:57.400 --> 00:45:01.400
+this generally does not happen but we are telling our hiring agent that
+
+00:45:01.400 --> 00:45:05.400
+for the rejected ones, prepare a draft email for them
+
+00:45:05.400 --> 00:45:09.400
+so these 6 candidates, Ananya, Arjun, Kabir, Meera, Joshi, Neha
+
+00:45:09.400 --> 00:45:13.400
+and Vikram, 6 draft emails will be ready for them
+
+00:45:13.400 --> 00:45:17.400
+again you can see the steps
+
+00:45:17.400 --> 00:45:21.400
+he first read the job description, then the tracker
+
+00:45:21.400 --> 00:45:25.400
+after reading the tracker, he went to shortlisted
+
+00:45:25.400 --> 00:45:29.400
+and read the resumes and then drafted the email
+
+00:45:33.400 --> 00:45:37.400
+let's wait
+
+00:45:37.400 --> 00:45:41.400
+here we have to write 6 emails
+
+00:45:41.400 --> 00:45:45.400
+all 6 had email addresses so no exceptions
+
+00:45:45.400 --> 00:45:49.400
+when edited, the draft was saved, corresponding draft files
+
+00:45:49.400 --> 00:45:53.400
+here you can see 6 drafts created
+
+00:45:53.400 --> 00:45:57.400
+and they are these
+
+00:45:57.400 --> 00:46:01.400
+let's see for Ananya
+
+00:46:01.400 --> 00:46:05.400
+update on your application not selected, dear Ananya
+
+00:46:05.400 --> 00:46:09.400
+thank you for your interest, after reviewing your application, we were not able to select you for this position
+
+00:46:09.400 --> 00:46:13.400
+based on the job requirements and your resume
+
+00:46:13.400 --> 00:46:17.400
+the main reason is hands on experience with ML framework, at least 2 years of experience
+
+00:46:17.400 --> 00:46:21.400
+your profile shows 3 years of experience but the tracker
+
+00:46:21.400 --> 00:46:25.400
+has you marked as rejected for a missing requirement that is
+
+00:46:25.400 --> 00:46:29.400
+git version control, so we don't have git version control, we appreciate your time and interest
+
+00:46:29.400 --> 00:46:33.400
+again we can improve this a little more, if we want to remove the tracker
+
+00:46:33.400 --> 00:46:37.400
+we can remove it, this is selected
+
+00:46:37.400 --> 00:46:41.400
+let's see Kabir Khan's
+
+00:46:41.400 --> 00:46:45.400
+job requirement, the main reason is role requires git
+
+00:46:45.400 --> 00:46:49.400
+and your profile doesn't have git
+
+00:46:49.400 --> 00:46:53.400
+so git is
+
+00:46:53.400 --> 00:46:57.400
+a skill that many people don't have, they should have it, you should have it
+
+00:46:57.400 --> 00:47:01.400
+just kidding, based on the job requirement
+
+00:47:01.400 --> 00:47:05.400
+so you read it, I can understand one thing
+
+00:47:05.400 --> 00:47:09.400
+if we give a task to our agent step by step
+
+00:47:09.400 --> 00:47:13.400
+then he is doing it very well, but we give a little complex task
+
+00:47:13.400 --> 00:47:17.400
+where one step is dependent on the other
+
+00:47:17.400 --> 00:47:21.400
+then the plan fails or the execution of our agent fails
+
+00:47:21.400 --> 00:47:25.400
+so maybe we have to improve this step
+
+00:47:25.400 --> 00:47:29.400
+or maybe we have to see that the LLM
+
+00:47:29.400 --> 00:47:33.400
+execution, plan generation work may be weak
+
+00:47:33.400 --> 00:47:37.400
+and we are unable to manage the next task, so we will evaluate this
+
+00:47:37.400 --> 00:47:41.400
+and improve it, but this is the demo for now
+
+00:47:41.400 --> 00:47:45.400
+now if you have understood this demo, then let's go towards the code part
+
+00:47:45.400 --> 00:47:49.400
+and see how we will execute this whole thing in the code
+
+00:47:49.400 --> 00:47:53.400
+so guys, I will show you the project code
+
+00:47:53.400 --> 00:47:57.400
+so this is the project layout
+
+00:47:57.400 --> 00:48:01.400
+again we are using our modular approach for the project layout
+
+00:48:01.400 --> 00:48:05.400
+and here you can see
+
+00:48:05.400 --> 00:48:09.400
+these are some of the UV related files
+
+00:48:09.400 --> 00:48:13.400
+because we are using the package manager here as well
+
+00:48:13.400 --> 00:48:17.400
+so here you can see UV related files, if I talk about dependencies
+
+00:48:17.400 --> 00:48:21.400
+then these are the dependencies that I have installed, like Lang chain
+
+00:48:21.400 --> 00:48:25.400
+Lang chain open AI, through which we are calling our open AI model
+
+00:48:25.400 --> 00:48:29.400
+Lang graph to build our agent application
+
+00:48:29.400 --> 00:48:33.400
+and here we are using streamlet for frontend
+
+00:48:33.400 --> 00:48:37.400
+then if I show you here, then you can see two directories
+
+00:48:37.400 --> 00:48:41.400
+first is workspace and second is workspace original
+
+00:48:41.400 --> 00:48:45.400
+now this workspace is the same directory that I showed you
+
+00:48:45.400 --> 00:48:49.400
+and we are tracking this directory through the UI
+
+00:48:49.400 --> 00:48:53.400
+now here you can see some folders, let me tell you about those folders
+
+00:48:53.400 --> 00:48:57.400
+this is the resume folder
+
+00:48:57.400 --> 00:49:01.400
+this is the folder where all our resumes are there
+
+00:49:01.400 --> 00:49:05.400
+now you can see some less resumes here because we have run our agent
+
+00:49:05.400 --> 00:49:09.400
+and it has shifted some resumes here
+
+00:49:09.400 --> 00:49:13.400
+then there is rejected, now we can see that your rejected resumes will be there
+
+00:49:13.400 --> 00:49:17.400
+and same is the case with shortlisted
+
+00:49:17.400 --> 00:49:21.400
+shortlisted resumes will be there
+
+00:49:21.400 --> 00:49:25.400
+then you can see drafts, here we will see draft emails
+
+00:49:25.400 --> 00:49:29.400
+draft email will be created, it cannot send an email
+
+00:49:29.400 --> 00:49:33.400
+but whatever email text it creates, it will add it in the draft folder
+
+00:49:33.400 --> 00:49:37.400
+then there is candidates and CSV, this is my tracker file
+
+00:49:37.400 --> 00:49:43.400
+this is my CSV file and this is my job description.markdown
+
+00:49:43.400 --> 00:49:47.400
+where my job description is, where must have is, nice to have is
+
+00:49:47.400 --> 00:49:51.400
+and how to score for each candidate, rules are attached
+
+00:49:51.400 --> 00:49:55.400
+so this is my workspace
+
+00:49:55.400 --> 00:49:59.400
+now you must be thinking that this workspace is original
+
+00:49:59.400 --> 00:50:03.400
+what is this workspace original, that my agent will not work on this workspace original
+
+00:50:03.400 --> 00:50:07.400
+only work on workspace, I am using this workspace original
+
+00:50:07.400 --> 00:50:11.400
+as an original copy of the workspace
+
+00:50:11.400 --> 00:50:15.400
+that before performing tasks of my agent, at the start
+
+00:50:15.400 --> 00:50:19.400
+how this workspace looked like, simply I am managing this folder
+
+00:50:19.400 --> 00:50:23.400
+I am managing this folder so that I can compare
+
+00:50:23.400 --> 00:50:27.400
+the changes before and after
+
+00:50:27.400 --> 00:50:31.400
+so my UI goes to workspace original, see these files
+
+00:50:31.400 --> 00:50:35.400
+in which order, then it goes to the workspace folder
+
+00:50:35.400 --> 00:50:39.400
+and see its order and after that
+
+00:50:39.400 --> 00:50:43.400
+it tells me what files have been changed, which files have been shifted
+
+00:50:43.400 --> 00:50:47.400
+whatever changes in my workspace, it tells me on a comparative basis
+
+00:50:47.400 --> 00:50:51.400
+so you can understand that
+
+00:50:51.400 --> 00:50:55.400
+the original workspace is my ground truth
+
+00:50:55.400 --> 00:50:59.400
+it compares my workspace and tells me what changes have been made
+
+00:50:59.400 --> 00:51:03.400
+I hope you understood this point, now all my code is in this source directory
+
+00:51:03.400 --> 00:51:07.400
+so in the source there is a folder named hiring agent
+
+00:51:07.400 --> 00:51:11.400
+and there are two more subfolders, first is my app
+
+00:51:11.400 --> 00:51:15.400
+where I have written the code of my back end, basically the code of my agent
+
+00:51:15.400 --> 00:51:19.400
+and the other one is the front end where I have written the front end related code
+
+00:51:19.400 --> 00:51:23.400
+now let's explore this back end code
+
+00:51:23.400 --> 00:51:27.400
+here you are getting 4 Python files
+
+00:51:27.400 --> 00:51:31.400
+agent.py where I have made my entire lang graph
+
+00:51:31.400 --> 00:51:35.400
+clients.py, tools.py and workspace.py
+
+00:51:35.400 --> 00:51:39.400
+I will show you these files one by one
+
+00:51:39.400 --> 00:51:43.400
+first I will show you the file workspace.py
+
+00:51:43.400 --> 00:51:47.400
+I will not explain the code of this file completely because this code is cumbersome
+
+00:51:47.400 --> 00:51:51.400
+I will tell you what this file does, it is very simple
+
+00:51:51.400 --> 00:51:55.400
+so here I have made all my imports
+
+00:51:55.400 --> 00:51:59.400
+I have set my parts and important variables
+
+00:51:59.400 --> 00:52:03.400
+like tracker file, columns,
+
+00:52:03.400 --> 00:52:07.400
+decisions, seed directories, which are the directories in my workspace
+
+00:52:07.400 --> 00:52:11.400
+so these are the directories you will see here
+
+00:52:11.400 --> 00:52:15.400
+resume, shortlisted, draft and rejected
+
+00:52:15.400 --> 00:52:19.400
+and here is my seed data
+
+00:52:19.400 --> 00:52:23.400
+seed data means this is my data for my job description and for my resumes
+
+00:52:23.400 --> 00:52:27.400
+so to make this project demoable
+
+00:52:27.400 --> 00:52:31.400
+I have already made a job description which I have hardcoded in this workspace.py
+
+00:52:31.400 --> 00:52:35.400
+and I have different resumes for all the candidates
+
+00:52:35.400 --> 00:52:39.400
+so I am adding all these in my workspace
+
+00:52:39.400 --> 00:52:43.400
+so you can make changes in this code
+
+00:52:43.400 --> 00:52:47.400
+and those changes will start to reflect in your original job description and resumes
+
+00:52:47.400 --> 00:52:51.400
+so here are some important utility functions
+
+00:52:51.400 --> 00:52:55.400
+like reset workspace, from the name only I can understand
+
+00:52:55.400 --> 00:52:59.400
+when I will call this function then
+
+00:52:59.400 --> 00:53:03.400
+my workspace will be created again, so if I have a workspace originally
+
+00:53:03.400 --> 00:53:07.400
+then it will be deleted
+
+00:53:07.400 --> 00:53:11.400
+and then my workspace will be deleted
+
+00:53:11.400 --> 00:53:15.400
+through this call
+
+00:53:15.400 --> 00:53:19.400
+and then my workspace will be created again and all the resumes, folders, etc will be seeded
+
+00:53:19.400 --> 00:53:23.400
+so from this scratch, a workspace will be created again
+
+00:53:23.400 --> 00:53:27.400
+and the workspace which will be created
+
+00:53:27.400 --> 00:53:31.400
+I will copy it in my workspace original directory
+
+00:53:31.400 --> 00:53:35.400
+so the workspace which was created from scratch after a reset
+
+00:53:35.400 --> 00:53:39.400
+will be exactly like the original
+
+00:53:39.400 --> 00:53:43.400
+so I will make this workspace and copy the same thing in this workspace
+
+00:53:43.400 --> 00:53:47.400
+so I will have 2 new copies of my workspace
+
+00:53:47.400 --> 00:53:51.400
+everything will be in the same order as it was in the beginning
+
+00:53:51.400 --> 00:53:55.400
+what does workspace snapshot do?
+
+00:53:55.400 --> 00:53:59.400
+workspace snapshot basically gives an idea of my workspace
+
+00:53:59.400 --> 00:54:03.400
+to my agent, how my workspace looks like
+
+00:54:03.400 --> 00:54:07.400
+so it provides a snapshot of the files
+
+00:54:07.400 --> 00:54:11.400
+and the details of the files
+
+00:54:11.400 --> 00:54:15.400
+so this function works the same way
+
+00:54:15.400 --> 00:54:19.400
+again you can see the code, very simple code
+
+00:54:19.400 --> 00:54:23.400
+you are working with the file management
+
+00:54:23.400 --> 00:54:27.400
+and then there is a function called safe path
+
+00:54:27.400 --> 00:54:31.400
+it makes sure that my agent will only make changes in the workspace folder
+
+00:54:31.400 --> 00:54:35.400
+and it can't make changes in any folder
+
+00:54:35.400 --> 00:54:39.400
+it can't make changes in any folder of my project
+
+00:54:39.400 --> 00:54:43.400
+then there is the file tree
+
+00:54:43.400 --> 00:54:47.400
+here the structure of the entire folder is like a directory tree
+
+00:54:47.400 --> 00:54:51.400
+in that form, the structure returns my agent
+
+00:54:51.400 --> 00:54:55.400
+the list folder is understood by the name that my folder and the files inside it
+
+00:54:55.400 --> 00:54:59.400
+their list will give my agent
+
+00:54:59.400 --> 00:55:03.400
+if I want to read content, I will use this read text
+
+00:55:03.400 --> 00:55:07.400
+move is understood by the name that it will move my file to a source destination
+
+00:55:07.400 --> 00:55:11.400
+delete
+
+00:55:11.400 --> 00:55:15.400
+used to delete a file, it can only delete a file
+
+00:55:15.400 --> 00:55:19.400
+we will not use it to delete a folder
+
+00:55:19.400 --> 00:55:23.400
+write draft will write my email drafts
+
+00:55:23.400 --> 00:55:27.400
+so all these utility functions around paths and files
+
+00:55:27.400 --> 00:55:31.400
+are making changes in this workspace
+
+00:55:31.400 --> 00:55:35.400
+like showing the structure of the folder
+
+00:55:35.400 --> 00:55:39.400
+list folder, telling which folders are available
+
+00:55:39.400 --> 00:55:43.400
+reading any file and moving it
+
+00:55:43.400 --> 00:55:47.400
+these are all the functions that are doing
+
+00:55:47.400 --> 00:55:51.400
+then these utility functions are related to my CSV file
+
+00:55:51.400 --> 00:55:55.400
+like if I want to read the content of the CSV file
+
+00:55:55.400 --> 00:55:59.400
+then this is the function of the read tracker
+
+00:55:59.400 --> 00:56:03.400
+write tracker is understood by the name that whatever information is there
+
+00:56:03.400 --> 00:56:07.400
+I can write it to my tracker file
+
+00:56:07.400 --> 00:56:11.400
+if I want to check if any candidate exists or not, then I can do it through this function
+
+00:56:11.400 --> 00:56:15.400
+and if I want to check any value, then I can do it through the check value function
+
+00:56:15.400 --> 00:56:19.400
+validate the fields that have rules, return the value to the store
+
+00:56:19.400 --> 00:56:23.400
+so these are easy functions
+
+00:56:23.400 --> 00:56:27.400
+if I want to add a new tracker, then it will append to my CSV file
+
+00:56:27.400 --> 00:56:31.400
+update tracker field
+
+00:56:31.400 --> 00:56:35.400
+if I want to update any detail of any candidate, then it will handle this update
+
+00:56:35.400 --> 00:56:39.400
+and if I run this file
+
+00:56:39.400 --> 00:56:43.400
+then it will create a new workspace for me
+
+00:56:43.400 --> 00:56:47.400
+I will show you
+
+00:56:47.400 --> 00:56:51.400
+if I go to the terminal and run this file
+
+00:56:51.400 --> 00:56:55.400
+then I will go to the source
+
+00:56:55.400 --> 00:56:59.400
+then I will go to the hiring agent
+
+00:56:59.400 --> 00:57:03.400
+then I will go to the app and then I will go to the workspace.py
+
+00:57:03.400 --> 00:57:07.400
+as soon as I run this, you will see that the changes that I have in my workspace
+
+00:57:07.400 --> 00:57:11.400
+if I show you the resumes, then here will be 15 resumes
+
+00:57:11.400 --> 00:57:15.400
+these are shortlisted and rejected, these will be completely empty
+
+00:57:15.400 --> 00:57:19.400
+basically everything will be reset here
+
+00:57:19.400 --> 00:57:23.400
+as soon as I run, rejected is empty, shortlisted is empty
+
+00:57:23.400 --> 00:57:27.400
+and all my resumes are back in the resume folder
+
+00:57:27.400 --> 00:57:31.400
+and this is my snapshot of the workspace
+
+00:57:31.400 --> 00:57:35.400
+you can see these are the files
+
+00:57:35.400 --> 00:57:39.400
+draft empty, rejected empty, these are the resumes names and shortlisted is also empty
+
+00:57:39.400 --> 00:57:43.400
+there are currently 0 rows in the tracker
+
+00:57:43.400 --> 00:57:47.400
+so this snapshot will go to my agent
+
+00:57:47.400 --> 00:57:51.400
+and it will help me to tell you the situation
+
+00:57:51.400 --> 00:57:55.400
+I hope you understood this file
+
+00:57:55.400 --> 00:57:59.400
+you can check this code and I will share it with you
+
+00:57:59.400 --> 00:58:03.400
+you don't need to worry about this code
+
+00:58:03.400 --> 00:58:07.400
+you need to focus on the agent.py code
+
+00:58:07.400 --> 00:58:11.400
+so let's go and I will show you the agent.py code
+
+00:58:11.400 --> 00:58:15.400
+how our agent was built
+
+00:58:15.400 --> 00:58:19.400
+let's explore the client files
+
+00:58:19.400 --> 00:58:23.400
+here we have clients.py and tools.py
+
+00:58:23.400 --> 00:58:27.400
+here I have loaded my environment file
+
+00:58:27.400 --> 00:58:31.400
+and defined my models
+
+00:58:31.400 --> 00:58:35.400
+and defined the logger
+
+00:58:35.400 --> 00:58:39.400
+and created my LLMs through chat open A
+
+00:58:39.400 --> 00:58:43.400
+then let's talk about tools.py
+
+00:58:43.400 --> 00:58:47.400
+here we will define our tools
+
+00:58:47.400 --> 00:58:51.400
+here I have clearly written that there are 7 tools
+
+00:58:51.400 --> 00:58:55.400
+that we are using in this agent
+
+00:58:55.400 --> 00:58:59.400
+and we are working with these tools
+
+00:58:59.400 --> 00:59:03.400
+the executor can call each tool is a thin wrapper around a function in workspace.py
+
+00:59:03.400 --> 00:59:07.400
+so the tool that we are making here
+
+00:59:07.400 --> 00:59:11.400
+basically what it is doing is that we have created a utility function
+
+00:59:11.400 --> 00:59:15.400
+and the tool that I have shown you now is simply importing and calling it internally
+
+00:59:15.400 --> 00:59:19.400
+it calls it and turns the result into a short text message
+
+00:59:19.400 --> 00:59:23.400
+so these are working like wrapper functions
+
+00:59:23.400 --> 00:59:27.400
+and these are the tools that I have done
+
+00:59:27.400 --> 00:59:31.400
+I have imported tool decorator from lang chain code.tools and from hiring agent.app
+
+00:59:31.400 --> 00:59:35.400
+I have imported the workspace file
+
+00:59:35.400 --> 00:59:39.400
+so I am defining the tool list file
+
+00:59:39.400 --> 00:59:43.400
+and it will list the files in a folder
+
+00:59:43.400 --> 00:59:47.400
+and tell me the names
+
+00:59:47.400 --> 00:59:51.400
+so this is the code and I am calling the list folder and returning the file links
+
+00:59:51.400 --> 00:59:55.400
+then there is my read file
+
+00:59:55.400 --> 00:59:59.400
+it will read the text of any of my files
+
+00:59:59.400 --> 01:00:03.400
+then there is add candidate which will add the information of a candidate in the tracker
+
+01:00:03.400 --> 01:00:07.400
+again you can see these functions
+
+01:00:07.400 --> 01:00:11.400
+you can see that I have a detailed doc string in each function
+
+01:00:11.400 --> 01:00:15.400
+so this doc string will go to my agent
+
+01:00:15.400 --> 01:00:19.400
+as tool description
+
+01:00:19.400 --> 01:00:23.400
+so whenever you make tools for your agent, you keep the doc string a little detailed and descriptive
+
+01:00:23.400 --> 01:00:27.400
+so that your agent knows at what time to call which tool
+
+01:00:27.400 --> 01:00:31.400
+draft email is the name, it will draft the email
+
+01:00:31.400 --> 01:00:35.400
+update candidate will update a particular row
+
+01:00:35.400 --> 01:00:39.400
+and it will move any file
+
+01:00:39.400 --> 01:00:43.400
+let's say I want to move it from resume to shortlisted
+
+01:00:43.400 --> 01:00:47.400
+delete file will do this
+
+01:00:47.400 --> 01:00:51.400
+so here I have made a tool kit in tools
+
+01:00:51.400 --> 01:00:55.400
+and I have added another utility function describe
+
+01:00:55.400 --> 01:00:59.400
+it will pass the information of my planner agent
+
+01:00:59.400 --> 01:01:03.400
+because my planner should know which tools are available
+
+01:01:03.400 --> 01:01:07.400
+so I will give the information of each tool to my planner
+
+01:01:07.400 --> 01:01:11.400
+and this is it
+
+01:01:11.400 --> 01:01:15.400
+I have defined my tools
+
+01:01:15.400 --> 01:01:19.400
+now let's move towards the main file
+
+01:01:19.400 --> 01:01:23.400
+I will turn on the word draft
+
+01:01:23.400 --> 01:01:27.400
+and this is my agent, I have made necessary imports
+
+01:01:27.400 --> 01:01:31.400
+I have added a recursion limit
+
+01:01:31.400 --> 01:01:35.400
+so this limit is telling me how many steps can be done in my plan
+
+01:01:35.400 --> 01:01:39.400
+means how many tool calls can be done by my agent
+
+01:01:39.400 --> 01:01:43.400
+if this limit goes up, then my agent will not make any further tool calls
+
+01:01:43.400 --> 01:01:47.400
+so that I can stop my agent from making infinite number of calls
+
+01:01:47.400 --> 01:01:51.400
+this is my planner agent's system prompt
+
+01:01:51.400 --> 01:01:55.400
+you can read it, I will read it once
+
+01:02:01.400 --> 01:02:05.400
+so here I have added one tool call per step
+
+01:02:05.400 --> 01:02:09.400
+and you are giving a workspace snapshot every file path and the current tracker rows
+
+01:02:09.400 --> 01:02:13.400
+it does not show file contents
+
+01:02:13.400 --> 01:02:17.400
+it is telling you that you will not get the file contents
+
+01:02:17.400 --> 01:02:21.400
+you will only get the names of the files and how the tracker looks
+
+01:02:21.400 --> 01:02:25.400
+so you still cannot know how any candidate will score
+
+01:02:25.400 --> 01:02:29.400
+you will know this only after reading the tracker
+
+01:02:29.400 --> 01:02:33.400
+so we have sent all the tools available
+
+01:02:33.400 --> 01:02:37.400
+and we have also told the rules to the planner
+
+01:02:37.400 --> 01:02:41.400
+so we have added many rules
+
+01:02:41.400 --> 01:02:45.400
+this is our executor's system prompt
+
+01:02:45.400 --> 01:02:49.400
+executor is the node where our react agent is working
+
+01:02:49.400 --> 01:02:53.400
+so its system prompt has its rules
+
+01:02:53.400 --> 01:02:57.400
+and we are telling the executor which steps have been completed
+
+01:02:57.400 --> 01:03:01.400
+then we have our responder
+
+01:03:01.400 --> 01:03:05.400
+which will generate the final response, its prompt and its rules
+
+01:03:05.400 --> 01:03:09.400
+and then you are making this agent in Langraph
+
+01:03:09.400 --> 01:03:13.400
+so this is your agent's state
+
+01:03:13.400 --> 01:03:17.400
+this is the plan execute state
+
+01:03:17.400 --> 01:03:21.400
+this is the task that my user will give
+
+01:03:21.400 --> 01:03:25.400
+then here comes my steps of plan
+
+01:03:25.400 --> 01:03:29.400
+then I am adding the past steps
+
+01:03:29.400 --> 01:03:33.400
+and the final response
+
+01:03:33.400 --> 01:03:37.400
+what is my agent generating
+
+01:03:37.400 --> 01:03:41.400
+steps are in your tuple
+
+01:03:41.400 --> 01:03:45.400
+where your step is and agent's result
+
+01:03:45.400 --> 01:03:49.400
+so you must have seen in the UI
+
+01:03:49.400 --> 01:03:53.400
+that step is written in bulleted form and you can see its response
+
+01:03:53.400 --> 01:03:57.400
+so the response of step result is in the same way
+
+01:03:57.400 --> 01:04:01.400
+you can see the tuple in the UI
+
+01:04:01.400 --> 01:04:05.400
+and this is the pyrantic base model for my planner node
+
+01:04:05.400 --> 01:04:09.400
+here I am generating my plan from the structure output
+
+01:04:09.400 --> 01:04:13.400
+how should the plan be? in the form of list of string
+
+01:04:13.400 --> 01:04:17.400
+ordered concrete steps to complete the task
+
+01:04:17.400 --> 01:04:21.400
+this is my graph, first of all there is a main function
+
+01:04:21.400 --> 01:04:25.400
+this is the build agent, I will give it my llm
+
+01:04:25.400 --> 01:04:29.400
+basically executor llm and planner llm
+
+01:04:29.400 --> 01:04:33.400
+and through that it will make my entire agent graph
+
+01:04:33.400 --> 01:04:37.400
+step executor is my react agent
+
+01:04:37.400 --> 01:04:41.400
+so I am using create agent from Langraph
+
+01:04:41.400 --> 01:04:45.400
+and through that I am making my react agent
+
+01:04:45.400 --> 01:04:49.400
+so I have passed llm, tools and system prompt
+
+01:04:49.400 --> 01:04:53.400
+then these are my nodes, this is my planner node
+
+01:04:53.400 --> 01:04:57.400
+in planner node I have a planner llm
+
+01:04:57.400 --> 01:05:01.400
+where I have set my structure output, which is the plan class
+
+01:05:01.400 --> 01:05:05.400
+then I am invoking this particular llm
+
+01:05:05.400 --> 01:05:09.400
+and then I am giving my human message, my workspace snapshot
+
+01:05:09.400 --> 01:05:13.400
+and my user's task
+
+01:05:13.400 --> 01:05:17.400
+then whatever plan is generated, I am returning it to my plan attribute
+
+01:05:17.400 --> 01:05:21.400
+this one
+
+01:05:21.400 --> 01:05:25.400
+then there is my executor node
+
+01:05:25.400 --> 01:05:29.400
+in executor I am passing my state in input
+
+01:05:29.400 --> 01:05:33.400
+I am extracting the plan, then what I am doing is
+
+01:05:33.400 --> 01:05:37.400
+checking which steps have been completed
+
+01:05:37.400 --> 01:05:41.400
+and then I am invoking my executor and passing it
+
+01:05:41.400 --> 01:05:45.400
+my system prompt, all steps have been passed
+
+01:05:45.400 --> 01:05:49.400
+and it is giving me the result
+
+01:05:49.400 --> 01:05:53.400
+so
+
+01:05:53.400 --> 01:05:57.400
+I am doing this in loop
+
+01:05:57.400 --> 01:06:01.400
+so in loop every step is getting completed
+
+01:06:01.400 --> 01:06:05.400
+and every time in new step I am giving my executor
+
+01:06:05.400 --> 01:06:09.400
+finally responder, you know the role of responder
+
+01:06:09.400 --> 01:06:13.400
+it will take all the results, take all the steps
+
+01:06:13.400 --> 01:06:17.400
+and then it will give me a final response
+
+01:06:17.400 --> 01:06:21.400
+so this is the code, very simple lang graph code
+
+01:06:21.400 --> 01:06:25.400
+this is my conditional function
+
+01:06:25.400 --> 01:06:29.400
+which is checking if my executor should execute
+
+01:06:29.400 --> 01:06:33.400
+or the whole flow should go to the responder
+
+01:06:33.400 --> 01:06:37.400
+so here I am checking if all my steps have been completed
+
+01:06:37.400 --> 01:06:41.400
+if they have been completed then I will move to the responder
+
+01:06:41.400 --> 01:06:45.400
+if my pass steps are less than all the steps in the plan
+
+01:06:45.400 --> 01:06:49.400
+then I will re-execute the executor, means there are still steps left
+
+01:06:49.400 --> 01:06:53.400
+and I have to continue the executor loop
+
+01:06:53.400 --> 01:06:57.400
+then I am building my graph, I have given my graph state
+
+01:06:57.400 --> 01:07:01.400
+added all my nodes and connected the graph
+
+01:07:01.400 --> 01:07:05.400
+so from start it is going to the planner, from planner to executor
+
+01:07:05.400 --> 01:07:09.400
+from executor to conditional edges, there are 2 ways
+
+01:07:09.400 --> 01:07:13.400
+it can go to the executor or it can go to the responder
+
+01:07:13.400 --> 01:07:17.400
+and then it goes from the responder to the end
+
+01:07:17.400 --> 01:07:21.400
+and I have compiled my graph
+
+01:07:21.400 --> 01:07:25.400
+so here finally there is a run agent function
+
+01:07:25.400 --> 01:07:29.400
+this is basically used to execute the task
+
+01:07:29.400 --> 01:07:33.400
+so here I am giving my agent a task and executing it
+
+01:07:33.400 --> 01:07:37.400
+and here I have passed my configuration, how much is the regression limit
+
+01:07:37.400 --> 01:07:41.400
+and here I am passing the callback and this is it guys
+
+01:07:41.400 --> 01:07:45.400
+through this I can execute the agent
+
+01:07:45.400 --> 01:07:49.400
+so in this particular file I have 2 functions, build agent
+
+01:07:49.400 --> 01:07:53.400
+which is basically creating my agent graph and run agent which is executing this graph
+
+01:07:53.400 --> 01:07:57.400
+that's it, if you see this code, it is very simple
+
+01:07:57.400 --> 01:08:01.400
+you will understand everything, now let's move towards the front end code
+
+01:08:01.400 --> 01:08:05.400
+this is my front end code in agentapp.py
+
+01:08:05.400 --> 01:08:09.400
+so this is the front end code, everything you saw in front end is in this particular file
+
+01:08:09.400 --> 01:08:13.400
+I will tell you this code, again you don't need to worry
+
+01:08:13.400 --> 01:08:17.399
+about how this streamlet code is written
+
+01:08:17.399 --> 01:08:21.399
+because making front end is not our job, but still I will give you an idea
+
+01:08:21.399 --> 01:08:25.399
+so here we have defined some things like
+
+01:08:25.399 --> 01:08:29.399
+kpi folders, which are the boxes you see above
+
+01:08:29.399 --> 01:08:33.399
+how many resumes are there, how many shortlists are there, how many drafts are there
+
+01:08:33.399 --> 01:08:37.399
+you are tracking these things, then you have told me
+
+01:08:37.399 --> 01:08:41.399
+which folders are there in the resume, after that what are you doing here
+
+01:08:41.399 --> 01:08:45.399
+you are building your agent and caching it in your page
+
+01:08:45.399 --> 01:08:49.399
+caching basically means that once your agent is stored in the cache
+
+01:08:49.399 --> 01:08:53.399
+then the streamlet page is not created again and again
+
+01:08:53.399 --> 01:08:57.399
+so you have once built your lang graph
+
+01:08:57.399 --> 01:09:01.399
+and stored it in the cache, now you can reuse it again and again
+
+01:09:01.399 --> 01:09:05.399
+here we have take snapshot, what is it doing
+
+01:09:05.399 --> 01:09:09.399
+again it is taking your workspace snapshot, what is diff snapshot
+
+01:09:09.399 --> 01:09:13.399
+as I told you, it is seeing the changes between your original
+
+01:09:13.399 --> 01:09:17.399
+and the change workspace and showing you in the code
+
+01:09:17.399 --> 01:09:21.399
+after that show kpi's, again the boxes you see
+
+01:09:21.399 --> 01:09:25.399
+in that you are showing the value of your metrics or kpi's
+
+01:09:25.399 --> 01:09:29.399
+show last run changes, as I told you
+
+01:09:29.399 --> 01:09:33.399
+in last run changes, you can clearly see
+
+01:09:33.399 --> 01:09:37.399
+which file has been moved, which draft has been created, which one has been added
+
+01:09:37.399 --> 01:09:41.399
+this is all the code of that
+
+01:09:41.399 --> 01:09:45.399
+then you have show job description, through this you can visualize
+
+01:09:45.399 --> 01:09:49.399
+a job description, then you have resume label
+
+01:09:49.399 --> 01:09:53.399
+show resumes, through this you are showing resumes in the box
+
+01:09:53.399 --> 01:09:57.400
+through this you are selecting your radio button
+
+01:09:57.400 --> 01:10:01.400
+and through this you are showing the resume in the box
+
+01:10:01.400 --> 01:10:05.400
+then there are some important functions
+
+01:10:05.400 --> 01:10:09.400
+like show draft, show draft is showing you
+
+01:10:09.400 --> 01:10:13.400
+the email drafts, show tracker
+
+01:10:13.400 --> 01:10:17.400
+from the name only we can understand, what is it doing
+
+01:10:17.400 --> 01:10:21.400
+it is visualizing your trackers, CSV file
+
+01:10:21.400 --> 01:10:25.400
+here are the sidebars, functionality
+
+01:10:25.400 --> 01:10:29.400
+reset everything, as you click
+
+01:10:29.400 --> 01:10:33.400
+your workspace will be reset, for that simply
+
+01:10:33.400 --> 01:10:37.400
+you are calling reset workspace from workspace and you are
+
+01:10:37.400 --> 01:10:41.400
+storing things in your session state
+
+01:10:41.400 --> 01:10:45.400
+run task, agent's task is running
+
+01:10:45.400 --> 01:10:49.400
+here you are taking a snapshot
+
+01:10:49.400 --> 01:10:53.400
+of your workspace and as agent's task
+
+01:10:53.400 --> 01:10:57.400
+will be executed through the run agent
+
+01:10:57.400 --> 01:11:01.400
+then what will you do here, you will take a snapshot
+
+01:11:01.400 --> 01:11:05.400
+of your workspace and original and compare
+
+01:11:05.400 --> 01:11:09.400
+so you are comparing before and after of diff snapshots
+
+01:11:09.400 --> 01:11:13.400
+show answer, which is being response printed
+
+01:11:13.400 --> 01:11:17.400
+will be show in the streaming fashion
+
+01:11:17.400 --> 01:11:21.400
+show history, this is showing you the history of your chat
+
+01:11:21.400 --> 01:11:25.400
+as you saw we were doing one task at a time
+
+01:11:25.400 --> 01:11:29.400
+so we were showing the old tasks
+
+01:11:29.400 --> 01:11:33.400
+this is sidebar code, again
+
+01:11:33.400 --> 01:11:37.400
+you can see here you are setting headers, buttons
+
+01:11:37.400 --> 01:11:41.400
+this is simple code of streamlet, you are checking
+
+01:11:41.400 --> 01:11:45.400
+if workspace exists or not, if it does then only you will show
+
+01:11:45.400 --> 01:11:49.400
+the KPIs, finally this is your chat box, first you will show
+
+01:11:49.400 --> 01:12:10.540
+the
+
+01:12:10.540 --> 01:12:14.540
+I hope you understood this whole code, I know we did not
+
+01:12:14.680 --> 01:12:18.680
+explore the code line by line because again this front end
+
+01:12:18.680 --> 01:12:22.680
+code is not of much use for you, the most useful files
+
+01:12:22.680 --> 01:12:26.680
+of code for you are agent.py, client.py and
+
+01:12:26.680 --> 01:12:30.680
+tools.py, we will do more changes in these
+
+01:12:30.680 --> 01:12:34.680
+so I hope you liked this particular
+
+01:12:34.680 --> 01:12:38.680
+agentic application, you liked this demo
+
+01:12:38.680 --> 01:12:42.680
+and I hope you are excited about this project
+
+01:12:42.820 --> 01:12:46.820
+and I will see you in the next one guys
+
+01:12:46.820 --> 01:12:50.820
+bye and take care
+

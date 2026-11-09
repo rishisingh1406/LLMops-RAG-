@@ -1,0 +1,2415 @@
+So let's start in 5 minutes, people are still joining in, till then let's wait, till then if you have any questions then you can ask me
+Who has any questions?
+will the AI security course start from next month?
+yes
+but I think that course will not be live
+will be recorded
+it has not been finalized yet but we will tell you
+and there is a quick update, I am not taking that course
+I am not taking that course
+Rupinder will be taking that course
+I am taking some other course
+I will announce that to you soon
+because next month we are doing the project
+so we will focus on the project now
+and after that I will share more details with you
+so 3 more classes in which we are together
+in live form
+after that you will get the videos in recorded form
+let's wait a little more so that other people can join
+any other question?
+today's session is going to be interesting
+and it is a very sweet and short session on online evals
+memory course
+we will share updates with you
+announcements will be with you as the classes are going to be
+and Nidhi sir will share announcements with you
+that is the next course that is in pipeline
+memory one
+I can tell you this
+and maybe that will be your next live course
+from the month of October
+any other question?
+anything around upcoming courses or LLM ops course project
+if there are any you can ask me
+we will wait for 2 more minutes and then start
+I don't know people are joining late today
+are you getting messages from the class?
+are you getting mails or reminders?
+ok
+let's start
+can anyone tell me is recording going on?
+can you see the recording logo?
+ok let's start
+I will share updates with you
+if I go to the flying fuse
+this is my dashboard
+we built some graphs on observability
+but you can see that during the live session
+they were not properly structured
+so I gave it a proper structure
+and another thing I did is
+you can display any dashboard on your home page
+so whenever I login to my flying fuse dashboard
+I will see my custom dashboard on my home page
+see how well everything is organized
+and everything is being tracked
+again whatever we built in the previous session
+you can see everything being tracked
+ok now what we are going to do in today's session
+I will show you
+these are some traces that I have created today
+if you remember the old traces
+I will show you the old traces
+if you go down you will see some old traces
+let's say we see this trace
+so in this trace you can see clearly
+that the time was taking too much
+and in our retrieval step
+in our first step it took 30-40 seconds
+this is still looking good
+if I see something else
+that was performing too badly
+like this one
+it took 1 minute 12 seconds
+and around 50 seconds in retrieval
+ok I have already told you
+that we were tracking everything
+what will change in today's session
+we will perform evals online
+I can show you that too
+I have run some test runs
+you can see clearly
+that you can see the metrics
+you can see in this trace
+answer relevancy, contextual relevancy and plus one
+you can see these three metrics
+if you want to visualize it better
+then in any trace you can go to the scores tab
+from the preview section
+and in the scores you will see all the metrics
+and you can see the reason behind the metrics
+we have connected the line fuse with the eval
+so the values I am getting are from the eval
+and the reasoning I am getting is also provided by eval
+so we are going to build this setup
+in today's session
+how you connect the eval and line fuse
+and this connection will be in our production setup
+on AWS
+we are not going to run anything locally on our system
+I hope this thing is clear
+the second thing I have changed
+if you see here
+the chat response is our whole trace
+it is taking around 32 seconds to complete
+but if you look at the retrieval
+so clearly you can see that the retrieval step
+where I was getting 40-50 seconds
+now it is happening within 10 seconds
+and here your whole retrieval along with your
+contextual compression we are able to achieve in 10 seconds
+so what I have done here
+I have introduced concurrency
+and through that we are able to do
+parallel contextual compression
+so with this our latency has decreased to a lot
+we have reduced the latency by more than 50%
+in some cases the latency of the whole trace
+is coming around 18 seconds 20 seconds
+and now look at the maximum time
+earlier your retrieval was taking maximum time
+now you will see that the time you are taking
+that is the generation step
+12 seconds 13 seconds
+but because we are working with streaming response
+so you will not feel the generation gap
+in tracing, your whole generation tracks it
+until it is complete
+but in front end you can see that
+things are being printed token by token
+so you will see that latency is less
+I hope these things are clear to you
+is this point clear?
+if it is clear then write clear in the chat
+and let's move ahead
+is this concept clear?
+what are we going to do and what things have been improved in our code
+guys
+if it is clear then write clear in the chat
+and let's move ahead
+what happened guys no response is coming
+clear
+a little late response is coming I don't know why
+now I will show you what we are going to do in today's session
+before that let's take a small recap
+around post deployment, it will not be a big recap
+we will cover this in 2 minutes
+so we have moved on to post deployment
+and our goal is that in this post deployment stage
+we are going to cover two things
+first we will be observing or monitoring our application
+and secondly we will monitor our infrastructure
+infrastructure
+so we are currently in the application monitoring and observability phase
+and for this we have used Langfuse
+so we have developed this thing in the step by step process
+what did we do in the first session
+in the first session we enabled our traces or tracing
+means that whatever our users
+were interacting with our front end
+whatever queries were going on my back end
+what was happening in the step by step manner
+we were not logging or saving
+so with the help of Langfuse we enabled our logging
+or tracing on our production environment
+all these things are happening in our AWS
+and whatever queries and responses are generated
+in our AWS we are able to monitor them properly
+in a step by step manner
+secondly what we did here is that these individual traces
+it is very difficult to study them manually
+we needed a dashboard
+an observability tool where we can understand
+the health of our traces in one look
+all these things should be there in front of us
+on our screen so we studied the concept
+of observability
+where we discussed the concept of
+how to set dashboards and alerts
+how to set dashboards and alerts
+now what are we going to do in today's session
+in today's session we are going to
+apply online evals on our traces
+so far whatever we are observing
+is around our cost
+around our token usage, around latency
+but how is the performance of our application
+in the production setup we have not tested it yet
+so using online evals
+you check your application in your production environment
+on quality
+that how good are the responses generated
+you test it at that level
+so what we will do here
+we will implement rag triad
+on our traces
+and what we will do in the next two lectures
+we will move on to the infrastructure step
+where we will use a tool
+for tracing and logging which is Prometheus
+I told you what Prometheus does
+it collects all the metrics on your infrastructure
+like CPU usage, RAM usage, disk usage, network
+all that information is fetched
+so we will collect all that information using Prometheus
+and in the third lecture
+we will discuss about Grafana
+which is again a dashboard
+but this dashboard will show us
+all the details of our infrastructure
+is this point clear
+the whole setup is clear so far
+so let's discuss once
+what will be our plan of action today
+what we will do in today's session
+what will be our plan of attack
+first of all
+what we will do here
+we will add traces
+to our line fields
+because we have to run
+online evals here
+so we will add some traces here
+we have already built the flow of this particular thing
+after that we will connect
+our deep eval framework
+with line fields
+what we have to do to do online evaluation
+the evaluation that is happening
+that is happening on deep eval
+and the tracing that is happening on line fields
+so we have to connect these two
+basically what we will do is
+we will use a framework called as line fields api
+we will connect with the help of line fields api
+in our dashboard
+and we will fetch all the traces in the dashboard
+and we will fetch all the traces in the dashboard
+from those fetched traces
+and we will extract important information
+what is important information
+do you need latency to do online evaluation
+what cost do you need
+the answer is no because we are not working with any operation evals
+our evaluation suite is very small
+that is our rack triad
+so we are working with only 3 metrics
+so what we will do here is from our int traces
+we will extract the information we need
+what is that
+what was our input
+what response was generated by our LLM
+what chunks were retrieved by our retriever
+we will extract these 3 pieces of information
+after that we will make a LLM
+test case
+so now we are coming out of the world of line fields
+we have all these 3 information
+we cannot give it directly to DeepEval
+so we will have to convert it into a LLM test case
+so we will make a LLM test case with all these 3 information
+and after that we will build our 3 metrics
+which are our rack triad metrics
+and we will give them LLM test case
+so for these 3 metrics
+we will get 3 scores
+so now DeepEval work is done
+let's say we have 5 traces
+we made 5 LLM test cases for 5 traces
+and we have given all 3 metrics
+so for these 5 traces how many values will come
+I will get 15 values or scores
+3 for each of my trace
+now what I will do is I will come back to the line fields universe
+and where will I take these scores
+I will take them back to my line fields dashboard
+and once I will take these scores on line fields dashboard
+through the API then they will start to display
+so this is a complete setup which we will build in today's session
+we will bring traces from line fields
+and come to the environment of DeepEval
+we have calculated all our scores here
+whatever scores we have got
+we have sent them on line fields
+and as soon as our whole setup is done
+then finally we will also add
+observability for our metrics
+till now we are not observing our metrics
+because we have not calculated them yet
+but in today's session we will calculate them
+and put them in our dashboard
+because again the reason is that you will not study
+metrics on individual traces
+you will study aggregate results
+so we will add them on our line fields dashboard
+and they will be displayed in the home page
+is this point clear? the whole setup is clear
+what are we going to do today
+ok now what is the problem in this setup
+the problem is that
+where do we have to run this
+where to execute this
+we are saying that we will fetch the traces
+we will calculate our metrics on them
+whatever are the calculated metrics we will push them on line fields
+the question comes that where will you do all this calculation
+which environment will you do it on
+what are you doing here
+you are doing post production or post deployment monitoring
+obviously your application has gone to cloud environment
+instead of your local environment
+so you cannot do all this testing
+on your local environment because
+there is an issue of availability
+you cannot run your local environment 24x7
+you need an automated system which goes on line fields
+so you need to pick the
+and how will we automate this
+we will automate it by setting up a cron job
+so cron is basically
+a CLI tool which you can set
+if you want to run any script or file
+on this particular frequency
+then you set cron job
+and it will automatically run in background
+as soon as the time comes
+so let's say we have set the evaluation time
+so as soon as the evaluation time is 1 hour
+your evaluation script will run
+it will pull your traces
+will calculate the scores and update on line fields
+is it clear
+is it clear the whole setup
+what are you going to do, where are you going to do
+how are you going to do, is everything clear
+if it is clear then only we will move ahead
+otherwise we can wait here
+I will take some questions if there are
+clear
+great
+so let's move ahead
+before creating a setup
+let's discuss about online evals
+because we are going to do online evals
+you should have an idea about online evals
+so you already know the definition
+you have heard about online evals many times
+so what is the need to perform online evals
+why do we need to perform online evals
+why can't offline evals work
+here offline and online
+there are two branches
+can anyone tell me in the chat
+to monitor if our system is working as expected
+we don't have golden
+yes Pritika is right
+we need real failures in production
+we want to see using online evals
+evals are numbers that tell us the health of our application
+how it is working
+we want real production setup
+where we don't have good goldens from context
+where are we making goldens from
+we are making LLM calls on it
+we are making a pipeline
+so it is a properly curated data set
+whereas online data set
+has a different distribution
+and you may have many edge cases
+so you want to evaluate those edge cases
+in real settings
+and if there is a need
+if there is a problem arise
+you are calculating the matrix
+you want to see where the problem is
+just calculating matrix and score is not enough
+you want to see where the problem is
+and what are the measures to fix it
+so the biggest reason of online evals
+is that you want to monitor your application
+while it is facing real users
+now I will ask you
+apart from the data set
+what is the other difference
+this is a data set
+online data set is available
+and offline data set is available
+what is the other difference
+which basically lets us decide
+which matrix to use
+no not processing
+now what is the key thing
+that is our grounded response
+and where can we create
+this grounded response or expected output
+because we have context
+and this context is also our golden context
+we have filtered it out
+with the help of this we can generate grounded response
+but when your application is in production
+then you don't have any answer key
+or grounded response or context
+you don't have best of anything
+what do you have
+you have two major components
+first is retriever
+and second is generator or LLM
+these are the outputs
+and you have to evaluate these outputs
+and third thing is
+that is your user input
+because on the basis of user input
+your retriever will retrieve some chunks
+and generator will generate
+based on what the retriever fetched
+and what input came from the user
+so basically in online evals
+we never measure input
+what is our control on input
+user can write abuse
+we don't have control on user
+we have to check that our retriever
+or generator is working as expected
+so we monitor the outputs
+of retriever and generator
+using our online evals
+which captures the relationship between these two
+and we have read this relationship
+inside the rack triad
+where we have retrieved context
+input and output
+we build a triangular relationship between these two
+where if we want to see how our generator is performing
+then we calculate the relationship between input and output
+and for this we use a metric called
+answer relevancy
+this tells us that our generated output
+is it suitable for the input or not
+then comes your input
+and retriever output
+who captures the relationship between these two
+your contextual relevancy captures
+the context your retriever fetched
+was it relevant according to the input
+and finally comes your retriever and output
+and your faithfulness comes in this
+that whether your generator output
+was aligned with the output of the retriever
+or not, is it clear? I hope you remember this matrix
+so you are not only understanding the difference
+between reference free and reference based metrics
+you are also understanding
+why these three metrics are focused on online evals
+because this triangular relationship
+can capture the proper relationship between outputs and inputs
+and we have to see this
+in our production environment
+that whether our two components are working properly
+this point is clear
+you can think in a broader way
+not reference less or reference based
+you can understand the broader perspective
+so we have done the same
+we have used deep eval's rack triad
+for our online eval setup
+now we have two custom evals
+one is reference based and one is reference free
+you could have used that too
+which is a simplistic answer
+but I didn't use it because you have already
+tested the system prompt and because your system prompt
+you are getting simple answers
+you can include it, it is up to you
+you know how to write the eval code
+we haven't done it yet, you can do it
+but it is necessary to include rack triad
+let's move ahead
+and now let's discuss how our setup will be
+setup will be very simple
+first we will make a python file
+we will make a script in which we will write
+the entire code where we are integrating
+langfuse and deep eval
+and as soon as we write this code
+we will take this code on our AWS
+we will make a special instance
+on AWS
+which is only used for online evaluations
+we have defined a sole purpose of it
+it will automatically run on a particular frequency
+in the background
+and will do online evaluations on all our traces
+non stop
+you can't close it in any way until and unless
+you close that instance
+and that instance can be a small instance
+because it doesn't need much compute
+the whole setup is getting cleared
+let's move ahead
+guys
+yes
+let's move towards the code part
+and understand how to implement these things
+we will go step by step
+and I will explain the code to you
+first I will tell you how I fasted
+our contextual compression
+I was experimenting
+and we discussed that
+contextual compression was the best result
+and the biggest drawback was that
+it took a lot of time
+I thought that the contextual compression
+is done sequentially
+but what is the point of it being sequentially
+our key is 3
+we are giving all the chunks one by one
+and we are telling it to compress
+and release the noisy information
+we could have given all the chunks one by one
+and our compression would have been done
+actually I have done the same thing
+if you see the recent traces
+if I bring it on the past 1 day
+and any recent trace
+you can see 12 seconds time in retrieve
+and in contextual compression
+you can see 11.69 seconds
+now you will see that every step
+has 11.69 seconds written
+although the chunks are different
+this is the chunk with golden data set
+this is the output of the online eval
+this is something else
+and here everyone's time is equal
+11.69 seconds
+because it is happening parallely
+and why is everyone's time equal
+if you have a question in your mind
+why is it parallel
+you can see it only one time
+because it is being calculated in the weakest part of the link
+which means that the chunk is taking the most time
+and for this I have simply
+put a batch operation
+in my LLM which is doing the compression
+batch operation means
+instead of giving chunks one by one
+I took all my 3 chunks
+and made a batch of it
+and along with the system prompt
+I gave the whole batch to my LLM
+and here I did the internal processing
+and returned the whole batch
+and what is in this batch
+now I have my compressed chunks
+so this is the change I made in the code
+if I go here
+and if I go to my app
+and go to my vector store
+so see
+just a second
+yes, first I was using
+LLM chain extractor
+I am still using it but I have customized it a little
+I have made a new class here
+parallel LLM chain extractor
+it is being understood by the name that it is doing the work
+parallel is compressing my chunks and I have made it inherit
+from LLM chain extractor class and I have done a
+overwrite of the whole batch
+and what I am doing is taking my inputs
+these are all my chunks which my retriever
+has retrieved
+and after that I am making an outputs variable
+and on my LLM chain
+I am running a batch operation
+and I am putting the output in the list
+that's it, this is a simple change
+and see how much latency is decreasing
+this is a small code change
+and we have done a lot of time savings
+I hope this thing is clear to you
+now let's go to the actual file
+in which we are running our online evals
+so again I will go into source
+in source we will go into evals
+in evals you will see a directory called online evals
+this is the script which will run on AWS
+inside a crown job
+and this will run and according to that
+you will have evalations and results
+will be pushed back on linefuse
+so you understood the setup so far
+if you are ready write clear in the chat
+and we will discuss this code step by step
+this is a simple code
+and I will explain you everything
+clear, great
+tell me more people
+here I have made all my necessary imports
+I will turn on the annotation
+and we can keep the red color because it is visible on the screen
+now what I am doing here
+from deep eval.metrics I am importing
+these three metrics
+which are these three metrics
+here I have imported my LLM test case
+and from lagfuse I am importing get client
+after that
+if I go down
+I find annotation a bit useless
+zoom but what can we do
+here I have told you my judge model
+and I am doing my evaluation through offline setup
+so offline and online
+here the difference should not be of your evaluators
+your judge model should not be different
+the entire pipeline should be exactly same
+the difference should be in your simple data set
+if you change in your evaluation criteria
+then you can't do comparisons
+for one to one comparisons
+for one to one comparisons everything has to be static
+just change your data set
+after that we are telling you which traces you have to filter
+so the production people
+you will remember when we were reading tracing
+that you can set environment label production development staging
+so the production people are going to our traces
+which I am not testing and putting there
+which my users are putting, they have to be retrieved
+so you can see in lagfuse
+and retrievers span name is retrieve
+I will show you
+here you will see retrieve
+in retrieve all retrieval work is done
+and your root span is chat response
+so we have mentioned this in the code
+ok, after that what is the next step
+next step
+you have set a look back minute which is 15
+I will discuss about this now
+after that you have set your path
+and after that you are making a JSON file
+with the name of eval checkpoint.json
+after that what you have done is
+you have written your critical fallback message and soft fallback message
+now you must be thinking that fallback messages are not in guard rail
+what are you doing here
+we are not calculating any safety eval
+we are calculating our rack triad
+now you must be thinking that if your guard rail
+is triggered, let's say input guard rail is triggered
+will your retriever retrieve any chunk
+the answer is no, you will get an empty list
+will you go to generator step
+the answer is no, you will get
+blank generator, nothing will be there
+so if your input guard rail is triggered
+then you will have
+only fallback messages in this response
+so there is no reason to evaluate
+them in any way
+because your evaluation will be bad
+if I capture faithfulness
+then my soft fallback message will never be
+related to my context
+this is triggered when my guard rail is triggered
+so there is no reason to evaluate
+we are simply wasting our
+API calls, simply wasting tokens
+so we have put a filter here
+that at any step, whether it is input, retrieval
+or output, at any step if a guard rail
+is triggered, then we will not evaluate
+those traces here, we will only evaluate
+those traces which are correct
+when will you evaluate them
+you will evaluate them when you have some safety evals
+which we don't have now
+so we are bypassing them, I hope this point is clear
+again we are going with logic and reason
+according to the setup in our application
+we have made this code, so don't say
+sir why are we not implementing safety evals
+we should do this, yes we should do this
+I leave it to you, please calculate safety evals
+I am telling you the method but
+in this current situation, in my application
+which I have built, we don't need to calculate
+because we are not working with any safety evals
+after that I have set my logger
+and I have created my matrix
+now let's see how this whole setup is
+in this setup, what we are doing first
+is making a checkpoint.json file
+you must have seen that we have defined its path
+this checkpoint.json file is basically
+noting our time
+means the time at which this script was run
+we are noting that time in checkpoints.json
+what will be the benefit of this
+we can basically check that when this script
+was run last time
+so what we have to do is we have
+a start time
+which is for the current script and one is
+our previous time which is stored in my checkpoint.json
+and from these two times
+I am getting my time window
+let's understand through an example
+what we are doing here is we are doing
+let's say I have set a cron job for 30 minutes
+and now I have started the cron job
+at 8.30 so as soon as I have started
+this cron job at 8.30 then this time
+will be saved in my checkpoint.json
+now I will calculate in this
+that when was my previous time
+at that time this particular script
+was running so when was my previous time
+obviously 30 minutes before which was
+8 pm so at 8 pm my script was running
+so what I am simply saying to Langfuse
+that from 8 to 8.30
+all the traces are only fetched
+if you have any trace locked at 7.59
+don't fetch it and go I hope you are able to understand this reason
+we have set a time window here
+we have set a time window here that all the traces in the 30 minutes
+we will only evaluate on that
+because here you are avoiding duplication
+if you will evaluate all traces again and again
+then it is of no use your traces will keep increasing
+so you have to set a time window here
+that the traces that have come in this time window
+will be evaluated on them only
+and we will assume on the traces that have already been evaluated
+like if we are considering traces of 8.30
+then all the traces before 8.00
+have been evaluated in our window of 7.30
+I hope you understood this point
+is this point clear?
+it is very important to understand this point
+why we are working with a time window
+we are saving our API calls and again and again
+we are not evaluating the already evaluated traces
+is it clear?
+is it clear guys?
+yes
+and where is the 30 minutes check
+I will tell you that Tushar don't worry
+and it is not of 30 minutes you can keep it for any number of minutes
+but I hope you are able to understand why we are checking in the time window
+is this point clear?
+I will tell you how to put that check
+you can keep it for 30 minutes
+or 10 minutes it is up to you
+it will work according to your cron job
+so what is the load check point doing?
+simple code, you don't have to go on this code
+you might be scared to see it
+what is the meaning of default?
+default is basically that minus 15 minutes from the time that is happening now
+when will you give the default setting?
+first time when your check point dot path does not exist
+because when you run this script then it will become a JSON file
+if you are running this script for the first time
+then what you do is let's say I am running this script right now
+so let's say the current time is 8.45
+let's say it is 44 but let's say 45
+so current time is 8.45 and what happened to the previous time?
+according to 15 minutes is 8.30
+so this is my current time window
+on which I will run my evaluations
+I am basically saying that between 8.45 and 8.45
+take all the traces on the line fuse and evaluate them
+if I have my check point dot path already existing
+which will obviously be existing after being created
+then what I will do at that time
+I will simply load my JSON file here
+and pass my time from there
+simple, what is the function of load check point?
+whatever time is the latest in the JSON file
+go and read it that's it and nothing else
+this load check point function is not doing
+loading the previous timestamp that's it
+now let's move ahead and discuss
+sorry for that save check point
+you understood the load check point, what is the save check point?
+save check point is basically creating a JSON file
+and in that, your last process timestamp
+is adding timestamp information
+so this simple code is basically adding your timestamp
+now here we have put a clever hack
+what is clever hack? that we are not directly
+writing time in our JSON, first of all we are making
+temporary file, we are noting our time in it
+and if our temporary file is being made
+and our JSON file is being able to be joined
+then we are writing our new time there
+the reason is simply because it is possible that
+your script will crash while running
+there can be some instance where your EC2 machine
+is running and it will crash, any problem may arise
+so the previous time saved in JSON
+do not overwrite it until you are
+not ready to write new time
+till the end moment, whatever changes you are doing
+do it in a temporary file and in the original file
+you can overwrite it only when everything is done
+properly without any error
+what is the benefit of that? let's say
+I just run the script 8.45 and my previous time
+was 8.30, now as soon as my script is run
+then what is the next logical step?
+that now I will save my current time in the previous one
+because now when the script runs at 9 o'clock
+then the current will be there and 8.45 will be my previous
+so this 8.45 should go in my JSON file
+and should replace 8.30 and come there
+8.45 but there may be some problem
+so first of all what I will do here
+I will write 8.45 in a temporary file
+I will run my entire script
+and only in the end I will take this time
+and dump it in JSON
+the benefit of this is that tomorrow
+if I have a crash then in my original JSON
+the time is 8.30 and my script will run at 9 o'clock
+so no problem if my script has a crash
+or if there is a problem then I will capture
+all the traces in this time window and evaluate
+I will have to evaluate the traces of 15 minutes again
+I will have to spend some money here but my script
+will never stop or there will be no such situation
+I hope you understand this problem
+so we will write it at the end
+so that we don't lose any information
+I hope I could explain this point to you
+it is a bit complex but if you listen carefully
+you will understand
+so you will understand this point why
+it is written in a temporary file just a fail safe mechanism
+so that we don't lose our previous
+time or previous checkpoint
+we can override it only when our entire process
+has been run here
+is this point clear?
+tell me guys
+is it going step by step?
+yes
+so I will tell you
+so I will tell you
+clear
+fine let's move ahead
+I will also be your question
+let's understand this script once and then I will take your questions
+now our next function is fetch new root spans
+I understood from the name what it will do
+it will fetch my traces from Langfuse
+it will fetch my traces from Langfuse
+in a particular given time window
+so here I made a list by doing spans
+here I have a cursor and I have set it to none
+and here I have run a while loop
+basically what I am doing in the while loop is
+I am calling Langfuse API so its code is very simple
+you call getMany method in client.api.observations
+you tell it that
+what is the name of your root span
+which environment you want to filter the traces from
+then you tell two important things here
+which is from start time and to start time
+these two things we are telling here
+from start time what will tell us that from this time
+to this time all the traces you have fetch them
+after that it is fields
+fields basically tells you that the information you get
+it comes as a JSON
+so what attributes should be there in that JSON
+so here we are telling core, basic and IO
+you should have core information of your trace
+basic information of your trace
+and input and output of your trace
+and here it comes through pagination
+so here we have set the limit that per page
+you will fetch only 100 results
+and here we are passing our cursor
+first time your cursor is null
+and as soon as your first page is fetched
+you get your cursor with that result
+and what you do is you pass that cursor
+again in this function
+and till your cursor is null you keep passing that cursor
+and fetch the traces
+I will explain you how the whole process is
+you made an empty list and you told me that
+I need 100 results on every input of the cursor
+so what you did is you set the cursor to null
+so as soon as you sent the cursor
+it fetched 100 results and added it in this list
+now you have set a condition
+that if the cursor is still null
+then you have to exit from the loop
+we are running a while loop so exit from the loop
+but if you have more than 100 results
+means you have page number 2 also
+and if the cursor is null
+then you will send that cursor again in this function
+again you will get 100 more results
+and you will extend it in this list
+then you will check whether the cursor is null or not
+again you have page number 3 also
+means you have 270 results
+first 100 came, your cursor was active
+you put it in the list, second 100 came, cursor was active
+you put it in the list, now on the third time
+your cursor will be null or none
+so finally you will exit from the loop
+and all the results which you have
+you will return them
+so this is the code for this particular function
+now you must be thinking that
+where did you get this particular code
+how will I know, I am writing this code for the first time
+don't worry, all this explanation is in the documentation
+of langfuse, let me show you
+everything is in the documentation
+I don't get anything from outside, you simply google search
+langfuse public API
+here it is written
+langfuse is open and meant to be extended via custom workflows and integration
+all the data and features of langfuse are available
+through the API
+all the references are there
+here it is written
+your observations will be available in the API.observation
+and the metrics will be available in the API.metrics
+where will you get the scores
+you will get the scores in the API.scores v3
+this is the latest update
+here you can see the code, I am using this exact code
+observation API.observation.getmany
+we are not using metrics
+because we are using dpval for calculating metrics
+so you can leave this and this is the code
+and you have to see
+your low level APIs will tell you which versions are being used
+if we talk about observation
+from where we are fetching our traces
+then you have a function of getmany for that
+now you can see what all things you have to pass
+you can see here
+if you see this particular link
+b2observations.apireference
+so if you go down here
+you will see these observations
+you will click on this
+and see
+it is telling you get a list of observations with cursor based pagination
+and flexible field selection
+and here are the fields you can pass
+you know you get all the information of the field
+we have passed core
+so you will get all this information with traces
+your trace id, start time, end time
+if you give core then you will get all these things in the data
+if you give basic then you will get all these things
+name, level, status, message and everything
+if you give time then you will get all these things
+so for that we need input and response
+we have given IO here, you can give model, usage, prompts
+and what all things you have to pass in other parameters
+all the details are here
+everything is from the documentation
+I have not put anything from my mind
+you can read it, all the details are here
+is this point clear?
+I will show you here also
+field retrieval
+what all fields are returning
+by default what all are there
+and cursor based pagination
+instead of offset based page number
+V2 paginates with cursor for consistent performance on large data sets
+first of all what you know is
+in your initial request with a limit parameter we have set it to 100
+you can give maximum 100
+but now I think you can give 1000
+V1 was 100, so we have given 100
+because we don't have so many traces
+what you do after that is you have the results
+you have cursor in the metadata
+pass this cursor via the cursor parameter in your next request
+to continue where you left off
+repeat until no cursor is returned
+means until none or null comes you run it
+and as soon as none comes we are going out of our loop
+how to adjust scores
+is given in the scores section
+now when we will come to the scores section
+I will show you, is it clear?
+is this point clear guys?
+everything is in the documentation
+I have not put any code from my mind
+is it clear?
+you also start reading the documentation
+you will get the solution to everything
+ok, so what we did in this step
+this was our step
+just a minute
+this was our step
+in this step we have given all our traces
+are all traces here? No
+here traces are in a given time window
+so let's say in 15 minutes
+we had 50 traces
+on our linefuse
+so we will return those 50 traces
+we have set all the information in them
+now the problem is that here you are getting
+only input and output information
+means the input your user is sending
+and the output your trace is generating
+so you are getting only that response
+because what are you fetching?
+I will show you in UI that what I am actually fetching
+if I take you here
+in tracing, then see this is your route
+from this you are only getting input and output
+ok
+but do you think it is enough?
+one thing is missing here, can anyone tell me?
+what is missing?
+I will take your question
+it is a very valid question, I will take this question
+let me explain this code once
+all your questions you keep in mind
+copy it, again you will paste it, I will answer each and everything
+someone will tell that here input and output
+if I am getting it from my route trace
+then why is my work not getting done here
+so do you need any other piece of information from your traces?
+or is it enough?
+if I take out these two pieces of information
+yes, Amarjeet is absolutely right
+we need our retrieved chunks here
+because in our rack triad there are two metrics
+contextual relevancy and our faithfulness
+both depend on my retrieved chunks
+so what I have to do here is to take out information
+see it is here
+what is the input of my retrieved span?
+my query, guardrail status etc.
+and where are the retrieved chunks?
+here they are, individual chunks and their page content
+here the text is in the page content
+and in this context, my entire context is available
+as a single string
+means I have merged all my three chunks into the context
+but I will not use the context here
+because I need individual chunks here
+because my metrics need list of chunks
+so I have to fetch these three items from my retrieved docs
+these 0, 1, 2 indexes
+and you will see the code of that here
+fetch retrieval chunks
+I will give this to my client object and trace id
+I will tell you through trace id
+so I have fetched 50 traces
+now I am only fetching retrieved context from my individual traces
+so I will have trace id of every trace
+so I will tell you the trace id and what will I get by flipping it
+my list of chunks in a list
+here I am telling the trace id in my client.api.observation.getmany
+that this is the particular trace id
+like this is the trace, this is its id
+this is the id, this is the top, ok
+so you catch this and against this trace id
+you get the information from this span
+what should be the fields?
+should be core and I should be Ion input output
+but this input output is for the retriever
+and because I know that my chunks are limited
+so I don't need to pass cursors
+but I have set a limit of 5, what is this limit?
+this is the limit of my k, here I have taken 5
+so this is a big number but you can also set it to 3
+and if your k becomes 10
+then you have to set it to 10
+because you have to fetch 10 chunks of information
+and then what are you doing?
+after that you are basically putting some checks
+that the output that is coming out
+so where will you get the output?
+so the output that is coming out
+so what is the output in?
+is it in JSON form? if it is in JSON form then read it in JSON form
+if it is in dictionary form then read it in dictionary form
+if it is in string form then read it in string form
+this is just a fail safe mechanism that your format changes tomorrow
+then also you can retrieve your chunks there
+but what we are retrieving here is in dictionary form
+you can see clearly here
+there is a key called retrieve redox in output
+so here you will get a list of chunks
+and you will also get a key in every chunk
+page content in which your actual chunk is available
+we have written that in the code
+we have made a list of chunks and we are looping through
+where? every document or every chunk in output.get
+because it is a dictionary
+so we are fetching their values in the retrieved docs key
+and looping through every document
+so now we will get our entire chunk
+this one is 0th index
+it will have id, metadata and page content
+what do we mean by this? we only mean page content
+so we are checking here that if it is string
+then append it directly but it is not string
+it is a dictionary, so what should we do here?
+save the page content in chunks in my chunks list
+save the page content in chunks in my chunks list
+so we are checking if page content in docs is available
+if it is available then add its value in this list
+and finally what should I do here?
+return my chunks list, so from here
+for every trace id, my chunks will come
+in the form of what? in the form of a list
+it will be a list of chunks, clear?
+this is a small function below, it is basically checking
+this is a filtering function which is checking
+if there are any fallback, then I will simply
+return true and I will filter them out
+and this is the main function, this is your measure and push
+from the name only we can understand what it will do
+it will take every test case of mine
+on that my metric will run
+and whatever the result is
+it will push it to Langfuse
+so this is my dpval code
+I am giving these things in input
+and simply I am calling dot measure
+on the metric I am giving
+you know that whenever you have to evaluate a single thing
+then you use dot measure and if you have to calculate
+multiple things at the same time then you use
+evaluate API, so because we are going trace by trace
+then we will use the metric dot measure
+after that whatever score we are getting
+we are sending it back to Langfuse
+this client is my Langfuse object
+we are telling you to create a score on the trace
+so for that I have to tell you some things like
+what is the trace id, what is the name of the metric
+what is the value of the metric, from where I will get it
+from the score of this metric
+what is the data type of my metric, it is a numerical metric
+you have three types here, one is numerical
+you can understand it by the name, you have floating numbers or integers
+one is your Boolean which is true and false
+and one is your categorical
+you can understand it by the name that what metrics are doing
+and whatever reason you are getting
+by doing metric dot measure
+whatever reason you are getting here, you can save it in the comment
+and also provide a score id
+what is the score id, in the score id is your trace id
+and the score is your metric name
+so let's say my trace id is 123
+and the metric name is contextual relevancy
+so this is my score id, for contextual relevancy
+for my trace id 123
+as your answer relevancy, as your faithfulness
+is this point clear, this is your main function
+which is doing your calculation and finally
+you are compiling all these things
+in this score trace
+the upper one, measure and push
+is calculating individual metrics
+it is supporting your whole trace
+you are giving all your inputs here
+query, response, chunks, trace id, you are giving everything
+first of all you are saying that I will make a test case
+you have made a test case
+then you are telling in a list, metrics to run
+basically a list of tuples
+here the first element is your tuple, your metric name
+and the second is your metric object
+now you are checking, first of all you are checking
+that is there any chunk information in your input
+it is possible that you could not retrieve the chunk information
+so these two metrics, faithfulness and contextual relevancy
+are dependent on the chunk
+you cannot run them, so here there are two ways
+either you ignore that trace at all
+or there is a better way that if you could not get the chunk information
+if you have input and output, then you can give answer relevancy
+so what we are doing here is
+we are checking that if you are getting retrieved chunks
+then you will run your three metrics here
+and if you are not getting then you will use only answer relevancy
+what we have done is
+we have extended this list, I hope you know this python code
+here we have added some logs
+then what we are doing after that
+for name, metrics in metrics to run
+in this metrics.run list
+we are unpacking our tuple
+and we are calling measure and push
+sending our trace id, name, what is the name?
+this string name of my metric which I will see on line fuse
+and what is this metric?
+this is the actual metric object on which I will calculate the score
+and my test case
+which I have built up here
+is this point clear? and from that
+my score will be calculated and pushed to line fuse
+and finally what I have done is I have compiled all these things
+in a main function here, basically I have made a pipeline
+now if you understand all the functions
+then pipeline is very easy to understand
+so first of all we are calling this pipeline
+and calculating when this script started
+run started at, so let's say this script
+started at 9 o'clock, so I will
+save 9 o'clock in this variable
+then I will load the check point here that
+what time did my previous run happen? let's say my previous run happened at 8.45
+then that time will also come, after that I am making my client object
+and after that what I am doing
+is I am telling you to fetch my traces
+from line fuse, from where to where
+since check point, check point means from 8.45 to
+9 o'clock means current run
+which is 9 o'clock, previous run which is 8.45
+in between that window, in between the 15 minute window
+fetch all the traces here
+and tell me how many traces you have fetched
+ok, after that what you do is you run a loop
+for span in spans means you go inside each trace
+run a loop, first of all you
+take out the trace id from that trace
+take out the trace id from your output
+ok, if you are not getting the trace id then continue
+means don't stop, don't crash, you move ahead
+after that you check that is it not the fallback
+message, if it is then you skip it and move ahead
+if everything is fine, it is a normal trace
+if you are able to fetch normal trace and trace id
+then you fetch its retrieved chunks
+after that you do scoring and after scoring
+increase the value of the score from 1
+this is basically a counter that how many you have fetched
+how many have skipped, how many have scored, how many have failed
+that's it, you are maintaining the basic counter
+which you are adding in your logs
+ok, after that what you are finally doing
+after that when all this is happening
+then you are doing client.flush here
+this is a very important operation, ok
+if you want to push any data on LangFuse
+then it is currently stored in your cache
+and you have to flush it through .flush operation
+where? on the dashboard
+so you are calling .flush for every trace
+by which you are sending your scores and calculations
+and finally you are calling an outer flush
+just for a fail-sync mechanism
+that finally everything is done, now I am completing the process
+next you are calling safe checkpoint
+what will the safe checkpoint do?
+inside your checkpoint and JSON, the previous timestamp 8.45
+what will you do with that? Overwrite
+now remember we have run the whole script
+after that we are going to the final and running the safe checkpoint
+if we do this calculation and if there is any problem
+then our 8.45 time should not be lost
+now everything is fine, everything has been pushed to LangFuse
+now it is time to replace this 8.45 time to 9 o'clock
+and my script started at 9 o'clock
+let's say I had 50 traces
+while running, these 9 became 5
+let's assume, so when will my next script run?
+next script run will be on 9.25
+and between 9.25 and 9, the traces that my user has locked on LangFuse
+will come again in the script
+and I will score them again
+I hope guys you understood the whole code
+step by step we understood the code
+if I show you one more thing before taking your questions
+that is this public API, we use the scores API
+whatever scores we are pushing
+for that we use this scores API
+let me show you
+here it is
+create score, we are using this API for this
+you can see here
+what you do in the value field, these are the values
+numeric, boolean, categorical, text is also there, correction is also there
+you can pass this
+and which fields are there, you have that information here
+so you can read it, again
+I am sharing the documentation here
+I hope you understood the code script
+now I am ready to take your questions
+we will stop here for 2 minutes
+I will take questions and then we will take this whole thing
+on AWS
+and that will be it
+question came, why aren't we using a single framework
+like LangFuse instead of combining LangFuse and DPV
+so that the real time production environment doesn't
+add extra complexity
+yes it adds extra complexity but we are using deep eval
+for evaluation
+so we will use deep eval in our online evals
+because the comparison we are doing here
+that has to be similar, I told you that your pipeline
+is static, only your input changes there
+and these are the operations
+so you get salary for this only
+you have to integrate multiple things here
+obviously you have options there that you can do this in LangFuse
+but let's say DPVal is used in your company
+for doing everything
+and LangFuse is used for tracing
+so how will you do it
+you can't say that this option was on DPVal
+so we should have traced on DPVal, you can't say that
+and this is the challenge of ops and this is the money
+can't we configure the evaluation job
+directly in Amazon, Bittorak and so on
+yes we can do
+again the same problem, you are not understanding that
+there are multiple options to do all these things
+multiple ways but
+which is the best way for our current setup
+we are discussing about that
+why are you afraid of configuration
+don't be afraid, this is the challenge you have to accept
+any other question
+do you agree
+or do you agree with Mayank
+you avoid vendor locking
+you always keep your options open
+you don't want us to deploy on AWS
+so we use bedrock
+through bedrock we get guardrails
+but still we used guardrails AI
+yes but those security concerns
+are also on AWS
+we are not sending any data here
+we are sending to open AI
+you will run models in open AI in bedrock
+so you have to trust
+you have to set trust somewhere
+and we are not sharing any financial data
+whenever you share it you have to mask it
+this is simple data
+students are coming, asking questions and getting answers
+nothing private about it
+and for our personal details
+we have set a guardrail of PII
+student's name, number and email id are being masked
+so we are blocking personal details there also
+we are blocking the
+pipeline is cleared
+did you understand the code
+how is it working
+we will run it on AWS
+we will not run the whole setup on my laptop
+we will take it on AWS
+our setup is this linefuse dpval AWS
+the setup you are talking about bedrock
+is not the current setup of our application
+we are into post production
+let's go ahead
+write clear in the chat
+yes, let's go ahead
+let's close the VS code
+because I think we don't need it anymore
+no, we need it once
+let's keep it open
+and what I will do is
+I will also turn off the camera now
+it interferes a little
+so how is the setup
+you already know the setup
+we have instances running
+which instance? this one app instance
+I have also closed it just to save cost
+I will launch it once
+I already have an application in it
+I have started it
+let's go over it
+let's connect it
+it is starting
+running
+let's connect
+again we are not discussing this application side
+I have already done it
+here I will write
+sudo docker images
+so these are my two images
+I simply have to do this
+sudo docker ps
+so no container is running
+first of all I will go to
+opt directory
+where I have my application
+let's go to
+campus xrat
+let's do ls again
+now I have to run this file
+and it will start my containers
+so let's do it
+sudo docker compose app
+and let's run it
+let's run it in detach mode
+my containers have started
+because the images are already downloaded
+so I don't need to pull the images
+again
+my front and back end are running
+and I think a volume is also created
+what is the volume doing? it is maintaining my chat history
+let's copy this ip
+let's hit our back end and front end
+just to be sure that everything is working properly
+or not
+let's hit it once
+port is running on 1000
+let's continue
+my back end is running
+if I show you swagger ui
+yes it is working
+it will be on 01
+and it is working
+again we are working with one instance
+I am not using auto scaling group
+just to save cost
+I have to stop it because there is time between sessions
+so unnecessarily the cost is bearing
+let's give some dummy questions
+and if I show you line fuse
+let's stop them
+just to interfere
+yes
+if I show you the tracing of past 1 hour
+I am not showing you any trace
+because we have not given any input
+let's do one thing
+I have noted some questions
+let's copy this question
+and ask this question
+let's generate some traces
+you will see that the responses
+will be a little faster as compared to your previous process
+let's wait a little
+we need a few traces
+traces here
+let's generate 5-6
+and I think that will be it
+some responses have come
+I don't know how much balance I have not checked
+I have that balance
+let's see if there is any balance between classes
+if there is then it's okay
+I will do a recharge
+let's copy this
+let's paste it here
+again I am copying the questions without reading
+just generating traces
+if I go here then the first trace is here
+it shows around 34 seconds, in retrieval it is 9 seconds
+I have fixed the retrieval
+I am taking time in guardrails
+and generation
+because we can't fix it now
+because we are using LLMs for our guardrails
+let's create one more session
+and ask some more questions
+let's ask some more questions
+from LLM eval and LLM op
+let's ask these
+let's ask 2 questions in each session
+I didn't copy it properly
+no problem, the answer should come
+till then any questions you have?
+in future lectures we are planning to have a session
+let's see if all the matrix in AWS is fixed
+Mayank not for this course
+because all the frameworks are fixed
+and currently we are
+at the sunset of our course
+we are going to build a project after this
+we have to use the same frameworks
+so the matrix will be different
+we will use our own pipeline
+so no for this course
+but in any future course yes, we can use it
+there is also a course coming up on bedrock
+and you will learn bedrock there
+and I am also planning to integrate
+bedrock guardrails in that course
+so the answer is here
+ok guys stay back
+I have to do an announcement
+I will announce it once this particular part is done
+so just wait for the announcement
+this will be done quickly
+it won't take much time
+let's generate this once
+so the announcement is that
+the next session is scheduled for Thursday
+but again this week is also a swap
+so the Wednesday session of Niti sir
+will be on Thursday and my Thursday session
+will be on Wednesday
+so we will meet on Wednesday
+and will do Prometheus on Wednesday
+there is no update in the calendar
+but I will update it
+I didn't get the answer
+so no problem, I got a fallback one
+let's take this one
+guardrails one
+I haven't taken this one already
+fallback one is also important
+it's good
+after this we will do one more
+from the AI pulse
+let's see the question
+let's take the previous one
+open AI and anthropic
+the announcement is cleared
+next we will meet on Wednesday
+and sir's session will be on Tuesdays
+and this change is only for this week
+done
+let's make a new session
+and let's paste this one
+you can see clearly
+if I show you the sessions on linefuse
+you can see clearly 2 sessions
+you can see the number of traces
+we asked 2 in the previous one
+we got the answer
+and we have our 3 sessions
+renaming is done
+we have 3 sessions on linefuse
+so yes we are assuming
+all our responses are in production
+our application is deployed
+and our users are asking questions
+from our application
+and we are tracking all the steps
+between the query and the response
+using linefuse
+you can see the details
+how much was the latency, cost, input, output
+and session id
+everything is tracked
+now we will do one thing
+we will make our online eval setup
+you can see clearly
+you can see no eval scores
+scores are missing
+if I see traces
+I should get the output of my traces
+how will I get it?
+the answer is simple
+I will go back
+and create a new instance
+we will name this instance
+online evals
+evals
+or rag online evals
+rag online evals
+instance
+for this you will select Ubuntu
+go to machine T3 micro
+your free tier is eligible
+you can use this
+for this you don't need much compute
+for security group we need SSH
+we will run commands on the terminal
+for that we need
+HTTP on for the safe side
+8GB storage is ok
+and in advance you have to attach a role
+that is online eval's role
+I have taken 2 permissions
+I will tell you what are those 2 permissions
+I have already explained how to add permissions
+I will tell you
+one is to read from S3
+and second is to read secrets from secrets manager
+now the thing is
+this python file
+I have pushed it to S3
+and now in this instance
+I will read my S3
+and download the script of online eval
+instead of copy paste
+I have pushed this python file to S3
+and I will download it
+and why I need secrets manager
+because I need my API keys
+for deep eval matrix I need a judge model
+for that I need my open AI key
+and to integrate with Limefuse I need Limefuse keys
+now I have done this, simply I have to fetch them
+and save them on my .env instance
+we have done this many times
+we will do it on this instance too
+ok, so I have attached these roles
+everything is done and I will click on launch
+done, let's go
+and with this we will connect
+let's connect to this instance
+now what we have to do in terminal
+what happened
+I have enabled ssh
+hmmm
+let me see why it is failing
+hmmm
+let me see, let's go and see
+yes it is connected, it is coming in inbound
+let's go again
+connect
+if it doesn't work then we will recreate
+done
+I don't know what happens on AWS
+sometimes things stop working and stop working
+you never know
+now you have to run commands in this markdown file
+again this is in updated code, I have pushed to get up
+you will find them in root in online eval steps
+simply we have to run these commands step by step
+for that there are some prerequisites
+you should have an instance, you should have a role
+and these secrets should be available
+there should be an S3 bucket with the name of
+campusx-rack-online-eval
+let's create a bucket, what we will do on this bucket
+we will store our python file on this bucket
+so I don't have this bucket now, I will create the bucket
+this is the name of my bucket
+I will simply create it
+done, now what I have to do on this
+I have to upload my files, so I will click on upload
+I will click on add file
+ok, I will go to LLMops in my project
+and here I will get my file, where will I get it
+in source, I will go to evals
+in evals, online evals and here is my python file
+simply select it and I will click on open
+so I have pushed this file
+here
+I will click on upload and it is uploaded
+ok, we have to upload one more file
+I will tell you what that is
+you have to run this command
+this command is simply
+running pip3s in uv and deep eval langfuse
+and python.env
+against your version numbers, I have created a new
+requirements file
+I have opened a terminal, I will paste this command
+and simply run
+ok, this command is of your powershell
+so it will not run in mac
+this command is of powershell
+so it will run on windows, I have created this window
+so that you don't have any problem in running
+so let's create this manually
+if it is not happening then it's ok
+we will create a requirements file
+and here is the name of it, requirements.txt
+but I have already requirements.txt here
+so let's change the name of this
+let's keep it as requirement
+online evals.txt
+you have to add 3 things
+add
+langfuse, add deep eval
+and add
+python.env
+that's it
+now you have to take it to
+on your s3
+we will upload here, click on add files
+and you will see this file here
+these are the libraries, langfuse, deep eval and python.env
+click on open
+click on upload and this file is also uploaded
+here are your files
+so you have created whatever you wanted
+here
+after that you will run these commands on your machine
+these commands are basically from your AWS CLI
+what you are doing, this is the CLI command
+for the manually uploaded command
+AWS CLI is not configured on my system
+so I am not running it, if you have configured then you can run
+first of all we will copy some commands
+so what are these commands doing?
+basically they are installing AWS CLI on their instance
+let's go, here it is not this one
+this one
+let's paste the commands and click enter
+so my AWS CLI is being installed here
+why do I need AWS CLI? to connect to my s3
+to connect to secret manager
+after that what I am doing here
+I am creating a directory
+in the name of online eval
+let's copy this
+and I will show you everything
+done
+let's paste this one
+and run it
+now I will show you where the directory is made
+so this is my project folder, if I click on ls in the name of opt
+then you can see campus xrack
+so let's create a cd in this
+if I click on ls again, then you can see a folder
+in the name of online eval
+let's go inside this and click on ls
+now it is completely empty
+now we have to bring our script in this online eval
+and I have to bring my requirements file
+and after that I will install my python
+and my packages
+so basically I am making a complete setup
+your directory will look like this
+your environment file will come here
+your virtual environment will come here
+you will run evals through a script
+and all your files will come in this eval
+so what is the next step?
+we have to copy our scripts
+and after that you are simply creating a folder
+in python3 by calling venv
+and you are installing the things in requirements.txt
+here
+the thing is that you have to make some changes
+I will show you the changes
+the changes are that your file name is not requirements.txt
+on your s3
+it's name is requirements online evals.txt
+so you have to change this in command
+here we will change requirements
+online evals
+I will check once
+this is the name
+and you have to change this thing up here
+just a second guys
+does it move? yes it does
+I have to come here
+and move here
+it's not moving there
+I have to take it
+a little patience guys
+it's name is requirements online evals
+now what it will do
+see it's downloading from s3
+it's downloading
+and now it's downloading from s3
+see it's downloading from s3
+it's downloading and it's downloading my python file
+and my requirements file
+now it will read the requirements file
+and after reading it will install my packages
+could not install due to disc code exceeded
+what happened?
+hmm
+what error is this?
+is it exceeded?
+we have not downloaded anything
+we have not downloaded anything
+we have not downloaded anything
+we have not downloaded anything
+let's close it and reopen it
+if it doesn't work then don't worry guys
+I have made a test instance
+it will work
+this problem shouldn't have come
+let's check once
+let's go again to opt
+and let's go here
+let's go to campus x rack
+let's go to online evals and let's do ls
+so files are here if I want to read
+I am able to read
+there is no issue and if I want to read python
+run online eval
+so these files are here
+I don't know where the error came
+let's run it step by step
+let's see
+permission denied is coming
+hmm
+why is permission denied?
+hmm
+there is an issue of permissions
+due to which vn is not being made
+and due to which it is not being installed
+hmm
+all other commands have been run correctly
+I don't know what is the issue
+what we can do is guys
+let's do one thing
+let's make an instance again
+I will delete this instance
+because I have made it and it is working
+I will use that one
+let's terminate it
+this is shutting down
+let's make one more instance
+and let's name it test online evals
+because name doesn't matter
+hmm
+I will have to debug a little
+because I won't be able to do it in between the lectures
+let's do one thing
+I have created security group
+here is RGB
+I have defined the role
+I am instance profile is
+this role
+let's do one thing
+let's paste the script here
+let's see
+and let's run launch
+as soon as it will launch
+the script will run in the background
+let me tell you what the script is doing
+so what we are doing here is guys
+here we have done
+updates
+installed AWS CLI and python
+then we are doing
+we are pulling these two files
+our requirements file and python file
+and the requirements
+we need to run this online eval
+we need Langfuse, deep eval
+and we need .env
+python.env
+to read the api keys from .env file
+we are installing it here
+we will bring it from our secrets manager
+and we will convert it in an environment file
+then we are simply running
+a small script through which we are setting the cron job
+now let me tell you what is happening in this cron job
+what we are doing is
+we are first doing cd in our online eval directory
+then we are simply saying through this piece of command
+that first of all you activate
+your virtual environment
+when you have to run python command in terminal
+then what do you do in your VS code
+first of all you activate your virtual environment
+then we are doing the same step here that first activate my virtual environment
+after activating
+you run this script eval.py
+and after running
+save the output from this in a cron.log
+and then you can save it
+and here we are making the script executable
+and then we are starting our cron
+we are enabling our cron job
+and here we are setting our time
+we are setting our frequency
+so if you want to set your cron job then you set your time
+through this syntax
+I will explain its code to you very simple
+so what you are doing here is
+after running this script
+you are setting your time in this time
+which is basically your 15 minutes
+you can see this as slash 15
+this is your 15 minutes cron job
+and in every 15 minutes it will run this script
+as soon as 15 minutes are over
+it will run it again
+so this point is clear to you
+so this is the complete setup
+yes, let's do one thing
+I made a mistake, no one told me
+we simply copied and pasted it
+we didn't want to do it directly
+so that too must have crashed
+it must not have run properly
+so let's close this instance which has been launched
+let's terminate it
+and let's make a fresh instance
+this is also terminated
+let's launch a new instance
+let's simply name it as test
+Ubuntu
+I have told you the key pair
+again I am allowing traffic
+it is 8GB, I am setting the role
+this is my role
+and I am pasting my script here
+let's go through this script once
+so that there are no errors
+everything is ok, this is ap south 1
+this is my s3 bucket
+now I have to change the name
+instead of requirements.txt
+I can simply copy and paste
+let's copy it
+and I will paste it here
+here are the requirements
+online evals
+and online evals
+secrets are correct
+I am running my script
+let's change the time
+15 minutes is a lot of time
+let's set it to 5
+I have set the time to 5 minutes
+and let's launch this instance
+so every 5 minutes
+my online eval will run
+let's let it execute once
+if this script is successfully executed
+then I can see my results
+in my traces
+but if it is successfully executed
+then you can see your eval
+why am I saying this?
+because I have manually run this script
+if I show you
+you can see here
+I am running it manually
+after that I will set the cron job
+so that if any problem comes
+then it will be detected early
+as soon as this script is executed
+it will run manually
+let's wait a little
+now I can run it from here
+let's run it from here
+let's close it
+I am closing extra tabs
+let's go to the instances
+and these are my running instances
+let's go to running
+there are two running
+one is test one
+let's get to the terminal
+let's get to the terminal
+let's check
+if my cron job is done
+I will copy and run this command
+I will copy and run this command
+no cron tab for Ubuntu
+let's run cd in directory
+let's run it there
+let's run ls
+did not make a directory
+did not make a directory
+is awcli being installed
+is awcli being installed
+let's wait
+let's wait
+let's wait
+let's wait
+let's wait
+let's wait
+directory is done
+let's go to the directory
+let's run ls
+there is no directory in this
+let's run ls again
+is awcli being installed
+let's run ls
+yes, I have done it
+it will be auto installed
+no, it didn't
+anyway guys
+I will share the rest of the process
+you just have to copy and paste the commands
+I will show you the actual running job
+if I go to instances and close this filter
+then
+what I made before
+that was this one rag online evals
+let me check
+I have not terminated it
+let's start
+you will get all the code in this
+let's wait
+I don't know why it didn't work here
+why the permissions were denied
+I ran the exact script here and it was working fine
+ok, if I go to opt
+opt not opot
+ok, it is working, let's run ls
+let's run cd in campus x rag
+let's run ls, here is my virtual environment
+and online evals
+let's run cd in online evals
+let's run ls, yes, here I have
+all the things you can see
+ok, let's check once
+the cron job is running
+so, for that, what I will do is
+I will simply copy this one
+and let's paste it here
+so, yes, here I have set the cron job of 15 minutes
+so, what will it do in every 15 minutes
+it will start the evalations
+and to start it manually
+we don't have script now, we will execute our python file
+so
+let's execute it manually
+python file name is run online evals
+ok
+because I didn't activate
+virtual environment here
+so, I will use this particular command
+to activate virtual environment
+just a second guys
+just a second guys
+I will copy this completely
+copy and paste
+copy and paste
+yes
+ok
+see, now you can see logs here
+the logs of dp eval came
+and now you can run online evalations
+faithfulness
+contextual relevancy
+answer relevancy
+so, actually it is a blessing in disguise
+I was able to show you these logs
+you can't see logs through those commands
+let's let it complete
+ok
+let's run the evalations
+ok
+ok
+ok
+ok
+ok
+ok
+ok
+done
+now where will you see it, here are your traces
+let's refresh it
+and now you will see any trace here
+let's see this trace
+and you can clearly see here
+here are your scores
+now you have to see them in detail, you go to the scores tab and see
+on this particular trace
+faithfulness is 100%
+answer relevancy is 100%
+if you want to see the reasoning, you can expand it
+and see, here it is telling you
+the score is 0.78 because the context does not include key matches
+like guardrails should be transparent and not visible to the end user
+this is missing here, so it gave a low score
+why it gave a score of 100%? here is reasoning
+you can also check it for any other trace if you want
+see, here you can see very little contextual relevancy
+faithfulness is here and answer relevancy is here
+and why it is showing like this?
+here is reasoning also
+and if I show you the fallback one
+just a second
+if I show you the fallback one, no it's this one maybe
+no it's not this one
+which one was the fallback one?
+this one? yes this one
+so see, scores are not calculated for the fallback one
+because this is what we put in the code
+that you will not calculate scores for fallback
+ok, for every trace
+this whole cycle will run in 15 minutes
+and score all the traces in 15 minutes
+is this step clear guys?
+if you want to check
+this, you can ask one more question
+let's say I ask one more question
+and this one we ask
+sovereign AI one, now you will see clearly
+the scores of this tracing you will not get now
+next when your script will run
+you will get its scores
+let's wait for the response
+10 more minutes guys
+you just have to show me how to observe
+actually it will take 5 more minutes
+how to add them in your dashboard
+because here you will not see individual scores in traces
+you will visualize them using your dashboard
+see some response has come
+and this is our properly
+one trace has also come
+if I refresh it, then a new trace will come
+it has not come, let's refresh it again
+sovereign AI one
+now here you will see clearly
+if I open it, then no results will come
+but if you wait long enough
+you will see results
+let's do one thing
+in the meanwhile, let's go to our dashboard
+our dashboard is campusX Rack Dashboard
+and here we add some things
+for our scores
+add some graphs, first of all you will go to add widget
+again you will go to custom chart
+now you will not go to observations in view
+here there is a small change, you will go to scores
+now you get 3 options in scores
+numeric, categorical and boolean
+our scores are numeric
+then in metric it can be count and value
+we don't care about count
+because we are calculating scores for every trace
+we care about their value
+see values have come
+first average was 0.91
+now it is 0.89
+but we don't understand what score it is
+so we will put group by here
+we will put group by according to our score
+only name of the score
+accuracy, toxicity whatever it is
+as you name it, you will see individual scores
+when you ran on 17th september
+you will see how much accuracy, answer relevancy, faithfulness
+and now what are your values
+and these are your average values
+you generally calculate average values
+so here is your title
+and description, you can tweak them
+I will tweak them later
+but you can see clearly that you are able to monitor your scores
+you can see past 1 hour
+so you can easily monitor your scores
+here we will put title
+average
+metric
+value
+with time
+we will remove it
+I don't know, you can't delete it first
+you can do it later because it auto fills
+so the good thing is
+instead of by name
+you can do it
+shows the average value of
+metrics per day
+and here is your graph
+you can adjust it, we will leave it here
+we will add some more widgets
+so you can see how your metrics with time are changing
+but you have to check absolute values
+that what is the current value
+so for that you will go to scores numeric
+you will select value
+and now you will add a filter
+for filter you will go to your name
+score name
+and you will select which score you want to add
+and what I want to see
+here is the average value of
+answer
+relays, bensi
+I have added it here
+you can change the description
+here we are adjusting past 1 day and we are selecting big number
+so it will give you your average value in one shot
+and see
+drag it and drop it here
+here it is giving you
+average answer relays value of one day
+same you can do it with other metrics
+you simply copy it
+and after copying
+you simply clone it
+and here you can edit it
+instead of answer relays you select
+faithfulness and
+answer relays instead of answer relays
+faithfulness
+and same
+here is your average faithfulness
+score 0.932
+and same you can do with the third one
+simply clone it
+and here you can edit it
+contextual relevancy
+big number faithfulness
+contextual relevancy
+contextual relevancy
+and you simply save it
+and here is your
+contextual relevancy value
+if we had custom here
+then you can see clearly
+what is the average metric value of all the numbers
+and how they are changing with time
+so with this guys we have
+understood how you run your online eval
+using a cron job
+and how you observe them
+so you have saved it in your dashboard
+everything is saved, if you go to home
+because we are looking at this dashboard
+is this point clear?
+this is it guys, that's all I had to do today
+if you have any questions
+you can ask me
+and those who can wait for 5 minutes
+they can wait and actually I will show you
+if I show you in tracing
+so here you
+see your scores are here
+cron job automatically run and your scores are here
+so yes
+see this particular
+trace, this one
+this is your contextual relevancy
+why it is less, it has given the full reason
+faithfulness and answer relevancy
+if answer relevancy is less then it has given the full reason
+I hope you understood this whole concept
+guys
+is this point clear?
+is it clear guys?
+and I can actually show you
+we are logging everything here in this cron.log
+so I can show you
+log
+see
+here you are logging everything
+you have run this
+and after that
+see this one is your run
+there is a script written in it
+ok there is no script, fetched is one and you have run it
+which is this one? this one is the same that you have currently run
+this one is your run through cron job
+is this point clear guys?
+any questions?
+how was today's session guys?
+if you ignore the commands
+I don't know why this didn't work
+maybe there was some issue in copying
+same commands
+we are using in this particular instance
+and this one is doing its work
+you can see here, all this is logged
+how was today's session guys?
+the concept of online evals
+you can understand how you integrate
+all these things through code
+so now we have completed
+our application monitoring work
+now what we have to do is
+we have to do our infrastructure monitoring
+so in next two lectures
+which will be on Wednesday
+and on Monday
+we will cover our infrastructure monitoring using Prometheus
+which will be used for logging and Grafana
+for dashboarding
+and this will be it
+we will complete our rag LLM Ops pipeline
+yes Tushar
+again you can write these commands
+through chat gpt or cloud
+but you should know in the script
+like I have to run this command
+to activate my environment and run the python file
+I know exactly that this is a command
+so you can write this from chat gpt
+but what are they doing?
+nobody is expecting that you should get bash
+nobody is expecting that
+now this vnv error I don't know how to fix
+I will also debug through chat gpt only
+yes you can do it with any chat bot
+cloud, chat gpt, codex, cloud code
+cursor, do it with anyone
+you are not becoming bash expert
+you are learning to integrate things
+you should know the basics
+you should know the syntax
+you should not go into details
+advanced drag vf capstone project based on
+agentic research for the LLM Ops capstone
+we have already discussed this
+our goal in LLM Ops
+whether it is a project or
+our current pipeline
+application side is not our focus
+our focus is the operation side
+how do you build things around applications
+so you can take it as a challenge
+as a homework
+I have taught you agentic drag in advanced drag
+and I have used it in the project
+you build a better project over it
+you use that agentic drag capability
+and implement the operations we are learning
+because the thing you will build with your own hands
+will increase your learning
+you can deploy it
+but you will not be able to explain it in the interview
+because that project is mine
+I have built it, you have not
+so it was a conscious plan
+I had discussed this with my sir
+that we will keep our application very simple
+I have not decided on the application yet
+but whatever will happen will be very simple
+and the chain will be through Langraaf
+we are also planning to come up with a specific
+series which will focus on your projects
+that is also something which is in pipeline
+but I can't promise when it will be delivered
+because our team is small
+and everyone has a lot on their plate
+right now
+I am currently working on LLM Ops
+I am also working on the notes part
+and good news is that
+we have started making notes for advanced drag course
+and as promised you will get it by 14th or 15th October
+and you will get it by 15th October
+the thing is that
+we make notes in multiple iterations
+and we have to review the bentor
+so that is a heavy part
+when LLM Ops project will be done
+we had an upside
+we had transcripts already available with us
+for that we don't have transcripts
+we made those
+and for 2 hour session
+we spend around 1.5 hours of compute
+that too on a Mac
+so you can understand
+that if you want to make a 40-45 hours course
+transcript, then how much time will you have to spend
+but don't worry, the process is going on
+and you will get the notes
+soon
+parallel we are making notes for many courses
+so how was today's session?
+you tell me
+if you can implement it properly
+then any project is good
+your implementation should be good
+the architecture behind it should be well thought out
+and you should be able to give answers
+in the interview
+if you are able to do all that then any project is good
+nobody is expecting
+that you should make a heavy project
+for a fresher level role
+students generally do this mistake
+they run after big projects and in the interview
+they are unable to explain the project
+because they have copied and pasted many things
+on the other side, if a student has made a simple project
+but has shown the entire pipeline
+and has shown his understanding
+then the chances of clearing his interview are
+2-3x more
+any other questions?
+2 more minutes and then I will close
+guys
+I have made 3-4 on MLOPS
+after watching your MLOPS
+no thinking of doing same with any MLOPS
+yes, if you have already made
+and have seen your MLOPS
+then you will have to work hard
+I would highly suggest those who are attending live classes
+do not copy and paste this project
+you will not be able to learn
+and update things
+like what I have done today
+when we read Langfuse
+I understood the problem
+although I knew there is a problem in contextual compression
+but I observed how much latency is coming
+on Langfuse and found out
+so I fixed it
+you can treat it like your version 2
+if you went to production and you were getting latency issues
+then you fixed it
+if not then write clear
+good night guys, see you on Wednesday
+Wednesday is LLM MLOPS class
+and Thursday is Nitya Sir class
+tomorrow and Thursday, I will update the rest in the calendar
+bye guys

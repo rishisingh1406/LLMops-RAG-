@@ -1,0 +1,1022 @@
+Hi everyone, I hope you guys are doing great.
+So guys, welcome to this brand new course of LLM Ops.
+Guys, in this course, we will discuss about the important concepts of LLM Ops and its entire life cycle.
+But these concepts will not be theoretical.
+Here we will practically execute the whole life cycle.
+I am pretty excited to share this journey with you guys and I hope you will be excited too.
+So let's start this journey.
+So guys, the first question that will come to your mind while learning about LLM Ops is what is LLM Ops?
+What does this term actually mean?
+So let's do a Google search because whenever I have to read a new concept, I do a Google search.
+So let's do a Google search and ask Google what is the correct definition of LLM Ops.
+So here I have already searched Google.
+And the definition that I am getting here when I asked Google what is LLM Ops.
+So the definition is LLM Ops which is called your Large Language Model Operations.
+It is a specialized set of practices.
+So after reading this, I can understand that this is a specialized set of practices or workflows.
+In which specialized tools are also used.
+Used to manage the full life cycle.
+So here what are we managing?
+We are managing the complete life cycle of your Large Language Model and also your applications in production.
+So here after reading this definition, it is clear that you are managing two things.
+Let's discuss this a little.
+So the thing is that the term LLM Ops is made up of two terms.
+LLMs and some operations around it.
+Now what are these operations?
+These are basically a certain set of specialized practices, tools or workflows.
+What are they doing?
+They are basically implementing the complete life cycle.
+Complete life cycle around your LLMs or applications made up of it.
+I know guys that after reading this definition, you might not have got much clarity.
+So let's do this work here.
+Let's explore a little more.
+Let's see what industry leaders have to say on LLM Ops.
+So here I have opened some tabs.
+I will explain the definition of LLM Ops one by one.
+So here the definition of LLM Ops is by your Google Cloud.
+So let's see what Google has to say.
+Google says LLM Ops or Large Language Model Operations refers to the practices and processes involved in managing and operating your Large Language Models.
+So Google is clearly saying that these are some types of set of practices or processes through which we can manage and operate our LLMs.
+What are those set of practices?
+They are given here.
+LLM Ops involves a comprehensive set of activities including model deployment and maintenance.
+LLMs are deployed and managed on cloud platforms or on-prem infrastructure.
+Basically, you deploy your LLMs on any infrastructure.
+Then there is data management.
+You have to train your model.
+For that, you have to prepare the data.
+It comes under data management.
+Then there is model training and fine tuning.
+From the training step, monitoring and evaluation.
+And finally, there is security and compliance.
+So these are some things that you do in LLM Ops.
+Now let's move towards the definition of Red Hat.
+What does Red Hat say about LLM Ops?
+So Red Hat says that Large Language Model Operations or LLM Ops are operational methods.
+These are some operational methods that are used to manage Large Language Models.
+Again, here we are talking about the managing of Large Language Models and also about the operation because the operational methods are written here.
+With LLM Ops, the life cycle of LLMs are managed.
+So what are you doing through LLM Ops?
+You are managing the entire life cycle of LLMs.
+These workflows, this process, you are helping to manage this whole life cycle.
+And you also automate things.
+Like the journey of maintenance from fine tuning.
+One example is given here.
+Helping developers and teams.
+How is this helping developers and teams?
+To deploy, monitor and maintain LLMs.
+Again, the steps that are written here, deployment, monitoring, maintenance, all of that is written here.
+And it is around your LLMs.
+Let's explore some more definitions.
+This definition is from IBM.
+IBM says that it refers to the specialized practices and workflows.
+Again, here specialized practices and workflows.
+These terms are repeated again and again.
+So this is a particular workflow.
+There are certain set of practices that we are using again and again.
+And what are they for?
+That speed the development, deployment and management.
+Again, it is about maintenance.
+Of AI models through their complete life cycle.
+Meaning how are you developing, deploying and managing AI models.
+And how is its entire life cycle being managed.
+This is called LLM Ops.
+So let me demystify all these terms.
+So if I talk about Google.
+If I talk about Red Hat.
+If I talk about IBM.
+So these three industry leaders are saying the same thing.
+What is that thing?
+LLM Ops is used to manage and deploy your LLMs.
+The entire management around your LLMs and the operations related to deployment.
+LLM Ops does all the operations.
+And what all things are there in it?
+All the steps that are required to maintain the entire life cycle of your LLMs.
+I hope this point is clear to you.
+It is a very important point to understand.
+But there is another side here.
+Let me show you what that other side is.
+If we explore more search results here.
+To understand weights and biases.
+If we look at the definition of LLM Ops.
+What is LLM Ops?
+The term LLM Ops stands for Large Language Model Operations.
+The short definition is that LLM Ops is ML Ops for LLMs.
+So they have explained it in a simple way.
+Like ML Ops is for your machine learning systems.
+Similarly, LLM Ops is for your LLMs.
+That means that LLM Ops is essentially a new set of tools and best practices.
+So these are some specialized set of tools.
+New tools and best practices.
+Again, there is a workflow to manage the life cycle of LLM powered applications.
+Here we are not talking about LLMs.
+Here we are talking about LLM Ops used to manage the life cycle of LLM powered applications.
+These applications are made using LLMs.
+Like your rag application, agentic application, text to SQL application.
+All these are made with the help of LLMs.
+So managing and powering them is the LLM Ops part.
+Including development, deployment and maintenance.
+So there is not much difference in the definition.
+Again, here we are talking about the new set of tools and best practices.
+And why are they used?
+Deployment, development, maintenance.
+But here your core product has changed.
+This is your LLM powered application.
+So guys let's explore one more final definition.
+And this is from your MLflow.
+MLflow says that LLM Ops is the discipline of building, deploying, monitoring and maintaining
+large language model applications in production.
+So what are you doing in LLM Ops?
+So here you are building, deploying, monitoring and maintaining your LLM based applications in production.
+It encompasses the tools, practices and workflows that teams need to move LLM powered applications from prototype to production.
+So the same thing is happening here.
+LLM Ops is a certain set of workflow.
+Here you are using specialized practices and tools.
+But here you are deploying LLM powered applications.
+You are managing LLM powered applications.
+So clearly here I can see two set of branches.
+The first branch is the one in which Google, Reddit and IBM are talking about LLM Ops.
+Whereas the second branch where my weights and biases are there.
+My MLflow is talking about your LLM powered applications.
+Concepts are same.
+In concepts, you are getting specialized set of tools, practices, workflows, manage, deployment.
+You will get the same wordings.
+But the difference is in the one on whom you are applying.
+Now you must be thinking that why LLM Ops doesn't have a single definition on the website?
+Why are there so many contradictions?
+Why are there so many different definitions?
+So I will give you a solid answer.
+Basically, you are getting this contradiction because there is no single definition.
+Because both of the definitions are correct.
+Where is the difference?
+The difference is only in the perspective.
+It is basically relative in nature.
+Where are you standing and talking?
+In whose reference are you talking about LLM Ops?
+So the difference is around your reference point.
+Why is there a difference in reference point?
+If I talk about companies like Google, IBM, Red Hat.
+So these companies are more focused around building your LLMs.
+These companies are centered around LLMs.
+So what will be their challenges?
+Their challenges will be how you will build your LLMs.
+How will you train them, deploy them, manage them.
+What will be the steps after deployment?
+How will your LLMs be served to your end user?
+How will the inference be?
+So these companies are more worried about these steps.
+So the whole operations around your LLMs will be on these steps.
+So who should they focus on?
+They should focus on the life cycle of your LLMs.
+So around that, they will develop best practices.
+Around that, they will develop specialized tools.
+Whereas if I talk about some other companies like Wage and Biases.
+We have seen an example of this.
+There is a company called MLflow.
+We have seen these two examples.
+These companies don't build LLMs.
+Neither are they building LLMs, nor are they training them, nor are they deploying them.
+These companies are using these LLMs to build LLM powered applications.
+So here a completely different use case is coming out.
+So what will be the focus of these companies?
+So how will we build operations around these LLM powered applications?
+How will we handle their whole life cycle?
+How will these applications be built and managed?
+How will components be set in them?
+How will these applications serve our end user?
+So the workflows, processes and tools around them will be managed by these companies.
+So both the definitions are correct.
+Where is the difference?
+The difference is only at the end product.
+But the other things that you are doing like managing, operations, deploying,
+taking anything from prototype to production,
+those are correct in all cases.
+I hope this contradiction has been cleared in your mind.
+And I hope I was able to clear your confusion.
+So one thing that came out of our discussion is that
+if ever there is a talk of LLM Ops,
+then there will be two branches in it.
+The first branch will be LLM based and the second branch will be LLM based applications.
+So let's move our discussion forward and discuss what steps you do in these two branches.
+Again, we will not cover these steps in depth.
+The reason is simple that it will take a lot of time.
+So we will cover these steps in overview mode.
+So let's discuss about your branch number one,
+in which we cater to LLMs.
+So branch number one is called your LLM based LLM Ops.
+Now the thing to keep in mind is that the end product of branch one is your LLMs.
+LLMs are its end product.
+Now, because it is a model and you have to manage the entire life cycle of this model,
+so if you have worked with machine learning,
+then you know that you have to collect data for the model first.
+Then you train the model.
+After training, it is evaluated and it is done better if there is something lacking in the evaluation results.
+And finally it is deployed.
+So you do the same steps with LLMs.
+Now, the only difference is the scale.
+So the first step is that you collect data and prepare it.
+You know that LLMs are trained on massive data.
+When I say that it is massive data,
+it means that the entire internet data is used to train these models.
+Now you also know that the entire internet data is not in perfect condition.
+There is a lot of data that is of no use to you.
+So what is the first step you have to do in data collection?
+The first step is to filter out the data.
+You have to extract the data of work.
+Now when you bring the data of work, it is not perfect.
+So you have to fix the formatting.
+Maybe the data is not in the format you want.
+So you have to apply fixes, some pre-processing steps, some transformations.
+And after that you get the right data.
+After that, you keep in mind that you do not give any noise to your model in the data.
+So you eliminate the noise here.
+So you remove the noise that is not so beneficial for training the model.
+After that, your transformer models, LLMs, process word-by-word input.
+So the next step is your tokenization.
+Tokenization means that you break down your text into words or tokens.
+And after that you give these tokens to your model for training.
+So these are the steps around your data.
+After that comes the step of pre-training.
+Where you train your model.
+Basically, training means that you have a training loop.
+First of all, you divide your data into batches.
+You give it to your model.
+The weights of the model are initialized randomly.
+So you get value in the output.
+You get an output.
+You calculate the loss from that output.
+This loss tells you how wrong your model is.
+And then you do back propagation.
+And after that you update your weights or parameters.
+I hope you know the whole training sequence.
+And you do it again and again.
+You do it in multiple epochs and multiple batches of data.
+So this pre-training step is like compute heavy.
+It requires a lot of computation.
+And this whole step is done on GPU clusters.
+So specialized hardware is massive GPU clusters.
+On which you train this model.
+Because the size of the model is very big.
+LLMs are very big.
+There are billions and trillions of parameters in it.
+So you cannot train it on a single system.
+You have massive clusters on which you complete the training.
+As soon as the training is completed, you get a pre-trained model.
+Now since this pre-trained model is trained on the whole internet data.
+So it has the entire internet knowledge.
+And it is a generalized model.
+But these generalized models are not that good.
+Whenever you train LLMs, you want your LLMs to do a specific task.
+Like the entropic model.
+So you have to convert this generalized model into a specialized model.
+And here comes the technique called as fine tuning.
+So what you do with fine tuning is you train a generalized model into a specialized model.
+Which can perform certain tasks very well.
+So this is your step number 2.
+Where you train LLMs.
+So you train LLMs to perform certain tasks very well.
+So this is your step number 2.
+Where you use massive compute hardware to complete the training.
+And second, you complete fine tuning.
+As soon as your model is trained, you have to find out how well your trained model is performing.
+So what you do is you run certain evaluations on your model.
+And for this, you use certain benchmarks.
+Benchmarks are basically predefined evaluations.
+Where your data set is also there.
+You have evaluation steps.
+And on the basis of that, you evaluate your model on a particular property.
+So your evaluation is complete.
+You have the benchmark results and the evaluation scores.
+On the basis of that, you see where your model is lacking.
+Where it needs more fine tuning or pre-training.
+And you fix your model.
+Finally, when your model clears the set benchmarks.
+Your validation step is complete.
+So you are ready with your model.
+And now it is time to deploy.
+But before deploying, you align your model.
+To human values.
+Because what you have to do at the end of the day is you have to interact with humans.
+So you do the alignment process.
+And in this alignment process, you use certain techniques like RLH.
+Reinforcement learning through human feedback.
+You give feedback to your model and align it.
+So if your model gives misaligned outputs, you penalize it.
+Whereas if it gives aligned outputs, you reward it.
+So your model is gradually trained through the rewards.
+And it gives you the right aligned and ethical outputs.
+So now what you do is, as soon as your alignment is complete.
+After that, you deploy your model.
+You basically take your model to production.
+You take it to production environment.
+And not only you deploy it, you also serve your model to the end user.
+And serving means you build APIs around your model.
+So that your end user can access this model.
+So this is your step number 4 where you do deployment and serving.
+And final step is your monitoring and maintenance.
+You don't let your model go after deploying.
+You constantly monitor your model and you take feedback from the user.
+Like you must have seen in chartgbd that when an output comes,
+chartgbd asks you if this response was good.
+You have a button to press the button.
+So through that button, you regularly take feedback from your user.
+How is the output of your model?
+Is it giving any unethical response or toxic response?
+And on the basis of that feedback, on the basis of continuous monitoring,
+you improve your model.
+Let's say for a certain set of questions, for physics questions,
+your model is not performing well.
+So you take this input from your end user.
+And after that, what will you do?
+When you deploy the next version of your model, you will train it in such a way
+that it can perform well on the physics questions.
+So the complete lifecycle that we discussed, these 5 big steps
+I have discussed with you, which is data collection and preparation,
+training and fine tuning, evaluation and validation, deployment and serving,
+monitoring and maintenance.
+So this is your complete LLM lifecycle.
+And managing and operating this same lifecycle comes under your branch 1
+that is your LLM based LLM.
+I hope this whole discussion was clear to you.
+If this discussion is clear, then let's discuss what comes under branch 2.
+What is in branch 2?
+The end product is your application.
+From branch 1 LLM to branch 2, application is your end product.
+But the LLM is a central component.
+Like you take any LLM powered application, like take any rag application.
+Or take any agentic application.
+The core component of these two applications is an LLM.
+So always keep in mind that the central component of LLM based applications
+is your LLM and your application is built around it.
+But the end product for branch 2 is always your application.
+You don't worry about LLMs.
+So here the steps are different.
+The first step is to choose a foundation model.
+So you already have an LLM available.
+Which is already deployed, served to the end user, maintained and managed.
+You simply have to select the right provider for your application.
+So step 1 is choosing the right foundation model for your application.
+So you have selected the foundation model.
+Next step is to build the application.
+You build your application.
+So to build an application, you can use multiple frameworks.
+Like if you are building a rag application, you can build a rag application through a line chain.
+If you are building an agentic application, you can build it through a crew I.
+You can build it through agno, or through a line graph.
+So what you do is after selecting your LLM, you build your application around it.
+After that, step 3 is to design and manage your prompts.
+Now any LLM powered application, your system prompt is very important.
+It is a very important component.
+The reason is that this system prompt governs how your application will behave.
+What will be the persona of your LLM that is working in your application?
+What instructions do you want to give around it?
+You put this in your system prompt.
+What rules and regulations do you want to apply?
+What are the not to do's?
+You add all that to your system prompt.
+So the system prompt acts as a very important component because it steers your LLM towards a certain specialization.
+This is what makes your LLM fit for a rag application.
+This is what makes your LLM fit for an agentic application.
+Where does the difference come from?
+It comes from your system prompt.
+So what you do is you design.
+First of all, you make your system prompt.
+And it is like very important thing.
+You make it very well.
+And you also manage prompt.
+It is possible that you are making the system prompt.
+You made your application.
+You manually tested it.
+But your system prompt is not behaving properly.
+Your application is not behaving the way it should.
+So what will you do?
+You will fix your system prompt.
+You fixed it.
+You rerun your application again.
+So it is a little better.
+You thought that I will add 1-2 more points.
+Now in this journey where you are continuously changing your system prompt.
+Which is a very important component of your application.
+You are not doing it anywhere.
+By version I mean that you are not tracking these changes anywhere.
+Tomorrow you have to see someone else or you have to see after a few iterations.
+What was the difference with which changes?
+You will lose that track.
+So you not only design your system prompt.
+You also manage it.
+What does it mean to manage?
+You version your system prompt.
+It is possible that you change it in your system prompt.
+Which will make your application perform very poorly.
+And you want to roll back to a previous version.
+So if you have the versions of your system prompt maintained.
+Then only you can roll back.
+If you are not keeping this track.
+Then you will not be able to track rollback or updates.
+So managing your system prompt through prompt management.
+This is called prompt management.
+It is very important.
+Because it is a very important component of your application.
+So you chose your LLM here.
+You built the application.
+Then you managed your system prompts.
+Fourth you evaluate your outputs.
+What do you do in this?
+Test your application.
+You score your application.
+You see that whatever application you have built.
+The system prompt you set with it.
+Is it working as intended or not?
+You can test it manually.
+But you will not get exact results from it.
+You can not compare those results.
+So you need exact metrics.
+Exact flows on which you can repeat the same process.
+You can do the same evaluation on the basis of that.
+And for that you use the evaluation pipeline.
+Now in this evaluation you have certain metrics.
+Which show you some results.
+Which give you some scores.
+On the basis of which you test how your application is performing.
+Because you have different types of LLM based applications.
+So your metrics are different here.
+For a rag application there are certain set of different metrics.
+For a hygienic application there are different metrics.
+So for every application type you have certain set of metrics.
+Which judge the quality of your application.
+I hope you understood this point.
+So as soon as you test your application.
+If there is any problem.
+You will fix it.
+If any metric score is less.
+You will fix it and then you will test it again.
+And you will keep doing this work.
+Till the time your scores are not good.
+Once you have good scores.
+After that in step no.5.
+You make your application a little safe.
+And for that you add guard rails to your application.
+Now your application is open ended.
+You can give it any type of input.
+And it can give any type of output.
+Because I told you that LLMs are trained on your internet data.
+So these are generalized models.
+So you can't expect from them.
+So they will give you the same response that you want.
+In some cases it may give you a response.
+Which is not right.
+Or it can spoil your user experience.
+So what you do is.
+You set some rules or boundaries around your application.
+Both on the input side.
+And your output side.
+And these boundaries are called guard rails.
+And the main purpose of these guard rails.
+Is to make your application safe to use.
+So that you can maintain your user experience.
+So that your user experience is not spoiled.
+And as soon as your step 5 is completed.
+You move to step no.6.
+Where you deploy your application.
+After deploying.
+Again you serve your application to the end user through APIs.
+And after deployment.
+You continue to monitor your application.
+Monitor means.
+What type of input is coming to your application.
+What type of output your application gave for that input.
+And your whole infrastructure.
+Where your application is deployed.
+How it is working.
+So these come under your monitoring and your observability.
+So you put these two steps there.
+So this is your deployment.
+Monitoring.
+And finally you also take the user feedback.
+Like in the case of LLM.
+You take feedback.
+Thumbs up.
+Here you also take the feedback of the user.
+And if the user tells you about any problem.
+Then you fix your application on the basis of that problem.
+You launch a version 2.
+And you deploy it.
+So you maintain the versions of the application.
+So the journey of LLM Ops.
+The journey of LLM Ops.
+Both the branches are quite similar.
+Where is the difference.
+The difference is in the end product.
+In branch 1.
+End product is LLM.
+In branch 2.
+End product is application.
+But the central part in that application is your LLM.
+Okay.
+In this branch.
+You get a trained LLM ready.
+You simply use it.
+And you perform your LLM Ops lifecycle.
+I hope this point is clear to you.
+So guys.
+Let's summarize what we learned in this lecture.
+First of all, we discussed what is LLM Ops.
+What is LLM Ops.
+Okay.
+We saw different definitions of it.
+And from that we understood that here.
+You have two different branches of LLM Ops.
+And what do they differ on.
+They differ based on the point of reference.
+From which reference.
+You are seeing this LLM Ops lifecycle.
+Okay.
+Which were these two branches.
+These two branches are your LLM Ops branch.
+Sorry.
+LLM branch.
+And the second was your LLM powered application branch.
+Next we explored these two branches in detail.
+What steps you cover in these two branches.
+Now you must be having a question in your mind.
+Which branch should we focus on.
+Should we focus on both the branches.
+So the answer is no.
+I will tell you which areas these two branches serve.
+So in this branch.
+Because you are covering LLM Ops of LLM website.
+So this branch is generally used in your Frontier Labs.
+Okay.
+Or in those companies which are basically fine tuning.
+Training.
+Their LLMs.
+Okay.
+I gave you an example like Google.
+IBM.
+Those are your Frontier Labs.
+They are building their LLMs and training them.
+That's why they are focused on this branch of LLM Ops.
+Whereas guys the majority of the industry.
+Is building your LLM powered applications.
+Like some companies are building your Rack based applications.
+Some companies are building your agents.
+Some are building your chatbots.
+Some may be building some other specialized application.
+Like some Text to SQL application.
+So because the majority of the industry is building these type of applications.
+That's why our focus will be towards the branch 2 of LLM Ops.
+I hope I was able to explain to you.
+What is LLM Ops?
+What are its two branches?
+And the majority of the industry is focusing on which branch?
+Guys before ending the video.
+I would like to share a small disclaimer with you.
+Going forward in this playlist.
+Whenever we talk about branch 1.
+We will call it model based LLM Ops.
+Which is our LLM based LLM Ops.
+So we will call it model based LLM Ops.
+Whenever we talk about branch 2.
+Where we deal with LLM application based LLM Ops.
+So we will simplify this and call it application based LLM Ops.
+Again this terminology is given by me.
+I have devised it.
+Simply because I want to simplify the definitions.
+I want to simplify the terminology.
+So the branch 1 where we deal with LLM Ops.
+That will be called model based LLM Ops.
+And where we deal with application based LLM Ops.
+We will call it application based LLM Ops.
+So let's move ahead.
+So let's move ahead.
+So as we discussed that LLM Ops has 2 branches.
+And we will focus on application based LLM Ops for this particular course.
+So what will I do now?
+Now I will discuss the entire life cycle of application based LLM Ops.
+And to discuss this life cycle.
+We will take the example of a project.
+And this project will be a rag based project.
+And the example of rag based project.
+We will actually build this project in this course.
+So not only I will share the example with you.
+We will actually build this project later.
+So let's discuss about the rag based project.
+So first of all, whenever you start any LLM Ops project or any Gen A project.
+So first of all you understand the business problem.
+You understand the business problem.
+Now for this rag based project, our business problem is very straight forward.
+I work at CampusX and we build courses in CampusX.
+So sometimes students have to do question and answers around our courses.
+So we decided that what if we integrate a rag chatbot on CampusX website.
+And what will this rag chatbot do?
+This rag chatbot will take the transcripts around our courses as your knowledge source.
+And will embed them and store them in our vector database.
+After that, any student who is accessing my website or courses can come to this chatbot.
+And can do any question answering related to my courses.
+And the good part about this rag chatbot is that it will give answers around my courses.
+Means that the answers will be grounded in the transcripts.
+So first of all I was asked to build this rag chatbot.
+And I sat with my team and understood the business problem.
+And I made a plan how I will make this application.
+After that I decided that to make this application, I will use line chain and line graph.
+I will use these two frameworks.
+What will line chain give me?
+It will give me the different components around my rag application.
+And line graph will give me the graph or workflow of my application.
+So what I will do is using line chain and line graph, I will build my rag application workflow.
+So first of all I did this.
+First of all I built my application using line chain and line graph.
+Now as soon as you build your application, what you do is you manually test your application.
+Every developer does this.
+Whenever he makes an application, he manually tests it.
+Means he asks some questions and runs it to see if it is working or not.
+This whole process is called your white testing.
+So I ran my application on some selected questions.
+So my application was behaving well on some questions.
+But it was performing very poorly on some questions.
+Or I was not getting the expected results.
+So what I thought is that I work.
+I go here and change my system prompt.
+Let me tweak my system prompt.
+You all know that system prompt controls the behavior of your application.
+It is a very important component of your gen A application.
+Whether it is rag application or agentic application.
+System prompts play a very important role there.
+So I did the same.
+I changed the system prompt and manually tested the application again.
+I saw that after testing this time, my application was performing a little better.
+It was giving me some good results.
+So I tried some other set of questions.
+Again, I identified some problem there.
+Again, I tweaked my system prompt and updated it a little.
+Again, I tested my application.
+My application started performing a little better.
+But gradually, I came to a point that after a specific change, my application broke.
+It was not giving the good results that I expected.
+Now what happened is that I am updating my system prompt with my eyes closed.
+And I am not tracking the changes that I am doing anywhere.
+I am not tracking the changes anywhere.
+So here I felt the need to use prompt management or prompt versioning.
+If I had used prompt management here, then what would I have done?
+I would have properly versioned this system prompt.
+And I could easily compare the changes that were there in this.
+I could compare my updated versions.
+If I had properly done prompt management, then I would have had V1 of the prompt.
+If I had made some changes in that, then I would have had V2.
+Then I would have made some changes, then I would have had V3.
+And I would have been tracking the updates.
+And not only I would have made versions, I could have checked the changes in the prompt.
+What changes have been made in V1 to V2, V2 to V3.
+I could have tracked every step properly.
+And not only this, if my system prompt would have broken on any version, let's say version 10,
+then I could easily roll back on any previous version, let's say version 9.
+So here the rollback capability would have been given by prompt management or prompt versioning.
+So the next step in your LLM office lifecycle, what you do there is you do prompt management or prompt versioning.
+After that, what I was doing was I was manually testing my application.
+Till now, all my testing was manual.
+I was manually testing my application.
+Now in manual testing of application, a problem arises that you do not have any fixed criteria.
+There is no fixed criteria to test.
+Neither do you have any fixed scores.
+That means if your application is performing this, then you have to give this score.
+Or I can say there is no fixed grading mechanism.
+We do not call this score, we call it that there is no fixed grading mechanism.
+And here your evaluation steps are non-reproducible.
+Means this evaluation I am doing on my system, then I am doing it in some other way.
+If someone else is doing it, then he is doing it in some other way.
+So this is not reproducible.
+Fourth, they are non-scalable.
+This is not scalable either.
+Today, if I am evaluating my application on 10 queries, then tomorrow if these queries increase to 500,
+then I do not have any mechanism that I can scale this evaluation.
+So here in my LLM office, the next step comes that is your evaluation.
+Now you will be seeing experiment tracking in this graph.
+You can do experiment tracking first, but we will do evaluation in this course first.
+So I am telling you the flow of this course.
+So next what we will do is we will implement evaluation over our application.
+We will build a proper evaluation pipeline on our application, which is our campus expert Rack chatbot.
+What will this evaluation pipeline do?
+This evaluation pipeline will test my rag application on different aspects,
+will judge and will return me proper scores here for by metrics.
+Here I will get scores for every metric.
+So the criteria that you are using here is fixed criteria.
+Let's say I have a metric, I am taking an example of rag application.
+So here a metric is faithfulness, which basically checks how grounded my responses are in the context.
+So the formula or method of calculating faithfulness, which I am calling criteria, it is fixed.
+I am calculating faithfulness today, I am calculating tomorrow, its criteria are never changing.
+The grading mechanism of this is that the scores that I am calculating, how are they being calculated?
+For a given answer, if I am getting a score of 70% or 0.7, then why is it getting?
+If I am getting a score of 0.4 for any query, then why is it getting?
+So I have also defined the proper grading mechanism.
+Next, this is reproducible in nature, this evaluation pipeline we are making, this is basically nothing but my script.
+This is my Python script.
+Now, the number of times I run this script, it will religiously be able to reproduce my evaluations.
+So it is reproducible in nature and it is scalable too because I can run it on 10 queries and I can run it on 100 queries and 500 queries.
+So there is no problem in this.
+Now how all these things are done, how scalability is handled, how reproducibility is handled, we will see this further in this course.
+But we understood that as soon as we make our application, we make the prompt properly versioned,
+After that, the requirement is that the one that we are manually running our application and testing,
+it is better that we track our application through a fixed criteria.
+Now when we are testing our application here through the evaluation script,
+then for the first version of our application, we have some baseline scores coming.
+The baseline score means that we are getting some scores from the application that we have built.
+Now what happens next is that you do experiment tracking here.
+Experiment tracking means that your rag application, which is the chatbot of campus x,
+There is no such variable in it that you can change.
+There are multiple different parameters that are tunable or which you can change.
+I give you some examples.
+In the rag application, you must have heard about chunking.
+So there is a parameter in chunking, chunk size.
+You can change this.
+In the retriever, you must have heard about retrieval strategy.
+You can change the value of this strategy.
+You will hear about the value of K, how many chunks to retrieve.
+You can change this.
+You can change the model of your generator.
+You can change the temperature of the model if you want.
+So there are multiple tunable parameters that can completely change your rag application.
+You can change its output.
+And you do this.
+First, when you do testing, you identify what you identify.
+What drawbacks are there in my application.
+Let's say that I have a metric M1 and its score is very low.
+So now what I will do is I want to make this metric M1 a little better.
+There are some ways to do better.
+First of all, change the system prompt.
+We have already done that.
+Now we don't have much scope in it.
+The second way is that I can change my rag parameters.
+So I did that.
+I tweaked the chunk size, tweaked the K, changed the strategy.
+I played with my parameters a little bit.
+Now as soon as I change my parameters here, what will happen?
+My rag application behavior will change.
+Because my application is made with these parameters.
+If my application is changing here, I am creating a version V2 of my application.
+So I have to test this application now.
+So I will take this application and run my evaluation pipeline on it.
+I will get some scores here.
+Now I will analyze the scores and see if my M1 has improved or not.
+Let's say my M1 has improved and started to increase.
+So I will understand that by increasing the chunk size, my M1 is improving.
+So I will understand that if the chunk size is doing this much effect,
+then I will increase the chunk size a little more.
+If I increase the chunk size a little more, then my M1 has increased.
+If I increase it a little more, then it has increased.
+I started feeling very confident.
+I set the value of the chunk size to 5000.
+I said that what is the use of increasing it little by little?
+Let's set it to a big number.
+But as soon as I set the chunk size to 5000, my M1 came down a lot.
+Now the problem was that I was changing the combination of my parameters here.
+And because of that change, my scores were also changing.
+And I was doing this changing of parameters and doing evaluation again and again.
+Now this step that you do again and again when you change parameters and do evaluation,
+this is called your experimentation.
+And every iteration that you are doing is called a single experiment.
+So this experiment that I am doing again and again, I am not logging it anywhere.
+Or I am not saving anywhere.
+So what will be the problem that which parameter changed which matrix?
+How much change came? I am not keeping track of it.
+So I will not know what is the best combination of my matrix.
+Best combination of matrix.
+I don't have an idea of this because I am doing these changes blindly.
+I am not saving the matrix anywhere, I am not saving the parameters anywhere.
+I am just doing the changes, testing.
+I don't know what results came in the last one and what came in the next one.
+And I am not able to find the best combination of matrix.
+What if I use experiment tracking here?
+And through experiment tracking, I will use my parameters, my evaluation results
+and also the extra artifacts generated like changes in the code or any other changes.
+If I would have logged all these changes properly, then how good would it have been?
+I could have created different versions of my application here
+and I could have chosen from them which version of the application my evaluation scores are coming maximum.
+Maximum means if I have good scores on any particular version,
+then I have a better combination of track parameters.
+So I hope you are understanding why you need experiment tracking.
+Which you do after evaluation in your application changes so that your scores improve.
+So you have to keep track of them too and for this you use experiment tracking.
+I hope this point is clear to you.
+So we have covered this step too.
+After that, what do you do?
+You apply tracing and observability on your application.
+If I explain tracing in simple words,
+so tracing is nothing but following your query throughout the workflow.
+I explain it in simple words.
+What happens in a Rack application?
+Suppose my student asks a question from my chatbot.
+Where will that question go first?
+It will go to my retriever.
+My retriever will take this question and retrieve some chunks from the vector database.
+Now I will pass these query and chunks to the augmentation step.
+Where I will combine them to a prompt.
+So in this prompt, I will add my system prompt, chunks and query.
+After that, I will give this prompt to my LM.
+And my system prompt will read the LM, retrieved context, query and on this basis,
+it will generate a response.
+So the journey from query to response,
+that the query went to the retriever, what did the retriever do,
+what chunks did the retriever retrieve, how did they get augmented in the prompt,
+how did the prompt go to the LM, what did the LM respond to.
+So this whole journey that you are tracking is called tracing.
+And through this, you can track the journey from your application of every query.
+Now what is the benefit of this?
+That during tracing, your application not only locks this journey,
+but also locks that in this whole step,
+that is, how much latency was taken from query to response,
+that is, how much time was taken,
+that if you gave input, then how much time did you spend on output,
+then you can calculate the average latency here.
+The second benefit here is that you can also calculate the average cost here.
+That in processing every query,
+till the response, how much money you spent per API call,
+you can also calculate all these things.
+So what is the benefit of tracing?
+That it basically tells you the internals of your application,
+that for a given question, how your application behaves internally.
+And what is observability?
+In observability, the traces that you have collected,
+from inside them, you calculate the aggregate metrics,
+as I told you, average latency, average cost,
+and you visualize them through dashboards.
+So this is your observability.
+Tracing is collecting the logs,
+observability is visualizing them through dashboards.
+That's it.
+Now what is your application here is ready.
+But the problem is that your application,
+the chatbot of the campus, it is not secured.
+So what will you do in the next step?
+Around your application, you will build a security layer.
+And this security layer is called your guardrails.
+If I tell you about guardrails,
+then guardrails are simply a wrapper, a layer around your application.
+So anytime you see that your application,
+guardrails are placed around it.
+Means if you have an application,
+then guardrails are placed around it in this way.
+It acts as a fencing to your application.
+And this safeguards your application from attacks.
+Like I give you some examples.
+Like a student came to your campus chatbot
+and he is querying about a course that he has not purchased.
+So would you allow that student to ask this query
+or will you give the answer to that query?
+The answer is no.
+You will decline that query by saying that you have not purchased this course.
+So I cannot give you this answer.
+So this is kind of a safeguard.
+This is kind of a guardrail job that you will put on your application.
+Let's say a student is abusing my chatbot.
+Would you allow that type of query to pass through the application?
+The answer is no.
+You will not allow this.
+Now our many courses are in live setting.
+Like this course is also in live setting.
+So generally what happens is that we interact with the students.
+So the questions that are asked in the chat and we give them the answer.
+So many times while giving the answer, we refer any student to his name.
+Like someone asked a question.
+Let's say there is a student Amit.
+If he asked me a question, I would say that the answer to your question is this.
+So we don't want that when any of my students is querying from this chatbot,
+then there is the name of Amit or any other student.
+So there is a name of Amit.
+That is a private information to my student.
+This is his personal private information.
+So what I will do is I will put a guardrail here so that no personal information in the output.
+My chatbot doesn't give it.
+It is called PII.
+So I will set a guardrail around it.
+So what is basically a guardrail?
+Basically it is a wrapper around your application that makes your application secure around attacks
+and unauthorized or unauthenticated queries are blocked.
+I hope this point is clear to you.
+So we built our application here.
+Through experiment tracking, we got our best combination of parameters.
+After that, we added tracing and observability here.
+And finally, we made our application secure through guardrails.
+Now what I will do here using fast API.
+I will serve my application.
+How is our application now?
+Our application is written in line chain and line graph.
+It is a backend.
+Now how to execute this backend code?
+I know this as a developer.
+But it is possible that my front-end application is written in a language that cannot run this backend code directly.
+Like my backend is written in Python because I am using line chain.
+It is possible that my front-end is written in JavaScript.
+So this front-end cannot run my Python code directly because there is a mismatch of languages.
+So what to do here?
+What I will do here is I will build APIs around my backend.
+What are APIs?
+APIs are basically your middleman.
+They act as your middleman.
+Now instead of contacting your front-end directly from the backend,
+What will it do?
+It will contact this middleman.
+And how will this contact happen?
+Through the HTTP protocol.
+So this contact will be done through the HTTP protocol.
+And now my front-end will send some requests through the HTTP methods.
+And my API will send a response to my front-end.
+And these APIs will be connected to my backend.
+So they will act as a middleman between my front-end and backend.
+You can understand this through an example that my backend is a kitchen in a restaurant.
+Now your food is made in the kitchen.
+The chef makes the food.
+Front-end is the customer.
+The customer comes to my restaurant and has to order some dishes.
+So he does not place his order directly in the kitchen.
+What does my customer do here?
+The waiter, which is the middleman, gives his order to the waiter.
+This waiter takes my order to the kitchen.
+And the ready dish is served to my customer.
+So this is what we do here through the APIs.
+And this is called application serving.
+And the APIs that you build in your JNI applications,
+you keep streaming endpoints in them.
+What does this mean?
+Whatever response you get, it is received in a streaming fashion on your front-end.
+Like you must have seen in the chat GPT, if you do a query, you get the answer printed there.
+So here too you get the answer printed by token by token.
+I hope this point is clear to you.
+So here we have finally served our application, which is our backend, through the fast API.
+Now our deployment step has started.
+So what do you do next?
+Next your deployment starts and in deployment, the next step is you package your application.
+What do you do?
+You containerize your application using docker.
+So your application is not just a single application.
+There are some other things attached to your application, like its environment.
+The environment that you have made through UV or VNV, and the dependencies related to it.
+So what you do in containerization, you package all these things, your app, its environment and related dependencies in a container.
+And what you can simply do is you take this container anywhere, you deploy it somewhere and you simply run this package.
+And as soon as you run this package, your application will work on your deployed infrastructure as it is working on your laptop.
+So you package your application, its environment, dependencies, and then you take it to the infrastructure where it has to be deployed.
+So if you simply run it, then your application will work exactly as it is working on your laptop.
+And you will not face any dependency related issues.
+This is called your containerization and packaging.
+That is the next step in our LLM Ops lifecycle.
+Then comes the next step around CICD.
+What you do in CICD is basically you are deploying a Rack application here.
+It may be possible that you deploy another version of your application tomorrow.
+So what you do in CICD is you automate the testing and deployment.
+What you do in CICD is you automate your testing.
+You have the V2 of the application, the first thing you will do is you will test it against V1.
+You will check that this V2 version is better than my V1 or not.
+If it is better, then you will deploy it.
+If it is worse, then why will you deploy it?
+You will stay on V1.
+If it is better, then you automatically test it through the concept of CID.
+And then what you do through the concept of CID is if this V2 version is better than your V1, then you package it.
+So CID is nothing but your automated packaging.
+Now what will happen after completing this CID step?
+You will have just a second.
+You will have a packaged version 2 of your application.
+Packaged V2 of your application.
+It will be ready with you.
+Now what is the next step?
+The next step is you have to deploy it on a cloud provider.
+The next step is your cloud deployment.
+You can use any cloud platform, whether it is AWS, Microsoft Azure, Google GCP.
+You go there and deploy it.
+You take this packaged version on your cloud infrastructure.
+You run it there and your application is live.
+I mean to say that your APIs are live.
+Now your front end can interact with these APIs and use your application.
+But the story does not end on deployment.
+There are more steps that you do in this LLM ops lifecycle.
+You also execute post deployment steps here.
+So what do you mean by post deployment?
+First of all, after deployment, you apply tracing and observability for your user queries.
+Now this chatbot that you made, the campus chatbot, has been deployed and integrated with your website.
+So now the queries that will come to your user, you will implement tracing on them.
+Basically, you will track the queries of every student in your application and lock them.
+So that you know how your users are interacting with your application.
+What kind of questions they are giving you.
+You will have all this knowledge.
+And what can you do in the future?
+You can run online evals on your user queries.
+And you can evaluate your application after deployment.
+Whether it is working as intended or not.
+Has there been any drift in it?
+Has the score not decreased after deployment?
+So you can monitor all these things.
+And not only do you monitor the application here through tracing, observability and online evals.
+You also monitor your infrastructure here.
+On the infrastructure, let's say if I talk about AWS, then there are EC2 machines.
+This is your compute infrastructure where your application is live.
+So not only do you monitor your application and its health.
+After deployment, you also monitor the health of your infrastructure and its health metrics.
+You also monitor the health of your application.
+Like CPU usage, network usage, RAM usage, disk usage.
+You monitor all these things.
+And after this, your entire LLM Ops lifecycle is completed.
+So I hope you understood how you implement this lifecycle in application-based LLM Ops.
+We understood this whole process through a use case.
+I know we did not cover every point in detail.
+And that is the point of this course.
+In this course, we will touch each point in depth and cover everything in detail.
+So I hope guys you like this video.
+I'll see you in the next one guys. Bye and take care.

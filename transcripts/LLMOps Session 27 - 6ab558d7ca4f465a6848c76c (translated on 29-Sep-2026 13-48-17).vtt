@@ -1,0 +1,9647 @@
+WEBVTT
+
+00:03:30.000 --> 00:03:59.000
+.
+
+00:03:59.000 --> 00:04:01.400
+Good evening guys, how are you all?
+
+00:04:02.800 --> 00:04:06.400
+Can anybody drop a message in the group that class has started
+
+00:04:10.000 --> 00:04:11.400
+Let's start in 5 minutes
+
+00:04:11.400 --> 00:04:14.600
+Let other people join in and then we'll start
+
+00:04:16.100 --> 00:04:18.600
+A quick check, am I audible, visible?
+
+00:04:18.899 --> 00:04:20.399
+You can see the screen share
+
+00:04:20.399 --> 00:04:21.399
+Thank you
+
+00:04:28.400 --> 00:04:29.400
+Thank you
+
+00:04:30.200 --> 00:04:34.000
+Let's wait a little, till then you can ask me questions
+
+00:04:46.599 --> 00:04:49.900
+Let's wait a little, people are joining in
+
+00:04:50.400 --> 00:04:51.400
+Any questions?
+
+00:05:20.400 --> 00:05:24.200
+Guys, you are all trying the implement in the class, right?
+
+00:05:28.400 --> 00:05:31.099
+Whatever we are implementing, you are able to run it on your system
+
+00:05:31.099 --> 00:05:33.000
+You are able to replicate the whole process
+
+00:05:50.400 --> 00:05:51.400
+Tell me guys
+
+00:06:06.400 --> 00:06:10.400
+No Akash, in real production, when you use production grade vector databases
+
+00:06:10.400 --> 00:06:14.400
+You don't have to change the whole database
+
+00:06:14.400 --> 00:06:19.400
+What you do is you make your database in different collections or groups
+
+00:06:19.400 --> 00:06:22.400
+Obviously, if you have changed your parameters
+
+00:06:22.400 --> 00:06:26.400
+After changing the parameters, you will have to do chunking again
+
+00:06:26.400 --> 00:06:29.400
+Because you have changed the chunking parameters
+
+00:06:29.400 --> 00:06:31.400
+Your embedding vectors will change
+
+00:06:31.400 --> 00:06:33.400
+So you have to do the process again
+
+00:06:33.400 --> 00:06:35.400
+But it's not like you delete it and do it
+
+00:06:35.400 --> 00:06:38.400
+Like if your database is in production setup
+
+00:06:38.400 --> 00:06:40.400
+Like pine cone or millvus
+
+00:06:40.400 --> 00:06:43.400
+So those are your hosted databases
+
+00:06:43.400 --> 00:06:47.400
+So you connect them through API and push your changes there
+
+00:06:50.400 --> 00:06:53.400
+But this work is done in experimentation
+
+00:06:53.400 --> 00:06:59.400
+Once you go to production, you don't change the database until you get the next version of the application
+
+00:07:03.400 --> 00:07:08.400
+Okay, no problem if you have two or three lectures behind
+
+00:07:08.400 --> 00:07:14.400
+If you are able to replicate whatever you have read so far, that's good
+
+00:07:14.400 --> 00:07:19.400
+If there are no issues in performing it, then it is okay
+
+00:07:19.400 --> 00:07:21.400
+Your progress is whatever
+
+00:07:27.400 --> 00:07:30.400
+Let's wait for two more minutes and then start
+
+00:07:32.400 --> 00:07:38.400
+I just want everybody to be in so that we can start together
+
+00:07:38.400 --> 00:07:42.400
+Because it has been a wonderful journey with you guys
+
+00:07:42.400 --> 00:07:49.400
+I will discuss with you where we started from and what was our outlook
+
+00:07:49.400 --> 00:07:52.400
+And now we have reached the stage of our project
+
+00:07:54.400 --> 00:07:56.400
+And actually we have covered a lot
+
+00:07:58.400 --> 00:08:02.400
+Whatever we decided in the beginning that we will do all these things
+
+00:08:02.400 --> 00:08:05.400
+We have almost covered all those things
+
+00:08:05.400 --> 00:08:10.400
+We are actually at the very last step of our RAC project
+
+00:08:12.400 --> 00:08:26.400
+Okay, no problem, just run whatever you are learning here once
+
+00:08:26.400 --> 00:08:28.400
+It will increase your confidence
+
+00:08:28.400 --> 00:08:32.400
+And don't worry if you get bugs
+
+00:08:32.400 --> 00:08:35.400
+Bugs keep coming in our life class
+
+00:08:35.400 --> 00:08:37.400
+We are doing our best
+
+00:08:39.400 --> 00:08:41.400
+So we have figured out at last
+
+00:08:41.400 --> 00:08:45.400
+So no problem, bugs are normal
+
+00:08:48.400 --> 00:08:51.400
+If bugs are not coming in the operations, then they are abnormal
+
+00:08:56.400 --> 00:09:00.400
+Start it, right click and start
+
+00:09:06.400 --> 00:09:08.400
+Okay, let's start
+
+00:09:08.400 --> 00:09:13.400
+So guys, first of all, I would like to discuss with you that thanks for sticking around
+
+00:09:13.400 --> 00:09:17.400
+You have followed this course with so much intensity
+
+00:09:17.400 --> 00:09:21.400
+And I know that the course is very tough to follow
+
+00:09:21.400 --> 00:09:32.400
+But you have persevered here and I am very happy that you have followed your progress in the LLME VALS lecture
+
+00:09:32.400 --> 00:09:37.400
+And if you get similar concepts anywhere, then you can give answers
+
+00:09:37.400 --> 00:09:42.400
+I can see the result of that
+
+00:09:42.400 --> 00:09:44.400
+So I am pretty happy about it
+
+00:09:44.400 --> 00:09:52.400
+So let me take you to our first module where we discussed what all things we are going to build in this project
+
+00:09:52.400 --> 00:09:59.400
+So we discussed the layering and what all tools will be there in each layer
+
+00:09:59.400 --> 00:10:04.400
+So let's revisit this because we have almost completed it
+
+00:10:04.400 --> 00:10:07.400
+So we have made our application
+
+00:10:07.400 --> 00:10:10.400
+We have done everything through Lang Graph to orchestrate it
+
+00:10:10.400 --> 00:10:12.400
+We have built our graph
+
+00:10:12.400 --> 00:10:15.400
+After that we learned prompt management on LangFuse
+
+00:10:15.400 --> 00:10:18.400
+How you can change the versions in between
+
+00:10:18.400 --> 00:10:22.400
+Then we built the entire experiment tracking pipeline on MLflow
+
+00:10:22.400 --> 00:10:25.400
+And we are successfully able to track our experiments
+
+00:10:25.400 --> 00:10:29.400
+After that we learned the whole evaluation scenario
+
+00:10:29.400 --> 00:10:32.400
+How you can run your evals in RackApp
+
+00:10:32.400 --> 00:10:37.400
+We have used built-in evals which is provided by DPVAL
+
+00:10:37.400 --> 00:10:40.400
+And we have also made some custom metrics through GEVAL
+
+00:10:40.400 --> 00:10:43.400
+Then we touched the concept of observability
+
+00:10:43.400 --> 00:10:45.400
+Although we have touched it in post production
+
+00:10:45.400 --> 00:10:52.400
+But you can see that we are able to lock all our traces in post production
+
+00:10:52.400 --> 00:10:56.400
+And not only we are able to lock, we are able to build graphs through it
+
+00:10:56.400 --> 00:10:58.400
+We are also able to do observability
+
+00:10:58.400 --> 00:11:01.400
+And we are also able to run online evals on it
+
+00:11:01.400 --> 00:11:05.400
+Then we implemented guardrails on our application
+
+00:11:05.400 --> 00:11:08.400
+We implemented some guardrails with built-in models
+
+00:11:08.400 --> 00:11:10.400
+And some custom guardrails
+
+00:11:10.400 --> 00:11:13.400
+Then we served our application using fast API
+
+00:11:13.400 --> 00:11:17.400
+And we also created a streamlined frontend
+
+00:11:17.400 --> 00:11:20.400
+After that we studied the concept of docker
+
+00:11:20.400 --> 00:11:23.400
+And we also studied the concept of CI
+
+00:11:23.400 --> 00:11:26.400
+What we are doing in CI is testing our application
+
+00:11:26.400 --> 00:11:31.400
+And in CD, we are packaging our completely tested application
+
+00:11:31.400 --> 00:11:34.400
+And taking it to AWS
+
+00:11:34.400 --> 00:11:39.400
+After that we have completed our deployment on AWS
+
+00:11:39.400 --> 00:11:42.400
+So we have completed this part as well
+
+00:11:42.400 --> 00:11:44.400
+The deployment part
+
+00:11:44.400 --> 00:11:47.400
+And after that we have done LLM monitoring
+
+00:11:47.400 --> 00:11:49.400
+Which is again our tracing
+
+00:11:49.400 --> 00:11:51.400
+Which we did through LIMEFUSE
+
+00:11:51.400 --> 00:11:54.400
+And one more thing that we have to do
+
+00:11:54.400 --> 00:11:57.400
+That is our infrastructure tracking or observability
+
+00:11:57.400 --> 00:11:59.400
+For that we have two tools
+
+00:11:59.400 --> 00:12:02.400
+The first is Prometheus which we are going to study in today's lecture
+
+00:12:02.400 --> 00:12:04.400
+And the second is our Grafana
+
+00:12:04.400 --> 00:12:06.400
+Which we will cover in the next lecture
+
+00:12:06.400 --> 00:12:09.400
+So in our entire operations journey
+
+00:12:09.400 --> 00:12:13.400
+All the phases and stages in operations
+
+00:12:13.400 --> 00:12:17.400
+We have successfully crossed every stage
+
+00:12:17.400 --> 00:12:20.400
+And now we have reached our end level
+
+00:12:20.400 --> 00:12:22.400
+We have reached our boss level
+
+00:12:22.400 --> 00:12:24.400
+And we will eventually complete this
+
+00:12:24.400 --> 00:12:28.400
+And our entire end-to-end pipeline of Ops will be completed
+
+00:12:28.400 --> 00:12:30.400
+And I am pretty happy about it
+
+00:12:30.400 --> 00:12:32.400
+That we were able to do this together
+
+00:12:32.400 --> 00:12:35.400
+We have studied many new concepts together
+
+00:12:35.400 --> 00:12:39.400
+We have shared a very good interaction time together
+
+00:12:39.400 --> 00:12:41.400
+As a mentor and as students
+
+00:12:41.400 --> 00:12:43.400
+We have formed a very deep bonding between us
+
+00:12:43.400 --> 00:12:47.400
+And if you are able to answer all this
+
+00:12:47.400 --> 00:12:49.400
+Then this is a very proud moment for me
+
+00:12:49.400 --> 00:12:52.400
+So I am very happy with my students
+
+00:12:52.400 --> 00:12:54.400
+With my learners
+
+00:12:54.400 --> 00:12:56.400
+I hope you liked this entire course
+
+00:12:56.400 --> 00:12:59.400
+So let's do one thing
+
+00:12:59.400 --> 00:13:01.400
+Let's take a small recap
+
+00:13:01.400 --> 00:13:03.400
+Around our previous lecture
+
+00:13:03.400 --> 00:13:05.400
+And then we start today's lecture
+
+00:13:05.400 --> 00:13:07.400
+So two or three lectures earlier
+
+00:13:07.400 --> 00:13:09.400
+We had defined a goal here
+
+00:13:09.400 --> 00:13:14.400
+We had defined a goal that we are going to do our post deployment
+
+00:13:14.400 --> 00:13:16.400
+And in post deployment
+
+00:13:16.400 --> 00:13:21.400
+We understood that we have to observe two things here
+
+00:13:21.400 --> 00:13:23.400
+The first was our application
+
+00:13:23.400 --> 00:13:27.400
+We spent three lectures to observe this application
+
+00:13:27.400 --> 00:13:29.400
+We enabled tracing in the first lecture
+
+00:13:29.400 --> 00:13:31.400
+We learned observability in the second lecture
+
+00:13:31.400 --> 00:13:32.400
+On LangFuse
+
+00:13:32.400 --> 00:13:33.400
+And in the third lecture
+
+00:13:33.400 --> 00:13:36.400
+How do you evaluate each trace
+
+00:13:36.400 --> 00:13:38.400
+We learned this too
+
+00:13:38.400 --> 00:13:42.400
+Now it's time for our infrastructure observability
+
+00:13:45.400 --> 00:13:49.400
+So from today we will monitor our infrastructure
+
+00:13:49.400 --> 00:13:51.400
+Which is our EC2 machines
+
+00:13:51.400 --> 00:13:53.400
+Which is our compute
+
+00:13:53.400 --> 00:13:55.400
+Is this our compute hardware
+
+00:13:57.400 --> 00:13:59.400
+On AWS
+
+00:13:59.400 --> 00:14:01.400
+We will monitor this
+
+00:14:01.400 --> 00:14:03.400
+And for this we use two tools
+
+00:14:03.400 --> 00:14:06.400
+And these tools are industry leaders
+
+00:14:06.400 --> 00:14:09.400
+You will see these tools in many places
+
+00:14:09.400 --> 00:14:11.400
+It is written on Prometheus website
+
+00:14:11.400 --> 00:14:13.400
+That after Kubernetes
+
+00:14:13.400 --> 00:14:18.400
+Prometheus is the most downloaded software in production setups
+
+00:14:18.400 --> 00:14:20.400
+So it is that much popular
+
+00:14:20.400 --> 00:14:22.400
+Prometheus is used everywhere
+
+00:14:22.400 --> 00:14:25.400
+So the first tool we are going to read today
+
+00:14:25.400 --> 00:14:28.400
+Which we will read today is Prometheus
+
+00:14:28.400 --> 00:14:32.400
+And the second tool is Grafana
+
+00:14:33.400 --> 00:14:37.400
+And if you ever hear the name of Prometheus and Grafana
+
+00:14:37.400 --> 00:14:39.400
+You will hear their names together
+
+00:14:39.400 --> 00:14:40.400
+This is Karan Arjun
+
+00:14:40.400 --> 00:14:42.400
+You will not hear them separately
+
+00:14:42.400 --> 00:14:44.400
+They are together
+
+00:14:44.400 --> 00:14:45.400
+Why are they together?
+
+00:14:45.400 --> 00:14:46.400
+I will tell you
+
+00:14:46.400 --> 00:14:48.400
+What is the work of Prometheus
+
+00:14:48.400 --> 00:14:49.400
+The work of Prometheus is that
+
+00:14:49.400 --> 00:14:52.400
+All the metrics on your compute hardware
+
+00:14:52.400 --> 00:14:53.400
+All the information
+
+00:14:53.400 --> 00:14:55.400
+How much is your CPU usage
+
+00:14:55.400 --> 00:14:57.400
+How much is your network usage
+
+00:14:57.400 --> 00:14:58.400
+How much RAM is being used
+
+00:14:58.400 --> 00:14:59.400
+Is it free
+
+00:14:59.400 --> 00:15:01.400
+What are your temperatures
+
+00:15:01.400 --> 00:15:04.400
+The data which you want to monitor at your system level
+
+00:15:04.400 --> 00:15:07.400
+The work of monitoring and logging
+
+00:15:07.400 --> 00:15:08.400
+Is done by Prometheus
+
+00:15:08.400 --> 00:15:11.400
+Meaning that the work of bringing that data to one place
+
+00:15:11.400 --> 00:15:12.400
+Is done by Prometheus
+
+00:15:12.400 --> 00:15:14.400
+But the Prometheus data
+
+00:15:14.400 --> 00:15:16.400
+I will show you how the data looks like
+
+00:15:16.400 --> 00:15:18.400
+It is very vague
+
+00:15:18.400 --> 00:15:20.400
+It has the name of the metric
+
+00:15:20.400 --> 00:15:22.400
+The names of the metrics are very complex
+
+00:15:22.400 --> 00:15:23.400
+And there are many numbers
+
+00:15:23.400 --> 00:15:25.400
+So by looking at them in one instance
+
+00:15:25.400 --> 00:15:26.400
+You will not understand
+
+00:15:26.400 --> 00:15:27.400
+That I am the shape of these numbers
+
+00:15:27.400 --> 00:15:30.400
+If you will be confused by the numbers
+
+00:15:30.400 --> 00:15:31.400
+You will be confused
+
+00:15:31.400 --> 00:15:33.400
+So to solve that confusion
+
+00:15:33.400 --> 00:15:35.400
+You need a dashboard
+
+00:15:35.400 --> 00:15:38.400
+Like we cannot manually see every trace
+
+00:15:38.400 --> 00:15:39.400
+So what did we do
+
+00:15:39.400 --> 00:15:41.400
+We made a dashboard for LangFuse
+
+00:15:41.400 --> 00:15:44.400
+We had all the details on that dashboard
+
+00:15:44.400 --> 00:15:46.400
+I will show you our dashboard again
+
+00:15:46.400 --> 00:15:49.400
+If I go to my LangFuse homepage
+
+00:15:49.400 --> 00:15:52.400
+Then I can see my dashboard
+
+00:15:52.400 --> 00:15:55.400
+Now all the details are coming in one instance
+
+00:15:55.400 --> 00:15:57.400
+On my face
+
+00:15:57.400 --> 00:15:59.400
+And I can go here and see
+
+00:15:59.400 --> 00:16:01.400
+How my application is behaving
+
+00:16:01.400 --> 00:16:04.400
+And I want the same thing for my infrastructure
+
+00:16:04.400 --> 00:16:05.400
+I don't want to look at the numbers
+
+00:16:05.400 --> 00:16:08.400
+I want to look at a proper visualization
+
+00:16:08.400 --> 00:16:12.400
+So your Grafana does the work of visualizing
+
+00:16:12.400 --> 00:16:15.400
+And whatever Grafana has to visualize
+
+00:16:15.400 --> 00:16:16.400
+Where does it bring its data
+
+00:16:16.400 --> 00:16:19.400
+It brings the data from Prometheus
+
+00:16:19.400 --> 00:16:23.400
+So actually these two are sibling applications
+
+00:16:23.400 --> 00:16:25.400
+By Karan and Arjun
+
+00:16:25.400 --> 00:16:30.400
+If you want to give your results to the user
+
+00:16:30.400 --> 00:16:35.400
+That means you have to output it in front of the user
+
+00:16:35.400 --> 00:16:38.400
+You will use Grafana to output
+
+00:16:38.400 --> 00:16:41.400
+And where you have to fetch the data from Grafana
+
+00:16:41.400 --> 00:16:44.400
+It will fetch the data from Prometheus
+
+00:16:44.400 --> 00:16:46.400
+I hope you understood this thing
+
+00:16:46.400 --> 00:16:50.400
+So today we will start our infrastructure monitoring
+
+00:16:50.400 --> 00:16:52.400
+Is this point clear
+
+00:16:52.400 --> 00:16:55.400
+Is the journey so far clear to you
+
+00:16:55.400 --> 00:16:58.400
+If it is clear then right click and move ahead
+
+00:16:58.400 --> 00:17:02.400
+And if you have any questions then you can ask me
+
+00:17:11.400 --> 00:17:13.400
+Clear
+
+00:17:13.400 --> 00:17:14.400
+Great
+
+00:17:14.400 --> 00:17:16.400
+Let's move ahead
+
+00:17:16.400 --> 00:17:18.400
+Now let's do one thing
+
+00:17:18.400 --> 00:17:23.400
+Let's create our online eval instance again
+
+00:17:23.400 --> 00:17:26.400
+The thing is that we were creating an instance in the last class
+
+00:17:26.400 --> 00:17:28.400
+And we were getting some errors
+
+00:17:28.400 --> 00:17:30.400
+And our commands were not working properly
+
+00:17:30.400 --> 00:17:32.400
+So I thought let's do one thing
+
+00:17:32.400 --> 00:17:34.400
+Let's recreate it again
+
+00:17:34.400 --> 00:17:37.400
+So that you can go through the commands again
+
+00:17:37.400 --> 00:17:40.400
+So here I have already made an instance
+
+00:17:40.400 --> 00:17:41.400
+Online eval instance
+
+00:17:41.400 --> 00:17:44.400
+I will terminate this instance
+
+00:17:45.400 --> 00:17:48.400
+I will delete this one
+
+00:17:50.400 --> 00:17:51.400
+Ok
+
+00:17:51.400 --> 00:17:52.400
+This is shutting down
+
+00:17:52.400 --> 00:17:56.400
+And here we go to launch instance
+
+00:17:56.400 --> 00:17:59.400
+And let's create an instance
+
+00:17:59.400 --> 00:18:06.400
+So you have to write here online eval instance
+
+00:18:06.400 --> 00:18:08.400
+We are using the same name
+
+00:18:08.400 --> 00:18:10.400
+OAS will be 1,2
+
+00:18:10.400 --> 00:18:11.400
+Let's go down
+
+00:18:11.400 --> 00:18:13.400
+Our instance type will be T3 micro
+
+00:18:13.400 --> 00:18:15.400
+It will work on this
+
+00:18:15.400 --> 00:18:16.400
+No problem
+
+00:18:16.400 --> 00:18:17.400
+Ok
+
+00:18:17.400 --> 00:18:19.400
+After that you have to attach a network
+
+00:18:19.400 --> 00:18:23.400
+So I think I have already made a security group
+
+00:18:23.400 --> 00:18:26.400
+And it is launch wizard 1
+
+00:18:26.400 --> 00:18:28.400
+I think this is the one
+
+00:18:28.400 --> 00:18:30.400
+Ok let's select this
+
+00:18:31.400 --> 00:18:33.400
+And what you have to do in this
+
+00:18:33.400 --> 00:18:35.400
+Add a role
+
+00:18:35.400 --> 00:18:36.400
+Why do you have to add a role
+
+00:18:36.400 --> 00:18:38.400
+Because this online eval instance
+
+00:18:38.400 --> 00:18:40.400
+Will read our files from S3
+
+00:18:40.400 --> 00:18:43.400
+And will read our secrets
+
+00:18:43.400 --> 00:18:45.400
+So for that we made a role
+
+00:18:45.400 --> 00:18:46.400
+In the previous session
+
+00:18:46.400 --> 00:18:48.400
+We will attach that role here
+
+00:18:50.400 --> 00:18:52.400
+In the previous class the problem was
+
+00:18:52.400 --> 00:18:53.400
+Actually there was no issue in the commands
+
+00:18:53.400 --> 00:18:54.400
+The commands were fine
+
+00:18:54.400 --> 00:18:56.400
+The problem was that the aws cli
+
+00:18:56.400 --> 00:18:57.400
+That we installed
+
+00:18:57.400 --> 00:18:59.400
+There is a command to remove it
+
+00:18:59.400 --> 00:19:01.400
+We didn't run that command
+
+00:19:01.400 --> 00:19:02.400
+So what was happening
+
+00:19:02.400 --> 00:19:04.400
+Our aws cli installation file
+
+00:19:04.400 --> 00:19:06.400
+It was taking up a lot of space
+
+00:19:06.400 --> 00:19:08.400
+It was taking up around 6.5 GB space
+
+00:19:08.400 --> 00:19:10.400
+Out of 8 GB
+
+00:19:10.400 --> 00:19:12.400
+And we didn't have free space
+
+00:19:12.400 --> 00:19:14.400
+So our virtual environment
+
+00:19:14.400 --> 00:19:16.400
+Was getting difficult to be made
+
+00:19:16.400 --> 00:19:18.400
+So I have found a solution for that
+
+00:19:18.400 --> 00:19:20.400
+The solution is that instead of using
+
+00:19:20.400 --> 00:19:21.400
+Normal python
+
+00:19:21.400 --> 00:19:23.400
+Our instance is running
+
+00:19:23.400 --> 00:19:25.400
+Let's connect it once
+
+00:19:25.400 --> 00:19:27.400
+So the solution is that instead of using
+
+00:19:27.400 --> 00:19:28.400
+Normal python
+
+00:19:28.400 --> 00:19:30.400
+We will do the installation through
+
+00:19:30.400 --> 00:19:31.400
+UB
+
+00:19:32.400 --> 00:19:33.400
+Ok
+
+00:19:33.400 --> 00:19:35.400
+So let's go to our VS code
+
+00:19:35.400 --> 00:19:36.400
+Just a second
+
+00:19:39.400 --> 00:19:40.400
+One minute guys
+
+00:19:44.400 --> 00:19:45.400
+Ok not on VS code
+
+00:19:45.400 --> 00:19:47.400
+I have actually opened the steps here
+
+00:19:47.400 --> 00:19:48.400
+On the GitHub
+
+00:19:48.400 --> 00:19:49.400
+These are the same steps
+
+00:19:49.400 --> 00:19:50.400
+Which you see in VS code
+
+00:19:50.400 --> 00:19:51.400
+Ok
+
+00:19:51.400 --> 00:19:52.400
+So what you have to do is
+
+00:19:52.400 --> 00:19:54.400
+Simply copy paste these commands
+
+00:19:54.400 --> 00:19:55.400
+So you know this command
+
+00:19:55.400 --> 00:19:56.400
+What it will do
+
+00:19:56.400 --> 00:19:59.400
+It will install your jq
+
+00:19:59.400 --> 00:20:01.400
+For parsing your json unzip
+
+00:20:01.400 --> 00:20:03.400
+So that you can unzip aws cli
+
+00:20:03.400 --> 00:20:04.400
+And cron
+
+00:20:04.400 --> 00:20:06.400
+You will setup your whole thing
+
+00:20:06.400 --> 00:20:07.400
+Through cron
+
+00:20:07.400 --> 00:20:08.400
+Ok
+
+00:20:08.400 --> 00:20:10.400
+So what we will do is
+
+00:20:11.400 --> 00:20:12.400
+Run this
+
+00:20:17.400 --> 00:20:19.400
+It will take some time
+
+00:20:19.400 --> 00:20:20.400
+I think
+
+00:20:21.400 --> 00:20:23.400
+It will take 2-4 seconds more
+
+00:20:27.400 --> 00:20:28.400
+And it is done
+
+00:20:28.400 --> 00:20:30.400
+After that what you will do is
+
+00:20:30.400 --> 00:20:32.400
+Install your aws cli
+
+00:20:32.400 --> 00:20:33.400
+And install it here
+
+00:20:34.400 --> 00:20:35.400
+Why do you need this
+
+00:20:35.400 --> 00:20:37.400
+You need this to connect with your s3
+
+00:20:37.400 --> 00:20:39.400
+To connect with secrets manager
+
+00:20:40.400 --> 00:20:41.400
+Done
+
+00:20:41.400 --> 00:20:42.400
+We have done this
+
+00:20:43.400 --> 00:20:44.400
+After that what you will do is
+
+00:20:44.400 --> 00:20:45.400
+You will check once
+
+00:20:45.400 --> 00:20:48.400
+That your role which you have attached
+
+00:20:48.400 --> 00:20:50.400
+Is it bringing information or not
+
+00:20:51.400 --> 00:20:52.400
+So yes
+
+00:20:52.400 --> 00:20:54.400
+You are bringing information here
+
+00:20:54.400 --> 00:20:55.400
+So the role you have attached
+
+00:20:55.400 --> 00:20:57.400
+Is able to connect with your s3
+
+00:20:58.400 --> 00:21:00.400
+Now you will make here
+
+00:21:00.400 --> 00:21:01.400
+You will make directories
+
+00:21:04.400 --> 00:21:06.400
+We have made this directory
+
+00:21:06.400 --> 00:21:07.400
+Ok
+
+00:21:07.400 --> 00:21:08.400
+Opt campus x rag
+
+00:21:08.400 --> 00:21:09.400
+I will show you actually
+
+00:21:09.400 --> 00:21:11.400
+If I do cd here
+
+00:21:11.400 --> 00:21:12.400
+In opt
+
+00:21:12.400 --> 00:21:13.400
+And ls
+
+00:21:13.400 --> 00:21:14.400
+So you can see here
+
+00:21:14.400 --> 00:21:16.400
+This campus x rag
+
+00:21:16.400 --> 00:21:17.400
+Is visible
+
+00:21:17.400 --> 00:21:18.400
+Ok
+
+00:21:18.400 --> 00:21:20.400
+Now what we will do is
+
+00:21:20.400 --> 00:21:22.400
+We will go to our s3
+
+00:21:22.400 --> 00:21:24.400
+And download our two files
+
+00:21:24.400 --> 00:21:25.400
+Which are
+
+00:21:25.400 --> 00:21:26.400
+Our python file
+
+00:21:26.400 --> 00:21:28.400
+Which will run our eval script
+
+00:21:28.400 --> 00:21:29.400
+And our requirements
+
+00:21:31.400 --> 00:21:32.400
+See it has been downloaded
+
+00:21:32.400 --> 00:21:33.400
+Both have come
+
+00:21:33.400 --> 00:21:35.400
+After that what you will do is
+
+00:21:35.400 --> 00:21:36.400
+After that this is the step
+
+00:21:36.400 --> 00:21:37.400
+Of your UV install
+
+00:21:37.400 --> 00:21:38.400
+Ok
+
+00:21:38.400 --> 00:21:39.400
+So now what we will do is
+
+00:21:39.400 --> 00:21:40.400
+On our instance
+
+00:21:40.400 --> 00:21:41.400
+We will install UV
+
+00:21:41.400 --> 00:21:42.400
+First we were installing python
+
+00:21:42.400 --> 00:21:44.400
+Then we were installing venv
+
+00:21:44.400 --> 00:21:45.400
+Instead of that
+
+00:21:45.400 --> 00:21:46.400
+We will straight away
+
+00:21:46.400 --> 00:21:47.400
+Install UV
+
+00:21:47.400 --> 00:21:48.400
+See
+
+00:21:48.400 --> 00:21:49.400
+UV has been installed
+
+00:21:49.400 --> 00:21:50.400
+It is super quick
+
+00:21:50.400 --> 00:21:52.400
+After that what we will do is
+
+00:21:52.400 --> 00:21:54.400
+We will read the requirements file
+
+00:21:54.400 --> 00:21:55.400
+Which we have put
+
+00:21:55.400 --> 00:21:56.400
+And from inside it
+
+00:21:56.400 --> 00:21:58.400
+We will install our packages
+
+00:21:58.400 --> 00:21:59.400
+So through this command
+
+00:21:59.400 --> 00:22:00.400
+You can simply
+
+00:22:00.400 --> 00:22:01.400
+Install your packages
+
+00:22:01.400 --> 00:22:02.400
+Ok
+
+00:22:02.400 --> 00:22:03.400
+Ok
+
+00:22:03.400 --> 00:22:09.400
+Just a second
+
+00:22:09.400 --> 00:22:10.400
+What is it saying
+
+00:22:10.400 --> 00:22:11.400
+No virtual environment
+
+00:22:11.400 --> 00:22:13.400
+System python installation found
+
+00:22:13.400 --> 00:22:16.400
+Just a second
+
+00:22:16.400 --> 00:22:17.400
+Ok
+
+00:22:17.400 --> 00:22:22.400
+First I have to install this command
+
+00:22:22.400 --> 00:22:23.400
+My mistake
+
+00:22:23.400 --> 00:22:24.400
+What will this command do
+
+00:22:24.400 --> 00:22:25.400
+This command will first
+
+00:22:25.400 --> 00:22:26.400
+Install my python
+
+00:22:26.400 --> 00:22:28.400
+And create my virtual environment
+
+00:22:28.400 --> 00:22:29.400
+First you will create a virtual environment
+
+00:22:29.400 --> 00:22:30.400
+And in that
+
+00:22:30.400 --> 00:22:31.400
+Packages will be installed
+
+00:22:31.400 --> 00:22:33.400
+You will do this
+
+00:22:33.400 --> 00:22:34.400
+Ok
+
+00:22:34.400 --> 00:22:36.400
+See your python is 3.1.2
+
+00:22:36.400 --> 00:22:38.400
+It is the exact same version
+
+00:22:38.400 --> 00:22:40.400
+Which we are using on our system
+
+00:22:40.400 --> 00:22:41.400
+Ok
+
+00:22:41.400 --> 00:22:42.400
+And here I have a virtual environment
+
+00:22:42.400 --> 00:22:44.400
+Also created and activated
+
+00:22:44.400 --> 00:22:47.400
+Now we will install our packages here
+
+00:22:50.400 --> 00:22:51.400
+See
+
+00:22:51.400 --> 00:22:53.400
+Your packages are being installed
+
+00:22:53.400 --> 00:22:54.400
+Just like in UV
+
+00:22:54.400 --> 00:22:55.400
+They are happening
+
+00:22:55.400 --> 00:22:56.400
+They are happening
+
+00:22:56.400 --> 00:22:58.400
+Let's wait a little bit
+
+00:23:02.400 --> 00:23:03.400
+These commands are basically
+
+00:23:03.400 --> 00:23:04.400
+To verify
+
+00:23:04.400 --> 00:23:06.400
+Our installation is complete or not
+
+00:23:06.400 --> 00:23:07.400
+It will tell us
+
+00:23:07.400 --> 00:23:09.400
+Whether python is installed properly or not
+
+00:23:09.400 --> 00:23:10.400
+And the command below
+
+00:23:10.400 --> 00:23:11.400
+Will tell us
+
+00:23:11.400 --> 00:23:13.400
+Which packages are installed here
+
+00:23:14.400 --> 00:23:16.400
+So let's wait
+
+00:23:17.400 --> 00:23:18.400
+Let it complete
+
+00:23:26.400 --> 00:23:27.400
+See
+
+00:23:27.400 --> 00:23:28.400
+It is done
+
+00:23:28.400 --> 00:23:29.400
+It is exactly a UV interface
+
+00:23:29.400 --> 00:23:31.400
+Now we will check through this command
+
+00:23:31.400 --> 00:23:33.400
+Whether python is installed or not
+
+00:23:33.400 --> 00:23:34.400
+Yes it is telling us
+
+00:23:34.400 --> 00:23:35.400
+Python version
+
+00:23:35.400 --> 00:23:36.400
+This one is installed
+
+00:23:36.400 --> 00:23:37.400
+Then we will check
+
+00:23:37.400 --> 00:23:39.400
+Whether our libraries are installed or not
+
+00:23:40.400 --> 00:23:41.400
+See
+
+00:23:41.400 --> 00:23:42.400
+Our DP file
+
+00:23:42.400 --> 00:23:43.400
+This version
+
+00:23:43.400 --> 00:23:44.400
+Langfuse
+
+00:23:44.400 --> 00:23:45.400
+And our .env
+
+00:23:45.400 --> 00:23:46.400
+They are installed
+
+00:23:46.400 --> 00:23:48.400
+What will we do next
+
+00:23:48.400 --> 00:23:50.400
+We will bring our secrets here
+
+00:23:50.400 --> 00:23:53.400
+And paste it in a .env file
+
+00:23:53.400 --> 00:23:54.400
+It will tell us
+
+00:23:54.400 --> 00:23:55.400
+Done
+
+00:23:55.400 --> 00:23:57.400
+What will we do after that
+
+00:23:57.400 --> 00:24:00.400
+We will make our script here
+
+00:24:00.400 --> 00:24:02.400
+Which will run our python file
+
+00:24:02.400 --> 00:24:04.400
+In every 15 minutes
+
+00:24:04.400 --> 00:24:05.400
+It is done
+
+00:24:05.400 --> 00:24:06.400
+Run eval.sh
+
+00:24:07.400 --> 00:24:10.400
+And here we are setting our cron job
+
+00:24:10.400 --> 00:24:11.400
+And that's it guys
+
+00:24:13.400 --> 00:24:14.400
+Everything is done
+
+00:24:14.400 --> 00:24:15.400
+How will we know
+
+00:24:15.400 --> 00:24:16.400
+Whether the cron job is set or not
+
+00:24:16.400 --> 00:24:18.400
+You run this command
+
+00:24:20.400 --> 00:24:21.400
+And
+
+00:24:21.400 --> 00:24:22.400
+See
+
+00:24:22.400 --> 00:24:23.400
+Here
+
+00:24:23.400 --> 00:24:25.400
+You have set it for every 15 minutes
+
+00:24:25.400 --> 00:24:27.400
+So what will happen in every 15 minutes
+
+00:24:27.400 --> 00:24:29.400
+Your online evaluation pipeline will run
+
+00:24:29.400 --> 00:24:30.400
+And
+
+00:24:30.400 --> 00:24:32.400
+It will push scores on your langfuse
+
+00:24:32.400 --> 00:24:34.400
+So what will we do to push scores
+
+00:24:34.400 --> 00:24:35.400
+Here
+
+00:24:35.400 --> 00:24:36.400
+We go to our
+
+00:24:38.400 --> 00:24:39.400
+Load balancer
+
+00:24:40.400 --> 00:24:41.400
+Ok
+
+00:24:41.400 --> 00:24:43.400
+And here we copy our DNS
+
+00:24:43.400 --> 00:24:45.400
+Now the setup is such that
+
+00:24:45.400 --> 00:24:49.400
+I have added my auto scaling group through proper code deploy
+
+00:24:49.400 --> 00:24:51.400
+Load balancer target group
+
+00:24:51.400 --> 00:24:52.400
+Whatever we did
+
+00:24:52.400 --> 00:24:54.400
+You can see it properly here
+
+00:24:54.400 --> 00:24:56.400
+See these four instances
+
+00:24:56.400 --> 00:24:58.400
+This is my online eval instance
+
+00:24:58.400 --> 00:25:00.400
+You can ignore this
+
+00:25:00.400 --> 00:25:01.400
+Monitoring instance
+
+00:25:01.400 --> 00:25:02.400
+Ok
+
+00:25:02.400 --> 00:25:04.400
+And these two instances
+
+00:25:04.400 --> 00:25:05.400
+Without name
+
+00:25:05.400 --> 00:25:07.400
+This one and this one
+
+00:25:07.400 --> 00:25:08.400
+This is coming from your auto scaling group
+
+00:25:08.400 --> 00:25:10.400
+See this is T3 media
+
+00:25:10.400 --> 00:25:12.400
+Your application is running on these two
+
+00:25:12.400 --> 00:25:13.400
+Ok
+
+00:25:13.400 --> 00:25:14.400
+Let's check once
+
+00:25:14.400 --> 00:25:15.400
+Is it running or not
+
+00:25:15.400 --> 00:25:16.400
+I am lying
+
+00:25:16.400 --> 00:25:18.400
+It is possible that I am lying
+
+00:25:21.400 --> 00:25:23.400
+So it is better to test
+
+00:25:25.400 --> 00:25:26.400
+This is HTTPS
+
+00:25:26.400 --> 00:25:28.400
+Let's call it HTP
+
+00:25:30.400 --> 00:25:32.400
+Let's wait for two minutes
+
+00:25:33.400 --> 00:25:34.400
+Continue to site
+
+00:25:34.400 --> 00:25:35.400
+Streamlit is written
+
+00:25:35.400 --> 00:25:37.400
+So it means something is happening
+
+00:25:38.400 --> 00:25:39.400
+Let's do this again
+
+00:25:39.400 --> 00:25:40.400
+And
+
+00:25:40.400 --> 00:25:41.400
+Let's go to port 8000
+
+00:25:41.400 --> 00:25:43.400
+What is running on port 8000
+
+00:25:43.400 --> 00:25:44.400
+My backend
+
+00:25:44.400 --> 00:25:45.400
+Yes
+
+00:25:45.400 --> 00:25:46.400
+I can access it
+
+00:25:48.400 --> 00:25:49.400
+Yes
+
+00:25:49.400 --> 00:25:51.400
+Application and backend is working
+
+00:25:51.400 --> 00:25:53.400
+And now what I will do here
+
+00:25:53.400 --> 00:25:55.400
+I will ask a question
+
+00:25:55.400 --> 00:25:57.400
+Let's ask the same question
+
+00:25:57.400 --> 00:25:59.400
+What is the
+
+00:25:59.400 --> 00:26:01.400
+Difference
+
+00:26:01.400 --> 00:26:03.400
+Between online
+
+00:26:03.400 --> 00:26:05.400
+Versus
+
+00:26:05.400 --> 00:26:07.400
+Offline evals
+
+00:26:11.400 --> 00:26:12.400
+Now if you go here
+
+00:26:12.400 --> 00:26:14.400
+You will see a trace
+
+00:26:14.400 --> 00:26:15.400
+I work on it
+
+00:26:15.400 --> 00:26:17.400
+Instead of past 1D
+
+00:26:17.400 --> 00:26:19.400
+I will do 1R
+
+00:26:21.400 --> 00:26:23.400
+Let's go back to our front end
+
+00:26:23.400 --> 00:26:25.400
+And you will get the response soon
+
+00:26:25.400 --> 00:26:27.400
+And one more thing
+
+00:26:27.400 --> 00:26:29.400
+I am experimenting
+
+00:26:29.400 --> 00:26:31.400
+Yesterday we conducted a very good session
+
+00:26:31.400 --> 00:26:33.400
+So I am
+
+00:26:33.400 --> 00:26:35.400
+Figuring out how we can use Jeff
+
+00:26:35.400 --> 00:26:37.400
+In our application
+
+00:26:37.400 --> 00:26:39.400
+So maybe I will experiment with Jeff
+
+00:26:39.400 --> 00:26:41.400
+And it is possible that next time
+
+00:26:41.400 --> 00:26:43.400
+When we meet on Monday
+
+00:26:43.400 --> 00:26:45.400
+So I will bring a little bit of Jeff in guardrails
+
+00:26:45.400 --> 00:26:47.400
+And make this pipeline a little faster
+
+00:26:47.400 --> 00:26:49.400
+So it will be just an experimentation
+
+00:26:49.400 --> 00:26:51.400
+I am not promising you that
+
+00:26:51.400 --> 00:26:53.400
+It will work so well or not
+
+00:26:53.400 --> 00:26:55.400
+But if it works well
+
+00:26:55.400 --> 00:26:57.400
+And we get benefits here
+
+00:26:57.400 --> 00:26:59.400
+Of our speed
+
+00:26:59.400 --> 00:27:01.400
+So I will include Jeff here
+
+00:27:01.400 --> 00:27:03.400
+In our application
+
+00:27:03.400 --> 00:27:05.400
+I will update my application to version 2
+
+00:27:05.400 --> 00:27:07.400
+So I am getting the answer
+
+00:27:07.400 --> 00:27:09.400
+Let's ask one more question
+
+00:27:09.400 --> 00:27:11.400
+What are
+
+00:27:11.400 --> 00:27:13.400
+LLM benchmarks
+
+00:27:13.400 --> 00:27:15.400
+LLM
+
+00:27:15.400 --> 00:27:17.400
+Benchmarks
+
+00:27:19.400 --> 00:27:21.400
+Benchmarks
+
+00:27:27.400 --> 00:27:29.400
+Let's wait a little
+
+00:27:29.400 --> 00:27:31.400
+Let's go to tracing
+
+00:27:31.400 --> 00:27:33.400
+So I have one trace
+
+00:27:33.400 --> 00:27:35.400
+And here
+
+00:27:35.400 --> 00:27:37.400
+Around 12 seconds
+
+00:27:37.400 --> 00:27:39.400
+Retrieval, we have fastened the retrieval
+
+00:27:39.400 --> 00:27:41.400
+And it takes 30 seconds in response
+
+00:27:41.400 --> 00:27:43.400
+From which maximum time
+
+00:27:43.400 --> 00:27:45.400
+Our guardrails
+
+00:27:45.400 --> 00:27:47.400
+It is taking 4-5 seconds
+
+00:27:47.400 --> 00:27:49.400
+2 seconds
+
+00:27:49.400 --> 00:27:51.400
+6 and around 4 seconds
+
+00:27:51.400 --> 00:27:53.400
+So we can save 10 seconds
+
+00:27:53.400 --> 00:27:55.400
+More
+
+00:27:55.400 --> 00:27:57.400
+Means in 18-17 seconds
+
+00:27:57.400 --> 00:27:59.400
+We will get our response
+
+00:27:59.400 --> 00:28:01.400
+And you will see perceived response
+
+00:28:01.400 --> 00:28:03.400
+Because 7-8 seconds from that
+
+00:28:03.400 --> 00:28:05.400
+Are in your generation
+
+00:28:05.400 --> 00:28:07.400
+So around 7-8 seconds
+
+00:28:07.400 --> 00:28:09.400
+Your first call will start coming
+
+00:28:09.400 --> 00:28:11.400
+So here
+
+00:28:11.400 --> 00:28:13.400
+Responses are coming
+
+00:28:13.400 --> 00:28:15.400
+And we are able to capture the traces
+
+00:28:15.400 --> 00:28:17.400
+But now you will see
+
+00:28:17.400 --> 00:28:19.400
+No evaluation results are visible
+
+00:28:19.400 --> 00:28:21.400
+Why not visible
+
+00:28:21.400 --> 00:28:23.400
+Because the prong job we have set
+
+00:28:23.400 --> 00:28:25.400
+Will trigger after next 15 minutes
+
+00:28:25.400 --> 00:28:27.400
+But what you can do
+
+00:28:27.400 --> 00:28:29.400
+You can start the prong job manually
+
+00:28:29.400 --> 00:28:31.400
+So I will show you
+
+00:28:31.400 --> 00:28:33.400
+If you see here
+
+00:28:33.400 --> 00:28:35.400
+You will see an online eval and folder
+
+00:28:35.400 --> 00:28:37.400
+Let's go to cd
+
+00:28:37.400 --> 00:28:39.400
+And if you see here
+
+00:28:39.400 --> 00:28:41.400
+You will see a log file
+
+00:28:45.400 --> 00:28:47.400
+Now the log file is not visible
+
+00:28:47.400 --> 00:28:49.400
+Because this job is not running
+
+00:28:49.400 --> 00:28:51.400
+So let's trigger it
+
+00:28:51.400 --> 00:28:53.400
+Let's trigger it
+
+00:28:53.400 --> 00:28:55.400
+Manually using this command
+
+00:28:55.400 --> 00:28:57.400
+We are simply running
+
+00:28:57.400 --> 00:28:59.400
+Our script
+
+00:29:01.400 --> 00:29:03.400
+I have run
+
+00:29:03.400 --> 00:29:05.400
+My deep eval script
+
+00:29:05.400 --> 00:29:07.400
+I have run it
+
+00:29:11.400 --> 00:29:13.400
+Let's wait for 2 minutes
+
+00:29:13.400 --> 00:29:15.400
+Now our terminal will be free
+
+00:29:31.400 --> 00:29:33.400
+As soon as our evaluation is complete
+
+00:29:33.400 --> 00:29:35.400
+Our terminal will be free
+
+00:29:35.400 --> 00:29:37.400
+Time is not free
+
+00:29:37.400 --> 00:29:39.400
+That means the evaluation is going on in the background
+
+00:29:45.400 --> 00:29:47.400
+If I show you in LS
+
+00:29:47.400 --> 00:29:49.400
+So here you will see
+
+00:29:49.400 --> 00:29:51.400
+This is the JSON file
+
+00:29:51.400 --> 00:29:53.400
+This is our time
+
+00:29:53.400 --> 00:29:55.400
+Calculating the timestamps
+
+00:29:55.400 --> 00:29:57.400
+And what is in the prong log
+
+00:29:57.400 --> 00:29:59.400
+Here you can see my logs from the prong job
+
+00:29:59.400 --> 00:30:01.400
+If you want to see the logs
+
+00:30:01.400 --> 00:30:03.400
+You will run this command
+
+00:30:03.400 --> 00:30:05.400
+This one
+
+00:30:05.400 --> 00:30:07.400
+You will see last 20 lines of the logs
+
+00:30:07.400 --> 00:30:09.400
+So let's paste it
+
+00:30:11.400 --> 00:30:13.400
+And see
+
+00:30:13.400 --> 00:30:15.400
+Here some requests have gone
+
+00:30:15.400 --> 00:30:17.400
+Basically here my model has
+
+00:30:17.400 --> 00:30:19.400
+Request gone and here the evaluation has happened
+
+00:30:19.400 --> 00:30:21.400
+And you can give
+
+00:30:21.400 --> 00:30:23.400
+This run is complete
+
+00:30:23.400 --> 00:30:25.400
+How much fetch is here? 2
+
+00:30:25.400 --> 00:30:27.400
+How much skip? 0
+
+00:30:27.400 --> 00:30:29.400
+How much score? 2 and how much fail? 0
+
+00:30:29.400 --> 00:30:31.400
+So this means scoring is done
+
+00:30:31.400 --> 00:30:33.400
+Now let's go again on the linefuse
+
+00:30:33.400 --> 00:30:35.400
+And if I open any trace
+
+00:30:35.400 --> 00:30:37.400
+See, I can see the scores here
+
+00:30:37.400 --> 00:30:39.400
+But go to the scores tab
+
+00:30:39.400 --> 00:30:41.400
+These are the scores along with the reason
+
+00:30:41.400 --> 00:30:43.400
+See
+
+00:30:43.400 --> 00:30:45.400
+Contextual relevancy 0.96, faithfulness 90
+
+00:30:45.400 --> 00:30:47.400
+And answer relevancy is 100
+
+00:30:47.400 --> 00:30:49.400
+Same with my
+
+00:30:49.400 --> 00:30:51.400
+Other
+
+00:30:51.400 --> 00:30:53.400
+Trace
+
+00:30:53.400 --> 00:30:55.400
+I think I had opened this one before
+
+00:30:55.400 --> 00:30:57.400
+This one
+
+00:30:57.400 --> 00:30:59.400
+85%
+
+00:30:59.400 --> 00:31:01.400
+100%
+
+00:31:01.400 --> 00:31:03.400
+So yes, I am able to track here
+
+00:31:03.400 --> 00:31:05.400
+And I am able to observe my metrics here
+
+00:31:07.400 --> 00:31:09.400
+Is this point clear guys?
+
+00:31:09.400 --> 00:31:11.400
+Clear
+
+00:31:11.400 --> 00:31:13.400
+Now we have done nothing new
+
+00:31:13.400 --> 00:31:15.400
+Now we have only our old setup
+
+00:31:15.400 --> 00:31:17.400
+Which we have built since so many days
+
+00:31:17.400 --> 00:31:19.400
+We have only retested it and re-explored it
+
+00:31:19.400 --> 00:31:21.400
+Clear
+
+00:31:21.400 --> 00:31:23.400
+Now let's do one thing
+
+00:31:23.400 --> 00:31:25.400
+Let's put some more chats here
+
+00:31:25.400 --> 00:31:27.400
+What I will do is
+
+00:31:27.400 --> 00:31:29.400
+I will open the notes
+
+00:31:29.400 --> 00:31:31.400
+Here are some questions
+
+00:31:31.400 --> 00:31:33.400
+I will reuse them
+
+00:31:33.400 --> 00:31:35.400
+Ok
+
+00:31:35.400 --> 00:31:37.400
+Let's put them here and leave
+
+00:31:37.400 --> 00:31:39.400
+Simply, after some time
+
+00:31:39.400 --> 00:31:41.400
+It will be evaluated automatically
+
+00:31:41.400 --> 00:31:43.400
+It will also be confirmed that
+
+00:31:43.400 --> 00:31:45.400
+Our cron job is working
+
+00:31:55.400 --> 00:31:57.400
+So you can see clearly guys
+
+00:31:57.400 --> 00:31:59.400
+Whatever setup we have built
+
+00:31:59.400 --> 00:32:01.400
+Everything is working
+
+00:32:01.400 --> 00:32:03.400
+I am not saying anything in the air
+
+00:32:05.400 --> 00:32:07.400
+Response has come
+
+00:32:09.400 --> 00:32:11.400
+Let's go and bring one more
+
+00:32:11.400 --> 00:32:13.400
+Let's take this question
+
+00:32:15.400 --> 00:32:17.400
+Now guys
+
+00:32:17.400 --> 00:32:19.400
+I am not reading the question
+
+00:32:19.400 --> 00:32:21.400
+So don't judge
+
+00:32:21.400 --> 00:32:23.400
+This question is not valid
+
+00:32:23.400 --> 00:32:25.400
+Whatever it is, it is not valid
+
+00:32:25.400 --> 00:32:27.400
+Simply I am creating dummy traces
+
+00:32:49.400 --> 00:32:51.400
+It has come
+
+00:32:51.400 --> 00:32:53.400
+Let's ask one more question
+
+00:32:55.400 --> 00:32:57.400
+Let's ask this one
+
+00:33:17.400 --> 00:33:19.400
+So 3 traces have been done here
+
+00:33:19.400 --> 00:33:21.400
+Let's do one thing
+
+00:33:21.400 --> 00:33:23.400
+I will trigger guardrail in the new session
+
+00:33:23.400 --> 00:33:25.400
+So we will have 4 traces
+
+00:33:25.400 --> 00:33:27.400
+Which we have to evaluate
+
+00:33:27.400 --> 00:33:29.400
+And only 3 of them
+
+00:33:29.400 --> 00:33:31.400
+Will be evaluated
+
+00:33:37.400 --> 00:33:39.400
+Ok, guardrails have been triggered here
+
+00:33:39.400 --> 00:33:41.400
+That's great
+
+00:33:41.400 --> 00:33:43.400
+So we have 2
+
+00:33:43.400 --> 00:33:45.400
+Our questions
+
+00:33:45.400 --> 00:33:47.400
+We get proper responses there
+
+00:33:47.400 --> 00:33:49.400
+So this output guardrail will be triggered
+
+00:33:49.400 --> 00:33:51.400
+If we go and see
+
+00:33:51.400 --> 00:33:53.400
+Two tracing
+
+00:33:53.400 --> 00:33:55.400
+This is the same question in which our output guardrail is triggered
+
+00:33:55.400 --> 00:33:57.400
+Yes, here
+
+00:33:57.400 --> 00:33:59.400
+So we should get scores of 2
+
+00:33:59.400 --> 00:34:01.400
+And the top one
+
+00:34:01.400 --> 00:34:03.400
+We should not get any score of this
+
+00:34:03.400 --> 00:34:05.400
+Let's move ahead
+
+00:34:05.400 --> 00:34:07.400
+It will run automatically after 15 minutes
+
+00:34:07.400 --> 00:34:09.400
+Let's move forward
+
+00:34:09.400 --> 00:34:11.400
+I will open up my
+
+00:34:11.400 --> 00:34:13.400
+OneNote
+
+00:34:13.400 --> 00:34:15.400
+Just a second guys
+
+00:34:15.400 --> 00:34:17.400
+OneNote is visible guys
+
+00:34:17.400 --> 00:34:19.400
+Let's move ahead
+
+00:34:21.400 --> 00:34:23.400
+I have understood the setup
+
+00:34:23.400 --> 00:34:25.400
+Although we have not done anything new
+
+00:34:25.400 --> 00:34:27.400
+We have only
+
+00:34:27.400 --> 00:34:29.400
+Explored our previous setup
+
+00:34:31.400 --> 00:34:33.400
+What we have been doing
+
+00:34:33.400 --> 00:34:35.400
+Deployment, post deployment
+
+00:34:35.400 --> 00:34:37.400
+All those things are working here
+
+00:34:37.400 --> 00:34:39.400
+In tandem
+
+00:34:39.400 --> 00:34:41.400
+Right, clear
+
+00:34:41.400 --> 00:34:43.400
+If all things are clear
+
+00:34:43.400 --> 00:34:45.400
+Let's move towards Prometheus
+
+00:34:47.400 --> 00:34:49.400
+Yes
+
+00:34:49.400 --> 00:34:51.400
+Now let's discuss about
+
+00:34:51.400 --> 00:34:53.400
+Prometheus
+
+00:34:53.400 --> 00:34:55.400
+So Prometheus
+
+00:34:55.400 --> 00:34:57.400
+If I tell you in simple words
+
+00:34:57.400 --> 00:34:59.400
+Prometheus is a tool
+
+00:34:59.400 --> 00:35:01.400
+Ok, what is Prometheus?
+
+00:35:01.400 --> 00:35:03.400
+It is a tool
+
+00:35:03.400 --> 00:35:05.400
+And why is this tool used in the industry?
+
+00:35:05.400 --> 00:35:07.400
+For monitoring
+
+00:35:07.400 --> 00:35:09.400
+And observability
+
+00:35:09.400 --> 00:35:11.400
+Now you have heard these terms many times
+
+00:35:11.400 --> 00:35:13.400
+So I will not
+
+00:35:13.400 --> 00:35:15.400
+Focus on them again
+
+00:35:15.400 --> 00:35:17.400
+Monitoring and observability
+
+00:35:17.400 --> 00:35:19.400
+Prometheus
+
+00:35:19.400 --> 00:35:21.400
+Is basically a tool
+
+00:35:21.400 --> 00:35:23.400
+Through which you can monitor
+
+00:35:23.400 --> 00:35:25.400
+Your application, your infrastructure
+
+00:35:25.400 --> 00:35:27.400
+Or anything
+
+00:35:27.400 --> 00:35:29.400
+You can observe
+
+00:35:29.400 --> 00:35:31.400
+Why is Prometheus used in the industry?
+
+00:35:31.400 --> 00:35:33.400
+Because it is a
+
+00:35:33.400 --> 00:35:35.400
+Standardized tool
+
+00:35:35.400 --> 00:35:37.400
+Ok
+
+00:35:37.400 --> 00:35:39.400
+So this tool is
+
+00:35:39.400 --> 00:35:41.400
+So standardized
+
+00:35:41.400 --> 00:35:43.400
+That it works with everything
+
+00:35:43.400 --> 00:35:45.400
+Your applications
+
+00:35:45.400 --> 00:35:47.400
+Your application is written in Java, JavaScript
+
+00:35:47.400 --> 00:35:49.400
+Python, Go
+
+00:35:49.400 --> 00:35:51.400
+In any language
+
+00:35:51.400 --> 00:35:53.400
+You have Prometheus support
+
+00:35:53.400 --> 00:35:55.400
+If you want to monitor any type of infrastructure
+
+00:35:55.400 --> 00:35:57.400
+Whether it is your Kubernetes pods
+
+00:35:57.400 --> 00:35:59.400
+Or your AWS services
+
+00:35:59.400 --> 00:36:01.400
+Or your EC2 instances
+
+00:36:01.400 --> 00:36:03.400
+Or on Azure, or on GCP
+
+00:36:03.400 --> 00:36:05.400
+Or even your databases
+
+00:36:05.400 --> 00:36:07.400
+Or your Windows system
+
+00:36:07.400 --> 00:36:09.400
+Or your Mac system
+
+00:36:09.400 --> 00:36:11.400
+For all these things, tracking, monitoring
+
+00:36:11.400 --> 00:36:13.400
+and observability are available
+
+00:36:13.400 --> 00:36:15.400
+So this is basically a do it all tool
+
+00:36:15.400 --> 00:36:17.400
+From the perspective of monitoring and observability
+
+00:36:17.400 --> 00:36:19.400
+Now how does Prometheus
+
+00:36:19.400 --> 00:36:21.400
+Do all these things?
+
+00:36:21.400 --> 00:36:23.400
+How did it become so standardized?
+
+00:36:23.400 --> 00:36:25.400
+What is the magic behind it?
+
+00:36:25.400 --> 00:36:27.400
+So there is no magic
+
+00:36:27.400 --> 00:36:29.400
+The magic is that Prometheus
+
+00:36:29.400 --> 00:36:31.400
+Do all these things locally
+
+00:36:31.400 --> 00:36:33.400
+Ok
+
+00:36:33.400 --> 00:36:35.400
+Prometheus has
+
+00:36:35.400 --> 00:36:37.400
+One of the biggest things
+
+00:36:37.400 --> 00:36:39.400
+Its database
+
+00:36:39.400 --> 00:36:41.400
+So Prometheus is basically
+
+00:36:41.400 --> 00:36:43.400
+A service, a tool
+
+00:36:43.400 --> 00:36:45.400
+Wrapped around a database
+
+00:36:45.400 --> 00:36:47.400
+And this database
+
+00:36:47.400 --> 00:36:49.400
+It is a very special kind of database
+
+00:36:49.400 --> 00:36:51.400
+It is called your time series database
+
+00:36:53.400 --> 00:36:55.400
+And the way it works is very simple
+
+00:36:55.400 --> 00:36:57.400
+What does Prometheus do?
+
+00:36:57.400 --> 00:36:59.400
+Let's say, we are tracking here
+
+00:36:59.400 --> 00:37:01.400
+Our EC2 instance's RAM usage
+
+00:37:05.400 --> 00:37:07.400
+Right, in our T3 medium
+
+00:37:07.400 --> 00:37:09.400
+I think there is 4GB of RAM
+
+00:37:11.400 --> 00:37:13.400
+So we want to check
+
+00:37:13.400 --> 00:37:15.400
+How many GB of RAM
+
+00:37:15.400 --> 00:37:17.400
+Is being consumed from these 4GB
+
+00:37:17.400 --> 00:37:19.400
+And how much is free
+
+00:37:19.400 --> 00:37:21.400
+If we know about the consumption
+
+00:37:21.400 --> 00:37:23.400
+And the total
+
+00:37:23.400 --> 00:37:25.400
+Then we can calculate how much is free
+
+00:37:25.400 --> 00:37:27.400
+We will get free from total-consume
+
+00:37:27.400 --> 00:37:29.400
+So basically, around RAM
+
+00:37:29.400 --> 00:37:31.400
+All the information we need
+
+00:37:31.400 --> 00:37:33.400
+All the Prometheus is giving us
+
+00:37:33.400 --> 00:37:35.400
+Now how will all these things happen?
+
+00:37:35.400 --> 00:37:37.400
+See, your metric
+
+00:37:37.400 --> 00:37:39.400
+Let's say RAM usage
+
+00:37:39.400 --> 00:37:41.400
+Is a metric
+
+00:37:41.400 --> 00:37:43.400
+It has a current value
+
+00:37:45.400 --> 00:37:47.400
+Ok, if you
+
+00:37:47.400 --> 00:37:49.400
+At this time
+
+00:37:49.400 --> 00:37:51.400
+At 8.36 pm
+
+00:37:51.400 --> 00:37:53.400
+You want to check how much RAM usage is there
+
+00:37:53.400 --> 00:37:55.400
+On your EC2 instance
+
+00:37:55.400 --> 00:37:57.400
+Then you will get 3.2 GB of RAM
+
+00:37:57.400 --> 00:37:59.400
+That at 8.36 pm
+
+00:37:59.400 --> 00:38:01.400
+On all the seconds
+
+00:38:01.400 --> 00:38:03.400
+On that time
+
+00:38:03.400 --> 00:38:05.400
+You are consuming 3.2 GB of RAM
+
+00:38:05.400 --> 00:38:07.400
+But this 3.2 GB
+
+00:38:07.400 --> 00:38:09.400
+Number
+
+00:38:09.400 --> 00:38:11.400
+It is not that informative
+
+00:38:11.400 --> 00:38:13.400
+It has no benefit
+
+00:38:13.400 --> 00:38:15.400
+Whenever you do observability
+
+00:38:15.400 --> 00:38:17.400
+What do you do?
+
+00:38:17.400 --> 00:38:19.400
+You observe things in a particular time window
+
+00:38:19.400 --> 00:38:21.400
+You can see in Langfuse
+
+00:38:21.400 --> 00:38:23.400
+You are tracing or you are building a graph
+
+00:38:23.400 --> 00:38:25.400
+So here you are showing a time window
+
+00:38:25.400 --> 00:38:27.400
+Past one hour, past one day
+
+00:38:27.400 --> 00:38:29.400
+This is a time window
+
+00:38:29.400 --> 00:38:31.400
+So everything in the world of monitoring
+
+00:38:31.400 --> 00:38:33.400
+Or in the world of observability
+
+00:38:33.400 --> 00:38:35.400
+There is a time window
+
+00:38:35.400 --> 00:38:37.400
+So standalone numbers have no benefit
+
+00:38:37.400 --> 00:38:39.400
+So Prometheus
+
+00:38:39.400 --> 00:38:41.400
+Developers thought
+
+00:38:41.400 --> 00:38:43.400
+Here a simple database
+
+00:38:43.400 --> 00:38:45.400
+Which will simply lock the numbers
+
+00:38:45.400 --> 00:38:47.400
+Or will store in its database
+
+00:38:47.400 --> 00:38:49.400
+It has no benefit
+
+00:38:49.400 --> 00:38:51.400
+What we have to do? We have to make a time series
+
+00:38:51.400 --> 00:38:53.400
+We have to make a specific database
+
+00:38:53.400 --> 00:38:55.400
+And they came up with a database called
+
+00:38:55.400 --> 00:38:57.400
+TSDB
+
+00:38:57.400 --> 00:38:59.400
+What does TSDB do here?
+
+00:38:59.400 --> 00:39:01.400
+This is a very simple database
+
+00:39:01.400 --> 00:39:03.400
+It stores your data
+
+00:39:03.400 --> 00:39:05.400
+Where your indexes are
+
+00:39:05.400 --> 00:39:07.400
+Your row id
+
+00:39:07.400 --> 00:39:09.400
+That is your timestamp
+
+00:39:13.400 --> 00:39:15.400
+And further is your value
+
+00:39:15.400 --> 00:39:17.400
+Of the metric
+
+00:39:17.400 --> 00:39:19.400
+Like here
+
+00:39:19.400 --> 00:39:21.400
+Value is 3.2 GB
+
+00:39:21.400 --> 00:39:23.400
+After that next timestamp will come
+
+00:39:23.400 --> 00:39:25.400
+Let's say this is T1
+
+00:39:25.400 --> 00:39:27.400
+Then T2
+
+00:39:27.400 --> 00:39:29.400
+Value will be on T2
+
+00:39:29.400 --> 00:39:31.400
+Let's say 2.8 GB
+
+00:39:31.400 --> 00:39:33.400
+Then T3
+
+00:39:33.400 --> 00:39:35.400
+It will be on that
+
+00:39:35.400 --> 00:39:37.400
+Let's say 3 GB
+
+00:39:37.400 --> 00:39:39.400
+So you can see that with time
+
+00:39:39.400 --> 00:39:41.400
+Your RAM usage is fluctuating
+
+00:39:41.400 --> 00:39:43.400
+And this is useful
+
+00:39:43.400 --> 00:39:45.400
+On this you can run
+
+00:39:45.400 --> 00:39:47.400
+Your mathematical operations
+
+00:39:47.400 --> 00:39:49.400
+You can run comparisons
+
+00:39:49.400 --> 00:39:51.400
+You can run aggregations
+
+00:39:51.400 --> 00:39:53.400
+I hope you are understanding this
+
+00:39:53.400 --> 00:39:55.400
+Prometheus is basically
+
+00:39:55.400 --> 00:39:57.400
+A service wrapped around a time series database
+
+00:39:57.400 --> 00:39:59.400
+That's it
+
+00:39:59.400 --> 00:40:01.400
+Now let's talk about
+
+00:40:01.400 --> 00:40:03.400
+Why Prometheus is so generalized
+
+00:40:03.400 --> 00:40:05.400
+How it gets integrated so easily everywhere
+
+00:40:05.400 --> 00:40:07.400
+Prometheus has
+
+00:40:07.400 --> 00:40:09.400
+Some core primitives
+
+00:40:09.400 --> 00:40:11.400
+Which help it to get integrated everywhere
+
+00:40:11.400 --> 00:40:13.400
+First of all
+
+00:40:13.400 --> 00:40:15.400
+Prometheus
+
+00:40:15.400 --> 00:40:17.400
+Adds two services
+
+00:40:17.400 --> 00:40:19.400
+To add metrics
+
+00:40:19.400 --> 00:40:21.400
+To add metrics
+
+00:40:21.400 --> 00:40:23.400
+First service is
+
+00:40:23.400 --> 00:40:25.400
+Client libraries
+
+00:40:27.400 --> 00:40:29.400
+What are client libraries
+
+00:40:29.400 --> 00:40:31.400
+These are basically
+
+00:40:31.400 --> 00:40:33.400
+Prometheus SDKs
+
+00:40:33.400 --> 00:40:35.400
+Means if you
+
+00:40:35.400 --> 00:40:37.400
+In python application
+
+00:40:37.400 --> 00:40:39.400
+Like our python application
+
+00:40:39.400 --> 00:40:41.400
+If you want to add some tracking
+
+00:40:41.400 --> 00:40:43.400
+To add some metrics
+
+00:40:43.400 --> 00:40:45.400
+You will use python SDK
+
+00:40:45.400 --> 00:40:47.400
+If you have Java code
+
+00:40:47.400 --> 00:40:49.400
+You will use Java SDK
+
+00:40:49.400 --> 00:40:51.400
+If you have C++ code
+
+00:40:51.400 --> 00:40:53.400
+You will use C++ SDK
+
+00:40:53.400 --> 00:40:55.400
+Whatever your language is
+
+00:40:55.400 --> 00:40:57.400
+Prometheus gives you client libraries
+
+00:40:57.400 --> 00:40:59.400
+Through which you can
+
+00:40:59.400 --> 00:41:01.400
+Add your metrics
+
+00:41:01.400 --> 00:41:03.400
+Into your application
+
+00:41:03.400 --> 00:41:05.400
+And second
+
+00:41:05.400 --> 00:41:07.400
+Prometheus
+
+00:41:07.400 --> 00:41:09.400
+Gives you some exporters
+
+00:41:09.400 --> 00:41:11.400
+What are exporters
+
+00:41:11.400 --> 00:41:13.400
+Exporters are basically
+
+00:41:13.400 --> 00:41:15.400
+Your pre-built packages
+
+00:41:17.400 --> 00:41:19.400
+Which are made by the community
+
+00:41:19.400 --> 00:41:21.400
+Or third party
+
+00:41:23.400 --> 00:41:25.400
+Which already has a code
+
+00:41:25.400 --> 00:41:27.400
+Written in it
+
+00:41:27.400 --> 00:41:29.400
+How to fetch your metrics
+
+00:41:29.400 --> 00:41:31.400
+How to expose your metrics
+
+00:41:31.400 --> 00:41:33.400
+And through that
+
+00:41:33.400 --> 00:41:35.400
+You can monitor
+
+00:41:35.400 --> 00:41:37.400
+Your infrastructure
+
+00:41:37.400 --> 00:41:39.400
+So what are client libraries
+
+00:41:39.400 --> 00:41:41.400
+Prometheus is not only
+
+00:41:41.400 --> 00:41:43.400
+If you want to enable Prometheus
+
+00:41:43.400 --> 00:41:45.400
+In your application
+
+00:41:45.400 --> 00:41:47.400
+You can use client libraries
+
+00:41:47.400 --> 00:41:49.400
+And client libraries are available for every language
+
+00:41:49.400 --> 00:41:51.400
+Whereas some pre-built packages
+
+00:41:51.400 --> 00:41:53.400
+Which are available
+
+00:41:53.400 --> 00:41:55.400
+Which are well known
+
+00:41:55.400 --> 00:41:57.400
+Your infrastructure
+
+00:41:57.400 --> 00:41:59.400
+Or your applications
+
+00:41:59.400 --> 00:42:01.400
+Around them
+
+00:42:01.400 --> 00:42:03.400
+You get pre-built packages
+
+00:42:03.400 --> 00:42:05.400
+Simply install them
+
+00:42:05.400 --> 00:42:07.400
+With your application
+
+00:42:07.400 --> 00:42:09.400
+If you have a post-credits database
+
+00:42:09.400 --> 00:42:11.400
+Then you get exporters
+
+00:42:11.400 --> 00:42:13.400
+For databases
+
+00:42:13.400 --> 00:42:15.400
+Simply attach that exporter
+
+00:42:15.400 --> 00:42:17.400
+With your database
+
+00:42:17.400 --> 00:42:19.400
+And you can visualize your metrics
+
+00:42:19.400 --> 00:42:21.400
+This point is clear
+
+00:42:21.400 --> 00:42:23.400
+It is a very important point
+
+00:42:27.400 --> 00:42:29.400
+Is it clear?
+
+00:42:33.400 --> 00:42:35.400
+Now let's do one thing
+
+00:42:35.400 --> 00:42:37.400
+Let's go to Prometheus documentation
+
+00:42:37.400 --> 00:42:39.400
+We will not explore much documentation
+
+00:42:39.400 --> 00:42:41.400
+Because this is not a Prometheus
+
+00:42:41.400 --> 00:42:43.400
+Specific class
+
+00:42:43.400 --> 00:42:45.400
+We will read Prometheus on a surface level
+
+00:42:45.400 --> 00:42:47.400
+As much as we need to monitor
+
+00:42:47.400 --> 00:42:49.400
+Our application or infrastructure
+
+00:42:49.400 --> 00:42:51.400
+Is required
+
+00:42:51.400 --> 00:42:53.400
+So let's write
+
+00:42:53.400 --> 00:42:55.400
+Prometheus
+
+00:42:55.400 --> 00:42:57.400
+Prometheus tool
+
+00:42:57.400 --> 00:42:59.400
+As I wrote
+
+00:42:59.400 --> 00:43:01.400
+Prometheus tool, DevOps came
+
+00:43:01.400 --> 00:43:03.400
+And you can see
+
+00:43:03.400 --> 00:43:05.400
+Prometheus is an open source system monitoring
+
+00:43:05.400 --> 00:43:07.400
+And alerting tool kit
+
+00:43:07.400 --> 00:43:09.400
+Designed to collect and process
+
+00:43:09.400 --> 00:43:11.400
+Numeric time series data
+
+00:43:11.400 --> 00:43:13.400
+This is its power
+
+00:43:13.400 --> 00:43:15.400
+You can see here
+
+00:43:15.400 --> 00:43:17.400
+That the data model
+
+00:43:17.400 --> 00:43:19.400
+That is a dimensional data model
+
+00:43:19.400 --> 00:43:21.400
+Where data is stored as
+
+00:43:21.400 --> 00:43:23.400
+Time series identified by
+
+00:43:23.400 --> 00:43:25.400
+Metric name and key value labels
+
+00:43:25.400 --> 00:43:27.400
+Paired called as labels
+
+00:43:27.400 --> 00:43:29.400
+We will see all this
+
+00:43:29.400 --> 00:43:31.400
+Don't worry about it
+
+00:43:31.400 --> 00:43:33.400
+Let's go to home page
+
+00:43:33.400 --> 00:43:35.400
+Here is Prometheus page
+
+00:43:35.400 --> 00:43:37.400
+Open source metrics and monitoring
+
+00:43:37.400 --> 00:43:39.400
+For your system and services
+
+00:43:39.400 --> 00:43:41.400
+System means your application
+
+00:43:41.400 --> 00:43:43.400
+And services means our AWS infrastructure
+
+00:43:45.400 --> 00:43:47.400
+Monitor your application systems and services
+
+00:43:47.400 --> 00:43:49.400
+With leading open source monitoring solution
+
+00:43:51.400 --> 00:43:53.400
+Now here are some good things
+
+00:43:53.400 --> 00:43:55.400
+Written about Prometheus
+
+00:43:55.400 --> 00:43:57.400
+You can explore
+
+00:43:57.400 --> 00:43:59.400
+If I show you more things
+
+00:44:01.400 --> 00:44:03.400
+You can see
+
+00:44:03.400 --> 00:44:05.400
+How many get up stars it has
+
+00:44:05.400 --> 00:44:07.400
+It is widely used
+
+00:44:07.400 --> 00:44:09.400
+It is a very famous tool
+
+00:44:09.400 --> 00:44:11.400
+If you ever work in DevOps, ML
+
+00:44:11.400 --> 00:44:13.400
+Ops, LLM Ops
+
+00:44:13.400 --> 00:44:15.400
+Then you will definitely get a pala
+
+00:44:15.400 --> 00:44:17.400
+With Prometheus
+
+00:44:17.400 --> 00:44:19.400
+Now let's explore
+
+00:44:19.400 --> 00:44:21.400
+This
+
+00:44:21.400 --> 00:44:23.400
+Here is a get started
+
+00:44:23.400 --> 00:44:25.400
+How to use Prometheus
+
+00:44:25.400 --> 00:44:27.400
+So what you have to do
+
+00:44:27.400 --> 00:44:29.400
+You have to install Prometheus
+
+00:44:29.400 --> 00:44:31.400
+And inside Prometheus
+
+00:44:31.400 --> 00:44:33.400
+There is a configuration file
+
+00:44:33.400 --> 00:44:35.400
+Which is called Prometheus.yml
+
+00:44:35.400 --> 00:44:37.400
+Simply you have to go inside
+
+00:44:37.400 --> 00:44:39.400
+Prometheus.yml
+
+00:44:39.400 --> 00:44:41.400
+And define your targets
+
+00:44:41.400 --> 00:44:43.400
+Target is what?
+
+00:44:43.400 --> 00:44:45.400
+Target is that instance
+
+00:44:45.400 --> 00:44:47.400
+Which you are targeting
+
+00:44:47.400 --> 00:44:49.400
+To collect the metrics
+
+00:44:49.400 --> 00:44:51.400
+Prometheus
+
+00:44:51.400 --> 00:44:53.400
+Scrape the metrics from the target
+
+00:44:53.400 --> 00:44:55.400
+Through HTTP endpoints
+
+00:44:55.400 --> 00:44:57.400
+So the endpoints you are focusing on
+
+00:44:57.400 --> 00:44:59.400
+Are your targets
+
+00:44:59.400 --> 00:45:01.400
+And what you have to do
+
+00:45:01.400 --> 00:45:03.400
+You have to set your targets in Prometheus.yml
+
+00:45:03.400 --> 00:45:05.400
+How all this happens
+
+00:45:05.400 --> 00:45:07.400
+We will see
+
+00:45:07.400 --> 00:45:09.400
+So it is get started
+
+00:45:09.400 --> 00:45:11.400
+It is very good
+
+00:45:11.400 --> 00:45:13.400
+If you are interested
+
+00:45:13.400 --> 00:45:15.400
+You can read about it
+
+00:45:15.400 --> 00:45:17.400
+Now if I show you the overview
+
+00:45:17.400 --> 00:45:19.400
+So here is something
+
+00:45:19.400 --> 00:45:21.400
+Let's see the features
+
+00:45:21.400 --> 00:45:23.400
+What are the features?
+
+00:45:23.400 --> 00:45:25.400
+Multi-dimensional data model with time series data
+
+00:45:25.400 --> 00:45:27.400
+Key value pairs
+
+00:45:27.400 --> 00:45:29.400
+Now since it is a database
+
+00:45:29.400 --> 00:45:31.400
+So if you want to fetch
+
+00:45:31.400 --> 00:45:33.400
+Data from the database
+
+00:45:33.400 --> 00:45:35.400
+What will you do?
+
+00:45:35.400 --> 00:45:37.400
+You will write queries on the database
+
+00:45:37.400 --> 00:45:39.400
+Like if you have a SQL database
+
+00:45:39.400 --> 00:45:41.400
+You write SQL queries
+
+00:45:41.400 --> 00:45:43.400
+Similarly if you want to query
+
+00:45:43.400 --> 00:45:45.400
+In the Prometheus database
+
+00:45:45.400 --> 00:45:47.400
+So here you have a query language
+
+00:45:47.400 --> 00:45:49.400
+Which is called PromQL
+
+00:45:49.400 --> 00:45:51.400
+Through which you write
+
+00:45:51.400 --> 00:45:53.400
+Your queries
+
+00:45:53.400 --> 00:45:55.400
+Now you must be thinking
+
+00:45:55.400 --> 00:45:57.400
+When we worked with SQL data
+
+00:45:57.400 --> 00:45:59.400
+So how we write SQL queries
+
+00:45:59.400 --> 00:46:01.400
+We learned
+
+00:46:01.400 --> 00:46:03.400
+So do we have to learn PromQL?
+
+00:46:03.400 --> 00:46:05.400
+The answer is yes and no
+
+00:46:05.400 --> 00:46:07.400
+You should know some basics
+
+00:46:07.400 --> 00:46:09.400
+Rest you have ChartGPT, Cloud
+
+00:46:09.400 --> 00:46:11.400
+With the help of that
+
+00:46:11.400 --> 00:46:13.400
+You can generate PromQL queries
+
+00:46:13.400 --> 00:46:15.400
+This is not a skill
+
+00:46:15.400 --> 00:46:17.400
+If you don't know
+
+00:46:17.400 --> 00:46:19.400
+Then there will be a problem
+
+00:46:19.400 --> 00:46:21.400
+You can simply generate queries
+
+00:46:21.400 --> 00:46:23.400
+Now
+
+00:46:23.400 --> 00:46:25.400
+It is written here
+
+00:46:25.400 --> 00:46:27.400
+Time series collection happens via pull model over HTTP
+
+00:46:27.400 --> 00:46:29.400
+There are some more things shown here
+
+00:46:29.400 --> 00:46:31.400
+Targets are discovered via service discovery
+
+00:46:31.400 --> 00:46:33.400
+Or static configuration
+
+00:46:33.400 --> 00:46:35.400
+And you get dashboarding here
+
+00:46:35.400 --> 00:46:37.400
+Now the metrics
+
+00:46:37.400 --> 00:46:39.400
+Here is the metrics
+
+00:46:39.400 --> 00:46:41.400
+Metrics are basically numerical measurements
+
+00:46:41.400 --> 00:46:43.400
+In layperson terms
+
+00:46:43.400 --> 00:46:45.400
+The term time series refers to
+
+00:46:45.400 --> 00:46:47.400
+A recording of changes over time
+
+00:46:47.400 --> 00:46:49.400
+What users want to measure
+
+00:46:49.400 --> 00:46:51.400
+And the data differs from application to application
+
+00:46:51.400 --> 00:46:53.400
+So basically
+
+00:46:53.400 --> 00:46:55.400
+Your Prometheus
+
+00:46:55.400 --> 00:46:57.400
+Is recording time series metrics
+
+00:46:57.400 --> 00:46:59.400
+Here
+
+00:46:59.400 --> 00:47:01.400
+There are some components
+
+00:47:01.400 --> 00:47:03.400
+You can see them
+
+00:47:03.400 --> 00:47:05.400
+This is the main Prometheus server
+
+00:47:05.400 --> 00:47:07.400
+Client libraries
+
+00:47:07.400 --> 00:47:09.400
+For instrumentation application code
+
+00:47:09.400 --> 00:47:11.400
+You have to put Prometheus in the application
+
+00:47:11.400 --> 00:47:13.400
+You will use the client library
+
+00:47:13.400 --> 00:47:15.400
+Special purpose exporters
+
+00:47:15.400 --> 00:47:17.400
+Which are pre-built for some services
+
+00:47:17.400 --> 00:47:19.400
+And you can set alerts here
+
+00:47:19.400 --> 00:47:21.400
+And this is in its architectural diagram
+
+00:47:21.400 --> 00:47:23.400
+If you find Prometheus explanation a bit rushed
+
+00:47:23.400 --> 00:47:25.400
+Don't worry about it
+
+00:47:25.400 --> 00:47:27.400
+We have covered Prometheus and Grafana in detail
+
+00:47:27.400 --> 00:47:29.400
+In our DSMB2
+
+00:47:29.400 --> 00:47:31.400
+Amalops series
+
+00:47:31.400 --> 00:47:33.400
+In detail
+
+00:47:33.400 --> 00:47:35.400
+So if you want to read in depth
+
+00:47:35.400 --> 00:47:37.400
+About all the things
+
+00:47:37.400 --> 00:47:39.400
+Then you can see those lectures
+
+00:47:39.400 --> 00:47:41.400
+We are covering it here
+
+00:47:41.400 --> 00:47:43.400
+Because we have already covered it
+
+00:47:43.400 --> 00:47:45.400
+So we are not going to cover it
+
+00:47:45.400 --> 00:47:47.400
+We have covered all the things
+
+00:47:47.400 --> 00:47:49.400
+So we are covering it in overview mode
+
+00:47:49.400 --> 00:47:51.400
+Is this point clear?
+
+00:47:53.400 --> 00:47:55.400
+It is clear
+
+00:47:55.400 --> 00:47:57.400
+You don't have to worry
+
+00:47:57.400 --> 00:47:59.400
+It is super easy
+
+00:47:59.400 --> 00:48:01.400
+You just understand
+
+00:48:01.400 --> 00:48:03.400
+Yes, it is clear
+
+00:48:03.400 --> 00:48:05.400
+You just understand that Prometheus
+
+00:48:05.400 --> 00:48:07.400
+Is not a fancy thing
+
+00:48:07.400 --> 00:48:09.400
+It is basically a time series database
+
+00:48:09.400 --> 00:48:11.400
+And in this
+
+00:48:11.400 --> 00:48:13.400
+If you want to query the database
+
+00:48:13.400 --> 00:48:15.400
+The query language is
+
+00:48:15.400 --> 00:48:17.400
+PromQL
+
+00:48:17.400 --> 00:48:19.400
+This is the syntax of PromQL
+
+00:48:19.400 --> 00:48:21.400
+I will show you how it is written in today's session
+
+00:48:21.400 --> 00:48:23.400
+But you don't have to take too much load
+
+00:48:23.400 --> 00:48:25.400
+If you don't understand
+
+00:48:25.400 --> 00:48:27.400
+In the next session
+
+00:48:27.400 --> 00:48:29.400
+When we will do dashboarding
+
+00:48:29.400 --> 00:48:31.400
+Through Grafana
+
+00:48:31.400 --> 00:48:33.400
+We are going to write some specific PromQL queries
+
+00:48:33.400 --> 00:48:35.400
+So if you understand that
+
+00:48:35.400 --> 00:48:37.400
+Then your work will go on
+
+00:48:37.400 --> 00:48:39.400
+Ok
+
+00:48:39.400 --> 00:48:41.400
+Is it clear?
+
+00:48:41.400 --> 00:48:43.400
+Is it clear in the chat?
+
+00:48:43.400 --> 00:48:45.400
+If you have any questions, you can ask me
+
+00:48:45.400 --> 00:48:47.400
+When the tool is pulling metrics
+
+00:48:47.400 --> 00:48:49.400
+Push gateway is also there
+
+00:48:49.400 --> 00:48:51.400
+Many times
+
+00:48:51.400 --> 00:48:53.400
+In some instances
+
+00:48:53.400 --> 00:48:55.400
+You push your metrics
+
+00:48:55.400 --> 00:48:57.400
+So for that, push gateway is used
+
+00:48:57.400 --> 00:48:59.400
+Again, we have already covered the details
+
+00:48:59.400 --> 00:49:01.400
+In the Prometheus lectures
+
+00:49:01.400 --> 00:49:03.400
+I have explained the whole architecture there
+
+00:49:11.400 --> 00:49:13.400
+Some small applications
+
+00:49:13.400 --> 00:49:15.400
+Or short running applications
+
+00:49:15.400 --> 00:49:17.400
+Your metrics don't come there
+
+00:49:17.400 --> 00:49:19.400
+Because what you have to do for pulling
+
+00:49:19.400 --> 00:49:21.400
+Pull is on a particular frequency
+
+00:49:21.400 --> 00:49:23.400
+Ok
+
+00:49:23.400 --> 00:49:25.400
+So let's say
+
+00:49:25.400 --> 00:49:27.400
+I have set the frequency
+
+00:49:27.400 --> 00:49:29.400
+1 minute
+
+00:49:29.400 --> 00:49:31.400
+But my application is like this
+
+00:49:31.400 --> 00:49:33.400
+It stops working in 10 seconds
+
+00:49:33.400 --> 00:49:35.400
+So what I will do with that application
+
+00:49:35.400 --> 00:49:37.400
+As soon as it will work, I will send a request
+
+00:49:37.400 --> 00:49:39.400
+And it will push its metrics
+
+00:49:39.400 --> 00:49:41.400
+And it will push through the gateway
+
+00:49:41.400 --> 00:49:43.400
+And it will come to me
+
+00:49:43.400 --> 00:49:45.400
+So instead of pulling there, I specifically push there
+
+00:49:49.400 --> 00:49:51.400
+You can understand it like this
+
+00:49:51.400 --> 00:49:53.400
+If you have run a short running command
+
+00:49:53.400 --> 00:49:55.400
+Or a service on AWS lambda
+
+00:49:55.400 --> 00:49:57.400
+You need its metrics
+
+00:49:57.400 --> 00:49:59.400
+So you bring it through the push gateway
+
+00:49:59.400 --> 00:50:01.400
+Is this point clear?
+
+00:50:01.400 --> 00:50:03.400
+Ok
+
+00:50:03.400 --> 00:50:05.400
+Now let's discuss
+
+00:50:05.400 --> 00:50:07.400
+The results that come to you
+
+00:50:07.400 --> 00:50:09.400
+How do they look?
+
+00:50:09.400 --> 00:50:11.400
+So you know how the results look
+
+00:50:11.400 --> 00:50:13.400
+You have here
+
+00:50:13.400 --> 00:50:15.400
+The name of the metric
+
+00:50:15.400 --> 00:50:17.400
+And its value here
+
+00:50:17.400 --> 00:50:19.400
+And when you have
+
+00:50:19.400 --> 00:50:21.400
+Results
+
+00:50:21.400 --> 00:50:23.400
+In a single row
+
+00:50:23.400 --> 00:50:25.400
+In the Prometheus language
+
+00:50:25.400 --> 00:50:27.400
+It is called instance vector
+
+00:50:27.400 --> 00:50:29.400
+Ok
+
+00:50:29.400 --> 00:50:31.400
+But many times
+
+00:50:31.400 --> 00:50:33.400
+Because it is a time series database
+
+00:50:33.400 --> 00:50:35.400
+So you can have results in the range
+
+00:50:35.400 --> 00:50:37.400
+Which means
+
+00:50:37.400 --> 00:50:39.400
+You want to see how the RAM usage lasted for 5 minutes
+
+00:50:39.400 --> 00:50:41.400
+So what happens inside it
+
+00:50:41.400 --> 00:50:43.400
+You have here
+
+00:50:43.400 --> 00:50:45.400
+Time stamp
+
+00:50:45.400 --> 00:50:47.400
+Here metric name
+
+00:50:49.400 --> 00:50:51.400
+And its value
+
+00:50:53.400 --> 00:50:55.400
+And let's say
+
+00:50:55.400 --> 00:50:57.400
+You are here
+
+00:50:57.400 --> 00:50:59.400
+Scraping the results
+
+00:50:59.400 --> 00:51:01.400
+Pulling it
+
+00:51:01.400 --> 00:51:03.400
+It is happening every 10 seconds
+
+00:51:03.400 --> 00:51:05.400
+So you have the value
+
+00:51:05.400 --> 00:51:07.400
+T2 after 10 seconds
+
+00:51:07.400 --> 00:51:09.400
+Again its time stamp metric name and value
+
+00:51:09.400 --> 00:51:11.400
+So you have multiple values
+
+00:51:11.400 --> 00:51:13.400
+Let's say you have set the range
+
+00:51:13.400 --> 00:51:15.400
+Of 100 seconds
+
+00:51:15.400 --> 00:51:17.400
+So you have 10 values
+
+00:51:17.400 --> 00:51:19.400
+This is called
+
+00:51:19.400 --> 00:51:21.400
+Range vector
+
+00:51:21.400 --> 00:51:23.400
+Range vector is basically when you have
+
+00:51:23.400 --> 00:51:25.400
+Multiple values
+
+00:51:25.400 --> 00:51:27.400
+So a matrix is a range vector
+
+00:51:27.400 --> 00:51:29.400
+A single row is an instance vector
+
+00:51:29.400 --> 00:51:31.400
+Clear?
+
+00:51:31.400 --> 00:51:33.400
+Let's move ahead
+
+00:51:33.400 --> 00:51:35.400
+We are discussing the terminologies
+
+00:51:35.400 --> 00:51:37.400
+We are not discussing anything
+
+00:51:37.400 --> 00:51:39.400
+High end
+
+00:51:39.400 --> 00:51:41.400
+So what we have to do
+
+00:51:41.400 --> 00:51:43.400
+We are already monitoring the application
+
+00:51:43.400 --> 00:51:45.400
+In LangFuse
+
+00:51:45.400 --> 00:51:47.400
+So we don't have to monitor the application
+
+00:51:47.400 --> 00:51:49.400
+From our Prometheus
+
+00:51:49.400 --> 00:51:51.400
+Just a second
+
+00:51:51.400 --> 00:51:53.400
+What we have to monitor
+
+00:51:53.400 --> 00:51:55.400
+Our infrastructure
+
+00:51:55.400 --> 00:51:57.400
+Now the good thing is
+
+00:51:57.400 --> 00:51:59.400
+That for infrastructure
+
+00:51:59.400 --> 00:52:01.400
+Already we have
+
+00:52:01.400 --> 00:52:03.400
+Exporters available
+
+00:52:03.400 --> 00:52:05.400
+You think about it
+
+00:52:05.400 --> 00:52:07.400
+Your infrastructure
+
+00:52:07.400 --> 00:52:09.400
+It is built on Linux
+
+00:52:09.400 --> 00:52:11.400
+It is running on Linux
+
+00:52:11.400 --> 00:52:13.400
+On Ubuntu EC2 machine
+
+00:52:13.400 --> 00:52:15.400
+So if you were given this task
+
+00:52:15.400 --> 00:52:17.400
+That inside Ubuntu
+
+00:52:17.400 --> 00:52:19.400
+You have to see your CPU usage
+
+00:52:19.400 --> 00:52:21.400
+Ram usage
+
+00:52:21.400 --> 00:52:23.400
+And write code for it
+
+00:52:23.400 --> 00:52:25.400
+So it would have been hectic
+
+00:52:25.400 --> 00:52:27.400
+As a developer
+
+00:52:27.400 --> 00:52:29.400
+I would have to focus on OS
+
+00:52:29.400 --> 00:52:31.400
+On kernel
+
+00:52:31.400 --> 00:52:33.400
+Which is not my forte
+
+00:52:33.400 --> 00:52:35.400
+So here I already
+
+00:52:35.400 --> 00:52:37.400
+Through the community
+
+00:52:37.400 --> 00:52:39.400
+I get built in exporters
+
+00:52:39.400 --> 00:52:41.400
+Which track my machine
+
+00:52:41.400 --> 00:52:43.400
+And expose the matrix
+
+00:52:43.400 --> 00:52:45.400
+So exporters basically
+
+00:52:45.400 --> 00:52:47.400
+Collect your matrix
+
+00:52:49.400 --> 00:52:51.400
+And at some particular
+
+00:52:51.400 --> 00:52:53.400
+Endpoint
+
+00:52:53.400 --> 00:52:55.400
+Expose your matrix
+
+00:52:55.400 --> 00:52:57.400
+Listen carefully
+
+00:52:57.400 --> 00:52:59.400
+And generally
+
+00:52:59.400 --> 00:53:01.400
+What happens at the end point
+
+00:53:01.400 --> 00:53:03.400
+Your IP is done
+
+00:53:03.400 --> 00:53:05.400
+If I want to run it locally
+
+00:53:05.400 --> 00:53:07.400
+Your exporter
+
+00:53:07.400 --> 00:53:09.400
+Is running at port 9100
+
+00:53:09.400 --> 00:53:11.400
+If I am not wrong
+
+00:53:11.400 --> 00:53:13.400
+And at the end point
+
+00:53:13.400 --> 00:53:15.400
+Of the slash matrix
+
+00:53:15.400 --> 00:53:17.400
+You get all the matrix of your system
+
+00:53:17.400 --> 00:53:19.400
+Now how do you get these matrix
+
+00:53:19.400 --> 00:53:21.400
+So let's see
+
+00:53:21.400 --> 00:53:23.400
+These matrix are plain matrix
+
+00:53:23.400 --> 00:53:25.400
+You can understand them
+
+00:53:25.400 --> 00:53:27.400
+Like this
+
+00:53:27.400 --> 00:53:29.400
+That they are matrix
+
+00:53:29.400 --> 00:53:31.400
+I will show you
+
+00:53:31.400 --> 00:53:33.400
+How they look
+
+00:53:33.400 --> 00:53:35.400
+They look confusing
+
+00:53:35.400 --> 00:53:37.400
+You can't understand them by reading
+
+00:53:37.400 --> 00:53:39.400
+Take any instance of ours
+
+00:53:39.400 --> 00:53:41.400
+Take this one
+
+00:53:41.400 --> 00:53:43.400
+So inside this
+
+00:53:43.400 --> 00:53:45.400
+I copy its public IP
+
+00:53:45.400 --> 00:53:47.400
+And I will paste it here
+
+00:53:49.400 --> 00:53:51.400
+So
+
+00:53:55.400 --> 00:53:57.400
+You will say that
+
+00:53:57.400 --> 00:53:59.400
+I can't understand by reading this matrix
+
+00:53:59.400 --> 00:54:01.400
+If I go to port 9100
+
+00:54:01.400 --> 00:54:03.400
+So in this instance
+
+00:54:03.400 --> 00:54:05.400
+I should get my exporter
+
+00:54:05.400 --> 00:54:07.400
+Let's continue
+
+00:54:07.400 --> 00:54:09.400
+See what is written
+
+00:54:09.400 --> 00:54:11.400
+It is writing node exporter
+
+00:54:11.400 --> 00:54:13.400
+What is this exporter doing
+
+00:54:13.400 --> 00:54:15.400
+Basically it is projecting
+
+00:54:15.400 --> 00:54:17.400
+All the matrix of my EC2 instance
+
+00:54:17.400 --> 00:54:19.400
+It is projecting at the end point
+
+00:54:19.400 --> 00:54:21.400
+So I will go
+
+00:54:21.400 --> 00:54:23.400
+At the end point of the matrix
+
+00:54:23.400 --> 00:54:25.400
+See, this is how you get the matrix
+
+00:54:27.400 --> 00:54:29.400
+Now here you have to figure out
+
+00:54:29.400 --> 00:54:31.400
+Which matrix you want
+
+00:54:31.400 --> 00:54:33.400
+There are so many matrix
+
+00:54:33.400 --> 00:54:35.400
+Many of them are useless
+
+00:54:35.400 --> 00:54:37.400
+So what we have to do
+
+00:54:37.400 --> 00:54:39.400
+Here we
+
+00:54:39.400 --> 00:54:41.400
+According to our needs
+
+00:54:41.400 --> 00:54:43.400
+We fetch the matrix and its value
+
+00:54:43.400 --> 00:54:45.400
+But if you have some idea
+
+00:54:45.400 --> 00:54:47.400
+If you have some idea
+
+00:54:47.400 --> 00:54:49.400
+You can easily see things
+
+00:54:49.400 --> 00:54:51.400
+Like here
+
+00:54:51.400 --> 00:54:53.400
+Node CPU seconds total
+
+00:54:53.400 --> 00:54:55.400
+This is CPU uptime
+
+00:54:55.400 --> 00:54:57.400
+You have different modes
+
+00:54:57.400 --> 00:54:59.400
+Mode idle
+
+00:54:59.400 --> 00:55:01.400
+Iow weight
+
+00:55:01.400 --> 00:55:03.400
+It was waiting for Iow
+
+00:55:03.400 --> 00:55:05.400
+This is some other state
+
+00:55:05.400 --> 00:55:07.400
+This is some other state
+
+00:55:07.400 --> 00:55:09.400
+So you can easily see
+
+00:55:09.400 --> 00:55:11.400
+Things related to CPU
+
+00:55:11.400 --> 00:55:13.400
+If I show you disk
+
+00:55:13.400 --> 00:55:15.400
+If I show you disk
+
+00:55:15.400 --> 00:55:17.400
+You can see all these things
+
+00:55:17.400 --> 00:55:19.400
+So there are many matrix
+
+00:55:19.400 --> 00:55:21.400
+Now how to figure out
+
+00:55:21.400 --> 00:55:23.400
+I will tell you
+
+00:55:23.400 --> 00:55:25.400
+What you do here
+
+00:55:25.400 --> 00:55:27.400
+Go to node exporter github page
+
+00:55:27.400 --> 00:55:29.400
+Here
+
+00:55:33.400 --> 00:55:35.400
+So what is node exporter
+
+00:55:35.400 --> 00:55:37.400
+It exposes your OS matrix
+
+00:55:37.400 --> 00:55:39.400
+You have such a
+
+00:55:39.400 --> 00:55:41.400
+Windows exporter
+
+00:55:41.400 --> 00:55:43.400
+So what you can do here
+
+00:55:43.400 --> 00:55:45.400
+You can go and understand
+
+00:55:45.400 --> 00:55:47.400
+What are your matrix
+
+00:55:47.400 --> 00:55:49.400
+You can see
+
+00:55:49.400 --> 00:55:51.400
+File system, CPU
+
+00:55:51.400 --> 00:55:53.400
+You can see all these things
+
+00:55:53.400 --> 00:55:55.400
+And these are default matrix
+
+00:55:55.400 --> 00:55:57.400
+One thing is that you go and read it
+
+00:55:57.400 --> 00:55:59.400
+And mess up your mind
+
+00:55:59.400 --> 00:56:01.400
+One thing you can do here
+
+00:56:01.400 --> 00:56:03.400
+You can pick up this readme
+
+00:56:03.400 --> 00:56:05.400
+To cloud chat gpt
+
+00:56:05.400 --> 00:56:07.400
+And you can pick up all these matrix
+
+00:56:07.400 --> 00:56:09.400
+To cloud chat gpt
+
+00:56:09.400 --> 00:56:11.400
+You can ask me
+
+00:56:11.400 --> 00:56:13.400
+I want to track RAM on my system
+
+00:56:13.400 --> 00:56:15.400
+I want to track CPU
+
+00:56:15.400 --> 00:56:17.400
+I want to track network
+
+00:56:17.400 --> 00:56:19.400
+What you do here
+
+00:56:19.400 --> 00:56:21.400
+Select the matrix and tell me
+
+00:56:21.400 --> 00:56:23.400
+Which matrix is useful for me
+
+00:56:23.400 --> 00:56:25.400
+And you can also write promql queries
+
+00:56:25.400 --> 00:56:27.400
+That I want to track average CPU utilization
+
+00:56:27.400 --> 00:56:29.400
+For this particular time period
+
+00:56:29.400 --> 00:56:31.400
+So its promql query will come
+
+00:56:31.400 --> 00:56:33.400
+I want to calculate available RAM
+
+00:56:33.400 --> 00:56:35.400
+Or free RAM
+
+00:56:35.400 --> 00:56:37.400
+I want to calculate network speed
+
+00:56:37.400 --> 00:56:39.400
+I want to calculate network usage
+
+00:56:39.400 --> 00:56:41.400
+I want to calculate all the requests
+
+00:56:41.400 --> 00:56:43.400
+Each and everything
+
+00:56:43.400 --> 00:56:45.400
+You can get from cloud chat gpt
+
+00:56:45.400 --> 00:56:47.400
+And give it
+
+00:56:47.400 --> 00:56:49.400
+So this is a smart way to do it
+
+00:56:49.400 --> 00:56:51.400
+If you go and read it manually
+
+00:56:51.400 --> 00:56:53.400
+You will literally mess up your mind
+
+00:56:53.400 --> 00:56:55.400
+Because for that you need to have
+
+00:56:55.400 --> 00:56:57.400
+Knowledge here
+
+00:56:57.400 --> 00:56:59.400
+What are all these matrix and what do they mean
+
+00:56:59.400 --> 00:57:01.400
+Obviously these are your linux kernel
+
+00:57:01.400 --> 00:57:03.400
+Specific matrix
+
+00:57:03.400 --> 00:57:05.400
+This is our area
+
+00:57:05.400 --> 00:57:07.400
+This is not our domain
+
+00:57:07.400 --> 00:57:09.400
+So we will not mess up our mind
+
+00:57:09.400 --> 00:57:11.400
+We will use smart approach
+
+00:57:11.400 --> 00:57:13.400
+Is this point clear?
+
+00:57:15.400 --> 00:57:17.400
+Is it clear guys?
+
+00:57:17.400 --> 00:57:19.400
+How you have to work
+
+00:57:19.400 --> 00:57:21.400
+And you can understand yourself
+
+00:57:21.400 --> 00:57:23.400
+Why you need graphana
+
+00:57:23.400 --> 00:57:25.400
+Because you can figure it out
+
+00:57:25.400 --> 00:57:27.400
+By looking at it
+
+00:57:27.400 --> 00:57:29.400
+If I have Prometheus
+
+00:57:29.400 --> 00:57:31.400
+What will I figure out in it
+
+00:57:31.400 --> 00:57:33.400
+I will go mad
+
+00:57:33.400 --> 00:57:35.400
+Is it clear?
+
+00:57:35.400 --> 00:57:37.400
+Why Prometheus and graphana
+
+00:57:37.400 --> 00:57:39.400
+Work together
+
+00:57:43.400 --> 00:57:45.400
+Yes, now you can clearly see
+
+00:57:45.400 --> 00:57:47.400
+That the data you can see
+
+00:57:47.400 --> 00:57:49.400
+These are single numbers
+
+00:57:49.400 --> 00:57:51.400
+Now this is not time series data
+
+00:57:51.400 --> 00:57:53.400
+This is basically
+
+00:57:53.400 --> 00:57:55.400
+Data of this particular instance
+
+00:57:55.400 --> 00:57:57.400
+When I hit this matrix
+
+00:57:57.400 --> 00:57:59.400
+Endpoint, then this is the data of that time
+
+00:57:59.400 --> 00:58:01.400
+You have single values
+
+00:58:01.400 --> 00:58:03.400
+You have single values
+
+00:58:03.400 --> 00:58:05.400
+Now look at this CPU idle
+
+00:58:05.400 --> 00:58:07.400
+This is 8675
+
+00:58:07.400 --> 00:58:09.400
+I will run it again
+
+00:58:09.400 --> 00:58:11.400
+So if I go to CPU idle
+
+00:58:11.400 --> 00:58:13.400
+Value has changed
+
+00:58:13.400 --> 00:58:15.400
+Now this current time
+
+00:58:15.400 --> 00:58:17.400
+Which is 8.56
+
+00:58:17.400 --> 00:58:19.400
+This is 8.56 data
+
+00:58:19.400 --> 00:58:21.400
+So what Prometheus does
+
+00:58:21.400 --> 00:58:23.400
+Prometheus is very smart
+
+00:58:23.400 --> 00:58:25.400
+What will Prometheus do
+
+00:58:25.400 --> 00:58:27.400
+We have told him that
+
+00:58:27.400 --> 00:58:29.400
+My EC2 instances
+
+00:58:29.400 --> 00:58:31.400
+Matrix is exposed at this end point
+
+00:58:31.400 --> 00:58:33.400
+What you do
+
+00:58:33.400 --> 00:58:35.400
+I will set a time
+
+00:58:35.400 --> 00:58:37.400
+You go to this matrix end point
+
+00:58:37.400 --> 00:58:39.400
+In every 15 seconds
+
+00:58:39.400 --> 00:58:41.400
+And bring the matrix by scraping
+
+00:58:41.400 --> 00:58:43.400
+Ok
+
+00:58:43.400 --> 00:58:45.400
+This is your whole HTML
+
+00:58:45.400 --> 00:58:47.400
+This matrix
+
+00:58:47.400 --> 00:58:49.400
+Now what are you doing with the data
+
+00:58:49.400 --> 00:58:51.400
+Scraping
+
+00:58:51.400 --> 00:58:53.400
+You do the same in scrape
+
+00:58:53.400 --> 00:58:55.400
+You take the information in a particular end point
+
+00:58:55.400 --> 00:58:57.400
+And dump it
+
+00:58:57.400 --> 00:58:59.400
+So what Prometheus will do
+
+00:58:59.400 --> 00:59:01.400
+Will go in every 15 seconds
+
+00:59:01.400 --> 00:59:03.400
+And will bring information
+
+00:59:03.400 --> 00:59:05.400
+For every one metric
+
+00:59:05.400 --> 00:59:07.400
+And as soon as he brings the information
+
+00:59:07.400 --> 00:59:09.400
+With time stamp
+
+00:59:09.400 --> 00:59:11.400
+Will save the metric in the database
+
+00:59:11.400 --> 00:59:13.400
+So CPU idle is your metric
+
+00:59:13.400 --> 00:59:15.400
+First he
+
+00:59:15.400 --> 00:59:17.400
+Picked the value at 8.56
+
+00:59:17.400 --> 00:59:19.400
+Then picked at 8.57
+
+00:59:19.400 --> 00:59:21.400
+Then 8.58 and so on
+
+00:59:21.400 --> 00:59:23.400
+And here he will take the values
+
+00:59:23.400 --> 00:59:25.400
+And save it in his time series database
+
+00:59:25.400 --> 00:59:27.400
+Ok
+
+00:59:27.400 --> 00:59:29.400
+Now in Prometheus
+
+00:59:29.400 --> 00:59:31.400
+You have only 4 types of metrics
+
+00:59:31.400 --> 00:59:33.400
+Means you
+
+00:59:33.400 --> 00:59:35.400
+See here so many metrics
+
+00:59:35.400 --> 00:59:37.400
+You are confused
+
+00:59:37.400 --> 00:59:39.400
+Because you don't know
+
+00:59:39.400 --> 00:59:41.400
+What kind of metrics are there
+
+00:59:41.400 --> 00:59:43.400
+If you see here
+
+00:59:43.400 --> 00:59:45.400
+Something is written help
+
+00:59:45.400 --> 00:59:47.400
+These comments actually
+
+00:59:47.400 --> 00:59:49.400
+What is help? It tells you what this metric does
+
+00:59:49.400 --> 00:59:51.400
+This metric is a small description
+
+00:59:51.400 --> 00:59:53.400
+Ok
+
+00:59:53.400 --> 00:59:55.400
+Type tells you
+
+00:59:55.400 --> 00:59:57.400
+What is the type of your metric
+
+00:59:57.400 --> 00:59:59.400
+Now what do you see here
+
+00:59:59.400 --> 01:00:01.400
+This metric type is counter
+
+01:00:01.400 --> 01:00:03.400
+This upper metric
+
+01:00:03.400 --> 01:00:05.400
+Node cooling device max state
+
+01:00:05.400 --> 01:00:07.400
+What is its counter? Gauge
+
+01:00:07.400 --> 01:00:09.400
+As it is you will see here
+
+01:00:09.400 --> 01:00:11.400
+If I show you some more metrics
+
+01:00:11.400 --> 01:00:13.400
+See all these counters
+
+01:00:13.400 --> 01:00:15.400
+If I can show you
+
+01:00:17.400 --> 01:00:19.400
+These are all gauge types
+
+01:00:19.400 --> 01:00:21.400
+These are all gauge types
+
+01:00:23.400 --> 01:00:25.400
+There is a histogram
+
+01:00:25.400 --> 01:00:27.400
+I can't see it here
+
+01:00:27.400 --> 01:00:29.400
+And there is a summary
+
+01:00:29.400 --> 01:00:31.400
+If I can show you
+
+01:00:35.400 --> 01:00:37.400
+Now all gauge and counters are visible
+
+01:00:37.400 --> 01:00:39.400
+Because they are more common
+
+01:00:39.400 --> 01:00:41.400
+Histogram and summary are basically
+
+01:00:41.400 --> 01:00:43.400
+Advanced type
+
+01:00:43.400 --> 01:00:45.400
+Now I can't see it
+
+01:00:45.400 --> 01:00:47.400
+Of course it will be in this
+
+01:00:47.400 --> 01:00:49.400
+I can't understand it by seeing it
+
+01:00:49.400 --> 01:00:51.400
+So I will tell you once
+
+01:00:51.400 --> 01:00:53.400
+What are the four types of metrics
+
+01:00:53.400 --> 01:00:55.400
+Which you will see
+
+01:00:55.400 --> 01:00:57.400
+In prometheus
+
+01:00:57.400 --> 01:00:59.400
+Very simple
+
+01:00:59.400 --> 01:01:01.400
+And two of these types
+
+01:01:01.400 --> 01:01:03.400
+Are the most common
+
+01:01:03.400 --> 01:01:05.400
+Because they are simple types
+
+01:01:05.400 --> 01:01:07.400
+So the first simple type is counter
+
+01:01:07.400 --> 01:01:09.400
+What does counter mean?
+
+01:01:09.400 --> 01:01:11.400
+Counter is used for counting
+
+01:01:13.400 --> 01:01:15.400
+What is the speciality of counter?
+
+01:01:15.400 --> 01:01:17.400
+Counter only goes up monotonically
+
+01:01:17.400 --> 01:01:19.400
+If the counter value is 1
+
+01:01:19.400 --> 01:01:21.400
+Then next time
+
+01:01:21.400 --> 01:01:23.400
+Its value can be 2
+
+01:01:23.400 --> 01:01:25.400
+It can't be 0
+
+01:01:25.400 --> 01:01:27.400
+It always shows upward trend
+
+01:01:27.400 --> 01:01:29.400
+Counter is 1, then 2, then 3
+
+01:01:29.400 --> 01:01:31.400
+Then 4, then 5
+
+01:01:31.400 --> 01:01:33.400
+It will increase one by one
+
+01:01:33.400 --> 01:01:35.400
+It is not like 4 will be 400
+
+01:01:35.400 --> 01:01:37.400
+It will increase from 4 to 400 one by one
+
+01:01:37.400 --> 01:01:39.400
+So counter is used for counting
+
+01:01:39.400 --> 01:01:41.400
+And we attach counter type metrics
+
+01:01:41.400 --> 01:01:43.400
+With those metrics
+
+01:01:43.400 --> 01:01:45.400
+Which we know will only increase
+
+01:01:45.400 --> 01:01:47.400
+Like number of downloads
+
+01:01:47.400 --> 01:01:49.400
+If we want to calculate
+
+01:01:49.400 --> 01:01:51.400
+The number of downloads of an application
+
+01:01:51.400 --> 01:01:53.400
+Then we can do counter check
+
+01:01:53.400 --> 01:01:55.400
+That the number of times
+
+01:01:55.400 --> 01:01:57.400
+Your download request is coming
+
+01:01:57.400 --> 01:01:59.400
+You increase the counter by 1
+
+01:01:59.400 --> 01:02:01.400
+Because the number of downloads
+
+01:02:01.400 --> 01:02:03.400
+Can never decrease
+
+01:02:03.400 --> 01:02:05.400
+Second is your
+
+01:02:05.400 --> 01:02:07.400
+Gauge
+
+01:02:07.400 --> 01:02:09.400
+Another thing about counter
+
+01:02:09.400 --> 01:02:11.400
+Of course counter only increases
+
+01:02:11.400 --> 01:02:13.400
+But you can reset it if you want
+
+01:02:15.400 --> 01:02:17.400
+If you want to start counting again
+
+01:02:17.400 --> 01:02:19.400
+Then simply reset the counter
+
+01:02:19.400 --> 01:02:21.400
+Then counter value is 0
+
+01:02:21.400 --> 01:02:23.400
+But it can never be negative
+
+01:02:23.400 --> 01:02:25.400
+And it can't be decreasing
+
+01:02:25.400 --> 01:02:27.400
+What is gauge?
+
+01:02:27.400 --> 01:02:29.400
+You must have seen
+
+01:02:29.400 --> 01:02:31.400
+Your speedometer
+
+01:02:31.400 --> 01:02:33.400
+If you have done physics experiment
+
+01:02:33.400 --> 01:02:35.400
+Then amp meter, volt meter
+
+01:02:35.400 --> 01:02:37.400
+They were gauges
+
+01:02:37.400 --> 01:02:39.400
+It looks like this
+
+01:02:39.400 --> 01:02:41.400
+You have a needle
+
+01:02:41.400 --> 01:02:43.400
+And you have values
+
+01:02:43.400 --> 01:02:45.400
+This is called gauge
+
+01:02:45.400 --> 01:02:47.400
+So in gauge, needle can increase
+
+01:02:47.400 --> 01:02:49.400
+On the side of increasing
+
+01:02:49.400 --> 01:02:51.400
+And on the side of decreasing
+
+01:02:51.400 --> 01:02:53.400
+So gauge metrics are those
+
+01:02:53.400 --> 01:02:55.400
+Where your values can increase or decrease
+
+01:02:55.400 --> 01:02:57.400
+Like the best example is
+
+01:02:57.400 --> 01:02:59.400
+Latency
+
+01:02:59.400 --> 01:03:01.400
+Latency can increase or decrease
+
+01:03:01.400 --> 01:03:03.400
+So they come in our gauge type
+
+01:03:03.400 --> 01:03:05.400
+So what happens in gauge?
+
+01:03:05.400 --> 01:03:07.400
+You do comparisons
+
+01:03:07.400 --> 01:03:09.400
+Current value, next value
+
+01:03:09.400 --> 01:03:11.400
+Now next value
+
+01:03:11.400 --> 01:03:13.400
+Downward trend is showing, upward trend is showing
+
+01:03:13.400 --> 01:03:15.400
+Ok
+
+01:03:15.400 --> 01:03:17.400
+Third is
+
+01:03:17.400 --> 01:03:19.400
+Your special type of metrics
+
+01:03:19.400 --> 01:03:21.400
+Your histogram
+
+01:03:21.400 --> 01:03:23.400
+I can understand from the name
+
+01:03:23.400 --> 01:03:25.400
+What does histogram do?
+
+01:03:25.400 --> 01:03:27.400
+Histogram basically divides
+
+01:03:27.400 --> 01:03:29.400
+Your distribution
+
+01:03:29.400 --> 01:03:31.400
+In buckets
+
+01:03:31.400 --> 01:03:33.400
+What does dividing in buckets mean?
+
+01:03:33.400 --> 01:03:35.400
+Will someone tell me?
+
+01:03:35.400 --> 01:03:37.400
+If you have read stats
+
+01:03:37.400 --> 01:03:39.400
+If I am dividing a distribution in buckets
+
+01:03:39.400 --> 01:03:41.400
+Then how am I
+
+01:03:41.400 --> 01:03:43.400
+Modifying that distribution?
+
+01:03:43.400 --> 01:03:45.400
+Will someone tell me?
+
+01:03:45.400 --> 01:03:47.400
+What is distribution?
+
+01:03:47.400 --> 01:03:49.400
+Distribution is a continuous distribution
+
+01:03:49.400 --> 01:03:51.400
+Ok
+
+01:03:51.400 --> 01:03:53.400
+Your continuous distribution
+
+01:03:53.400 --> 01:03:55.400
+Probability distribution
+
+01:03:55.400 --> 01:03:57.400
+But when I make its histogram
+
+01:03:57.400 --> 01:03:59.400
+In buckets, then what happens?
+
+01:03:59.400 --> 01:04:01.400
+What happens?
+
+01:04:01.400 --> 01:04:03.400
+Someone tell me
+
+01:04:03.400 --> 01:04:05.400
+I hope I have put the question correctly
+
+01:04:09.400 --> 01:04:11.400
+Clustering happens
+
+01:04:11.400 --> 01:04:13.400
+Yes, discrete happens
+
+01:04:13.400 --> 01:04:15.400
+Saurabh said the right word
+
+01:04:15.400 --> 01:04:17.400
+Discrete happens
+
+01:04:17.400 --> 01:04:19.400
+Divide in categories
+
+01:04:19.400 --> 01:04:21.400
+So in histogram metric
+
+01:04:21.400 --> 01:04:23.400
+If we
+
+01:04:23.400 --> 01:04:25.400
+Any distribution
+
+01:04:25.400 --> 01:04:27.400
+Our distribution is time series distribution
+
+01:04:27.400 --> 01:04:29.400
+If in time series distribution
+
+01:04:29.400 --> 01:04:31.400
+We have to divide it in categories
+
+01:04:31.400 --> 01:04:33.400
+Like latency
+
+01:04:33.400 --> 01:04:35.400
+We have to divide latency in buckets
+
+01:04:35.400 --> 01:04:37.400
+Latency should be 0 to 5 seconds
+
+01:04:37.400 --> 01:04:39.400
+5 to 10 seconds
+
+01:04:39.400 --> 01:04:41.400
+In this bucket
+
+01:04:41.400 --> 01:04:43.400
+10 to 15 should be in this
+
+01:04:43.400 --> 01:04:45.400
+And how much is its distribution
+
+01:04:45.400 --> 01:04:47.400
+We want to see
+
+01:04:47.400 --> 01:04:49.400
+So how do you see distribution?
+
+01:04:49.400 --> 01:04:51.400
+You get values le
+
+01:04:51.400 --> 01:04:53.400
+Where ever you get le value
+
+01:04:53.400 --> 01:04:55.400
+Less than equal to
+
+01:04:55.400 --> 01:04:57.400
+It is signifying a bucket
+
+01:04:57.400 --> 01:04:59.400
+And in your histogram
+
+01:04:59.400 --> 01:05:01.400
+You get two more things
+
+01:05:01.400 --> 01:05:03.400
+Every bucket gets a sum
+
+01:05:03.400 --> 01:05:05.400
+What is sum telling?
+
+01:05:05.400 --> 01:05:07.400
+That in that bucket
+
+01:05:07.400 --> 01:05:09.400
+If you add them
+
+01:05:09.400 --> 01:05:11.400
+You will get this sum
+
+01:05:11.400 --> 01:05:13.400
+And one is your count
+
+01:05:13.400 --> 01:05:15.400
+Count tells you how many values you have in that bucket
+
+01:05:15.400 --> 01:05:17.400
+Ok, so this is your histogram
+
+01:05:17.400 --> 01:05:19.400
+Fourth is your special type
+
+01:05:19.400 --> 01:05:21.400
+Advanced type
+
+01:05:21.400 --> 01:05:23.400
+That is your summary type metric
+
+01:05:23.400 --> 01:05:25.400
+Now summary is also similar to histogram
+
+01:05:25.400 --> 01:05:27.400
+But summary
+
+01:05:27.400 --> 01:05:29.400
+What does it do?
+
+01:05:29.400 --> 01:05:31.400
+If your histogram
+
+01:05:31.400 --> 01:05:33.400
+Is showing you your distribution
+
+01:05:33.400 --> 01:05:35.400
+So the summarized version of that distribution
+
+01:05:35.400 --> 01:05:37.400
+Show you the summary
+
+01:05:37.400 --> 01:05:39.400
+Summary basically
+
+01:05:39.400 --> 01:05:41.400
+Your data is broken in quantize
+
+01:05:41.400 --> 01:05:43.400
+Instead of buckets
+
+01:05:43.400 --> 01:05:45.400
+Ok
+
+01:05:45.400 --> 01:05:47.400
+Like you have 5 point summary
+
+01:05:47.400 --> 01:05:49.400
+So what is 5 point summary?
+
+01:05:49.400 --> 01:05:51.400
+What do you make through 5 point summary?
+
+01:05:51.400 --> 01:05:53.400
+That is it
+
+01:05:53.400 --> 01:05:55.400
+What is your Q1 value?
+
+01:05:55.400 --> 01:05:57.400
+What is Q2 value?
+
+01:05:57.400 --> 01:05:59.400
+What is Q3 value?
+
+01:05:59.400 --> 01:06:01.400
+Ok, this is your 5 point summary
+
+01:06:01.400 --> 01:06:03.400
+What is min? What is max?
+
+01:06:03.400 --> 01:06:05.400
+I hope you understood this
+
+01:06:05.400 --> 01:06:07.400
+So what does summary tell you?
+
+01:06:07.400 --> 01:06:09.400
+If histogram is dividing in buckets
+
+01:06:09.400 --> 01:06:11.400
+Then summary is dividing in quantize
+
+01:06:11.400 --> 01:06:13.400
+And there are two attributes in summary
+
+01:06:13.400 --> 01:06:15.400
+Sum tells you
+
+01:06:15.400 --> 01:06:17.400
+That in every given range
+
+01:06:17.400 --> 01:06:19.400
+Like if there are values up to 25 percentile
+
+01:06:19.400 --> 01:06:21.400
+Then what is the total value of those values?
+
+01:06:21.400 --> 01:06:23.400
+I want to find sum of Q1 values
+
+01:06:23.400 --> 01:06:25.400
+I want to find sum of Q2 values
+
+01:06:25.400 --> 01:06:27.400
+I want to find sum of median values
+
+01:06:27.400 --> 01:06:29.400
+So that is sum
+
+01:06:29.400 --> 01:06:31.400
+And count
+
+01:06:31.400 --> 01:06:33.400
+Normally it is your count
+
+01:06:33.400 --> 01:06:35.400
+Is it clear now?
+
+01:06:35.400 --> 01:06:37.400
+These 4 metrics are clear
+
+01:06:37.400 --> 01:06:39.400
+These metrics will be visible to you somewhere
+
+01:06:39.400 --> 01:06:41.400
+It just needs to be an idea
+
+01:06:41.400 --> 01:06:43.400
+Maybe you will never
+
+01:06:43.400 --> 01:06:45.400
+Because you are not making metrics here
+
+01:06:45.400 --> 01:06:47.400
+You are just tracking them
+
+01:06:47.400 --> 01:06:51.400
+So that you don't have to use them from the perspective of making them
+
+01:06:51.400 --> 01:06:53.400
+But they will definitely be visible to you
+
+01:06:53.400 --> 01:06:55.400
+So it is good to have an idea
+
+01:06:55.400 --> 01:06:57.400
+So that you know
+
+01:06:57.400 --> 01:06:59.400
+How you are aggregating them
+
+01:07:03.400 --> 01:07:05.400
+Clear?
+
+01:07:05.400 --> 01:07:07.400
+If you have a metric, let's say it is summary type
+
+01:07:07.400 --> 01:07:09.400
+Then you can easily make a Vox plot with it
+
+01:07:11.400 --> 01:07:13.400
+Because you have all the values there
+
+01:07:13.400 --> 01:07:15.400
+It is a continuous distribution
+
+01:07:15.400 --> 01:07:17.400
+If it is a histogram
+
+01:07:17.400 --> 01:07:19.400
+Then you can make a continuous distribution
+
+01:07:19.400 --> 01:07:21.400
+You can make a histogram
+
+01:07:21.400 --> 01:07:23.400
+What is in the gauge?
+
+01:07:23.400 --> 01:07:25.400
+You can make a meter type
+
+01:07:25.400 --> 01:07:27.400
+Is it clear?
+
+01:07:31.400 --> 01:07:33.400
+Is it confusing?
+
+01:07:33.400 --> 01:07:35.400
+If it is, then you can tell me
+
+01:07:37.400 --> 01:07:39.400
+If it is not, then let's do one thing
+
+01:07:39.400 --> 01:07:41.400
+Let's summarize the whole discussion
+
+01:07:41.400 --> 01:07:43.400
+And move ahead
+
+01:07:43.400 --> 01:07:45.400
+This is all we have to discuss in Prometheus
+
+01:07:45.400 --> 01:07:47.400
+Don't do more than this
+
+01:07:57.400 --> 01:07:59.400
+Tell me guys
+
+01:07:59.400 --> 01:08:01.400
+I am looking at the chat
+
+01:08:01.400 --> 01:08:03.400
+Are you understanding the things we discussed so far?
+
+01:08:03.400 --> 01:08:05.400
+What did you guys discuss?
+
+01:08:11.400 --> 01:08:13.400
+If someone has a question, then you can ask
+
+01:08:15.400 --> 01:08:17.399
+Is it confusing?
+
+01:08:17.399 --> 01:08:19.399
+Tell me yes or no
+
+01:08:23.399 --> 01:08:25.399
+If it is a little too much, then it will be fine
+
+01:08:25.399 --> 01:08:27.399
+If it is not too much
+
+01:08:27.399 --> 01:08:29.399
+I summarize all the discussion
+
+01:08:31.399 --> 01:08:33.399
+Not confusion
+
+01:08:35.399 --> 01:08:37.399
+Let's summarize everything
+
+01:08:39.399 --> 01:08:41.399
+So this is summary
+
+01:08:41.399 --> 01:08:43.399
+What we have to do
+
+01:08:43.399 --> 01:08:45.399
+Let's define the goal
+
+01:08:45.399 --> 01:08:47.399
+The goal is that we have to track
+
+01:08:47.399 --> 01:08:49.399
+Our EC2 instances
+
+01:08:51.399 --> 01:08:53.399
+We have to track our metrics
+
+01:08:53.399 --> 01:08:55.399
+We have to track our metrics
+
+01:08:55.399 --> 01:08:57.399
+Now who will give us the metrics?
+
+01:08:57.399 --> 01:08:59.399
+This metrics will give us
+
+01:08:59.399 --> 01:09:01.399
+A special package
+
+01:09:01.399 --> 01:09:03.399
+Which is called Node Exporter
+
+01:09:03.399 --> 01:09:05.399
+This Node Exporter library
+
+01:09:05.399 --> 01:09:07.399
+Is a pre-built library by Prometheus
+
+01:09:07.399 --> 01:09:09.399
+If we install this Node Exporter
+
+01:09:09.399 --> 01:09:11.399
+On any EC2 machine
+
+01:09:11.399 --> 01:09:13.399
+Then our EC2 machine
+
+01:09:13.399 --> 01:09:15.399
+On the end point of our metrics
+
+01:09:15.399 --> 01:09:17.399
+On port 9100
+
+01:09:19.399 --> 01:09:21.399
+It will expose all the metrics
+
+01:09:21.399 --> 01:09:23.399
+Node exporter will expose all the metrics
+
+01:09:23.399 --> 01:09:25.399
+Node exporter works simply
+
+01:09:25.399 --> 01:09:27.399
+It exposes your metrics
+
+01:09:27.399 --> 01:09:29.399
+Now the whole story does not get solved
+
+01:09:29.399 --> 01:09:31.399
+By exposing the metrics
+
+01:09:31.399 --> 01:09:33.399
+We have to pull these metrics
+
+01:09:33.399 --> 01:09:35.399
+In Prometheus
+
+01:09:35.399 --> 01:09:37.399
+What we will do in Prometheus
+
+01:09:37.399 --> 01:09:39.399
+We will set it on a different EC2 instance
+
+01:09:39.399 --> 01:09:41.399
+Because it is possible that your EC2 instance
+
+01:09:41.399 --> 01:09:43.399
+Crashes, then your tracking will also crash
+
+01:09:43.399 --> 01:09:45.399
+Means if you are tracking your system
+
+01:09:45.399 --> 01:09:47.399
+Then you will not install it on the same system
+
+01:09:47.399 --> 01:09:49.399
+And track it
+
+01:09:49.399 --> 01:09:51.399
+Let's say I am tracking my system
+
+01:09:51.399 --> 01:09:53.399
+Through my task manager
+
+01:09:53.399 --> 01:09:55.400
+What is the benefit of that?
+
+01:09:55.400 --> 01:09:57.400
+If my system gets over-heated and shut down
+
+01:09:57.400 --> 01:09:59.400
+Then task manager will also get shut down
+
+01:09:59.400 --> 01:10:01.400
+So how will the over-heating get detected?
+
+01:10:01.400 --> 01:10:03.400
+That will happen through some other system
+
+01:10:03.400 --> 01:10:05.400
+So we will make a special instance
+
+01:10:05.400 --> 01:10:07.400
+For this monitoring
+
+01:10:07.400 --> 01:10:09.400
+This instance will track our application instances
+
+01:10:09.400 --> 01:10:11.400
+On which we have installed
+
+01:10:11.400 --> 01:10:13.400
+Node exporter
+
+01:10:13.400 --> 01:10:15.400
+And on top of that
+
+01:10:15.400 --> 01:10:17.400
+It will fetch all the metrics
+
+01:10:17.400 --> 01:10:19.400
+And save them in its database
+
+01:10:19.400 --> 01:10:21.400
+And if we want to query that database
+
+01:10:21.400 --> 01:10:23.400
+Then we can write
+
+01:10:23.400 --> 01:10:25.400
+Prometheus queries
+
+01:10:25.400 --> 01:10:27.400
+And fetch the results from the database
+
+01:10:27.400 --> 01:10:29.400
+If we learn to fetch the results
+
+01:10:29.400 --> 01:10:31.400
+Then we can build a dashboard
+
+01:10:31.400 --> 01:10:33.400
+With those results
+
+01:10:33.400 --> 01:10:35.400
+And for that we use Grafame
+
+01:10:35.400 --> 01:10:37.400
+So today's task is
+
+01:10:37.400 --> 01:10:39.400
+What we will do first
+
+01:10:39.400 --> 01:10:41.400
+First of all we will install
+
+01:10:41.400 --> 01:10:43.400
+On our EC2 machine
+
+01:10:43.400 --> 01:10:45.400
+Node exporter
+
+01:10:45.400 --> 01:10:47.400
+As soon as we install this load exporter
+
+01:10:47.400 --> 01:10:49.400
+On all EC2 instances
+
+01:10:49.400 --> 01:10:51.400
+Automatically
+
+01:10:51.400 --> 01:10:53.400
+It will start exposing
+
+01:10:53.400 --> 01:10:55.400
+Our metrics at the end point of our metrics
+
+01:10:55.400 --> 01:10:57.400
+Okay
+
+01:10:57.400 --> 01:10:59.400
+After that we will make our
+
+01:10:59.400 --> 01:11:01.400
+New instance which will be our monitoring instance
+
+01:11:01.400 --> 01:11:03.400
+Where only our Prometheus
+
+01:11:03.400 --> 01:11:05.400
+And calcografana will be there
+
+01:11:05.400 --> 01:11:07.400
+This monitoring instance will be
+
+01:11:07.400 --> 01:11:09.400
+24x7
+
+01:11:09.400 --> 01:11:11.400
+And it will track our application instances
+
+01:11:11.400 --> 01:11:13.400
+For that we will need
+
+01:11:13.400 --> 01:11:15.400
+Prometheus
+
+01:11:15.400 --> 01:11:17.400
+In Prometheus
+
+01:11:17.400 --> 01:11:19.400
+We will set these end points
+
+01:11:19.400 --> 01:11:21.400
+Which are the end points of our EC2 machine
+
+01:11:21.400 --> 01:11:23.400
+Okay
+
+01:11:23.400 --> 01:11:25.400
+And as soon as we set them
+
+01:11:25.400 --> 01:11:27.400
+Our Prometheus setup
+
+01:11:27.400 --> 01:11:29.400
+Will automatically track these metrics
+
+01:11:29.400 --> 01:11:31.400
+And will start locking
+
+01:11:31.400 --> 01:11:33.400
+In our time series database
+
+01:11:33.400 --> 01:11:35.400
+The whole setup is cleared
+
+01:11:35.400 --> 01:11:37.400
+What we are going to do
+
+01:11:39.400 --> 01:11:41.400
+Is the complete setup clear
+
+01:11:43.400 --> 01:11:45.400
+There are 3 steps of setup
+
+01:11:45.400 --> 01:11:47.400
+First of all we have to set
+
+01:11:47.400 --> 01:11:49.400
+Node exporter on our EC2 instance
+
+01:11:49.400 --> 01:11:51.400
+Then we have to make a new instance
+
+01:11:51.400 --> 01:11:53.400
+On which we have to install Prometheus
+
+01:11:53.400 --> 01:11:55.400
+And thirdly you have to integrate both
+
+01:11:55.400 --> 01:11:57.400
+You have to tell Prometheus
+
+01:11:57.400 --> 01:11:59.400
+Where the metrics are exposed and how to track them
+
+01:11:59.400 --> 01:12:01.400
+That's it
+
+01:12:01.400 --> 01:12:03.400
+And the tracking you have to tell
+
+01:12:03.400 --> 01:12:05.400
+You don't tell it in UI
+
+01:12:05.400 --> 01:12:07.400
+There is a Prometheus.yml file
+
+01:12:07.400 --> 01:12:09.400
+It has a config file
+
+01:12:09.400 --> 01:12:11.400
+In which you go and
+
+01:12:11.400 --> 01:12:13.400
+Add the config here
+
+01:12:21.400 --> 01:12:23.400
+Clear
+
+01:12:23.400 --> 01:12:25.400
+Move forward
+
+01:12:27.400 --> 01:12:29.400
+It's easy guys
+
+01:12:29.400 --> 01:12:31.400
+When you see the whole setup
+
+01:12:31.400 --> 01:12:33.400
+It is easy
+
+01:12:35.400 --> 01:12:37.400
+Move forward
+
+01:12:37.400 --> 01:12:39.400
+Okay
+
+01:12:39.400 --> 01:12:41.400
+If you have any question
+
+01:12:41.400 --> 01:12:43.400
+You can ask
+
+01:12:43.400 --> 01:12:45.400
+Let's check
+
+01:12:45.400 --> 01:12:47.400
+That our traces
+
+01:12:47.400 --> 01:12:49.400
+That we made
+
+01:12:49.400 --> 01:12:51.400
+Is our cron job working or not
+
+01:12:51.400 --> 01:12:53.400
+So these are our 3 traces
+
+01:12:53.400 --> 01:12:55.400
+Yes, see
+
+01:12:55.400 --> 01:12:57.400
+Here we can see our scores
+
+01:12:57.400 --> 01:12:59.400
+See
+
+01:12:59.400 --> 01:13:01.400
+Yes, our cron job is working
+
+01:13:01.400 --> 01:13:03.400
+And our online evals are working
+
+01:13:03.400 --> 01:13:05.400
+Here also we can see the scores
+
+01:13:05.400 --> 01:13:07.400
+We can see the scores
+
+01:13:07.400 --> 01:13:09.400
+If I talk about this
+
+01:13:09.400 --> 01:13:11.400
+It shouldn't have any scoring
+
+01:13:11.400 --> 01:13:13.400
+Because it got a guardrail trigger
+
+01:13:13.400 --> 01:13:15.400
+And here there is no score
+
+01:13:15.400 --> 01:13:17.400
+So yes, we are successfully
+
+01:13:17.400 --> 01:13:19.400
+Doing online evals
+
+01:13:19.400 --> 01:13:21.400
+Now let's understand
+
+01:13:21.400 --> 01:13:23.400
+How we will install this node exporter
+
+01:13:23.400 --> 01:13:25.400
+On our EC2 machine
+
+01:13:25.400 --> 01:13:27.400
+Now to understand this
+
+01:13:27.400 --> 01:13:29.400
+You have to understand the whole setup
+
+01:13:29.400 --> 01:13:31.400
+Now what is setup
+
+01:13:31.400 --> 01:13:33.400
+Here we have
+
+01:13:33.400 --> 01:13:35.400
+Auto scaling group
+
+01:13:35.400 --> 01:13:37.400
+On that auto scaling group
+
+01:13:37.400 --> 01:13:39.400
+Automatically
+
+01:13:39.400 --> 01:13:41.400
+EC2 instances get launched
+
+01:13:41.400 --> 01:13:43.400
+If the traffic increases
+
+01:13:43.400 --> 01:13:45.400
+Then more get launched
+
+01:13:45.400 --> 01:13:47.400
+And if the traffic decreases
+
+01:13:47.400 --> 01:13:49.400
+Then down scaling happens
+
+01:13:49.400 --> 01:13:51.400
+Means our extra EC2 instances get closed
+
+01:13:51.400 --> 01:13:53.400
+Now whenever
+
+01:13:53.400 --> 01:13:55.400
+You have to set a target in Prometheus
+
+01:13:55.400 --> 01:13:57.400
+Then you set a target
+
+01:13:57.400 --> 01:13:59.400
+Through the URL
+
+01:13:59.400 --> 01:14:01.400
+Because how does Prometheus work
+
+01:14:01.400 --> 01:14:03.400
+If you see the documentation
+
+01:14:03.400 --> 01:14:05.400
+It is written
+
+01:14:05.400 --> 01:14:07.400
+Prometheus works through HTTP
+
+01:14:07.400 --> 01:14:09.400
+If I show you here pull metrics
+
+01:14:09.400 --> 01:14:11.400
+So pull metrics
+
+01:14:13.400 --> 01:14:15.400
+Here HTTP is not written
+
+01:14:15.400 --> 01:14:17.400
+Look here, HTTP server
+
+01:14:17.400 --> 01:14:19.400
+It pulls all these metrics
+
+01:14:19.400 --> 01:14:21.400
+Through HTTP
+
+01:14:21.400 --> 01:14:23.400
+If I show you somewhere, it will also write the exact line
+
+01:14:23.400 --> 01:14:25.400
+Look, time series collection
+
+01:14:25.400 --> 01:14:27.400
+Happens via pull model over HTTP
+
+01:14:27.400 --> 01:14:29.400
+If it is HTTP, what will you have to give
+
+01:14:29.400 --> 01:14:31.400
+You have to give a URL
+
+01:14:31.400 --> 01:14:33.400
+But the problem is
+
+01:14:33.400 --> 01:14:35.400
+Here the EC2 instances
+
+01:14:35.400 --> 01:14:37.400
+That are getting created
+
+01:14:37.400 --> 01:14:39.400
+We are not creating them manually
+
+01:14:39.400 --> 01:14:41.400
+They can be extra or
+
+01:14:41.400 --> 01:14:43.400
+Can be closed
+
+01:14:43.400 --> 01:14:45.400
+We don't have control over them
+
+01:14:45.400 --> 01:14:47.400
+So here one thing I understood
+
+01:14:47.400 --> 01:14:49.400
+That this URL
+
+01:14:49.400 --> 01:14:51.400
+Our EC2 instances IP address
+
+01:14:51.400 --> 01:14:53.400
+Is not static
+
+01:14:53.400 --> 01:14:55.400
+We only know
+
+01:14:55.400 --> 01:14:57.400
+That what is static
+
+01:14:57.400 --> 01:14:59.400
+The IP address exporter
+
+01:14:59.400 --> 01:15:01.400
+Is exposing its metrics
+
+01:15:01.400 --> 01:15:03.400
+On any IP address port 9100
+
+01:15:03.400 --> 01:15:05.400
+On its metrics
+
+01:15:05.400 --> 01:15:07.400
+We only know this
+
+01:15:07.400 --> 01:15:09.400
+Port number and final input
+
+01:15:09.400 --> 01:15:11.400
+What is the address behind it
+
+01:15:11.400 --> 01:15:13.400
+We don't know
+
+01:15:13.400 --> 01:15:15.400
+That is completely dynamic
+
+01:15:15.400 --> 01:15:17.400
+So what we have to do here
+
+01:15:17.400 --> 01:15:19.400
+First of all, we have to take some kind of
+
+01:15:19.400 --> 01:15:21.400
+Mechanism
+
+01:15:21.400 --> 01:15:23.400
+Where automatically
+
+01:15:23.400 --> 01:15:25.400
+Whenever any of our machines
+
+01:15:25.400 --> 01:15:27.400
+Is launched, automatically
+
+01:15:27.400 --> 01:15:29.400
+Node exporter should be installed
+
+01:15:29.400 --> 01:15:31.400
+We will not do this manually
+
+01:15:31.400 --> 01:15:33.400
+Everything should be done automatically
+
+01:15:33.400 --> 01:15:35.400
+What will you do to do it automatically
+
+01:15:35.400 --> 01:15:37.400
+We have already read this thing
+
+01:15:37.400 --> 01:15:39.400
+If someone will answer this
+
+01:15:39.400 --> 01:15:41.400
+I will be pretty happy
+
+01:15:41.400 --> 01:15:43.400
+If you have read it
+
+01:15:43.400 --> 01:15:45.400
+On EC2 machines
+
+01:15:45.400 --> 01:15:47.400
+Automatically anything there
+
+01:15:47.400 --> 01:15:49.400
+What do you do
+
+01:15:49.400 --> 01:15:51.400
+User data
+
+01:15:51.400 --> 01:15:53.400
+Where do you get it Angush
+
+01:15:53.400 --> 01:15:55.400
+Your answer is absolutely correct
+
+01:15:55.400 --> 01:15:57.400
+Where do you get it
+
+01:15:59.400 --> 01:16:01.400
+What is called launch
+
+01:16:01.400 --> 01:16:03.400
+Launch template
+
+01:16:03.400 --> 01:16:05.400
+Yes, I got the right answer
+
+01:16:05.400 --> 01:16:07.400
+What we will do here
+
+01:16:07.400 --> 01:16:09.400
+We will modify our launch template
+
+01:16:09.400 --> 01:16:11.400
+And simply add commands
+
+01:16:11.400 --> 01:16:13.400
+Inside it
+
+01:16:13.400 --> 01:16:15.400
+Whenever you want to launch a new EC2 instance
+
+01:16:15.400 --> 01:16:17.400
+You have to launch your node exporter
+
+01:16:17.400 --> 01:16:19.400
+Along with it
+
+01:16:19.400 --> 01:16:21.400
+And what you have to do
+
+01:16:21.400 --> 01:16:23.400
+You have made your node exporter
+
+01:16:23.400 --> 01:16:25.400
+Here
+
+01:16:25.400 --> 01:16:27.400
+You have installed it
+
+01:16:27.400 --> 01:16:29.400
+And it is also exposing the matrix here
+
+01:16:29.400 --> 01:16:31.400
+But you have to enable this port
+
+01:16:31.400 --> 01:16:33.400
+So you have to do one more thing
+
+01:16:33.400 --> 01:16:35.400
+That your security group
+
+01:16:35.400 --> 01:16:37.400
+Not for your load balancer
+
+01:16:37.400 --> 01:16:39.400
+Load balancer is internet facing
+
+01:16:39.400 --> 01:16:41.400
+User facing
+
+01:16:41.400 --> 01:16:43.400
+User does not have to do this matrix address
+
+01:16:43.400 --> 01:16:45.400
+You have to do it, this application is for developers
+
+01:16:45.400 --> 01:16:47.400
+So what you will do
+
+01:16:47.400 --> 01:16:49.400
+On your instance security group
+
+01:16:49.400 --> 01:16:51.400
+You will add the port 9100
+
+01:16:51.400 --> 01:16:53.400
+So you will enable this port
+
+01:16:53.400 --> 01:16:55.400
+So that you can fetch this matrix
+
+01:16:55.400 --> 01:16:57.400
+Clear
+
+01:16:57.400 --> 01:16:59.400
+So we are going to do these two changes
+
+01:16:59.400 --> 01:17:01.400
+Now I will not show you these changes
+
+01:17:01.400 --> 01:17:03.400
+Because my machines are already running
+
+01:17:03.400 --> 01:17:05.400
+And I have applied changes on them
+
+01:17:05.400 --> 01:17:07.400
+I will show you the steps
+
+01:17:07.400 --> 01:17:09.400
+How to do this
+
+01:17:09.400 --> 01:17:11.400
+What you have to do
+
+01:17:11.400 --> 01:17:15.400
+If I go back to the instances
+
+01:17:15.400 --> 01:17:17.400
+Just a second
+
+01:17:17.400 --> 01:17:19.400
+Here are my instances
+
+01:17:19.400 --> 01:17:21.400
+I will close it with x.app
+
+01:17:27.400 --> 01:17:29.400
+So these are my instances
+
+01:17:29.400 --> 01:17:31.400
+Here is my launch template
+
+01:17:31.400 --> 01:17:33.400
+Launch template
+
+01:17:33.400 --> 01:17:35.400
+Here is the launch template
+
+01:17:35.400 --> 01:17:37.400
+What you have to do
+
+01:17:37.400 --> 01:17:39.400
+What is your already existing launch template
+
+01:17:39.400 --> 01:17:41.400
+You have to modify it
+
+01:17:41.400 --> 01:17:43.400
+Modify template
+
+01:17:43.400 --> 01:17:45.400
+Go inside this
+
+01:17:45.400 --> 01:17:47.400
+So you have the launch template page
+
+01:17:47.400 --> 01:17:49.400
+You have to specify a new version
+
+01:17:49.400 --> 01:17:51.400
+Version 2
+
+01:17:51.400 --> 01:17:53.400
+And below
+
+01:17:53.400 --> 01:17:55.400
+Where you will go
+
+01:17:55.400 --> 01:17:57.400
+You have to attach role
+
+01:17:57.400 --> 01:17:59.400
+You can see here
+
+01:17:59.400 --> 01:18:01.400
+What is this code
+
+01:18:01.400 --> 01:18:03.400
+This is code for deploying agent
+
+01:18:03.400 --> 01:18:05.400
+We have already done this
+
+01:18:05.400 --> 01:18:07.400
+After that
+
+01:18:07.400 --> 01:18:09.400
+You have to add extra code in the user data
+
+01:18:09.400 --> 01:18:11.400
+This is code
+
+01:18:11.400 --> 01:18:13.400
+To basically add our
+
+01:18:13.400 --> 01:18:15.400
+Node exporter
+
+01:18:15.400 --> 01:18:17.400
+This is all code
+
+01:18:17.400 --> 01:18:19.400
+Where you will get this code
+
+01:18:19.400 --> 01:18:21.400
+I will show you this code
+
+01:18:21.400 --> 01:18:23.400
+I have already pushed this in our repository
+
+01:18:23.400 --> 01:18:25.400
+These are the promethe installation steps
+
+01:18:25.400 --> 01:18:27.400
+This is the txt file
+
+01:18:27.400 --> 01:18:29.400
+Look script for installing
+
+01:18:29.400 --> 01:18:31.400
+Node exporter on EC2 instances
+
+01:18:31.400 --> 01:18:33.400
+Simply you have to take this whole script
+
+01:18:33.400 --> 01:18:35.400
+Copy it
+
+01:18:35.400 --> 01:18:37.400
+And add it in the user data
+
+01:18:37.400 --> 01:18:39.400
+Don't delete the old one
+
+01:18:39.400 --> 01:18:41.400
+Keep in mind that your code deploy agent
+
+01:18:41.400 --> 01:18:43.400
+Won't work
+
+01:18:43.400 --> 01:18:45.400
+So your code deploy service won't work
+
+01:18:45.400 --> 01:18:47.400
+Just add everything in a new line
+
+01:18:47.400 --> 01:18:49.400
+That's it
+
+01:18:49.400 --> 01:18:51.400
+And automatically
+
+01:18:51.400 --> 01:18:53.400
+Your new instances
+
+01:18:53.400 --> 01:18:55.400
+Which will be launched
+
+01:18:55.400 --> 01:18:57.400
+Your node exporter will be installed
+
+01:18:57.400 --> 01:18:59.400
+Current instances will be stopped
+
+01:18:59.400 --> 01:19:01.400
+New will be launched with the modified
+
+01:19:01.400 --> 01:19:03.400
+Launch template
+
+01:19:03.400 --> 01:19:05.400
+Now I will explain you what this code is basically
+
+01:19:05.400 --> 01:19:07.400
+It is a very simple code
+
+01:19:07.400 --> 01:19:09.400
+What is the first thing in this code
+
+01:19:09.400 --> 01:19:11.400
+Now I will show you the version of node exporter
+
+01:19:11.400 --> 01:19:13.400
+So this is the latest version
+
+01:19:13.400 --> 01:19:15.400
+If I show you in downloads
+
+01:19:17.400 --> 01:19:19.400
+So look
+
+01:19:19.400 --> 01:19:21.400
+Here you will select the operating system
+
+01:19:21.400 --> 01:19:23.400
+Your Linux
+
+01:19:23.400 --> 01:19:25.400
+Done
+
+01:19:25.400 --> 01:19:27.400
+Now you will go down
+
+01:19:27.400 --> 01:19:29.400
+So node exporter
+
+01:19:29.400 --> 01:19:31.400
+Here is exporter for machine matrix
+
+01:19:31.400 --> 01:19:33.400
+What is the latest version showing
+
+01:19:33.400 --> 01:19:35.400
+1.12.1
+
+01:19:35.400 --> 01:19:37.400
+We are installing the same version here
+
+01:19:37.400 --> 01:19:39.400
+1.12.1
+
+01:19:39.400 --> 01:19:41.400
+So what are we doing
+
+01:19:41.400 --> 01:19:43.400
+First of all
+
+01:19:43.400 --> 01:19:45.400
+We are bringing our node exporter
+
+01:19:45.400 --> 01:19:47.400
+From the get up
+
+01:19:47.400 --> 01:19:49.400
+So from the get up
+
+01:19:49.400 --> 01:19:51.400
+We are downloading our node exporter
+
+01:19:51.400 --> 01:19:53.400
+We will get a tar file
+
+01:19:53.400 --> 01:19:55.400
+Basically a zip file
+
+01:19:55.400 --> 01:19:57.400
+We will unzip it
+
+01:19:57.400 --> 01:19:59.400
+After unzipping
+
+01:19:59.400 --> 01:20:01.400
+What we will do
+
+01:20:01.400 --> 01:20:03.400
+We will add our user
+
+01:20:03.400 --> 01:20:05.400
+We will change permissions
+
+01:20:05.400 --> 01:20:07.400
+We will change the permissions
+
+01:20:07.400 --> 01:20:09.400
+This is a simple bash code
+
+01:20:09.400 --> 01:20:11.400
+After that what you will do
+
+01:20:11.400 --> 01:20:13.400
+For your node exporter
+
+01:20:13.400 --> 01:20:15.400
+You will write a service
+
+01:20:15.400 --> 01:20:17.400
+Basically a script
+
+01:20:17.400 --> 01:20:19.400
+Basically like your other services
+
+01:20:19.400 --> 01:20:21.400
+Like your docker
+
+01:20:21.400 --> 01:20:23.400
+So like docker
+
+01:20:23.400 --> 01:20:25.400
+Your node exporter will run on your system
+
+01:20:25.400 --> 01:20:27.400
+You can remove it if you want
+
+01:20:27.400 --> 01:20:29.400
+The main reason to make this service is
+
+01:20:29.400 --> 01:20:31.400
+If your system crashes
+
+01:20:31.400 --> 01:20:33.400
+Then automatically node exporter
+
+01:20:33.400 --> 01:20:35.400
+Will restart every time
+
+01:20:35.400 --> 01:20:37.400
+Like docker
+
+01:20:37.400 --> 01:20:39.400
+After that what you are doing
+
+01:20:39.400 --> 01:20:41.400
+You are reloading your services
+
+01:20:41.400 --> 01:20:43.400
+And you are enabling your node exporter
+
+01:20:43.400 --> 01:20:45.400
+And if you want to check
+
+01:20:45.400 --> 01:20:47.400
+That is this service running or not
+
+01:20:47.400 --> 01:20:49.400
+Then what you do
+
+01:20:49.400 --> 01:20:51.400
+If you copy this command
+
+01:20:51.400 --> 01:20:53.400
+And you will go to any launch instance
+
+01:20:55.400 --> 01:20:57.400
+Let's say this instance
+
+01:20:57.400 --> 01:20:59.400
+This is my auto scaling group instance
+
+01:20:59.400 --> 01:21:01.400
+We will connect it to terminal
+
+01:21:03.400 --> 01:21:05.400
+You simply have to write
+
+01:21:05.400 --> 01:21:07.400
+Systemctl
+
+01:21:07.400 --> 01:21:09.400
+Instead of start
+
+01:21:09.400 --> 01:21:11.400
+You have to write status
+
+01:21:11.400 --> 01:21:13.400
+That my node exporter
+
+01:21:13.400 --> 01:21:15.400
+Is running or not
+
+01:21:15.400 --> 01:21:17.400
+Status is running
+
+01:21:17.400 --> 01:21:19.400
+So automatically on your auto scaling group
+
+01:21:19.400 --> 01:21:21.400
+Whenever a new instance is created
+
+01:21:21.400 --> 01:21:23.400
+Then automatically node exporter
+
+01:21:23.400 --> 01:21:25.400
+Will start there
+
+01:21:25.400 --> 01:21:27.400
+And what we have to do second change
+
+01:21:27.400 --> 01:21:29.400
+We have to change in our security group
+
+01:21:29.400 --> 01:21:31.400
+So I will take you to security groups
+
+01:21:31.400 --> 01:21:33.400
+So this is our instance security group
+
+01:21:33.400 --> 01:21:35.400
+CampusXRAG instance security group
+
+01:21:35.400 --> 01:21:37.400
+If I show you
+
+01:21:37.400 --> 01:21:39.400
+Then see all these things were already there
+
+01:21:39.400 --> 01:21:41.400
+We had stream rate on 8501
+
+01:21:41.400 --> 01:21:43.400
+This was back end
+
+01:21:43.400 --> 01:21:45.400
+SSH for terminal connection
+
+01:21:45.400 --> 01:21:47.400
+And HTTP
+
+01:21:47.400 --> 01:21:49.400
+I have added custom TCP here which is 9100
+
+01:21:49.400 --> 01:21:51.400
+On which my node exporter is running
+
+01:21:51.400 --> 01:21:53.400
+So now I
+
+01:21:53.400 --> 01:21:55.400
+From outside also
+
+01:21:55.400 --> 01:21:57.400
+I can connect my node exporter
+
+01:21:57.400 --> 01:21:59.400
+And I can communicate with it
+
+01:21:59.400 --> 01:22:01.400
+Is this point clear?
+
+01:22:01.400 --> 01:22:03.400
+Is this setup clear?
+
+01:22:03.400 --> 01:22:05.400
+One thing we have done here
+
+01:22:05.400 --> 01:22:07.400
+The step number one that is installing our node exporter
+
+01:22:07.400 --> 01:22:09.400
+To our EC2 machine
+
+01:22:09.400 --> 01:22:11.400
+What will be the benefit from this
+
+01:22:11.400 --> 01:22:13.400
+The benefit from this is that above any machine
+
+01:22:13.400 --> 01:22:15.400
+Now your metrics
+
+01:22:15.400 --> 01:22:17.400
+Are exposed to that machine
+
+01:22:19.400 --> 01:22:21.400
+And I will go to port 9100
+
+01:22:21.400 --> 01:22:23.400
+And I will do
+
+01:22:23.400 --> 01:22:25.400
+Slash metrics
+
+01:22:25.400 --> 01:22:27.400
+Slash metrics
+
+01:22:27.400 --> 01:22:29.400
+Slash metrics
+
+01:22:29.400 --> 01:22:31.400
+Slash metrics
+
+01:22:31.400 --> 01:22:33.400
+So your metrics are exposed
+
+01:22:33.400 --> 01:22:35.400
+Is this setup clear?
+
+01:22:35.400 --> 01:22:37.400
+Was this setup simple?
+
+01:22:39.400 --> 01:22:41.400
+Simple easy setup
+
+01:22:41.400 --> 01:22:43.400
+Nothing difficult
+
+01:22:43.400 --> 01:22:45.400
+Simply copy paste the commands
+
+01:22:45.400 --> 01:22:47.400
+Clear
+
+01:22:47.400 --> 01:22:49.400
+So here we have
+
+01:22:49.400 --> 01:22:51.400
+Installed our node exporter
+
+01:22:51.400 --> 01:22:53.400
+Now on our auto scaling group
+
+01:22:53.400 --> 01:22:55.400
+Scale up or scale down
+
+01:22:55.400 --> 01:22:57.400
+It doesn't matter to us
+
+01:22:57.400 --> 01:22:59.400
+Whatever machine will be made on it
+
+01:22:59.400 --> 01:23:01.400
+Our node exporter is installed
+
+01:23:01.400 --> 01:23:03.400
+Now let's come to the second step
+
+01:23:03.400 --> 01:23:05.400
+Where we have to do
+
+01:23:05.400 --> 01:23:07.400
+We have to launch a new EC2 instance
+
+01:23:07.400 --> 01:23:09.400
+And this instance
+
+01:23:09.400 --> 01:23:11.400
+Specifically this will be
+
+01:23:11.400 --> 01:23:13.400
+For our infrastructure monitoring
+
+01:23:13.400 --> 01:23:15.400
+On this instance we will
+
+01:23:15.400 --> 01:23:17.400
+Install our Prometheus
+
+01:23:17.400 --> 01:23:19.400
+And on this we will
+
+01:23:19.400 --> 01:23:21.400
+Install our Grafana
+
+01:23:21.400 --> 01:23:23.400
+In the next lecture
+
+01:23:23.400 --> 01:23:25.400
+So now I will show you
+
+01:23:25.400 --> 01:23:27.400
+How to install Prometheus
+
+01:23:27.400 --> 01:23:29.400
+So what will you do first
+
+01:23:29.400 --> 01:23:31.400
+First of all
+
+01:23:31.400 --> 01:23:33.400
+I have already made an instance
+
+01:23:33.400 --> 01:23:35.400
+Where Prometheus is running
+
+01:23:35.400 --> 01:23:37.400
+And it is monitoring instance
+
+01:23:37.400 --> 01:23:39.400
+I will do this delete
+
+01:23:41.400 --> 01:23:43.400
+I am doing delete
+
+01:23:43.400 --> 01:23:45.400
+So that confusion doesn't come
+
+01:23:45.400 --> 01:23:47.400
+Online eval
+
+01:23:47.400 --> 01:23:49.400
+This is running, it will keep running
+
+01:23:49.400 --> 01:23:51.400
+And now let's go to launch instance
+
+01:23:51.400 --> 01:23:53.400
+And make a new instance
+
+01:23:53.400 --> 01:23:55.400
+Called as
+
+01:23:55.400 --> 01:23:57.400
+Monitoring
+
+01:23:57.400 --> 01:23:59.400
+Instance
+
+01:23:59.400 --> 01:24:01.400
+Ok
+
+01:24:01.400 --> 01:24:03.400
+Here we are selecting
+
+01:24:03.400 --> 01:24:05.400
+OS 1.2
+
+01:24:05.400 --> 01:24:07.400
+It is running below, T3 micro is fine
+
+01:24:07.400 --> 01:24:09.400
+We have selected the key pair
+
+01:24:09.400 --> 01:24:11.400
+Here you will come to network settings
+
+01:24:11.400 --> 01:24:13.400
+Now what you have to do in network settings
+
+01:24:13.400 --> 01:24:15.400
+Here you have to keep outbound
+
+01:24:15.400 --> 01:24:17.400
+In network settings
+
+01:24:17.400 --> 01:24:19.400
+But you have to keep inbound
+
+01:24:19.400 --> 01:24:21.400
+Why you have to keep inbound
+
+01:24:21.400 --> 01:24:23.400
+Because your Prometheus
+
+01:24:23.400 --> 01:24:25.400
+Is running on port
+
+01:24:25.400 --> 01:24:27.400
+9090
+
+01:24:27.400 --> 01:24:29.400
+So you have to set port 9090 in your
+
+01:24:29.400 --> 01:24:31.400
+Security group
+
+01:24:31.400 --> 01:24:33.400
+So here I have already made
+
+01:24:33.400 --> 01:24:35.400
+Monitoring security group
+
+01:24:35.400 --> 01:24:37.400
+I will show you now
+
+01:24:37.400 --> 01:24:39.400
+We will keep all the disks
+
+01:24:39.400 --> 01:24:41.400
+And now what you have to do
+
+01:24:41.400 --> 01:24:43.400
+You have to add an instance profile
+
+01:24:43.400 --> 01:24:45.400
+I have already made that
+
+01:24:45.400 --> 01:24:47.400
+Prometheus EC2 SD rule
+
+01:24:47.400 --> 01:24:49.400
+We will select this
+
+01:24:49.400 --> 01:24:51.400
+And click on launch instance
+
+01:24:51.400 --> 01:24:53.400
+Now I will explain why
+
+01:24:53.400 --> 01:24:55.400
+You have to attach roles here
+
+01:24:55.400 --> 01:24:57.400
+Don't worry
+
+01:24:57.400 --> 01:24:59.400
+If I show you security group
+
+01:24:59.400 --> 01:25:01.400
+And I show you the
+
+01:25:01.400 --> 01:25:03.400
+Monitoring security group
+
+01:25:03.400 --> 01:25:05.400
+Here simply
+
+01:25:05.400 --> 01:25:07.400
+I have done Http SSH
+
+01:25:07.400 --> 01:25:09.400
+That you have to do
+
+01:25:09.400 --> 01:25:11.400
+And custom TCP I have set port 9090
+
+01:25:11.400 --> 01:25:13.400
+Just so that I can access
+
+01:25:13.400 --> 01:25:15.400
+My dashboard
+
+01:25:15.400 --> 01:25:17.400
+From my browser
+
+01:25:17.400 --> 01:25:19.400
+That's it
+
+01:25:19.400 --> 01:25:21.400
+Is it clear
+
+01:25:21.400 --> 01:25:23.400
+Our instance is done
+
+01:25:23.400 --> 01:25:25.400
+Let's open it
+
+01:25:25.400 --> 01:25:27.400
+And connect it
+
+01:25:27.400 --> 01:25:29.400
+And go to its terminal
+
+01:25:29.400 --> 01:25:31.400
+I will close extra tabs
+
+01:25:31.400 --> 01:25:33.400
+Now what you have to do
+
+01:25:33.400 --> 01:25:35.400
+You have to go here
+
+01:25:35.400 --> 01:25:37.400
+Next you have to attach a policy
+
+01:25:37.400 --> 01:25:39.400
+Here we are not talking about policy
+
+01:25:39.400 --> 01:25:41.400
+Now we will go to step 3
+
+01:25:41.400 --> 01:25:43.400
+Step 3
+
+01:25:43.400 --> 01:25:45.400
+Very simple step
+
+01:25:45.400 --> 01:25:47.400
+This is also like the step above
+
+01:25:47.400 --> 01:25:49.400
+This step is like this
+
+01:25:49.400 --> 01:25:51.400
+What are you doing
+
+01:25:51.400 --> 01:25:53.400
+You are going to Prometheus website
+
+01:25:53.400 --> 01:25:55.400
+And downloading Prometheus
+
+01:25:55.400 --> 01:25:57.400
+From its github page
+
+01:25:57.400 --> 01:25:59.400
+And then unzip it
+
+01:25:59.400 --> 01:26:01.400
+And then launch it
+
+01:26:01.400 --> 01:26:03.400
+Here you have to launch Prometheus service
+
+01:26:03.400 --> 01:26:05.400
+And where will you get config
+
+01:26:05.400 --> 01:26:07.400
+From Prometheus.yml
+
+01:26:07.400 --> 01:26:09.400
+I will show you this step by step
+
+01:26:09.400 --> 01:26:11.400
+I have copied it
+
+01:26:11.400 --> 01:26:13.400
+And
+
+01:26:13.400 --> 01:26:15.400
+Sorry for that
+
+01:26:15.400 --> 01:26:17.400
+I have pasted it here
+
+01:26:17.400 --> 01:26:19.400
+So what will happen with this
+
+01:26:19.400 --> 01:26:21.400
+It will download and come
+
+01:26:21.400 --> 01:26:23.400
+What size is coming
+
+01:26:23.400 --> 01:26:25.400
+Size, size, size
+
+01:26:25.400 --> 01:26:27.400
+It is not visible
+
+01:26:27.400 --> 01:26:29.400
+Whichever it is
+
+01:26:29.400 --> 01:26:31.400
+This was the package of 102mb
+
+01:26:31.400 --> 01:26:33.400
+What version we have
+
+01:26:33.400 --> 01:26:35.400
+3.1.4
+
+01:26:35.400 --> 01:26:37.400
+If I go to download
+
+01:26:37.400 --> 01:26:39.400
+What is the latest version of Prometheus
+
+01:26:39.400 --> 01:26:41.400
+This is latest
+
+01:26:41.400 --> 01:26:43.400
+This is pre-release
+
+01:26:43.400 --> 01:26:45.400
+It is 3.14
+
+01:26:45.400 --> 01:26:47.400
+We have downloaded it
+
+01:26:47.400 --> 01:26:49.400
+So we are working with the latest version
+
+01:26:49.400 --> 01:26:51.400
+Next what you have to do
+
+01:26:51.400 --> 01:26:53.400
+You have downloaded it
+
+01:26:53.400 --> 01:26:55.400
+And then unzip it
+
+01:26:55.400 --> 01:26:57.400
+So we will unzip it
+
+01:26:57.400 --> 01:26:59.400
+Paste the command
+
+01:26:59.400 --> 01:27:01.400
+Unzipped
+
+01:27:01.400 --> 01:27:03.400
+Now I will show you
+
+01:27:03.400 --> 01:27:05.400
+What is this
+
+01:27:05.400 --> 01:27:07.400
+This is my zip file in red color
+
+01:27:07.400 --> 01:27:09.400
+And in blue this is my unzipped folder
+
+01:27:09.400 --> 01:27:11.400
+I have extracted it
+
+01:27:11.400 --> 01:27:13.400
+And after that I got the folder
+
+01:27:13.400 --> 01:27:15.400
+Prometheus
+
+01:27:15.400 --> 01:27:17.400
+Let's go
+
+01:27:17.400 --> 01:27:19.400
+Let's see what is inside
+
+01:27:19.400 --> 01:27:21.400
+I can see license and notice
+
+01:27:21.400 --> 01:27:23.400
+This is my application
+
+01:27:23.400 --> 01:27:25.400
+In green you can see Prometheus
+
+01:27:25.400 --> 01:27:27.400
+This is my application
+
+01:27:27.400 --> 01:27:29.400
+You get another application which is promtool
+
+01:27:29.400 --> 01:27:31.400
+This is used to verify
+
+01:27:31.400 --> 01:27:33.400
+Promql queries
+
+01:27:33.400 --> 01:27:35.400
+This is not used
+
+01:27:35.400 --> 01:27:37.400
+This is our main application
+
+01:27:37.400 --> 01:27:39.400
+Prometheus and this is my yaml file
+
+01:27:39.400 --> 01:27:41.400
+What I told you
+
+01:27:41.400 --> 01:27:43.400
+If you want to set a target
+
+01:27:43.400 --> 01:27:45.400
+You set it in your yaml file
+
+01:27:45.400 --> 01:27:47.400
+Let's read it
+
+01:27:47.400 --> 01:27:49.400
+What is written in this yaml file
+
+01:27:49.400 --> 01:27:51.400
+I will clear the terminal
+
+01:27:51.400 --> 01:27:53.400
+Because it is very dirty
+
+01:27:53.400 --> 01:27:55.400
+Let's read it
+
+01:27:55.400 --> 01:27:57.400
+Prometheus.
+
+01:27:57.400 --> 01:27:59.400
+See
+
+01:27:59.400 --> 01:28:01.400
+This yaml file looks like this
+
+01:28:01.400 --> 01:28:03.400
+This is your global configuration
+
+01:28:03.400 --> 01:28:05.400
+What is here
+
+01:28:05.400 --> 01:28:07.400
+Scrape interval
+
+01:28:07.400 --> 01:28:09.400
+What is this
+
+01:28:09.400 --> 01:28:11.400
+Your matrix is exposed
+
+01:28:11.400 --> 01:28:13.400
+It will bring those matrix in every 15 seconds
+
+01:28:13.400 --> 01:28:15.400
+What is default
+
+01:28:15.400 --> 01:28:17.400
+If you don't set any time
+
+01:28:17.400 --> 01:28:19.400
+Then default will come in 15 seconds
+
+01:28:19.400 --> 01:28:21.400
+And it will come in 1 minute
+
+01:28:21.400 --> 01:28:23.400
+But we have set 15 seconds
+
+01:28:23.400 --> 01:28:25.400
+We haven't done it
+
+01:28:25.400 --> 01:28:27.400
+Actually the config file you get
+
+01:28:27.400 --> 01:28:29.400
+Some things are prefilled
+
+01:28:29.400 --> 01:28:31.400
+Evaluation interval
+
+01:28:31.400 --> 01:28:33.400
+This is to set alerts
+
+01:28:33.400 --> 01:28:35.400
+We will not use this
+
+01:28:35.400 --> 01:28:37.400
+Alert manager again you understand
+
+01:28:37.400 --> 01:28:39.400
+To set alerts
+
+01:28:39.400 --> 01:28:41.400
+These are your alerting rules
+
+01:28:41.400 --> 01:28:43.400
+We will not use this
+
+01:28:43.400 --> 01:28:45.400
+But I have studied alerting in detail
+
+01:28:45.400 --> 01:28:47.400
+In mlops
+
+01:28:47.400 --> 01:28:49.400
+If you want to understand alerting
+
+01:28:49.400 --> 01:28:51.400
+Then you can read from there
+
+01:28:51.400 --> 01:28:53.400
+We are not covering it in llmops
+
+01:28:53.400 --> 01:28:55.400
+What you have to do
+
+01:28:55.400 --> 01:28:57.400
+You have to set your targets in this configuration
+
+01:28:57.400 --> 01:28:59.400
+The purpose of this configuration
+
+01:28:59.400 --> 01:29:01.400
+Is to set your target
+
+01:29:01.400 --> 01:29:03.400
+You tell the address
+
+01:29:03.400 --> 01:29:05.400
+See it is written
+
+01:29:05.400 --> 01:29:07.400
+A scrape configuration
+
+01:29:07.400 --> 01:29:09.400
+Containing exactly 1 and 0.2 scrape
+
+01:29:11.400 --> 01:29:13.400
+Here it is Prometheus itself
+
+01:29:13.400 --> 01:29:15.400
+Prometheus
+
+01:29:15.400 --> 01:29:17.400
+Exposes his matrix
+
+01:29:17.400 --> 01:29:19.400
+And also scrapes them
+
+01:29:19.400 --> 01:29:21.400
+First of all
+
+01:29:21.400 --> 01:29:23.400
+Let's see a job name
+
+01:29:23.400 --> 01:29:25.400
+See it is written
+
+01:29:25.400 --> 01:29:27.400
+The job name is added as a label
+
+01:29:27.400 --> 01:29:29.400
+To any time series scraped
+
+01:29:29.400 --> 01:29:31.400
+From the config
+
+01:29:31.400 --> 01:29:33.400
+So all your targets
+
+01:29:33.400 --> 01:29:35.400
+You give them a job name
+
+01:29:35.400 --> 01:29:37.400
+So one job name is Prometheus itself
+
+01:29:37.400 --> 01:29:39.400
+Because Prometheus fetches his matrix
+
+01:29:39.400 --> 01:29:41.400
+The default endpoint of the matrix
+
+01:29:41.400 --> 01:29:43.400
+Is
+
+01:29:43.400 --> 01:29:45.400
+Scheme defaults to HTTP
+
+01:29:45.400 --> 01:29:47.400
+Through HTTP
+
+01:29:47.400 --> 01:29:49.400
+This is all working
+
+01:29:49.400 --> 01:29:51.400
+In the job name you tell
+
+01:29:51.400 --> 01:29:53.400
+Static config
+
+01:29:53.400 --> 01:29:55.400
+Such a configuration
+
+01:29:55.400 --> 01:29:57.400
+Or address that has never changed
+
+01:29:57.400 --> 01:29:59.400
+You tell your target
+
+01:29:59.400 --> 01:30:01.400
+Localhost 1990
+
+01:30:01.400 --> 01:30:03.400
+On this system Prometheus is running
+
+01:30:03.400 --> 01:30:05.400
+If I go to its localhost 1990
+
+01:30:05.400 --> 01:30:07.400
+And hit slash matrix
+
+01:30:07.400 --> 01:30:09.400
+Here I should see Prometheus specific
+
+01:30:09.400 --> 01:30:11.400
+Labels sorry matrix
+
+01:30:11.400 --> 01:30:13.400
+And after that
+
+01:30:13.400 --> 01:30:15.400
+I attach a label here Prometheus
+
+01:30:15.400 --> 01:30:17.400
+Which I can see in my Prometheus dashboard
+
+01:30:17.400 --> 01:30:19.400
+Simple, this is all you have to do
+
+01:30:19.400 --> 01:30:21.400
+So I actually show you
+
+01:30:21.400 --> 01:30:23.400
+Here I show you
+
+01:30:23.400 --> 01:30:25.400
+Which matrix of Prometheus is exposed here
+
+01:30:25.400 --> 01:30:27.400
+They are saying
+
+01:30:27.400 --> 01:30:29.400
+We will not believe them
+
+01:30:29.400 --> 01:30:31.400
+Because we are stubborn
+
+01:30:31.400 --> 01:30:33.400
+We will check everything ourselves
+
+01:30:33.400 --> 01:30:35.400
+They are saying go to port 1990
+
+01:30:35.400 --> 01:30:37.400
+And you will get something
+
+01:30:37.400 --> 01:30:39.400
+Why did not you get anything here
+
+01:30:39.400 --> 01:30:41.400
+Because it is on slash matrix
+
+01:30:41.400 --> 01:30:43.400
+Let's go
+
+01:30:43.400 --> 01:30:45.400
+Let's see
+
+01:30:51.400 --> 01:30:53.400
+Why is this not happening
+
+01:30:55.400 --> 01:30:57.400
+Just a second
+
+01:30:59.400 --> 01:31:01.400
+I did this
+
+01:31:03.400 --> 01:31:05.400
+Why is not showing the whole url
+
+01:31:05.400 --> 01:31:07.400
+It is HTTP port 1990
+
+01:31:07.400 --> 01:31:09.400
+Why is not showing the whole url
+
+01:31:09.400 --> 01:31:11.400
+It is HTTP port 1990
+
+01:31:23.400 --> 01:31:25.400
+Ok
+
+01:31:25.400 --> 01:31:27.400
+My bad
+
+01:31:27.400 --> 01:31:29.400
+We are not showing it because we have not started Prometheus
+
+01:31:29.400 --> 01:31:31.400
+Ok
+
+01:31:31.400 --> 01:31:33.400
+Let's start Prometheus once
+
+01:31:33.400 --> 01:31:35.400
+You start Prometheus with this command
+
+01:31:35.400 --> 01:31:37.400
+My bad
+
+01:31:37.400 --> 01:31:39.400
+Simply you are telling
+
+01:31:39.400 --> 01:31:41.400
+Prometheus
+
+01:31:41.400 --> 01:31:43.400
+You have to run it and read config file
+
+01:31:43.400 --> 01:31:45.400
+You put the amber send at the end
+
+01:31:45.400 --> 01:31:47.400
+So that the whole process runs in the background
+
+01:31:47.400 --> 01:31:49.400
+Look
+
+01:31:49.400 --> 01:31:51.400
+Prometheus has started
+
+01:31:51.400 --> 01:31:53.400
+Your port is running on localhost
+
+01:31:53.400 --> 01:31:55.400
+And it has read your yaml file
+
+01:31:55.400 --> 01:31:57.400
+Look
+
+01:31:57.400 --> 01:31:59.400
+Configuration file
+
+01:31:59.400 --> 01:32:01.400
+Prometheus.yaml
+
+01:32:01.400 --> 01:32:03.400
+Now let's go and show you Prometheus
+
+01:32:03.400 --> 01:32:05.400
+Look
+
+01:32:05.400 --> 01:32:07.400
+Prometheus is written
+
+01:32:07.400 --> 01:32:09.400
+It is a little boring but it looks like this
+
+01:32:09.400 --> 01:32:11.400
+If you go to status and target health
+
+01:32:11.400 --> 01:32:13.400
+You can see your targets
+
+01:32:13.400 --> 01:32:15.400
+Now we have only one target
+
+01:32:15.400 --> 01:32:17.400
+Prometheus
+
+01:32:17.400 --> 01:32:19.400
+So Gabbar
+
+01:32:19.400 --> 01:32:21.400
+Is monitoring himself
+
+01:32:21.400 --> 01:32:23.400
+Observing
+
+01:32:23.400 --> 01:32:25.400
+If you go to the slash matrix endpoint
+
+01:32:25.400 --> 01:32:27.400
+You will see his metrics
+
+01:32:27.400 --> 01:32:29.400
+It will take a long time
+
+01:32:31.400 --> 01:32:33.400
+You will not see it directly from here
+
+01:32:33.400 --> 01:32:35.400
+If I am here
+
+01:32:35.400 --> 01:32:37.400
+One minute
+
+01:32:37.400 --> 01:32:39.400
+Just a second guys
+
+01:32:39.400 --> 01:32:41.400
+We will copy it again
+
+01:32:43.400 --> 01:32:45.400
+Here we will paste
+
+01:32:45.400 --> 01:32:47.400
+We will go to port 1990
+
+01:32:47.400 --> 01:32:49.400
+And we will write slash
+
+01:32:49.400 --> 01:32:51.400
+Matrix
+
+01:32:51.400 --> 01:32:53.400
+And see
+
+01:32:53.400 --> 01:32:55.400
+These are your Prometheus metrics
+
+01:32:55.400 --> 01:32:57.400
+Here you are getting histogram
+
+01:32:57.400 --> 01:32:59.400
+Look
+
+01:32:59.400 --> 01:33:01.400
+And this is its bucket size
+
+01:33:01.400 --> 01:33:03.400
+Look
+
+01:33:03.400 --> 01:33:05.400
+Bucket is also written
+
+01:33:05.400 --> 01:33:07.400
+This is histogram and you will get summary
+
+01:33:07.400 --> 01:33:09.400
+Some or the other
+
+01:33:09.400 --> 01:33:11.400
+So you can go and see this again
+
+01:33:11.400 --> 01:33:13.400
+So Prometheus
+
+01:33:13.400 --> 01:33:15.400
+Tracks his metrics
+
+01:33:15.400 --> 01:33:17.400
+If you want to see any metric information
+
+01:33:17.400 --> 01:33:19.400
+Like let's say
+
+01:33:19.400 --> 01:33:21.400
+I want to see this metric information
+
+01:33:21.400 --> 01:33:23.400
+Its value is
+
+01:33:23.400 --> 01:33:25.400
+18315
+
+01:33:25.400 --> 01:33:27.400
+So I will simply copy this metric
+
+01:33:27.400 --> 01:33:29.400
+I will go back to Prometheus
+
+01:33:29.400 --> 01:33:31.400
+I will go to query section
+
+01:33:31.400 --> 01:33:33.400
+And paste this metric
+
+01:33:33.400 --> 01:33:35.400
+What value is coming
+
+01:33:35.400 --> 01:33:37.400
+Its value has changed
+
+01:33:37.400 --> 01:33:39.400
+It is coming to 1979
+
+01:33:39.400 --> 01:33:41.400
+Confirm it
+
+01:33:41.400 --> 01:33:43.400
+And it has increased to 203
+
+01:33:43.400 --> 01:33:45.400
+Which means it is increasing
+
+01:33:45.400 --> 01:33:47.400
+But you can fetch its value
+
+01:33:47.400 --> 01:33:49.400
+Is this point clear
+
+01:33:49.400 --> 01:33:51.400
+So what we have done successfully
+
+01:33:51.400 --> 01:33:53.400
+On instance
+
+01:33:53.400 --> 01:33:55.400
+Prometheus has been installed
+
+01:33:55.400 --> 01:33:57.400
+And run
+
+01:33:57.400 --> 01:33:59.400
+Clear
+
+01:34:05.400 --> 01:34:07.400
+So far
+
+01:34:07.400 --> 01:34:09.400
+The concept is clear
+
+01:34:09.400 --> 01:34:11.400
+Prometheus is working and tracking
+
+01:34:11.400 --> 01:34:13.400
+Everything is working fine
+
+01:34:13.400 --> 01:34:15.400
+Now let's go towards our last step
+
+01:34:15.400 --> 01:34:17.400
+Last step is
+
+01:34:17.400 --> 01:34:19.400
+Tracking targets
+
+01:34:19.400 --> 01:34:21.400
+What are our targets
+
+01:34:21.400 --> 01:34:23.400
+EC2 machines
+
+01:34:23.400 --> 01:34:25.400
+On auto scaling group
+
+01:34:25.400 --> 01:34:27.400
+Now on auto scaling group
+
+01:34:27.400 --> 01:34:29.400
+EC2 machines have a big problem
+
+01:34:29.400 --> 01:34:31.400
+What is the problem
+
+01:34:31.400 --> 01:34:33.400
+Which we have already discussed
+
+01:34:33.400 --> 01:34:35.400
+That any machine starts
+
+01:34:35.400 --> 01:34:37.400
+And any machine stops
+
+01:34:37.400 --> 01:34:39.400
+So by defining such url
+
+01:34:39.400 --> 01:34:41.400
+By defining IP addresses
+
+01:34:41.400 --> 01:34:43.400
+You can't define your endpoints
+
+01:34:43.400 --> 01:34:45.400
+Here your static configs
+
+01:34:45.400 --> 01:34:47.400
+Won't work
+
+01:34:47.400 --> 01:34:49.400
+Because your machines
+
+01:34:49.400 --> 01:34:51.400
+On auto scaling group
+
+01:34:51.400 --> 01:34:53.400
+Those are dynamic
+
+01:34:53.400 --> 01:34:55.400
+Not static
+
+01:34:55.400 --> 01:34:57.400
+It won't stop
+
+01:34:57.400 --> 01:34:59.400
+It can stop
+
+01:34:59.400 --> 01:35:01.400
+What you have to do
+
+01:35:01.400 --> 01:35:03.400
+Is to take a dynamic approach
+
+01:35:03.400 --> 01:35:05.400
+So Prometheus
+
+01:35:05.400 --> 01:35:07.400
+Also knew this problem
+
+01:35:07.400 --> 01:35:09.400
+So along with static configs
+
+01:35:09.400 --> 01:35:11.400
+They give another thing
+
+01:35:11.400 --> 01:35:13.400
+Which is service discovery
+
+01:35:15.400 --> 01:35:17.400
+What is service discovery
+
+01:35:17.400 --> 01:35:19.400
+It is basically a configuration
+
+01:35:21.400 --> 01:35:23.400
+Which you attach
+
+01:35:23.400 --> 01:35:25.400
+In your yaml file
+
+01:35:25.400 --> 01:35:27.400
+And what it automatically does
+
+01:35:27.400 --> 01:35:29.400
+It tracks all your EC2 instances
+
+01:35:29.400 --> 01:35:31.400
+In your auto scaling group
+
+01:35:31.400 --> 01:35:33.400
+Using this service discovery
+
+01:35:33.400 --> 01:35:35.400
+And everything is dynamic
+
+01:35:35.400 --> 01:35:37.400
+Because
+
+01:35:37.400 --> 01:35:39.400
+The tracking that is happening here
+
+01:35:39.400 --> 01:35:41.400
+You don't do it through actual urls
+
+01:35:41.400 --> 01:35:43.400
+You do it through
+
+01:35:43.400 --> 01:35:45.400
+Tags
+
+01:35:45.400 --> 01:35:47.400
+So what you do is
+
+01:35:47.400 --> 01:35:49.400
+In your auto scaling group
+
+01:35:49.400 --> 01:35:51.400
+You attach a tag
+
+01:35:51.400 --> 01:35:53.400
+On all your machines
+
+01:35:53.400 --> 01:35:55.400
+And because there is a tag on those machines
+
+01:35:55.400 --> 01:35:57.400
+So now
+
+01:35:57.400 --> 01:35:59.400
+You discover those
+
+01:35:59.400 --> 01:36:01.400
+On those machines
+
+01:36:01.400 --> 01:36:03.400
+And you start tracking them
+
+01:36:03.400 --> 01:36:05.400
+Now you will see
+
+01:36:05.400 --> 01:36:07.400
+This whole thing in the documentation
+
+01:36:07.400 --> 01:36:09.400
+I will show you
+
+01:36:09.400 --> 01:36:11.400
+If you go to the docs
+
+01:36:11.400 --> 01:36:13.400
+You should know
+
+01:36:13.400 --> 01:36:15.400
+A little bit of documentation
+
+01:36:15.400 --> 01:36:17.400
+If I show you the first steps
+
+01:36:17.400 --> 01:36:19.400
+So
+
+01:36:19.400 --> 01:36:21.400
+Here
+
+01:36:21.400 --> 01:36:23.400
+I think it is not working
+
+01:36:23.400 --> 01:36:25.400
+See these are the commands
+
+01:36:25.400 --> 01:36:27.400
+Which we have copied and pasted
+
+01:36:27.400 --> 01:36:29.400
+And here is your yaml file
+
+01:36:29.400 --> 01:36:31.400
+Prometheus configuration
+
+01:36:31.400 --> 01:36:33.400
+Again the same thing is showing you
+
+01:36:33.400 --> 01:36:35.400
+Here it is explained
+
+01:36:35.400 --> 01:36:37.400
+What is scrape configs
+
+01:36:37.400 --> 01:36:39.400
+It can scrape and monitor its own health
+
+01:36:39.400 --> 01:36:41.400
+So these are all things
+
+01:36:41.400 --> 01:36:43.400
+Now let's go here
+
+01:36:43.400 --> 01:36:45.400
+Data, metrics
+
+01:36:45.400 --> 01:36:47.400
+You can see all these things
+
+01:36:49.400 --> 01:36:51.400
+All the details are here
+
+01:36:51.400 --> 01:36:53.400
+Now let's go to jobs and instances
+
+01:36:53.400 --> 01:36:55.400
+So what is job?
+
+01:36:55.400 --> 01:36:57.400
+Job is basically your one target
+
+01:36:57.400 --> 01:36:59.400
+And what are instances?
+
+01:36:59.400 --> 01:37:01.400
+Individual machines
+
+01:37:01.400 --> 01:37:03.400
+So you have to tell job and instance
+
+01:37:03.400 --> 01:37:05.400
+Now
+
+01:37:05.400 --> 01:37:07.400
+We said that all these things are in static configs
+
+01:37:07.400 --> 01:37:09.400
+What we have to do here
+
+01:37:09.400 --> 01:37:11.400
+Is to make a service discovery
+
+01:37:11.400 --> 01:37:13.400
+What will you do for that
+
+01:37:13.400 --> 01:37:15.400
+See here
+
+01:37:15.400 --> 01:37:17.400
+If you go into configuration
+
+01:37:17.400 --> 01:37:19.400
+You will see here
+
+01:37:19.400 --> 01:37:21.400
+See
+
+01:37:21.400 --> 01:37:23.400
+Read carefully
+
+01:37:23.400 --> 01:37:25.400
+Prometheus is configured via command line flags
+
+01:37:25.400 --> 01:37:27.400
+And a configuration file
+
+01:37:27.400 --> 01:37:29.400
+While command line flags configure
+
+01:37:29.400 --> 01:37:31.400
+Immutable system parameters which do not change
+
+01:37:31.400 --> 01:37:33.400
+Configuration file
+
+01:37:33.400 --> 01:37:37.400
+Configuration file defines everything related to scraping jobs and instances
+
+01:37:37.400 --> 01:37:39.400
+Means a particular target
+
+01:37:39.400 --> 01:37:41.400
+And its respective machines
+
+01:37:41.400 --> 01:37:43.400
+You tell in the configuration
+
+01:37:43.400 --> 01:37:45.400
+Ok
+
+01:37:45.400 --> 01:37:47.400
+What is the configuration file written
+
+01:37:47.400 --> 01:37:49.400
+Here it is written that you can add all these things
+
+01:37:49.400 --> 01:37:51.400
+And everything goes here in the yaml format
+
+01:37:51.400 --> 01:37:53.400
+Now
+
+01:37:53.400 --> 01:37:55.400
+This is one
+
+01:37:55.400 --> 01:37:57.400
+You have a configuration file
+
+01:37:57.400 --> 01:37:59.400
+And in it all the attributes
+
+01:37:59.400 --> 01:38:01.400
+All the fields are here
+
+01:38:01.400 --> 01:38:03.400
+You have to focus
+
+01:38:03.400 --> 01:38:05.400
+If you go into scrape config
+
+01:38:05.400 --> 01:38:07.400
+What do you do in scrape config
+
+01:38:07.400 --> 01:38:09.400
+You can tell static configs
+
+01:38:09.400 --> 01:38:11.400
+See it is written
+
+01:38:11.400 --> 01:38:13.400
+In targets also
+
+01:38:13.400 --> 01:38:15.400
+Statically configured via static configs parameter
+
+01:38:15.400 --> 01:38:17.400
+And dynamically discovered
+
+01:38:17.400 --> 01:38:19.400
+What is our use case?
+
+01:38:19.400 --> 01:38:21.400
+Our use case is not static, it is dynamically discovered
+
+01:38:21.400 --> 01:38:23.400
+So how will it be dynamically discovered
+
+01:38:23.400 --> 01:38:25.400
+Using one of the supported service
+
+01:38:25.400 --> 01:38:27.400
+Discovery mechanisms
+
+01:38:27.400 --> 01:38:29.400
+Ok
+
+01:38:29.400 --> 01:38:31.400
+Where will you get discovery mechanisms
+
+01:38:31.400 --> 01:38:33.400
+Here you will not get anything
+
+01:38:33.400 --> 01:38:35.400
+But you see here
+
+01:38:35.400 --> 01:38:37.400
+Outscale SD config
+
+01:38:37.400 --> 01:38:39.400
+What does SD mean? Service Discovery
+
+01:38:39.400 --> 01:38:41.400
+Nomad SD config
+
+01:38:41.400 --> 01:38:43.400
+AWS SD config
+
+01:38:43.400 --> 01:38:45.400
+Ok
+
+01:38:45.400 --> 01:38:47.400
+And if you go down to E
+
+01:38:47.400 --> 01:38:49.400
+List of EC2
+
+01:38:49.400 --> 01:38:51.400
+Service Discovery Configuration
+
+01:38:51.400 --> 01:38:53.400
+So this is EC2 SD config
+
+01:38:53.400 --> 01:38:55.400
+In many applications
+
+01:38:55.400 --> 01:38:57.400
+You will get service discovery
+
+01:38:57.400 --> 01:38:59.400
+AWS is also here
+
+01:38:59.400 --> 01:39:01.400
+GCP is also here
+
+01:39:01.400 --> 01:39:03.400
+If I show you
+
+01:39:03.400 --> 01:39:05.400
+Kubernetes is also available
+
+01:39:09.400 --> 01:39:11.400
+Here GCP is also here
+
+01:39:11.400 --> 01:39:13.400
+I have seen
+
+01:39:13.400 --> 01:39:15.400
+Now
+
+01:39:15.400 --> 01:39:17.400
+It is not visible
+
+01:39:17.400 --> 01:39:19.400
+Maybe
+
+01:39:19.400 --> 01:39:21.400
+This GCE is for that
+
+01:39:21.400 --> 01:39:23.400
+Ok
+
+01:39:23.400 --> 01:39:25.400
+And alert manager is also visible
+
+01:39:25.400 --> 01:39:27.400
+Many things are visible here
+
+01:39:27.400 --> 01:39:29.400
+Many configurations are there
+
+01:39:29.400 --> 01:39:31.400
+What do we have to focus on?
+
+01:39:31.400 --> 01:39:33.400
+We have to focus on our EC2 service config
+
+01:39:33.400 --> 01:39:35.400
+I will click this
+
+01:39:35.400 --> 01:39:37.400
+What is written here? EC2 service
+
+01:39:37.400 --> 01:39:39.400
+Discovery config
+
+01:39:39.400 --> 01:39:41.400
+Allow retrieving scape target from
+
+01:39:41.400 --> 01:39:43.400
+AWS EC2 instances
+
+01:39:43.400 --> 01:39:45.400
+Private IP address is used by default
+
+01:39:45.400 --> 01:39:47.400
+But may be changed to public IP
+
+01:39:47.400 --> 01:39:49.400
+Via relabeling
+
+01:39:49.400 --> 01:39:51.400
+Ok, all these things are written here
+
+01:39:51.400 --> 01:39:53.400
+One thing is written here
+
+01:39:53.400 --> 01:39:55.400
+This policy has to be attached here
+
+01:39:55.400 --> 01:39:57.400
+EC2 describe instance
+
+01:39:57.400 --> 01:39:59.400
+What will this policy do?
+
+01:39:59.400 --> 01:40:01.400
+This policy will simply
+
+01:40:01.400 --> 01:40:03.400
+Describe your EC2 machines
+
+01:40:03.400 --> 01:40:05.400
+Describe means
+
+01:40:05.400 --> 01:40:07.400
+What is their IP address
+
+01:40:07.400 --> 01:40:09.400
+What is their metadata
+
+01:40:09.400 --> 01:40:11.400
+So you have to attach this policy
+
+01:40:11.400 --> 01:40:13.400
+With your Prometheus
+
+01:40:13.400 --> 01:40:15.400
+Now where is your Prometheus going?
+
+01:40:15.400 --> 01:40:17.400
+Prometheus is running on an EC2 machine
+
+01:40:17.400 --> 01:40:19.400
+So how will you attach the policy?
+
+01:40:19.400 --> 01:40:21.400
+You will attach through a role
+
+01:40:21.400 --> 01:40:23.400
+And you will get all this metadata
+
+01:40:23.400 --> 01:40:25.400
+Exposed to your EC2 machines
+
+01:40:25.400 --> 01:40:27.400
+Ok
+
+01:40:27.400 --> 01:40:29.400
+Look, you can get all this data
+
+01:40:29.400 --> 01:40:31.400
+Exposed to your EC2 machines
+
+01:40:31.400 --> 01:40:33.400
+Ok
+
+01:40:33.400 --> 01:40:35.400
+And you can change all these attributes
+
+01:40:35.400 --> 01:40:37.400
+Again, these commands
+
+01:40:37.400 --> 01:40:39.400
+I have written here
+
+01:40:39.400 --> 01:40:41.400
+You don't have to worry about documentation
+
+01:40:41.400 --> 01:40:43.400
+I am just telling you
+
+01:40:43.400 --> 01:40:45.400
+You can dynamically track everything
+
+01:40:45.400 --> 01:40:47.400
+Through service discovery config
+
+01:40:47.400 --> 01:40:49.400
+And how does it track?
+
+01:40:49.400 --> 01:40:51.400
+You can see here
+
+01:40:51.400 --> 01:40:53.400
+Where your EC2 machines
+
+01:40:53.400 --> 01:40:55.400
+Describe themselves
+
+01:40:55.400 --> 01:40:57.400
+What are their metadata fields
+
+01:40:57.400 --> 01:40:59.400
+What is their name
+
+01:40:59.400 --> 01:41:01.400
+What is their IP address
+
+01:41:01.400 --> 01:41:03.400
+They describe themselves
+
+01:41:03.400 --> 01:41:05.400
+Availability zone
+
+01:41:05.400 --> 01:41:07.400
+Owner ID, Platform
+
+01:41:07.400 --> 01:41:09.400
+State, Type
+
+01:41:09.400 --> 01:41:11.400
+You get all these things
+
+01:41:11.400 --> 01:41:13.400
+And if you see here
+
+01:41:13.400 --> 01:41:15.400
+You get the information of Tag
+
+01:41:15.400 --> 01:41:17.400
+And with this information
+
+01:41:17.400 --> 01:41:19.400
+You can track everything
+
+01:41:19.400 --> 01:41:21.400
+Now you will think
+
+01:41:21.400 --> 01:41:23.400
+Sir, everything is done
+
+01:41:23.400 --> 01:41:25.400
+How will we attach tags?
+
+01:41:25.400 --> 01:41:27.400
+The way to attach tags is very simple
+
+01:41:27.400 --> 01:41:29.400
+If you go here
+
+01:41:29.400 --> 01:41:31.400
+And go to your auto scaling group
+
+01:41:31.400 --> 01:41:33.400
+You will remember
+
+01:41:33.400 --> 01:41:35.400
+When they were making auto scaling group
+
+01:41:35.400 --> 01:41:37.400
+There was an option to attach tags
+
+01:41:37.400 --> 01:41:39.400
+So if I select this and go to edit
+
+01:41:39.400 --> 01:41:41.400
+Then look
+
+01:41:41.400 --> 01:41:43.400
+If you look below
+
+01:41:43.400 --> 01:41:45.400
+There is a tags option
+
+01:41:45.400 --> 01:41:47.400
+What is the key?
+
+01:41:47.400 --> 01:41:49.400
+Application name
+
+01:41:49.400 --> 01:41:51.400
+And value is campusXRAG
+
+01:41:51.400 --> 01:41:53.400
+So you can keep any key value
+
+01:41:53.400 --> 01:41:55.400
+Just remember that the tag you are setting
+
+01:41:55.400 --> 01:41:57.400
+Will be set on each EC2 instance
+
+01:41:57.400 --> 01:41:59.400
+So you have to maintain that
+
+01:41:59.400 --> 01:42:01.400
+In your service discovery
+
+01:42:01.400 --> 01:42:03.400
+There should not be any problem in this name
+
+01:42:03.400 --> 01:42:05.400
+So I am not updating it
+
+01:42:05.400 --> 01:42:07.400
+Because I have already attached tags
+
+01:42:07.400 --> 01:42:09.400
+And if you want to see
+
+01:42:09.400 --> 01:42:11.400
+In the instances
+
+01:42:11.400 --> 01:42:13.400
+If tags are coming or not
+
+01:42:13.400 --> 01:42:15.400
+You can see in the application
+
+01:42:15.400 --> 01:42:17.400
+This is the tag with application name
+
+01:42:17.400 --> 01:42:19.400
+It is being attached
+
+01:42:19.400 --> 01:42:21.400
+Rest are all automatic tags
+
+01:42:21.400 --> 01:42:23.400
+This is my custom tag
+
+01:42:23.400 --> 01:42:25.400
+And same tag is also on the other machine
+
+01:42:25.400 --> 01:42:27.400
+Now what I have to do
+
+01:42:27.400 --> 01:42:29.400
+Next I have to go to IAM
+
+01:42:31.400 --> 01:42:33.400
+And here I have to create
+
+01:42:33.400 --> 01:42:35.400
+EC2 described instance policy
+
+01:42:35.400 --> 01:42:37.400
+Now I can't directly
+
+01:42:37.400 --> 01:42:39.400
+Go to the roles and select the policy
+
+01:42:39.400 --> 01:42:41.400
+Because there is no pre-built policy for this
+
+01:42:41.400 --> 01:42:43.400
+So what I have to do
+
+01:42:43.400 --> 01:42:45.400
+First I have to go to policies
+
+01:42:45.400 --> 01:42:47.400
+And here in create policy
+
+01:42:47.400 --> 01:42:49.400
+I have to create a new policy
+
+01:42:49.400 --> 01:42:51.400
+So what I will do simply
+
+01:42:51.400 --> 01:42:53.400
+I will click on JSON
+
+01:42:53.400 --> 01:42:55.400
+After JSON I have written this policy
+
+01:42:55.400 --> 01:42:57.400
+Here is the policy
+
+01:42:57.400 --> 01:42:59.400
+I will copy it exactly
+
+01:42:59.400 --> 01:43:01.400
+This is the policy
+
+01:43:01.400 --> 01:43:03.400
+EC2 described instance
+
+01:43:03.400 --> 01:43:05.400
+And I will paste it
+
+01:43:05.400 --> 01:43:07.400
+And I will give it a policy name
+
+01:43:07.400 --> 01:43:09.400
+And I will create my policy
+
+01:43:09.400 --> 01:43:11.400
+I have already created this policy
+
+01:43:11.400 --> 01:43:13.400
+Let me show you
+
+01:43:17.400 --> 01:43:19.400
+The policy name is
+
+01:43:21.400 --> 01:43:23.400
+Prometheus EC2 SD policy
+
+01:43:23.400 --> 01:43:25.400
+I have already created this
+
+01:43:25.400 --> 01:43:27.400
+Customer manager
+
+01:43:27.400 --> 01:43:29.400
+It has one permission policy
+
+01:43:29.400 --> 01:43:31.400
+What is it? EC2
+
+01:43:31.400 --> 01:43:33.400
+If I click on describe instance
+
+01:43:33.400 --> 01:43:35.400
+It is done
+
+01:43:35.400 --> 01:43:37.400
+And then simply you have to create a role
+
+01:43:37.400 --> 01:43:39.400
+To create a role
+
+01:43:39.400 --> 01:43:41.400
+You will go to create role
+
+01:43:41.400 --> 01:43:43.400
+AWS service, here you will select EC2
+
+01:43:43.400 --> 01:43:45.400
+Because you have to create a role for EC2
+
+01:43:45.400 --> 01:43:47.400
+And simply you will search your policy
+
+01:43:47.400 --> 01:43:49.400
+If I write Prometheus
+
+01:43:49.400 --> 01:43:51.400
+This is my policy
+
+01:43:51.400 --> 01:43:53.400
+I will attach it
+
+01:43:53.400 --> 01:43:55.400
+I will give a name to the role
+
+01:43:55.400 --> 01:43:57.400
+And I will attach this role to whom?
+
+01:43:57.400 --> 01:43:59.400
+I will attach it
+
+01:43:59.400 --> 01:44:01.400
+To my EC2 instance
+
+01:44:01.400 --> 01:44:03.400
+Which is used for monitoring
+
+01:44:03.400 --> 01:44:05.400
+So that they can read
+
+01:44:05.400 --> 01:44:07.400
+The metadata
+
+01:44:07.400 --> 01:44:09.400
+Is it clear?
+
+01:44:09.400 --> 01:44:11.400
+Is all this discussion clear?
+
+01:44:11.400 --> 01:44:13.400
+What we have to do?
+
+01:44:13.400 --> 01:44:15.400
+As you have done till now
+
+01:44:15.400 --> 01:44:17.400
+You create your policies and roles
+
+01:44:17.400 --> 01:44:19.400
+And then you attach them
+
+01:44:19.400 --> 01:44:21.400
+So that machines can interact
+
+01:44:21.400 --> 01:44:23.400
+With other services
+
+01:44:23.400 --> 01:44:25.400
+So the service here is basically
+
+01:44:25.400 --> 01:44:27.400
+Fetching metadata of other EC2 machines
+
+01:44:27.400 --> 01:44:29.400
+Is it clear?
+
+01:44:31.400 --> 01:44:33.400
+I know
+
+01:44:33.400 --> 01:44:35.400
+You might feel a bit cumbersome
+
+01:44:35.400 --> 01:44:37.400
+But it is very logical
+
+01:44:41.400 --> 01:44:43.400
+Step by step you have to go
+
+01:44:43.400 --> 01:44:45.400
+I have given you all these commands
+
+01:44:45.400 --> 01:44:47.400
+Step by step you have to copy paste
+
+01:44:47.400 --> 01:44:49.400
+So if I have to check
+
+01:44:49.400 --> 01:44:51.400
+That my policies are working or not
+
+01:44:51.400 --> 01:44:53.400
+Let me see if I have pasted that command
+
+01:44:53.400 --> 01:44:55.400
+If not, I will update it
+
+01:44:57.400 --> 01:44:59.400
+Because all the installation commands are here
+
+01:44:59.400 --> 01:45:01.400
+So I haven't pasted that
+
+01:45:01.400 --> 01:45:03.400
+But I will share that command with you
+
+01:45:03.400 --> 01:45:05.400
+You can check that
+
+01:45:05.400 --> 01:45:07.400
+What you get by being printed
+
+01:45:07.400 --> 01:45:09.400
+When you call describe instances
+
+01:45:09.400 --> 01:45:11.400
+Now what you have to do at last?
+
+01:45:11.400 --> 01:45:13.400
+You have to do update in your Prometheus
+
+01:45:13.400 --> 01:45:15.400
+So for that
+
+01:45:15.400 --> 01:45:17.400
+What you have to do first
+
+01:45:17.400 --> 01:45:19.400
+Our Prometheus is already running
+
+01:45:19.400 --> 01:45:21.400
+As you have seen
+
+01:45:21.400 --> 01:45:23.400
+So first I have to close Prometheus
+
+01:45:23.400 --> 01:45:25.400
+So this command to close
+
+01:45:25.400 --> 01:45:27.400
+Process kill Prometheus
+
+01:45:27.400 --> 01:45:29.400
+So I close it
+
+01:45:29.400 --> 01:45:31.400
+How will you know if it is closed or not?
+
+01:45:31.400 --> 01:45:33.400
+If I
+
+01:45:33.400 --> 01:45:35.400
+Hit the end point of Prometheus
+
+01:45:35.400 --> 01:45:37.400
+Again, it won't work
+
+01:45:37.400 --> 01:45:39.400
+Now what I have to do
+
+01:45:39.400 --> 01:45:41.400
+Now I have to go here
+
+01:45:41.400 --> 01:45:43.400
+And my yaml file
+
+01:45:43.400 --> 01:45:45.400
+So this is the yaml file
+
+01:45:45.400 --> 01:45:47.400
+I go again
+
+01:45:47.400 --> 01:45:49.400
+Inside Prometheus
+
+01:45:49.400 --> 01:45:51.400
+This yaml file
+
+01:45:51.400 --> 01:45:53.400
+You have to modify it and add your target
+
+01:45:53.400 --> 01:45:55.400
+So I will beat it here
+
+01:45:55.400 --> 01:45:57.400
+I will beat it here
+
+01:45:57.400 --> 01:45:59.400
+Just to see
+
+01:45:59.400 --> 01:46:01.400
+What are the things
+
+01:46:01.400 --> 01:46:03.400
+Already here
+
+01:46:03.400 --> 01:46:05.400
+So now only my Prometheus is getting
+
+01:46:05.400 --> 01:46:07.400
+Tracked here
+
+01:46:07.400 --> 01:46:09.400
+So what I will do is
+
+01:46:09.400 --> 01:46:11.400
+I will go to nano here
+
+01:46:11.400 --> 01:46:13.400
+Nano means I can basically make changes
+
+01:46:13.400 --> 01:46:15.400
+Here an editor will open
+
+01:46:15.400 --> 01:46:17.400
+Opened
+
+01:46:17.400 --> 01:46:19.400
+Now what I can do is
+
+01:46:19.400 --> 01:46:21.400
+I can make changes through keyboard
+
+01:46:21.400 --> 01:46:23.400
+See cursor is moving
+
+01:46:23.400 --> 01:46:25.400
+So what I have to do is
+
+01:46:25.400 --> 01:46:27.400
+Simply
+
+01:46:27.400 --> 01:46:29.400
+Copy this whole thing
+
+01:46:29.400 --> 01:46:31.400
+See what is written here
+
+01:46:31.400 --> 01:46:33.400
+What is the job name?
+
+01:46:33.400 --> 01:46:35.400
+And what type is this?
+
+01:46:35.400 --> 01:46:37.400
+This is EC2 SD config type
+
+01:46:37.400 --> 01:46:39.400
+I have to tell some things
+
+01:46:39.400 --> 01:46:41.400
+Which region is this?
+
+01:46:41.400 --> 01:46:43.400
+Here my EC2 instances are running
+
+01:46:43.400 --> 01:46:45.400
+Where my metrics are exposed
+
+01:46:45.400 --> 01:46:47.400
+Which port is this?
+
+01:46:47.400 --> 01:46:49.400
+This is not Prometheus, this is for my node exporter
+
+01:46:49.400 --> 01:46:51.400
+That you have to go to this port
+
+01:46:51.400 --> 01:46:53.400
+And you have to scrape this
+
+01:46:53.400 --> 01:46:55.400
+Every 15 seconds
+
+01:46:55.400 --> 01:46:57.400
+Refresh interval is here
+
+01:46:57.400 --> 01:46:59.400
+60 seconds
+
+01:46:59.400 --> 01:47:01.400
+This refresh interval is different from scrape interval
+
+01:47:01.400 --> 01:47:03.400
+Refresh interval means
+
+01:47:03.400 --> 01:47:05.400
+You have to check every 60 minutes
+
+01:47:05.400 --> 01:47:07.400
+That no new EC2 instance has come
+
+01:47:07.400 --> 01:47:09.400
+And here filters
+
+01:47:09.400 --> 01:47:11.400
+What I am doing through filters
+
+01:47:11.400 --> 01:47:13.400
+I am filtering my tag
+
+01:47:13.400 --> 01:47:15.400
+Tag should be application name
+
+01:47:15.400 --> 01:47:17.400
+And value should be campusX ragger
+
+01:47:17.400 --> 01:47:19.400
+So target those EC2 machines
+
+01:47:19.400 --> 01:47:21.400
+Tag is applied on them
+
+01:47:21.400 --> 01:47:23.400
+And target those EC2 machines
+
+01:47:23.400 --> 01:47:25.400
+Whose state is currently running
+
+01:47:25.400 --> 01:47:27.400
+Closed EC2 machines, terminate
+
+01:47:27.400 --> 01:47:29.400
+Stopped, restarted, don't focus on them
+
+01:47:29.400 --> 01:47:31.400
+So I have told my config
+
+01:47:31.400 --> 01:47:33.400
+And this below
+
+01:47:33.400 --> 01:47:35.400
+Relabel config
+
+01:47:35.400 --> 01:47:37.400
+Simply what is doing is
+
+01:47:37.400 --> 01:47:39.400
+My metadata details are fetched
+
+01:47:39.400 --> 01:47:41.400
+Basically renaming their labels
+
+01:47:41.400 --> 01:47:43.400
+That's it
+
+01:47:43.400 --> 01:47:45.400
+Source label looks like this
+
+01:47:45.400 --> 01:47:47.400
+I have renamed it instance name
+
+01:47:47.400 --> 01:47:49.400
+Instead of renaming, I will see instance name
+
+01:47:49.400 --> 01:47:51.400
+And value of it
+
+01:47:51.400 --> 01:47:53.400
+In prometheus, I will show you
+
+01:47:53.400 --> 01:47:55.400
+Then your instance ID
+
+01:47:55.400 --> 01:47:57.400
+Will be shown on instance label
+
+01:47:57.400 --> 01:47:59.400
+And IP will be shown on address label
+
+01:48:01.400 --> 01:48:03.400
+Is this point clear?
+
+01:48:03.400 --> 01:48:05.400
+This is simply for relabeling
+
+01:48:05.400 --> 01:48:07.400
+If you remove it, you will see tags like this
+
+01:48:07.400 --> 01:48:09.400
+Just for relabeling
+
+01:48:09.400 --> 01:48:11.400
+You can remove it
+
+01:48:11.400 --> 01:48:13.400
+This much piece of code is important
+
+01:48:13.400 --> 01:48:15.400
+Job name, where you set your target
+
+01:48:15.400 --> 01:48:17.400
+What is the target?
+
+01:48:17.400 --> 01:48:19.400
+Not static config
+
+01:48:19.400 --> 01:48:21.400
+Prometheus was static
+
+01:48:21.400 --> 01:48:23.400
+If I can show you
+
+01:48:23.400 --> 01:48:25.400
+Prometheus is static
+
+01:48:25.400 --> 01:48:27.400
+This is not static, this is dynamic
+
+01:48:27.400 --> 01:48:29.400
+How will it fetch?
+
+01:48:29.400 --> 01:48:31.400
+Through service discovery
+
+01:48:31.400 --> 01:48:33.400
+And its full deed
+
+01:48:33.400 --> 01:48:35.400
+Let's do this, copy it
+
+01:48:35.400 --> 01:48:37.400
+I will copy it from here
+
+01:48:37.400 --> 01:48:39.400
+So that I can keep the indentation correct
+
+01:48:39.400 --> 01:48:41.400
+You have to keep in mind indentation
+
+01:48:41.400 --> 01:48:43.400
+Ok
+
+01:48:43.400 --> 01:48:45.400
+I will paste it
+
+01:48:45.400 --> 01:48:47.400
+Ok, now this is my second job name
+
+01:48:47.400 --> 01:48:49.400
+Everything seems ok
+
+01:48:49.400 --> 01:48:51.400
+Indentation is also correct
+
+01:48:51.400 --> 01:48:53.400
+I will do here
+
+01:48:53.400 --> 01:48:55.400
+Control O, enter
+
+01:48:55.400 --> 01:48:57.400
+Control X
+
+01:48:57.400 --> 01:48:59.400
+Let's read our file again
+
+01:48:59.400 --> 01:49:01.400
+That changes have come
+
+01:49:01.400 --> 01:49:03.400
+Or not
+
+01:49:03.400 --> 01:49:05.400
+Prometheus.yagra
+
+01:49:05.400 --> 01:49:07.400
+Changes are reflected
+
+01:49:07.400 --> 01:49:09.400
+Here
+
+01:49:09.400 --> 01:49:11.400
+Ok, now simply
+
+01:49:11.400 --> 01:49:13.400
+I have to run my application
+
+01:49:13.400 --> 01:49:15.400
+Its command
+
+01:49:15.400 --> 01:49:17.400
+Here
+
+01:49:17.400 --> 01:49:19.400
+No command is coming
+
+01:49:19.400 --> 01:49:21.400
+Let's get the command
+
+01:49:21.400 --> 01:49:23.400
+This command
+
+01:49:27.400 --> 01:49:29.400
+Paste and I will run my Prometheus
+
+01:49:29.400 --> 01:49:31.400
+It worked
+
+01:49:31.400 --> 01:49:33.400
+Port is running on 1990
+
+01:49:33.400 --> 01:49:35.400
+And it has read my yaml file
+
+01:49:35.400 --> 01:49:37.400
+Again
+
+01:49:37.400 --> 01:49:39.400
+Look, configuration file
+
+01:49:39.400 --> 01:49:41.400
+Now what I have to do simply
+
+01:49:41.400 --> 01:49:43.400
+Copy
+
+01:49:43.400 --> 01:49:45.400
+Run here
+
+01:49:45.400 --> 01:49:47.400
+And where will I get
+
+01:49:47.400 --> 01:49:49.400
+Port?
+
+01:49:49.400 --> 01:49:51.400
+On 1990
+
+01:49:51.400 --> 01:49:53.400
+Prometheus is coming
+
+01:49:53.400 --> 01:49:55.400
+Target health check
+
+01:49:55.400 --> 01:49:57.400
+I will go to status
+
+01:49:57.400 --> 01:49:59.400
+Target health and see
+
+01:49:59.400 --> 01:50:01.400
+Now here
+
+01:50:01.400 --> 01:50:03.400
+Earlier I had only one target
+
+01:50:03.400 --> 01:50:05.400
+Prometheus which was tracking itself
+
+01:50:05.400 --> 01:50:07.400
+Now my EC2 instances are also getting tracked
+
+01:50:07.400 --> 01:50:09.400
+Here is my campusX rack app node exporter
+
+01:50:09.400 --> 01:50:11.400
+And these are my two
+
+01:50:11.400 --> 01:50:13.400
+Endpoints
+
+01:50:13.400 --> 01:50:15.400
+This is their instance id
+
+01:50:15.400 --> 01:50:17.400
+You can verify it
+
+01:50:17.400 --> 01:50:19.400
+And job name is coming here
+
+01:50:19.400 --> 01:50:21.400
+And other labels are also here
+
+01:50:21.400 --> 01:50:23.400
+Which we have not relabeled
+
+01:50:25.400 --> 01:50:27.400
+Ok, last scrape was done
+
+01:50:27.400 --> 01:50:29.400
+Now you can see the state
+
+01:50:29.400 --> 01:50:31.400
+If you want you can query anything
+
+01:50:31.400 --> 01:50:33.400
+Again, query thing
+
+01:50:33.400 --> 01:50:35.400
+We will do in next class
+
+01:50:35.400 --> 01:50:37.400
+Guys, that's all for today
+
+01:50:37.400 --> 01:50:39.400
+What we have done in today's session
+
+01:50:39.400 --> 01:50:41.400
+I will summarize it again
+
+01:50:41.400 --> 01:50:43.400
+First of all
+
+01:50:43.400 --> 01:50:45.400
+On each EC2 instance
+
+01:50:45.400 --> 01:50:47.400
+We have installed node exporter
+
+01:50:47.400 --> 01:50:49.400
+Which was exposing our metrics
+
+01:50:49.400 --> 01:50:51.400
+After that we have made our new instance
+
+01:50:51.400 --> 01:50:53.400
+Specifically for monitoring
+
+01:50:53.400 --> 01:50:55.400
+We have installed Prometheus
+
+01:50:55.400 --> 01:50:57.400
+And
+
+01:50:57.400 --> 01:50:59.400
+After that
+
+01:50:59.400 --> 01:51:01.400
+We have specified our targets
+
+01:51:01.400 --> 01:51:03.400
+Through a service discovery
+
+01:51:03.400 --> 01:51:05.400
+I know those who are studying Prometheus for the first time
+
+01:51:05.400 --> 01:51:07.400
+They might feel a little rushed
+
+01:51:07.400 --> 01:51:09.400
+But
+
+01:51:09.400 --> 01:51:11.400
+The thing is
+
+01:51:11.400 --> 01:51:13.400
+I have already made you study in the analogs
+
+01:51:13.400 --> 01:51:15.400
+If you want to study in detail
+
+01:51:15.400 --> 01:51:17.400
+You can go there and study
+
+01:51:17.400 --> 01:51:19.400
+So that's all for today
+
+01:51:19.400 --> 01:51:21.400
+And what we will do in next lecture
+
+01:51:21.400 --> 01:51:23.400
+Whatever metrics we are tracking
+
+01:51:23.400 --> 01:51:25.400
+We will learn to query them
+
+01:51:25.400 --> 01:51:27.400
+Out of this, only the metrics of work
+
+01:51:27.400 --> 01:51:29.400
+And on those metrics
+
+01:51:29.400 --> 01:51:31.400
+We will build our dashboard
+
+01:51:31.400 --> 01:51:33.400
+And we will build our dashboard
+
+01:51:39.400 --> 01:51:41.400
+If I can show you
+
+01:51:41.400 --> 01:51:43.400
+Actually I will show you a query
+
+01:51:43.400 --> 01:51:45.400
+So this is my
+
+01:51:45.400 --> 01:51:47.400
+That instance
+
+01:51:47.400 --> 01:51:49.400
+Let me see my other instance
+
+01:51:51.400 --> 01:51:53.400
+T3 medium
+
+01:51:53.400 --> 01:51:55.400
+This one
+
+01:51:55.400 --> 01:51:57.400
+Here my metrics are exposed
+
+01:51:57.400 --> 01:51:59.400
+I will copy its IP address
+
+01:51:59.400 --> 01:52:01.400
+And paste
+
+01:52:01.400 --> 01:52:03.400
+And we will do port 9100
+
+01:52:03.400 --> 01:52:05.400
+Here I will get my node exporter
+
+01:52:05.400 --> 01:52:07.400
+And slash metrics
+
+01:52:07.400 --> 01:52:09.400
+If I want to bring any metric from here
+
+01:52:09.400 --> 01:52:11.400
+Just randomly
+
+01:52:11.400 --> 01:52:13.400
+I am pulling a metric
+
+01:52:15.400 --> 01:52:17.400
+Let's take a counter
+
+01:52:17.400 --> 01:52:19.400
+Node disk writes merge total
+
+01:52:19.400 --> 01:52:21.400
+Whatever it is
+
+01:52:21.400 --> 01:52:23.400
+I just want to show you
+
+01:52:23.400 --> 01:52:25.400
+How to query
+
+01:52:25.400 --> 01:52:27.400
+Look
+
+01:52:27.400 --> 01:52:29.400
+If I execute this
+
+01:52:29.400 --> 01:52:31.400
+I can see current value
+
+01:52:31.400 --> 01:52:33.400
+Did anyone tell me
+
+01:52:33.400 --> 01:52:35.400
+Why I can see 2 values here
+
+01:52:35.400 --> 01:52:37.400
+12.45
+
+01:52:37.400 --> 01:52:39.400
+And 12.86
+
+01:52:39.400 --> 01:52:41.400
+Why 2 values
+
+01:52:41.400 --> 01:52:43.400
+For the same metric
+
+01:52:43.400 --> 01:52:45.400
+Yes
+
+01:52:45.400 --> 01:52:47.400
+There are 2 instances
+
+01:52:47.400 --> 01:52:49.400
+If there are 4
+
+01:52:49.400 --> 01:52:51.400
+You can filter them through instance ID
+
+01:52:51.400 --> 01:52:53.400
+Now if I want to see
+
+01:52:53.400 --> 01:52:55.400
+For a given range
+
+01:52:55.400 --> 01:52:57.400
+For a given range
+
+01:52:57.400 --> 01:52:59.400
+These are instance vectors
+
+01:52:59.400 --> 01:53:01.400
+If I want to see for a range
+
+01:53:01.400 --> 01:53:03.400
+I will use square brackets
+
+01:53:03.400 --> 01:53:05.400
+And I will write in square brackets
+
+01:53:05.400 --> 01:53:07.400
+Like I wrote 10
+
+01:53:07.400 --> 01:53:09.400
+Here units will come
+
+01:53:09.400 --> 01:53:11.400
+10 days, 10 hours, minutes, milliseconds, seconds
+
+01:53:11.400 --> 01:53:13.400
+Weeks, year
+
+01:53:13.400 --> 01:53:15.400
+Let's say I want to see last 10 minutes
+
+01:53:15.400 --> 01:53:17.400
+I will execute
+
+01:53:17.400 --> 01:53:19.400
+So these are my range vectors
+
+01:53:19.400 --> 01:53:21.400
+First machine
+
+01:53:21.400 --> 01:53:23.400
+This detail and second machine
+
+01:53:23.400 --> 01:53:25.400
+Now you can see
+
+01:53:25.400 --> 01:53:27.400
+What is this
+
+01:53:27.400 --> 01:53:29.400
+These are my values
+
+01:53:29.400 --> 01:53:31.400
+And after adding the rate
+
+01:53:31.400 --> 01:53:33.400
+This is the timestamp
+
+01:53:35.400 --> 01:53:37.400
+This is the unix time
+
+01:53:37.400 --> 01:53:39.400
+And these are my values
+
+01:53:39.400 --> 01:53:41.400
+And you can clearly see
+
+01:53:41.400 --> 01:53:43.400
+How the values are changing
+
+01:53:43.400 --> 01:53:45.400
+Now you can
+
+01:53:45.400 --> 01:53:47.400
+Do aggregate operation
+
+01:53:47.400 --> 01:53:49.400
+Let's say I want to calculate
+
+01:53:49.400 --> 01:53:51.400
+What was my last 10 minutes average
+
+01:53:51.400 --> 01:53:53.400
+So what I will do here is
+
+01:53:53.400 --> 01:53:55.400
+I will write average by
+
+01:53:55.400 --> 01:53:57.400
+Average
+
+01:53:57.400 --> 01:53:59.400
+Average over time
+
+01:53:59.400 --> 01:54:01.400
+And I will
+
+01:54:01.400 --> 01:54:03.400
+Add this
+
+01:54:03.400 --> 01:54:05.400
+In a parenthesis
+
+01:54:07.400 --> 01:54:09.400
+And I will click on execute
+
+01:54:09.400 --> 01:54:11.400
+And see I have average values
+
+01:54:11.400 --> 01:54:13.400
+So just like this
+
+01:54:13.400 --> 01:54:15.400
+You write queries and here
+
+01:54:15.400 --> 01:54:17.400
+Calculate things
+
+01:54:17.400 --> 01:54:19.400
+Again promql
+
+01:54:19.400 --> 01:54:21.400
+You don't need to take too much load
+
+01:54:23.400 --> 01:54:25.400
+As we use it
+
+01:54:25.400 --> 01:54:27.400
+You will get it
+
+01:54:29.400 --> 01:54:31.400
+Is it clear
+
+01:54:31.400 --> 01:54:33.400
+You can run all operations
+
+01:54:33.400 --> 01:54:35.400
+Is it clear
+
+01:54:37.400 --> 01:54:39.400
+So I have shown you things practically
+
+01:54:39.400 --> 01:54:41.400
+Through hands on approach
+
+01:54:41.400 --> 01:54:43.400
+I have done one thing here
+
+01:54:43.400 --> 01:54:45.400
+I hope you can replicate these things
+
+01:54:45.400 --> 01:54:47.400
+Easily on your system
+
+01:54:47.400 --> 01:54:49.400
+So that's it
+
+01:54:49.400 --> 01:54:51.400
+If you have any questions then I am here
+
+01:54:51.400 --> 01:54:53.400
+You can ask me
+
+01:54:53.400 --> 01:54:55.400
+How will the node exporter work in
+
+01:54:55.400 --> 01:54:57.400
+Load balancer
+
+01:54:57.400 --> 01:54:59.400
+In load balancer we don't want
+
+01:54:59.400 --> 01:55:01.400
+Node exporter to work
+
+01:55:01.400 --> 01:55:03.400
+We just want to track our ec2 instances
+
+01:55:05.400 --> 01:55:07.400
+Means you want to track the network
+
+01:55:07.400 --> 01:55:09.400
+Of load balancer
+
+01:55:09.400 --> 01:55:11.400
+So for that you have to use this sdconfig
+
+01:55:11.400 --> 01:55:13.400
+You have to use
+
+01:55:13.400 --> 01:55:15.400
+Where is the
+
+01:55:15.400 --> 01:55:17.400
+Prometheus documentation
+
+01:55:17.400 --> 01:55:19.400
+Here it is
+
+01:55:19.400 --> 01:55:21.400
+Not even this
+
+01:55:21.400 --> 01:55:23.400
+Prometheus
+
+01:55:23.400 --> 01:55:25.400
+The aws one
+
+01:55:25.400 --> 01:55:27.400
+You can do it in that
+
+01:55:27.400 --> 01:55:29.400
+Prometheus box
+
+01:55:33.400 --> 01:55:35.400
+Prometheus server
+
+01:55:35.400 --> 01:55:37.400
+Configuration
+
+01:55:39.400 --> 01:55:41.400
+Here you will see aws sdconfig
+
+01:55:41.400 --> 01:55:43.400
+You can add things in this
+
+01:55:45.400 --> 01:55:47.400
+You can add details of ec2
+
+01:55:47.400 --> 01:55:49.400
+Light sale, ecs
+
+01:55:49.400 --> 01:55:51.400
+Here are many services
+
+01:55:51.400 --> 01:55:53.400
+Elastic cache
+
+01:55:55.400 --> 01:55:57.400
+Rds
+
+01:55:59.400 --> 01:56:01.400
+These are the specific EC2
+
+01:56:01.400 --> 01:56:03.400
+For other services
+
+01:56:05.400 --> 01:56:07.400
+This is it
+
+01:56:11.400 --> 01:56:13.400
+Clear
+
+01:56:17.400 --> 01:56:19.400
+You have to go through the documentation
+
+01:56:19.400 --> 01:56:21.400
+All the things are here
+
+01:56:31.400 --> 01:56:33.400
+And I think if you are monitoring through cloud watch
+
+01:56:33.400 --> 01:56:35.400
+Then there will be some way to pull the metrics
+
+01:56:35.400 --> 01:56:37.400
+From there
+
+01:56:37.400 --> 01:56:39.400
+I haven't explored it
+
+01:56:39.400 --> 01:56:41.400
+But you can do it
+
+01:56:41.400 --> 01:56:43.400
+There will be some way out
+
+01:56:47.400 --> 01:56:49.400
+Any other questions
+
+01:56:51.400 --> 01:56:53.400
+How was today's session
+
+01:56:53.400 --> 01:56:55.400
+Was it good
+
+01:56:55.400 --> 01:56:57.400
+Or boring
+
+01:56:57.400 --> 01:56:59.400
+Thanks
+
+01:57:09.400 --> 01:57:11.400
+Thanks
+
+01:57:11.400 --> 01:57:13.400
+I am also happy
+
+01:57:13.400 --> 01:57:15.400
+Thank you
+
+01:57:17.400 --> 01:57:19.400
+I am remembering my MLops lectures
+
+01:57:19.400 --> 01:57:21.400
+Actually I myself
+
+01:57:21.400 --> 01:57:23.400
+I forgot Prometheus
+
+01:57:23.400 --> 01:57:25.400
+I have revisited my MLops lectures
+
+01:57:25.400 --> 01:57:27.400
+And actually
+
+01:57:27.400 --> 01:57:29.400
+I was pretty amazed
+
+01:57:29.400 --> 01:57:31.400
+I shouldn't praise myself
+
+01:57:31.400 --> 01:57:33.400
+But after reading it I felt that I have studied
+
+01:57:33.400 --> 01:57:35.400
+Prometheus well
+
+01:57:35.400 --> 01:57:37.400
+Because I myself went with blank slate
+
+01:57:37.400 --> 01:57:39.400
+To study Prometheus
+
+01:57:39.400 --> 01:57:41.400
+I was actually acting as a student
+
+01:57:41.400 --> 01:57:43.400
+And after seeing my lectures I felt
+
+01:57:43.400 --> 01:57:45.400
+I have explained it well
+
+01:57:47.400 --> 01:57:49.400
+Yes, alert manager, retraining
+
+01:57:49.400 --> 01:57:51.400
+Everything is there
+
+01:57:51.400 --> 01:57:53.400
+I know
+
+01:57:53.400 --> 01:57:55.400
+If you want to study in detail
+
+01:57:55.400 --> 01:57:57.400
+There are 5-6 lectures
+
+01:57:57.400 --> 01:57:59.400
+Of Prometheus
+
+01:57:59.400 --> 01:58:01.400
+You can read it there
+
+01:58:01.400 --> 01:58:03.400
+Again it was out of scope for this particular series
+
+01:58:03.400 --> 01:58:05.400
+Because we have already done
+
+01:58:05.400 --> 01:58:07.400
+A lot of things
+
+01:58:07.400 --> 01:58:09.400
+And if we want to monitor our infrastructure
+
+01:58:09.400 --> 01:58:11.400
+Then Prometheus will work
+
+01:58:11.400 --> 01:58:13.400
+In overview mode
+
+01:58:15.400 --> 01:58:17.400
+We were tracking our application
+
+01:58:17.400 --> 01:58:19.400
+In Prometheus
+
+01:58:19.400 --> 01:58:21.400
+We used client libraries
+
+01:58:21.400 --> 01:58:23.400
+Which is SDK
+
+01:58:29.400 --> 01:58:31.400
+If you have no doubts, you can go
+
+01:58:31.400 --> 01:58:33.400
+I will be here for 2 minutes
+
+01:58:33.400 --> 01:58:35.400
+And then I will sign off
+
+01:58:35.400 --> 01:58:37.400
+So our
+
+01:58:37.400 --> 01:58:39.400
+Live classes
+
+01:58:39.400 --> 01:58:41.400
+Series guys
+
+01:58:41.400 --> 01:58:43.400
+It's coming to
+
+01:58:43.400 --> 01:58:45.400
+End
+
+01:58:45.400 --> 01:58:47.400
+I don't know if it's a good end or a bad end
+
+01:58:47.400 --> 01:58:49.400
+I am feeling a little bad that
+
+01:58:49.400 --> 01:58:51.400
+We met in the live class
+
+01:58:53.400 --> 01:58:55.400
+But
+
+01:58:55.400 --> 01:58:57.400
+I am feeling good thinking about this
+
+01:58:57.400 --> 01:58:59.400
+That what we decided earlier
+
+01:58:59.400 --> 01:59:01.400
+We have achieved it
+
+01:59:01.400 --> 01:59:03.400
+Within a limited time frame
+
+01:59:03.400 --> 01:59:05.400
+We have not stretched it much
+
+01:59:09.400 --> 01:59:11.400
+And I think I was able to provide you
+
+01:59:11.400 --> 01:59:13.400
+The depth that was necessary
+
+01:59:19.400 --> 01:59:21.400
+Monday will be our last lecture
+
+01:59:21.400 --> 01:59:23.400
+So we will do one thing
+
+01:59:23.400 --> 01:59:25.400
+We will have some fun on the last lecture
+
+01:59:25.400 --> 01:59:27.400
+You won't
+
+01:59:27.400 --> 01:59:29.400
+Study any other session going forward
+
+01:59:29.400 --> 01:59:31.400
+No I will teach
+
+01:59:31.400 --> 01:59:33.400
+But going forward
+
+01:59:33.400 --> 01:59:35.400
+There is no plan for a live lecture
+
+01:59:35.400 --> 01:59:37.400
+Maybe in AI pulse
+
+01:59:37.400 --> 01:59:39.400
+But not in LLM ops
+
+01:59:39.400 --> 01:59:41.400
+What are you covering
+
+01:59:41.400 --> 01:59:43.400
+Teaching wise other course
+
+01:59:43.400 --> 01:59:45.400
+Next
+
+01:59:45.400 --> 01:59:47.400
+There is a plan to cover from my side
+
+01:59:47.400 --> 01:59:49.400
+AWS bedrock
+
+01:59:49.400 --> 01:59:51.400
+Along with bedrock guardrails
+
+01:59:55.400 --> 01:59:57.400
+I have not finalized the curriculum
+
+01:59:57.400 --> 01:59:59.400
+That I will do after LLM ops
+
+01:59:59.400 --> 02:00:01.400
+First I will finish LLM ops
+
+02:00:01.400 --> 02:00:03.400
+After that I will move to bedrock
+
+02:00:07.400 --> 02:00:09.400
+So I am not going yet
+
+02:00:09.400 --> 02:00:11.400
+Next month we will build a project
+
+02:00:11.400 --> 02:00:13.400
+Although it will not be recorded
+
+02:00:13.400 --> 02:00:15.400
+But the full flow will be implemented
+
+02:00:15.400 --> 02:00:17.400
+For our agentic application
+
+02:00:19.400 --> 02:00:21.400
+Around 10 hours content
+
+02:00:23.400 --> 02:00:25.400
+Again we won't go into depth
+
+02:00:25.400 --> 02:00:27.400
+Prometheus already comes to us
+
+02:00:27.400 --> 02:00:29.400
+To set up
+
+02:00:29.400 --> 02:00:31.400
+When will AI system design come
+
+02:00:33.400 --> 02:00:35.400
+For that you have to ask from below
+
+02:00:35.400 --> 02:00:37.400
+Because they are getting the course done
+
+02:00:37.400 --> 02:00:39.400
+Next month is not coming
+
+02:00:39.400 --> 02:00:41.400
+Next month I think
+
+02:00:41.400 --> 02:00:43.400
+Multi agent systems are coming
+
+02:00:43.400 --> 02:00:45.400
+After that
+
+02:00:45.400 --> 02:00:47.400
+Including runtime and memory
+
+02:00:47.400 --> 02:00:49.400
+For AWS side if possible
+
+02:00:49.400 --> 02:00:51.400
+Rahul now project
+
+02:00:51.400 --> 02:00:53.400
+I will see
+
+02:00:53.400 --> 02:00:55.400
+If possible then we will do
+
+02:00:57.400 --> 02:00:59.400
+Because strictly whatever flow we had
+
+02:00:59.400 --> 02:01:01.400
+We have to make an agentic project
+
+02:01:01.400 --> 02:01:03.400
+Means this is my plan so far
+
+02:01:05.400 --> 02:01:07.400
+I will try Jeff in this
+
+02:01:07.400 --> 02:01:09.400
+Till Monday
+
+02:01:09.400 --> 02:01:11.400
+Our next class is on Monday
+
+02:01:11.400 --> 02:01:13.400
+It can be applied in guardrails
+
+02:01:13.400 --> 02:01:15.400
+And get good results
+
+02:01:15.400 --> 02:01:17.400
+So I will update this in the application
+
+02:01:17.400 --> 02:01:19.400
+And we will discuss it on Monday
+
+02:01:19.400 --> 02:01:21.400
+Not in LLM ops
+
+02:01:21.400 --> 02:01:23.400
+Not in portal
+
+02:01:23.400 --> 02:01:25.400
+If there is any specific location
+
+02:01:25.400 --> 02:01:27.400
+These are handwritten notes
+
+02:01:27.400 --> 02:01:29.400
+I haven't updated this for a long time
+
+02:01:29.400 --> 02:01:31.400
+I thought you don't need them
+
+02:01:31.400 --> 02:01:33.400
+If you want I will update
+
+02:01:33.400 --> 02:01:35.400
+Tomorrow I will update them
+
+02:01:35.400 --> 02:01:37.400
+You will get these notes in the morning
+
+02:01:37.400 --> 02:01:39.400
+Proper notes we haven't made yet
+
+02:01:39.400 --> 02:01:41.400
+So if you are working on advanced track course
+
+02:01:41.400 --> 02:01:43.400
+You will get advanced track notes
+
+02:01:43.400 --> 02:01:45.400
+In another 2 weeks
+
+02:01:45.400 --> 02:01:47.400
+And as soon as they are done
+
+02:01:47.400 --> 02:01:49.400
+We will move to LLM ops
+
+02:01:49.400 --> 02:01:51.400
+See the problem with notes is
+
+02:01:51.400 --> 02:01:53.400
+Making notes is one thing
+
+02:01:53.400 --> 02:01:55.400
+You have to review the notes
+
+02:01:55.400 --> 02:01:57.400
+So I manually
+
+02:01:57.400 --> 02:01:59.400
+Means I review notes page by page
+
+02:01:59.400 --> 02:02:01.400
+And not only the notes
+
+02:02:01.400 --> 02:02:03.400
+But also its diagrams
+
+02:02:03.400 --> 02:02:05.400
+So till my end
+
+02:02:05.400 --> 02:02:07.400
+For my course
+
+02:02:07.400 --> 02:02:09.400
+Till I don't get go ahead
+
+02:02:09.400 --> 02:02:11.400
+Till the review part is not complete
+
+02:02:11.400 --> 02:02:13.400
+It won't be launched
+
+02:02:15.400 --> 02:02:17.400
+And it takes time to review
+
+02:02:17.400 --> 02:02:19.400
+Time means I review very carefully
+
+02:02:21.400 --> 02:02:23.400
+So that's why I can't
+
+02:02:23.400 --> 02:02:25.400
+Agree on quality
+
+02:02:25.400 --> 02:02:27.400
+So it will take some time
+
+02:02:27.400 --> 02:02:29.400
+But you will get good notes
+
+02:02:29.400 --> 02:02:31.400
+The rest of the notes
+
+02:02:31.400 --> 02:02:33.400
+Design workflow we have finalized
+
+02:02:33.400 --> 02:02:35.400
+So that's a good news for you
+
+02:02:35.400 --> 02:02:37.400
+So I have created many transcripts
+
+02:02:37.400 --> 02:02:39.400
+For advanced track
+
+02:02:39.400 --> 02:02:41.400
+If you want I can make you available
+
+02:02:41.400 --> 02:02:43.400
+Transcripts
+
+02:02:45.400 --> 02:02:47.400
+If you want
+
+02:02:53.400 --> 02:02:55.400
+And if you can wait
+
+02:02:55.400 --> 02:02:57.400
+Then wait for notes
+
+02:02:57.400 --> 02:02:59.400
+And that too only for the insider group
+
+02:02:59.400 --> 02:03:01.400
+Transcript is also for insider group
+
+02:03:01.400 --> 02:03:03.400
+If you want proper notes
+
+02:03:03.400 --> 02:03:05.400
+Then wait for notes
+
+02:03:05.400 --> 02:03:07.400
+As soon as advanced track comes
+
+02:03:07.400 --> 02:03:09.400
+Then Allen mouse will also come
+
+02:03:13.400 --> 02:03:15.400
+Our notes creation pipeline
+
+02:03:15.400 --> 02:03:17.400
+Has become very fast
+
+02:03:17.400 --> 02:03:19.400
+So first for a course
+
+02:03:19.400 --> 02:03:21.400
+Let's say advanced track
+
+02:03:21.400 --> 02:03:23.400
+Which is 40-45 hours
+
+02:03:23.400 --> 02:03:25.400
+It took us 2 months to
+
+02:03:25.400 --> 02:03:27.400
+Channel out notes
+
+02:03:27.400 --> 02:03:29.400
+Now we are able to do the same thing in 2 weeks
+
+02:03:29.400 --> 02:03:31.400
+So it's 1-4th
+
+02:03:49.400 --> 02:03:51.400
+Thanks Akash
+
+02:03:51.400 --> 02:03:53.400
+You will get notes
+
+02:03:55.400 --> 02:03:57.400
+Context engineering notes have also been finalized
+
+02:03:57.400 --> 02:03:59.400
+I think you will get those too
+
+02:03:59.400 --> 02:04:01.400
+Till this weekend
+
+02:04:03.400 --> 02:04:05.400
+There are many courses
+
+02:04:05.400 --> 02:04:07.400
+In pipeline so you will get them slowly
+
+02:04:07.400 --> 02:04:09.400
+For every course
+
+02:04:09.400 --> 02:04:11.400
+Bandwidth will be given
+
+02:04:11.400 --> 02:04:13.400
+We are also creating notes parallelly
+
+02:04:13.400 --> 02:04:15.400
+So multiple courses
+
+02:04:15.400 --> 02:04:17.400
+Are running at the same time
+
+02:04:19.400 --> 02:04:21.400
+Again the thing is
+
+02:04:21.400 --> 02:04:23.400
+There is a review problem and our team is small
+
+02:04:23.400 --> 02:04:25.400
+So
+
+02:04:25.400 --> 02:04:27.400
+Wait a little
+
+02:04:27.400 --> 02:04:29.400
+You will get better things
+
+02:04:29.400 --> 02:04:31.400
+This is a promise
+
+02:04:31.400 --> 02:04:33.400
+Advanced track will be available in your dashboard
+
+02:04:33.400 --> 02:04:35.400
+In the next 15 days
+
+02:04:37.400 --> 02:04:39.400
+Signing off
+
+02:04:39.400 --> 02:04:41.400
+See you
+
+02:04:41.400 --> 02:04:43.400
+In our last live session
+
+02:04:43.400 --> 02:04:45.400
+For the LLMops series
+
+02:04:45.400 --> 02:04:47.400
+It will be on Monday
+
+02:04:47.400 --> 02:04:49.400
+I will try to include Jev in it
+
+02:04:49.400 --> 02:04:51.400
+And we will wrap it up
+
+02:04:51.400 --> 02:04:53.400
+With Grafana
+
+02:04:53.400 --> 02:04:55.400
+And we will also have some fun
+
+02:04:55.400 --> 02:04:57.400
+I will leave it on Monday
+
+02:04:57.400 --> 02:04:59.400
+In a serious tone
+
+02:04:59.400 --> 02:05:01.400
+Bye
+

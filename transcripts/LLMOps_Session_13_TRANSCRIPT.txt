@@ -1,0 +1,1059 @@
+LLMOps Session 13 — full transcript
+
+Source duration: 02:14:12.36. Original-session timestamps. Transcription: ElevenLabs Scribe v2 only. Mixed Hindi/English preserved, without guessed technical corrections. Paragraph breaks added for reading; not a summary.
+
+[00:00:10 – 00:00:18]
+अच्छा guys, एक update मैं आपके साथ share करना चाहता हूँ। अ, course के अंदर हमने...
+
+[00:00:23 – 00:00:23]
+just a second.
+
+[00:00:31 – 00:00:51]
+हमने यहाँ पर जो feedback form है, इसका link update कर दिया है and this is for the previous month. तो आपसे request है आप यह feedback form जरूर जाके भरना। ठीक है। तो यह हमने update कर दिया and आप लोग feedback देना अपना, honest feedback. clear हुआ guys?
+
+[00:00:55 – 00:01:06]
+एक छोटा सा update था जो आपके साथ share करना था। Great! अच्छा अगर मैं आपसे पूछूं previous month का feedback around LLM Opp sessions.
+
+[00:01:10 – 00:01:12]
+Just a general feedback out of five.
+
+[00:01:15 – 00:01:19]
+कैसा रहा previous month? जो हमारा पूरा journey था।
+
+[00:01:23 – 00:01:24]
+Okay.
+
+[00:01:27 – 00:01:32]
+Great guys. तो आपको अच्छा लग रहा है? Are these sessions helpful?
+
+[00:01:35 – 00:01:41]
+Okay. तो any feedback for me? कैसे improve कर सकते हैं?
+
+[00:01:46 – 00:01:47]
+You can tell me in your chat.
+
+[00:01:58 – 00:02:01]
+जो लोग 4.5 दे रहे हैं, कैसे five तक reach कर सकते हैं?
+
+[00:02:09 – 00:02:18]
+Okay। तरुण वो actually इसलिए थोड़ा सा हम recap वगैरह लेते हैं ताकि अगर किसी ने previous class attend ना किया हो तो वो भी साथ में follow-up कर सकें। That's why.
+
+[00:02:21 – 00:02:34]
+But if you want कि थोड़ा explanation कम हो तो we can do that. कोई problem नहीं है। Anything else? कुछ और feedback?
+
+[00:02:39 – 00:02:53]
+Okay. Concepts are clear, that's great. उसी के लिए हम बैठे हैं यहाँ पर। अच्छा what about LLM evals? अगर आप लोग ले रहे हैं, निकी sir के जो classes हैं।
+
+[00:02:56 – 00:03:08]
+Feedback around that. Superb, I know. I am also taking classes along with you guys. Yeah, I know, it is great. How about the AIPUL sessions?
+
+[00:03:13 – 00:03:16]
+Sir की classes are always like 11 out of 5.
+
+[00:03:20 – 00:03:21]
+AIPUL sessions?
+
+[00:03:28 – 00:03:34]
+Okay। अ, तरुण why so low? 3.54 why?
+
+[00:03:38 – 00:03:39]
+कैसे improve कर सकते हैं?
+
+[00:03:48 – 00:03:49]
+बाकी लोग भी अपना feedback share करो please.
+
+[00:04:02 – 00:04:04]
+And how about the loop engineering?
+
+[00:04:09 – 00:04:12]
+Okay. वो आपके साथ अभी align नहीं हो रहा।
+
+[00:04:16 – 00:04:18]
+तो साथ align नहीं हो रहा तो you can watch other sessions.
+
+[00:04:21 – 00:04:39]
+It is also positive right because हम जो latest news है वो आपको deliver कर रहे हैं और साथ-साथ उसका perspective भी deliver कर रहे हैं कि आपको कैसे impact करता है। about the loop engineering session जो रूपिंदर ने किया था। it was his first session I guess.
+
+[00:04:45 – 00:05:19]
+It was good. तो रूपिंदर को आप, आप और frequently देखोगे ठीक है in insiders program. Great! चलो start करते हैं फिर आज का session. ठीक है एक छोटा सा recap लेंगे और फिर हम आज के session का flow discuss करेंगे और आज का session भी hands on रहने वाला है। it will be all code. ठीक है theoretical ज्यादा है नहीं यहां पर but आज हम एक बहुत important चीज यहां पर करने वाले हैं। ठीक है तो उसके बारे में discuss करते हैं। तो चलो guys start करते हैं। तो जैसा कि आपको याद होगा previous session
+
+[00:05:19 – 00:05:27]
+के अंदर हमने क्या किया था? previous session के अंदर हमारे पास एक problem था। हमने properly अपना evaluation pipeline जो है
+
+[00:05:30 – 00:06:03]
+वो build कर लिया था और इस evaluation pipeline के अंदर पांच हमारे पास built in matrix से from DP val और दो हमारे पास यहां पर custom matrix थे। तो basically हम क्या कर रहे थे? हम अपने application को इन seven matrix के ऊपर evaluate कर रहे थे। right? अब evaluation के हमारे पास दो तरीके के results आ रहे थे। एक तो हमारे पास evaluation के results थे as a JSON file जिसको मैं कह सकता हूं कि this is basically my structured results.
+
+[00:06:06 – 00:06:39]
+ठीक है जिसको मैं programmatically use कर सकता हूं और दूसरे जो मेरे results थे that were my reports और वो markdown file से ठीक है dot MD file से और ये मेरे क्या थे? these were my detailed evaluations जहां पर हर एक test case के बारे में बताया था कि वो कैसे pass हुआ, उसका क्या reason था pass होने का, fail हुआ तो fail होने का क्या reason था और end में हमें एक aggregate summary भी देखने को मिल रहा था। ठीक है तो हमने यहां पर एक proper evaluation pipeline जो है वो build किया।
+
+[00:06:40 – 00:07:11]
+next हमें क्या feel हुआ? next हमें ये feel हुआ कि जो हमारे tuning knobs है हम ये पूरी चीज कर क्यों रहे हैं guys? हम ये इसलिए कर रहे हैं कि हम क्या चाहते हैं? हम चाहते हैं कि जो best application है for our current scenario उसको हम build कर सकें। तो best application build करने का तरीका क्या है? best application कैसे पता चलेगा कि वो best है? वो तभी पता चलेगा जब उसके ऊपर हमारे जो evaluation results हैं वो अच्छे होंगे right? और ये evaluation results change कैसे हो रहे हैं? ये change हो रहे
+
+[00:07:11 – 00:07:19]
+हैं जब हम अपने application के hyper parameters को change कर रहे हैं। ठीक है और इसी को ही कहा जाता है our experimentation.
+
+[00:07:22 – 00:07:54]
+right? अब हम क्या कर रहे हैं यहां पर? हम ये evaluation pipeline तो build कर चुके हैं जहां पर हम properly अपने पूरे application को with a certain set of hyper parameters evaluate कर पा रहे हैं। next problem क्या आई? next problem यह आई कि यह जो हमारे tuning knobs हैं या hyper parameters हैं इनको हमने hard code किया हुआ था in our application. ठीक है they were hard coded in the application. तो अगर कल को as a developer जब आपको अपने application को tune करना है तो आपको क्या करना पड़ेगा? यहां पर code के
+
+[00:07:54 – 00:08:29]
+अंदर जाकर हर एक file के अंदर individually यहां पर changes करने पड़ेंगे। तो you had to make individual changes. हमने इसका fix क्या निकाला? हमने इसका fix निकाला कि एक काम करते हैं इस पूरी चीज को centralize करते हैं। ठीक है तो हमने यहां पर एक centralized approach लिया या एक centralized यहां पर tuning हमने dashboard या tuning table आप कह सकते हो बना लिया which was basically my YAML file. params.yaml file हमने बनाई और उसके अंदर हमने अपने सारे hyper parameters को उस YAML file के अंदर add कर दिया। उससे
+
+[00:08:29 – 00:08:58]
+क्या हुआ? उससे benefit हुआ कि अब हमारे पास एक single source of truth था जिसके अंदर हम अपने hyper parameters change कर सकते थे और हमारा application उसके हिसाब से behave करता। अब next problem हमने यह देखी कि यह जो file है it is a YAML file इसमें कुछ भी type checking नहीं हो रही। इसके अंदर आप कोई भी parameter का value कुछ भी कर सकते हो। यहां पर हमने basically कोई भी check and balances कुछ भी नहीं लगाया। तो उस checks को लगाने के लिए, उस validation को लगाने के लिए हमने यहां पर एक
+
+[00:08:58 – 00:09:00]
+proper pedantic schema build किया।
+
+[00:09:05 – 00:09:34]
+और हम basically क्या कर रहे थे कि जब भी हम यह hyper parameters की value को load कर रहे हैं उससे पहले हम properly यहां पर हर चीज को validate कर रहे हैं। ठीक है तो यहां पर हमने एक अलग file बनाया where we had all the parameters and एक extra step add किया जहां पर वो parameters हमारे code के अंदर तभी use होंगे जब वो properly यहां पर checks के through pass हो जाएंगे और उसके लिए हमने एक validation यहां पर pipeline create किया। right? आज हमें क्या करना है? आज हमें यहां पर एक
+
+[00:09:34 – 00:09:36]
+experimentation pipeline बनाना है।
+
+[00:09:41 – 00:10:12]
+अब तक आपने देखा होगा हम क्या कर रहे हैं। हमारा problem क्या है कि हम यहां पर hyper parameters को अपने YAML file के अंदर change कर रहे हैं। right? उसके बाद हम क्या कर रहे हैं? उसके बाद हम अपना evaluation dataset create कर रहे हैं। और हमें यह dataset create करने की जरूरत क्यों पड़ रही है? क्योंकि यह evaluation dataset create होता है जब हमारे goldens हमारे application को pass करते हैं। ठीक है तो यहां से हमारे goldens जाते हैं into our application और यहां से हमें हमारा dataset मिलता है। but the thing is
+
+[00:10:12 – 00:10:45]
+कि जब हम इन hyper parameters की value change करते हैं तो हमारा application भी change हो जाता है। तो what we are doing is we are basically creating a new version of a dataset each time जब हम इसमें से किसी भी hyper parameter की value change करते हैं। Right? तो हमें क्या करना है? हमें एक ऐसा pipeline बनाना है कि जैसे ही हम यहाँ पर एक hyper parameter की या multiple hyper parameters की value change करें। जैसे ही इस file के अंदर कोई change आए, हम automatically यहाँ पर अपना evaluation dataset बना लें। और उसके
+
+[00:10:45 – 00:10:50]
+बाद क्या हो? उसके बाद automatically हमारा evaluation pipeline भी चल जाए।
+
+[00:10:53 – 00:10:59]
+Right? And last में क्या हो कि हमारे यहाँ पर जो experimentation के results हैं,
+
+[00:11:04 – 00:11:36]
+वो properly ML flow के अंदर lock हो जाए। ठीक है। तो हमें basically आज के session में यह particular flow को build करना है। जैसे ही मैं hyper parameters को change करूं, यहाँ पर automatically मेरा यह dataset जो है वो build हो जाए। automatically मेरा यहाँ पर evaluation pipeline trigger हो जाए and automatically यहाँ पर मेरे experimentation के results lock हो जाएं। ऐसा अगर मैं कर पाया आज तो मुझे यहाँ पर अपने results को compare करने में बहुत आसानी होगी। मैं यहाँ पर multiple experimentations बहुत fast run कर सकता हूँ। अब मुझे इस बात की
+
+[00:11:36 – 00:12:09]
+चिंता नहीं करनी कि मुझे individually वहाँ पर जाकर files को rerun करना है, change करना है and I can compare all the results. ठीक है। और उसके बाद I can also build a pipeline for my regression testing जो हम next session के अंदर करने वाले हैं। हम एक regression testing pipeline भी बनाएंगे। अब मैं आपको बता देता हूँ थोड़ा सा एक highlight दे देता हूँ about the next session कि regression testing क्या होता है। तो regression testing के अंदर basically क्या करते हैं? हम एक ऐसा pipeline बनाते हैं जहाँ पर हमारे दो evaluations को compare
+
+[00:12:10 – 00:12:43]
+किया जाता है। ठीक है। इसके अंदर हम क्या करेंगे? We will compare the evaluations. Evaluations will be compared। And comparison क्या होता है यहाँ पर कि आपका एक previous evaluation है। ठीक है, आपके सात metrics हैं तो आपके metrics के नाम हैं और उसके scores हैं और आपका एक current evaluation है जो आपने अभी run किया है और आपको इन दोनों के बीच में comparison करना है। तो regression testing के अंदर क्या होता है कि आप अपने metrics के अंदर यह test करते हो कि क्या आपके metrics का score बढ़ा है या घटा है और
+
+[00:12:43 – 00:13:16]
+ज्यादा focus किस पर रहता है? बढ़ने पर ज्यादा focus नहीं रहता। मतलब improvement के ऊपर ज्यादा focus नहीं रहता। focus रहता है कि क्या आपके किसी particular hyper parameter की value change करने से कहीं ऐसा तो नहीं कि आपके metrics घट गए हैं। तो आप क्या करते हो? यहाँ पर एक पहले threshold set करते हो या एक delta value set करते हो। ठीक है। इसको delta threshold भी कहा जाता है। यहाँ पर आप basically बताते हो कि अगर मेरे पुराने metric और नए metric के अंदर अगर इतने percent का difference मुझे मिलता है तो मैं
+
+[00:13:16 – 00:13:49]
+यह मानूंगा कि यह जो नया version है of my application with a certain set of configuration, यह pass होने लायक नहीं है। ठीक है, मैं इसको आगे नहीं भेजूंगा। Although मेरे evaluations वहाँ पर pass हो रहे हैं but in general यह मेरे पुराने iteration से worst perform कर रहा है तो मैं इसको आगे pass होने नहीं दूंगा। तो हम क्या करेंगे next session के अंदर यह particular pipeline बनाएंगे। ठीक है। And it will be the next logical flow जो हम आज experiment pipeline बना रहे हैं उसके आगे कि not only आप experimentation कर पाओगे, आप
+
+[00:13:49 – 00:14:04]
+अपने previous और current experimentation के बीच में यहाँ पर regression testing भी कर पाओगे और यह पता लगा पाओगे कि यह जो आपने changes किए क्या यह worth it थे या नहीं। I hope यह चीज आपको clear हो गई। Clear है guys? आज का flow clear है। Next session का flow clear है।
+
+[00:14:12 – 00:14:30]
+Yes. तो चलो एक काम करता हूँ मैं। ठीक है। I will turn off the camera now because हम code करेंगे यहाँ पर और मैं आपको यहाँ पर changes दिखाता हूँ कि हम basically इस particular lecture को कैसे approach करने वाले हैं। Just a second guys. Give me five seconds.
+
+[00:14:37 – 00:14:50]
+ठीक है। अब यह पूरा flow समझाने के लिए ना मैं आपको Excalidraw पर लेकर चलता हूँ। ठीक है। हम flow यहाँ पर build करेंगे। तो flow कैसा है? Guys एक अच्छा एक quick check। मेरा Excalidraw दिखाई दे रहा है ना आपको? Screen share हो रहा है।
+
+[00:14:58 – 00:15:33]
+I am looking at the chat guys. कोई बता दो। Is Excalidraw visible? Okay. Great. तो guys flow कैसा है? पहले हम समझते हैं कि हमने क्या-क्या pipelines build कर ली हैं। ठीक है। तो if we start with the first pipeline तो हमने यहाँ पर अपना evaluation pipeline जो है, evaluation pipeline को build कर लिया है। ठीक है। इस evaluation pipeline के अंदर क्या हो रहा है? इस evaluation pipeline के अंदर input में आ रहा है हमारे पास हमारा
+
+[00:15:35 – 00:15:53]
+evaluation dataset. ठीक है। इसको हम as an input यहाँ पर ले रहे हैं। Just a second. इसको हम as input ले रहे हैं and output में हमें क्या मिल रहा है? Output में हमें यहाँ पर मिल रहा है हमारा
+
+[00:15:57 – 00:16:29]
+metrics. और metrics हमें दो form में मिल रहे हैं। पहला form क्या मिल रहा है? पहला form मिल रहा है मुझे मेरा JSON। And second क्या मिल रहा है मुझे? Second मिल रहा है मुझे मेरे report. ठीक है। तो यह pipeline हमने build कर ली है। But अभी भी यहाँ पर कुछ pipeline जैसे हैं या कुछ workflows जैसे हैं जो बिल्कुल separate काम कर रहे हैं। वो कौन-कौन से हैं उसको भी identify करते हैं। एक workflow जो बिल्कुल separate है यहाँ पर वो है मेरा application. ठीक है। मैं इसको एक अलग color से label कर
+
+[00:16:29 – 00:16:35]
+देता हूँ। मेरा application. यह application क्या कर रहा है? इस application के अंदर
+
+[00:16:38 – 00:16:46]
+मैं अपना यहाँ पर query भेज रहा हूँ और यहाँ से पलट कर मुझे क्या मिल रहा है? यहाँ से पलट कर मुझे मिल रहा है मेरा response.
+
+[00:16:50 – 00:17:25]
+But हमने क्या किया है? हमने इस application को अपने evaluation dataset वाले जो creation वाला flow है उसके अंदर integrate कर रखा है। ठीक है। तो it is basically a subflow of my evaluation dataset creation वाला flow. ठीक है। अब यहाँ पर यह जो evaluation dataset मैं pass कर रहा हूँ, यह भी completely different है। ठीक है। इसको हम यहाँ बना सकते हैं। यह मेरा eval dataset वाला flow है। ठीक है। इसके अंदर मैं क्या pass कर रहा हूँ? इसके अंदर मैं pass कर रहा हूँ मेरे goldens। मेरे
+
+[00:17:26 – 00:18:00]
+goldens। यहाँ पर मेरे goldens जा रहे हैं और मुझे पलट के यहाँ पर क्या मिल रहा है? पलट के मुझे यहाँ पर मिल रहा है मेरा evaluation dataset. Evaluation dataset. But इस particular flow को run करने के लिए मैं इस particular flow को use कर रहा हूँ। तो मैं इसको यहाँ पर copy करता हूँ, इसको paste करता हूँ। It is basically acting as a subflow. इसको मैं यहाँ रख देता हूँ। ठीक है। हम इसको as a combined flow use कर रहे हैं। एक flow हमारा और अलग चल रहा है। Although हम उसको यहाँ पर log
+
+[00:18:00 – 00:18:28]
+नहीं करने वाले। That is my golden का flow. तो अभी उसके बारे में discuss करने का कोई फायदा नहीं है। तो in general हमारे यहाँ पर तीन flows हैं। एक मेरा app का flow, जहाँ पर query जा रहा है, response आ रहा है। एक मेरा evaluation का pipeline, वह बिल्कुल अलग चल रहा है और एक मेरा evaluation dataset generate करने का pipeline, यह बिल्कुल अलग चल रहा है। अब मुझे क्या करना है यहाँ पर experimentation tracking के time पर यहाँ पर मुझे कुछ चीजें lock करनी है। तो एक बार उसकी list बना लेते हैं। उससे
+
+[00:18:28 – 00:19:03]
+हमें यह पूरी चीज ज़्यादा अच्छे से समझ आएगी। ठीक है। तो what we have to track? इसकी एक बार list बना लेते हैं। तो सबसे पहले हमें क्या track करना है guys? बहुत obvious है। सबसे पहले हमें track करने हैं हमारे parameters। यह तो हमें करनी है, हमारा configuration. दूसरी चीज हमें क्या track करनी है? दूसरी चीज हमें track करनी है हमारे metrics. ठीक है। तीसरी चीज हमें track करनी है हमारे सारे के सारे datasets. But ध्यान यह रखना है कि यह datasets हमें वही track करने हैं जो इस particular run के
+
+[00:19:03 – 00:19:38]
+अंदर create हैं। हमने अपने parameters के अंदर change किया तो हमारे dataset के अंदर change आ जाएगा। तो हमें इस particular run वाला dataset ही specifically यहाँ पर track करना है। इसको हमें make sure करना है। ठीक है। तो यह dataset कौन सा होगा for the current run? Fourth हमें क्या track करना है यहाँ पर? Fourth हमें track करने हैं हमारे code files. Again, these will also be for the current run. And last चीज जो हमें यहाँ पर track करनी है that is my evaluation
+
+[00:19:39 – 00:19:56]
+results. यह चीज भी मुझे track करनी पड़ेगी। ठीक है। जो मैं report बना रहा हूँ, यह मुझे track करनी है। तो यह सारी चीजें मुझे यहाँ पर individually track करनी है। और अगर मैं इस पूरे tracking को-- just a second. अगर मैं इस पूरे tracking को-- let me choose some other color.
+
+[00:20:07 – 00:20:17]
+अगर मैं इस पूरे tracking को combine कर दूँ, ठीक है, तो यह पूरा-- मेरा जो पूरा का पूरा flow है this is my experiment tracking. यही मेरा experiment tracking है।
+
+[00:20:21 – 00:20:52]
+तो मुझे इसी चीज को automate करना है। Automate क्या करना है? एक तो यह चीजें मुझे track करनी है। एक मुझे ऐसा script बनाना है जिसमें यह सारी चीजें automatically मेरे MLflow के server पर track हो जाए। साथ ही साथ मुझे क्या करना है कि जैसे ही मैं यहाँ पर इस particular script को run करूँ तो दो चीजें होनी चाहिए in the background. सबसे पहली चीज क्या होनी चाहिए? सबसे पहली चीज होनी चाहिए कि जैसे ही मैंने अपने hyperparameter change किए, मुझे मेरा एक नया evaluation dataset मिल जाना चाहिए। उसके लिए मुझे दोबारा से UV
+
+[00:20:52 – 00:21:08]
+run Python वह सब करने की ज़रूरत नहीं है। और दूसरा, यहाँ पर automatically मेरा evaluation भी हो जाना चाहिए। ठीक है। And यह दोनों चीजें जैसे हो जाएंगी complete, मैं उन सब results को यहाँ पर track कर लूँ। Clear हुआ guys?
+
+[00:21:11 – 00:21:28]
+Use case clear हुआ? हाँ, system prompt. तुषार ने बिल्कुल ठीक बोला। हाँ, यह भी चीज हमें यहाँ पर track करनी है। हमें system prompt को यहाँ पर track करना है because it is also a hyperparameter. Thanks तुषार। Clear हुआ?
+
+[00:21:36 – 00:21:44]
+Is it clear guys? Flow clear हो रहा है? आज के session में हम क्या कर रहे हैं? Write clear अगर clear है। अगर नहीं clear है, कहीं doubt है तो you can ask your questions.
+
+[00:21:48 – 00:22:19]
+Clear. चलो, अब एक काम करते हैं step by step. ठीक है। Step by step हम इस code को build करेंगे। ठीक है। और साथ ही साथ हम देखेंगे कि कैसे आप MLflow के अंदर अपने हर एक run को track करते हो। तो चलते हैं towards our VS Code. ठीक है। अब मैंने यहाँ पर code changes कर दिए थे already. अपने parameters को अपने files के अंदर include कर लिया था। अच्छा, कुछ जगह पर मैं भूल गया था वह include करना, तो वह मैंने यहाँ पर अभी currently changes कर दिए। ठीक है। एक दो जगह जहाँ
+
+[00:22:19 – 00:22:45]
+पर dataset के filename थे, वह hardcoded थे, वह मेरे से miss हो गए थे। तो वह changes भी मैंने कर दी। Again, आप यह files दोबारा से देखना। ठीक है। Line by line यहाँ पर check करना। अगर कोई चीज miss होती है तो मुझे बता देना और code भी आप update कर देना। ठीक है। तो एक बार क्या करते हैं, यहाँ पर पूरा situation को समझते हैं कि हमारा यहाँ पर पूरा जो scenario है वो क्या है। Scenario यह है कि हमने यहाँ पर अपने parameters को param.yaml के अंदर add कर दिया। अच्छा, एक चीज
+
+[00:22:45 – 00:23:19]
+मैं यहाँ पर LLM change कर देता हूँ। यह दिखाने के लिए मैंने Gemini use किया था। I will put it back to GPT 5 mini because हम यहाँ पर GPT 5 का use कर रहे थे। ठीक है। तो यह change मैंने कर दिया है and हमने यहाँ पर proper validation के लिए यहाँ पर config के अंदर, यहाँ पर हम अपने config को validate कर रहे हैं and यह रहे हमारे proper schemas. ठीक है। यह भी हमने build कर लिए। अब हमें यहाँ पर build करना है अपना pipeline. ठीक है। तो हम एक काम करते हैं।
+
+[00:23:19 – 00:23:55]
+इस file का नाम रखते हैं execute experiment pipeline. ठीक है। .py. अभी फिलहाल के लिए हम इस particular pipeline को यहाँ पर manually trigger करेंगे। ठीक है। But जब यह code आपका production के अंदर जाएगा, जब CI/CD trigger होगा तो वहाँ पर हम एक trigger डाल देंगे कि जैसे ही हम YAML file के अंदर कोई change करेंगे automatically यह experimentation वाला file जो है यह हमारा trigger होगा। अभी फिलहाल के लिए हम सब कुछ manual करेंगे। Just इस pipeline
+
+[00:23:55 – 00:24:25]
+को trigger करने का काम। बाकी कुछ नहीं। बाकी जो भी हमने यहाँ पर flow discuss की है, सब कुछ automate हो जाएगा। ठीक है। बस इसको run करने का काम manually होगा। I hope यह चीज आपको समझ आ रही है। तो सबसे पहले हमें क्या करना है? ठीक है। सबसे पहले हमें यहाँ पर flow बनाना है to automatically track my parameters. ठीक है। But उससे पहले क्या करते हैं, यहाँ पर flow बनाते हैं कि कैसे हम इन दो steps को यहाँ पर automatically trigger करेंगे। तो इसको करने का Python के अंदर बहुत ही आसान तरीका
+
+[00:24:25 – 00:24:49]
+है। हम क्या करेंगे? हम इन particular files के अंदर जाएंगे। ठीक है। सबसे पहले हमारा evaluation dataset वाला file. आप चाहो तो यहाँ पर golden वाले के अंदर भी ये change कर सकते हो। एक काम करते हैं, कर ही लेते हैं। ठीक है। आप क्या करोगे, यहाँ पर top पर एक function बनाओगे। ठीक है। यहाँ पर मैं top के ऊपर एक function बना देता हूँ और इसका नाम रखते हैं हम, अ... generate
+
+[00:24:53 – 00:25:26]
+golden dataset, data set. ठीक है। अभी फिलहाल के लिए इसको input में हम कुछ भी नहीं दे रहे। इसका basically काम क्या है कि ये पूरा का पूरा जो flow है इसके नीचे वाला, ठीक है, ये trigger हो जाएगा जब भी हम ये function call करेंगे। ठीक है। अब क्या है कि यहाँ पर ये जो function है, हमने इसको अपने main file, main script के अंदर add कर दिया है। अगर कल को मैं script के अंदर से कुछ भी import करता हूँ तो ये पूरा का पूरा script मेरा run हो जाएगा। ठीक है। तो मुझे
+
+[00:25:26 – 00:25:56]
+basically क्या करना है? इसको थोड़ा सा यहाँ पर guard करना है कि अगर मैं इसको import करूं तो ये script मेरा directly run नहीं होना चाहिए। तो उसके लिए मैं क्या करूंगा? यहाँ पर एक छोटा सा line add करूंगा। I hope आपने Python के अंदर ये सीखा होगा कि if name equal to main. ठीक है। मैं ये particular function को execute करूंगा। इस particular line का मतलब क्या है कि जब मैं इस script को, मतलब इस file को as a script run करूंगा, standalone script run करूंगा, तभी आप ये function run करना। अगर मैं इसको
+
+[00:25:56 – 00:26:25]
+import करके कहीं पर use करूंगा तो जब तक मैं इसको उस particular file में, जहाँ पर मैंने इसको import किया है, वहाँ पर call नहीं करता, तब तक ये generate golden वाला step आप execute मत करना। ठीक है। ये code आपको पता होगा। आपने already Python के अंदर ये code देखा होगा। ठीक है। तो ये एक छोटा सा हमने यहाँ पर change कर दिया। अब आते हैं evaluation वाले में। Again same flow रहने वाला है। ठीक है। यहाँ पर function का नाम रखते हैं generate evaluation
+
+[00:26:30 – 00:26:30]
+dataset.
+
+[00:26:37 – 00:26:53]
+ठीक है, मैं manually करता हूँ। यहाँ पर हम ये loggers बना रहे हैं। अ... paths define कर रहे हैं and अपना evaluation run कर रहे हैं। That's it. मैंने क्या किया है, बस इस पूरे flow को मैंने एक function के अंदर डाल दिया है। ठीक है। Now,
+
+[00:26:57 – 00:27:11]
+I will write if name equal to main generate evaluation dataset. तो जैसे ही मैं इस particular function को trigger करूंगा, मेरा evaluation dataset create हो जाएगा। clear हुआ guys? चलो, आगे चलते हैं।
+
+[00:27:14 – 00:27:44]
+ये हमने कर दिया। Evals पर जाते हैं। Application evals. ये रहे मेरे evaluations. ठीक है। अब यहाँ पर आपको ऊपर function बनाने की जरूरत नहीं है, क्योंकि यहाँ पर आपने अपने matrix को define किया हुआ है। आपको यहाँ पर function बनाना है, जहाँ पर आप अपना evaluation कर रहे हो। Which is this particular part. ठीक है, यहाँ पर paths, paths define कर रहे हो और यहाँ पर अपना evaluate API चला रहे हो। तो यहाँ पर बनाते हैं। इसका नाम रखते हैं evaluate rag app.
+
+[00:27:49 – 00:27:56]
+या evaluate app कर लेते हैं, क्योंकि हमारे file का नाम भी यही है evaluate app and इस सारी चीज को हम...
+
+[00:28:01 – 00:28:36]
+ठीक है, index कर-- indent कर देते हैं and यहाँ पर हम लिखेंगे if name equal to main evaluate app. That's it guys. ये हमने code add कर दिया। अब जैसे ही हम इन functions को import करेंगे तो हम इनको अपने experiment tracking के अंदर execute कर सकते हैं। तो ये वाला जो पूरा चीज है ना, अगर मैं आपको दिखाऊं Excalidraw के अंदर, तो ये वाला जो पूरा चीज है, ये हमने easily functions को add करके achieve कर लिया। तो it is super simple. ये वाली चीज evaluation dataset वाली और evaluation वाली। इसको हमने achieve
+
+[00:28:36 – 00:29:12]
+कर लिया। अब चलते हैं towards our code. ठीक है। और code के अंदर we will go to execute experiment.py और यहाँ पर अपना code लिखते हैं। तो code हमें क्या लिखना है? Code हमारा simple है कि हमें ये दो files को execute करना है। ठीक है। अभी सिर्फ इसी चीज का code add करेंगे। तो हम क्या करेंगे? हम यहाँ पर लिखेंगे from और ये particular package कौन सा है? ये package है हमारा data. तो हम यहाँ लिखेंगे from data.generate_eval_dataset. ठीक है।
+
+[00:29:12 – 00:29:49]
+इससे हम import करने वाले हैं। Let me check the function name. Function name है generate_evaluation_dataset. Import करेंगे generate_evaluation_dataset. ठीक है। From... नहीं golden वाला नहीं है। From evals.application_evals.evaluate_rag_app function का नाम है import_rag_app. ठीक है। ये हमने यहाँ पर कर दिया। अब एक चीज और कर लेते हैं from .env हम import करते हैं load.env
+
+[00:29:49 – 00:30:22]
+का। ठीक है। ये भी हमने कर दिया। अब चलते हैं back to our Excalidraw. सबसे पहला चीज हमें क्या track करनी है? सबसे पहली चीज हमें track करनी है हमारे parameters. अब मैं आपको समझाता हूँ ये parameters के अंदर क्या problem है। ठीक है। ये मैं आपको code के अंदर execute करके दिखाता हूँ। तो एक file बना लेते हैं। यहाँ पर इसका नाम रख लेते हैं testing Experimentation.py जैसे ये एक dummy file है। ठीक है। इसके अंदर हम कुछ ज्यादा code नहीं लिखने वाले। तो सबसे पहले मैं क्या करता हूँ? मैं यहाँ पर लिखता हूँ
+
+[00:30:22 – 00:30:57]
+from config dot parameter config मैं import करूंगा यहाँ पर अपने params config का। ठीक है। simply मैं क्या करता हूँ? यहाँ पर अपने param config को आपको print करके दिखाता हूँ। ठीक है। मैं यहाँ पर print कर रहा हूँ। एक काम करते हैं। पर pretty print भी import कर लेते हैं क्योंकि अच्छे से print हो जाएगा import pretty print तो what I will do is P print dot P print simply मैं
+
+[00:30:57 – 00:31:30]
+क्या करूंगा यहाँ पर? अपने सारे parameter config को यहाँ पर print करके दिखाऊंगा dot model_dump। model_dump से क्या होता है? यहाँ पर ये print होता है as a dictionary. ठीक है, तो एक बार इस file को run करके देखते हैं। step by step चलेंगे guys आराम से इस file को build करेंगे because ये हमारा पूरा का पूरा experimentation pipeline होने वाला है। ठीक है, तो यहाँ पर कोई भी हम गलती नहीं करने वाले। तो step by step चलेंगे। हम लिखेंगे यहाँ पर testing experiment.py. देखो अब इसको run करते हैं। अब यहाँ पर problem क्या है
+
+[00:31:30 – 00:31:59]
+guys? यहाँ पर problem यह है कि ये जो पूरा का पूरा structure है ना, यहाँ पर आपके dictionary के अंदर dictionaries हैं। अब MLflow के अंदर क्या problem होती है? MLflow के अंदर जब आप अपने configuration को ऐसे directly यहां पर load कर लोगे। मतलब directly यहां पर उसको lock करोगे तो ये पूरा का पूरा जो आपका nested dictionary है ना ये पूरा as a value store हो जाएगा। अब इसमें कोई problem नहीं है। आप इसको ऐसे store कर सकते हो। बस problem यह है कि कल को जब आपको अपने configurations को compare करना होगा
+
+[00:32:00 – 00:32:31]
+कि कौन से configuration के ऊपर आपके क्या results आए तो वहां पर ये nested dictionaries आपको दिखाई देंगी और वहां पर comparison करना मुश्किल हो जाएगा। तो हमें basically क्या करना है? इस पूरे dictionary को flatten करना है। flatten in the sense कि यहां पर कोई भी nested structure नहीं होना चाहिए। हमारे पास ऐसा होना चाहिए कि ये हमारा parameter name है। flatten करने का मतलब क्या है कि ये हमारा parameter name है param1। ये उसका value है। Let's say one. फिर हमारा दूसरा parameter है param2. ठीक है। और ये उसका value है। तो हमें
+
+[00:32:31 – 00:32:58]
+कुछ ऐसा structure यहां पर achieve करना है और इसके लिए हम क्या करेंगे? इसके लिए हम एक बहुत smart approach use करेंगे। हम यहां पर recursion का use करेंगे। तो मैं आपको दिखाता हूं कि आप code के अंदर इसको कैसे करोगे। तो एक काम करते हैं। यहां पर अपना code लिखते हैं। उसको एक बार test करते हैं और test करने के बाद उस code को हम अपने main file के अंदर import करेंगे। ठीक है। तो यहां पर एक function बनाता हूं मैं। ठीक है और function का नाम रखते हैं flatten_params. ठीक है। इसको input में
+
+[00:32:58 – 00:33:32]
+क्या मिलेगा? इसको input में आपके original params मिलेंगे। यहां पर इसको params_dict भी लिख सकते हो और ये आपको dictionary में मिलेंगे। ठीक है। और आप return क्या करोगे इस function से? Again you will return a dictionary but ये dictionary आपका flattened होगा। ठीक है। अब देखते हैं कि यहां पर आप इस code को कैसे लिखोगे। तो सबसे पहले क्या करना है आपने? आपने यहां पर एक outer scoped या global scope जो है इस function के लिए आपको यहां पर एक outer dictionary बनाना है तो उसका नाम हम रखते हैं। अ, params_dict रख सकते हैं।
+
+[00:33:32 – 00:34:08]
+यहां एक काम करते हैं config_dict रख लेते हैं because param_dict हम input के अंदर use कर रहे हैं। तो हमने यहां पर एक outer dictionary बना लिया config_dict के नाम से। हम अब क्या करेंगे? loop through करेंगे। ठीक है, हम लिखेंगे for key value in param_dict.items। ठीक है। हम सबसे पहले check करेंगे यहां पर कि क्या जो value है हमारे param_dict में क्या वो dictionary है या नहीं। ठीक है, तो हम यहां पर check करेंगे if isinstance। isinstance से क्या होता है कि हम यहां पर data type check कर सकते हैं।
+
+[00:34:08 – 00:34:42]
+object क्या है हमारा? object है हमारा value कि क्या हमारे dictionary का value एक dictionary है कि नहीं। मतलब एक nested dictionary है कि नहीं। अगर है तो हम यहां क्या करेंगे? हम इस function को दोबारा से call कर देंगे। but उससे पहले हम अपने original dictionary के अंदर update करेंगे। ठीक है, हम यहां पर लिखेंगे config_dict.update and इस function को हम दोबारा call कर देंगे。 flatten_params और इसके अंदर आप क्या भेजोगे? अपना nested dictionary and this is your recursion guys. ठीक है। और अगर वो dictionary नहीं है
+
+[00:34:43 – 00:35:18]
+तो हम क्या करेंगे? हम यहां पर simply अपने value को store कर देंगे। but उससे पहले हम check करेंगे कि क्या if key in config_dict। कहीं ऐसा तो नहीं कि key already available हो। अगर है तो यहां पर हम लिख देंगे कि कोई duplicate key add हो रहा है। ठीक है और नहीं है तो we will simply do config_dict ठीक है हमारा key और उसका value. और अब एक काम करते हैं। यहां पर एक variable बनाते हैं। अच्छा एक return statement add करते हैं
+
+[00:35:19 – 00:35:22]
+which will be return हमारा config_dict.
+
+[00:35:26 – 00:35:44]
+And यहां पर flattened, flattened_params के नाम से बना लेते हैं और इसको एक बार run करते हैं। clear हुआ guys? ये particular code clear हुआ? confusing लग रहा है तो आप मुझे बताओ मैं clear करता हूं। I'm looking at the chat.
+
+[00:35:47 – 00:35:52]
+clear है। कोई ऐसा है जिसको clear ना हुआ? I will explain again. हम यहां पर करके आ रहे हैं।
+
+[00:35:58 – 00:35:58]
+anyone?
+
+[00:36:02 – 00:36:28]
+एक काम करते हैं एक बार इसको execute करके देखते हैं। देखो पहले क्या situation था। पहले हमारे पास कुछ ऐसा situation था। ठीक है, ये हमारे पास nested dictionary आ रही थी। अब क्या situation है? अब यहां पर हर चीज जो है वो flatten हो चुकी है। देखो यहां से देखना शुरू करो। Chunk overlap, chunk size सब कुछ यहां पर flatten हो चुका है। Clear हुआ guys?
+
+[00:36:31 – 00:36:39]
+Is it clear? किसी को भी doubt है तो you can ask. I will explain the code. Clear. Anyone who has the doubt?
+
+[00:36:43 – 00:37:18]
+सबको clear है? That's great. चलो एक काम करते हैं। इस पूरे code को हम यहां पर इस function copy करते हैं। ठीक है। सबसे पहले हम यहां पर क्या करेंगे? एक import करेंगे। import क्या है हमारा? params। तो from config dot parameter config हम यहां पर import करने वाले हैं params config का। ठीक है। And हम यहां पर यह function भी add कर रहे हैं। अभी इसको structure देंगे इस file को। Don't worry about it. एक काम करता हूँ, मैं अपने API keys को भी load
+
+[00:37:18 – 00:37:52]
+कर लेता हूँ। Load API keys load.env. ठीक है। तो इसके through हम अपने parameters को यहां पर flatten कर पा रहे हैं। ठीक है। अब आगे चलते हैं to step number 2. Parameters को हमने tackle कर लिया। Next क्या है? Next है हमारे metrics। तो देखते हैं कि metrics हमें कहाँ से मिलेंगे। तो metrics आपको मिलेंगे आपके reports वाले folder के अंदर, उसके अंदर results के अंदर और यहां पर आपको multiple JSON files मिल रही हैं। अब ये multiple JSON files आपको क्यों मिल रही हैं?
+
+[00:37:53 – 00:38:19]
+आप जब भी यहां पर अपना evaluation run कर रहे हो तो एक नया JSON file यहां पर generate हो रहा है। ठीक है। DP file के अंदर आप अपने files को overwrite नहीं करते। ये जो reports और result वाली file है, ये आपके लिए नई generate होती रहती है। ठीक है। तो इसका एक तरीका ये है कि हम क्या करें यहां पर, जो भी हमारी latest file यहां पर generate हुई है, उसको हम यहां पर लेकर आए और उसको lock करें। तो उसको करने का यहां पर एक तरीका है। वो तरीका मैं आपको दिखाता हूँ।
+
+[00:38:19 – 00:38:53]
+ठीक है। I hope ये चीज आपको समझ आ रही है। यहां पर क्या है? These are my timestamped. ठीक है। यहां पर ये date है, month है, year है और ये उसका timestamp दे रखा है। तो what we want is we want the latest file. क्योंकि latest file हमारी latest run के साथ develop हुई है, generate हुई है, उसी को हमें अपने experiment के अंदर वहां पर lock करना है। ठीक है। तो यहां पर हम क्या करेंगे? एक और function बनाते हैं getLatestResults करके। ठीक है। और यहां पर हम क्या लेंगे? यहां पर हम लेंगे
+
+[00:38:55 – 00:39:29]
+path कि हमें किस particular file का यहां पर या किस particular directory के अंदर यहां पर latest file को pick करके लाना है। तो उसके लिए what I will do is from path lib dot-- नहीं from path lib I will import path. ठीक है। एक काम करता हूँ, मैं ये बंद कर देता हूँ। ये बहुत ज़्यादा बीच में ना confuse करता है auto complete. Let me see इसका setting कहाँ पर है। UM inline suggestions. इसको बंद कैसे करें?
+
+[00:39:31 – 00:40:06]
+ये रहा button. Enabled है। इसको disable कैसे करें? Snooze का button है। चलो इसको बंद कर देते हैं। ठीक है, ये हमने बंद कर दिया। यहां पर हमें provide करना है क्या? कि path can be a path object or a string object. ठीक है। ये हमें return क्या करेगा? ये particular file जो है, ये हमें एक JSON file जो है, वो return करेगी। तो अभी return यहां पर कुछ भी नहीं लिखते। ठीक है। यहां file name return करेगा तो path object आप दे सकते हो। अब
+
+[00:40:06 – 00:40:38]
+यहां पर हमें क्या करना है? अपना code लिखना है। तो क्योंकि हमारे पास path object है, तो सबसे पहले हम क्या करेंगे यहां पर, अपना जो input path है उसको लेकर आएंगे। ठीक है। तो वो हमारा एक directory होगा। तो what we will do is हम यहां पर अपने directory के अंदर जितने भी files हैं, उनको एक list के अंदर यहां पर store कर लेंगे। ठीक है। तो उसके लिए what I will do is I will use path. ठीक है। यहां पर dot करेंगे और we will run glob। ठीक है। तो glob क्या करता है,
+
+[00:40:38 – 00:41:09]
+यहां पर आपके directory के अंदर searching करता है। तो यहां पर आप एक pattern दोगे। तो pattern क्या है? Pattern will be कि हमारे पास जितने भी JSON files यहां पर generate हो रहे हैं, सब आप लेकर आओ। तो इसके लिए pattern होता है आपका star dot JSON. ठीक है। This is your pattern. अब आपके पास सारे files आ गए। उसके बाद आपको क्या करना है, यहां पर अपने latest file को लेकर आना है। तो latest file के लिए आप क्या करोगे? यहां पर आप max function का use करोगे। तो for
+
+[00:41:12 – 00:41:45]
+file in files भी आप कर सकते हो। ठीक है, यहां पर आप अपना file name निकाल सकते हो। तो हम क्या करते हैं, यहां पर एक काम करते हैं files। Here what we can do is we can do it straight away. ये सब करने की ज़रूरत नहीं है because glob, I think, so आपको list return करता है। हाँ, एक generator return करता है। तो इसको हम add कर लेते हैं list के अंदर, file names के अंदर, it will be an empty list. ठीक है। और यहां पर क्या करेंगे हम? File names dot append करते हैं
+
+[00:41:45 – 00:42:20]
+और अपने file को यहां पर add करते हैं। जो भी हमारे पास यहां पर file का नाम आ रहा है। हम उसको list के through भी कर सकते थे and हम यहां पर recent file का name लेकर आएंगे। तो recent file का name हमें यहां से मिल जाएगा। एक काम हम और कर सकते हैं यहां पर। File dot UM is it stem? Stem is the final component minus its last suffix. Yes, it is stem. हम यहां पर stem का use कर सकते हैं।
+
+[00:42:20 – 00:42:27]
+ठीक है। And recent file को लेने के लिए हम यहां पर max का use करेंगे and हम provide करेंगे हमारा
+
+[00:42:31 – 00:43:05]
+यहां पर all the file names. ठीक है। इसके ऊपर हम max लगाएंगे और key क्या होगा? Key होगा हमारा file dot UM it will be name. ठीक है। ये हमारा key होगा। And that's it guys. और इसी को हम यहां पर return कर देंगे। Return as recent file. तो एक काम करते हैं, इसको test करते हैं code को। UM let me go back. यहां पर इसको
+
+[00:43:06 – 00:43:41]
+paste करते हैं। इस पूरी चीज को हटाते हैं और इसको test करते हैं। तो recent file get latest results और यहां पर हमें path देना है। तो path हम बना लेते हैं। सबसे पहले बना लेते हैं अपना root directory. Root directory होगा हमारा path. तो हमें path lib भी import करना पड़ेगा। From path lib import path. Guys, थोड़ा
+
+[00:43:41 – 00:44:16]
+सा stick around करना। ये थोड़ा सा part tricky है। तो मैं एक बार code लिख लेता हूँ। Just follow along. ठीक है, अगर कहीं पर आपको mistake लग रही है तो do let me know. Dot parent से हमारा path आ जाएगा। ठीक है। और उसके बाद हमें कहाँ जाना है? उसके बाद हमें जाना है in the evaluation results directory इसका e भी small कर देते हैं। ठीक है, और ये होगा हमारा root directory। root directory से हम अंदर जाएंगे to our
+
+[00:44:18 – 00:44:49]
+reports और reports से हम जाएंगे to our evaluation results, Evaluation results. ठीक है, एक बार इसको हम run करते हैं। We run testing experiment.py। उम्म, कुछ error आ गया। अच्छा, मैंने यहां पर input pass नहीं किया। Evaluation क्या हो गया? Results directory।
+
+[00:44:52 – 00:44:55]
+उम्म, string is not callable.
+
+[00:45:00 – 00:45:02]
+उम्म, string के ऊपर तो हम कर नहीं रहे।
+
+[00:45:10 – 00:45:12]
+समझ आ रहा है guys, यहां पर क्या error आ रहा है?
+
+[00:45:15 – 00:45:28]
+अच्छा! Max और string we are doing। हाँ, तो हमें यहां पर एक Lambda function डालना पड़ेगा। Lambda x कर लेते हैं and,
+
+[00:45:31 – 00:45:36]
+x.name कर लेते हैं। I think now it will work.
+
+[00:45:40 – 00:45:44]
+उम्म, again it is showing error.
+
+[00:45:50 – 00:46:04]
+Can anyone, can anyone help me debug this guys? अ, आपको कहीं पर problem दिखाई दे रहा है? एक बार इसको दोबारा से go through करते हैं। ठीक है, हम यहां पर input path दे रहे हैं। एक काम करते हैं इसको get the date.
+
+[00:46:08 – 00:46:31]
+Just a second. मैं एक काम करता हूं, इसको step by step करते हैं। ठीक है। एक काम करते हैं, यहां पर print करते हैं पहले files को। अभी फिलहाल के लिए कुछ भी return नहीं करें। Let's do this step by step. कहीं पर error आ रहा होगा। Let's figure it out. ठीक है, तो हमारे पास यहां पर glob object आ गया। एक बार इसको list में convert करके देखते हैं कि क्या हमारे पास यहां पर result आ रहा है।
+
+[00:46:35 – 00:46:53]
+हाँ, तो हमारे पास यहां पर POSIX path objects आ रहे हैं। Basically, हमारे पास path objects आ रहे हैं and path के अंदर हमारे पास ये पूरा का पूरा path है। ठीक है। तो अगर मैं इसमें से dot stem को run करूं। उम्म, is files a list?
+
+[00:46:57 – 00:47:24]
+No, it is a generator ना, तो ये काम कर जाएगा। उम्म, नहीं, उसके लिए I have to run a loop. Just a second guys. For file and files. Let's go step by step guys. Figure out हो जाएगा। Let me run file.stem और एक बार इसको list से हटाते हैं।
+
+[00:47:29 – 00:47:47]
+नहीं, नहीं, we are not looking for the integer value. हमें string value ही चाहिए। उम्म, यह रहा हमारा test run आ गया। ये values हमारे पास आ गई। Right. अब हमें क्या करना है, इनको compare करना है।
+
+[00:47:54 – 00:47:54]
+उम्म,
+
+[00:47:59 – 00:48:13]
+while apply max need get the date value. But string के ऊपर भी तो maximum हो सकता है। Can't we do it? String को भी तो हम encode कर सकते हैं ना as ASCII numbers.
+
+[00:48:22 – 00:48:35]
+उम्म, I don't know ये problem क्यों आ रहा है। Guys, anyone किसी को समझ आ रहा है? कि live code में यार यही problem होती है। String को तो encode किया जा सकता है ना ASCII numbers.
+
+[00:48:43 – 00:48:50]
+या एक काम कर सकते हैं, फिर comparison, direct comparison कर सकते हैं, greater than वो वाला flag लगा के। But max के through भी होता है।
+
+[00:48:55 – 00:49:12]
+एक काम करते हैं। एक बार दोबारा से जो code लिखा था उसको लिखते हैं। एक बार append करते हैं इसके अंदर file.stem को। ठीक है। और एक बार print करते हैं file names को।
+
+[00:49:19 – 00:49:50]
+तो file names हमारे पास आ रहे हैं। अच्छा, अगर मैं यहां पर simply max लगाता हूं। ठीक है। I'll just simply do the max of file names. मैं यहां पर maximum string value को fetch करना चाहता हूं। तो क्या ये काम नहीं करेगा? Let me run it again. काम कर गया। इसमें कुछ भी error नहीं आ रहा। Let me print this one. ठीक है, इसको print करते हैं।
+
+[00:49:53 – 00:49:56]
+I think वो जो हम key लगा रहे थे, वो हमें लगाने की जरूरत नहीं थी।
+
+[00:50:00 – 00:50:14]
+हाँ, हमारे पास आ तो रहा है। Yes, आ रहा है। तो वो जो key लगा रहे थे ना, वो लगाने की जरूरत नहीं थी। It is super simple. बिल्कुल ऐसे ही करना है। अ, अमरजीत ने लिखा है paths glob.
+
+[00:50:18 – 00:50:45]
+हाँ, वही हम कर रहे हैं यहां पर। Basically, string को fetch कर रहे हैं and now it is working. We are able to get the latest file. देखो latest file ये वाली है, test run वाली। तो ये हमें मिल रही है। Sorry guys, बीच में एक थोड़ा सा hiccup आ गया था and thanks for the support. ठीक है, हमने इसको figure out कर लिया। again ये थोड़े से hiccups आते हैं guys जब भी आप यहां पर live code करते हो तो ये hiccups आएंगे ही आएंगे। तो return हमें क्या करना है? return हमें करना है
+
+[00:50:45 – 00:51:20]
+max of my file names that's it. तो इस particular चीज को हम लेकर चलते हैं into our main code. तो main code है हमारा execute experiment dot pipeline। यहां पर इसको हम paste करते हैं। इसको हटाते हैं और इसकी जगह ये वाला code paste कर दें। right तो ये क्या करेगा? ये हमारे latest results या reports जो हैं वो हमें निकाल के दे देगा। अब हमें क्या करना है? अब ये तो बात हो गई आपके latest results आ गए आपके पास। ठीक है, आपके पास
+
+[00:51:20 – 00:51:56]
+latest file आ गई जहां पर आपके evaluation results stored हैं। but उस file के अंदर से भी तो आपको metrics की value fetch करनी है। वो मैं आपको दिखाता हूं कि वो आपको कैसे मिलेंगे। ठीक है। तो get metrics from results करके एक function बनाते हैं। ठीक है, इसके अंदर हम input में देंगे अपना results JSON और output में हमें क्या मिलेगा? output में हमें मिलेगा एक dictionary. ठीक है। एक बार इसका
+
+[00:51:56 – 00:52:27]
+code हम समझते हैं कि कैसे लिखेंगे। तो मैं आपको ये latest वाला JSON दिखाता हूं। ठीक है, मैं यहां पर word wrap on करता हूं। अगर आप नीचे जाओगे ना बिल्कुल इस file के end में। देखो इस file के अंदर बहुत सारा information है। यहां पर हर एक test case के लिए reasoning वगैरह सब कुछ provided है। but अगर आप end में जाओगे and if you look carefully एक काम करते हैं structure में जाते हैं। ये जो आपके पास structure दिख रहा है ना guys इसके अंदर ये जो metrics course है आपको यहां पर जाना
+
+[00:52:27 – 00:52:56]
+है। देखो ये metrics course खुद में क्या है? it is a JSON और उसके अंदर आपके पास individual metrics है। हमारे पास कितने metrics है? सात metrics। तो यहां पर सातों metrics की detail है। ठीक है, हम चलते हैं into the first metric और उसकी detail मैं आपको दिखाता हूं। उसके अंदर क्या है? अगर आप clearly देखो तो सबसे पहले आपको मिलेगा आपका metric का नाम। ठीक है। और यहां पर ये भी बताया हुआ है कि कितने cases में वो pass हुआ, कितने cases में वो fail हुआ और कहां-कहां errors हैं। and आपको साथ ही
+
+[00:52:56 – 00:53:29]
+साथ एक list के अंदर आपके scores भी मिलेंगे। हमारे पास कितने pairs of golden या evaluation dataset थे? 14 थे। तो यहां पर आपको 14 individual score मिल रहे हैं for a individual metric. तो basically case क्या है कि let's say ये आपका contextual recall है। ठीक है, तो ये आपके metric का नाम है और ये उसके individual scores हैं। और आपको यहां पर कौन से scores lock करने हैं? individual scores lock नहीं करने हैं। आपको वो scores lock करने हैं जो आपके table के अंदर है। ठीक है, आपके aggregate scores ये वाले। I can
+
+[00:53:29 – 00:54:04]
+show you ये वाले। तो आपको basically क्या करना है यहां पर? aggregate scores calculate करने हैं। ठीक है, तो आपको इसी चीज का यहां पर code लिखना है। तो एक काम करते हैं वो JSON file को दोबारा open करते हैं। and हमें basically क्या करना है? इसकी key का नाम चाहिए it is metrics scores. तो इसका हमें ध्यान रखना है। ठीक है। तो यहां से हमें हमारा JSON file मिलेगा। तो सबसे पहले हम क्या करेंगे? अपने JSON file को load करेंगे। तो यहां पर लिखेंगे with open करेंगे अपने JSON file को। ठीक है। यहां पर
+
+[00:54:04 – 00:54:39]
+हमें अपना results JSON मिलेगा as file. ये हमने open कर लिया और एक चीज हमें यहां पर और import करनी पड़ेगी। हम यहां पर import करेंगे JSON module का। तो यहां पर हमारे metrics results आ जाएंगे और वो हमें कैसे मिलेंगे? JSON dot load से मिलेंगे and we will pass the JSON file. that's it. हमने अपना JSON file pass कर दिया। हमारा JSON
+
+[00:54:39 – 00:55:05]
+file अब load हो जाएगा। अब हमें क्या करना है? loop through करना है individual metric पे। ठीक है। हम एक काम कर सकते हैं। यहां पर अपना key भी लिख सकते हैं जो metrics results वाला है। metrics results तो यहां से हमें हमारे results मिल गए पूरे JSON के अंदर से। अब हमें simply क्या करना है? एक loop चलाना है। ठीक है। और एक outer dictionary बना लेते हैं metrics के नाम से।
+
+[00:55:08 – 00:55:43]
+and for result in metrics results loop चलाया। सबसे पहले हमें क्या मिलेगा? हमें मिलेगा हमारा metric name. तो देखते हैं यहां पर कौन सी key के अंदर हमारा metric name stored है। check करने का simple तरीका है यहां पर जाओ और metric key के अंदर stored है। ठीक है। तो हम यहां पर क्या करेंगे? result के अंदर से metric का value fetch कर लेंगे। वो हमारा metric का नाम हो जाएगा। next हमें क्या करना है यहां पर? हमें अपने scores निकालने
+
+[00:55:43 – 00:56:17]
+हैं। scores हमें कहां से मिलेंगे? again result के अंदर से scores वाले key से। scores if you can go here and check ये scores वाला key है। ठीक है। उसके बाद आपको क्या करना है? उसके बाद आपको यहां पर aggregate scores या average scores निकालने हैं। average scores average निकालने का तरीका क्या है? आप यहां पर numpy use कर सकते हैं। simple python के through भी निकाल सकते हो। तो यहां पर आपके पास complete scores की list है। आपको क्या करना है? पहले आपको sum करना है on all the scores divided by the length of
+
+[00:56:18 – 00:56:43]
+scores. अब ये जो scores आएंगे आपके पास, इसके अंदर आपके पास जो precision है मतलब decimal वो काफी ज्यादा आएंगे। तो हम एक काम करते हैं यहां पर इसको round कर लेते हैं to decimal two. ठीक है, second place तक इसको round कर लेते हैं। that's it. एक काम करते हैं इसको भी हम एक और bracket के अंदर add कर देते हैं ताकि कोई भी code के अंदर issue ना आए। and finally हम क्या करेंगे यहां पर?
+
+[00:56:47 – 00:57:22]
+अपने metrics dictionary के अंदर हम metric name लेकर आएंगे और उसके नाम से यहां पर हम अपना result जो है which is the average scores उसको यहां पर save करेंगे। and finally we will return our metrics. I hope ये चीज आपको clear हो गई। एक बार इसको भी test कर लेते हैं guys। test करना जरूरी है because हमारा यहां पर जो main code है नहीं तो वो फट जाएगा। इसको यहां पर अरे! इसको हम रहने देते
+
+[00:57:22 – 00:57:58]
+हैं। simply यहां पर इसको paste कर दें। ठीक है, कुछ और हम यहां पर अभी फिलहाल के लिए इसको भी हटा देते हैं। ठीक है। and हमें simply क्या करना है यहां पर? अपना जो file है evaluation results के अंदर तो हम पहुंच ही गए। अपने file का नाम बताना है। तो file name हो गया evaluation result. अच्छा एक काम करते हैं क्यों ना हम इसी particular function को use कर लें ना। इससे हमें हमारा file name भी मिल जाएगा। तो evaluation results और इसके बाद हमें मिलेगा हमारा file name।
+
+[00:57:59 – 00:58:34]
+अ, get latest results से get latest results and उसके अंदर हम path के अंदर pass करेंगे हमारा evaluation results directory, evaluation results directory। ठीक है। और end में हम लगा देंगे .JSON। तो ये हमें मिल जाएगा as a string end में हम add करेंगे .JSON. ठीक है, ये हमारा file name हो गया। ये हमने load कर लिया and बस इसके ऊपर हमें अपने इस particular function को चलाना है। एक चीज और करनी पड़ेगी। we will
+
+[00:58:34 – 00:59:01]
+also import JSON. Guys, I know थोड़ा सा lengthy हो जाता है but stick with me। थोड़ा सा difficult होता है live code करना। कोई errors ना आए। But ये चीजें मैं आपको step by step दिखा रहा हूं। अगर आपको live code थोड़ा सा slow लग रहा है तो आप मुझे बता दो। Next class में हम directly जो है codes को execute कर लेंगे। ठीक है। अगर आपको ऐसा लग रहा है तो you can tell me कि sir, यहां पर time हम बहुत ज्यादा spend कर रहे हैं। Is it so guys? या live code ही अच्छा
+
+[00:59:01 – 00:59:01]
+लगता है?
+
+[00:59:05 – 00:59:28]
+This is good. तो थोड़ा सा patience रखो। ठीक है, time लगता है लिखने में एक-एक चीज और logic बनाने में time लगता लगता है। But we will get through. ठीक है, हम जो main chunk है वो almost complete कर चुके हैं। तो ठीक है, continue करते हैं। ठीक है, हमने यहां पर अपना file name बना लिया और अब हमें simply यहां पर अपने metrics print करने हैं। तो metrics होंगे हमारे
+
+[00:59:31 – 01:00:06]
+get metrics from results। ठीक है, इसके अंदर हम अपना JSON भेजेंगे। File name हो गया and we will pretty print the metrics। देखते हैं code काम करता है या फटता है। Run किया and फट गया। और फटा कहाँ पर? अच्छा! ठीक है, वो कह रहा है कि ये path object return हो रहा है। अ, POSIX path है। तो हम एक काम कर सकते हैं, इसको string में convert कर सकते हैं।
+
+[01:00:06 – 01:00:18]
+Which is right here. ठीक है। ये हमने as string output कर दिया। अब ये काम कर जाएगा।
+
+[01:00:21 – 01:00:47]
+उम, क्या दिक्कत आ रही है? अच्छा! यहां पर problem नहीं है। Let me see guys. आज तो सारा ही blunder हो रहा है। काफी ज्यादा code जो है वो फट रहा है। Evaluation results directory, JSON, POSIX path and string. अच्छा, got it, got it, got it. But अगर ये string है, अ,
+
+[01:00:50 – 01:01:00]
+it should work ना। ये तो path object है और इसके अगर, अगर आगे हमने कोई string डाल दी है तो it should work. Why is it saying POSIX path?
+
+[01:01:05 – 01:01:40]
+एक काम करते हैं। Let's go slow. एक बार फिर से इस file name को print करते हैं। ठीक है। इस पूरी चीज को मैं comment out करता हूं। हाँ, तो ये चल रहा है। This code is fine. जो हमने string add की है ना end में, वो काम नहीं कर रहा है। Okay, तो what we can do is let me check। अगर ये चीज काम करती है तो। क्या ये hack काम करेगा? No, it is not working. अ, से slash लगा दिया। What we can do is
+
+[01:01:42 – 01:02:11]
+हम यहां पर इसको as POSIX कर देते हैं। Because this is a path object और उसके आगे हम .JSON को add कर देते हैं। This is working. तो ये एक hack है जो हमने यहां पर लगा दिया। अब ये काम कर रहा है। अब ये वाला code भी हमारा काम कर जाएगा।
+
+[01:02:16 – 01:02:28]
+metrics results की error metrics scores है। My bad. This is metrics scores.
+
+[01:02:38 – 01:02:38]
+अब क्या हो गया?
+
+[01:02:41 – 01:02:52]
+अच्छा, मैंने main file के अंदर change कर दिया। Just a second guys。 Metrics scores, scores.
+
+[01:02:55 – 01:03:27]
+हाँ, अब load हो पा रहा है। देखो, हमारे पास हमारा answer relevancy आ रहा है, contextual precision आ रहा है, recall आ रहा है, relevancy आ रहा है और हमारे GEval के scores भी आ रहे हैं। और मैं आपको दिखाता हूँ यहां पर। If I can show you the markdown file. ये हमारा latest markdown file है। And अगर मैं इसको preview करूं, आप compare कर सकते हो यहां पर। ठीक है। Answer relevancy आ रहा है इधर, 88 है। Contextual precision one का आ रहा है। Recall मेरा 95 आ रहा है। तो yes, I am able
+
+[01:03:27 – 01:03:54]
+to gather the metrics also. अब यहां पर एक problem है guys, जो आप face करोगे। अगर आप इस code को run करोगे ना inside your MLflow, तो ये particular segment जो है ये GEval वाला, ये आपको error देगा और वहां पर basically लिखा आएगा कोई भी special characters आप use नहीं कर सकते। सिर्फ आप वहां पर underscores और hyphens use कर सकते हो। तो ये जो brackets हैं ना, ये आपको problem देने वाले हैं। तो इसका एक तरीका ये है कि आप जब इस key को set करोगे तो उसके अंदर से remove कर दोगे इस
+
+[01:03:54 – 01:04:22]
+particular चीज को। तो what we will do is कि हम यहां पर एक छोटा सा hack करने वाले हैं और वो hack ये है कि हम ये लिखेंगे . Remove suffix. ठीक है, string के ऊपर एक method होता है remove suffix करके और हम अपना suffix provide कर देंगे कि अगर यह particular चीज मेरे metric के अंदर available है तो इसको remove कर दो। ठीक है। If
+
+[01:04:26 – 01:04:30]
+g eval in
+
+[01:04:33 – 01:04:36]
+result metric
+
+[01:04:41 – 01:04:57]
+else result metric. तो यह piece of code हमने add कर दिया। देखो, अब हमने-- change क्यों नहीं आया?
+
+[01:05:02 – 01:05:03]
+g eval।
+
+[01:05:10 – 01:05:11]
+change आया क्यों नहीं?
+
+[01:05:16 – 01:05:18]
+इसलिए नहीं आया क्योंकि यहां पर typo हो गया।
+
+[01:05:21 – 01:05:42]
+change आ गया। ठीक है। अब यहां पर मुझे कुछ extra white space भी दिखाई दे रहा है, तो उसका simple तरीका क्या है? यहां पर हम कर देते हैं dot space. एक बार इसको re-execute करते हैं। देखो, यह काम कर रहा है। ठीक है। तो this is working fine. What we can do is, इसको हम करते हैं copy.
+
+[01:05:46 – 01:05:48]
+We will simply copy it and we will paste it here
+
+[01:05:52 – 01:05:54]
+into our file। Yeah.
+
+[01:06:00 – 01:06:29]
+Yes. तो यह matrix वाली चीज हमने यहां पर figure out कर ली है। अच्छा, एक चीज हम और कर सकते हैं यहां पर इस function के अंदर जहां पर हमें-- इसको रहने देते हैं, latest वाले को रहने देते हैं। ठीक है। वो हम figure out कर लेंगे। तो yeah, यह चीज हमने कर ली। मैं अब आपको दिखा देता हूं हमने क्या progress कर लिया। तो हमने यह particular चीज कर ली। params load करने वाला काम कर लिया। matrix वाला काम कर लिया। अब simple चीजें रह गई हैं। ठीक है, datasets रह गए हैं, code files
+
+[01:06:29 – 01:06:53]
+रह गए हैं, result and system prompt. तो एक काम करते हैं, system prompt वाला काम कर लेते हैं। ठीक है। उसके लिए हमें Langfuse की जरूरत होगी। तो हम क्या करेंगे यहां पर? Prompt Langfuse हम यहां पर import कर लेते हैं। एक तो अपने client को, get client और दूसरा हम import कर लेते हैं यहां पर।
+
+[01:06:58 – 01:07:32]
+अच्छा get client ही करना है खाली। और यहां पर एक function बना लेते हैं import system prompt. ठीक है, यह हमारा system prompt हमें import करके दे देगा। और यहां पर हम stage set कर देते हैं या label set कर देते हैं और label by default हम रखते हैं as staging. ठीक है। और यह हमें हमारा system prompt as string जो है वो return करेगा। Right? तो सबसे पहले हम यहां पर अपना client बना लेते हैं।
+
+[01:07:33 – 01:08:09]
+client की जगह Langfuse use करते हैं। Langfuse। यहां पर हम run करते हैं अपना get client. ठीक है, आ गया। उसके बाद हम यहां पर अपना prompt लेकर आएंगे which will be Langfuse dot get prompt. Get prompt. Prompt के अंदर हमें कुछ चीजें बतानी हैं। सबसे पहले हमें बताना है हमारा name। फिर हमें बताना है हमारा type which will be text and फिर हमें बताना है हमारा label।
+
+[01:08:10 – 01:08:11]
+और label होगा हमारा
+
+[01:08:15 – 01:08:16]
+it is label.
+
+[01:08:20 – 01:08:32]
+ठीक है। name के अंदर हम name को copy कर लेंगे from our main file। तो app के अंदर जाएंगे, rack workflow के अंदर जाएंगे and यहां से हमें हमारा name मिल जाएगा।
+
+[01:08:36 – 01:09:11]
+copy करेंगे। इसको यहां पर paste करेंगे। अच्छा, one more thing which we can do is, अभी के लिए ठीक है। और क्योंकि हम यहां पर अपने YAML file के अंदर अपना label define कर रहे हैं, तो उसके लिए हमें हमारे configurations को भी load करना पड़ेगा। अच्छा, वो हम already कर रहे हैं तो वहां से हम load कर लेंगे। Yes. तो यह हमने define कर दिया। हमें finally return करना है अपना prompt dot prompt and that's it.
+
+[01:09:12 – 01:09:33]
+तो हमने system prompt वाला काम भी guys कर लिया। clear हो रहा है guys? So I will take a few seconds break. ठीक है, एक बार मैं चीजें check कर लेता हूं क्या-क्या हो गया है। तब तक आपके कोई questions है तो you can ask me. क्योंकि आज class में बहुत ज्यादा errors आ रहे हैं। I am also getting like frustrated.
+
+[01:09:37 – 01:09:57]
+Do we create constants for hardcoded strings as practice? मतलब paths के लिए it is considered a good practice, coding practice कि आप वहां पर proper strings के through मतलब वहां पर define करो upper case के through which is your constants.
+
+[01:10:03 – 01:10:19]
+I know it is very frustrating. पता नहीं आज क्या हो रहा है। Things are not working out. Errors आ रहे हैं and I am also like pretty frustrated. Doubts guys? थोड़ा पानी पी लेता हूं। Maybe I need some hydration.
+
+[01:10:43 – 01:10:50]
+ML flow वाला code हमारा फटाफट हो जाएगा। एक बार बस हम ये functions define कर लें। Rest is super easy.
+
+[01:10:54 – 01:10:55]
+clear हो रहा है guys?
+
+[01:11:00 – 01:11:27]
+Is it clear? कहीं doubt तो नहीं आ रहा? Yes. चलो। और function यहां पर define करते हैं। इस function का नाम हम रखते हैं save artifact या log artifact भी रख-रख सकते हो। एक काम करते हैं इसको log artifact ही कर लेते हैं। Log artifact. But log artifact आपका ML flow के अंदर भी है तो।
+
+[01:11:30 – 01:12:03]
+इसका नाम क्या रख सकते हैं? It should be a good name. Artifact name रख देते हैं। ठीक है। यह क्या करेगा? यह function super simple है। यह basically हमें हमारा artifact name निकाल के देगा। ठीक है। और इसके अंदर हमारा path वगैरह सब कुछ proper होगा। तो हम यहां पर देंगे अपने artifact का path. ठीक है। And हम देंगे अपना artifact directory और यह हमें
+
+[01:12:06 – 01:12:41]
+हमारा artifact निकाल के देगा। ठीक है। तो एक बार चलते हैं अपने data के अंदर। तो यह artifacts हमें save करने हैं। ठीक है। Eval dataset save करना है and golden dataset save करना है। एक काम करते हैं, पर artifact path नहीं define करते हैं, artifact type define करते हैं। जो कि path तो हम इस function के अंदर define करने वाले हैं। What we can do is, हम यहां पर अपना एक बार root define कर लेते हैं। Root रहेगा मेरा
+
+[01:12:44 – 01:13:00]
+my file. ठीक है। Dot parent. तो मैंने अपना root define कर लिया। मुझे simply क्या करना है यहां पर? If artifact type
+
+[01:13:04 – 01:13:04]
+is
+
+[01:13:09 – 01:13:44]
+eval dataset. अगर मेरा artifact type eval dataset है। I will import a few more things from typing. मैं import कर लेता हूं literal. Literal को import करने का फायदा क्या है कि कल को जब आप इस parameter का value pass कर रहे होगे तो आपको थोड़ा वहां पर auto complete में assist मिल जाएगा। वो कैसे मिलेगा मैं आपको दिखाता हूं। आप यहां पर literal save करोगे और literal के अंदर आप यहां पर अपने values add करोगे। Either it can be eval dataset or it can be
+
+[01:13:44 – 01:14:19]
+your golden dataset. Golden dataset. ठीक है। अगर आपका artifact type eval dataset है तो आप क्या करोगे यहां पर? अ, return एक बार path define कर लेते हैं। artifact path. Path क्या रहेगा यहां पर? Root directory. Root के बाद आप जाओगे inside the data directory. Yeah, what we can do is, हम यहां पर एक
+
+[01:14:19 – 01:14:38]
+data path define कर देते हैं। It will be much better. यह बार-बार हमें define नहीं करना पड़ेगा। एक बार हमने data path define कर दिया। ठीक है। अब हमारे data के अंदर evaluation के अंदर, evaluation के अंदर हमारे ये दोनों datasets हैं। तो बस हमें यहीं से अब path define करना है।
+
+[01:14:42 – 01:15:07]
+Data path के अंदर हम जाएंगे eval dataset के अंदर और हमारा artifact कहां होगा? हमेशा हमारा latest artifact होगा। अब इस particular artifact का हमें नाम कहां से मिलेगा? यह नाम हमें मिलेगा हमारे parameters से। क्योंकि यहां पर हम parameters के अंदर यह नाम save करके रख रहे हैं। तो params config के अंदर मिलेगा। और इसको आप कैसे यहां पर डालोगे?
+
+[01:15:11 – 01:15:12]
+इसको डालोगे आप
+
+[01:15:16 – 01:15:51]
+params config और उसके अंदर आपको मिलेंगे आपके evaluation dataset और उसके अंदर से आपको मिलेगा evaluation dataset file name. ठीक है। Again इसमें वही problem आएगी string वाली। तो हम क्या करेंगे? इस पूरी चीज को convert कर देंगे as POSIX. यह हमें मिल जाएगा string और इसके अंदर हम add कर देंगे last में .JSON. तो यह हो गया हमारा file. और हम return क्या करेंगे? हम return करेंगे यहां पर एक tuple. Tuple होगा हमारा
+
+[01:15:51 – 01:16:24]
+artifact path and our artifact directory. ठीक है। यह हम input में define करेंगे। Will be a string type, string type. तो यहां पर आप सारी चीजें define कर सकते हो कि return होगा आपके पास एक tuple और tuple का type होगा, tuple का type होगा अ, it will be also path only string and string.
+
+[01:16:26 – 01:17:01]
+ठीक है। Or else if your artifact type is a golden dataset. अगर यह golden dataset है तो क्या होगा? Artifact type. क्या हो गया? अच्छा else if my bad यार। Screwing this off. आज तो पता नहीं दिन ही खराब है। Artifact path. ठीक है।
+
+[01:17:02 – 01:17:37]
+इसको हम पूरी चीज को करेंगे copy and I will paste it here. और इसके अंदर हम यहां पर इस चीज को करेंगे evaluation dataset की जगह हम जाएंगे golden dataset में। Golden dataset dot and हमारा होगा golden dataset file name. Yes. ठीक है। इससे हमें हमारा artifact name भी मिल जाएगा। ये हो गया। तो let me go back.
+
+[01:17:38 – 01:17:46]
+हमने इस पूरी चीज को ये जो है हमारे datasets इसको भी कर लिया। अब बात रही code files की। तो again will make a function
+
+[01:17:50 – 01:18:08]
+return code files. ठीक है। इस particular function को हम hard code करेंगे। ठीक है। ये हमें हमारे code files return करेगा। तो यहां पर paths define कर लेते हैं कि हमारे paths कहाँ-कहाँ हैं। तो
+
+[01:18:11 – 01:18:37]
+code file paths code files हैं हमारे root directory के अंदर। ठीक है। हमारे source directory के अंदर। यहां पर हमारे सारे code files available हैं। अब हम देखते हैं कि हमें कौन-कौन से code files को यहां पर save करना है। सबको save करने की जरूरत नहीं है। एक हम अपने application को यहां पर lock करेंगे rag_workflow.py। तो
+
+[01:18:41 – 01:19:17]
+app code path, app code path होगा हमारा code file path along with my rag_workflow.py workflow.py। फिर होगा आपका-- ये हो गया। data के अंदर जाएंगे। इन दोनों को भी करेंगे हम। तो eval data path will be my code file path। से यहां पर एक और directory होगी that will be my app directory।
+
+[01:19:17 – 01:19:52]
+यहां पर होगा मेरा data और data के अंदर होगा मेरा generate_eval_dataset.py। eval data path हो गया and golden data path ये होगा inside code file path. Code file path के अंदर we will go to evals। evals के अंदर हम जाएंगे inside application evals
+
+[01:19:54 – 01:20:27]
+and उसके अंदर है हमारा file। Let me check the file name as well evaluate_ragapp.py。 evaluate_ragapp.py। ठीक है। तो बस यही-- अच्छा मैंने evaluation वाला डाल दिया it's not golden data, it is evaluate path। golden data एक set कर लेते हैं。 evaluation path and यहां पर हम डाल देते हैं golden dataset। golden
+
+[01:20:30 – 01:21:00]
+dataset path. तो यह हमारा code file path code file के अंदर जाएंगे inside data and we will use this file generate_goldens.py। generate_goldens.py। अब finally हम क्या करेंगे? इन files को return कर देंगे। We will return। इसके लिए will make a list comprehension. ठीक है। and
+
+[01:21:03 – 01:21:12]
+file.asposix for file
+
+[01:21:18 – 01:21:53]
+in will make a list again। और यहां पर होगा app code path, यहां पर होगा eval data path, यहां पर होगा evaluation。 eval data path हो गया और evaluation path, evaluation path, evaluation path and golden dataset path. Yeah. ठीक है। इसको हम return कर देंगे।
+
+[01:21:55 – 01:22:21]
+That's it guys. तो हमने इस चीज को भी complete कर लिया। अब सिर्फ हमें क्या करना है यहां पर अपने results को लेकर आना है। तो results को तो हम directly lock कर देंगे। ये results वाली चीज हमें मिलेगी get latest result में तो इसको हम directly वहां पर lock कर देंगे। clear हुआ guys? हमने यहां पर अपने सारे functions almost बना लिए हैं। ठीक है। तो this is it. कोई doubt guys?
+
+[01:22:26 – 01:22:29]
+Can we simply log git hash and use that?
+
+[01:22:33 – 01:22:38]
+Not able to understand your question. Git hash को कहाँ पर use करना है आपने?
+
+[01:22:42 – 01:23:15]
+Git hash आपका automatically MLflow lock करता है। मतलब artifact के अंदर कह रहे हो कि directly हम अपना git का hash दे दे और files lock हो जाए। नहीं, वो हमें नहीं करना। We have to be very specific कि हमें क्या-क्या चीजें lock करनी है। एक काम करते हैं। ये जो हमने कुछ functions बनाए हैं इसको एक बार test कर लेते हैं। इसको हमने test नहीं किया। तो एक काम करता हूं। ये जो extra files हैं ना इसको बंद कर देता हूं।
+
+[01:23:18 – 01:23:39]
+या इसको भी बंद कर देते हैं। ठीक है। तो यहां पर इस function को paste करते हैं और एक बार इस चीज को हम test करते हैं। तो यहां पर I will write prompt and prompt होगा import system prompt. ठीक है। label हमें हमारे params file से मिल जाएगा।
+
+[01:23:43 – 01:24:18]
+import Langfuse from Langfuse we will import get client. ठीक है तो ये हो गया and ये हमें मिलेगा label हमारा params config app config में हमारा label prompt label, prompt label. एक बार इस पूरी चीज को print करते हैं कि क्या उन्होंने prompt
+
+[01:24:18 – 01:24:19]
+को load कर पा रहे हैं।
+
+[01:24:25 – 01:25:01]
+अच्छा load.env नहीं किया from .env let's import load.env। load.env कर दिया। एक बार हम करते हैं। Yes. तो हमारा यहां पर prompt load होकर आ पा रहा है। so ये हमने कर दिया। I think यहां पर हम latest pass कर रहे हैं। That's why let me see the app.params.yaml। यह रहा params.yaml। इसके अंदर
+
+[01:25:01 – 01:25:23]
+latest है। latest नहीं हमें लेके आना है staging। तो एक बार test करते हैं कि यह flow भी हमारा काम कर रहा है कि नहीं। हाँ, तो हम staging वाला prompt भी यहाँ पर pull करके ला पा रहे हैं। तो this particular thing is working. यह वाला code काम कर रहा है। artifact वाला code is pretty simple यह काम करेगा। अ, return code files भी काम करेगा।
+
+[01:25:27 – 01:25:42]
+test कर लेते हैं इस पूरी चीज को। इसके अंदर हमें simply इसको run करना है। इस particular चीज को test कर लेते हैं। paste किया root directory मैंने यहां पर बना रखा है।
+
+[01:25:46 – 01:25:52]
+तो simply मैं print करता हूं return code files को।
+
+[01:25:56 – 01:26:27]
+I think इसमें कुछ error नहीं आना चाहिए। Yes, तो हमारे पास यहां पर पूरा का पूरा path आ रहा है। Great! तो this particular thing is also working. Right. तो ठीक है, ये चीजें काम कर रही हैं। अब हम क्या करेंगे यहां पर guys MLflow का code लिखेंगे। ठीक है। तो सबसे पहले हमें क्या करना है यहां पर? We have to write the MLflow का code। उसके लिए again हम लिखेंगे if name equals
+
+[01:26:33 – 01:27:09]
+main और यहां पर we will write the MLflow code। अब हमारा experiment tracking pipeline guys यहां पर हम लिखने वाले हैं। ठीक है, एक-एक चीज को हम यहां पर track करेंगे, log करेंगे। तो सबसे पहले हमें क्या करना है यहां पर? हमें import करना है MLflow का। ठीक है, अब step by step चलते हैं। हमने major काम जो है वो कर लिया है। सबसे पहले what will do is we will set the tracking server. तो tracking server set करने के लिए क्या लिखते हो आप? MLflow dot set_tracking_uri।
+
+[01:27:09 – 01:27:26]
+tracking_uri और इसको हम copy करके लाते हैं कहाँ से? जो code हमने पहले लिखा था। यहां से this particular thing copy किया and let's paste it here.
+
+[01:27:30 – 01:28:05]
+Okay. Next हमें क्या करना है यहां पर? We will set the experiment name. तो MLflow dot set_experiment आप करोगे और यहां पर अपना experiment name दोगे। name दे देते हैं यहां पर rackact. ठीक है। यह हमारा experiment name है। यह चीज हमने set कर दी। Next हमें क्या करना है? We have to do the logging. अब logging करने
+
+[01:28:05 – 01:28:35]
+के लिए आप क्या कर सकते हो? यहां पर एक logger का भी use कर सकते हो। logger क्या है कि जो, जो चीज आप log करते जाओगे ना वो आपको console के अंदर print करके दिखाता भी रहेगा। तो what we can do is हम यहां पर कुछ code copy कर लेते हैं। हमने logger का code लिखा था यहां पर। ठीक है। तो यह particular चीज हम copy कर लेते हैं। ताकि बार-बार हमें ना लिखना पड़े ये code. copy किया। यहां पर किया paste.
+
+[01:28:43 – 01:28:57]
+इसको हटाते हैं。 indentation को fix करते हैं। fix हो गया और यहां पर import करते हैं। import logging,
+
+[01:29:05 – 01:29:41]
+logging dot getlogger. इसका नाम हम रखते हैं MLflowLogger रख लेते हैं। कुछ भी रख लो। ये तो आपको console के अंदर print होना है। तो नाम से कुछ फर्क नहीं पड़ता। logging dot streamhandler हो गया। हमने handler को add कर दिया। एक और चीज हमें यहां पर import करनी पड़ेगी। some logging हम import करते हैं यहां पर import info. ठीक है import कर लिया। ये भी हो गया।
+
+[01:29:41 – 01:29:44]
+formatter, formatter हमें मिलेगा
+
+[01:29:48 – 01:29:50]
+logging dot formatter set.
+
+[01:29:53 – 01:30:30]
+I think everything is taken care of. ठीक है logging हमने add कर दी। अब सबसे पहला हम काम क्या करेंगे? सबसे पहला काम हम करेंगे कि we will track the params. तो params हमारे कहाँ पर हैं? params हमने already store कर रखे हैं अपने params config के अंदर। तो वही हम करने वाले हैं यहां पर। ठीक है। We will get all the params. तो एक variable बनाते हैं all_params, params_config dot model_dump.
+
+[01:30:32 – 01:30:53]
+यहां से हमारे सारे parameters हमें मिल जाएंगे। ठीक है। अब इन सारे parameters को हमें क्या करना है? इनको हमें flatten करना है। तो flatten करने का code हमने यहां पर लिखा हुआ है। flatten_params के अंदर हम इस particular चीज को call करेंगे। ठीक है। flatten_params.
+
+[01:30:57 – 01:31:32]
+अच्छा function का नाम ही flatten_params है तो यहां पर लिख लेते हैं params dict कर लेते हैं इसमें easy रहेगा。 flatten_params और इसके अंदर हम अपना यह params dict pass कर देंगे which is all_params. ठीक है। यहां पर हमें मिल गए। अब हम क्या करेंगे यहां पर? We will log. तो simply हम लिखेंगे MLflow dot log_params. तो अब आपको यहां पर एक-एक parameter को log नहीं करना पड़ेगा। simply आप log_params के अंदर अपना dictionary pass करो। params dict और यहां पर हम logger के through एक message भी डालते हैं logger
+
+[01:31:32 – 01:32:07]
+dot info और यहां पर अपना message डाल देते हैं Parameters, parameters locked. ठीक है। parameters हमने lock कर लिए। इसके बाद हम क्या करेंगे? हमने parameter के अंदर change किया। parameter हमने lock कर लिया। What is the next flow? Next flow रहेगा कि हम अपना evaluation data यहाँ पर generate करेंगे। Generate evaluation data और उसके लिए हम यहाँ पर जो ये हमने import किया है evaluate, generate evaluation
+
+[01:32:07 – 01:32:42]
+data इस method को call करेंगे। Generate evaluation dataset. ठीक है। इससे हमारा पूरा का पूरा pipeline trigger होगा। एक चीज हम यहाँ पर और lock कर देंगे। जैसे ही ये complete हो जाएगा, evaluation dataset created. हो गया। उसके बाद हम क्या करेंगे? उसके बाद हम evaluation run करेंगे। Evaluation dataset generate हो गया। We will run the eval pipeline. Eval pipeline के लिए हम इस particular function को use
+
+[01:32:42 – 01:33:17]
+करने वाले हैं evaluate app. तो I will simply call evaluate app. ठीक है। again यहाँ पर lock करेंगे। umm evaluation complete. अब जैसे ही guys evaluation complete होगा, यहाँ पर क्या change होगा? यहाँ पर हमारे पास इस reports के अंदर नए results आ जाएंगे। ठीक है। तो हमें क्या करना है? हमें इन चीजों को भी lock करना है। तो if I can show you हमें यहाँ पर metrics भी lock करने हैं
+
+[01:33:17 – 01:33:52]
+और इन results को भी lock करना है। तो metrics को lock करना हो, results को lock करना हो, सबसे पहले आपको क्या चाहिए? आपको latest file चाहिए। तो you will get the latest files after eval pipeline. तो results file करके एक variable बनाते हैं and report file करके एक variable बनाते हैं। इसके अंदर आप function का use करेंगे जो हमने ऊपर बनाया। ये रहा। ये रहा get latest results.
+
+[01:33:53 – 01:33:58]
+ठीक है। इसके अंदर हमें क्या pass करना है? इसके अंदर हमें pass करना है हमारा path of the file.
+
+[01:34:02 – 01:34:37]
+तो एक बार यहाँ पर paths बना लेते हैं। paths for latest reports. तो एक होगा हमारा result directory, एक होगा हमारा report directory. ठीक है। अ, result directory है हमारा reports के अंदर evaluation result. तो root directory के अंदर जाएंगे हम। उसके बाद जाएंगे in the reports
+
+[01:34:38 – 01:34:39]
+और फिर जाएंगे हम
+
+[01:34:42 – 01:35:12]
+evaluation results. वैसे ही यहाँ पर जाएंगे to root directory, फिर जाएंगे हम reports और फिर जाएंगे inside evaluation report. Evaluation report. That's it guys. एक बार मैं check कर लेता हूँ function के अंदर कि कुछ और चीज तो नहीं pass करनी थी। अ, filename में थोड़ा issue आ रहा था तो let me just check it.
+
+[01:35:15 – 01:35:40]
+Get latest result. इसके अंदर हम file का अपना pass करेंगे path. हाँ, और उसके अंदर searching होगी और उसके बाद automatically आपका यहाँ पर file आ जाएगा। But जैसे ही आपका file आएगा, ये आपका directory है। filename आप यहाँ पर बनाओगे। ठीक है। तो filename हम यहाँ पर बनाते हैं। result directory हमें मिलेगा। उसके अंदर
+
+[01:35:44 – 01:36:07]
+हम call करेंगे अपने इस particular function को। इससे हमें एक string object मिल जाएगा। तो इसका नाम है get latest results. Get latest results और इसको हमें देना है हमारा result directory.
+
+[01:36:11 – 01:36:46]
+इससे हमारे पास string आ जाएगा। ठीक है। इसको हमें बनाना है पूरे के पूरे को as POSIX path. as POSIX और साथ में add करना है end में .JSON. ठीक है। Same we have to do with the report file. Report हमें क्या देगा? Markdown देगा। तो इसी पूरी चीज को हम copy कर लेते हैं। Copy paste. यहाँ पर result की जगह हो जाएगा simply अ, report directory. ठीक है। हमें हमारा latest file
+
+[01:36:46 – 01:37:21]
+का नाम मिल जाएगा। ठीक है। और उसके बाद हम add कर देंगे हमारा markdown. अब इसको क्या करना है हमें? इन results को हमें save करना है। तो save करने के लिए हम क्या करेंगे यहाँ पर? We will lock the results. तो यहाँ पर हम लिखेंगे MLflow.logartifact. सबसे पहले हम अपने result वाले file को lock करेंगे। तो we will pass the results file. ठीक है। और इसको हम
+
+[01:37:21 – 01:37:48]
+एक directory के अंदर भी रख सकते हैं। directory का नाम हम देते हैं results और MLflow.logartifact. यहाँ पर होगा हमारा report file और इसको हम save करेंगे in the reports वाली directory. और end में हम क्या करेंगे? एक lock डाल देंगे। Logger dot info.
+
+[01:37:54 – 01:38:28]
+Results and report locked. ठीक है। यह हो गया। उसके बाद हमें क्या करना है? Let me go back to the flow. हमने यह particular चीज कर ली। यह results वाली चीज। Let me choose some other pen. parameters हो गए। यह चीज हो गई। उसके बाद हमें यहां पर अपने metrics को lock करना है। तो metrics को lock करने का भी code बहुत ही simple है, क्योंकि हमने already यहां पर function बना दिया है और function है हमारा Get
+
+[01:38:29 – 01:39:04]
+metrics from results. ठीक है। और इसको हम अपना JSON file देंगे और यह हमें हमारे metrics return करेगा। तो log the metrics, metrics हमें मिलेंगे Get metrics from results से। Sorry for that. Get metrics from results। इसको हम pass करेंगे हमारा JSON file, जो कि है हमारा report results file के अंदर। Results file, यह हमें हमारे metrics return करेगा।
+
+[01:39:04 – 01:39:22]
+इसको हम lock करेंगे MLflow dot और आप log metrics जैसे ही करोगे तो आपके एक ही झटके में सारे के सारे metrics जो हैं वो lock हो जाएंगे। Individually आपको यहां पर metrics को lock करने की जरूरत नहीं है। ठीक है। यहां पर डालते हैं Logger dot info metrics
+
+[01:39:26 – 01:39:58]
+locked. तो हमने metrics को भी यहां पर lock कर लिया। ठीक है। यह भी हो गया हमारा। अब हमें क्या करना है यहां पर? हमें यहां पर-- यह भी कर लिया हमने। ठीक है। System prompt हमने log नहीं किया है, तो let's log the system prompt. ठीक है। System prompt को log करने के लिए log the system prompt। हमारे पास यहां पर एक method है जो हमने बनाया है। function का नाम है
+
+[01:40:01 – 01:40:38]
+import system prompt. ठीक है। Import system prompt. ठीक है। इसको label provide करना है। Label हमें कहाँ से मिलेगा? Label हमें मिलेगा हमारे params config से, bag app से। यहां पर prompt label. ठीक है। यह हमने pass कर दिया। And उसके बाद we will simply write MLflow और यहां पर आप use करोगे log text का because यहां पर आप एक text log कर रहे हो। ठीक है। और यहां पर आप text अपना pass कर दोगे।
+
+[01:40:38 – 01:40:49]
+System prompt and साथ ही साथ आप यहां पर एक artifact file बताओगे और उस file का आप यहां पर नाम दोगे। file का नाम होगा
+
+[01:40:52 – 01:41:27]
+system prompt prompt dot txt. ठीक है। तो यह आपका system prompt भी यहां पर log हो जाएगा। तो हमने क्या-क्या चीजें log कर ली guys? एक बार मैं check कर लेता हूँ। ठीक है। हमने यहां पर अ... अपने parameters को log कर लिया। हमने अपने datasets को यहां पर अ... Sorry, evaluation run किया, evaluate किया। उसके बाद अपने results को log किया, metrics को log किया, अपने बाकी artifacts को log किया and system prompt को भी log कर लिया। ठीक है। तो यह भी हम कर चुके हैं।
+
+[01:41:27 – 01:41:37]
+Last हमें क्या करना है? अपने dataset and code files, इन दो चीजों को log करना है। तो we will log the datasets.
+
+[01:41:40 – 01:41:57]
+तो इसके लिए हमने already यहां पर artifact name करके बना रखा है एक function. ठीक है। इसको हमें directories provide करनी है। Let me see कहीं मैंने ऊपर directories बनाई तो नहीं है। नहीं बनाई है। तो एक बार बना लेते हैं।
+
+[01:42:01 – 01:42:36]
+तो create the dataset directories. Dataset directories हैं हमारी। Just a second guys. Let me... मैं चाह रहा हूँ कि कोई भी code में error ना आए, इसलिए मैं बार-बार एक बार देख रहा हूँ। Get artifact name. हाँ, यहां पर मुझे artifact का directory provide करना है। अच्छा, मुझे resultant artifact का directory provide करना है। तो यह हमें बनाने की जरूरत नहीं है। Simply हम क्या करेंगे यहां पर? MLflow dot
+
+[01:42:37 – 01:43:03]
+log artifact को call करेंगे and we will use artifact name. ठीक है। Artifact name के अंदर मैं दो चीजें बताऊंगा। सबसे पहले मैं बताऊंगा मेरा artifact type. एक काम करते हैं, इसको यहां पर log करते हैं। Eval dataset artifact. Get artifact name. Get...
+
+[01:43:07 – 01:43:42]
+It's not get, it is simply artifact name. ठीक है। Artifact type होगा मेरा。 Artifact type will be eval dataset. देखो अब auto complete हो रहा है and इसको मुझे save कहाँ पर करना है? अगर मैं artifact directory की बात करूँ तो artifact directory होगा eval dataset. ठीक है। वैसे ही golden dataset artifact. यह होगा artifact name. Artifact
+
+[01:43:42 – 01:44:17]
+type के अंदर golden dataset और artifact directory भी होगा मेरा golden dataset और इसको मुझे करना है log. यह tuple मिलेगा मुझे। तो eval dataset artifact का zeroth जो होगा वो मेरा यहां पर path होगा और first element जो होगा वो मेरा directory का नाम होगा। MLflow dot log artifact
+
+[01:44:18 – 01:44:35]
+again golden dataset artifact का zeroth यह and golden dataset artifact का first यह। हो गया। अब मैं यहां पर Logger dot info run करूंगा and logged
+
+[01:44:40 – 01:45:14]
+evaluation and golden datasets. Final चीज रह गई guys, we will log the code files. तो code files हमें मिल जाएंगे यहां पर। Code files। इसके लिए मैंने एक method बना रखा है return code files के नाम से और यह मुझे मेरे paths provide कर देगा। ठीक है। Return code files। इसको मुझे कुछ नहीं pass करना। तो for code
+
+[01:45:15 – 01:45:24]
+file and code files मैं loop करूँगा and I will simply write MLflow dot log artifact
+
+[01:45:28 – 01:46:03]
+and I will provide the code file। ठीक है। और इसके लिए directory जो होगी वो होगी code। finally जब सारे code files log हो जाएंगे तो I will write logger dot info code files not। That's it guys. यह है हमारा पूरा का पूरा code। बहुत time लग गया है इसको लिखने में। अ, but this is it guys। I hope यहां पर कोई error ना हो। अब I will take your questions and you can sit back, relax।
+
+[01:46:03 – 01:46:32]
+हम इस particular pipeline को run करेंगे। ठीक है। और अब आप देखोगे सारी चीजें यहां पर automatically track हो जाएंगी। But उससे पहले आपको क्या करना पड़ेगा? उससे पहले you have to start your MLflow server। उसके लिए आप लिखोगे UV-U-UVX MLflow server। एक बार इसको run होने देते हैं। It was a lot guys। Live code करना is super tiring।
+
+[01:46:36 – 01:46:36]
+आपको कैसा लगा guys?
+
+[01:46:42 – 01:46:43]
+Feedback?
+
+[01:46:47 – 01:47:17]
+आज यह वाला file आप तुषार आपको अच्छा लगा? But it was very tiring for me। A lot of typing, a lot of thinking. एक तो जब आप session लेते हो तो बोलते हुए अ, logic बनाना is pretty difficult। आपको लग रहा होगा कई जगहों पर जहां पर मैं code में गलती कर रहा हूँ कि sir, अ, यह mistake आपको नजर नहीं आ रही। Actually में जब आप class लेते हो ना तो यह चीजें नजर नहीं आती। Again we have to test it out कि यह काम कर रहा है कि नहीं। I hope यह काम करे।
+
+[01:47:18 – 01:47:28]
+आपको guys कहीं पर कोई error वगैरह तो नहीं दिखा while I was typing? क्योंकि मैं इसको execute करूंगा and अगर error होगा तो फिर मजा नहीं आएगा।
+
+[01:47:33 – 01:48:02]
+ठीक है, इसको मैं properly structure भी कर दूंगा ताकि चीजें easily मिल पाएँ। अ, yes you can but वो पूरी चीज अगर आपको pipeline जो आज का हमारा flow था कि यह पूरा pipeline आपको run करके दिखाना है तो यह सारी चीजें देखो हमने lock करी हैं। ठीक है parameters, matrix, dataset, code file, result files, system prompt सब कुछ हमने lock किया है and यह pipeline भी हम automatically execute करें। चलो moment of truth। अब इतना मेहनत किया है तो एक बार इसको run करते हैं।
+
+[01:48:05 – 01:48:15]
+UV run execute experiment pipeline.py। Let's hit enter। Feeling a bit nervous।
+
+[01:48:19 – 01:48:25]
+अम्म, ठीक है वो। कुछ खराब हो गया। अ,
+
+[01:48:29 – 01:48:33]
+no such file directory। अम्म,
+
+[01:48:37 – 01:48:45]
+कोई error आ गया which is around your file path।
+
+[01:48:49 – 01:48:57]
+File not found। और यह error कहाँ पर आया? कुछ भी यहाँ पर log नहीं हुआ। इसका मतलब कहीं starting में ही आ गया।
+
+[01:49:07 – 01:49:13]
+Add goldens from JSON file path। File path was not found।
+
+[01:49:20 – 01:49:31]
+क्या किसी और file में error है क्या? File path not found। Evaluation dataset वाली file में बता रहा है। अम्म,
+
+[01:49:35 – 01:49:37]
+यहाँ पर क्या error आ गया? अम्म,
+
+[01:49:41 – 01:49:55]
+golden dataset parameters, golden dataset file name। OK। यह वही वाला error आ गया .JSON वाला।
+
+[01:50:02 – 01:50:03]
+Let me see goldens path।
+
+[01:50:11 – 01:50:31]
+अम्म, JSON वाला error है guys। Fix करते हैं इसको भी। I think इसके अंदर कोई method भी होगा जहाँ पर हम JSON को as an extension डाल सकते हैं। अभी तो हम यह string के through hardcode कर रहे हैं but I think path lib के अंदर there is some method जो यह काम हमारे लिए करके दे सकता है।
+
+[01:50:34 – 01:50:41]
+I hope अब दिखता हूँ। हाँ, तो देखो अब क्या हो रहा है। हमारे parameters log हो गए successfully।
+
+[01:50:46 – 01:50:48]
+और यह पूरी चीज हो रही है आपके
+
+[01:50:57 – 01:51:32]
+यहाँ पर। अगर मैं आपको दिखाऊँ experiments के अंदर तो यह rag app है। ठीक है। पहला run आपका चल गया। देखो parameters आपके log हो गए थे but बाकी कुछ यहाँ पर log नहीं हो पाया। But I think अब आपका pipeline यहाँ पर चल रहा है। थोड़ा wait करते हैं। यहाँ पर आपके दोबारा से evaluation dataset create होगा। दोबारा से आपका evaluation होगा and सारी चीजें यहाँ पर log होंगी। But जो log हुआ है वो मैं आपको दिखा देता हूँ। जो currently चल रहा है उसके अंदर भी हम देख सकते हैं।
+
+[01:51:32 – 01:51:46]
+देखो, इसके अंदर भी आप देखो आपके parameters अब properly यहां पर log हो रहे हैं एक-एक parameter। देखो। जितने भी हमने यहां पर parameters लिखे थे वो सारे के सारे यहां पर properly log हो रहे हैं each and every.
+
+[01:51:51 – 01:52:01]
+तो यह comparison के लिए बहुत अच्छा use होगा। चलते हैं दोबारा code के ऊपर। I am open to questions guys. यह run होगा अपने आप and चीजें log होंगी।
+
+[01:52:05 – 01:52:11]
+Uh, we don't have folder called evaluation its evals. कहाँ पर? तुषार line number बताओगे?
+
+[01:52:18 – 01:52:52]
+नहीं, यह evaluation अलग है। यह data वाला evaluation है। वो eval जो है वो code वाला है। It is in the source directory. ये evals अलग है। This is the code. This is the path where your golden.json is. यह तो काम कर ही रहा है। यह काम ना करता तो यह code run नहीं करता। ये logs आ रहे हैं। इसका मतलब यह वाला code काम कर रहा है। Again, इसके अंदर जो file extension वाला यह जो मैंने fix लगाया ना इसका कोई better way होगा। Path lib के अंदर। I will fix this particular thing. ठीक
+
+[01:52:52 – 01:52:57]
+है। थोड़ा सा यह fix मेरे को इतना अच्छा नहीं लग रहा। There might be a way.
+
+[01:53:02 – 01:53:08]
+किसी को पता हो तो बता भी सकते हो। There might be a method available.
+
+[01:53:24 – 01:53:30]
+तो आप देखना यहां पर। अगर आप यहां पर जाओगे अभी eval dataset के अंदर आपके पास एक new file आ जाएगी।
+
+[01:53:34 – 01:53:37]
+और आपका logger भी यहां पर log करेगा। देखो properly हर चीज।
+
+[01:53:43 – 01:53:46]
+एक dataset logger है and यहां पर कुछ खराब हो गया।
+
+[01:53:51 – 01:54:02]
+Max is empty. Evaluation dataset created. Evaluation, evaluation is complete but evaluation is not complete.
+
+[01:54:05 – 01:54:16]
+Uh, evaluation run क्यों नहीं हुआ? क्या हमने evaluation pipeline यहां पर execute नहीं किया? Did we miss it? Um,
+
+[01:54:22 – 01:54:28]
+evaluate app तो हमने run किया है। How is the evaluation complete then?
+
+[01:54:32 – 01:54:38]
+उम्म, वो max वाला तो empty हो गई because evaluate नहीं चला। Evaluate क्यों नहीं चला?
+
+[01:54:42 – 01:54:51]
+Is evals application evals. Application evals evaluate rag app.
+
+[01:54:59 – 01:55:02]
+Um, the function is there.
+
+[01:55:07 – 01:55:09]
+चला क्यों नहीं? Strange.
+
+[01:55:21 – 01:55:23]
+यह वाला चल गया। यह वाला नहीं चला।
+
+[01:55:28 – 01:55:31]
+check करना पड़ेगा guys. यह फिर मैं class के बाद ही करूंगा।
+
+[01:55:35 – 01:55:41]
+अभी इसको fix करने में बहुत time लग जाएगा। I don't know what's the problem. चलना चाहिए था technically.
+
+[01:55:45 – 01:56:00]
+Because, because it's the same flow. जो हम इसके साथ कर रहे हैं same वही flow हम यहां पर भी use कर रहे हैं। And उसने उसको completely ignore कर दिया। I don't know why. अगर import नहीं हुआ होता वहां पर error आता but ऐसा भी कुछ नहीं हुआ।
+
+[01:56:05 – 01:56:11]
+कोई बात नहीं I will fix it और यह मैं एक बार आपको पूरा का पूरा flow run करके दिखाऊंगा next session के अंदर।
+
+[01:56:15 – 01:56:15]
+Clear guys?
+
+[01:56:19 – 01:56:50]
+एक छोटा सा feedback आप सब से लेना चाहूंगा again. Do you want live code? या मैं code लिख के ले आऊं? क्योंकि again आज की class में आप देख रहे हो काफी यहां पर मुझे जनतोजहत करनी पड़ी है code के साथ because इतना सारा code जब आप live लिखते हो तो, अ, बहुत ज्यादा, एक तरह से brain fog हो जाता है। Logic build नहीं कर सकते while you are teaching. तो एक काम करें कि next, अ, session से आप pre-written code के साथ काम करोगे या live? कैसा चाहिए आपको?
+
+[01:56:57 – 01:57:30]
+Again, जैसा आपका feedback होगा हम वैसे ही काम करेंगे। अ, some part-- हाँ, some part मैं यहां पर कर सकता था। मतलब यह functions मैं लिख के ला सकता था but again फिर इसका logic आपको समझ नहीं आता। अ, copy paste. ठीक है फिर सौरभ वैसा ही करेंगे। फिर एक इसका second copy maintain करेंगे and वहां से फिर copy paste करेंगे। Some are saying live code is good but problem वही है यार बहुत, बहुत ज्यादा है। And वही errors आ रहे हैं आज। मतलब मुझे तो आज का class ऐसा लग रहा है कि हम errors
+
+[01:57:30 – 01:57:46]
+ही fix करते रहेंगे। जो चीज मुझे आपको दिखानी थी कि यह पूरा चीज हम automate कर सकते हैं और कितना beautifully आप simply इस code को run करते रहो। जब भी आप parameters change करो and you can run it. ठीक है, कुछ ना कुछ way out figure करते हैं।
+
+[01:57:50 – 01:58:02]
+ठीक है। तो एक काम करते हैं hybrid रखते हैं। थोड़ा सा pre-written और थोड़ा सा यहां पर live code करते हैं। ठीक है। तो दोनों का feel मिलेगा आपको। fine। पूरा step by step यहां पर नहीं लिखते।
+
+[01:58:06 – 01:58:08]
+It is extremely difficult हार्दिक।
+
+[01:58:11 – 01:58:27]
+typos हो जाते हैं। कई बार आप miss out कर जाते हो because आपको flow भी maintain करना है। तो मतलब आज मुझे feel हो रहा है because पहली बार हमने इतना ज्यादा code लिखा है। अभी तक हमने इतना code लिखा नहीं था और यहां पर बहुत सारी गलतियां हो सकती हैं। मतलब गलतियों की गुंजाइश भी ज्यादा है।
+
+[01:58:32 – 01:58:53]
+तो जो चीज दिखानी थी guys वो नहीं दिखा पाया। But how was the session? जो चीज समझाना चाह रहा था। Was it clear? Again code I'll fix it and I'll share the code with you। क्योंकि ये code मैंने जब लिखा था तो मैंने test किया था everything was working। मतलब literally I have working copy of the code with me on my second system।
+
+[01:58:59 – 01:59:05]
+Session was great। Thank you तुषार। Thank you for keeping my head high।
+
+[01:59:09 – 01:59:41]
+Okay। bore तो नहीं हुए आप लोग। Because काफी सारे लोग चले गए maybe क्योंकि उन्हें लग रहा था कि बहुत lengthy हो रहा है। And I can understand उसको 1.5x पे देखा जा सकता है। 7.5 पे भी देखा जा सकता है। But मैं actually ना आपके साथ क्योंकि ये LLM ops है ना तो मैं आपके साथ ये पूरा का पूरा ना operations का जो pain है ना ये आपके साथ मतलब share करना चाहता हूं कि हम हर चीज को क्यों कर रहे हैं वो आपको पता हो। कैसे किया जाता है, कितना effort लगता है वो
+
+[01:59:41 – 02:00:08]
+पता हो। और एक बार जब आप ये effort put in कर देते हो मतलब एक बार हमने ये pipeline बना लिया तो आप देखोगे कितना काम easy हो गया। पहले हम क्या कर रहे थे? हम अपना code लिख रहे थे। फिर उसके बाद यहां पर UV run, UV run terminal में बार-बार चीजें execute कर रहे थे। अब एक बार हो गया। हमने सब कुछ fix कर दिया। pipeline बना दिया। Just you have to re-execute the pipeline। जितनी बार आप re-execute करोगे आपका एक नया experiment वहां पर save होता रहेगा।
+
+[02:00:12 – 02:00:19]
+I hope you are understanding जो मैं समझाना चाह रहा हूं। मेहनत है इसमें but it is fruitful trust me।
+
+[02:00:24 – 02:00:50]
+बाकी आज बहुत सारे errors आए हैं। अगर आपको लगा कि मुझे मतलब खुद पे self doubt होने लग गया था कि शायद मुझे code करना नहीं आता। Because एक बार जब errors आने लग जाते हैं ना तो वो इतना frustrating हो जाता है कि फिर आगे भी ना चीजें link up नहीं हो पाती। I will turn on the camera now because code part is over। Any feedback for me guys? कोई भी feedback हो आप लोगों का।
+
+[02:00:57 – 02:01:03]
+I know you are a very good audience always supportive। But any genuine feedback which can improve our sessions।
+
+[02:01:06 – 02:01:19]
+I think आज का मेरा decision to live code was मतलब मुझे इतना पसंद नहीं आया। अगर मुझे एक second chance मिले कि इस lecture को दोबारा मैं लूं in a parallel universe तो मैं live code नहीं करूंगा।
+
+[02:01:30 – 02:01:35]
+Any questions? Again run नहीं करके दिखा पाया तो वो भी एक मुझे थोड़ा सा दुख है।
+
+[02:01:38 – 02:02:13]
+Yes, we'll execute the tracking pipeline only when I update the parameter. आप वैसे भी run कर सकते हो but फायदा क्या है? आप दोबारा से valuation dataset बनाओगे। दोबारा से आप यहां पर evaluations run करोगे। कोई उसका use नहीं है। And हम इस पूरी flow को ना क्या करेंगे? मैं आपको बताता हूं। ये पूरा flow हमने ये pipeline क्यों बनाया? अभी आप-आपको लगेगा मैं terminal के through ही तो इसको re-execute कर रहा हूं। ऐसा नहीं है। हम ये जो parameter files है ये params.yml इसको हम git track कर रहे हैं। ठीक है। ये हमारा code
+
+[02:02:13 – 02:02:48]
+का part है। ये git के through track हो रहा है। तो हम इसी के through CI/CD pipeline बनाएंगे। ये हमारा trigger होगा कि इस file के अंदर अगर कुछ भी change होता है तो re-trigger the deployment। तो ये हमारा trigger point बनेगा आगे चलके। और वहां पर simply हम क्या करेंगे? इस file को execute करेंगे। parameters में change हुआ। दोबारा से evaluation dataset बना। दोबारा से evaluation हुआ। जो भी artifacts बने, जो भी कुछ बना during the second run सब कुछ उसी time पर हाथ
+
+[02:02:48 – 02:03:17]
+के हाथ lock हो गया ताकि आप आपके teammates results को देख सकें। ठीक है। अब वो क्या है? वो आपका testing वाला phase complete हो गया। testing के बाद अब CI वाला phase start होना है। तो क्या होगा कि जैसे ही आप वहां पर OK कर दोगे कि ठीक है ये results अच्छे हैं और regression testing के अंदर pass हो जाएगा कि मुझे यहां पर improvement देखने को मिल रहा है। कुछ भी खराब नहीं हो रहा। तो directly क्या होगा? आपका second version जो है वो deploy हो जाएगा। या आप उसको कह सकते हो update
+
+[02:03:17 – 02:03:27]
+एक deploy हो जाएगा। तो अभी इसमें regression testing भी आएगा। मतलब ऐसा नहीं कि यही सारा flow है। आप manually नहीं करोगे। Experimentation results को भी आप manually नहीं देखोगे।
+
+[02:03:31 – 02:03:44]
+आप between iterations वहां पर check करोगे। कि regression testing हुआ। अगर regression testing में pass होगा तभी आगे जाएगा नहीं तो fail। Yes, it will be like a gate।
+
+[02:03:48 – 02:04:18]
+Do we need a regression gate as well such that if certain thresholds are not breached fraud deployment will not happen? हां, तो वही होगा। It will act as a gate। जैसे आपकी testing होती है। अगर testing pipeline fail हो जाती है तो CI में ही fail हो जाता है ना। CD तक पहुंचता ही नहीं है। बिल्कुल वही flow रहने वाला है। Again हम इस पूरी चीज को बहुत easy कर सकते थे अगर हम यहां पर DVC pipeline का use करते और कई जगह पर use होता भी है। But वही है कि DVC pipeline थोड़ा सा
+
+[02:04:18 – 02:04:37]
+machine learning specific ज्यादा है। And फिर हमको यहां एक पूरा का पूरा tool सिर्फ इस pipeline को बनाने के लिए पढ़ना पड़ता। तो इसलिए मैंने उसको omit कर दिया। मतलब हम कर सकते थे इसको DVC के through तो बहुत ही simple हो जाता। And I hope अगर आपने MLOps किया है तो DVC पढ़ा भी होगा।
+
+[02:04:41 – 02:04:42]
+Any more questions?
+
+[02:04:45 – 02:05:19]
+ये code guys मैं fix कर दूंगा and fix code मैं आपके साथ share कर दूंगा very soon। You can use it। आप use कर सकते हो but आप देखो ना यहां पर हमने easily pipeline बना ली है while defining the functions। इसके through भी कर सकते हो DVC के through और easy हो जाएगा। वहां पर हमें ये functions वगैरह change नहीं करने पड़ते। Simply हम अपने scripts को run करते और चीजें automatically काम करती। DVC pipeline में भी तो आप एक YAML file ही बनाते हो। उसमें आप define करते हो अपने stages को और DVC
+
+[02:05:19 – 02:05:41]
+repro run करते हो। Yes. तो वो भी एक तरीका है। There multiple ways to do a particular operation. Again एक नया tool पढ़ना पड़ता। जिसने अभी DPC के साथ काम नहीं किया तो बस एक थोड़ा सा था कि इसको हम बिना उसके भी कर सकते हैं। But pipeline तो आपको बनाना पड़ेगा। बिना pipeline के काम नहीं होगा।
+
+[02:05:44 – 02:05:47]
+हर step पर you have to add automation।
+
+[02:05:54 – 02:05:55]
+clear हुआ guys?
+
+[02:05:58 – 02:06:18]
+Again मेरा मन था यहां पर कि आपको multiple evaluations आज चला के दिखाऊं। सब कुछ logged results कैसे आपके log हो रहे हैं, वो दिखाऊं। But कोई बात नहीं Thursday को मिलेंगे। Thursday को दिखाऊंगा। Thursday का जो session है वो high note पर start करेंगे। इसी note पर start करेंगे कि हम वहां पर चीजें होते हुए देखेंगे।
+
+[02:06:24 – 02:06:54]
+अभी continue करेंगे MLflow के साथ। MLflow मतलब हमारा complete हो जाएगा। यहां पर हम results को lock करेंगे next class के अंदर। ठीक है। कुछ मैं lock करके लाऊंगा। कुछ आपको मैं यहां पर एक-दो results यहां पर lock करके दिखाऊंगा। उसके बाद हम comparisons करेंगे। कैसे आप वहां पर comparisons करते हो inside the dashboard। वो देखेंगे। उसके बाद regression testing का code भी मैं लिख के ले आऊंगा। ठीक है। उसको run करके देखेंगे कि क्या improvement हो रहा है या नहीं हो रहा है। ठीक है। और उसके बाद we will move to guardrails। फिर हमारा
+
+[02:06:54 – 02:06:56]
+experimentation वाला खत्म हो जाएगा।
+
+[02:07:04 – 02:07:19]
+तो first half में ये सारी चीजें हो जाएंगी। Why do we require? दोनों जरूरी नहीं है। अगर आप UV के साथ काम कर रहे हो तो आपको सिर्फ Pyproject ज्यादा मतलब वो जरूरी है। और ये lock file जो UV.lock।
+
+[02:07:23 – 02:07:46]
+नहीं after CI/CD तो अभी आपका deployment journey start हो रहा है। CI/CD से पहले भी बहुत सारी चीजें हैं। Guardrails के बाद हमें यहां पर serving पढ़नी है। We will move into FastAPI। अभी हम क्या कर रहे हैं? अभी तो हम अपने app को load कर रहे हैं ना। Importss कर रहे हैं यहां पर। import वाली चीज को हटाना है ना। We will generate robust APIs around it।
+
+[02:07:52 – 02:08:26]
+Evaluation का भी, आपकी app को execute करने का भी वो सारी चीजों का API बनाओगे आप। उसके बाद एक front-end भी बनाओगे। ये terminal में जो हम काम कर रहे हैं, इसको एक proper एक application का face देंगे। उसके बाद फिर CI/CD and उसके बाद आपका deployment। तो it's a long way to go but हम application वाले part में अब sorted है। मतलब हमने काफी application वाला चीज जो है वो cover कर लिया है। And guardrails is pretty interesting. अगर आपको evaluation वाला part interesting लगा है तो guardrails उसका
+
+[02:08:27 – 02:08:40]
+3x interesting है। क्योंकि बहुत practical चीज है और होती हुई दिखती है। आपको मजा बहुत आता है। मतलब guardrails लगे हुए हैं तो दिखता है कि यार अच्छा बिना guardrail के output आ रहा था। guardrail लगने के बाद बिल्कुल ही change हो गया।
+
+[02:08:44 – 02:09:19]
+and again जो हम यहां पर framework use करने वाले हैं guardrails AI, उसको भी apply करना super simple है। clear हुआ guys? Again मैंने आपको बताया था शायद एक-दो class पहले कि जो guardrails हम बनाते हैं वो अपने application के इर्द-गिर्द बनाते हैं। तो एक बार ये application वाला part sorted हो जाए फिर guardrails को उसके आसपास हमें लगाना है। अपने application को नहीं छेड़ना। Guardrails are built around the application.
+
+[02:09:36 – 02:10:10]
+No, no deployment will be covered before the project. Project तो बिल्कुल completely different application के ऊपर है। उसमें हमारा agentic application है। पूरा का पूरा flow हम दोबारा से cover करेंगे। But not in very much detail। मतलब जो भी parts यहां पर change होंगे उन्हीं को cover करेंगे depth में। बाकी सारा code जो है वो pre-written होगा, जो मैं आपको execute करके दिखाऊंगा। basically जो भी हम यहां पर पढ़ रहे हैं step by step उसको हम एक साथ वहां पर execute करेंगे inside the project। agentic application में जो इन चीजों का फर्क आएगा,
+
+[02:10:11 – 02:10:30]
+उसमें आपके evaluations change हो जाएंगे। ठीक है। यह tracking वगैरह तो यही रहेगी। आपके guardrails change हो जाएंगे और थोड़ी बहुत चीजें change हो जाती हैं inside an agentic application। बाकी सारी चीजें same रहती हैं। तो जो different है उसको cover करेंगे और जो same है उसको हम बहुत quickly वहां पर cover कर लेंगे।
+
+[02:10:36 – 02:10:39]
+यह जो आपका learning phase है, इसमें थोड़ा सा time लगेगा आपको।
+
+[02:10:57 – 02:11:10]
+We will cover tools related evals. Yeah, हाँ agent में तो tools related evals are super important. मैं आपको दिखा भी देता हूं। हम DB eval में काम कर रहे हैं ना। तो if I go to DB eval
+
+[02:11:15 – 02:11:47]
+and if I go to the docs। देखो eval metrics हैं यहां पर। RAG वाले हमने कर लिए और ये रहे agentic। Task completion, step efficiency, argument correctness। ये आपका tool का है। tool को जो inputs दे रहे हो आप। Tool correctness, सही tool select कर पा रहे हो। Plan adherence। क्या आपका जो goal है, जो आपने set किया है, क्या आपका agent उसको, उस पर stick कर पा रहा है। उसने जो plan generate किया है reasoning के through plan quality आप ये check करते हो। These are your some built-in metrics जिसको हम अपने project के
+
+[02:11:47 – 02:11:48]
+अंदर use करेंगे।
+
+[02:11:52 – 02:12:23]
+Yes, सारे करेंगे ना ये। सारे करेंगे। See, coverage point of view से कुछ भी miss out नहीं करेंगे। बस project के अंदर क्या फर्क होगा कि ये जो थोड़ा hand holding है ना यहां पर, ये step by step मैं आपको बता रहा हूं कि ये चीज होती है, ऐसे करते हैं, ऐसे करते हैं। ये बहुत quick चलेगा। मतलब Evals का theory part cover होगा, but DP Eval का implementation वो आधे घंटे में cover कर देंगे। Golden dataset वो, वो सारी चीजें वो आधे घंटे में हो जाएंगी because वो already आप देख चुके हो। मतलब उसमें
+
+[02:12:23 – 02:12:25]
+दोबारा से cover करके कोई फायदा नहीं है।
+
+[02:12:29 – 02:12:31]
+Almost ready, project will be ready.
+
+[02:12:39 – 02:12:44]
+I think तीन-चार sessions के अंदर हम project complete कर देंगे। I hope so.
+
+[02:12:48 – 02:12:51]
+Major milestones हम एक-एक class के अंदर cover करते रहेंगे।
+
+[02:13:02 – 02:13:06]
+Any more questions guys? दो मिनट और हूं मैं and then we will wrap up.
+
+[02:13:11 – 02:13:20]
+आप लोग guys feedback जरूर देना। ठीक है, हमने feedback link जो update की है for the last month, उसका feedback जरूर देना।
+
+[02:13:36 – 02:13:39]
+कोई और questions नहीं है तो write clear and then we can wrap up.
+
+[02:13:49 – 02:14:08]
+Clear guys? चल। चलो let's meet on Thursday. Thanks Alisha. ठीक है Thursday को मिलते हैं and जो भी हमने decide किया आज, जो भी miss हो गया and जो भी decide किया उसको Thursday को cover करते हैं। Good night guys.
+
+[02:14:08 – 02:14:12]
+[outro music]

@@ -1,0 +1,1686 @@
+Hi, good evening guys. How are you? How are you?
+Are you all hearing me?
+Great. Great guys.
+Let's wait for a few minutes so that more people can join and then we can start. Good evening, Shweta.
+Okay, guys, there is a small announcement. Actually, I am not feeling well today.
+So currently I have fever around 103. That's why I am speaking a little slow today.
+And the camera is also not switched on. So our class will be absolutely fine. There will be no issue in it.
+But I didn't want to postpone it. First, I had the idea that I should take it tomorrow.
+But again, then there are changes in the schedule and you also have a problem. That's why I have kept the class today.
+I hope you will not mind.
+We will not mind.
+Let's wait for two minutes. If you have any questions, you can ask me.
+And then we will start.
+I created an account on Amazon, but I forgot my account ID. I am unable to log in and use user.
+What should we work as a root user?
+Yes, you can take account ID. Again, the UI has changed a little.
+So you do one thing. Ask the chat GPT once. How to get the root user ID back.
+There is a way I don't remember actually. But my root user ID was lost. So it gets retrieved.
+Don't worry.
+Any other question?
+If you still don't have a Tushar, after.
+No, no, I am using the AWS services that I am using through the IAM user. But I do the sign-in with the root.
+I will show you. Actually, you have to make a user here too.
+Root users do not work. You have to make a user internally. If I go to the IAM users, then I have made a user.
+So you make a user here too and use the root user outside for login.
+And because I am using this account, I have given administrative access to this user.
+Again, we do not control the IAM. You already get it controlled in your company.
+They are experts basically who control it and they give you access to services that are required for your current project.
+Based on your hierarchy in the team. So you get access to as much as is required.
+Any other question?
+Yes, no problem. If you have made it with your ID, then there is no problem. Just go to the IAM and create a user.
+You get the secret access and access ID.
+Which you can use on the GitHub and when you interact with AWS CLI, you can use it there.
+Basically, you make a user to give you permissions and API keys.
+Any other question guys?
+So as everyone knows, today is our last live lecture.
+After this lecture, we will execute the entire LLM Ops workflow and pipeline of our rag project.
+Start it.
+Right, clear and then we will start.
+Let's start guys.
+So in today's session, we are going to read about Grafana.
+Before that, I will explain the whole setup of AWS.
+So the setup is very simple for this lecture.
+The setup is that I currently have two instances running.
+So this instance is my auto scaling group.
+In the previous lecture, I was running two instances.
+For this, I am running one instance.
+Again, whatever your code is, whatever you are writing, your queries will work for your 10 instances.
+So there is no issue. You can work with one or two instances.
+So it's up to you.
+And this is our monitoring instance.
+Now I have already installed Prometheus and Grafana on this instance.
+But what we will do is we will build an instance from scratch.
+We will name it monitoring instance 2.
+And we will make our whole monitoring setup on it.
+And after that, we will see how you can monitor your EC2 instances using Prometheus and Grafana.
+So before starting, let's do one thing.
+Let's take a small recap.
+Around the topics that we covered in the previous session.
+And let's also discuss what our plan of attack will be in today's session.
+So guys, you will remember that in the previous session, we discussed about Prometheus.
+And we decided that we will monitor our application site through LangFuse.
+Now today we will monitor our infrastructure.
+So we set Prometheus for monitoring.
+Prometheus basically does the central component inside Prometheus.
+That is your time series database.
+Prometheus goes over your target and scrapes the matrix from there.
+And after scraping, it saves your matrix in your time series database.
+And using PromQL, which is Prometheus's query language.
+Through that, you can query this database and fetch the results from here.
+We also studied that to set up Prometheus, you have two types of components.
+First is your client libraries.
+Client libraries are basically your SDKs.
+Which you get for different languages like Python, javascript, c.
+Through this, you can monitor anything in your application code.
+You can use client libraries to calculate any matrix.
+We are not using client libraries because we are using LangFuse for monitoring.
+And second is your exporters.
+What are exporters?
+These are your pre-built packages which expose your matrix.
+And to expose our system matrix, the exporter we are using is called node exporter.
+So if you want to expose your Linux based system, like CPU, RAM, disk, network.
+If you want to expose your hardware based matrix, you use pre-built exporters.
+And exporters expose all your matrix at a particular endpoint.
+And the speciality of that endpoint is that it always starts with the defaults and matrix.
+So we have created our EC2 instances through the auto scaling group.
+So what we have done here is that we have added our code to the launch template.
+To install node exporter.
+So as soon as my EC2 instance is created, it will automatically install the node exporter.
+And automatically the matrix of that particular machine will be exposed at this particular endpoint.
+Now what I have to do is that my matrix is exposed.
+Now I have to scrape them through Prometheus.
+So if you want to set any target in Prometheus, on which you basically scrape the matrix, there are two ways.
+First is you set it through static configs.
+And second is you set it through a service discovery.
+Which is also called SDB.
+So what is static configs?
+If you know the full address of your endpoint, then you can add it to this static config.
+But the problem is that in our auto scaling group, we are scaling up and down according to the CPU usage.
+So sometimes it happens that some new instances are being created and sometimes the instances that are already running are being closed.
+And traffic is managing our load balancer.
+So what is here?
+Here we have this static config or this static address.
+It is not available.
+All the things we have are dynamic.
+Addresses are also dynamic and how many instances are running at the same time, all those things are happening dynamically.
+So we have to use another mechanism here, that is service discovery.
+Service discovery is made so that it can automatically track your dynamic endpoints and scrape the matrix from there.
+So what we did here is we set our EC2 service discovery in our YAML file, which is the config file of our Prometheus.
+As soon as I set this service discovery in the config file, automatically my Prometheus starts scraping the matrix of my instances at the end point of this matrix.
+So let me show you.
+So this is the monitoring instance that I have made.
+Prometheus is running on this.
+And let's say this is our home page of Prometheus.
+It starts with a query.
+And if I go to status, target health, then see this end point here.
+See your metrics are being tracked on it.
+Now this ID, this address is basically your private IP.
+If you want public IP, then you have to go to your instance.
+So what is listed here is private IP.
+Let me show you.
+If you see public IP here, then this is your public IP address and this is your private IP.
+And Prometheus tracks your private IP.
+This is 172.31.28.180.
+You will see this particular IP address here.
+See.
+If you want to see here what metrics are being exposed, then simply use public IP here.
+And you go here to port 2100.
+Node exporter is running.
+And if you go to the end point of its metrics, then see all your metrics are being exposed here.
+So we achieved this in the previous class.
+What we will do today is we will move one step forward.
+So we have created our logs on Prometheus.
+The tracking data is being saved on our Prometheus in our time series database.
+Now you can read this raw data, analyze it, understand it.
+The second way is that you build a dashboard around it.
+You build visualizations around it.
+And we are going to use Grafana to make those visualizations.
+So what will be the plan of action of today's class?
+First of all, we will make an instance from scratch.
+Which will be our monitoring instance.
+First of all, we will install our Prometheus here.
+After that, you will set your targets here using the YAML config.
+After that, you will install Grafana on this instance.
+And as soon as you install Grafana, then you will build a connection between Prometheus and Grafana.
+Because the data of the visualizations you want to make will come from your Prometheus.
+And from where will Prometheus also come?
+From that time series database.
+So what we will do is using our PromQL, we will query this database.
+We will query it.
+We will fetch the matrix from here.
+And then we will plot it.
+And we will observe our infrastructure matrix.
+I hope you have cleared the whole flow.
+Is everything clear guys?
+Flow is cleared.
+Great.
+Mahesh, you can ask your question in chat.
+If you have any question, then ask in chat.
+Now I will not be able to take your voice questions.
+So you can ask in chat.
+Ok.
+Is everyone clear?
+Let's move ahead.
+Fine Mahesh, no problem.
+Let's move ahead.
+We will implement the flow here.
+Right.
+So what will we do first?
+We will go to our instances and create a new instance here.
+So we went here.
+Ok.
+We clicked on launch instance.
+Just a second guys.
+Give me one second.
+Here we will write the instance name.
+Let's see.
+Monitoring instance 2.
+Ok.
+Here is the name of my instance.
+We will select OS 1.2.
+Ok.
+We will work with T3 micro because we don't require a big instance here.
+Here it is asking network settings.
+I have already made a security group here.
+Which is our monitoring security group.
+Ok.
+We will work with 8GB.
+If we go to advanced details, we will attach a role here.
+Do you know what this role is for?
+Prometheus uses the describe instance policy to get the metadata.
+So we will attach this role here.
+We made this role in the previous class.
+I am reusing the exact same role here.
+Ok.
+Everything else is fine here.
+I don't want to change anything else.
+I will simply launch the instance.
+Let's go back to our instances.
+And refresh it once.
+Ok.
+This is running.
+Monitoring instance 2.
+We will work with this instance.
+Let's connect it once.
+Ok.
+Let's connect.
+It is not connecting here.
+It's ok.
+Let's give it some time.
+It will connect in a while.
+Let's redo it again.
+Ok.
+It's done.
+Now we have to install our Prometheus on this instance.
+The steps are very simple.
+First of all, download and unzip the Prometheus.
+We will go here.
+We will paste the commands.
+And see.
+My Prometheus will be downloaded and then extracted.
+If I show it by LS, you will see that this Prometheus
+folder is visible.
+I will make it a CD.
+Ok.
+Let's do LS again.
+Here is Prometheus.
+There is a config file of Prometheus and prompt tool.
+Now you know what we have to do.
+We have to set our target here.
+I will use nano and enter Prometheus.yml.
+Prometheus.yml.
+Ok.
+My editor is open here.
+Now we have to set our targets.
+You know how to set your targets using EC2SD config.
+We will simply copy this whole thing.
+And we will paste the whole thing here.
+We will take this cursor down.
+And we will paste everything here.
+Done.
+Let's check indentation.
+I think indentation is ok.
+We have set everything here.
+We will press control O and then press enter and control X.
+Let's check once that we have written correctly or not.
+We will write Prometheus.yml.
+Ok.
+We have written our SD config here.
+Now what we have to do is simply start our Prometheus here.
+We will use this command and it will start up Prometheus.
+Prometheus has started on port 1990.
+And it has read my config file here.
+No error has come.
+Let's wait for 2 minutes here.
+Let everything start up and then we will press enter.
+So yes.
+This process is running in my background and my terminal is free.
+Once we go to this particular address.
+Let's go to this particular address.
+And let's hit port 9090.
+Let's continue.
+So see my Prometheus is working on this particular instance which I have made with scratch.
+If I go to status and target help.
+Here I am able to capture the target matrix.
+I hope all these things will be clear to you.
+Again we have done all these things in the previous class.
+So what we have done is we have installed Prometheus here.
+So we have completed this step.
+Ok.
+We have also set the targets.
+Now what we have to do is install Grafana here.
+So installing Grafana is super simple.
+What you have to do here is simply write install Grafana on Ubuntu in Google.
+Ok.
+So you will get Grafana documentation.
+Install Grafana on Debian and Ubuntu.
+You have to open it.
+Ok.
+Simply what you have to do is go down here.
+And you have to run these commands one by one.
+Ok.
+So first of all we will install the prerequisites here.
+So we will paste it.
+And we will press enter.
+Once I clear the terminal so that you can see the commands here.
+So it was clearly visible.
+After that you have to create the key.
+Copy it.
+Paste it.
+And run it.
+Ok.
+After that what you have to do is you have to add Grafana repository from where you have to download Grafana.
+So you have added its location here.
+After that what you will do is.
+You have to copy this one.
+Ok.
+You don't have to copy beta releases.
+If you want beta release then you have to do it.
+I would suggest you to download stable release only.
+Ok.
+After that you have to update the rest of the packages.
+I think we have already done this work.
+So there will not be anything to update here.
+Let's wait.
+It was not there.
+Ok.
+After that what you have to do is you have to install Grafana here.
+So we will simply copy this command.
+We have done copy.
+And we will paste it here.
+This will install Grafana on this instance.
+See it is downloading.
+It is around 376 MBs.
+And Grafana is being unpacked and installed here.
+Ok.
+Now what you have to do is you have to install Grafana's enterprise version here.
+You will go back.
+Let it get unpacked.
+Grafana is getting set up.
+Ok.
+So basically there are two versions of Grafana.
+One is open source version which is community driven.
+And one is its enterprise version.
+And this enterprise version is the recommended Grafana installation.
+But sometimes there are some packages which are in the community version.
+So Grafana advises you to install both.
+But when you have to run then you have to run only the enterprise version.
+Ok.
+So this is done.
+Let's paste it for enterprise.
+And let's install this one as well.
+What happened?
+Waiting for headers.
+Let me see.
+Yes, now it is happening.
+I don't know what issue was there earlier.
+Ok.
+Grafana is installed here.
+Now what you have to do next is you have to install Grafana.
+Installation is done.
+Now what you have to do next is you have to go back.
+Here and you will scroll down.
+Now you have to start Grafana.
+You will click on this.
+So here you will get commands that how to start Grafana.
+So what you have to do here is you have to copy these two commands.
+Ok.
+You have to go back to your EC2.
+You have to paste it.
+And hit enter.
+Ok.
+And if you have to verify that Grafana is running or not.
+You have to copy it.
+You have to hit paste.
+And your Grafana is running here.
+Ok.
+So active running is coming.
+This means that Grafana is properly installed on your EC2 machine.
+So you have to follow these few steps.
+Ok.
+First of all you have to install it.
+After that you have to start your Grafana service.
+So you have to understand the commands.
+Simply you have to copy paste the commands.
+Is it clear guys?
+This whole setup is clear.
+It is simple.
+We simply copy pasted the commands.
+If it is clear then write clear in the chat.
+And let's move forward.
+Clear.
+It was easy right.
+Rest you have to focus on any other command.
+Ok.
+You can read them.
+So I have started Grafana.
+Now you have to go to sign into Grafana.
+Ok.
+So what will you know in sign into Grafana.
+You will know that Grafana if you don't configure it.
+Then by default it runs on port 3000.
+So we test it.
+We will copy our IP address here.
+We will go here.
+Paste it and we will hit port 3000.
+If Grafana is installed then I will see Grafana here.
+And you can see here welcome to Grafana.
+Now here it is asking username and password.
+But the question is that we have not made any username and password.
+Ok.
+And here only login option is coming.
+No sign up option is coming.
+So where will you get username and password.
+Again this is clarified in the documentation.
+It is written on the sign in page.
+Enter admin for username and password.
+Ok.
+So by default you will add admin in username and password.
+Both are admin.
+Username and password same.
+But then Grafana will ask you that do you want to give your password.
+You can give it.
+For now we will skip here.
+And you have entered into Grafana.
+This is your Grafana's home page or dashboard.
+Ok.
+You will work with Grafana here.
+The whole setup is cleared.
+So what have we done here.
+We have successfully installed Grafana here.
+Next what we have to do here.
+Prometheus and Grafana.
+We have to link these two.
+Ok.
+Now we don't have any connection here.
+I will show you from where you see the connection.
+You will go here.
+You can see the connection.
+If you go to data sources.
+What is the data source?
+From where your data is coming into Grafana.
+Currently no data source is defined here.
+What you will do here is.
+You will click on add data source.
+And see.
+In these databases.
+The first option is Prometheus.
+So we will select this.
+What I have told you.
+This is Jai and Veeru's pair.
+They work together.
+So see.
+The first option is Prometheus.
+You will select Prometheus here.
+Now you have to configure some things here.
+What you have to do.
+I will tell you.
+First of all you have to tell where is your Prometheus.
+Ok.
+So because we are running Prometheus on this EC2 instance.
+So from the perspective of our Grafana.
+Prometheus is running on localhost.
+Because we are working on the same system.
+Ok.
+So we are going to use this address here.
+Localhost port 1990.
+Where is your Prometheus running?
+It runs on port 1990.
+So we have set Prometheus here.
+Ok.
+You don't have to set anything else here.
+You have to simply go down.
+And you have to click on save and test.
+So what will Grafana do now?
+It will go to Prometheus.
+And it will check if it is able to fetch the Prometheus matrix.
+Ok.
+You know here at the end point of port 1990.
+Whose matrix is exposed?
+See.
+Prometheus.
+So if it is able to read the Prometheus matrix.
+It means that it is able to connect with Prometheus.
+So Grafana uses this only.
+Ok.
+So we will save and test here.
+And see.
+It will read the Prometheus API.
+So if you have set everything correctly.
+Then your data source will be added here.
+See.
+If you go to the data source again.
+Then you will see Prometheus here.
+Now what you have to do here.
+If you want to build a dashboard.
+Then you have to go to the dashboard section.
+As soon as you click on the dashboard section.
+Because you are working with scratch for the first time.
+So here you will not see any dashboard currently.
+So what you have to do here.
+Click on create dashboard.
+And here you can build your dashboard.
+Now you will be remembering the line fuse dashboard.
+So dashboards are generally very similar in approach.
+You add multiple visualizations or graphs here.
+Ok.
+So here we are going to add graphs or plots of system specific matrix.
+So we are going to add that.
+So guys, the whole flow is clear now.
+Is everything clear?
+It was super simple right?
+Prometheus we have learnt to install in the previous class.
+Simply you have to follow the commands here.
+And you have to install the graphon.
+Clear?
+Fine.
+Now let's do one thing.
+Let's learn to build our dashboard.
+Now I would like to share a small disclaimer with you guys.
+Disclaimer is that if I show you here.
+If we close this instance.
+And let's get back to our instance where our exporter is running.
+This one.
+Here our application is also running.
+If I show you see.
+Our application is also running on this instance.
+And our backend is also running.
+So if I.
+Copy the address.
+Which I want to show you.
+And I hit port 9100.
+Here is my matrix.
+At the end point of the slash matrix.
+So you can see here that you get a lot of matrix exposed from your node exporter.
+Ok.
+Now at first glance, anyone's mind will be confused by this matrix.
+Because there are a lot of matrix here.
+There are a lot of names that we don't understand.
+And secondly, we don't have an idea.
+What are the matrix exposed on a Linux based system.
+And what things we have to track.
+Because we don't understand Linux kernel.
+So what is the best approach you have to take here.
+The best approach is that you can go to either cloud or chat gpd.
+And you specifically tell it.
+What all things you have to track.
+And on the basis of that.
+You can generate the queries of promql from it.
+Test them.
+And build your dashboards on it.
+Ok.
+This is the most easiest way.
+And the most logical way to build dashboards.
+Based on the node exporter.
+Ok.
+So we are going to use this method here.
+We will generate some plots here.
+Again.
+There is another solution to this.
+The solution is that.
+The community has already built your templates here.
+Ok.
+Around your node exporter.
+So once we will generate our custom plots here.
+And after that I will show you.
+How you can use the pre-built template here.
+Again, you will get a wide variety of graphs in the pre-built template.
+A lot of detailed observability around your EC2 machines.
+They give you those templates.
+What is my recommendation?
+My recommendation is that you use templates.
+But since we are learning to work with graphana.
+So let's create some custom visualizations here.
+And at last I will show you.
+How you can see the visualizations through the template.
+This point is clear to you.
+Do you understand the reasoning?
+Why we are doing this?
+Clear.
+Ok.
+So I have already pushed the promql queries on the GitHub.
+If I show you.
+So I have pushed a small markdown file here.
+And it is a very simple markdown file.
+Look here is graphana promql queries.
+If you go on this.
+So here I have written promql queries for every use case.
+Ok. I will explain you how to do this query.
+I will give you a basic idea.
+But what we will do is that we will use them directly in our graphs.
+So here I am tracking some things.
+Like CPU usage per core.
+I basically want to see.
+How is my CPU usage of every core.
+You see in task manager.
+How much load is being applied on every core.
+So you can visualize that load through this particular query.
+Ok.
+How much RAM you are using.
+How much RAM you have available.
+You can see that through these queries.
+Ok. Ram usage will tell you these queries.
+Then comes your network speed.
+In kilobyte per second.
+How much data you are sending on your EC2 instances.
+How much inbound data is there.
+And how much data is coming out of that EC2 machine on your network.
+So you will track these two.
+And finally you will track the disk usage.
+How much percentage of your 30 GB disk you are using.
+And how many GB's you are using in it.
+We will also track that here.
+Ok. So it will be simple.
+I will show you how all these things will be.
+First you have to copy your query.
+Ok.
+And what you have to do first.
+You have to go to Prometheus.
+This is Prometheus app.
+You will go to query.
+And you will paste this query.
+And once you execute it.
+What is the result.
+So what is the result.
+Here it is 0.8 and here it is 0.83.
+Ok.
+Now what we are doing here.
+You have to understand the queries.
+You have to understand.
+Once we remove 100 minus.
+Ok. Once we simply remove it.
+And once we run it.
+Ok.
+Now what this thing is telling us.
+This thing is telling us.
+What we are doing here.
+To the seconds of our node CPU.
+Which is its total.
+What is total. Its sum.
+We are calculating that.
+Basically this is our counter metric.
+And what this counter is calculating.
+How much time it stays in idle mode.
+Ok. It keeps counting it.
+Every second if it is in idle mode.
+Then it will keep increasing from plus one to that counter.
+We had studied about counters.
+Now I will do one thing.
+I will show you by removing all this thing.
+Just we are learning to work with one metric.
+And after that we will use the rest of the metrics directly.
+See what is this.
+I will remove this too.
+This is my node.
+My node.
+CPU seconds total.
+Now we will work with this.
+Now if I check node CPU seconds total.
+Then here you have different data.
+Ok. Some are idle.
+Some are IO weight. Some are IRQ.
+These are basically the CPU stages.
+That in which stage it is currently.
+Is it busy.
+Or it is idle.
+Or it is working with IO related.
+This is the information.
+This is the detail.
+When we want to do filtration here.
+What we want to check.
+We want to check that in idle mode.
+How much is our CPU.
+So we simply have to use curly braces.
+After curly braces.
+Auto fill will come here.
+We have to select mode.
+What should be the value of mode.
+It should be equal to.
+And you will get options here too.
+As I am opening the codes here.
+You will get the option idle.
+If I run it.
+Then what will happen.
+It will be filtration based on the dimension.
+This is our dimension.
+As soon as I execute.
+Because there are two cores on my instance.
+CPU 0 is my first code.
+CPU 1 is my second code.
+So this is the idle time of both the cores.
+Ok.
+But this is an instance vector.
+Now what value is currently running.
+It is showing me.
+If I want to see it in a range.
+Then what I will do.
+I will put a range in the square brackets.
+So I want to know my idle time in the last 5 minutes.
+Now what does Prometheus do.
+Prometheus scrapes your data in every 15 seconds.
+So if 5 minutes is here.
+So how many values will I have here.
+Someone will tell me.
+If I bring one value in 15 seconds.
+I will check it in the last 5 minutes.
+So how many total values will I have.
+In one minute I have 4.
+So how many will be in 5 minutes.
+20.
+You can count these 20 values.
+And same for my core number 2.
+Ok.
+Now what I will do here.
+I am not getting any benefit from these values.
+It is showing the value of every 15 seconds.
+Now I will put an aggregate function here.
+Which is called rate.
+Per second increase over a range vector.
+Especially for counter.
+I told you that this node CPU seconds total.
+This is my counter based metric.
+If I highlight here.
+Then its value will also come.
+Now it is not coming.
+But what will happen through the rate.
+It will show me per second change.
+And we use this for range metrics.
+So as soon as I put a rate here.
+And run it.
+So see here this rate is coming.
+That how this particular metric is behaving per second.
+Means how much percentage was free in 5 minutes.
+Or how much percentage was busy.
+So I am understanding that in the last 5 minutes.
+Generally 99% of this CPU was free.
+Ok.
+I was not using any CPU here.
+Now what I will do here.
+I want to calculate.
+Now I can put some group by operations here.
+Ok.
+It is possible that based on the core or based on the mode.
+I want to calculate some things here.
+So what we do for that.
+We put by operations.
+If I show you here.
+What is written here.
+Average by means I am calculating average of the rate.
+Based on two things.
+Here I am putting group by on two features.
+Instance type and CPU.
+Ok.
+So if you see here.
+In my metrics.
+If I show you.
+So what is the instance.
+This is the instance ID.
+And what is the CPU.
+This is my cores.
+So basically I am doing average on two things.
+Based on my instance ID and my core.
+So here I will get information of each of my core.
+Average free time.
+And if I want to calculate busy time.
+So here I have to calculate busy time.
+And it is in percentage.
+So I will make it from 100 to minus.
+What will be my 100 minus free time.
+My busy time.
+What is my busy time.
+My usage.
+I hope you understood how to write this query.
+And finally you will multiply by 100.
+So that you can calculate the percentage here.
+Ok.
+So simply you have to copy it.
+You have to go back.
+Here you have to go to new dashboard.
+Here you have to go to panel.
+Panel means a visualization.
+So here you will create a panel.
+On that you will go to configure visualizations.
+Ok.
+Now here is your main panel.
+Here you will see your visualization.
+Here you will see all your settings on the right hand side.
+And below you can write your queries.
+Now there are two methods to write queries.
+One is your builder method.
+Which basically helps you to write queries through drag and drop.
+But the problem with builder method is that you can't write advanced queries.
+Ok.
+So what we will do is we will go to code method.
+And simply you have to put your promptql query here.
+Which I have copied.
+Paste it and I will click on run query.
+Ok.
+So here you can see a graph.
+So here you have multiple options.
+If you want to see the start graph.
+You can see gauge.
+So we want to see our CPU usage in gauge.
+So we will go to all visualizations.
+And we will select gauge.
+So you can see here.
+What you can see here is 0.75 and 0.82.
+These are exactly the same things that you can see in the promptql query.
+If I paste this thing.
+Then my data is coming from here.
+Now it has changed.
+0.80 and 0.84.
+If I go back here.
+And if I refresh it.
+See.
+So now it is changing.
+I am not able to show you exactly.
+Because things are changing very quickly.
+But you can see clearly where my data is coming from.
+Ok.
+Now what I have to do is I have options on the right hand side.
+And through this I can simply modify my things.
+One more thing we will do here.
+That we have to show you below.
+Which you can call as legend or label.
+We will set this label.
+So this is your legend.
+You have to copy this.
+I will explain to you.
+This is very easy.
+It is not that hard and fast.
+You have to go here.
+You have to go to options.
+You have to go to legend.
+You have to go to custom.
+And you have to give this legend here.
+Legend says that first you should have your instance id.
+Then you should have a hyphen.
+Then you should have a core and core number.
+Basically the number you are seeing here.
+So you will not see this whole thing like this.
+Legend will be shown in a proper structure.
+If I run c.
+So here you can see your instance id, hyphen core and which core.
+Now what you can do is you can give a title here.
+So we will keep the title here.
+CPU usage in percentages.
+I have given this title.
+You can add a description too.
+Plot to monitor CPU usage on EC2 instances.
+Where will you see this description?
+You will see it here.
+Everything that we are doing here will be shown here.
+You can check panel link.
+You can select the style you want.
+You can select auto.
+You can select this style or that style.
+You have multiple options.
+We will customize here.
+First of all you have to select your gauge.
+How do you want gauge?
+Do you want arc style or circle style?
+So we will work with arc style.
+How do you want orientation?
+How should you see these two gauges?
+Should it be horizontal, vertical or auto?
+We will select auto here.
+Then you can tune the width here.
+How thin should it be?
+I am bringing the slider here.
+This gray area is decreasing.
+If I am increasing it, it is increasing.
+You can add some segments here.
+You will get the speedometer effect.
+You can tweak it as per your choice.
+I will keep the value 10.
+By looking at this, I will know that currently,
+my usage is around 10%.
+After that, text mode is coming here.
+What do you want to show here?
+Do you want to show text only?
+Do you want to show value only?
+Or do you want to show only name?
+You can select all these things.
+After that, there are color options.
+If you want to set the gradient.
+You will see the threshold bar.
+You can see clearly green, yellow and red.
+If you do gradient, you will get the gradient feel.
+It will merge.
+You can do bar glow.
+If you can do center glow, you can do center glow.
+Again, these are your customizations.
+You can tell the text size here.
+What should be the size of the text and value?
+Then we come to standard options.
+This is the most important part.
+First of all, you choose the unit here.
+Now it is showing 0.8.839.
+What we have written here?
+CPU usage in percentages.
+What we will do here?
+Select the unit.
+We will select percentage.
+Now what should be the percentage?
+It should be between 0 to 1.
+Because 0.8 is what?
+8% If I will set it to 0 to 100.
+Then it will look like this.
+Which is not correct.
+I have to select percentage 0 to 1.
+And see.
+What do you see here?
+It is showing 83.9%.
+It means that the usage is more.
+Maybe because my application is running here.
+That's why.
+So we have calculated this.
+And.
+That's all.
+And you can tweak the rest of the thresholds.
+This red part, this orange part, how much should it be?
+You can set it here.
+Like I want to set it in red.
+Let's say 90.
+So my red part will be ahead of 90.
+And.
+I want to set this yellow one.
+Let's say 75.
+So you can also set these thresholds.
+See.
+I have set this.
+And if I want to save it, then I will click on save.
+You will give the title here of your dashboard.
+Let's keep it.
+And you can give a description.
+I will simply click save.
+And your dashboard is saved here.
+See.
+You can easily track the core usage.
+For your EC2 instances.
+This part is clear.
+This observation is clear.
+Again, you have multiple options here.
+You can go and tweak them.
+Is this point clear?
+Clear.
+Great.
+Let's do one thing.
+Let's ask some questions and see if this changes or not.
+Let's ask what is the difference.
+Between.
+Online.
+Versus.
+Offline.
+Revals.
+So now clearly, looking at the CPU usage, we can understand that.
+This is the CPU usage.
+So now clearly, looking at the CPU usage, we can understand that.
+Why we have used T3 medium here.
+And T3 medium is also like.
+Very close to your 80%.
+Now you will see.
+As soon as I generate this, then after a while, my metrics will also.
+Change.
+Because CPU usage will increase.
+If I refresh it.
+Something has decreased.
+But again, it will keep changing.
+Let's execute it once.
+Yes, so it has reached 100% now.
+Let's refresh it once.
+See.
+It is reaching up to 103%.
+It will be some boost.
+Again, these are not like 0 to 100.
+Something will be added to it.
+But you can easily track.
+That my CPU has to work very hard here.
+And let's see that I am getting a response here.
+I am getting responses.
+Now let's do one thing.
+Let's set our next dashboard here.
+Sorry, our visualization.
+That is.
+Ram.
+That on this particular instance.
+How much RAM I am using.
+Okay.
+So you have to go again to your demo.
+You have to click here.
+On this plus icon.
+And you have to select the panel here.
+Again.
+Configure.
+Okay.
+Now what is inside the RAM.
+You have two queries inside the RAM.
+There are two queries.
+What is the first one?
+The first query is.
+That you are calculating here.
+That you have on an average.
+How much GB RAM is available.
+This node memory.
+Available.
+Okay.
+What is it telling you?
+It is understanding from the name.
+That how much GB of RAM you have available.
+Okay.
+It shows us in bytes.
+So we have divided it by billion.
+From that we have information in gigabytes.
+See.
+Now.
+2.8 GB of RAM is available.
+Okay.
+And if I have to see here.
+How much RAM I have here.
+Used.
+So what I have to do for that.
+Total minus available.
+So this particular query.
+It is calculating there.
+See this.
+What is telling from mem total bytes.
+How much total memory is there on my system.
+And how much is available from that.
+So what will I know.
+How much I am using here.
+So if I paste it.
+So here I will get value.
+Around 1.2.
+1.14.
+So now what I will do.
+Here.
+These two.
+I will show the values in one visualization.
+Okay.
+And for that I will use here.
+Donut chart.
+So I will go here.
+In pie chart.
+And I will select.
+Option donut.
+And what you have to do here.
+You have to paste your queries one by one.
+So what I will do.
+I will go here.
+First of all.
+I will select this promql query.
+After selecting.
+I will go back.
+Here.
+Let's do one thing.
+Let's close these extra tabs.
+Because they confuse me.
+And I will run it.
+See what I can see from run.
+I can see donut.
+And here I have some value.
+Now I will go to options.
+I will select custom.
+And what is this.
+This is telling me.
+My used memory.
+I will set legend here.
+It is used.
+Okay.
+This is done.
+Now what I will do here.
+I will go to add query.
+And see.
+Here I can paste my second query.
+What is my second query.
+My second query is available.
+Available is this one.
+Okay.
+Select it.
+I will go back.
+I will paste it here.
+And here we will put legend.
+What will we put available.
+Available.
+Okay.
+I will run this.
+And see.
+Here you can see proper legend.
+How much percent is available.
+And how much is used.
+And if you hover.
+Then you can see exact value.
+See this is your ram usage.
+So the T3 media has 4GB available.
+From that we are using this much.
+And we have this much available.
+Now you have to customize it.
+So you.
+Here you will give ram.
+Usage in gigabytes.
+Okay.
+After that you will go down.
+We have selected donut.
+You can select sorting.
+Then you can select label.
+That you have to show name.
+Show value.
+Show what all things.
+So we want to show name and value.
+Both.
+Okay.
+After that if you go down.
+Then you can select.
+That the legend here.
+How should it look.
+Should see bottom.
+Should see right.
+We will show right.
+Okay.
+You can select legend values.
+That you have to show value.
+So we can figure out these things.
+If you want to show percentage.
+Then you can show that too.
+See.
+After that.
+You will select unit here.
+What is unit?
+Now this is not percentage.
+This is gigabytes.
+So you will write here.
+Gigabytes.
+And you will select gigabytes here.
+Selected.
+Okay.
+And see.
+Here.
+Your GB units are visible.
+And that's it guys.
+This is your RAM usage.
+You will click on save.
+And save.
+Let's go back to our dashboard.
+And see.
+This is your RAM usage.
+Is visible.
+I hope how to make visualizations here.
+You have cleared it.
+Is this point clear?
+Harry, I will take your question later.
+Note down this question.
+Till now.
+What we are discussing.
+Around Grafana.
+It is clear.
+Is everything clear?
+Yes.
+Okay.
+Let's refresh it.
+See.
+Now.
+Because I am not interacting with my application.
+So my CPU usage has decreased here.
+Okay.
+So this is showing me the average of 5 minutes.
+The more you interact.
+The more the CPU usage will increase.
+The less you do.
+The more it will decrease.
+Okay.
+Now.
+Let's discuss further.
+And here you can see the colors.
+See.
+We have set the threshold of 75% on yellow.
+So this one is visible in yellow.
+And the rest is visible in green.
+Next is.
+We want to see the network speed.
+Inbound and outbound.
+Again you are using the rate.
+And why are you dividing the rate by 1000.
+Because here you are seeing in bytes.
+Bytes per second.
+But here.
+The unit you are setting.
+Unit set.
+That is kilo byte per second.
+That's why you are dividing it by 1000.
+So I have copied it.
+I will go here.
+I will click on.
+Panel.
+And configure.
+Okay.
+Here I will give my query.
+And here what will you do.
+You will select a legend here.
+Again I have given the information of the legend.
+The name of the instance.
+Then the name of the device.
+And what does in mean.
+Inbound.
+You can also write inbound here.
+Let's do one thing.
+Let's use the whole name.
+Inbound.
+Let's see I have run here.
+Run query.
+So you can see inbound here.
+Okay.
+If I go here.
+And click on add query.
+And let me copy.
+The other thing.
+Okay.
+And let's paste it.
+I will paste it here.
+And if I run it.
+It's simple.
+Here you calculate the rate.
+See this is the receive one.
+And this is the transmit one.
+Again you see this.
+Okay.
+It's very simple.
+Means nothing is difficult in this.
+You have to set the legend.
+So here you set inbound.
+You will copy.
+And here you will paste.
+And instead of inbound.
+It will be outbound.
+Outbound.
+Okay.
+Here you can see different networks.
+How much docker is using.
+Okay.
+Again you can do filtration here.
+You can see suggestions.
+We are using time series here.
+Okay.
+In time series.
+We will write here.
+Network.
+Speed.
+Network speed is done.
+After that.
+We will set our graph here.
+So in graph.
+Legend will be ours.
+You can keep it in right.
+Or you can keep it in bottom.
+We will keep it in bottom.
+I think I have selected someone here.
+Yes.
+Now it's okay.
+All are visible.
+And.
+You can select values.
+You can select time zone.
+We do one thing.
+We set the axis.
+The axis you can see.
+This plane is visible.
+So we do one thing.
+We set a label of axis.
+So our speed is labeled.
+In kilobytes per second.
+So you can see the label of axis here.
+Okay.
+You can set width.
+You can set minimum and maximum.
+You can set all these things.
+Okay.
+How should be the graph.
+Line, bars, point.
+This is everything.
+Okay.
+How much should be the line width.
+You can select.
+How should be the opacity.
+You can select fill opacity.
+How to see the line.
+Solid, dash, dot.
+Everything you can select.
+You have multiple customization options.
+If you want to show points.
+What should be their size.
+Okay.
+Now you will select unit here.
+So what will be your unit.
+You will write kilobytes here.
+So this will be your unit.
+Kilobytes per second.
+You have to calculate the rate on data.
+Selected.
+So you will see the data rate in kilobytes per second.
+And we don't want to set thresholds.
+So you can leave it.
+And I will click on save.
+And let's click on save.
+So here you can see CKEA.
+This is your instance.
+Okay.
+In that.
+Your application is Docker.
+How much data is being sent by Docker.
+You can see that.
+Or your security group.
+How much data is being sent.
+You can see that.
+Multiple more components.
+You can see here.
+Okay.
+So you can see the network detail of everyone.
+Okay.
+So what is this.
+So what is this.
+This is your input.
+Your security group.
+Basically when I send a request here.
+I will send it to you.
+Here we write.
+What are LLM leader boards.
+Let's go outside once.
+And we drag it down.
+Again like you do in Langfuse.
+And we do expand.
+Let's see.
+I got the answer.
+Not yet.
+Look.
+It came.
+Okay.
+So here must be some API calls.
+So the traffic must have been outbound.
+And inbound.
+Because I have sent my query to the API.
+Let's test once.
+That is, did my network usage change.
+If I refresh.
+Then see.
+Here you will see a graph rising.
+And this red part will also rise.
+You will see.
+What does it mean.
+Here some network activity.
+Is being tracked.
+Okay.
+I will show you outbound.
+Hmm.
+This thing.
+So this is not happening.
+Okay.
+It is not happening.
+But you will see this.
+See inbound.
+You can see it.
+And if I show you this outbound.
+Then see outbound.
+You can see it.
+So again these are different metrics.
+You are tracking.
+Again you can select it.
+But we are here.
+All our network services.
+We are tracking everyone here.
+Okay.
+Now what do you have to do next.
+Next you have to track here.
+Disk usage.
+So for disk usage.
+The simple thing is.
+That you will use this query.
+Again very simple.
+You are here.
+From the total disk.
+From that.
+All that is available.
+Minus from 1 to minus.
+Okay.
+So I will show you.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+See.
+Okay.
+So you can see.
+How much you are using.
+Okay.
+I have selected this.
+And I will click on add.
+Panel.
+Let's configure.
+Let's configure and put our query here.
+And let's run it.
+Okay.
+I can see this.
+And its label.
+You can set the label as disk usage.
+So here we will go to options.
+We will go to custom.
+And.
+Usage.
+We have set this.
+Okay.
+Now we don't need line graph.
+We can go with this visualization.
+We can go with bar gauge.
+You can go with bar gauge.
+So bar gauge looks like this.
+It doesn't look so good.
+But you can tweak it like this.
+Okay.
+You can also bring the gradient thing.
+We will go with this style.
+Okay.
+And we will write this.
+And this.
+Usage in.
+Percentage.
+Okay.
+And after that.
+What will we do here.
+You can change the orientation.
+You have to keep it vertical.
+You have to keep it horizontal.
+Okay.
+How to keep the gradient.
+You can select it.
+Okay.
+How to show the value.
+The main focus will be on standard options.
+It is usage.
+So it will be percentage.
+We will go percentage.
+And see.
+Twenty percent.
+Okay.
+And then.
+Okay.
+So it will be percentage.
+We will go percentage.
+And see.
+Twenty percent.
+Our disk.
+Out of 30 GBs.
+It is used.
+So.
+We will select it here.
+Again.
+You can select the threshold.
+Which is the default here.
+We will work with that.
+Click on save.
+And save.
+See.
+So you can also see the disk usage here.
+Now we have to put a final here.
+That is.
+Disk utilization.
+Okay.
+Okay.
+So we will go with this style.
+Okay.
+And we will also change the orientation.
+Okay.
+And then we will go with this.
+Disk utilization in GBs.
+Again.
+We will select panel.
+We will customize it.
+After customizing it.
+We will go here.
+Okay.
+Disk usage.
+You will see it in GBs.
+So this was your available bytes.
+Okay.
+Here is your used bytes.
+Okay.
+And we will set it in GBs.
+What difference will there be in GBs?
+There will be the same difference in GBs.
+That you are not doing into 100.
+You are dividing it by 1 billion.
+So here we will go into 100.
+Okay.
+And we will also go into 100.
+Okay.
+So here we will go into 100.
+Okay.
+And we will also go into 100.
+Okay.
+And we will also go into 100.
+Okay.
+So here we will go into all visualizations.
+And to this, we can select only the gauge.
+And take a title here.
+Disk usage in GBs and paste the query.
+Run the query here.
+Okay, to get the change of stuff.
+Alex Scully going into the option he goes in terms of custom.
+let's give it a name disk usage
+now you can select here what kind of style you want
+let's say we select this variant here, this style
+we will not make more changes here, the changes we have to make
+we will do in the threshold, now before threshold
+we will select the unit, so our unit will be
+again gigabytes, so we are using 6 GB around
+and threshold will not be on percentages, you will select
+absolute values, so in absolute let's say I want to set
+this red one 25 GB, so if usage is above 25 GB
+then it will start showing in red and for yellow
+we can set 20 GB and these are my thresholds
+set it and let's click on
+save, save
+and that's it guys
+let's go out and you can actually track your disk usage in gigabytes
+is this point clear guys, this is clear
+all setup
+again you can understand 20% of 30 GB
+is 6 GB, so we are able to track all metrics properly
+so this is how you work with grafana
+again there are many customization options here
+we can't understand all of them in this class, again this is a practical thing
+you can customize things, if you understand what prometheus is doing
+in this setup, what grafana is doing and how to customize
+it, then you can easily do it, now I will show you a final hack
+although we are working hard here, writing queries of promql
+custom visualizations are being made here
+the better approach is to use pre-built visualizations or templates
+for that you will use this template id
+1860, how to make this dashboard, I will explain, it's very simple
+you have to go to the dashboard section, you have to click on new dashboard
+and instead of new, you have to do import
+as you click on import, it asks you to give a template id
+so this is my template id, you simply click on load
+as you load, see here what is coming
+the name of your dashboard is node exporter full, so node exporter
+all the important metrics, you get a complete dashboard
+and all the information on it is
+when was the last update, who published it, simply you have to click on import
+and see, around your ec2 instance
+all the metrics information is shown here
+so there is one way to track
+all your usage, see in the storage disk
+you can see read and write, input and output operations
+queue size, again these are hardware related things
+we don't have knowledge about it, so the better technique is to use this template
+around the CPU, you can see
+which apps are you using, how much memory is there in cache
+how much memory is there in swap, network traffic
+everything is available
+so we took both the approaches, we understood the template approach
+and how you make custom visualizations, we understood that approach
+again it is up to you, how much you want to expand it
+I leave it on you, so I hope guys, this whole
+today's session, you understood, in today's session, we have to do this much
+we have seen how Prometheus and Grafana work together in monitoring
+now I am open to your questions
+and this is it guys, today we have completed our rag project
+on LLMops playlist, going forward
+we will continue with another project, that is our
+agentic application project, now you can ask your questions
+again, I will not be able to do it by speaking
+because I don't have my headphones ready right now
+you can ask me in chat, I am open to your questions
+and one more thing guys, I am planning a doubt clearance
+session for you guys, for LLMops playlist
+so what we will do, we will meet next Monday, till then
+you can practice all these things, so next Monday we will meet
+at 8 o'clock and I will take your doubts
+will Monday be okay guys? you guys tell me in chat
+Sir, how to practice this all as AWS
+is expensive, no Mahesh, if you are signing up for the first time
+and you have your free tier account, then these things will not be expensive
+in my case, I am getting expensive because I have already
+crossed free tier, but if you are practicing this for the first time
+then you just have to keep in mind that whatever you are creating
+you should stop it after using, and how to check
+if something is working or not, you will go to the instances section
+instances are the most expensive, so what you have to do here
+see, you will see the whole dashboard, you can understand everything
+in the dashboard, which is working and which is not
+so you will see clearly, how many instances are running,
+how many security groups, how many auto scaling groups,
+you will see everything here, so you can easily judge
+which thing is running or not
+is this point clear?
+how to delete, we have done it many times, it is super simple
+you will select here, go to instance state, click on terminate
+it will be deleted
+if you want to do it for S3, then you will go to S3
+select my buckets
+here you will go to delete, it will say to empty it
+then you will delete it, same with your
+ECR, go to ECR
+select my Docker images, delete
+then you have the delete option
+if you want to see the use, how much you have used, how much your bill is sitting
+then simply you will go here, and if you go here, you will see cost and usage
+see, you will see detailed usage
+currently I have used around $8, because I am not in free tier
+and you can see here, my main expense is
+like load balancer is around $3.50
+but you will not get this expense
+trust me, it will come up to $50-60
+if you use it carelessly
+can you also create a small video on how to close all instances
+I have told you Tushar
+whatever you are doing, you will see it, it is not running
+Akash's question is
+enough
+Akash again it depends on
+what you are expecting from the company you are interviewing
+this is not a clear criteria
+because different companies have different deployments
+your services are similar to this
+on other cloud platforms
+what you are using for a current project, what you are not using
+depends on it
+we have covered the entire pipeline
+there is one more thing, that is measuring the drift and retraining
+we are not doing that now
+it will take a lot of time
+so I will teach you how to calculate drift
+so drift is calculated in machine learning application
+and in LLM based applications
+if the data used in the production contains large pdf
+with more than 500 pages
+then would the approach for LLM eval still say the same
+yes harry
+because you are building your goldens from context
+so the bigger the context, the bigger the sample
+to create your goldens
+so in that case
+you will generate more goldens
+we are doing 14 pages
+but in real production setup you don't work with 14 pages
+it is either 100, 200, 300
+because we have to save on EPA cost
+so we are working with less
+so that's it
+any other questions guys
+so this was it guys
+now we will meet again
+but through the recorded lectures only
+and next week we will meet in our doubt clearance class
+and I will miss you guys
+it was a very long journey
+and we covered it very well
+and I hope you liked my lectures
+and how I taught
+and thanks for sticking around guys
+I know it is very painstakingly long
+but we will meet soon
+so next monday is it ok for doubt clearance
+confirm it
+ok fine, till then clear all your backlogs
+yes I will
+this is not the end game
+so I am telling you about the current course
+excited for new live courses
+now I am going to take the next course
+which is AWS bedrock
+I am thinking it should be recorded
+because you are working on AWS
+there are multiple errors which you can face
+if you are getting errors then it is difficult to debug
+I would assume recorded is better
+live class is better for topics where there are more interactions
+like Jeff's topic
+the code part was simple but other things were interesting
+so they enjoy reading
+so I think that is better for live
+so I have not built the curriculum yet
+my focus is to build the agentic project
+and then I will build the curriculum and share it with you
+let's see what are the things that are covered
+thanks everyone
+and the fun I want to do with you is due
+so we will do that next week in the doubt session
+so you can ask me questions
+and if you want to ask anything else
+or give feedback or share something
+then you can do that
+that session will be open for you
+I will keep it open
+so I think there are no more questions
+signing off for today
+bye guys, I will miss everyone
+and I will see you in the next lecture on Monday
+good night

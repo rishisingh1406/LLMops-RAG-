@@ -1,0 +1,4226 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.000
+Hi everyone, I hope you guys are doing great.
+
+00:00:02.000 --> 00:00:06.000
+So guys, welcome to another video of the agentic project in LLM Ops.
+
+00:00:06.000 --> 00:00:09.000
+Guys, our goal in today's video is very simple.
+
+00:00:09.000 --> 00:00:13.000
+We are going to start our agentic project's evaluations from today's video.
+
+00:00:13.000 --> 00:00:18.000
+So we will build an evaluation pipeline around our agentic project in this video.
+
+00:00:18.000 --> 00:00:20.000
+So let's start.
+
+00:00:20.000 --> 00:00:27.000
+So before starting, let's take a small recap and discuss what we have covered in the previous two lectures.
+
+00:00:27.000 --> 00:00:31.000
+So you will remember that in the first lecture, we built our application.
+
+00:00:31.000 --> 00:00:38.000
+We built the application and the front end and back end of this application.
+
+00:00:40.000 --> 00:00:45.000
+Both of them we built and not only we built them, we also demoed them.
+
+00:00:45.000 --> 00:00:50.000
+Now in the industry, what we manually demo anything is called vibe testing.
+
+00:00:50.000 --> 00:00:56.000
+So basically we manually tested our application and judged its performance.
+
+00:00:56.000 --> 00:01:01.000
+Now our application was performing well on some tasks and not so well on some tasks.
+
+00:01:01.000 --> 00:01:07.000
+But we didn't have the actual scores that how well it is performing and how poorly it is performing.
+
+00:01:07.000 --> 00:01:10.000
+In today's video, we are going to change this thing.
+
+00:01:10.000 --> 00:01:15.000
+Today we will build a proper evaluation pipeline around our application.
+
+00:01:19.000 --> 00:01:22.000
+So what will happen with this? We will get proper scores from this.
+
+00:01:22.000 --> 00:01:25.000
+We will have some agent specific metrics.
+
+00:01:26.000 --> 00:01:32.000
+We will get scores on those metrics and those metrics will tell us how our application is performing.
+
+00:01:32.000 --> 00:01:34.000
+I hope this point is clear to you.
+
+00:01:34.000 --> 00:01:39.000
+After that, in the second video, we discussed about prompt management.
+
+00:01:40.000 --> 00:01:46.000
+Where again we used Langfuse and made our three system prompts version.
+
+00:01:48.000 --> 00:01:52.000
+You will remember that which three system prompts are in our project.
+
+00:01:52.000 --> 00:01:58.000
+First is our planner prompt which is used for planning.
+
+00:01:58.000 --> 00:02:01.000
+Second is our executor prompt.
+
+00:02:03.000 --> 00:02:07.000
+And the third is our responder prompt.
+
+00:02:08.000 --> 00:02:14.000
+So we had properly versioned these three prompts and not only we were doing the proper version.
+
+00:02:14.000 --> 00:02:18.000
+We are now bringing these prompts from the load from Langfuse.
+
+00:02:18.000 --> 00:02:22.000
+So now our agentic application is not hard-poded.
+
+00:02:22.000 --> 00:02:26.000
+We are making a client of Langfuse and bringing these prompts from there.
+
+00:02:26.000 --> 00:02:30.000
+So the agenda of today's lecture is very straightforward.
+
+00:02:30.000 --> 00:02:35.000
+From today's lecture, we are moving to the evaluations of our agent.
+
+00:02:37.000 --> 00:02:40.000
+We will understand how to evaluate an agent.
+
+00:02:40.000 --> 00:02:46.000
+How to build an evaluation pipeline for this and what are the metrics through which you evaluate your agent.
+
+00:02:46.000 --> 00:02:50.000
+So if the agenda of today's video is clear to you, then let's start.
+
+00:02:52.000 --> 00:02:57.000
+So let's move the discussion forward and discuss how you evaluate the agent.
+
+00:02:57.000 --> 00:03:03.000
+So far we have evaluated the rag application in this particular series.
+
+00:03:03.000 --> 00:03:07.000
+And trust me, the evaluation of the rag application is pretty straightforward.
+
+00:03:07.000 --> 00:03:10.000
+I am not saying that it is easy, but it is straightforward.
+
+00:03:10.000 --> 00:03:12.000
+You understand things.
+
+00:03:12.000 --> 00:03:15.000
+Agent evaluation is not that straightforward.
+
+00:03:15.000 --> 00:03:17.000
+I will give you a reason for this.
+
+00:03:17.000 --> 00:03:23.000
+Agent evaluation is not that straightforward because your agentic application can have different architectures.
+
+00:03:23.000 --> 00:03:30.000
+And you have to build an evaluation pipeline on the basis of architecture.
+
+00:03:30.000 --> 00:03:39.000
+So before discussing the architecture or the evaluation pipeline, I will tell you in general how to do agentic evaluations.
+
+00:03:39.000 --> 00:03:44.000
+So because we are using DPVAL here, I will tell you from the perspective of DPVAL.
+
+00:03:44.000 --> 00:03:52.000
+So DPVAL says that there are three layers which are important to work on any agent.
+
+00:03:52.000 --> 00:03:58.000
+When any agent executes a task or does any work, then three layers work there.
+
+00:03:58.000 --> 00:04:01.000
+The first layer is the reasoning layer.
+
+00:04:05.000 --> 00:04:08.000
+You can also call this layer a planning layer.
+
+00:04:09.000 --> 00:04:15.000
+DPVAL is called a reasoning layer, but internally it is called planning layer.
+
+00:04:15.000 --> 00:04:18.000
+The second layer is your action layer.
+
+00:04:21.000 --> 00:04:25.000
+And the third layer is your orchestration layer.
+
+00:04:28.000 --> 00:04:31.000
+Now I will tell you how these three layers work.
+
+00:04:32.000 --> 00:04:38.000
+So your reasoning layer and action layer are sequentially arranged.
+
+00:04:38.000 --> 00:04:50.000
+Meaning that here your reasoning layer is the top layer and below that comes your action layer.
+
+00:04:55.000 --> 00:04:58.000
+Now let's discuss what happens in both the layers.
+
+00:04:58.000 --> 00:05:08.000
+So in the reasoning layer or planning layer, the task of your user comes to you and your reasoning layer generates a detailed plan.
+
+00:05:15.000 --> 00:05:20.000
+Now how will any plan be, it depends on a lot of things.
+
+00:05:20.000 --> 00:05:24.000
+So you have to understand what the work of the reasoning layer actually is.
+
+00:05:24.000 --> 00:05:25.000
+So what is the work of the reasoning layer?
+
+00:05:25.000 --> 00:05:30.000
+We have said that it generates a detailed plan, but does it generate a straight-forward plan?
+
+00:05:30.000 --> 00:05:32.000
+The answer is no.
+
+00:05:32.000 --> 00:05:42.000
+First of all, it understands the user's intent or it understands the task.
+
+00:05:42.000 --> 00:05:55.000
+After that, it breaks down the task into sub-tasks.
+
+00:05:55.000 --> 00:06:06.000
+Any task can have different steps, so it breaks down the big task into small tasks.
+
+00:06:06.000 --> 00:06:18.000
+Then the reasoning layer generates the plan around each of the sub-tasks.
+
+00:06:18.000 --> 00:06:31.000
+It also takes care of the order of execution.
+
+00:06:31.000 --> 00:06:39.000
+So let's say there are two or three steps to do something.
+
+00:06:39.000 --> 00:06:43.000
+Let's say step A, step B, step C.
+
+00:06:43.000 --> 00:06:48.000
+So first of all, it breaks down any task within these three steps.
+
+00:06:48.000 --> 00:06:56.000
+It generates a plan around how to do these three steps and maintains its order.
+
+00:06:56.000 --> 00:07:02.000
+So if A, B and C are in this order, then the plan is also generated in this order.
+
+00:07:02.000 --> 00:07:06.000
+It's not like first B, then A, then C.
+
+00:07:06.000 --> 00:07:12.000
+So the work of the reasoning layer is not to make a detailed plan.
+
+00:07:12.000 --> 00:07:15.000
+It's to understand the user's intent.
+
+00:07:15.000 --> 00:07:22.000
+It breaks down any task into sub-tasks, then generates a plan around each of the sub-tasks.
+
+00:07:22.000 --> 00:07:26.000
+It also takes care of the order of execution.
+
+00:07:26.000 --> 00:07:30.000
+So these are the things that the reasoning layer handles.
+
+00:07:30.000 --> 00:07:37.000
+After that, as soon as this plan is generated, it goes to your action layer.
+
+00:07:37.000 --> 00:07:39.000
+Now what is the action layer?
+
+00:07:39.000 --> 00:07:50.000
+Action layer is basically the layer which does or executes the task.
+
+00:07:50.000 --> 00:07:52.000
+It's the layer which does some work.
+
+00:07:52.000 --> 00:07:56.000
+Now it does work, so you should click on it in your mind.
+
+00:07:56.000 --> 00:08:02.000
+This action layer will have tools within this action layer.
+
+00:08:02.000 --> 00:08:06.000
+So this is basically the tooling layer of the agent.
+
+00:08:06.000 --> 00:08:09.000
+So you have a plan generated, it goes to your action layer.
+
+00:08:09.000 --> 00:08:14.000
+Now your action layer will take some actions or do some task with that plan.
+
+00:08:14.000 --> 00:08:17.000
+And your agent will need tools to do those tasks.
+
+00:08:17.000 --> 00:08:21.000
+Now how the action layer works is not straightforward.
+
+00:08:21.000 --> 00:08:23.000
+It has many layers.
+
+00:08:23.000 --> 00:08:33.000
+First of all, your action layer decides which tool to use.
+
+00:08:33.000 --> 00:08:35.000
+Your agent has many tools.
+
+00:08:35.000 --> 00:08:41.000
+For example, for task A, which tool to use?
+
+00:08:41.000 --> 00:08:45.000
+This action layer decides through the LLM.
+
+00:08:45.000 --> 00:08:57.000
+After that, second is that the action layer calls the tool with right arguments.
+
+00:08:57.000 --> 00:08:59.000
+You have selected the tool.
+
+00:08:59.000 --> 00:09:02.000
+Now how to call the tool and what input to give it?
+
+00:09:02.000 --> 00:09:04.000
+This is also decided by your action layer.
+
+00:09:04.000 --> 00:09:12.000
+Third, how to process the tool result.
+
+00:09:12.000 --> 00:09:17.000
+If your tool gives a result, how to process it?
+
+00:09:17.000 --> 00:09:20.000
+Suppose your tool did not work and there was an error.
+
+00:09:20.000 --> 00:09:22.000
+How to handle it?
+
+00:09:22.000 --> 00:09:25.000
+All this is done by your action layer.
+
+00:09:25.000 --> 00:09:39.000
+And after that, fourth decides whether the task was executed or retry required.
+
+00:09:39.000 --> 00:09:53.000
+This is your action layer which decides on these steps.
+
+00:09:53.000 --> 00:09:55.000
+I hope this point is clear to you.
+
+00:09:55.000 --> 00:10:01.000
+Reasoning layer does the plan and action layer does the task.
+
+00:10:01.000 --> 00:10:04.000
+And finally comes your orchestration layer.
+
+00:10:04.000 --> 00:10:09.000
+When you combine these two layers, first reasoning and then action.
+
+00:10:09.000 --> 00:10:12.000
+This combined layer is called the orchestration layer.
+
+00:10:15.000 --> 00:10:17.000
+What is the work of the orchestration layer?
+
+00:10:17.000 --> 00:10:23.000
+The work of the orchestration layer is that it takes the task from the user.
+
+00:10:23.000 --> 00:10:31.000
+It takes a task from the user and checks the response generated on it.
+
+00:10:31.000 --> 00:10:36.000
+Basically, it is an end to end layer.
+
+00:10:36.000 --> 00:10:43.000
+And in this orchestration, both planning and action are integrated.
+
+00:10:43.000 --> 00:10:46.000
+I hope this point is clear to you.
+
+00:10:46.000 --> 00:10:48.000
+First is the planning layer which is making the plan.
+
+00:10:48.000 --> 00:10:50.000
+Then there is the action layer which is doing the task.
+
+00:10:50.000 --> 00:10:54.000
+And when we combine both together, then comes our orchestration layer.
+
+00:10:54.000 --> 00:10:59.000
+So this is the work of the agent around these three layers.
+
+00:10:59.000 --> 00:11:05.000
+Now the good thing is that in deep eval, you have metrics around these three layers.
+
+00:11:05.000 --> 00:11:15.000
+If you remember rag triad, then rag triad was available to judge the different components of your rag pipeline.
+
+00:11:15.000 --> 00:11:21.000
+Similarly, metrics are available around the three layers of your agent in deep eval.
+
+00:11:21.000 --> 00:11:26.000
+I will tell you what are the metrics and then we will discuss about them later.
+
+00:11:26.000 --> 00:11:33.000
+So the planning layer where you are working on planning or reasoning layer.
+
+00:11:33.000 --> 00:11:39.000
+I say planning layer again and again because it is used to generate plans.
+
+00:11:39.000 --> 00:11:41.000
+You can call it any of the two.
+
+00:11:41.000 --> 00:11:46.000
+So in your planning or reasoning layer, there are two metrics available in deep eval.
+
+00:11:46.000 --> 00:11:49.000
+First is your plan quality metric.
+
+00:11:50.000 --> 00:11:52.000
+From the name itself, we can understand what this metric does.
+
+00:11:52.000 --> 00:11:54.000
+It tells you the quality of your plan.
+
+00:11:54.000 --> 00:11:57.000
+The plan generated is how good or bad it is.
+
+00:11:57.000 --> 00:12:00.000
+This metric judges and tells you.
+
+00:12:00.000 --> 00:12:04.000
+The second is your plan adherence metric.
+
+00:12:04.000 --> 00:12:07.000
+Adherence metric.
+
+00:12:07.000 --> 00:12:13.000
+The plan that the reasoning layer has generated, how much your agent is able to stick to that plan.
+
+00:12:13.000 --> 00:12:15.000
+This metric tells you.
+
+00:12:15.000 --> 00:12:20.000
+Then if I talk about the action layer, then in the action layer where the tool is calling,
+
+00:12:20.000 --> 00:12:22.000
+Here you have two metrics.
+
+00:12:22.000 --> 00:12:28.000
+The first is your tool correctness metric.
+
+00:12:28.000 --> 00:12:33.000
+It tells you that the agent chose the right tool for a given task.
+
+00:12:33.000 --> 00:12:36.000
+And the second is the argument correctness metric.
+
+00:12:36.000 --> 00:12:44.000
+From the name itself, this metric tells you that did you pass the right tool or not.
+
+00:12:44.000 --> 00:12:48.000
+Then if we talk about the orchestration layer.
+
+00:12:48.000 --> 00:12:53.000
+Where your planning and action layer are end to end combined.
+
+00:12:53.000 --> 00:12:55.000
+In this, your two metrics come.
+
+00:12:55.000 --> 00:12:58.000
+The first comes task completion metric.
+
+00:12:58.000 --> 00:13:04.000
+In the task completion metric, you judge that the given task that the user gave you,
+
+00:13:04.000 --> 00:13:06.000
+whether it was completed properly or not.
+
+00:13:06.000 --> 00:13:10.000
+Now you also understand that the task will be completed only when the planning is done well.
+
+00:13:10.000 --> 00:13:12.000
+And then the execution is done well.
+
+00:13:12.000 --> 00:13:16.000
+If there is any problem in any layer, whether in the reasoning layer or the action layer,
+
+00:13:16.000 --> 00:13:18.000
+then the task will not be completed.
+
+00:13:18.000 --> 00:13:21.000
+So this task completion metric judges this.
+
+00:13:21.000 --> 00:13:23.000
+That's why this is the part of the orchestration layer.
+
+00:13:23.000 --> 00:13:27.000
+And the second is your step efficiency metric.
+
+00:13:30.000 --> 00:13:32.000
+What does this step efficiency metric tell you?
+
+00:13:32.000 --> 00:13:35.000
+It tells you that whatever planning layer has generated the plan,
+
+00:13:35.000 --> 00:13:39.000
+whether your action layer has performed it efficiently or not.
+
+00:13:39.000 --> 00:13:43.000
+Whether it is that he has taken some extra steps that are not in the plan.
+
+00:13:43.000 --> 00:13:46.000
+Or he has gone in some other direction.
+
+00:13:46.000 --> 00:13:49.000
+Or he also judges that the planning layer has generated the plan.
+
+00:13:49.000 --> 00:13:53.000
+Whether he was taking too many steps that were not required.
+
+00:13:53.000 --> 00:13:57.000
+So this type of thing is calculated by this step efficiency metric.
+
+00:13:57.000 --> 00:14:03.000
+So these are six built-in metrics that DeepEval gives you for your agentic evaluations.
+
+00:14:03.000 --> 00:14:05.000
+Now what can you do?
+
+00:14:05.000 --> 00:14:09.000
+Apart from these six metrics, you can use GEval, which we have already read in the rack.
+
+00:14:09.000 --> 00:14:14.000
+And through GEval you can also create your custom metrics here.
+
+00:14:14.000 --> 00:14:17.000
+So this is also possible.
+
+00:14:17.000 --> 00:14:21.000
+Okay, so I have told you about this metric.
+
+00:14:21.000 --> 00:14:23.000
+Now let's do one thing.
+
+00:14:23.000 --> 00:14:29.000
+Let's discuss a little more about what type of metrics are there in DeepEval.
+
+00:14:29.000 --> 00:14:32.000
+We have found out about all these built-in metrics.
+
+00:14:32.000 --> 00:14:36.000
+But they also have a broad categorization.
+
+00:14:36.000 --> 00:14:44.000
+So there are three types of metrics for your agentic evaluation.
+
+00:14:44.000 --> 00:14:53.000
+Now the categorization of these three types of metrics is made so that you can tell how these metrics work.
+
+00:14:53.000 --> 00:14:58.000
+The methodology of these metrics is around the categorization of how they work.
+
+00:14:58.000 --> 00:15:01.000
+Again, you can ignore this point if you don't know.
+
+00:15:01.000 --> 00:15:04.000
+But I will repeat these terms many times in the future.
+
+00:15:04.000 --> 00:15:07.000
+So I am telling you here first.
+
+00:15:07.000 --> 00:15:08.000
+So there are three types.
+
+00:15:08.000 --> 00:15:11.000
+The first is end-to-end.
+
+00:15:11.000 --> 00:15:15.000
+Here it is also called black box.
+
+00:15:15.000 --> 00:15:18.000
+Now this type is not available in DeepEval.
+
+00:15:18.000 --> 00:15:20.000
+So I will tell you quickly.
+
+00:15:20.000 --> 00:15:22.000
+What does end-to-end mean?
+
+00:15:22.000 --> 00:15:30.000
+This metric calculates the relationship between input and output and tells how our application is performing.
+
+00:15:30.000 --> 00:15:33.000
+Now the relationship between input and output,
+
+00:15:33.000 --> 00:15:36.000
+or checking if the input was this or output was that,
+
+00:15:36.000 --> 00:15:37.000
+whether it is correct or not,
+
+00:15:37.000 --> 00:15:40.000
+this type of evaluation is not available in DeepEval.
+
+00:15:40.000 --> 00:15:42.000
+So this end-to-end, which is category number one,
+
+00:15:42.000 --> 00:15:44.000
+DeepEval does not support this.
+
+00:15:44.000 --> 00:15:46.000
+Because it is a very weak category.
+
+00:15:46.000 --> 00:15:54.000
+The second category that DeepEval supports a lot is trajectory-based.
+
+00:15:54.000 --> 00:16:02.000
+What happens in trajectory-based evals is that you have the entire trajectory of your agent execution.
+
+00:16:02.000 --> 00:16:21.000
+Which means what you do here is that you send all the steps or all the trajectories of your agent evals to your eval.
+
+00:16:21.000 --> 00:16:28.000
+In simple words, if I tell you, then you send the entire trace of your agent to your eval.
+
+00:16:28.000 --> 00:16:33.000
+So trajectory-based metrics are nothing but your trace-based metrics.
+
+00:16:35.000 --> 00:16:38.000
+What we do is that we take your entire trace.
+
+00:16:38.000 --> 00:16:41.000
+We have already seen the trace in the rag application.
+
+00:16:41.000 --> 00:16:42.000
+What is the trace?
+
+00:16:42.000 --> 00:16:44.000
+The entire journey of input and output.
+
+00:16:44.000 --> 00:16:47.000
+So what was planned in planning, what was executed in the executer node,
+
+00:16:47.000 --> 00:16:49.000
+what tool call happened, what results came.
+
+00:16:49.000 --> 00:16:55.000
+So all this eval and metrics take all the information and give their answers on the basis of it.
+
+00:16:55.000 --> 00:16:59.000
+Now what is generally the criteria in the trace-based metrics?
+
+00:16:59.000 --> 00:17:03.000
+First of all, you generate the trace.
+
+00:17:03.000 --> 00:17:05.000
+I know you will not understand it so well now.
+
+00:17:05.000 --> 00:17:07.000
+If you see it practically, you will understand it better.
+
+00:17:07.000 --> 00:17:09.000
+Just understand the steps now.
+
+00:17:09.000 --> 00:17:11.000
+What do you do first?
+
+00:17:11.000 --> 00:17:13.000
+You generate a trace for any task.
+
+00:17:13.000 --> 00:17:15.000
+Let's say it was a task.
+
+00:17:15.000 --> 00:17:16.000
+Task A.
+
+00:17:16.000 --> 00:17:20.000
+So as soon as I sent this task to the agent, the agent will do its work.
+
+00:17:20.000 --> 00:17:27.000
+And as soon as the agent finishes his work, what we will do is we will track this entire workflow.
+
+00:17:27.000 --> 00:17:30.000
+And we will save its trace.
+
+00:17:30.000 --> 00:17:32.000
+Basically, this task went to my agent.
+
+00:17:32.000 --> 00:17:34.000
+What steps did he do internally and what was his result?
+
+00:17:34.000 --> 00:17:37.000
+We will lock it in one place through the trace.
+
+00:17:37.000 --> 00:17:40.000
+After that, what you do is you take this trace.
+
+00:17:40.000 --> 00:17:46.000
+And you extract information out of it.
+
+00:17:46.000 --> 00:17:50.000
+Each metric needs different information from the trace.
+
+00:17:50.000 --> 00:17:53.000
+So you take this information out of these traces.
+
+00:17:53.000 --> 00:18:01.000
+After that, the extracted information is given to LLM.
+
+00:18:01.000 --> 00:18:05.000
+And here LLM is your LLM as a judge.
+
+00:18:05.000 --> 00:18:07.000
+As a judge.
+
+00:18:07.000 --> 00:18:09.000
+You gave this information.
+
+00:18:09.000 --> 00:18:14.000
+And on the basis of this information, your LLM gives you a score.
+
+00:18:14.000 --> 00:18:17.000
+And also gives you a reason why it gave that score.
+
+00:18:17.000 --> 00:18:19.000
+Very similar to your rag application.
+
+00:18:19.000 --> 00:18:21.000
+You were doing the same in the rag application.
+
+00:18:21.000 --> 00:18:22.000
+What did you do?
+
+00:18:22.000 --> 00:18:24.000
+You used to make a LLM test case.
+
+00:18:24.000 --> 00:18:26.000
+LLM test case.
+
+00:18:26.000 --> 00:18:28.000
+What did you do in that?
+
+00:18:28.000 --> 00:18:33.000
+Let's say if you want to see contextual relevancy, then you had context.
+
+00:18:33.000 --> 00:18:37.000
+You had to check if it is noisy or not.
+
+00:18:37.000 --> 00:18:39.000
+You used to extract claims from context.
+
+00:18:39.000 --> 00:18:42.000
+Then you used to see which of the claims is noisy.
+
+00:18:42.000 --> 00:18:46.000
+You also had an expected output in some cases.
+
+00:18:46.000 --> 00:18:50.000
+You used to extract the claim from the reference based metrics.
+
+00:18:50.000 --> 00:18:53.000
+So exactly the things are there.
+
+00:18:53.000 --> 00:18:59.000
+What you are doing here is you are breaking down the available information into facts.
+
+00:18:59.000 --> 00:19:01.000
+Here you are extracting information from the trace.
+
+00:19:01.000 --> 00:19:03.000
+Whatever you require.
+
+00:19:03.000 --> 00:19:06.000
+And you are giving that extracted information to LLM as a judge.
+
+00:19:06.000 --> 00:19:11.000
+And LLM as a judge is giving you back your answer.
+
+00:19:11.000 --> 00:19:13.000
+I hope this thing is clear to you.
+
+00:19:15.000 --> 00:19:17.000
+And the third category that comes here.
+
+00:19:17.000 --> 00:19:22.000
+That is your component wise evaluation.
+
+00:19:24.000 --> 00:19:29.000
+In this generally you evaluate your action layer.
+
+00:19:30.000 --> 00:19:33.000
+In the whole trace, there is your reasoning layer.
+
+00:19:33.000 --> 00:19:35.000
+There is also an action layer and orchestration layer.
+
+00:19:35.000 --> 00:19:39.000
+Component wise evaluation, you only focus on your action layer.
+
+00:19:39.000 --> 00:19:45.000
+Means you only focus on that part of the trace where the tool calls are.
+
+00:19:45.000 --> 00:19:49.000
+You extract the information from the tool calls.
+
+00:19:49.000 --> 00:19:53.000
+And again you give this extracted information to your LLM as a judge.
+
+00:19:53.000 --> 00:19:55.000
+He gives you a score.
+
+00:19:55.000 --> 00:19:57.000
+So the way to work is exactly the same.
+
+00:19:57.000 --> 00:20:01.000
+But the difference is that in trajectory you give the whole trace.
+
+00:20:01.000 --> 00:20:07.000
+And in component wise you give a section or part of the trace where you are doing tool calls.
+
+00:20:07.000 --> 00:20:09.000
+I hope you understood this point.
+
+00:20:09.000 --> 00:20:11.000
+Again this is not so important.
+
+00:20:11.000 --> 00:20:13.000
+But if you know then it is good.
+
+00:20:13.000 --> 00:20:16.000
+Because we are going to use these terms in the future.
+
+00:20:17.000 --> 00:20:22.000
+Now as I told you that the agent evaluation is different from the rag evaluation.
+
+00:20:22.000 --> 00:20:29.000
+The reason behind this is that your different agentic apps use different architectures behind the scenes.
+
+00:20:29.000 --> 00:20:34.000
+So the work of making this evaluation pipeline is very architecture specific.
+
+00:20:34.000 --> 00:20:40.000
+So what we will do is we will make our evaluation pipeline according to the architecture of our current project.
+
+00:20:40.000 --> 00:20:42.000
+So what is our architecture?
+
+00:20:42.000 --> 00:20:48.000
+Our main agent is a plan and execute agent.
+
+00:20:48.000 --> 00:21:00.000
+So this agent first makes a plan and on the basis of that plan he executes the task.
+
+00:21:00.000 --> 00:21:07.000
+So this plan or your node or step you can simply understand it as your planning layer.
+
+00:21:07.000 --> 00:21:11.000
+So we have a proper planning layer in our agent.
+
+00:21:11.000 --> 00:21:13.000
+And after that execution is happening.
+
+00:21:13.000 --> 00:21:15.000
+What is the execution?
+
+00:21:15.000 --> 00:21:17.000
+This is the action layer.
+
+00:21:19.000 --> 00:21:22.000
+And finally what I am getting here?
+
+00:21:22.000 --> 00:21:24.000
+Finally I am getting my response.
+
+00:21:26.000 --> 00:21:29.000
+So this response is my outcome of the agent.
+
+00:21:31.000 --> 00:21:33.000
+You can also call it output.
+
+00:21:34.000 --> 00:21:38.000
+And this executor, this action layer, I am telling you about my architecture.
+
+00:21:38.000 --> 00:21:40.000
+This is an agent in itself.
+
+00:21:40.000 --> 00:21:43.000
+This is basically acting as a sub agent to the main agent.
+
+00:21:43.000 --> 00:21:46.000
+And internally it is a react style agent.
+
+00:21:48.000 --> 00:21:52.000
+He is getting this plan and he is executing this plan step by step.
+
+00:21:52.000 --> 00:21:55.000
+So guys it is very important to understand these points.
+
+00:21:55.000 --> 00:21:59.000
+Because we are using a plan and execute agent here.
+
+00:21:59.000 --> 00:22:02.000
+So we can work with almost all the metrics here.
+
+00:22:02.000 --> 00:22:09.000
+Because we are working with a planning layer, we are working with an action layer and we have a proper outcome.
+
+00:22:09.000 --> 00:22:11.000
+I hope this point is clear to you.
+
+00:22:11.000 --> 00:22:16.000
+So let's move ahead and discuss about the individual metrics in our application.
+
+00:22:16.000 --> 00:22:19.000
+Now let's discuss about our first metric.
+
+00:22:19.000 --> 00:22:21.000
+That is our task completion metric.
+
+00:22:21.000 --> 00:22:25.000
+So task completion metric simply evaluates that.
+
+00:22:25.000 --> 00:22:30.000
+The input given by our user.
+
+00:22:30.000 --> 00:22:34.000
+Whether it was successfully executed or not.
+
+00:22:34.000 --> 00:22:38.000
+Whether it got a valid outcome or not.
+
+00:22:38.000 --> 00:22:43.000
+So basically task completion metric calculates your alignment score.
+
+00:22:44.000 --> 00:22:46.000
+Between two things.
+
+00:22:46.000 --> 00:22:51.000
+First is your task, that is the input of the user and your outcome.
+
+00:22:52.000 --> 00:22:58.000
+Whether the task given to my agent was completed or not.
+
+00:22:58.000 --> 00:23:00.000
+Whether it was completed or not.
+
+00:23:00.000 --> 00:23:02.000
+That is your task completion metric.
+
+00:23:02.000 --> 00:23:08.000
+Now this task completion metric comes from your orchestration layer.
+
+00:23:11.000 --> 00:23:19.000
+This means that you are dependent on both planning and action.
+
+00:23:19.000 --> 00:23:21.000
+And it is very much obvious.
+
+00:23:21.000 --> 00:23:24.000
+If your task has to be completed properly.
+
+00:23:24.000 --> 00:23:26.000
+Then you should have a proper plan for that.
+
+00:23:26.000 --> 00:23:29.000
+And along with that, the execution of that plan should also be correct.
+
+00:23:29.000 --> 00:23:32.000
+That is why you will be able to complete your task properly.
+
+00:23:32.000 --> 00:23:34.000
+Let's say you have to do a task.
+
+00:23:34.000 --> 00:23:36.000
+So what will you do first?
+
+00:23:36.000 --> 00:23:37.000
+You will make a plan for it.
+
+00:23:37.000 --> 00:23:38.000
+So that plan should be correct.
+
+00:23:38.000 --> 00:23:42.000
+Let's say I want to go from place A to place B.
+
+00:23:42.000 --> 00:23:45.000
+So first of all, how to reach here?
+
+00:23:45.000 --> 00:23:47.000
+Because there are multiple ways to go here.
+
+00:23:47.000 --> 00:23:51.000
+So which path will be the most correct for me?
+
+00:23:51.000 --> 00:23:53.000
+I have to decide that through the planning.
+
+00:23:53.000 --> 00:23:56.000
+And then I have to cover that path and reach my destination.
+
+00:23:56.000 --> 00:23:58.000
+That is my action.
+
+00:23:58.000 --> 00:24:00.000
+So until I do these two steps properly.
+
+00:24:00.000 --> 00:24:02.000
+And I will not do it in the right order.
+
+00:24:02.000 --> 00:24:04.000
+I will not be able to reach my destination.
+
+00:24:04.000 --> 00:24:06.000
+So that is your task completion metric.
+
+00:24:06.000 --> 00:24:10.000
+It calculates your alignment score between your task and the outcome.
+
+00:24:10.000 --> 00:24:15.000
+Now this metric is your trajectory based metric.
+
+00:24:20.000 --> 00:24:25.000
+Means it requires a complete agent trace.
+
+00:24:25.000 --> 00:24:34.000
+What happens in this metric is that you give your agent a task as input.
+
+00:24:34.000 --> 00:24:38.000
+Now your agent starts doing this task.
+
+00:24:38.000 --> 00:24:43.000
+And in doing this task, whatever steps he takes, he keeps logging them.
+
+00:24:43.000 --> 00:24:45.000
+Log to a trace.
+
+00:24:45.000 --> 00:24:50.000
+And as soon as this task is completed, the agent gets an outcome.
+
+00:24:50.000 --> 00:24:53.000
+It also logs this outcome in the trace.
+
+00:24:53.000 --> 00:25:03.000
+So this whole detail of what task the agent has, what steps he took, what plan he made, what outcome came after that, everything is available in his trace.
+
+00:25:03.000 --> 00:25:05.000
+First of all, what do you do?
+
+00:25:05.000 --> 00:25:07.000
+You extract two things from this trace.
+
+00:25:07.000 --> 00:25:09.000
+What?
+
+00:25:09.000 --> 00:25:11.000
+Task and outcome.
+
+00:25:11.000 --> 00:25:18.000
+Because you have to give these two things to your metric to judge your alignment score.
+
+00:25:19.000 --> 00:25:21.000
+So what did you do?
+
+00:25:21.000 --> 00:25:28.000
+You took out the task and outcome from this whole trace.
+
+00:25:28.000 --> 00:25:34.000
+Now you have your task and you have your outcome.
+
+00:25:34.000 --> 00:25:37.000
+Next you have to calculate this alignment score.
+
+00:25:37.000 --> 00:25:40.000
+So you can't calculate this alignment score programmatically.
+
+00:25:40.000 --> 00:25:44.000
+So what you do is you give the work of this scoring to an LLM.
+
+00:25:44.000 --> 00:25:49.000
+You give this LLM a system prompt, which is a detailed system prompt.
+
+00:25:49.000 --> 00:25:54.000
+And you tell it that you have this task and this outcome related to it.
+
+00:25:54.000 --> 00:25:59.000
+You have to judge whether the task that I gave to the agent is completed or not.
+
+00:25:59.000 --> 00:26:07.000
+And LLM tells on the basis of prompt and on the basis of its inputs that what task is completed or not.
+
+00:26:07.000 --> 00:26:10.000
+And it represents it as a score.
+
+00:26:10.000 --> 00:26:15.000
+And this LLM is nothing but my LLM as a judge.
+
+00:26:15.000 --> 00:26:24.000
+Not only I get the score, but I also get a proper reason for the score that why my LLM generated that score.
+
+00:26:24.000 --> 00:26:31.000
+So I can calculate this task completion metric in this way.
+
+00:26:31.000 --> 00:26:33.000
+Super simple. I will summarize it again.
+
+00:26:33.000 --> 00:26:37.000
+To calculate this particular metric, you have to calculate an alignment score.
+
+00:26:37.000 --> 00:26:42.000
+For this, you need two things from the input that is task and outcome.
+
+00:26:42.000 --> 00:26:46.000
+Where will you get this from? You will get this from the agent's trace.
+
+00:26:46.000 --> 00:26:53.000
+Agent's trace is a log that stores the entire execution of your agent from input to output.
+
+00:26:53.000 --> 00:26:57.000
+You took out these two things from it, task and outcome.
+
+00:26:57.000 --> 00:27:00.000
+You gave this task and outcome to your LLM with a system prompt.
+
+00:27:00.000 --> 00:27:04.000
+And said that judge whether this task has been completed properly or not.
+
+00:27:04.000 --> 00:27:09.000
+And on the basis of that, your LLM will generate a score and give a reason.
+
+00:27:09.000 --> 00:27:12.000
+And through this you can evaluate your agent.
+
+00:27:12.000 --> 00:27:19.000
+One thing to note is that this particular metric is a reference-free metric.
+
+00:27:19.000 --> 00:27:28.000
+Reference, just a second. Reference-free metric.
+
+00:27:28.000 --> 00:27:32.000
+Here you do not have to give any expected outcome.
+
+00:27:32.000 --> 00:27:46.000
+Your judge, on the basis of his intelligence, figures out whether this particular trace has been completed or not.
+
+00:27:46.000 --> 00:27:48.000
+He judges based on the outcome.
+
+00:27:48.000 --> 00:27:56.000
+He compares the task and outcome and judges with his reasoning power and tells whether everything has been done properly or not.
+
+00:27:56.000 --> 00:27:59.000
+I hope this point has been clear to you.
+
+00:27:59.000 --> 00:28:03.000
+Now let's discuss about the plan quality metric.
+
+00:28:03.000 --> 00:28:06.000
+What does plan quality metric simply tell you?
+
+00:28:06.000 --> 00:28:17.000
+Plan quality metric tells you how good the plan quality is based on the quality of the plan generated by your planning layer.
+
+00:28:17.000 --> 00:28:22.000
+How good the plan is based on your given task.
+
+00:28:22.000 --> 00:28:25.000
+This plan quality metric judges this.
+
+00:28:25.000 --> 00:28:29.000
+Again, this metric is part of the planning layer.
+
+00:28:29.000 --> 00:28:33.000
+As we said, this planning layer judges how good it is performing.
+
+00:28:33.000 --> 00:28:41.000
+And this particular metric is also the trajectory-based metric.
+
+00:28:41.000 --> 00:28:45.000
+It also works on your trajectory.
+
+00:28:45.000 --> 00:28:53.000
+Here what you do, if I tell you the formula, it is again you calculate an alignment score.
+
+00:28:53.000 --> 00:28:57.000
+But at this time, the inputs of this alignment score change.
+
+00:28:57.000 --> 00:29:03.000
+Here you get one thing which is your task and one thing which is your plan.
+
+00:29:03.000 --> 00:29:11.000
+So what you do here is you give a task to your agent as input.
+
+00:29:11.000 --> 00:29:18.000
+Your agent executes this task and whatever execution steps are there or whatever internal things are there,
+
+00:29:18.000 --> 00:29:22.000
+like plan, tool calls, etc.
+
+00:29:22.000 --> 00:29:26.000
+Whatever he is doing, he logs everything inside a trace.
+
+00:29:26.000 --> 00:29:32.000
+What you do is you take this trace and extract two things from it.
+
+00:29:32.000 --> 00:29:38.000
+First is your task, which is your user's input and second is generated plan.
+
+00:29:38.000 --> 00:29:44.000
+Now you take these two inputs and you provide it to an LLM.
+
+00:29:44.000 --> 00:29:50.000
+Now LLM has a system prompt where you specifically tell that this is your given task
+
+00:29:50.000 --> 00:29:54.000
+and this is the related plan which is generated in my planning node.
+
+00:29:54.000 --> 00:30:02.000
+What you have to do is simply check how much is the plan generated for this given task.
+
+00:30:02.000 --> 00:30:04.000
+How much is the quality of it.
+
+00:30:04.000 --> 00:30:09.000
+So this LLM will take these two inputs and this system prompt and on its basis,
+
+00:30:09.000 --> 00:30:18.000
+will generate a score according to my plan quality and will also give me a reason why it gave that score.
+
+00:30:18.000 --> 00:30:21.000
+So the task is almost done in a similar way.
+
+00:30:21.000 --> 00:30:24.000
+In task completion, there was task and outcome.
+
+00:30:24.000 --> 00:30:26.000
+Here your task and plan are there.
+
+00:30:26.000 --> 00:30:29.000
+And the plan quality metric is very simple to understand.
+
+00:30:29.000 --> 00:30:33.000
+You are simply judging the quality of the generated plan.
+
+00:30:33.000 --> 00:30:38.000
+Here you don't care if this plan was executed properly or not.
+
+00:30:38.000 --> 00:30:41.000
+You don't care about the outcome.
+
+00:30:41.000 --> 00:30:44.000
+Because you are judging the planning layer.
+
+00:30:44.000 --> 00:30:49.000
+So you are only focused on the plan which is also generated.
+
+00:30:49.000 --> 00:30:51.000
+And what is your focus on the plan?
+
+00:30:51.000 --> 00:30:54.000
+You are judging the plan quality.
+
+00:30:56.000 --> 00:30:59.000
+I hope this point is clear to you.
+
+00:30:59.000 --> 00:31:03.000
+If this point is clear to you, then let's go towards the code part.
+
+00:31:03.000 --> 00:31:08.000
+And let's see how you implement these two metrics in the code.
+
+00:31:08.000 --> 00:31:13.000
+So let's discuss how you will implement agent evaluation in the code.
+
+00:31:13.000 --> 00:31:19.000
+So as I told you that to work on every metric here, the agent's trace requirement is there.
+
+00:31:19.000 --> 00:31:21.000
+And how does this trace is generated?
+
+00:31:21.000 --> 00:31:26.000
+As soon as you give a task to your agent, then he plans that task and executes it.
+
+00:31:26.000 --> 00:31:31.000
+And he locks all execution steps and plans inside the trace.
+
+00:31:31.000 --> 00:31:35.000
+So we have to execute our agent here and give him a task.
+
+00:31:35.000 --> 00:31:39.000
+So what I have done for the task is I have prepared a golden data set here.
+
+00:31:39.000 --> 00:31:44.000
+So if you go to the golden directory, then in golden.json I have my golden data set.
+
+00:31:44.000 --> 00:31:47.000
+Now I will do one thing, I will turn on the word drive here.
+
+00:31:47.000 --> 00:31:51.000
+I have listed 9 tasks in this golden data set.
+
+00:31:51.000 --> 00:31:54.000
+And these tasks are specific to my agent.
+
+00:31:54.000 --> 00:32:02.000
+Now here the tasks that I have made, I have categorized them as easy, medium and difficult.
+
+00:32:02.000 --> 00:32:08.000
+So I have 3 easy tasks for my agent, 3 medium tasks and 3 difficult tasks.
+
+00:32:08.000 --> 00:32:10.000
+Let's do one thing, let's read some tasks here.
+
+00:32:10.000 --> 00:32:13.000
+For example, if I talk about the easy task, then if you see this task,
+
+00:32:13.000 --> 00:32:16.000
+screen ananya rao's resume and add her to the tracker.
+
+00:32:16.000 --> 00:32:18.000
+So this is a simple task.
+
+00:32:18.000 --> 00:32:22.000
+So I have added information in metadata that difficulty is easy.
+
+00:32:22.000 --> 00:32:24.000
+And type of the task is screen1.
+
+00:32:24.000 --> 00:32:28.000
+By the way, if I talk about a medium task, then this is a medium task.
+
+00:32:28.000 --> 00:32:36.000
+Screen Tara Menon and Isha Reddy add both to the tracker and move each resume to shortlisted or rejected based on the result.
+
+00:32:36.000 --> 00:32:38.000
+So this is a medium level task.
+
+00:32:38.000 --> 00:32:41.000
+Here there is a little more planning requirement, we are taking a little more steps.
+
+00:32:41.000 --> 00:32:45.000
+And if I talk about a difficult task, then you can see this task.
+
+00:32:45.000 --> 00:32:48.000
+Add every candidate with spark experience to the tracker.
+
+00:32:48.000 --> 00:32:55.000
+So here every candidate's resume has to be screened first and see which resumes have spark skills available.
+
+00:32:55.000 --> 00:32:59.000
+Move their resumes to shortlisted or rejected based on the result.
+
+00:32:59.000 --> 00:33:03.000
+And draft an interview invite for each one who is shortlisted.
+
+00:33:03.000 --> 00:33:05.000
+So this is a little complex task.
+
+00:33:05.000 --> 00:33:08.000
+And we are expecting a lot from our agent in just one task.
+
+00:33:08.000 --> 00:33:11.000
+So I have prepared my golden data set.
+
+00:33:11.000 --> 00:33:16.000
+Now I will show you the actual code through which we are going to run our evaluation pipeline here.
+
+00:33:16.000 --> 00:33:21.000
+Now let's discuss how you write the code of your evaluation pipeline.
+
+00:33:21.000 --> 00:33:24.000
+So you will get its code inside the source hiding agent.
+
+00:33:24.000 --> 00:33:28.000
+And inside this eval directory, you have all the code available.
+
+00:33:28.000 --> 00:33:35.000
+Now this code that I am going to share with you, this is actually the final version of the code.
+
+00:33:35.000 --> 00:33:38.000
+So I have made a lot of changes in this code.
+
+00:33:38.000 --> 00:33:40.000
+You have to use this final version only.
+
+00:33:41.000 --> 00:33:43.000
+I will explain how the code works.
+
+00:33:43.000 --> 00:33:46.000
+But we will break down this code in a step by step manner.
+
+00:33:46.000 --> 00:33:48.000
+This will make things a little clearer.
+
+00:33:48.000 --> 00:33:54.000
+So the code of your evaluation pipeline is in your eval agent.py file.
+
+00:33:54.000 --> 00:33:58.000
+But the code in this file is the final version of the code.
+
+00:33:58.000 --> 00:34:06.000
+So first of all, I will tell you what all things you are using here to run this pipeline.
+
+00:34:06.000 --> 00:34:09.000
+So here I have made necessary imports.
+
+00:34:09.000 --> 00:34:12.000
+After that, I have told you my golden path.
+
+00:34:12.000 --> 00:34:16.000
+First of all, you have to load this golden data set.
+
+00:34:16.000 --> 00:34:20.000
+So first of all, we make an evaluation data set here.
+
+00:34:20.000 --> 00:34:23.000
+After that, we add golden data set from json file.
+
+00:34:23.000 --> 00:34:25.000
+Because this is in json file.
+
+00:34:25.000 --> 00:34:30.000
+We load our golden data set and add it to the data set.
+
+00:34:30.000 --> 00:34:34.000
+After that, I have extracted the golden data set.
+
+00:34:34.000 --> 00:34:39.000
+After that, I have added the golden data set to my evaluation data set.
+
+00:34:39.000 --> 00:34:45.000
+So now I have my evaluation data set in which I have my golden data set ready.
+
+00:34:45.000 --> 00:34:52.000
+After that, what I am doing here is I am running a loop in my golden data set.
+
+00:34:52.000 --> 00:34:54.000
+So what will happen is that one task will come here.
+
+00:34:54.000 --> 00:34:56.000
+And I will send my agent to each task.
+
+00:34:56.000 --> 00:34:59.000
+And I will evaluate on that task.
+
+00:34:59.000 --> 00:35:03.000
+So what will happen is that like in rack, you used to get one query per query.
+
+00:35:03.000 --> 00:35:06.000
+And you used to get the aggregates scores.
+
+00:35:06.000 --> 00:35:08.000
+So that's what we are doing here.
+
+00:35:08.000 --> 00:35:10.000
+See this line you can see here.
+
+00:35:10.000 --> 00:35:13.000
+For golden in data set.eval.
+
+00:35:13.000 --> 00:35:19.000
+So what we are doing is we are making a generator on our evaluation data set.
+
+00:35:19.000 --> 00:35:25.000
+And from this generator, we are extracting one golden by doing one by one.
+
+00:35:25.000 --> 00:35:30.000
+So here I have added some configurations like async config, display config.
+
+00:35:30.000 --> 00:35:33.000
+We have seen this in our rack playlist.
+
+00:35:33.000 --> 00:35:36.000
+First of all, what I am doing here is I am resetting my workspace.
+
+00:35:36.000 --> 00:35:40.000
+Because if I execute every task, there will be changes in my workspace.
+
+00:35:40.000 --> 00:35:45.000
+So what I have to do first is I have to reset my task.
+
+00:35:45.000 --> 00:35:47.000
+So that's what I am doing here.
+
+00:35:47.000 --> 00:35:50.000
+And after that, what I am doing is I am running my agent.
+
+00:35:50.000 --> 00:35:53.000
+Like my workspace is reset and it is in its original state.
+
+00:35:53.000 --> 00:35:56.000
+So I am running my agent and I am providing it a task.
+
+00:35:56.000 --> 00:35:58.000
+So now let's ignore all these lines for now.
+
+00:35:58.000 --> 00:36:00.000
+And come to the state line.
+
+00:36:00.000 --> 00:36:03.000
+So what we are doing is we are using run agent.
+
+00:36:03.000 --> 00:36:05.000
+We are sending our agent.
+
+00:36:05.000 --> 00:36:07.000
+Just a second.
+
+00:36:07.000 --> 00:36:09.000
+Which we have built here.
+
+00:36:09.000 --> 00:36:11.000
+Here we have compiled our graph.
+
+00:36:11.000 --> 00:36:13.000
+We have our agent.
+
+00:36:13.000 --> 00:36:15.000
+And now we are running that agent.
+
+00:36:15.000 --> 00:36:17.000
+And what are we sending in the input?
+
+00:36:17.000 --> 00:36:20.000
+We are sending our task by using golden.input.
+
+00:36:20.000 --> 00:36:23.000
+And when you run the loop on this evaluation data set,
+
+00:36:23.000 --> 00:36:25.000
+You will get one golden each.
+
+00:36:25.000 --> 00:36:28.000
+Now there is a lot of information in the golden.
+
+00:36:28.000 --> 00:36:30.000
+There is also input and additional metadata.
+
+00:36:30.000 --> 00:36:32.000
+What we are doing is we are using input.
+
+00:36:32.000 --> 00:36:34.000
+Because it is our actual task.
+
+00:36:34.000 --> 00:36:36.000
+And we are sending that task to our agent.
+
+00:36:36.000 --> 00:36:38.000
+For generating the trace,
+
+00:36:38.000 --> 00:36:45.000
+What I said is you send the task and you capture the internal execution in the task.
+
+00:36:45.000 --> 00:36:48.000
+So who is doing the work of capturing in the trace?
+
+00:36:48.000 --> 00:36:51.000
+The work of capturing in the trace is this callback handler.
+
+00:36:51.000 --> 00:36:53.000
+So here in callback,
+
+00:36:53.000 --> 00:36:57.000
+We are sending our callback handler in the callback handler.
+
+00:36:57.000 --> 00:37:00.000
+What is this callback handler?
+
+00:37:00.000 --> 00:37:03.000
+This is basically a callback by deep eval.
+
+00:37:03.000 --> 00:37:05.000
+I will show you.
+
+00:37:05.000 --> 00:37:07.000
+Here we are importing this.
+
+00:37:07.000 --> 00:37:09.000
+From deep eval.integrations.lang chain,
+
+00:37:09.000 --> 00:37:11.000
+We are importing the callback handler.
+
+00:37:11.000 --> 00:37:13.000
+The work of this callback handler is very simple.
+
+00:37:13.000 --> 00:37:15.000
+What is he doing?
+
+00:37:15.000 --> 00:37:17.000
+He is going to my agent.
+
+00:37:17.000 --> 00:37:19.000
+And in my agent's graph,
+
+00:37:19.000 --> 00:37:21.000
+Whatever steps are being executed,
+
+00:37:21.000 --> 00:37:24.000
+Whether it is plan generation, action layer or outcome,
+
+00:37:24.000 --> 00:37:27.000
+He is saving them all in one trace.
+
+00:37:27.000 --> 00:37:29.000
+That's it.
+
+00:37:29.000 --> 00:37:31.000
+This is the work of callback handler to generate the trace.
+
+00:37:31.000 --> 00:37:34.000
+So that my deep eval matrix can read that trace.
+
+00:37:34.000 --> 00:37:37.000
+And extract important information from it.
+
+00:37:37.000 --> 00:37:39.000
+And can evaluate on the basis of it.
+
+00:37:39.000 --> 00:37:42.000
+I hope this point is clear to you.
+
+00:37:42.000 --> 00:37:45.000
+Now here you will see some other files.
+
+00:37:45.000 --> 00:37:48.000
+The second important file from this is matrix.py.
+
+00:37:48.000 --> 00:37:51.000
+What does matrix.py do?
+
+00:37:51.000 --> 00:37:54.000
+It prepares my matrix.
+
+00:37:54.000 --> 00:37:56.000
+So here I have told you some things.
+
+00:37:56.000 --> 00:37:58.000
+First of all, I have made some imports.
+
+00:37:58.000 --> 00:38:00.000
+And here I have also imported my metric from deep eval.
+
+00:38:00.000 --> 00:38:02.000
+That is task completion metric.
+
+00:38:02.000 --> 00:38:04.000
+Then I am telling you my judge model.
+
+00:38:04.000 --> 00:38:06.000
+What is my threshold?
+
+00:38:06.000 --> 00:38:08.000
+With which I will know that my metric has passed.
+
+00:38:08.000 --> 00:38:11.000
+And here I have set some paths.
+
+00:38:11.000 --> 00:38:13.000
+Where will my results be saved?
+
+00:38:13.000 --> 00:38:15.000
+Where will the traces be saved?
+
+00:38:15.000 --> 00:38:18.000
+And where will the generated reports be saved?
+
+00:38:18.000 --> 00:38:20.000
+So I have told you all this.
+
+00:38:20.000 --> 00:38:23.000
+After that what are you doing here?
+
+00:38:23.000 --> 00:38:28.000
+You are making a new version of task completion here.
+
+00:38:28.000 --> 00:38:32.000
+And you are using this function with sim trace.
+
+00:38:32.000 --> 00:38:35.000
+Now I will tell you what this slim trace is doing.
+
+00:38:35.000 --> 00:38:40.000
+Actually what is that your actual trace that is generated.
+
+00:38:40.000 --> 00:38:42.000
+By using the callback handler.
+
+00:38:42.000 --> 00:38:44.000
+That is very big.
+
+00:38:44.000 --> 00:38:47.000
+That is around 50,000 token.
+
+00:38:47.000 --> 00:38:50.000
+And when you are evaluating every golden.
+
+00:38:50.000 --> 00:38:52.000
+Then this 50,000 token trace.
+
+00:38:52.000 --> 00:38:56.000
+You are sending it to your LLM as a judge.
+
+00:38:56.000 --> 00:38:58.000
+So what is happening with this?
+
+00:38:58.000 --> 00:39:00.000
+Your input cost is increasing.
+
+00:39:00.000 --> 00:39:02.000
+Your time is taking more time in your evaluation.
+
+00:39:02.000 --> 00:39:04.000
+So what have we done here?
+
+00:39:04.000 --> 00:39:06.000
+We have used this with slim trace function.
+
+00:39:06.000 --> 00:39:08.000
+And made our trace small.
+
+00:39:08.000 --> 00:39:11.000
+We have only used those things in our trace.
+
+00:39:11.000 --> 00:39:14.000
+Which are useful for a particular metric.
+
+00:39:14.000 --> 00:39:16.000
+And the rest of the extra things from the trace.
+
+00:39:16.000 --> 00:39:18.000
+We have removed them.
+
+00:39:18.000 --> 00:39:21.000
+So it is basically a wrapper function with slim trace.
+
+00:39:21.000 --> 00:39:22.000
+What will it do?
+
+00:39:22.000 --> 00:39:24.000
+It will make my task completion metric.
+
+00:39:24.000 --> 00:39:25.000
+Slim task completion.
+
+00:39:25.000 --> 00:39:27.000
+Means now this task completion metric.
+
+00:39:27.000 --> 00:39:29.000
+Without getting complete trace.
+
+00:39:29.000 --> 00:39:31.000
+You will get a slim version of the trace.
+
+00:39:31.000 --> 00:39:33.000
+Which will save my input tokens.
+
+00:39:33.000 --> 00:39:36.000
+And here I have two more metrics.
+
+00:39:36.000 --> 00:39:38.000
+My plan quality and adherence.
+
+00:39:38.000 --> 00:39:40.000
+Now we will talk about these later.
+
+00:39:40.000 --> 00:39:42.000
+Now I will show you.
+
+00:39:42.000 --> 00:39:45.000
+How this slim trace file is working.
+
+00:39:45.000 --> 00:39:46.000
+So this is the file.
+
+00:39:46.000 --> 00:39:48.000
+I have written above.
+
+00:39:48.000 --> 00:39:49.000
+It's work is.
+
+00:39:49.000 --> 00:39:51.000
+It shrinks the deep eval trace.
+
+00:39:51.000 --> 00:39:53.000
+Before the metric judge reads it.
+
+00:39:53.000 --> 00:39:56.000
+So it makes the trace smaller before going to my LLM judge.
+
+00:39:56.000 --> 00:39:58.000
+So that I can save on input tokens.
+
+00:39:58.000 --> 00:40:01.000
+And also my evaluation will be faster.
+
+00:40:01.000 --> 00:40:03.000
+It is written here clearly.
+
+00:40:03.000 --> 00:40:06.000
+The callback hander saves the full input and output.
+
+00:40:06.000 --> 00:40:08.000
+Of every Langraaff step.
+
+00:40:08.000 --> 00:40:10.000
+Same message history is copied into every node.
+
+00:40:10.000 --> 00:40:12.000
+So basically what is there.
+
+00:40:12.000 --> 00:40:14.000
+In your subsequent node.
+
+00:40:14.000 --> 00:40:17.000
+Traces of the upper node are also being copied.
+
+00:40:17.000 --> 00:40:18.000
+Because this.
+
+00:40:18.000 --> 00:40:21.000
+Like a trace was generated in the planning node.
+
+00:40:21.000 --> 00:40:23.000
+Now the next job is the execution node.
+
+00:40:23.000 --> 00:40:25.000
+In that, the trace of the planning node.
+
+00:40:25.000 --> 00:40:27.000
+Will be duplicated again.
+
+00:40:27.000 --> 00:40:28.000
+So basically what you are doing.
+
+00:40:28.000 --> 00:40:30.000
+You are copying the same information again and again.
+
+00:40:30.000 --> 00:40:32.000
+So this becomes very big.
+
+00:40:32.000 --> 00:40:34.000
+It becomes 30,000 to 50,000 tokens.
+
+00:40:34.000 --> 00:40:36.000
+So what you will do.
+
+00:40:36.000 --> 00:40:37.000
+You will make it small.
+
+00:40:37.000 --> 00:40:38.000
+And after making it small.
+
+00:40:38.000 --> 00:40:39.000
+The length of this trace.
+
+00:40:39.000 --> 00:40:41.000
+Is around 5000 tokens.
+
+00:40:41.000 --> 00:40:46.000
+So you can do a reduction of 6 to 10x.
+
+00:40:46.000 --> 00:40:48.000
+So it is written here.
+
+00:40:48.000 --> 00:40:50.000
+One small run is already around 30,000 tokens.
+
+00:40:50.000 --> 00:40:53.000
+And each metric sends the whole trace to the judge.
+
+00:40:53.000 --> 00:40:56.000
+Slim trace keeps each fact once.
+
+00:40:56.000 --> 00:40:58.000
+What all things are mentioned here.
+
+00:40:58.000 --> 00:41:00.000
+And this is its code.
+
+00:41:00.000 --> 00:41:04.000
+How you are extracting important things from the trace.
+
+00:41:04.000 --> 00:41:06.000
+Now if this code looks difficult to you.
+
+00:41:06.000 --> 00:41:07.000
+Don't worry.
+
+00:41:07.000 --> 00:41:09.000
+You can use this code exactly.
+
+00:41:09.000 --> 00:41:11.000
+You should know its purpose.
+
+00:41:11.000 --> 00:41:12.000
+Its purpose is very simple.
+
+00:41:12.000 --> 00:41:13.000
+What it is doing.
+
+00:41:13.000 --> 00:41:16.000
+It is only the useful things from my complete trace.
+
+00:41:16.000 --> 00:41:18.000
+Which is non-duplicate information.
+
+00:41:18.000 --> 00:41:19.000
+It is bringing that.
+
+00:41:19.000 --> 00:41:20.000
+It is making a slim trace.
+
+00:41:20.000 --> 00:41:22.000
+And it is giving that slim trace to my LLM.
+
+00:41:22.000 --> 00:41:23.000
+To do the judgment.
+
+00:41:23.000 --> 00:41:24.000
+Okay.
+
+00:41:24.000 --> 00:41:26.000
+So here all these things are happening.
+
+00:41:26.000 --> 00:41:27.000
+Okay.
+
+00:41:27.000 --> 00:41:28.000
+I hope you understood this point.
+
+00:41:28.000 --> 00:41:29.000
+Okay.
+
+00:41:29.000 --> 00:41:30.000
+There is one more file.
+
+00:41:30.000 --> 00:41:31.000
+On which you have to pay attention.
+
+00:41:31.000 --> 00:41:32.000
+That is report.pby.
+
+00:41:32.000 --> 00:41:33.000
+Again.
+
+00:41:33.000 --> 00:41:34.000
+Again.
+
+00:41:34.000 --> 00:41:36.000
+You don't need to understand its code.
+
+00:41:36.000 --> 00:41:37.000
+Its purpose is simply.
+
+00:41:37.000 --> 00:41:39.000
+Whatever evaluation is happening.
+
+00:41:39.000 --> 00:41:41.000
+We will see its results in the terminal.
+
+00:41:41.000 --> 00:41:42.000
+But what we want is.
+
+00:41:42.000 --> 00:41:44.000
+We want a detailed report.
+
+00:41:44.000 --> 00:41:45.000
+We want a markdown report.
+
+00:41:45.000 --> 00:41:46.000
+Now you will remember.
+
+00:41:46.000 --> 00:41:48.000
+When we needed a markdown report in the rack.
+
+00:41:48.000 --> 00:41:50.000
+We used to use evaluate API.
+
+00:41:50.000 --> 00:41:52.000
+But because you have the requirement of traces.
+
+00:41:52.000 --> 00:41:54.000
+You don't use evaluate API.
+
+00:41:54.000 --> 00:41:56.000
+You use evalze iterator.
+
+00:41:56.000 --> 00:41:59.000
+And it doesn't have any method of report generation.
+
+00:41:59.000 --> 00:42:01.000
+So this is our custom code.
+
+00:42:01.000 --> 00:42:04.000
+Through which we can generate a markdown report.
+
+00:42:04.000 --> 00:42:05.000
+Again.
+
+00:42:05.000 --> 00:42:06.000
+Its code is difficult.
+
+00:42:06.000 --> 00:42:07.000
+If you don't understand.
+
+00:42:07.000 --> 00:42:08.000
+Don't worry.
+
+00:42:08.000 --> 00:42:10.000
+You have to use this file as it is.
+
+00:42:10.000 --> 00:42:12.000
+I will show you its output.
+
+00:42:12.000 --> 00:42:14.000
+Here you get the output.
+
+00:42:14.000 --> 00:42:15.000
+So basically.
+
+00:42:15.000 --> 00:42:17.000
+What I did in the first iteration.
+
+00:42:17.000 --> 00:42:18.000
+In the first iteration.
+
+00:42:18.000 --> 00:42:19.000
+I.
+
+00:42:19.000 --> 00:42:21.000
+Using this evalze iterator.
+
+00:42:21.000 --> 00:42:22.000
+Okay.
+
+00:42:22.000 --> 00:42:23.000
+One by one.
+
+00:42:23.000 --> 00:42:24.000
+Task.
+
+00:42:24.000 --> 00:42:25.000
+To our agent.
+
+00:42:25.000 --> 00:42:27.000
+He generated the trace here.
+
+00:42:27.000 --> 00:42:29.000
+I converted the trace into a slim trace.
+
+00:42:29.000 --> 00:42:30.000
+And.
+
+00:42:30.000 --> 00:42:32.000
+Through that slim trace.
+
+00:42:32.000 --> 00:42:33.000
+I did judgment.
+
+00:42:33.000 --> 00:42:35.000
+I did judgment on my two metrics.
+
+00:42:35.000 --> 00:42:36.000
+That is my plan quality.
+
+00:42:36.000 --> 00:42:38.000
+And my task completion.
+
+00:42:38.000 --> 00:42:39.000
+Now I will show you.
+
+00:42:39.000 --> 00:42:40.000
+What is the result of it.
+
+00:42:40.000 --> 00:42:42.000
+So if I go to evalze result.
+
+00:42:42.000 --> 00:42:45.000
+Here you will get this particular markdown file.
+
+00:42:45.000 --> 00:42:46.000
+Okay.
+
+00:42:46.000 --> 00:42:47.000
+I will do one thing.
+
+00:42:47.000 --> 00:42:49.000
+I will open it in preview.
+
+00:42:49.000 --> 00:42:50.000
+See.
+
+00:42:50.000 --> 00:42:51.000
+So this is the report.
+
+00:42:51.000 --> 00:42:52.000
+It is written here.
+
+00:42:52.000 --> 00:42:55.000
+Which model I was using for planning.
+
+00:42:55.000 --> 00:42:58.000
+And all things are written here.
+
+00:42:58.000 --> 00:43:00.000
+Which was the judge model.
+
+00:43:00.000 --> 00:43:02.000
+And you can clearly see.
+
+00:43:02.000 --> 00:43:03.000
+For planning.
+
+00:43:03.000 --> 00:43:05.000
+I was using GPT 6.1.
+
+00:43:05.000 --> 00:43:07.000
+This was my executor model.
+
+00:43:07.000 --> 00:43:08.000
+This was my judge model.
+
+00:43:08.000 --> 00:43:10.000
+Which prompt word I was using.
+
+00:43:10.000 --> 00:43:13.000
+How many goldens and pass threshold.
+
+00:43:13.000 --> 00:43:15.000
+So in this particular run.
+
+00:43:15.000 --> 00:43:16.000
+On these nine goldens.
+
+00:43:16.000 --> 00:43:18.000
+My task completion.
+
+00:43:18.000 --> 00:43:20.000
+The score was 86%.
+
+00:43:20.000 --> 00:43:21.000
+Out of eight.
+
+00:43:21.000 --> 00:43:24.000
+Eight tasks were passed.
+
+00:43:24.000 --> 00:43:26.000
+One task failed.
+
+00:43:26.000 --> 00:43:28.000
+The score of the plan quality.
+
+00:43:28.000 --> 00:43:29.000
+Which was built in metric.
+
+00:43:29.000 --> 00:43:30.000
+Was 56%.
+
+00:43:30.000 --> 00:43:31.000
+And out of nine.
+
+00:43:31.000 --> 00:43:34.000
+Only four of my tasks were passed.
+
+00:43:34.000 --> 00:43:36.000
+Now you ignore this third plan quality.
+
+00:43:36.000 --> 00:43:37.000
+Okay.
+
+00:43:37.000 --> 00:43:39.000
+So task completion was scoring well.
+
+00:43:39.000 --> 00:43:40.000
+Eight results were passing.
+
+00:43:40.000 --> 00:43:43.000
+Whereas plan quality was performing very poorly.
+
+00:43:43.000 --> 00:43:44.000
+So let's do one thing.
+
+00:43:44.000 --> 00:43:45.000
+Let's investigate a little.
+
+00:43:45.000 --> 00:43:48.000
+Why is the score of plan quality so low.
+
+00:43:48.000 --> 00:43:49.000
+So here.
+
+00:43:49.000 --> 00:43:50.000
+Per golden I have results.
+
+00:43:50.000 --> 00:43:52.000
+And if you see here.
+
+00:43:52.000 --> 00:43:53.000
+So this is the easy task.
+
+00:43:53.000 --> 00:43:54.000
+In this only.
+
+00:43:54.000 --> 00:43:55.000
+My built in plan quality.
+
+00:43:55.000 --> 00:43:56.000
+Score is very low.
+
+00:43:56.000 --> 00:43:58.000
+And if I talk about.
+
+00:43:58.000 --> 00:43:59.000
+Other tasks.
+
+00:43:59.000 --> 00:44:00.000
+Like this medium task.
+
+00:44:00.000 --> 00:44:01.000
+It is also 0.5.
+
+00:44:01.000 --> 00:44:02.000
+And in the difficult one.
+
+00:44:02.000 --> 00:44:03.000
+In general.
+
+00:44:03.000 --> 00:44:04.000
+My built in plan quality.
+
+00:44:04.000 --> 00:44:05.000
+Is failing.
+
+00:44:05.000 --> 00:44:06.000
+Okay.
+
+00:44:06.000 --> 00:44:09.000
+So let's explore this a little.
+
+00:44:09.000 --> 00:44:11.000
+So this is failing on the second task.
+
+00:44:11.000 --> 00:44:12.000
+Okay.
+
+00:44:12.000 --> 00:44:13.000
+So this is my task.
+
+00:44:13.000 --> 00:44:14.000
+Okay.
+
+00:44:14.000 --> 00:44:15.000
+This is his plan.
+
+00:44:15.000 --> 00:44:17.000
+First read the job description.
+
+00:44:17.000 --> 00:44:19.000
+Then read Ananya Rao's resume.
+
+00:44:19.000 --> 00:44:21.000
+And then add it to the tracker.
+
+00:44:21.000 --> 00:44:23.000
+So this is what is written here.
+
+00:44:23.000 --> 00:44:25.000
+That screen Ananya Rao's resume.
+
+00:44:25.000 --> 00:44:26.000
+And add her to the tracker.
+
+00:44:26.000 --> 00:44:28.000
+Whatever the score is.
+
+00:44:28.000 --> 00:44:29.000
+According to that.
+
+00:44:29.000 --> 00:44:30.000
+Add her to the tracker.
+
+00:44:30.000 --> 00:44:31.000
+So on the task completion.
+
+00:44:31.000 --> 00:44:33.000
+It is scoring 0.85.
+
+00:44:33.000 --> 00:44:34.000
+What is the reason?
+
+00:44:34.000 --> 00:44:35.000
+The actual outcome does.
+
+00:44:35.000 --> 00:44:36.000
+Screen Ananya Rao's resume.
+
+00:44:36.000 --> 00:44:38.000
+And successfully adds to the tracker.
+
+00:44:38.000 --> 00:44:40.000
+Which matches the core of the task.
+
+00:44:40.000 --> 00:44:41.000
+However.
+
+00:44:41.000 --> 00:44:43.000
+It also makes a rejection decision.
+
+00:44:43.000 --> 00:44:45.000
+Provides evaluation details.
+
+00:44:45.000 --> 00:44:46.000
+Rather than just adding her.
+
+00:44:46.000 --> 00:44:48.000
+So it is not a perfect match.
+
+00:44:48.000 --> 00:44:49.000
+So this is a little strict.
+
+00:44:49.000 --> 00:44:50.000
+My task completion.
+
+00:44:50.000 --> 00:44:51.000
+It says that.
+
+00:44:51.000 --> 00:44:52.000
+It says that.
+
+00:44:52.000 --> 00:44:53.000
+It rejected her.
+
+00:44:53.000 --> 00:44:55.000
+Whereas if you read it clearly.
+
+00:44:55.000 --> 00:44:56.000
+Then it should not be rejected.
+
+00:44:56.000 --> 00:44:57.000
+It should be shortlisted.
+
+00:44:57.000 --> 00:44:58.000
+Because it has.
+
+00:44:58.000 --> 00:45:00.000
+I think all the must have's.
+
+00:45:00.000 --> 00:45:01.000
+So.
+
+00:45:01.000 --> 00:45:02.000
+Added to the tracker.
+
+00:45:02.000 --> 00:45:03.000
+But the information added after adding.
+
+00:45:03.000 --> 00:45:04.000
+Was a little wrong.
+
+00:45:04.000 --> 00:45:05.000
+So in the task completion.
+
+00:45:05.000 --> 00:45:06.000
+It says that.
+
+00:45:06.000 --> 00:45:07.000
+Added to the tracker.
+
+00:45:07.000 --> 00:45:09.000
+But things did not handle so well.
+
+00:45:09.000 --> 00:45:10.000
+Whatever it is.
+
+00:45:10.000 --> 00:45:11.000
+Here.
+
+00:45:11.000 --> 00:45:12.000
+My.
+
+00:45:12.000 --> 00:45:13.000
+This particular agent.
+
+00:45:13.000 --> 00:45:14.000
+The work that was given to him.
+
+00:45:14.000 --> 00:45:15.000
+He did.
+
+00:45:15.000 --> 00:45:16.000
+Okay.
+
+00:45:16.000 --> 00:45:17.000
+No matter what the values are.
+
+00:45:17.000 --> 00:45:18.000
+Now let's talk about.
+
+00:45:18.000 --> 00:45:19.000
+Built-in plan quality metric.
+
+00:45:19.000 --> 00:45:20.000
+Which is given to me by DPVAL.
+
+00:45:20.000 --> 00:45:21.000
+Okay.
+
+00:45:21.000 --> 00:45:22.000
+So here it is written.
+
+00:45:22.000 --> 00:45:23.000
+The plan reads the job description.
+
+00:45:23.000 --> 00:45:24.000
+And resume.
+
+00:45:24.000 --> 00:45:25.000
+And then adds the candidate.
+
+00:45:25.000 --> 00:45:26.000
+Which covers the core work flow.
+
+00:45:26.000 --> 00:45:27.000
+However it omits any explicit validation.
+
+00:45:27.000 --> 00:45:28.000
+Of required fields.
+
+00:45:28.000 --> 00:45:29.000
+Before calling add candidate.
+
+00:45:29.000 --> 00:45:30.000
+And is vague about how to derive years of experience.
+
+00:45:30.000 --> 00:45:31.000
+So.
+
+00:45:31.000 --> 00:45:32.000
+By looking at it.
+
+00:45:32.000 --> 00:45:33.000
+I am understanding that.
+
+00:45:33.000 --> 00:45:34.000
+What is here.
+
+00:45:34.000 --> 00:45:35.000
+That the plan that my agent has generated.
+
+00:45:35.000 --> 00:45:36.000
+Is absolutely fine.
+
+00:45:36.000 --> 00:45:37.000
+According to him.
+
+00:45:37.000 --> 00:45:38.000
+It is also working.
+
+00:45:38.000 --> 00:45:39.000
+But here.
+
+00:45:39.000 --> 00:45:40.000
+My plan quality metric.
+
+00:45:40.000 --> 00:45:41.000
+It is not able to understand things properly.
+
+00:45:41.000 --> 00:45:42.000
+And that is why.
+
+00:45:42.000 --> 00:45:43.000
+It is not able to understand things properly.
+
+00:45:43.000 --> 00:45:44.000
+And that is why.
+
+00:45:44.000 --> 00:45:45.000
+It is not able to understand things properly.
+
+00:45:45.000 --> 00:45:46.000
+And that is why.
+
+00:45:46.000 --> 00:45:47.000
+It is not able to understand things properly.
+
+00:45:47.000 --> 00:45:48.000
+And that is why.
+
+00:45:48.000 --> 00:45:49.000
+It is not able to understand things properly.
+
+00:45:49.000 --> 00:45:50.000
+And that is why.
+
+00:45:50.000 --> 00:45:51.000
+It is not able to understand things properly.
+
+00:45:51.000 --> 00:45:52.000
+Because my plan quality metric.
+
+00:45:52.000 --> 00:45:53.000
+Does not have information about my workspace.
+
+00:45:53.000 --> 00:45:54.000
+Okay.
+
+00:45:54.000 --> 00:45:55.000
+If you go down.
+
+00:45:55.000 --> 00:45:56.000
+Where there is a difficult task.
+
+00:45:56.000 --> 00:45:57.000
+So in general you will see.
+
+00:45:57.000 --> 00:45:58.000
+That my plan is correct there too.
+
+00:45:58.000 --> 00:45:59.000
+Okay.
+
+00:45:59.000 --> 00:46:00.000
+But it is failing because.
+
+00:46:00.000 --> 00:46:01.000
+It has no idea.
+
+00:46:01.000 --> 00:46:02.000
+That which files.
+
+00:46:02.000 --> 00:46:03.000
+Exist in my workspace.
+
+00:46:03.000 --> 00:46:04.000
+Okay.
+
+00:46:04.000 --> 00:46:05.000
+If you look at it.
+
+00:46:05.000 --> 00:46:06.000
+Then the task completion is 95%.
+
+00:46:06.000 --> 00:46:07.000
+But the plan is failing.
+
+00:46:07.000 --> 00:46:08.000
+Okay.
+
+00:46:08.000 --> 00:46:09.000
+Plan omits reading.
+
+00:46:09.000 --> 00:46:10.000
+Okay.
+
+00:46:10.000 --> 00:46:11.000
+Plan omits reading.
+
+00:46:11.000 --> 00:46:12.000
+Okay.
+
+00:46:12.000 --> 00:46:13.000
+Plan omits reading.
+
+00:46:13.000 --> 00:46:14.000
+Okay.
+
+00:46:14.000 --> 00:46:15.000
+Plan omits reading.
+
+00:46:15.000 --> 00:46:16.000
+Okay.
+
+00:46:16.000 --> 00:46:17.000
+Plan omits reading.
+
+00:46:17.000 --> 00:46:18.060
+Okay.
+
+00:46:18.060 --> 00:46:19.060
+Plan omits reading.
+
+00:46:19.060 --> 00:46:20.060
+Karan Shah resume before screening him.
+
+00:46:20.060 --> 00:46:21.160
+Rely On later tracker.
+
+00:46:21.160 --> 00:46:22.060
+So,
+
+00:46:22.060 --> 00:46:23.060
+He add in the tracker.
+
+00:46:23.060 --> 00:46:24.060
+So,
+
+00:46:24.060 --> 00:46:25.760
+We have explicitly written.
+
+00:46:25.760 --> 00:46:27.200
+That he bring information from the tracker.
+
+00:46:27.200 --> 00:46:28.200
+Not from the resume.
+
+00:46:28.200 --> 00:46:30.200
+Because it is already added in the tracker.
+
+00:46:30.200 --> 00:46:31.200
+So,
+
+00:46:31.200 --> 00:46:32.200
+Plan is being correct.
+
+00:46:32.200 --> 00:46:33.320
+But because information is not there.
+
+00:46:33.320 --> 00:46:34.460
+About my workspace.
+
+00:46:34.460 --> 00:46:35.460
+So,
+
+00:46:35.460 --> 00:46:36.460
+Here it is getting a faulty task.
+
+00:46:36.460 --> 00:46:37.460
+So,
+
+00:46:37.460 --> 00:46:38.460
+What I did is.
+
+00:46:38.460 --> 00:46:39.460
+I bypassed.
+
+00:46:39.460 --> 00:46:40.460
+Your built-in plan quality metric.
+
+00:46:40.460 --> 00:46:44.640
+And here I have made my custom plan quality metric.
+
+00:46:44.640 --> 00:46:49.060
+quality metric and custom plan quality metric I have made through G eval
+
+00:46:49.060 --> 00:46:52.020
+I have written its code here in planjudge.py
+
+00:46:53.680 --> 00:46:58.319
+So in this file, my custom plan quality metric is written here
+
+00:46:58.319 --> 00:47:01.520
+a plan quality judge that sees what the planner saw
+
+00:47:01.520 --> 00:47:04.560
+We are giving information of our planner about the whole workspace
+
+00:47:04.560 --> 00:47:09.600
+So here we are giving information of the whole workspace to this plan quality metric
+
+00:47:09.600 --> 00:47:14.120
+D p eval's plan quality metric grades the plan from task and the plan text only
+
+00:47:14.120 --> 00:47:22.440
+It never sees the workspace or tools so it cannot tell a complete plan from an incomplete one
+
+00:47:22.440 --> 00:47:27.600
+Here we have given an example, we cannot add snapshot in this
+
+00:47:27.600 --> 00:47:33.759
+So what we are doing here is we are creating a custom evaluation through G eval
+
+00:47:33.759 --> 00:47:39.000
+Where we have input, actual output and the context
+
+00:47:39.000 --> 00:47:42.960
+So we are building this through G eval
+
+00:47:43.280 --> 00:47:45.640
+So you know the code of G eval, how to write it
+
+00:47:45.640 --> 00:47:48.280
+Here we have imported the G eval
+
+00:47:48.280 --> 00:47:51.280
+Then these are our individual evaluation steps
+
+00:47:51.280 --> 00:47:54.400
+Now I am not reading these steps in front of you, you read it
+
+00:47:54.400 --> 00:47:56.400
+What is written in this
+
+00:47:56.400 --> 00:48:00.640
+I have listed down the evaluation steps here
+
+00:48:00.640 --> 00:48:02.160
+First we have to do this
+
+00:48:02.160 --> 00:48:07.680
+How to work as a judge, conditional steps, completeness, check
+
+00:48:07.680 --> 00:48:10.480
+Real names only, tools used for what they do
+
+00:48:10.480 --> 00:48:12.320
+I have written all these things here
+
+00:48:12.480 --> 00:48:15.120
+After that I have defined proper rubrics here
+
+00:48:15.120 --> 00:48:19.120
+That how much score you have to give on every condition
+
+00:48:19.120 --> 00:48:24.040
+So rubrics come to define you already, I have defined here
+
+00:48:24.040 --> 00:48:25.800
+After that what you are doing
+
+00:48:25.800 --> 00:48:29.600
+After that you are taking a snapshot of the workspace
+
+00:48:29.600 --> 00:48:30.600
+I will show you
+
+00:48:30.600 --> 00:48:35.200
+After resetting here, you are taking a snapshot of your workspace
+
+00:48:35.200 --> 00:48:36.680
+Basically you are taking a picture of it
+
+00:48:36.680 --> 00:48:39.120
+And with whom are you sharing this snapshot
+
+00:48:39.160 --> 00:48:42.759
+You are sharing this snapshot with the plan quality metric
+
+00:48:42.759 --> 00:48:45.759
+You are sharing it with this plan judge
+
+00:48:45.759 --> 00:48:48.279
+After that what are you doing
+
+00:48:48.279 --> 00:48:49.759
+You are making a test case here
+
+00:48:49.759 --> 00:48:51.759
+You know you make a test case in G eval
+
+00:48:51.759 --> 00:48:54.759
+In the test case, you have input which is your task
+
+00:48:54.759 --> 00:48:56.759
+You have actual output
+
+00:48:56.759 --> 00:48:59.440
+And after that you have context
+
+00:48:59.440 --> 00:49:02.960
+What is in the context, your snapshot of the workspace
+
+00:49:02.960 --> 00:49:06.759
+And you have added all the other things here
+
+00:49:06.759 --> 00:49:08.080
+You have added your tools list
+
+00:49:08.240 --> 00:49:10.720
+And now your plan quality metric
+
+00:49:10.720 --> 00:49:12.240
+Which is your custom plan quality metric
+
+00:49:12.240 --> 00:49:15.120
+It has all the information of workspace and tools
+
+00:49:15.120 --> 00:49:19.040
+And after that you have made this judge using G eval
+
+00:49:19.040 --> 00:49:21.040
+So in G eval, you have first of all told the name
+
+00:49:21.040 --> 00:49:22.920
+What will be the name of your custom metric
+
+00:49:22.920 --> 00:49:24.840
+Evaluation steps which you told in grading steps
+
+00:49:24.840 --> 00:49:25.640
+You have passed that
+
+00:49:25.640 --> 00:49:27.680
+You have passed your detailed rubrics
+
+00:49:27.680 --> 00:49:30.360
+After that you have passed your inputs
+
+00:49:30.360 --> 00:49:35.240
+So you will get input, actual output and context
+
+00:49:35.240 --> 00:49:37.240
+After that you have told your judge model
+
+00:49:37.240 --> 00:49:38.240
+What will be the threshold
+
+00:49:38.240 --> 00:49:42.240
+And whether it should be used in async mode or not
+
+00:49:42.240 --> 00:49:43.879
+So all these things you have told
+
+00:49:43.879 --> 00:49:46.399
+And through this custom plan metric
+
+00:49:46.399 --> 00:49:49.080
+When I evaluated it again
+
+00:49:49.080 --> 00:49:51.080
+So these were the results
+
+00:49:51.080 --> 00:49:53.080
+Which you were seeing the third row
+
+00:49:54.080 --> 00:49:55.359
+This one
+
+00:49:55.359 --> 00:49:58.160
+So this was my custom plan quality metric
+
+00:49:58.160 --> 00:50:00.959
+So where earlier on my built-in plan quality metric
+
+00:50:00.959 --> 00:50:05.439
+Only 4 tasks were passing on the plan quality
+
+00:50:05.640 --> 00:50:07.640
+Now my 8 tasks were passing
+
+00:50:07.640 --> 00:50:10.640
+And my aggregate score was 0.78
+
+00:50:10.640 --> 00:50:13.640
+So on the custom one
+
+00:50:13.640 --> 00:50:15.640
+Simple ones were passing 3 out of 3
+
+00:50:15.640 --> 00:50:17.640
+Difficult ones were also passing 3 out of 3
+
+00:50:17.640 --> 00:50:19.640
+But one was failing in the medium
+
+00:50:19.640 --> 00:50:23.640
+So I investigated this whole thing again
+
+00:50:23.640 --> 00:50:25.640
+And after investigating
+
+00:50:25.640 --> 00:50:27.640
+I got to know that
+
+00:50:27.640 --> 00:50:31.640
+There are some errors in my system prompt
+
+00:50:31.640 --> 00:50:33.640
+Because of this my medium task
+
+00:50:33.839 --> 00:50:35.839
+This duplicate resume task
+
+00:50:35.839 --> 00:50:37.839
+Not this one
+
+00:50:37.839 --> 00:50:39.839
+This one
+
+00:50:39.839 --> 00:50:41.839
+This one is failing
+
+00:50:41.839 --> 00:50:43.839
+So what I did there
+
+00:50:43.839 --> 00:50:45.839
+I updated my planner prompt
+
+00:50:45.839 --> 00:50:47.839
+And not only I updated it
+
+00:50:47.839 --> 00:50:49.839
+I also created a version of it
+
+00:50:49.839 --> 00:50:51.839
+On linefuse
+
+00:50:51.839 --> 00:50:53.839
+I will show you the version I have created
+
+00:50:53.839 --> 00:50:57.839
+If you can see my screen
+
+00:50:57.839 --> 00:50:59.839
+So see
+
+00:50:59.839 --> 00:51:01.839
+Here you can see
+
+00:51:02.040 --> 00:51:04.040
+These are my 3 system prompts
+
+00:51:04.040 --> 00:51:06.040
+If you go to the planner prompt
+
+00:51:06.040 --> 00:51:08.040
+The version I am using
+
+00:51:08.040 --> 00:51:10.040
+It is version 2
+
+00:51:10.040 --> 00:51:12.040
+If I open it
+
+00:51:12.040 --> 00:51:14.040
+This is my first version
+
+00:51:14.040 --> 00:51:16.040
+And this is my latest
+
+00:51:16.040 --> 00:51:18.040
+If you want to check
+
+00:51:18.040 --> 00:51:20.040
+What you have updated
+
+00:51:20.040 --> 00:51:22.040
+You can compare with version 1
+
+00:51:22.040 --> 00:51:24.040
+This is version 1 and this is version 2
+
+00:51:24.040 --> 00:51:26.040
+And these are all the things
+
+00:51:26.040 --> 00:51:28.040
+Where I have changed my planner prompt
+
+00:51:28.040 --> 00:51:30.040
+I have added these phrases
+
+00:51:30.240 --> 00:51:32.240
+And I have removed them
+
+00:51:32.240 --> 00:51:34.240
+So you can clearly go and see
+
+00:51:34.240 --> 00:51:36.240
+What I have added and removed
+
+00:51:36.240 --> 00:51:38.240
+So here I am working
+
+00:51:38.240 --> 00:51:40.240
+With version 2 of my planner prompt
+
+00:51:40.240 --> 00:51:42.240
+So as soon as
+
+00:51:42.240 --> 00:51:44.240
+I updated my
+
+00:51:44.240 --> 00:51:46.240
+Planner prompt
+
+00:51:46.240 --> 00:51:48.240
+So I got a change in my results
+
+00:51:48.240 --> 00:51:50.240
+And I share the results with you
+
+00:51:52.240 --> 00:51:54.240
+So this is a particular report
+
+00:51:54.240 --> 00:51:56.240
+I share it with you
+
+00:51:56.240 --> 00:51:58.240
+See
+
+00:51:58.439 --> 00:52:00.439
+So here you can see
+
+00:52:00.439 --> 00:52:02.439
+The planner model is 6.1
+
+00:52:02.439 --> 00:52:04.439
+There is no change in it
+
+00:52:04.439 --> 00:52:06.439
+Executor responder is also 5.4
+
+00:52:06.439 --> 00:52:08.439
+Judge model is also 5.4
+
+00:52:08.439 --> 00:52:10.439
+But if you see the Langfuse prompts
+
+00:52:10.439 --> 00:52:12.439
+So you can see version 2
+
+00:52:12.439 --> 00:52:14.439
+Of the planner prompt
+
+00:52:14.439 --> 00:52:16.439
+And if you see
+
+00:52:16.439 --> 00:52:18.439
+This plan quality
+
+00:52:18.439 --> 00:52:20.439
+Which is my custom plan quality metric
+
+00:52:20.439 --> 00:52:22.439
+So now its score is 87
+
+00:52:22.439 --> 00:52:24.439
+And it is passing
+
+00:52:24.439 --> 00:52:26.439
+On all my tasks
+
+00:52:26.440 --> 00:52:28.440
+If I talk about my
+
+00:52:28.440 --> 00:52:30.440
+Previous results
+
+00:52:30.440 --> 00:52:32.440
+So in previous results it was 78
+
+00:52:32.440 --> 00:52:34.440
+So clearly you can see
+
+00:52:34.440 --> 00:52:36.440
+The improvement here
+
+00:52:36.440 --> 00:52:38.440
+We have reached 87 from 78
+
+00:52:38.440 --> 00:52:40.440
+So guys lets go
+
+00:52:40.440 --> 00:52:42.440
+And discuss the last metric of today's video
+
+00:52:42.440 --> 00:52:44.440
+That is the plan adherence metric
+
+00:52:44.440 --> 00:52:46.440
+Now plan adherence metric simply
+
+00:52:46.440 --> 00:52:48.440
+Tells you that
+
+00:52:48.440 --> 00:52:50.440
+Your executor
+
+00:52:50.440 --> 00:52:52.440
+Has it
+
+00:52:52.440 --> 00:52:54.440
+Has it gone above the generated plan
+
+00:52:54.440 --> 00:52:56.440
+Or has it gone to the right
+
+00:52:56.440 --> 00:52:58.440
+Basically you are checking here
+
+00:52:58.440 --> 00:53:00.440
+That the planning layer
+
+00:53:02.440 --> 00:53:04.440
+Has generated the plan
+
+00:53:04.440 --> 00:53:06.440
+Did the agent go according to that plan
+
+00:53:06.440 --> 00:53:08.440
+Or did he take some steps
+
+00:53:08.440 --> 00:53:10.440
+On his own
+
+00:53:10.440 --> 00:53:12.440
+So in plan adherence generally
+
+00:53:12.440 --> 00:53:14.440
+What you do is
+
+00:53:14.440 --> 00:53:16.440
+Whatever extra steps your agent takes
+
+00:53:16.440 --> 00:53:18.440
+Which are beyond the plan
+
+00:53:18.440 --> 00:53:20.440
+You penalize those extra steps
+
+00:53:20.440 --> 00:53:22.440
+I hope this point
+
+00:53:22.440 --> 00:53:24.440
+Has been clear to you
+
+00:53:24.440 --> 00:53:26.440
+So what you do is
+
+00:53:26.440 --> 00:53:28.440
+Firstly get the trace
+
+00:53:28.440 --> 00:53:30.440
+Because it is also a
+
+00:53:30.440 --> 00:53:32.440
+Trajectory based metric
+
+00:53:32.440 --> 00:53:34.440
+So what you do is
+
+00:53:34.440 --> 00:53:36.440
+You give the task
+
+00:53:36.440 --> 00:53:38.440
+To your agent
+
+00:53:38.440 --> 00:53:40.440
+Your agent executes this task
+
+00:53:40.440 --> 00:53:42.440
+And all the execution steps
+
+00:53:42.440 --> 00:53:44.440
+It locks in the trace
+
+00:53:44.440 --> 00:53:46.440
+Now what you do is
+
+00:53:46.440 --> 00:53:48.440
+You take this trace and extract
+
+00:53:48.440 --> 00:53:50.440
+Some things from it
+
+00:53:50.440 --> 00:53:52.440
+So this plan adherence metric
+
+00:53:52.440 --> 00:53:54.440
+Scores
+
+00:53:54.440 --> 00:53:56.440
+You calculate the alignment score
+
+00:53:56.440 --> 00:53:58.440
+Between three things
+
+00:53:58.440 --> 00:54:00.440
+First is your task
+
+00:54:00.440 --> 00:54:02.440
+And plan
+
+00:54:02.440 --> 00:54:04.440
+And then your
+
+00:54:04.440 --> 00:54:06.440
+Execution steps
+
+00:54:06.440 --> 00:54:08.440
+If you go to
+
+00:54:08.440 --> 00:54:10.440
+Official documentation
+
+00:54:10.440 --> 00:54:12.440
+If I show you
+
+00:54:12.440 --> 00:54:14.440
+This is the official page of plan adherence
+
+00:54:14.440 --> 00:54:16.440
+And if I go down
+
+00:54:16.440 --> 00:54:18.440
+You will get this formula
+
+00:54:18.440 --> 00:54:20.440
+What is plan adherence score
+
+00:54:20.440 --> 00:54:22.440
+You calculate the alignment score
+
+00:54:22.440 --> 00:54:24.440
+Between task and plan
+
+00:54:24.440 --> 00:54:26.440
+Here task and plan work like a unit
+
+00:54:26.440 --> 00:54:28.440
+Task and generated plan
+
+00:54:28.440 --> 00:54:30.440
+Now how is the generated plan
+
+00:54:30.440 --> 00:54:32.440
+You don't need to calculate it
+
+00:54:32.440 --> 00:54:34.440
+In this metric
+
+00:54:34.440 --> 00:54:36.440
+Because you are checking it in plan quality
+
+00:54:36.440 --> 00:54:38.440
+So whatever plan will be generated here
+
+00:54:38.440 --> 00:54:40.440
+You just make sure that
+
+00:54:40.440 --> 00:54:42.440
+Your executor
+
+00:54:42.440 --> 00:54:44.440
+Follows that plan religiously
+
+00:54:44.440 --> 00:54:46.440
+You don't have to take this tension
+
+00:54:46.440 --> 00:54:48.440
+In the metric that
+
+00:54:48.440 --> 00:54:50.440
+Is the plan generated or not
+
+00:54:50.440 --> 00:54:52.440
+That is plan quality work
+
+00:54:52.440 --> 00:54:54.440
+Here you just have to check
+
+00:54:54.440 --> 00:54:56.440
+Whatever plan is generated
+
+00:54:56.440 --> 00:54:58.440
+Again I will tell you
+
+00:54:58.440 --> 00:55:00.440
+Whatever plan is generated
+
+00:55:00.440 --> 00:55:02.440
+Your executor will follow it
+
+00:55:02.440 --> 00:55:04.440
+That's it
+
+00:55:04.440 --> 00:55:06.440
+So what you do is
+
+00:55:06.440 --> 00:55:08.440
+You have plan adherence metric
+
+00:55:08.440 --> 00:55:10.440
+First of all you extract
+
+00:55:10.440 --> 00:55:12.440
+From the trace
+
+00:55:12.440 --> 00:55:14.440
+Which shows your user's intent or goal
+
+00:55:14.440 --> 00:55:16.440
+Then you extract the plan from the trace
+
+00:55:16.440 --> 00:55:18.440
+After that you evaluate
+
+00:55:18.440 --> 00:55:20.440
+The execution steps from the trace
+
+00:55:20.440 --> 00:55:22.440
+And see how accurately
+
+00:55:22.440 --> 00:55:24.440
+The agent has adhered to the plan
+
+00:55:24.440 --> 00:55:26.440
+Or stick to the plan
+
+00:55:26.440 --> 00:55:28.440
+After that you calculate the alignment score
+
+00:55:28.440 --> 00:55:30.440
+Again I am telling you
+
+00:55:30.440 --> 00:55:32.440
+Here you don't judge the plan quality
+
+00:55:32.440 --> 00:55:34.440
+Even if the plan is bad
+
+00:55:34.440 --> 00:55:36.440
+You just check that
+
+00:55:36.440 --> 00:55:38.440
+Is the executor sticking to that plan or not
+
+00:55:38.440 --> 00:55:40.440
+So here
+
+00:55:40.440 --> 00:55:42.440
+What you did is
+
+00:55:42.440 --> 00:55:44.440
+You took the plan and extracted 3 things from it
+
+00:55:44.440 --> 00:55:46.440
+What task my user gave
+
+00:55:46.440 --> 00:55:48.440
+What plan was generated
+
+00:55:48.440 --> 00:55:50.440
+And what steps my executor took
+
+00:55:50.440 --> 00:55:52.440
+Around that plan
+
+00:55:52.440 --> 00:55:54.440
+And you give these 3 inputs
+
+00:55:54.440 --> 00:55:56.440
+To an LLM
+
+00:55:56.440 --> 00:55:58.440
+This LLM has a system prompt
+
+00:55:58.440 --> 00:56:00.440
+This system prompt
+
+00:56:00.440 --> 00:56:02.440
+Is clearly defined
+
+00:56:02.440 --> 00:56:04.440
+In this system prompt
+
+00:56:04.440 --> 00:56:06.440
+That you have to penalize
+
+00:56:06.440 --> 00:56:08.440
+Your executor
+
+00:56:08.440 --> 00:56:10.440
+Here a very strict prompt is used
+
+00:56:10.440 --> 00:56:12.440
+Keep this in mind
+
+00:56:12.440 --> 00:56:14.440
+And this strict prompt says
+
+00:56:14.440 --> 00:56:16.440
+That you have to penalize your executor
+
+00:56:16.440 --> 00:56:18.440
+If he deviates from the plan
+
+00:56:18.440 --> 00:56:20.440
+Even a little bit
+
+00:56:20.440 --> 00:56:22.440
+If he is denied even a little bit
+
+00:56:22.440 --> 00:56:24.440
+Then hardly strictly penalize him
+
+00:56:24.440 --> 00:56:26.440
+And on the basis of that
+
+00:56:26.440 --> 00:56:28.440
+Your LLM as a judge
+
+00:56:28.440 --> 00:56:30.440
+Gives a score and also
+
+00:56:30.440 --> 00:56:32.440
+Produces a reason
+
+00:56:32.440 --> 00:56:34.440
+So this is how your plan adherence metric works
+
+00:56:34.440 --> 00:56:36.440
+If you understood this
+
+00:56:36.440 --> 00:56:38.440
+Then let's go towards the code part
+
+00:56:38.440 --> 00:56:40.440
+And see how you implement this in the code
+
+00:56:42.440 --> 00:56:44.440
+Now let's discuss about the plan
+
+00:56:44.440 --> 00:56:46.440
+Adherence metric
+
+00:56:46.440 --> 00:56:48.440
+So when I was using the built-in plan
+
+00:56:48.440 --> 00:56:50.440
+Adherence metric of DeepEval
+
+00:56:50.440 --> 00:56:52.440
+The problem was that
+
+00:56:52.440 --> 00:56:54.440
+As I told you that plan adherence is very strict
+
+00:56:54.440 --> 00:56:56.440
+So if any step is wrong
+
+00:56:56.440 --> 00:56:58.440
+It penalizes my plan
+
+00:56:58.440 --> 00:57:00.440
+Adherence very much
+
+00:57:00.440 --> 00:57:02.440
+So the problem was that
+
+00:57:02.440 --> 00:57:04.440
+We were using a planner node
+
+00:57:04.440 --> 00:57:06.440
+In the Langraph
+
+00:57:06.440 --> 00:57:08.440
+So my plan adherence
+
+00:57:08.440 --> 00:57:10.440
+Was taking that planner node
+
+00:57:10.440 --> 00:57:12.440
+Or that planning step as an execution step
+
+00:57:12.440 --> 00:57:14.440
+Because DeepEval says
+
+00:57:14.440 --> 00:57:16.440
+That the reasoning and planning
+
+00:57:16.440 --> 00:57:18.440
+Should be done internally
+
+00:57:18.440 --> 00:57:20.440
+Not a separate node
+
+00:57:20.440 --> 00:57:22.440
+But because we are generating plans
+
+00:57:22.440 --> 00:57:24.440
+From our agent as separate
+
+00:57:24.440 --> 00:57:26.440
+As steps
+
+00:57:26.440 --> 00:57:28.440
+So here plan adherence
+
+00:57:28.440 --> 00:57:30.440
+Because it is a major step
+
+00:57:30.440 --> 00:57:32.440
+In my Langraph graph
+
+00:57:32.440 --> 00:57:34.440
+So it was penalizing it very heavily
+
+00:57:34.440 --> 00:57:36.440
+Around 30-40%
+
+00:57:36.440 --> 00:57:38.440
+So what I did is
+
+00:57:38.440 --> 00:57:40.440
+For this particular thing
+
+00:57:40.440 --> 00:57:42.440
+I made a custom judge
+
+00:57:42.440 --> 00:57:44.440
+See here it is written
+
+00:57:44.440 --> 00:57:46.440
+A plan adherence judge that checks the executor
+
+00:57:46.440 --> 00:57:48.440
+Against plan without being harsh
+
+00:57:48.440 --> 00:57:50.440
+So this plan adherence
+
+00:57:50.440 --> 00:57:52.440
+Checks my executor against the plan
+
+00:57:52.440 --> 00:57:54.440
+But it is not that strict
+
+00:57:54.440 --> 00:57:56.440
+It is written here that DeepEval's plan adherence metric
+
+00:57:56.440 --> 00:57:58.440
+Is adversarial in nature
+
+00:57:58.440 --> 00:58:00.440
+Its prompt says to assume non-adherence
+
+00:58:00.440 --> 00:58:02.440
+And to give the lowest score for any
+
+00:58:02.440 --> 00:58:04.440
+Extra action
+
+00:58:04.440 --> 00:58:06.440
+So if my planning which is required
+
+00:58:06.440 --> 00:58:08.440
+And it was happening in every step
+
+00:58:08.440 --> 00:58:10.440
+So because of that my scores were very low
+
+00:58:10.440 --> 00:58:12.440
+This just asks one question per plan step
+
+00:58:12.440 --> 00:58:14.440
+Was this step carried out
+
+00:58:14.440 --> 00:58:16.440
+As written or not
+
+00:58:16.440 --> 00:58:18.440
+So if anything is out of it
+
+00:58:18.440 --> 00:58:20.440
+Because my plan is being executed
+
+00:58:20.440 --> 00:58:22.440
+With the previous generator
+
+00:58:22.440 --> 00:58:24.440
+And planning is also being considered as execution
+
+00:58:24.440 --> 00:58:26.440
+So for that it was heavily penalizing it
+
+00:58:26.440 --> 00:58:28.440
+So what I did here
+
+00:58:28.440 --> 00:58:30.440
+I made a custom metric here
+
+00:58:30.440 --> 00:58:32.440
+Now what I am doing in this custom metric
+
+00:58:32.440 --> 00:58:34.440
+I am giving my task in input
+
+00:58:34.440 --> 00:58:36.440
+I am giving my plan in context
+
+00:58:36.440 --> 00:58:38.440
+And in actual output
+
+00:58:38.440 --> 00:58:40.440
+I am telling all the steps
+
+00:58:40.440 --> 00:58:42.440
+Of the executor
+
+00:58:42.440 --> 00:58:44.440
+So you know that
+
+00:58:44.440 --> 00:58:46.440
+The plan adherence
+
+00:58:46.440 --> 00:58:48.440
+Needs tasks, he needs plans
+
+00:58:48.440 --> 00:58:50.440
+And he needs all the steps
+
+00:58:50.440 --> 00:58:52.440
+Of the executor
+
+00:58:52.440 --> 00:58:54.440
+So that is what we are doing here
+
+00:58:54.440 --> 00:58:56.440
+First I made my custom metric here
+
+00:58:56.440 --> 00:58:58.440
+Then I defined my rubrics
+
+00:58:58.440 --> 00:59:00.440
+After that what I am doing here
+
+00:59:00.440 --> 00:59:02.440
+First I am fetching my executor steps
+
+00:59:02.440 --> 00:59:04.440
+Through this execution log
+
+00:59:04.440 --> 00:59:06.440
+After that
+
+00:59:06.440 --> 00:59:08.440
+I am creating my LLM test case
+
+00:59:08.440 --> 00:59:10.440
+Which will go to my metric
+
+00:59:10.440 --> 00:59:12.440
+And in that I gave my task
+
+00:59:12.440 --> 00:59:14.440
+In actual output
+
+00:59:14.440 --> 00:59:16.440
+Means the steps of my execution
+
+00:59:16.440 --> 00:59:18.440
+Are coming from the execution log
+
+00:59:18.440 --> 00:59:20.440
+And I am passing it
+
+00:59:20.440 --> 00:59:22.440
+In my actual output
+
+00:59:22.440 --> 00:59:24.440
+And in context is my whole plan
+
+00:59:24.440 --> 00:59:26.440
+Which I have generated
+
+00:59:26.440 --> 00:59:28.440
+After that I am creating a GEval metric
+
+00:59:28.440 --> 00:59:30.440
+Whose code is here
+
+00:59:30.440 --> 00:59:32.440
+This is the name, these are the evaluation steps
+
+00:59:32.440 --> 00:59:34.440
+Rubrics, what is going on in input
+
+00:59:34.440 --> 00:59:36.440
+In this metric, what is the model, what is the threshold
+
+00:59:36.440 --> 00:59:38.440
+And everything is defined here
+
+00:59:38.440 --> 00:59:40.440
+Now what I have done finally
+
+00:59:40.440 --> 00:59:42.440
+As soon as these three metrics
+
+00:59:42.440 --> 00:59:44.440
+Task completion which is built in
+
+00:59:44.440 --> 00:59:46.440
+And plan quality and plan adherence which is custom
+
+00:59:46.440 --> 00:59:48.440
+I have integrated this
+
+00:59:48.440 --> 00:59:50.440
+Into my evaluation pipeline
+
+00:59:50.440 --> 00:59:52.440
+So this is the code
+
+00:59:52.440 --> 00:59:54.440
+Where I have integrated everything
+
+00:59:54.440 --> 00:59:56.440
+Here I have defined my metrics
+
+00:59:56.440 --> 00:59:58.440
+They are bringing all the information from my test case
+
+00:59:58.440 --> 01:00:00.440
+And my judge is
+
+01:00:00.440 --> 01:00:02.440
+Measuring each of the test case
+
+01:00:02.440 --> 01:00:04.440
+Right, after that
+
+01:00:04.440 --> 01:00:06.440
+Whatever results I am getting
+
+01:00:06.440 --> 01:00:08.440
+I am saving it in the report
+
+01:00:08.440 --> 01:00:10.440
+And finally
+
+01:00:10.440 --> 01:00:12.440
+I have got the results
+
+01:00:12.440 --> 01:00:14.440
+Which plan adherence
+
+01:00:14.440 --> 01:00:16.440
+Because of its adversarial nature
+
+01:00:16.440 --> 01:00:18.440
+Was giving me a 40% score
+
+01:00:18.440 --> 01:00:20.440
+Now it is giving me a 87% score
+
+01:00:20.440 --> 01:00:22.440
+And it is passing on
+
+01:00:22.440 --> 01:00:24.440
+7 cases or 7 tasks
+
+01:00:24.440 --> 01:00:26.440
+Out of 9
+
+01:00:26.440 --> 01:00:28.440
+Now these 3 difficult ones
+
+01:00:28.440 --> 01:00:30.440
+Out of 2 are failing
+
+01:00:30.440 --> 01:00:32.440
+So you can go and see
+
+01:00:32.440 --> 01:00:34.440
+Why it is failing
+
+01:00:34.440 --> 01:00:36.440
+But I think for the current scenario
+
+01:00:36.440 --> 01:00:38.440
+This score is pretty good
+
+01:00:38.440 --> 01:00:40.440
+We can improve it
+
+01:00:40.440 --> 01:00:42.440
+By changing our executor prompt
+
+01:00:42.440 --> 01:00:44.440
+We can improve this score
+
+01:00:44.440 --> 01:00:46.440
+But I think for now we will work with this score
+
+01:00:46.440 --> 01:00:48.440
+If we need further we will improve it
+
+01:00:48.440 --> 01:00:50.440
+Now one final thing I want to show you
+
+01:00:50.440 --> 01:00:52.440
+That I will run this evaluation pipeline
+
+01:00:52.440 --> 01:00:54.440
+In front of you in the terminal
+
+01:00:54.440 --> 01:00:56.440
+And here we will see
+
+01:00:56.440 --> 01:00:58.440
+Our results inside the terminal
+
+01:00:58.440 --> 01:01:00.440
+And we will also generate
+
+01:01:00.440 --> 01:01:02.440
+A new report
+
+01:01:02.440 --> 01:01:04.440
+So what I will do is
+
+01:01:04.440 --> 01:01:06.440
+I will write command here uvrun
+
+01:01:06.440 --> 01:01:08.440
+After that I will execute this file
+
+01:01:08.440 --> 01:01:10.440
+I will go in source, hiring agent
+
+01:01:10.440 --> 01:01:12.440
+I will go in eval and run
+
+01:01:12.440 --> 01:01:14.440
+evalagent.py
+
+01:01:14.440 --> 01:01:16.440
+Let me run this file
+
+01:01:20.440 --> 01:01:22.440
+Now my evaluations are running
+
+01:01:22.440 --> 01:01:24.440
+Now these evaluations
+
+01:01:24.440 --> 01:01:26.440
+Will take around 10 minutes to run
+
+01:01:26.440 --> 01:01:28.440
+So as soon as all this runs
+
+01:01:28.440 --> 01:01:30.440
+I will show you the results
+
+01:01:30.440 --> 01:01:32.440
+I will share the results with you
+
+01:01:32.440 --> 01:01:34.440
+Let me pause the video
+
+01:01:34.440 --> 01:01:36.440
+So guys our evaluation is complete
+
+01:01:36.440 --> 01:01:38.440
+And
+
+01:01:38.440 --> 01:01:40.440
+If I show you
+
+01:01:40.440 --> 01:01:42.440
+If I
+
+01:01:44.440 --> 01:01:46.440
+Show you the traces
+
+01:01:46.440 --> 01:01:48.440
+So if you go to eval results
+
+01:01:48.440 --> 01:01:50.440
+You will see the traces folder
+
+01:01:50.440 --> 01:01:52.440
+And here
+
+01:01:52.440 --> 01:01:54.440
+For your 9 goldens
+
+01:01:54.440 --> 01:01:56.440
+You will see 9 traces
+
+01:01:56.440 --> 01:01:58.440
+Now why are you seeing 18 traces
+
+01:01:58.440 --> 01:02:00.440
+Because for each of the task
+
+01:02:00.440 --> 01:02:02.440
+You have 2 traces
+
+01:02:02.440 --> 01:02:04.440
+This raw trace is your actual trace
+
+01:02:04.440 --> 01:02:06.440
+And when you pass it with slim trace
+
+01:02:06.440 --> 01:02:08.440
+This is your slim trace
+
+01:02:08.440 --> 01:02:10.440
+Let me show you the difference
+
+01:02:10.440 --> 01:02:12.440
+See your actual trace is this big
+
+01:02:12.440 --> 01:02:14.440
+This is a very big trace
+
+01:02:14.440 --> 01:02:16.440
+See this
+
+01:02:16.440 --> 01:02:18.440
+Because I think
+
+01:02:18.440 --> 01:02:20.440
+It was a medium level task
+
+01:02:20.440 --> 01:02:22.440
+You can see here
+
+01:02:22.440 --> 01:02:24.440
+This is a trace of 11000 lines
+
+01:02:24.440 --> 01:02:26.440
+And when I converted it
+
+01:02:26.440 --> 01:02:28.440
+To slim trace
+
+01:02:28.440 --> 01:02:30.440
+See this
+
+01:02:30.440 --> 01:02:32.440
+Is a trace of 2000 lines
+
+01:02:32.440 --> 01:02:34.440
+So there is a lot of reduction
+
+01:02:34.440 --> 01:02:36.440
+And if you see this
+
+01:02:36.440 --> 01:02:38.440
+This is a difficult task
+
+01:02:38.440 --> 01:02:40.440
+If I show you the raw trace
+
+01:02:40.440 --> 01:02:42.440
+So this big trace is yours
+
+01:02:42.440 --> 01:02:44.440
+This is also small
+
+01:02:44.440 --> 01:02:46.440
+Around 5400 lines
+
+01:02:46.440 --> 01:02:48.440
+And if I show you
+
+01:02:48.440 --> 01:02:50.440
+Its slim version
+
+01:02:50.440 --> 01:02:52.440
+So you can see clearly
+
+01:02:52.440 --> 01:02:54.440
+This is yours
+
+01:02:54.440 --> 01:02:56.440
+Around 1400 lines
+
+01:02:56.440 --> 01:02:58.440
+Your slim trace is being made
+
+01:02:58.440 --> 01:03:00.440
+So we are sending this slim trace
+
+01:03:00.440 --> 01:03:02.440
+To our LLM
+
+01:03:02.440 --> 01:03:04.440
+And finally you have your reports here
+
+01:03:04.440 --> 01:03:06.440
+So this report is generated
+
+01:03:06.440 --> 01:03:08.440
+Let me show you this report
+
+01:03:08.440 --> 01:03:10.440
+If I review the report
+
+01:03:10.440 --> 01:03:12.440
+So this is your slim trace
+
+01:03:12.440 --> 01:03:14.440
+You can see the scores have improved
+
+01:03:14.440 --> 01:03:16.440
+Why the scores have improved
+
+01:03:16.440 --> 01:03:18.440
+The reason is
+
+01:03:18.440 --> 01:03:20.440
+Because you are using LLM as a judge
+
+01:03:20.440 --> 01:03:22.440
+So sometimes the judge
+
+01:03:22.440 --> 01:03:24.440
+Due to noise will pass
+
+01:03:24.440 --> 01:03:26.440
+And sometimes he will fail
+
+01:03:26.440 --> 01:03:28.440
+We have seen this in the rack
+
+01:03:28.440 --> 01:03:30.440
+So we have seen the same thing here
+
+01:03:30.440 --> 01:03:32.440
+Task completion is 97%
+
+01:03:32.440 --> 01:03:34.440
+Plan quality has increased
+
+01:03:34.440 --> 01:03:36.440
+89%
+
+01:03:36.440 --> 01:03:38.440
+Plan adherence has increased
+
+01:03:38.440 --> 01:03:40.440
+So the task in which it was failing
+
+01:03:40.440 --> 01:03:42.440
+Is passing
+
+01:03:42.440 --> 01:03:44.440
+So the score has increased
+
+01:03:44.440 --> 01:03:46.440
+And you can clearly see
+
+01:03:46.440 --> 01:03:48.440
+How the scores are getting
+
+01:03:48.440 --> 01:03:50.440
+Plan adherence has failed
+
+01:03:50.440 --> 01:03:52.440
+And the rest of the things
+
+01:03:52.440 --> 01:03:54.440
+Are working
+
+01:03:54.440 --> 01:03:56.440
+Again you can read this detailed report
+
+01:03:56.440 --> 01:03:58.440
+I will share it with you
+
+01:03:58.440 --> 01:04:00.440
+And you can go and check out
+
+01:04:00.440 --> 01:04:02.440
+What is being planned for each task
+
+01:04:02.440 --> 01:04:04.440
+What steps are being executed
+
+01:04:04.440 --> 01:04:06.440
+And how the agent is working
+
+01:04:06.440 --> 01:04:08.440
+So you must be asking
+
+01:04:08.440 --> 01:04:10.440
+We have completed the task
+
+01:04:10.440 --> 01:04:12.440
+Plan quality, plan adherence
+
+01:04:12.440 --> 01:04:14.440
+But we have not done the step efficiency
+
+01:04:14.440 --> 01:04:16.440
+So in this particular agent evaluation
+
+01:04:16.440 --> 01:04:18.440
+We will not cover the step efficiency metric
+
+01:04:18.440 --> 01:04:20.440
+The simple reason for this is
+
+01:04:20.440 --> 01:04:22.440
+The step efficiency metric
+
+01:04:22.440 --> 01:04:24.440
+Checks how efficient our executor is
+
+01:04:24.440 --> 01:04:26.440
+How many steps
+
+01:04:26.440 --> 01:04:28.440
+The agent is able to execute
+
+01:04:28.440 --> 01:04:30.440
+The plan
+
+01:04:30.440 --> 01:04:32.440
+The problem is that the plan
+
+01:04:32.440 --> 01:04:34.440
+Is being generated as a list of steps
+
+01:04:34.440 --> 01:04:36.440
+And the code written in the executor
+
+01:04:36.440 --> 01:04:38.440
+The system problem
+
+01:04:38.440 --> 01:04:40.440
+Is written in such a way
+
+01:04:40.440 --> 01:04:42.440
+That it is following our plan
+
+01:04:42.440 --> 01:04:44.440
+Exactly
+
+01:04:44.440 --> 01:04:46.440
+Step efficiency calculates
+
+01:04:46.440 --> 01:04:48.440
+That my executor is not
+
+01:04:48.440 --> 01:04:50.440
+Going through the plan
+
+01:04:50.440 --> 01:04:52.440
+And is not doing the steps
+
+01:04:52.440 --> 01:04:54.440
+Which are taking more time
+
+01:04:54.440 --> 01:04:56.440
+Meaning that it is not doing any extra steps
+
+01:04:56.440 --> 01:04:58.440
+Which it should not do
+
+01:04:58.440 --> 01:05:00.440
+So the executor is not executing
+
+01:05:00.440 --> 01:05:02.440
+The steps by itself
+
+01:05:02.440 --> 01:05:04.440
+And because
+
+01:05:04.440 --> 01:05:06.440
+It does not have its own reasoning
+
+01:05:06.440 --> 01:05:08.440
+To execute some extra steps
+
+01:05:08.440 --> 01:05:10.440
+So we are not
+
+01:05:10.440 --> 01:05:12.440
+Measuring the step efficiency
+
+01:05:12.440 --> 01:05:14.440
+And the step efficiency metric
+
+01:05:14.440 --> 01:05:16.440
+We are actually measuring in the plan adherence
+
+01:05:16.440 --> 01:05:18.440
+What is plan adherence saying
+
+01:05:18.440 --> 01:05:20.440
+That the steps generated in the plan
+
+01:05:20.440 --> 01:05:22.440
+Is my executor following it
+
+01:05:22.440 --> 01:05:24.440
+So how much is it following
+
+01:05:24.440 --> 01:05:26.440
+This is already being told by the plan adherence
+
+01:05:26.440 --> 01:05:28.440
+Step efficiency only tells
+
+01:05:28.440 --> 01:05:30.440
+That how many number of steps
+
+01:05:30.440 --> 01:05:32.440
+Now this number of steps control
+
+01:05:32.440 --> 01:05:34.440
+Is not with our executor
+
+01:05:34.440 --> 01:05:36.440
+It is with our planner
+
+01:05:36.440 --> 01:05:38.440
+So we are skipping this particular metric
+
+01:05:38.440 --> 01:05:40.440
+For this particular project
+
+01:05:40.440 --> 01:05:42.440
+But it is possible that
+
+01:05:42.440 --> 01:05:44.440
+Tomorrow in some other architecture
+
+01:05:44.440 --> 01:05:46.440
+Where you are not planning
+
+01:05:46.440 --> 01:05:48.440
+Through a separate node
+
+01:05:48.440 --> 01:05:50.440
+But through your LLM
+
+01:05:50.440 --> 01:05:52.440
+And you are using that as the executor
+
+01:05:52.440 --> 01:05:54.440
+So there you will use step efficiency
+
+01:05:54.440 --> 01:05:56.440
+I hope I have made my point clear
+
+01:05:56.440 --> 01:05:58.440
+So this is all I had to do in this video
+
+01:05:58.440 --> 01:06:00.440
+In the next video, we will explore
+
+01:06:00.440 --> 01:06:02.440
+Our tool related metrics
+
+01:06:02.440 --> 01:06:04.440
+And around that
+
+01:06:04.440 --> 01:06:06.440
+We will build our evaluation pipeline
+
+01:06:06.440 --> 01:06:08.440
+So I will see you in the next one guys
+
+01:06:08.440 --> 01:06:10.440
+Bye and take care
+
