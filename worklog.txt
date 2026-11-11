@@ -1,1 +1,2 @@
 today worked on stuying llm ops theoretical parts 
+today studyed more about rag evaluation and its part 
