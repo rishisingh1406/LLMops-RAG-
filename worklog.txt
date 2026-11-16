@@ -4,3 +4,4 @@ llm ops deepdived into ai evals cuz the smaller process is part of it
 learned about the rag meterics 
 learned about precision recall and other metrics 
 learned about voice agent 
+summarised the notes of llm ops 
