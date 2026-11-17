@@ -5,3 +5,4 @@ learned about the rag meterics
 learned about precision recall and other metrics 
 learned about voice agent 
 summarised the notes of llm ops 
+starting the course further 
