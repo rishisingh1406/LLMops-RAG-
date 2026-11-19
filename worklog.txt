@@ -7,3 +7,4 @@ learned about voice agent
 summarised the notes of llm ops 
 starting the course further 
 learned about voice agent 
+learned about how to evaluate rag application 
